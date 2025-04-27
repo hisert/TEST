@@ -1,7 +1,4 @@
 #include "input_debounce.h"
-#include <string.h>
-#include <stdio.h>
-#include <xc.h>
 
 byte INPUT_DEBOUNCE(Input_t *Input, byte Input_Val, byte Debounce)
 {

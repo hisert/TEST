@@ -11399,7 +11399,7 @@ char *tempnam(const char *, const char *);
     void OLED_Update(void);
 # 8 "newmain.c" 2
 # 1 "./input_debounce.h" 1
-# 16 "./input_debounce.h"
+# 14 "./input_debounce.h"
     typedef struct {
         unsigned char Temp_Counter;
         unsigned char Old_state;
@@ -11411,7 +11411,22 @@ char *tempnam(const char *, const char *);
 
     unsigned char INPUT_DEBOUNCE(Input_t *Input, unsigned char Input_Val, unsigned char Debounce);
 # 9 "newmain.c" 2
-# 27 "newmain.c"
+# 1 "./buton_debounce.h" 1
+# 14 "./buton_debounce.h"
+    typedef struct {
+        unsigned int PressTime;
+        unsigned char Temp_Counter;
+        unsigned char Flag;
+    } Buton_t;
+
+
+
+
+
+    unsigned char BUTON_PROCESS(Buton_t *Buton, unsigned char Buton_Val, unsigned char Buton_Up_Time, unsigned char Buton_Fall_Time);
+    unsigned int BUTON_GET_TIME(Buton_t *Buton);
+# 10 "newmain.c" 2
+# 28 "newmain.c"
 void PIN_SET_IO(unsigned char AnalogOrDijital, unsigned char InputOrOutput, unsigned char Port, unsigned char Pin, unsigned char HighOrLow);
 
 
@@ -12475,48 +12490,7 @@ void PWM_8_SET(unsigned char enable)
         LATCbits.LATC7 = 0;
     }
 }
-# 1098 "newmain.c"
-typedef struct {
-    unsigned int PressTime;
-    unsigned char Temp_Counter;
-    unsigned char Flag;
-} Buton_t;
-
-
-
-
-
-unsigned char BUTON_PROCESS(Buton_t *Buton, unsigned char Buton_Val, unsigned char Buton_Up_Time, unsigned char Buton_Fall_Time)
-{
-    if (((Buton->Flag) & 0x02)) {
-        Buton->PressTime++;
-        if (Buton_Val) {
-            if (Buton->Temp_Counter) Buton->Temp_Counter = Buton->Temp_Counter - 1;
-            else {
-                Buton->Temp_Counter = Buton_Up_Time;
-                Buton->Flag = Buton->Flag & ~0x02;
-                return 0x02;
-            }
-        } else Buton->Temp_Counter = Buton_Fall_Time;
-        return 0x01;
-    } else {
-        if (Buton_Val == 0) {
-            if (Buton->Temp_Counter) Buton->Temp_Counter = Buton->Temp_Counter - 1;
-            else {
-                Buton->Temp_Counter = Buton_Fall_Time;
-                Buton->Flag = Buton->Flag | 0x02;
-                return 0x01;
-            }
-        } else Buton->Temp_Counter = Buton_Up_Time;
-        return 0x00;
-    }
-}
-
-unsigned int BUTON_GET_TIME(Buton_t *Buton)
-{
-    return Buton->PressTime;
-}
-# 1148 "newmain.c"
+# 1103 "newmain.c"
 typedef struct {
     unsigned char flag;
     unsigned int duty_time;
@@ -12680,7 +12654,7 @@ void MENU_BUTON_PROCESS()
 {
 
 }
-# 1337 "newmain.c"
+# 1292 "newmain.c"
 unsigned int IN_STATUS = 0;
 
 void INPUT_READ()
@@ -12793,7 +12767,7 @@ void INPUT_PROCESS()
         }
     }
 }
-# 1467 "newmain.c"
+# 1422 "newmain.c"
 typedef enum {
     ROLE_CIKIS_AB = 0,
     ROLE_CIKIS_BA,

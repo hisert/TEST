@@ -6,6 +6,7 @@
 
 #include "ssd1306_oled.h"
 #include "input_debounce.h"
+#include "buton_debounce.h"
 // <editor-fold defaultstate="collapsed" desc="X">
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="TYPEDEF DEFINE">
@@ -1090,52 +1091,6 @@ void PWM_8_SET(unsigned char enable)
 // </editor-fold>
 
 // </editor-fold>
-// </editor-fold>
-
-
-// <editor-fold defaultstate="collapsed" desc="BUTON LIBRARY">
-
-typedef struct {
-    word PressTime;
-    byte Temp_Counter;
-    byte Flag;
-} Buton_t;
-
-#define BUTON_FREE 0x00
-#define BUTON_PRESSING 0x01
-#define BUTON_PRESSED 0x02
-
-byte BUTON_PROCESS(Buton_t *Buton, byte Buton_Val, byte Buton_Up_Time, byte Buton_Fall_Time)
-{
-    if (((Buton->Flag) & BUTON_PRESSED)) {
-        Buton->PressTime++;
-        if (Buton_Val) {
-            if (Buton->Temp_Counter) Buton->Temp_Counter = Buton->Temp_Counter - 1;
-            else {
-                Buton->Temp_Counter = Buton_Up_Time;
-                Buton->Flag = Buton->Flag & ~BUTON_PRESSED;
-                return BUTON_PRESSED;
-            }
-        } else Buton->Temp_Counter = Buton_Fall_Time;
-        return BUTON_PRESSING;
-    } else {
-        if (Buton_Val == 0) {
-            if (Buton->Temp_Counter) Buton->Temp_Counter = Buton->Temp_Counter - 1;
-            else {
-                Buton->Temp_Counter = Buton_Fall_Time;
-                Buton->Flag = Buton->Flag | BUTON_PRESSED;
-                return BUTON_PRESSING;
-            }
-        } else Buton->Temp_Counter = Buton_Up_Time;
-        return BUTON_FREE;
-    }
-}
-
-word BUTON_GET_TIME(Buton_t *Buton)
-{
-    return Buton->PressTime;
-}
-
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="THREAD LIBRARY">

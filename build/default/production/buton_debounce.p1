@@ -1,0 +1,139 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"14 ./buton_debounce.h
+[; ;./buton_debounce.h: 14:     typedef struct {
+[s S1 `ui 1 `uc 1 `uc 1 ]
+[n S1 . PressTime Temp_Counter Flag ]
+"4 buton_debounce.c
+[; ;buton_debounce.c: 4: unsigned char BUTON_PROCESS(Buton_t *Buton, unsigned char Buton_Val, unsigned char Buton_Up_Time, unsigned char Buton_Fall_Time)
+[v _BUTON_PROCESS `(uc ~T0 @X0 1 ef4`*S1`uc`uc`uc ]
+"5
+[; ;buton_debounce.c: 5: {
+{
+[e :U _BUTON_PROCESS ]
+"4
+[; ;buton_debounce.c: 4: unsigned char BUTON_PROCESS(Buton_t *Buton, unsigned char Buton_Val, unsigned char Buton_Up_Time, unsigned char Buton_Fall_Time)
+[v _Buton `*S1 ~T0 @X0 1 r1 ]
+[v _Buton_Val `uc ~T0 @X0 1 r2 ]
+[v _Buton_Up_Time `uc ~T0 @X0 1 r3 ]
+[v _Buton_Fall_Time `uc ~T0 @X0 1 r4 ]
+"5
+[; ;buton_debounce.c: 5: {
+[f ]
+"6
+[; ;buton_debounce.c: 6:     if (((Buton->Flag) & 0x02)) {
+[e $ ! != & -> . *U _Buton 2 `i -> 2 `i -> 0 `i 3  ]
+{
+"7
+[; ;buton_debounce.c: 7:         Buton->PressTime++;
+[e ++ . *U _Buton 0 -> -> 1 `i `ui ]
+"8
+[; ;buton_debounce.c: 8:         if (Buton_Val) {
+[e $ ! != -> _Buton_Val `i -> 0 `i 4  ]
+{
+"9
+[; ;buton_debounce.c: 9:             if (Buton->Temp_Counter) Buton->Temp_Counter = Buton->Temp_Counter - 1;
+[e $ ! != -> . *U _Buton 1 `i -> 0 `i 5  ]
+[e = . *U _Buton 1 -> - -> . *U _Buton 1 `i -> 1 `i `uc ]
+[e $U 6  ]
+"10
+[; ;buton_debounce.c: 10:             else {
+[e :U 5 ]
+{
+"11
+[; ;buton_debounce.c: 11:                 Buton->Temp_Counter = Buton_Up_Time;
+[e = . *U _Buton 1 _Buton_Up_Time ]
+"12
+[; ;buton_debounce.c: 12:                 Buton->Flag = Buton->Flag & ~0x02;
+[e = . *U _Buton 2 -> & -> . *U _Buton 2 `i ~ -> 2 `i `uc ]
+"13
+[; ;buton_debounce.c: 13:                 return 0x02;
+[e ) -> -> 2 `i `uc ]
+[e $UE 2  ]
+"14
+[; ;buton_debounce.c: 14:             }
+}
+[e :U 6 ]
+"15
+[; ;buton_debounce.c: 15:         } else Buton->Temp_Counter = Buton_Fall_Time;
+}
+[e $U 7  ]
+[e :U 4 ]
+[e = . *U _Buton 1 _Buton_Fall_Time ]
+[e :U 7 ]
+"16
+[; ;buton_debounce.c: 16:         return 0x01;
+[e ) -> -> 1 `i `uc ]
+[e $UE 2  ]
+"17
+[; ;buton_debounce.c: 17:     } else {
+}
+[e $U 8  ]
+[e :U 3 ]
+{
+"18
+[; ;buton_debounce.c: 18:         if (Buton_Val == 0) {
+[e $ ! == -> _Buton_Val `i -> 0 `i 9  ]
+{
+"19
+[; ;buton_debounce.c: 19:             if (Buton->Temp_Counter) Buton->Temp_Counter = Buton->Temp_Counter - 1;
+[e $ ! != -> . *U _Buton 1 `i -> 0 `i 10  ]
+[e = . *U _Buton 1 -> - -> . *U _Buton 1 `i -> 1 `i `uc ]
+[e $U 11  ]
+"20
+[; ;buton_debounce.c: 20:             else {
+[e :U 10 ]
+{
+"21
+[; ;buton_debounce.c: 21:                 Buton->Temp_Counter = Buton_Fall_Time;
+[e = . *U _Buton 1 _Buton_Fall_Time ]
+"22
+[; ;buton_debounce.c: 22:                 Buton->Flag = Buton->Flag | 0x02;
+[e = . *U _Buton 2 -> | -> . *U _Buton 2 `i -> 2 `i `uc ]
+"23
+[; ;buton_debounce.c: 23:                 return 0x01;
+[e ) -> -> 1 `i `uc ]
+[e $UE 2  ]
+"24
+[; ;buton_debounce.c: 24:             }
+}
+[e :U 11 ]
+"25
+[; ;buton_debounce.c: 25:         } else Buton->Temp_Counter = Buton_Up_Time;
+}
+[e $U 12  ]
+[e :U 9 ]
+[e = . *U _Buton 1 _Buton_Up_Time ]
+[e :U 12 ]
+"26
+[; ;buton_debounce.c: 26:         return 0x00;
+[e ) -> -> 0 `i `uc ]
+[e $UE 2  ]
+"27
+[; ;buton_debounce.c: 27:     }
+}
+[e :U 8 ]
+"28
+[; ;buton_debounce.c: 28: }
+[e :UE 2 ]
+}
+"30
+[; ;buton_debounce.c: 30: unsigned int BUTON_GET_TIME(Buton_t *Buton)
+[v _BUTON_GET_TIME `(ui ~T0 @X0 1 ef1`*S1 ]
+"31
+[; ;buton_debounce.c: 31: {
+{
+[e :U _BUTON_GET_TIME ]
+"30
+[; ;buton_debounce.c: 30: unsigned int BUTON_GET_TIME(Buton_t *Buton)
+[v _Buton `*S1 ~T0 @X0 1 r1 ]
+"31
+[; ;buton_debounce.c: 31: {
+[f ]
+"32
+[; ;buton_debounce.c: 32:     return Buton->PressTime;
+[e ) . *U _Buton 0 ]
+[e $UE 13  ]
+"33
+[; ;buton_debounce.c: 33: }
+[e :UE 13 ]
+}

@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\SERT\AppData\Local\Temp\xcBscl4.1\driver_tmp_3.o
+ C:\Users\SERT\AppData\Local\Temp\xcAs818.\driver_tmp_3.o
  -Odist/default/production\TEST.X.production.hex
  -logfile=dist/default/production\TEST.X.production.hxl
  -addressing=1
@@ -9,12 +9,12 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(C:\Users\SERT\AppData\Local\Temp\xcBscl4.1\driver_tmp_3.o)
-  8h - CBh		(C:\Users\SERT\AppData\Local\Temp\xcBscl4.1\driver_tmp_3.o)
-  FCB4h - FFFEh		(C:\Users\SERT\AppData\Local\Temp\xcBscl4.1\driver_tmp_3.o)
-  10000h - 13779h		(C:\Users\SERT\AppData\Local\Temp\xcBscl4.1\driver_tmp_3.o)
-  200000h - 200007h		(C:\Users\SERT\AppData\Local\Temp\xcBscl4.1\driver_tmp_3.o)
-  300000h - 30000Dh		(C:\Users\SERT\AppData\Local\Temp\xcBscl4.1\driver_tmp_3.o)
+  0h - 3h		(C:\Users\SERT\AppData\Local\Temp\xcAs818.\driver_tmp_3.o)
+  8h - CBh		(C:\Users\SERT\AppData\Local\Temp\xcAs818.\driver_tmp_3.o)
+  FCB4h - FFFEh		(C:\Users\SERT\AppData\Local\Temp\xcAs818.\driver_tmp_3.o)
+  10000h - 13779h		(C:\Users\SERT\AppData\Local\Temp\xcAs818.\driver_tmp_3.o)
+  200000h - 200007h		(C:\Users\SERT\AppData\Local\Temp\xcAs818.\driver_tmp_3.o)
+  300000h - 30000Dh		(C:\Users\SERT\AppData\Local\Temp\xcAs818.\driver_tmp_3.o)
  Unused ranges:
   4h - 7h
   CCh - FCB3h
@@ -25,7 +25,7 @@
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\SERT\AppData\Local\Temp\xcBscl4.1\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\SERT\AppData\Local\Temp\xcAs818.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------

@@ -10,9 +10,7 @@ extern "C" {
 #define word unsigned int
 #define dword unsigned long
 #define qword unsigned long long
-#define open 1
-#define close 0
-
+    
     typedef struct {
         byte Temp_Counter;
         byte Old_state;
