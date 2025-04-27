@@ -12090,133 +12090,133 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2744
 [; ;newmain.c: 2744:     ROLE_OUTPUT(ROLE_CIKIS_ALARM);
 [e ( _ROLE_OUTPUT (1 -> . `E7684 2 `uc ]
-"2746
-[; ;newmain.c: 2746:     while (1) {
+"2748
+[; ;newmain.c: 2748:     while (1) {
 [e :U 1791 ]
 {
-"2748
-[; ;newmain.c: 2748:         THREAD_MAIN();
+"2750
+[; ;newmain.c: 2750:         THREAD_MAIN();
 [e ( _THREAD_MAIN ..  ]
-"2749
-[; ;newmain.c: 2749:     }
+"2751
+[; ;newmain.c: 2751:     }
 }
 [e :U 1790 ]
 [e $U 1791  ]
 [e :U 1792 ]
-"2750
-[; ;newmain.c: 2750: }
+"2752
+[; ;newmain.c: 2752: }
 [e :UE 1789 ]
 }
 [v $root$__ISR `(v ~T0 @X0 0 e ]
-"2752
-[; ;newmain.c: 2752: void __attribute__((picinterrupt(("")))) _ISR(void)
+"2754
+[; ;newmain.c: 2754: void __attribute__((picinterrupt(("")))) _ISR(void)
 [v __ISR `(v ~T97 @X0 1 ef ]
-"2753
-[; ;newmain.c: 2753: {
+"2755
+[; ;newmain.c: 2755: {
 {
 [e :U __ISR ]
 [f ]
-"2754
-[; ;newmain.c: 2754:     if (INTCONbits.RBIF) {
+"2756
+[; ;newmain.c: 2756:     if (INTCONbits.RBIF) {
 [e $ ! != -> . . _INTCONbits 0 0 `i -> 0 `i 1794  ]
 {
-"2755
-[; ;newmain.c: 2755:         unsigned char x = PORTB;
+"2757
+[; ;newmain.c: 2757:         unsigned char x = PORTB;
 [v _x `uc ~T0 @X0 1 a ]
 [e = _x _PORTB ]
-"2756
-[; ;newmain.c: 2756:         INTCONbits.RBIF = 0;
-[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-"2757
-[; ;newmain.c: 2757:         PIN_SET_LAT_TOGGLE('A', 3);
-[e ( _PIN_SET_LAT_TOGGLE (2 , -> -> 65 `ui `uc -> -> 3 `i `uc ]
 "2758
-[; ;newmain.c: 2758:     } else if (PIR1bits.TMR1IF)
+[; ;newmain.c: 2758:         INTCONbits.RBIF = 0;
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+"2759
+[; ;newmain.c: 2759:         PIN_SET_LAT_TOGGLE('A', 3);
+[e ( _PIN_SET_LAT_TOGGLE (2 , -> -> 65 `ui `uc -> -> 3 `i `uc ]
+"2760
+[; ;newmain.c: 2760:     } else if (PIR1bits.TMR1IF)
 }
 [e $U 1795  ]
 [e :U 1794 ]
 [e $ ! != -> . . _PIR1bits 0 0 `i -> 0 `i 1796  ]
-"2759
-[; ;newmain.c: 2759:     {
-{
-"2760
-[; ;newmain.c: 2760:         TIMER_1_INTERRUPT_FUNCT();
-[e ( _TIMER_1_INTERRUPT_FUNCT ..  ]
 "2761
-[; ;newmain.c: 2761:         THREAD_INTERRUPT();
-[e ( _THREAD_INTERRUPT ..  ]
+[; ;newmain.c: 2761:     {
+{
 "2762
-[; ;newmain.c: 2762:     } else if (PIR2bits.TMR3IF)
+[; ;newmain.c: 2762:         TIMER_1_INTERRUPT_FUNCT();
+[e ( _TIMER_1_INTERRUPT_FUNCT ..  ]
+"2763
+[; ;newmain.c: 2763:         THREAD_INTERRUPT();
+[e ( _THREAD_INTERRUPT ..  ]
+"2764
+[; ;newmain.c: 2764:     } else if (PIR2bits.TMR3IF)
 }
 [e $U 1797  ]
 [e :U 1796 ]
 [e $ ! != -> . . _PIR2bits 0 1 `i -> 0 `i 1798  ]
-"2763
-[; ;newmain.c: 2763:     {
-{
-"2764
-[; ;newmain.c: 2764:         TIMER_3_INTERRUPT_FUNCT();
-[e ( _TIMER_3_INTERRUPT_FUNCT ..  ]
 "2765
-[; ;newmain.c: 2765:     } else if (PIR5bits.TMR5IF)
+[; ;newmain.c: 2765:     {
+{
+"2766
+[; ;newmain.c: 2766:         TIMER_3_INTERRUPT_FUNCT();
+[e ( _TIMER_3_INTERRUPT_FUNCT ..  ]
+"2767
+[; ;newmain.c: 2767:     } else if (PIR5bits.TMR5IF)
 }
 [e $U 1799  ]
 [e :U 1798 ]
 [e $ ! != -> . . _PIR5bits 0 1 `i -> 0 `i 1800  ]
-"2766
-[; ;newmain.c: 2766:     {
-{
-"2767
-[; ;newmain.c: 2767:         TIMER_5_INTERRUPT_FUNCT();
-[e ( _TIMER_5_INTERRUPT_FUNCT ..  ]
 "2768
-[; ;newmain.c: 2768:     } else if (PIR1bits.RC1IF) {
+[; ;newmain.c: 2768:     {
+{
+"2769
+[; ;newmain.c: 2769:         TIMER_5_INTERRUPT_FUNCT();
+[e ( _TIMER_5_INTERRUPT_FUNCT ..  ]
+"2770
+[; ;newmain.c: 2770:     } else if (PIR1bits.RC1IF) {
 }
 [e $U 1801  ]
 [e :U 1800 ]
 [e $ ! != -> . . _PIR1bits 0 5 `i -> 0 `i 1802  ]
 {
-"2769
-[; ;newmain.c: 2769:         PIR1bits.RC1IF = 0;
-[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
-"2770
-[; ;newmain.c: 2770:         UART_1_BYTE(RCREG1);
-[e ( _UART_1_BYTE (1 -> _RCREG1 `uc ]
 "2771
-[; ;newmain.c: 2771:         if (RCREG1 == '+') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x02;
+[; ;newmain.c: 2771:         PIR1bits.RC1IF = 0;
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"2772
+[; ;newmain.c: 2772:         UART_1_BYTE(RCREG1);
+[e ( _UART_1_BYTE (1 -> _RCREG1 `uc ]
+"2773
+[; ;newmain.c: 2773:         if (RCREG1 == '+') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x02;
 [e $ ! == -> _RCREG1 `ui -> 43 `ui 1803  ]
 [e = _MENU_BUTON_STATUS -> | -> _MENU_BUTON_STATUS `i -> 2 `i `uc ]
 [e :U 1803 ]
-"2772
-[; ;newmain.c: 2772:         if (RCREG1 == '-') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x04;
+"2774
+[; ;newmain.c: 2774:         if (RCREG1 == '-') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x04;
 [e $ ! == -> _RCREG1 `ui -> 45 `ui 1804  ]
 [e = _MENU_BUTON_STATUS -> | -> _MENU_BUTON_STATUS `i -> 4 `i `uc ]
 [e :U 1804 ]
-"2773
-[; ;newmain.c: 2773:         if (RCREG1 == '*') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x01;
+"2775
+[; ;newmain.c: 2775:         if (RCREG1 == '*') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x01;
 [e $ ! == -> _RCREG1 `ui -> 42 `ui 1805  ]
 [e = _MENU_BUTON_STATUS -> | -> _MENU_BUTON_STATUS `i -> 1 `i `uc ]
 [e :U 1805 ]
-"2774
-[; ;newmain.c: 2774:         if (RCREG1 == '/') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x08;
+"2776
+[; ;newmain.c: 2776:         if (RCREG1 == '/') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x08;
 [e $ ! == -> _RCREG1 `ui -> 47 `ui 1806  ]
 [e = _MENU_BUTON_STATUS -> | -> _MENU_BUTON_STATUS `i -> 8 `i `uc ]
 [e :U 1806 ]
-"2775
-[; ;newmain.c: 2775:     } else if (PIR3bits.RC2IF) {
+"2777
+[; ;newmain.c: 2777:     } else if (PIR3bits.RC2IF) {
 }
 [e $U 1807  ]
 [e :U 1802 ]
 [e $ ! != -> . . _PIR3bits 0 5 `i -> 0 `i 1808  ]
 {
-"2776
-[; ;newmain.c: 2776:         PIR3bits.RC2IF = 0;
-[e = . . _PIR3bits 0 5 -> -> 0 `i `uc ]
-"2777
-[; ;newmain.c: 2777:         UART_2_BYTE(RCREG2);
-[e ( _UART_2_BYTE (1 -> _RCREG2 `uc ]
 "2778
-[; ;newmain.c: 2778:     }
+[; ;newmain.c: 2778:         PIR3bits.RC2IF = 0;
+[e = . . _PIR3bits 0 5 -> -> 0 `i `uc ]
+"2779
+[; ;newmain.c: 2779:         UART_2_BYTE(RCREG2);
+[e ( _UART_2_BYTE (1 -> _RCREG2 `uc ]
+"2780
+[; ;newmain.c: 2780:     }
 }
 [e :U 1808 ]
 [e :U 1807 ]
@@ -12224,8 +12224,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1799 ]
 [e :U 1797 ]
 [e :U 1795 ]
-"2779
-[; ;newmain.c: 2779: }
+"2781
+[; ;newmain.c: 2781: }
 [e :UE 1793 ]
 }
 [p f _sprintf 9175168 ]

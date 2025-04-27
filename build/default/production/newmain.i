@@ -13976,6 +13976,8 @@ void main(void)
     ROLE_OUTPUT(ROLE_CIKIS_BUSY);
     ROLE_OUTPUT(ROLE_CIKIS_ALARM);
 
+
+
     while (1) {
 
         THREAD_MAIN();

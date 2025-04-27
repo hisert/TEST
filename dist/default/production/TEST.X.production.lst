@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V3.00 build 20241204225717 
-                                                                                               Sun Apr 27 19:11:47 2025
+                                                                                               Sun Apr 27 20:50:23 2025
 
 Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1 
      1                           	processor	18F87K22
@@ -4282,7 +4282,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
   4259   010EDA  EC4C  F0A1         	call	_ROLE_OUTPUT
   4260   010EDE                     l12367:
   4261                           
-  4262                           ;newmain.c: 2748:         THREAD_MAIN();
+  4262                           ;newmain.c: 2750:         THREAD_MAIN();
   4263   010EDE  EC29  F09D         	call	_THREAD_MAIN	;wreg free
   4264   010EE2  D7FD               	goto	l12367
   4265   010EE4                     __end_of_main:
@@ -19913,7 +19913,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
  19134                           
  19135 ;; *************** function __ISR *****************
  19136 ;; Defined at:
- 19137 ;;		line 2752 in file "newmain.c"
+ 19137 ;;		line 2754 in file "newmain.c"
  19138 ;; Parameters:    Size  Location     Type
  19139 ;;		None
  19140 ;; Auto vars:     Size  Location     Type
@@ -19967,64 +19967,64 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
  19183   00001A  CFF3 F00C          	movff	prodl,??__ISR+4
  19184   00001E  CFF4 F00D          	movff	prodh,??__ISR+5
  19185                           
- 19186                           ;newmain.c: 2754:     if (INTCONbits.RBIF) {
+ 19186                           ;newmain.c: 2756:     if (INTCONbits.RBIF) {
  19187   000022  A0F2               	btfss	242,0,c	;volatile
  19188   000024  D008               	goto	i2l1631
  19189   000026  5081               	movf	129,w,c	;volatile
  19190                           
- 19191                           ;newmain.c: 2756:         INTCONbits.RBIF = 0;
+ 19191                           ;newmain.c: 2758:         INTCONbits.RBIF = 0;
  19192   000028  90F2               	bcf	242,0,c	;volatile
  19193                           
- 19194                           ;newmain.c: 2757:         PIN_SET_LAT_TOGGLE('A', 3);
+ 19194                           ;newmain.c: 2759:         PIN_SET_LAT_TOGGLE('A', 3);
  19195   00002A  0E03               	movlw	3
  19196   00002C  6E01               	movwf	PIN_SET_LAT_TOGGLE@Pin^0,c
  19197   00002E  0E41               	movlw	65
  19198   000030  EC5D  F0A0         	call	_PIN_SET_LAT_TOGGLE
  19199                           
- 19200                           ;newmain.c: 2758:     } else if (PIR1bits.TMR1IF)
+ 19200                           ;newmain.c: 2760:     } else if (PIR1bits.TMR1IF)
  19201   000034  D03B               	goto	i2l1636
  19202   000036                     i2l1631:
  19203   000036  A09E               	btfss	158,0,c	;volatile
  19204   000038  D005               	goto	i2l1633
  19205                           
- 19206                           ;newmain.c: 2759:     {;newmain.c: 2760:         TIMER_1_INTERRUPT_FUNCT();
+ 19206                           ;newmain.c: 2761:     {;newmain.c: 2762:         TIMER_1_INTERRUPT_FUNCT();
  19207   00003A  ECE8  F0A4         	call	_TIMER_1_INTERRUPT_FUNCT	;wreg free
  19208                           
- 19209                           ;newmain.c: 2761:         THREAD_INTERRUPT();
+ 19209                           ;newmain.c: 2763:         THREAD_INTERRUPT();
  19210   00003E  ECB0  F098         	call	_THREAD_INTERRUPT	;wreg free
  19211                           
- 19212                           ;newmain.c: 2762:     } else if (PIR2bits.TMR3IF)
+ 19212                           ;newmain.c: 2764:     } else if (PIR2bits.TMR3IF)
  19213   000042  D034               	goto	i2l1636
  19214   000044                     i2l1633:
  19215   000044  A2A1               	btfss	161,1,c	;volatile
  19216   000046  D003               	goto	i2l1635
  19217                           
- 19218                           ;newmain.c: 2763:     {;newmain.c: 2764:         TIMER_3_INTERRUPT_FUNCT();
+ 19218                           ;newmain.c: 2765:     {;newmain.c: 2766:         TIMER_3_INTERRUPT_FUNCT();
  19219   000048  ECE2  F0A4         	call	_TIMER_3_INTERRUPT_FUNCT	;wreg free
  19220                           
- 19221                           ;newmain.c: 2765:     } else if (PIR5bits.TMR5IF)
+ 19221                           ;newmain.c: 2767:     } else if (PIR5bits.TMR5IF)
  19222   00004C  D02F               	goto	i2l1636
  19223   00004E                     i2l1635:
  19224   00004E  A2BA               	btfss	186,1,c	;volatile
  19225   000050  D003               	goto	i2l1637
  19226                           
- 19227                           ;newmain.c: 2766:     {;newmain.c: 2767:         TIMER_5_INTERRUPT_FUNCT();
+ 19227                           ;newmain.c: 2768:     {;newmain.c: 2769:         TIMER_5_INTERRUPT_FUNCT();
  19228   000052  ECDC  F0A4         	call	_TIMER_5_INTERRUPT_FUNCT	;wreg free
  19229                           
- 19230                           ;newmain.c: 2768:     } else if (PIR1bits.RC1IF) {
+ 19230                           ;newmain.c: 2770:     } else if (PIR1bits.RC1IF) {
  19231   000056  D02A               	goto	i2l1636
  19232   000058                     i2l1637:
  19233   000058  AA9E               	btfss	158,5,c	;volatile
  19234   00005A  D021               	goto	i2l1639
  19235                           
- 19236                           ;newmain.c: 2769:         PIR1bits.RC1IF = 0;
+ 19236                           ;newmain.c: 2771:         PIR1bits.RC1IF = 0;
  19237   00005C  9A9E               	bcf	158,5,c	;volatile
  19238                           
- 19239                           ;newmain.c: 2770:         UART_1_BYTE(RCREG1);
+ 19239                           ;newmain.c: 2772:         UART_1_BYTE(RCREG1);
  19240   00005E  50AE               	movf	174,w,c	;volatile
  19241   000060  ECD6  F0A4         	call	i2_UART_1_BYTE
  19242                           
- 19243                           ;newmain.c: 2771:         if (RCREG1 == '+') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x0
+ 19243                           ;newmain.c: 2773:         if (RCREG1 == '+') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x0
       +                          2;
  19244   000064  0E2B               	movlw	43
  19245   000066  18AE               	xorwf	174,w,c	;volatile
@@ -20035,7 +20035,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
  19250   000070  6E46               	movwf	_MENU_BUTON_STATUS^0,c
  19251   000072                     i2l1640:
  19252                           
- 19253                           ;newmain.c: 2772:         if (RCREG1 == '-') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x0
+ 19253                           ;newmain.c: 2774:         if (RCREG1 == '-') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x0
       +                          4;
  19254   000072  0E2D               	movlw	45
  19255   000074  18AE               	xorwf	174,w,c	;volatile
@@ -20046,7 +20046,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
  19260   00007E  6E46               	movwf	_MENU_BUTON_STATUS^0,c
  19261   000080                     i2l1641:
  19262                           
- 19263                           ;newmain.c: 2773:         if (RCREG1 == '*') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x0
+ 19263                           ;newmain.c: 2775:         if (RCREG1 == '*') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x0
       +                          1;
  19264   000080  0E2A               	movlw	42
  19265   000082  18AE               	xorwf	174,w,c	;volatile
@@ -20057,7 +20057,7 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
  19270   00008C  6E46               	movwf	_MENU_BUTON_STATUS^0,c
  19271   00008E                     i2l1642:
  19272                           
- 19273                           ;newmain.c: 2774:         if (RCREG1 == '/') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x0
+ 19273                           ;newmain.c: 2776:         if (RCREG1 == '/') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x0
       +                          8;
  19274   00008E  0E2F               	movlw	47
  19275   000090  18AE               	xorwf	174,w,c	;volatile
@@ -20071,10 +20071,10 @@ Microchip MPLAB XC8 C Compiler v3.00 (Free license) build 20241204225717 Og1
  19283   00009E  AAA4               	btfss	164,5,c	;volatile
  19284   0000A0  D005               	goto	i2l1636
  19285                           
- 19286                           ;newmain.c: 2776:         PIR3bits.RC2IF = 0;
+ 19286                           ;newmain.c: 2778:         PIR3bits.RC2IF = 0;
  19287   0000A2  9AA4               	bcf	164,5,c	;volatile
  19288                           
- 19289                           ;newmain.c: 2777:         UART_2_BYTE(RCREG2);
+ 19289                           ;newmain.c: 2779:         UART_2_BYTE(RCREG2);
  19290   0000A4  010F               	movlb	15	; () banked
  19291   0000A6  511D               	movf	29,w,b	;volatile
  19292   0000A8  ECC9  F0A4         	call	_UART_2_BYTE
@@ -22351,7 +22351,7 @@ DATA                 0      0    1228      0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V3.00 build 20241204225717 
-Symbol Table                                                                                   Sun Apr 27 19:11:47 2025
+Symbol Table                                                                                   Sun Apr 27 20:50:23 2025
 
                              ?_LED_THREAD 0001                         ?_ROLE_MODE_SELECT 000E  
            MENU_FUNCT_COUNTER_A_TEMP@data 000E                        OLED_Write_Text@cnt 00C7  

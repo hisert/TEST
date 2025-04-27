@@ -150,7 +150,7 @@ bssBIGRAM BIGRAM 1 2F2 2F2 200 1 1
 bssCOMRAM COMRAM 1 38 38 1A 1 1
 mediumconst MEDIUMCONST 0 F9E6 F9E6 61A 1 2
 config CONFIG 4 300000 300000 E 1 1
-$C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
+$C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
 idloc IDLOC 5 200000 200000 8 1 1
 init CODE 0 C8 C8 4 1 2
 reset_vec CODE 0 0 0 4 1 2
@@ -207,31 +207,31 @@ MEDIUMCONST 149F0-1FFFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\TEST.X.production.o
-8 intcode CODE >27297:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-8 intcode CODE >2752:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-22 intcode CODE >2754:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-26 intcode CODE >2755:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-28 intcode CODE >2756:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-2A intcode CODE >2757:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-34 intcode CODE >2758:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-3A intcode CODE >2760:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-3E intcode CODE >2761:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-42 intcode CODE >2762:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-48 intcode CODE >2764:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-4C intcode CODE >2765:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-52 intcode CODE >2767:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-56 intcode CODE >2768:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-5C intcode CODE >2769:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-5E intcode CODE >2770:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-64 intcode CODE >2771:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-72 intcode CODE >2772:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-80 intcode CODE >2773:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-8E intcode CODE >2774:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-9E intcode CODE >2775:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-A2 intcode CODE >2776:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-A4 intcode CODE >2777:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-AC intcode CODE >2778:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-AC intcode CODE >2779:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+8 intcode CODE >27297:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+8 intcode CODE >2754:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+22 intcode CODE >2756:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+26 intcode CODE >2757:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+28 intcode CODE >2758:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+2A intcode CODE >2759:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+34 intcode CODE >2760:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+3A intcode CODE >2762:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+3E intcode CODE >2763:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+42 intcode CODE >2764:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+48 intcode CODE >2766:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+4C intcode CODE >2767:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+52 intcode CODE >2769:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+56 intcode CODE >2770:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+5C intcode CODE >2771:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+5E intcode CODE >2772:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+64 intcode CODE >2773:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+72 intcode CODE >2774:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+80 intcode CODE >2775:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+8E intcode CODE >2776:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+9E intcode CODE >2777:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+A2 intcode CODE >2778:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+A4 intcode CODE >2779:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+AC intcode CODE >2780:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+AC intcode CODE >2781:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
 140BA text118 CODE >65:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
 140BC text118 CODE >67:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
 140D4 text118 CODE >69:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
@@ -1509,84 +1509,84 @@ AC intcode CODE >2779:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
 10ECC text0 CODE >2742:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
 10ED2 text0 CODE >2743:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
 10ED8 text0 CODE >2744:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-10EDE text0 CODE >2748:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-134BE cinit CODE >3416:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134BE cinit CODE >3418:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134BE cinit CODE >3421:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134BE cinit CODE >3712:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134C0 cinit CODE >3713:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134C2 cinit CODE >3714:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134C4 cinit CODE >3715:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134C6 cinit CODE >3716:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134C8 cinit CODE >3717:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134CA cinit CODE >3718:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134CE cinit CODE >3719:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134D2 cinit CODE >3720:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134D2 cinit CODE >3721:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134D4 cinit CODE >3722:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134D8 cinit CODE >3723:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134DA cinit CODE >3724:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134DC cinit CODE >3725:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134DE cinit CODE >3729:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134E0 cinit CODE >3730:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134E2 cinit CODE >3731:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134E4 cinit CODE >3732:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134E6 cinit CODE >3733:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134E8 cinit CODE >3734:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134EA cinit CODE >3735:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134EE cinit CODE >3736:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134F2 cinit CODE >3737:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134F2 cinit CODE >3738:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134F4 cinit CODE >3739:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134F8 cinit CODE >3740:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134FA cinit CODE >3741:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134FC cinit CODE >3742:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-134FE cinit CODE >3746:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13500 cinit CODE >3747:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13502 cinit CODE >3748:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13504 cinit CODE >3749:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13506 cinit CODE >3750:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13508 cinit CODE >3751:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-1350A cinit CODE >3752:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-1350E cinit CODE >3753:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13512 cinit CODE >3754:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13512 cinit CODE >3755:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13514 cinit CODE >3756:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13518 cinit CODE >3757:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-1351A cinit CODE >3758:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-1351C cinit CODE >3759:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-1351E cinit CODE >3763:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13522 cinit CODE >3764:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13526 cinit CODE >3765:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13526 cinit CODE >3766:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13528 cinit CODE >3767:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-1352A cinit CODE >3768:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-1352C cinit CODE >3769:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-1352E cinit CODE >3770:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13530 cinit CODE >3771:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13532 cinit CODE >3774:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13536 cinit CODE >3775:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13538 cinit CODE >3776:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13538 cinit CODE >3777:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-1353A cinit CODE >3778:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-1353C cinit CODE >3779:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-1353E cinit CODE >3782:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13542 cinit CODE >3783:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13544 cinit CODE >3784:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13544 cinit CODE >3785:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13546 cinit CODE >3786:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13548 cinit CODE >3787:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-1354A cinit CODE >3790:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-1354E cinit CODE >3791:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13550 cinit CODE >3792:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13550 cinit CODE >3793:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13552 cinit CODE >3794:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13554 cinit CODE >3795:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13556 cinit CODE >3801:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13556 cinit CODE >3803:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-13558 cinit CODE >3804:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-1355A cinit CODE >3805:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
-1355C cinit CODE >3806:C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_1.s
+10EDE text0 CODE >2750:C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+134BE cinit CODE >3416:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134BE cinit CODE >3418:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134BE cinit CODE >3421:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134BE cinit CODE >3712:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134C0 cinit CODE >3713:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134C2 cinit CODE >3714:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134C4 cinit CODE >3715:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134C6 cinit CODE >3716:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134C8 cinit CODE >3717:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134CA cinit CODE >3718:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134CE cinit CODE >3719:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134D2 cinit CODE >3720:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134D2 cinit CODE >3721:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134D4 cinit CODE >3722:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134D8 cinit CODE >3723:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134DA cinit CODE >3724:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134DC cinit CODE >3725:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134DE cinit CODE >3729:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134E0 cinit CODE >3730:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134E2 cinit CODE >3731:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134E4 cinit CODE >3732:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134E6 cinit CODE >3733:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134E8 cinit CODE >3734:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134EA cinit CODE >3735:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134EE cinit CODE >3736:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134F2 cinit CODE >3737:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134F2 cinit CODE >3738:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134F4 cinit CODE >3739:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134F8 cinit CODE >3740:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134FA cinit CODE >3741:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134FC cinit CODE >3742:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+134FE cinit CODE >3746:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13500 cinit CODE >3747:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13502 cinit CODE >3748:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13504 cinit CODE >3749:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13506 cinit CODE >3750:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13508 cinit CODE >3751:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+1350A cinit CODE >3752:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+1350E cinit CODE >3753:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13512 cinit CODE >3754:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13512 cinit CODE >3755:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13514 cinit CODE >3756:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13518 cinit CODE >3757:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+1351A cinit CODE >3758:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+1351C cinit CODE >3759:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+1351E cinit CODE >3763:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13522 cinit CODE >3764:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13526 cinit CODE >3765:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13526 cinit CODE >3766:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13528 cinit CODE >3767:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+1352A cinit CODE >3768:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+1352C cinit CODE >3769:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+1352E cinit CODE >3770:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13530 cinit CODE >3771:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13532 cinit CODE >3774:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13536 cinit CODE >3775:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13538 cinit CODE >3776:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13538 cinit CODE >3777:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+1353A cinit CODE >3778:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+1353C cinit CODE >3779:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+1353E cinit CODE >3782:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13542 cinit CODE >3783:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13544 cinit CODE >3784:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13544 cinit CODE >3785:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13546 cinit CODE >3786:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13548 cinit CODE >3787:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+1354A cinit CODE >3790:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+1354E cinit CODE >3791:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13550 cinit CODE >3792:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13550 cinit CODE >3793:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13552 cinit CODE >3794:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13554 cinit CODE >3795:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13556 cinit CODE >3801:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13556 cinit CODE >3803:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+13558 cinit CODE >3804:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+1355A cinit CODE >3805:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
+1355C cinit CODE >3806:C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_1.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -1648,17 +1648,17 @@ _TMR1 FCE 0 ABS 0 - dist/default/production\TEST.X.production.o
 _TMR3 FB2 0 ABS 0 - dist/default/production\TEST.X.production.o
 _TMR5 F7C 0 ABS 0 - dist/default/production\TEST.X.production.o
 __ISR 8 0 CODE 0 intcode dist/default/production\TEST.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
+___sp 0 0 STACK 2 stack C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
 _dbuf 196 0 BANK1 1 bssBANK1 dist/default/production\TEST.X.production.o
 _main 10C54 0 CODE 0 text0 dist/default/production\TEST.X.production.o
 _prec 9B 0 BANK0 1 bssBANK0 dist/default/production\TEST.X.production.o
 abs@a 14 0 COMRAM 1 cstackCOMRAM dist/default/production\TEST.X.production.o
 btemp 52 0 COMRAM 1 temp dist/default/production\TEST.X.production.o
-___stack_hi 0 0 STACK 2 stack C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
-___stack_lo 0 0 STACK 2 stack C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
+___stack_hi 0 0 STACK 2 stack C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
+___stack_lo 0 0 STACK 2 stack C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
 UART_2_BYTE@data 1 0 COMRAM 1 cstackCOMRAM dist/default/production\TEST.X.production.o
 __HbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/default/production\TEST.X.production.o
-start C8 0 CODE 0 init C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
+start C8 0 CODE 0 init C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
 MENU_FUNCT_RELAY_ALARM_MODE@komut 10 0 COMRAM 1 cstackCOMRAM dist/default/production\TEST.X.production.o
 I2C_1_INIT@baudrate 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\TEST.X.production.o
 MENU_FUNCT_RANDOM_B_MODE@komut 10 0 COMRAM 1 cstackCOMRAM dist/default/production\TEST.X.production.o
@@ -1716,11 +1716,11 @@ _PWM_TIMER_DIVIDE 14200 0 CODE 0 text88 dist/default/production\TEST.X.productio
 __end_of_MENU_FUNCT_ARM_MOTOR_MODE 1451E 0 CODE 0 text39 dist/default/production\TEST.X.production.o
 __end_of_OLED_ClearDisplay 1489A 0 CODE 0 text101 dist/default/production\TEST.X.production.o
 __end_of_OLED_Init 132C8 0 CODE 0 text94 dist/default/production\TEST.X.production.o
-__accesstop 60 0 ABS 0 - C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
-intlevel0 0 0 CODE 0 text C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
-intlevel1 0 0 CODE 0 text C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
-intlevel2 0 0 CODE 0 text C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
-intlevel3 0 0 CODE 0 text C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
+__accesstop 60 0 ABS 0 - C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
+intlevel0 0 0 CODE 0 text C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
+intlevel1 0 0 CODE 0 text C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
+intlevel2 0 0 CODE 0 text C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
+intlevel3 0 0 CODE 0 text C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
 TIMER_1_INIT@Prescalers BE 0 BANK0 1 cstackBANK0 dist/default/production\TEST.X.production.o
 __ptext100 13ACC 0 CODE 0 text100 dist/default/production\TEST.X.production.o
 __ptext101 1487C 0 CODE 0 text101 dist/default/production\TEST.X.production.o
@@ -1791,8 +1791,8 @@ _TIMER_1_INTERRUPT 148FE 0 CODE 0 text6 dist/default/production\TEST.X.productio
 i2_UART_1_BYTE 149AC 0 CODE 0 text112 dist/default/production\TEST.X.production.o
 ___awdiv@dividend E 0 COMRAM 1 cstackCOMRAM dist/default/production\TEST.X.production.o
 _MENU_MENU_COUNTER AE 0 BANK0 1 bssBANK0 dist/default/production\TEST.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
 __end_of_MENU_FUNCT_ARM_MOTOR_SPEED 1473E 0 CODE 0 text38 dist/default/production\TEST.X.production.o
 PIN_SET_LAT_TOGGLE@Port 7 0 COMRAM 1 cstackCOMRAM dist/default/production\TEST.X.production.o
 TIMER_1_INIT@Fcy C2 0 BANK0 1 cstackBANK0 dist/default/production\TEST.X.production.o
@@ -1957,7 +1957,7 @@ __end_of_PWM_7_SET 13C9E 0 CODE 0 text76 dist/default/production\TEST.X.producti
 __end_of_PWM_8_SET 13C2C 0 CODE 0 text73 dist/default/production\TEST.X.production.o
 PWM_5_DUTY@duty 15 0 COMRAM 1 cstackCOMRAM dist/default/production\TEST.X.production.o
 _PWM_3_TIMER_SELECT 4D 0 COMRAM 1 bssCOMRAM dist/default/production\TEST.X.production.o
-isa$xinst 0 0 ABS 0 - C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
+isa$xinst 0 0 ABS 0 - C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
 PIN_SET_TRIS@Port 13 0 COMRAM 1 cstackCOMRAM dist/default/production\TEST.X.production.o
 _TIMER_5_INTERRUPT_FUNCT 149B8 0 CODE 0 text114 dist/default/production\TEST.X.production.o
 PWM_5_INIT@divide 24 0 COMRAM 1 cstackCOMRAM dist/default/production\TEST.X.production.o
@@ -2461,20 +2461,20 @@ _T6CONbits F39 0 ABS 0 - dist/default/production\TEST.X.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\TEST.X.production.o
 _UART_1_STRING 143DA 0 CODE 0 text67 dist/default/production\TEST.X.production.o
 _MENU_BUTON_PROCESS 14250 0 CODE 0 text16 dist/default/production\TEST.X.production.o
-___inthi_stack_hi 0 0 STACK 2 stack C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
-___inthi_stack_lo 0 0 STACK 2 stack C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
+___inthi_stack_hi 0 0 STACK 2 stack C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
+___inthi_stack_lo 0 0 STACK 2 stack C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
 ___lwdiv@divisor 10 0 COMRAM 1 cstackCOMRAM dist/default/production\TEST.X.production.o
 _strlen 142E0 0 CODE 0 text25 dist/default/production\TEST.X.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\TEST.X.production.o
-isa$std 1 0 ABS 0 - C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
+isa$std 1 0 ABS 0 - C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
 __end_of_OLED_H_Line 141B0 0 CODE 0 text21 dist/default/production\TEST.X.production.o
 SET_OSC@MHz 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\TEST.X.production.o
 _TIMER_1_SET 14956 0 CODE 0 text5 dist/default/production\TEST.X.production.o
 _CCP5CONbits F74 0 ABS 0 - dist/default/production\TEST.X.production.o
 __end_of_BUTON_GET_TIME 14934 0 CODE 0 text15 dist/default/production\TEST.X.production.o
 OLED_DrawPixel@color 12 0 COMRAM 1 cstackCOMRAM dist/default/production\TEST.X.production.o
-stackhi 0 0 ABS 0 - C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
-stacklo 0 0 ABS 0 - C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
+stackhi 0 0 ABS 0 - C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
+stacklo 0 0 ABS 0 - C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
 _MENU_WORK 10000 0 CODE 0 text17 dist/default/production\TEST.X.production.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\TEST.X.production.o
 _SELECT_LIST_RELAY_MODE FC 0 BANK0 1 dataBANK0 dist/default/production\TEST.X.production.o
@@ -2687,7 +2687,7 @@ __Ltext98 0 0 ABS 0 text98 dist/default/production\TEST.X.production.o
 __Ltext99 0 0 ABS 0 text99 dist/default/production\TEST.X.production.o
 TIMER_1_INIT@i D1 0 BANK0 1 cstackBANK0 dist/default/production\TEST.X.production.o
 BUTON_PROCESS@Buton 15 0 COMRAM 1 cstackCOMRAM dist/default/production\TEST.X.production.o
-__ramtop 1000 0 RAM 0 ramtop C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
+__ramtop 1000 0 RAM 0 ramtop C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
 __end_of_OLED_Update 13BBA 0 CODE 0 text35 dist/default/production\TEST.X.production.o
 _sprintf 14324 0 CODE 0 text26 dist/default/production\TEST.X.production.o
 PWM_5_DUTY@dutyValue 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\TEST.X.production.o
@@ -2718,13 +2718,13 @@ MENU_FUNCT_RELAY_ALARM_MODE@data E 0 COMRAM 1 cstackCOMRAM dist/default/producti
 __end_of_vfprintf 143A4 0 CODE 0 text27 dist/default/production\TEST.X.production.o
 INPUT_DEBOUNCE@Debounce 18 0 COMRAM 1 cstackCOMRAM dist/default/production\TEST.X.production.o
 _CCP3CONbits F49 0 ABS 0 - dist/default/production\TEST.X.production.o
-___heap_hi 0 0 ABS 0 - C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
-___heap_lo 0 0 ABS 0 - C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
+___heap_hi 0 0 ABS 0 - C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
+___heap_lo 0 0 ABS 0 - C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
 _MENU_FUNCT_INPUT_BUFFER 1473E 0 CODE 0 text42 dist/default/production\TEST.X.production.o
 PWM_5_INIT@timer 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\TEST.X.production.o
 ___param_bank 0 0 ABS 0 - dist/default/production\TEST.X.production.o
-___intlo_stack_hi 0 0 STACK 2 stack C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
-___intlo_stack_lo 0 0 STACK 2 stack C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
+___intlo_stack_hi 0 0 STACK 2 stack C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
+___intlo_stack_lo 0 0 STACK 2 stack C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
 PWM_6_DUTY@dutyValue 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\TEST.X.production.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\TEST.X.production.o
 ?_MENU_FUNCT_INPUT_TIME_OUT E 0 COMRAM 1 cstackCOMRAM dist/default/production\TEST.X.production.o
@@ -2840,7 +2840,7 @@ PIN_SET_ANSEL@Pin F 0 COMRAM 1 cstackCOMRAM dist/default/production\TEST.X.produ
 _width 1DB 0 BANK1 1 bssBANK1 dist/default/production\TEST.X.production.o
 MENU_BUTON_READ@MENU_OK 1E5 0 BANK1 1 bssBANK1 dist/default/production\TEST.X.production.o
 MENU_BUTON_READ@MENU_UP 1DD 0 BANK1 1 bssBANK1 dist/default/production\TEST.X.production.o
-___extmem_base 20000 0 ABS 0 - C:\Users\SERT\AppData\Local\Temp\xcAses.\driver_tmp_14.o
+___extmem_base 20000 0 ABS 0 - C:\Users\SERT\AppData\Local\Temp\xcAs89s.\driver_tmp_14.o
 __end_of_UART_1_STRING 1440C 0 CODE 0 text67 dist/default/production\TEST.X.production.o
 PWM_8_DUTY@dutyValue 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\TEST.X.production.o
 MENU_GIR@Menu E 0 COMRAM 1 cstackCOMRAM dist/default/production\TEST.X.production.o
