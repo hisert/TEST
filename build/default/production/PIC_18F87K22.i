@@ -1,4 +1,4 @@
-# 1 "newmain.c"
+# 1 "PIC_18F87K22.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 285 "<built-in>" 3
@@ -6,16 +6,68 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "newmain.c" 2
-# 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/pic18.h" 1 3
+# 1 "PIC_18F87K22.c" 2
+# 1 "./PIC_18F87K22.h" 1
+# 21 "./PIC_18F87K22.h"
+    unsigned char PIN_GET_PORT(unsigned char Port, unsigned char Pin);
+    void PIN_SET_LAT(unsigned char Port, unsigned char Pin, unsigned char HighOrLow);
+    void PIN_SET_TRIS(unsigned char Port, unsigned char Pin, unsigned char InputOrOutput);
+    void PIN_SET_LAT_TOGGLE(unsigned char Port, unsigned char Pin);
+    void PIN_SET_ANSEL(unsigned char Pin, unsigned char OnOFF);
+    void PIN_SET_IO(unsigned char AnalogOrDijital, unsigned char InputOrOutput, unsigned char Port, unsigned char Pin, unsigned char HighOrLow);
+    void PIN_IOC_INTERRUPT(unsigned char Pin, unsigned char openOrClose);
 
+    void TIMER_1_INTERRUPT_FUNCT();
+    void TIMER_1_INTERRUPT(unsigned char openOrClose);
+    void TIMER_1_SET(unsigned char startOrStop);
+    unsigned int TIMER_1_INIT(unsigned char ms);
 
+    void TIMER_3_INTERRUPT_FUNCT();
+    void TIMER_3_INTERRUPT(unsigned char openOrClose);
+    void TIMER_3_SET(unsigned char startOrStop);
+    unsigned int TIMER_3_INIT(unsigned char ms);
 
+    void TIMER_5_INTERRUPT_FUNCT();
+    void TIMER_5_INTERRUPT(unsigned char openOrClose);
+    void TIMER_5_SET(unsigned char startOrStop);
+    unsigned int TIMER_5_INIT(unsigned char ms);
 
-# 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/htc.h" 1 3
+    void UART_1_INTERRUPT(unsigned char openOrClose);
+    void UART_1_INIT(unsigned long baudrate);
+    void UART_1_BYTE(char data);
+    void UART_1_STRING(char* text);
+    void UART_1_DECIMAL(unsigned long val);
 
+    void UART_2_INTERRUPT(unsigned char openOrClose);
+    void UART_2_INIT(unsigned long baudrate);
+    void UART_2_BYTE(char data);
+    void UART_2_STRING(char* text);
+    void UART_2_DECIMAL(unsigned long val);
 
+    void SET_OSC(unsigned char MHz);
+    void INTERRUPT_ALL(unsigned char openOrClose);
 
+    void ADC_INIT();
+    unsigned int ADC_READ(unsigned char channel);
+
+    void I2C_1_INIT(unsigned long baudrate);
+    void I2C_1_ACK(void);
+    void I2C_1_NACK(void);
+    void I2C_1_READY(void);
+    unsigned char I2C_1_WRITE(unsigned char data);
+    void I2C_1_START(void);
+    unsigned char I2C_1_STOP(void);
+    unsigned char I2C_1_READ(unsigned char flag);
+
+    void I2C_2_INIT(unsigned long baudrate);
+    void I2C_2_ACK(void);
+    void I2C_2_NACK(void);
+    void I2C_2_READY(void);
+    unsigned char I2C_2_WRITE(unsigned char data);
+    void I2C_2_START(void);
+    unsigned char I2C_2_STOP(void);
+    unsigned char I2C_2_READ(unsigned char flag);
+# 2 "PIC_18F87K22.c" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -142,7 +194,15 @@ extern void __builtin_software_breakpoint(void);
 
 
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/pic18.h" 1 3
-# 33 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/xc.h" 2 3
+
+
+
+
+# 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/htc.h" 1 3
+
+
+
+# 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/xc.h" 1 3
 # 5 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/htc.h" 2 3
 # 6 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/pic18.h" 2 3
 
@@ -11079,887 +11139,1064 @@ extern __attribute__((nonreentrant)) void _delay(unsigned long);
 extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
-# 2 "newmain.c" 2
+# 33 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/xc.h" 2 3
+# 3 "PIC_18F87K22.c" 2
 
-# 1 "./config.h" 1
 
 
-
-
-
-
-#pragma config RETEN = OFF
-#pragma config INTOSCSEL = HIGH
-#pragma config SOSCSEL = HIGH
-#pragma config XINST = OFF
-
-
-#pragma config FOSC = INTIO2
-#pragma config PLLCFG = ON
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
-
-
-#pragma config PWRTEN = OFF
-#pragma config BOREN = SBORDIS
-#pragma config BORV = 3
-#pragma config BORPWR = ZPBORMV
-
-
-#pragma config WDTEN = OFF
-#pragma config WDTPS = 1048576
-
-
-#pragma config RTCOSC = SOSCREF
-
-
-#pragma config CCP2MX = PORTBE
-#pragma config MSSPMSK = MSK7
-#pragma config MCLRE = OFF
-
-
-#pragma config STVREN = OFF
-#pragma config BBSIZ = BB2K
-
-
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-#pragma config CP4 = OFF
-#pragma config CP5 = OFF
-#pragma config CP6 = OFF
-#pragma config CP7 = OFF
-
-
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-
-
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-#pragma config WRT4 = OFF
-#pragma config WRT5 = OFF
-#pragma config WRT6 = OFF
-#pragma config WRT7 = OFF
-
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-
-#pragma config EBRT0 = OFF
-#pragma config EBRT1 = OFF
-#pragma config EBRT2 = OFF
-#pragma config EBRT3 = OFF
-#pragma config EBRT4 = OFF
-#pragma config EBRT5 = OFF
-#pragma config EBRT6 = OFF
-#pragma config EBRT7 = OFF
-
-
-#pragma config EBRTB = OFF
-# 4 "newmain.c" 2
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 1 3
-# 25 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
-# 421 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef struct __locale_struct * locale_t;
-# 26 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 2 3
-
-void *memcpy (void *restrict, const void *restrict, size_t);
-void *memmove (void *, const void *, size_t);
-void *memset (void *, int, size_t);
-int memcmp (const void *, const void *, size_t);
-void *memchr (const void *, int, size_t);
-
-char *strcpy (char *restrict, const char *restrict);
-char *strncpy (char *restrict, const char *restrict, size_t);
-
-char *strcat (char *restrict, const char *restrict);
-char *strncat (char *restrict, const char *restrict, size_t);
-
-int strcmp (const char *, const char *);
-int strncmp (const char *, const char *, size_t);
-
-int strcoll (const char *, const char *);
-size_t strxfrm (char *restrict, const char *restrict, size_t);
-
-char *strchr (const char *, int);
-char *strrchr (const char *, int);
-
-size_t strcspn (const char *, const char *);
-size_t strspn (const char *, const char *);
-char *strpbrk (const char *, const char *);
-char *strstr (const char *, const char *);
-char *strtok (char *restrict, const char *restrict);
-
-size_t strlen (const char *);
-
-char *strerror (int);
-
-
-
-
-char *strtok_r (char *restrict, const char *restrict, char **restrict);
-int strerror_r (int, char *, size_t);
-char *stpcpy(char *restrict, const char *restrict);
-char *stpncpy(char *restrict, const char *restrict, size_t);
-size_t strnlen (const char *, size_t);
-char *strdup (const char *);
-char *strndup (const char *, size_t);
-char *strsignal(int);
-char *strerror_l (int, locale_t);
-int strcoll_l (const char *, const char *, locale_t);
-size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
-
-
-
-
-void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 5 "newmain.c" 2
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
-# 12 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef void * va_list[1];
-
-
-
-
-typedef void * __isoc_va_list[1];
-# 143 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef __int24 ssize_t;
-# 255 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef long long off_t;
-# 409 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 25 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
-
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
-
-
-
-
-
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
-
-int remove(const char *);
-int rename(const char *, const char *);
-
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-
-
-
-
-
-int ungetc(int, FILE *);
-int getch(void);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-
-
-
-
-
-void putch(char);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-__attribute__((__format__(__printf__, 1, 2)))
-int printf(const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int fprintf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int sprintf(char *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 3, 4)))
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-__attribute__((__format__(__printf__, 1, 0)))
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 2, 0)))
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 3, 0)))
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-__attribute__((__format__(__scanf__, 1, 2)))
-int scanf(const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int fscanf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int sscanf(const char *restrict, const char *restrict, ...);
-
-__attribute__((__format__(__scanf__, 1, 0)))
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__scanf__, 2, 0)))
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
-
-
-
-
-
-
-
-char *tempnam(const char *, const char *);
-# 6 "newmain.c" 2
-
-# 1 "./PIC_18F87K22.h" 1
-# 21 "./PIC_18F87K22.h"
-    unsigned char PIN_GET_PORT(unsigned char Port, unsigned char Pin);
-    void PIN_SET_LAT(unsigned char Port, unsigned char Pin, unsigned char HighOrLow);
-    void PIN_SET_TRIS(unsigned char Port, unsigned char Pin, unsigned char InputOrOutput);
-    void PIN_SET_LAT_TOGGLE(unsigned char Port, unsigned char Pin);
-    void PIN_SET_ANSEL(unsigned char Pin, unsigned char OnOFF);
-    void PIN_SET_IO(unsigned char AnalogOrDijital, unsigned char InputOrOutput, unsigned char Port, unsigned char Pin, unsigned char HighOrLow);
-    void PIN_IOC_INTERRUPT(unsigned char Pin, unsigned char openOrClose);
-
-    void TIMER_1_INTERRUPT_FUNCT();
-    void TIMER_1_INTERRUPT(unsigned char openOrClose);
-    void TIMER_1_SET(unsigned char startOrStop);
-    unsigned int TIMER_1_INIT(unsigned char ms);
-
-    void TIMER_3_INTERRUPT_FUNCT();
-    void TIMER_3_INTERRUPT(unsigned char openOrClose);
-    void TIMER_3_SET(unsigned char startOrStop);
-    unsigned int TIMER_3_INIT(unsigned char ms);
-
-    void TIMER_5_INTERRUPT_FUNCT();
-    void TIMER_5_INTERRUPT(unsigned char openOrClose);
-    void TIMER_5_SET(unsigned char startOrStop);
-    unsigned int TIMER_5_INIT(unsigned char ms);
-
-    void UART_1_INTERRUPT(unsigned char openOrClose);
-    void UART_1_INIT(unsigned long baudrate);
-    void UART_1_BYTE(char data);
-    void UART_1_STRING(char* text);
-    void UART_1_DECIMAL(unsigned long val);
-
-    void UART_2_INTERRUPT(unsigned char openOrClose);
-    void UART_2_INIT(unsigned long baudrate);
-    void UART_2_BYTE(char data);
-    void UART_2_STRING(char* text);
-    void UART_2_DECIMAL(unsigned long val);
-
-    void SET_OSC(unsigned char MHz);
-    void INTERRUPT_ALL(unsigned char openOrClose);
-
-    void ADC_INIT();
-    unsigned int ADC_READ(unsigned char channel);
-
-    void I2C_1_INIT(unsigned long baudrate);
-    void I2C_1_ACK(void);
-    void I2C_1_NACK(void);
-    void I2C_1_READY(void);
-    unsigned char I2C_1_WRITE(unsigned char data);
-    void I2C_1_START(void);
-    unsigned char I2C_1_STOP(void);
-    unsigned char I2C_1_READ(unsigned char flag);
-
-    void I2C_2_INIT(unsigned long baudrate);
-    void I2C_2_ACK(void);
-    void I2C_2_NACK(void);
-    void I2C_2_READY(void);
-    unsigned char I2C_2_WRITE(unsigned char data);
-    void I2C_2_START(void);
-    unsigned char I2C_2_STOP(void);
-    unsigned char I2C_2_READ(unsigned char flag);
-# 8 "newmain.c" 2
-# 1 "./ssd1306_oled.h" 1
-# 16 "./ssd1306_oled.h"
-    void OLED_SetFont(const unsigned char *font);
-    void OLED_InvertFont(unsigned char invert_status);
-    void OLED_SetContrast(unsigned char contrast);
-    void OLED_ClearDisplay(void);
-    void OLED_FillDisplay(void);
-    void OLED_InvertDisplay(unsigned char value);
-    void OLED_DrawPixel(unsigned int x, unsigned int y, unsigned char color);
-    void OLED_Line(unsigned int x_start, unsigned int y_start, unsigned int x_end, unsigned int y_end, unsigned char color);
-    void OLED_V_Line(unsigned int y_start, unsigned int y_end, unsigned int x_pos, unsigned char color);
-    void OLED_H_Line(unsigned int x_start, unsigned int x_end, unsigned int y_pos, unsigned char color);
-    void OLED_Rectangle(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2, unsigned char color);
-    void OLED_FillRectangle(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2, unsigned char color);
-    void OLED_Triangle(unsigned int x0, unsigned int y0, unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2, unsigned char color);
-    void OLED_Image(const unsigned char *image);
-    void OLED_Circle(unsigned int x0, unsigned int y0, unsigned int r, unsigned char color);
-    void OLED_Write(unsigned int x, unsigned int y, char value);
-    void OLED_Write_Text(unsigned int x, unsigned int y, const char *text);
-    void OLED_Write_Dec(unsigned int x, unsigned int y, unsigned long data);
-    void OLED_Init(void (*startFunc)(void), unsigned char(*writeFunc)(unsigned char), unsigned char(*stopFunc)(void));
-    void OLED_Update(void);
-# 9 "newmain.c" 2
-# 1 "./input_debounce.h" 1
-# 14 "./input_debounce.h"
-    typedef struct {
-        unsigned char Temp_Counter;
-        unsigned char Old_state;
-    } Input_t;
-
-
-
-
-
-    unsigned char INPUT_DEBOUNCE(Input_t *Input, unsigned char Input_Val, unsigned char Debounce);
-# 10 "newmain.c" 2
-# 1 "./buton_debounce.h" 1
-# 14 "./buton_debounce.h"
-    typedef struct {
-        unsigned int PressTime;
-        unsigned char Temp_Counter;
-        unsigned char Flag;
-    } Buton_t;
-
-
-
-
-
-    unsigned char BUTON_PROCESS(Buton_t *Buton, unsigned char Buton_Val, unsigned char Buton_Up_Time, unsigned char Buton_Fall_Time);
-    unsigned int BUTON_GET_TIME(Buton_t *Buton);
-# 11 "newmain.c" 2
-# 1 "./thread.h" 1
-# 18 "./thread.h"
-    typedef struct {
-        unsigned char flag;
-        unsigned int duty_time;
-        unsigned int duty_temp_time;
-        void (*Funct)(unsigned char threadIndex);
-    } THREAD_t;
-
-    void THREAD_INTERRUPT();
-    void THREAD_MAIN();
-    void THREAD_START(unsigned char threadIndex);
-    void THREAD_STOP(unsigned char threadIndex);
-    void THREAD_DONE_CONTROL(unsigned char threadIndex);
-    void THREAD_TIME(unsigned char threadIndex, unsigned int threadTime);
-    void THREAD_CREATE(unsigned char threadIndex, unsigned char flag, unsigned char duty_time, void (*Funct_t)(unsigned char threadIndex));
-
-
-
-
-
-
-    unsigned char thread_return_temp = 0;
-
-    typedef struct {
-        unsigned char flag;
-        unsigned int duty_time;
-        unsigned char sleep_state_counter;
-    } THREAD_DELAY;
-
-    void THREAD_TIME_START(THREAD_DELAY *thread);
-    unsigned char THREAD_TIME_WAIT(THREAD_DELAY *thread, unsigned int threadTime);
-    unsigned char THREAD_TIME_DONE(THREAD_DELAY *thread);
-    void THREAD_CLEAR(THREAD_DELAY *thread);
-    unsigned char THREAD_GET_STATE();
-# 12 "newmain.c" 2
-# 1 "./soft_i2c.h" 1
-# 15 "./soft_i2c.h"
-    volatile unsigned char *pro_adress;
-
-    typedef struct {
-        unsigned char *lat_adress;
-        unsigned char *tris_adress;
-        unsigned char *port_adress;
-        unsigned char index;
-    } port_t;
-
-    typedef struct {
-        port_t SDA;
-        port_t SCK;
-    } i2c_t;
-
-    void SOFT_I2C_INIT(unsigned char *sda_tris_adress, unsigned char *sda_lat_adress, unsigned char *sda_port_adress, unsigned char sda_index, unsigned char *sck_tris_adress, unsigned char *sck_lat_adress, unsigned char *sck_port_adress, unsigned char sck_index);
-    void SOFT_I2C_START();
-    unsigned char SOFT_I2C_STOP();
-    void SOFT_I2C_SEND_ACK();
-    void SOFT_I2C_SEND_NACK();
-    unsigned char SOFT_I2C_WRITE(unsigned char data);
-    unsigned char SOFT_I2C_READ();
-# 13 "newmain.c" 2
-# 30 "newmain.c"
-void PIN_SET_IO(unsigned char AnalogOrDijital, unsigned char InputOrOutput, unsigned char Port, unsigned char Pin, unsigned char HighOrLow);
-
-
-
-typedef enum {
-    ROLE_A_MODE,
-    ROLE_B_MODE,
-    ROLE_BUSY_MODE,
-    ROLE_ALARM_MODE,
-    ROLE_A_TIME,
-    ROLE_B_TIME,
-    ROLE_BUSY_TIME,
-    ROLE_ALARM_TIME,
-    COUNTER_A_FIX,
-    COUNTER_B_FIX,
-    COUNTER_A_TEMP,
-    COUNTER_B_TEMP,
-    RANDOM_A_MODE,
-    RANDOM_B_MODE,
-    RANDOM_A_AMOUNT,
-    RANDOM_B_AMOUNT,
-    INPUT_MODE,
-    INPUT_TIME_OUT,
-    INPUT_BUFFER,
-    INPUT_EMG_MODE,
-    ARM_DROP_MODE,
-    ARM_MOTOR_MODE,
-    ARM_MOTOR_SPEED,
-    ARM_MOTOR_BREAK_SPEED,
-    SETTINGS_DONE,
-} SETTINGS;
-
-unsigned int SETTING_VALUES[SETTINGS_DONE];
-
-void LOG_PRINT(char *msg)
+unsigned char PIN_GET_PORT(unsigned char Port, unsigned char Pin)
 {
-    UART_1_STRING(msg);
-    UART_1_STRING("\r\n");
+    unsigned char hex = (unsigned char) (1 << Pin);
+    volatile unsigned char *work_adress;
+    work_adress = (&PORTA) + (Port - 'A');
+    if (Port == 'J') work_adress = (&PORTJ);
+    if (Port == 'F') work_adress = (&PORTF);
+    if ((*work_adress) & hex) return 1;
+    else return 0;
+}
+
+void PIN_SET_LAT(unsigned char Port, unsigned char Pin, unsigned char HighOrLow)
+{
+    unsigned char hex = (unsigned char) (1 << Pin);
+    volatile unsigned char *work_adress;
+    work_adress = (&LATA) + (Port - 'A');
+    if (Port == 'J') work_adress = (&LATJ);
+    if (Port == 'F') work_adress = (&LATF);
+    if ((HighOrLow == 'L') || (HighOrLow == 'l') || (HighOrLow == 0)) *work_adress = *work_adress & ~hex;
+    else if ((HighOrLow == 'H') || (HighOrLow == 'h') || (HighOrLow == 1)) *work_adress = *work_adress | hex;
+}
+
+void PIN_SET_TRIS(unsigned char Port, unsigned char Pin, unsigned char InputOrOutput)
+{
+    unsigned char hex = (unsigned char) (1 << Pin);
+    volatile unsigned char *work_adress;
+    work_adress = (&TRISA) + (Port - 'A');
+    if (Port == 'J') work_adress = (&TRISJ);
+    if (Port == 'F') work_adress = (&TRISF);
+    if ((InputOrOutput == 'O') || (InputOrOutput == 'o') || (InputOrOutput == 0)) *work_adress = *work_adress & ~hex;
+    else if ((InputOrOutput == 'I') || (InputOrOutput == 'i') || (InputOrOutput == 1)) *work_adress = *work_adress | hex;
+
+}
+
+void PIN_SET_LAT_TOGGLE(unsigned char Port, unsigned char Pin)
+{
+    unsigned char hex = (unsigned char) (1 << Pin);
+    volatile unsigned char *work_adress;
+    work_adress = (&LATA) + (Port - 'A');
+    if (Port == 'J') work_adress = (&LATJ);
+    if (Port == 'F') work_adress = (&LATF);
+    *work_adress ^= hex;
+}
+
+void PIN_SET_ANSEL(unsigned char Pin, unsigned char OnOFF)
+{
+    if (Pin == 0xFF) {
+        ANCON0 = 0;
+        ANCON1 = 0;
+        ANCON2 = 0;
+        return;
+    }
+    if (Pin == 0) ANSEL0 = OnOFF;
+    else if (Pin == 0) ANSEL0 = OnOFF;
+    else if (Pin == 1) ANSEL1 = OnOFF;
+    else if (Pin == 2) ANSEL2 = OnOFF;
+    else if (Pin == 3) ANSEL3 = OnOFF;
+    else if (Pin == 1) ANSEL1 = OnOFF;
+    else if (Pin == 4) ANSEL4 = OnOFF;
+    else if (Pin == 5) ANSEL5 = OnOFF;
+    else if (Pin == 6) ANSEL6 = OnOFF;
+    else if (Pin == 7) ANSEL7 = OnOFF;
+    else if (Pin == 8) ANSEL8 = OnOFF;
+    else if (Pin == 9) ANSEL9 = OnOFF;
+    else if (Pin == 10) ANSEL10 = OnOFF;
+    else if (Pin == 11) ANSEL11 = OnOFF;
+    else if (Pin == 16) ANSEL16 = OnOFF;
+    else if (Pin == 17) ANSEL17 = OnOFF;
+    else if (Pin == 18) ANSEL18 = OnOFF;
+    else if (Pin == 19) ANSEL19 = OnOFF;
+}
+
+void PIN_SET_IO(unsigned char AnalogOrDijital, unsigned char InputOrOutput, unsigned char Port, unsigned char Pin, unsigned char HighOrLow)
+{
+    PIN_SET_LAT(Port, Pin, HighOrLow);
+    PIN_SET_TRIS(Port, Pin, InputOrOutput);
+}
+
+void PIN_IOC_INTERRUPT(unsigned char Pin, unsigned char openOrClose)
+{
+    if (openOrClose) INTCONbits.RBIE = 1;
+    else INTCONbits.RBIE = 0;
+}
+
+
+
+unsigned int TIMER_1_TICK = 0;
+
+void TIMER_1_INTERRUPT_FUNCT()
+{
+    PIR1bits.TMR1IF = 0;
+    TMR1 = TIMER_1_TICK;
+}
+
+void TIMER_1_INTERRUPT(unsigned char openOrClose)
+{
+    PIR1bits.TMR1IF = 0;
+    if (openOrClose) PIE1bits.TMR1IE = 1;
+    else PIE1bits.TMR1IE = 0;
+}
+
+void TIMER_1_SET(unsigned char startOrStop)
+{
+    if (startOrStop) T1CONbits.TMR1ON = 1;
+    else T1CONbits.TMR1ON = 0;
+}
+
+unsigned int TIMER_1_INIT(unsigned char ms)
+{
+    unsigned long Fosc = 64000000;
+    unsigned long Fcy = Fosc / 4;
+    unsigned char Prescalers[] = {1, 2, 4, 8};
+    unsigned int TMR1_Tick = 0;
+
+    for (int i = 0; i < 4; i++) {
+        unsigned long TimerFreq = Fcy / Prescalers[i];
+        unsigned long TickValue = (TimerFreq / 1000) * ms;
+
+        if (TickValue <= 65536)
+        {
+            T1CONbits.T1CKPS = i;
+            TMR1_Tick = 65536 - TickValue;
+            break;
+        }
+    }
+    TIMER_1_SET(1);
+    TIMER_1_INTERRUPT(1);
+    TIMER_1_TICK = TMR1_Tick;
+    TMR1 = TIMER_1_TICK;
+    return TMR1_Tick;
 }
 
 
 
 
+unsigned int TIMER_3_TICK = 0;
 
-
-
-unsigned char MENU_BUTON_STATUS = 0;
-
-void MENU_BUTON_READ()
+void TIMER_3_INTERRUPT_FUNCT()
 {
-    static Buton_t MENU_OK;
-    static Buton_t MENU_DOWN;
-    static Buton_t MENU_UP;
+    PIR2bits.TMR3IF = 0;
+    TMR3 = TIMER_3_TICK;
+}
+
+void TIMER_3_INTERRUPT(unsigned char openOrClose)
+{
+    PIR2bits.TMR3IF = 0;
+    if (openOrClose) PIE2bits.TMR3IE = 1;
+    else PIE2bits.TMR3IE = 0;
+}
+
+void TIMER_3_SET(unsigned char startOrStop)
+{
+    if (startOrStop) T3CONbits.TMR3ON = 1;
+    else T3CONbits.TMR3ON = 0;
+}
+
+unsigned int TIMER_3_INIT(unsigned char ms)
+{
+    unsigned long Fosc = 64000000;
+    unsigned long Fcy = Fosc / 4;
+    unsigned char Prescalers[] = {1, 2, 4, 8};
+    unsigned int TMR3_Tick = 0;
+
+    for (int i = 0; i < 4; i++) {
+        unsigned long TimerFreq = Fcy / Prescalers[i];
+        unsigned long TickValue = (TimerFreq / 1000) * ms;
+
+        if (TickValue <= 65536)
+        {
+            T3CONbits.T3CKPS = i;
+            TMR3_Tick = 65536 - TickValue;
+            break;
+        }
+    }
+    TIMER_3_SET(1);
+    TIMER_3_INTERRUPT(1);
+    TIMER_3_TICK = TMR3_Tick;
+    TMR3 = TIMER_3_TICK;
+    return TMR3_Tick;
+}
+
+
+
+
+unsigned int TIMER_5_TICK = 0;
+
+void TIMER_5_INTERRUPT_FUNCT()
+{
+    PIR5bits.TMR5IF = 0;
+    TMR5 = TIMER_5_TICK;
+}
+
+void TIMER_5_INTERRUPT(unsigned char openOrClose)
+{
+    PIR5bits.TMR5IF = 0;
+    if (openOrClose) PIE5bits.TMR5IE = 1;
+    else PIE5bits.TMR5IE = 0;
+}
+
+void TIMER_5_SET(unsigned char startOrStop)
+{
+    if (startOrStop) T5CONbits.TMR5ON = 1;
+    else T5CONbits.TMR5ON = 0;
+}
+
+unsigned int TIMER_5_INIT(unsigned char ms)
+{
+    unsigned long Fosc = 64000000;
+    unsigned long Fcy = Fosc / 4;
+    unsigned char Prescalers[] = {1, 2, 4, 8};
+    unsigned int TMR5_Tick = 0;
+
+    for (int i = 0; i < 4; i++) {
+        unsigned long TimerFreq = Fcy / Prescalers[i];
+        unsigned long TickValue = (TimerFreq / 1000) * ms;
+
+        if (TickValue <= 65536)
+        {
+            T5CONbits.T5CKPS = i;
+            TMR5_Tick = 65536 - TickValue;
+            break;
+        }
+    }
+    TIMER_5_SET(1);
+    TIMER_5_INTERRUPT(1);
+    TIMER_5_TICK = TMR5_Tick;
+    TMR5 = TIMER_5_TICK;
+    return TMR5_Tick;
+}
+
+
+
+
+void UART_1_INTERRUPT(unsigned char openOrClose)
+{
+
+    if (openOrClose) PIE1bits.RCIE = 1;
+    else PIE1bits.RCIE = 0;
+}
+
+void UART_1_INIT(unsigned long baudrate)
+{
+    PIN_SET_IO('D', 'O', 'C', 6, 'H');
+    PIN_SET_IO('D', 'I', 'C', 7, 'H');
+    unsigned int spbrg_value = (64000000 / (16 * baudrate)) - 1;
+    TXSTA1bits.SYNC = 0;
+    TXSTA1bits.TX9 = 0;
+    RCSTA1bits.RX9 = 0;
+    RCSTA1bits.SPEN = 1;
+    TXSTA1bits.TXEN = 1;
+    RCSTA1bits.CREN = 1;
+    TXSTA1bits.BRGH = 1;
+    SPBRG1 = spbrg_value;
+    UART_1_INTERRUPT(1);
+}
+
+void UART_1_BYTE(char data)
+{
+    while (!TXSTA1bits.TRMT);
+    TXREG1 = data;
+}
+
+void UART_1_STRING(char* text)
+{
+    while (*text) {
+        UART_1_BYTE(*text);
+        text++;
+    }
+}
+
+void UART_1_DECIMAL(unsigned long val)
+{
+
+    unsigned char basamak[10] = {};
+    signed char i = 0;
+    do {
+        basamak[ i ] = (val % 10) + 0x30;
+        val /= 10;
+        i++;
+    } while (val != 0);
+    i--;
+    while (i >= 0) {
+        UART_1_BYTE(basamak[ i ]);
+        i--;
+    }
+}
+
+
+
+void UART_2_INTERRUPT(unsigned char openOrClose)
+{
+
+    if (openOrClose) PIE3bits.RC2IE = 1;
+    else PIE3bits.RC2IE = 0;
+}
+
+void UART_2_INIT(unsigned long baudrate)
+{
+    PIN_SET_IO('D', 'O', 'G', 1, 'H');
+    PIN_SET_IO('D', 'I', 'G', 2, 'H');
+    PIN_SET_ANSEL(18, 0);
+    unsigned int spbrg_value = (64000000 / (16 * baudrate)) - 1;
+
+    TXSTA2bits.SYNC = 0;
+    TXSTA2bits.TX9 = 0;
+    RCSTA2bits.RX9 = 0;
+    RCSTA2bits.SPEN = 1;
+    TXSTA2bits.TXEN = 1;
+    RCSTA2bits.CREN = 1;
+    TXSTA2bits.BRGH = 1;
+
+
+    SPBRG2 = spbrg_value;
+
+
+    UART_2_INTERRUPT(1);
+
+}
+
+void UART_2_BYTE(char data)
+{
+    while (!TXSTA2bits.TRMT);
+    TXREG2 = data;
+}
+
+void UART_2_STRING(char* text)
+{
+    while (*text) {
+        UART_2_BYTE(*text);
+        text++;
+    }
+}
+
+void UART_2_DECIMAL(unsigned long val)
+{
+
+    unsigned char basamak[10] = {};
+    signed char i = 0;
+    do {
+        basamak[ i ] = (val % 10) + 0x30;
+        val /= 10;
+        i++;
+    } while (val != 0);
+    i--;
+    while (i >= 0) {
+        UART_2_BYTE(basamak[ i ]);
+        i--;
+    }
+}
+
+
+
+void SET_OSC(unsigned char MHz)
+{
+    if (MHz > 16) {
+        MHz = MHz / 4;
+        OSCTUNEbits.PLLEN = 1;
+    }
+    OSCCON = (MHz == 16) ? 0b01110000 :
+            (MHz == 8) ? 0b01101000 :
+            (MHz == 4) ? 0b01100000 :
+            (MHz == 2) ? 0b01011000 :
+            0b01110000;
+
+    while (!OSCCONbits.HFIOFS);
+}
+
+void INTERRUPT_ALL(unsigned char openOrClose)
+{
+    INTCONbits.PEIE = 1;
+    if (openOrClose) INTCONbits.GIE = 1;
+    else INTCONbits.GIE = 0;
+}
+
+
+
+void ADC_INIT()
+{
+    ADCON0bits.ADON = 0;
+    ADCON1bits.VCFG1 = 0;
+    ADCON1bits.VCFG0 = 0;
+    ADCON2bits.ADCS = 0b010;
+    ADCON2bits.ACQT = 0b010;
+    ADCON0bits.ADON = 1;
+}
+
+unsigned int ADC_READ(unsigned char channel)
+{
+    ADCON0bits.CHS = channel;
+    ADCON0bits.GO_nDONE = 1;
+    while (ADCON0bits.GO_nDONE);
+    return ((ADRESH << 4) + (ADRESL >> 4));
+}
+
+
+
+
+void I2C_1_INIT(unsigned long baudrate)
+{
+    PIN_SET_IO('D', 'I', 'C', 3, 'L');
+    PIN_SET_IO('D', 'I', 'C', 4, 'L');
+    SSP1ADD = ((64000000 / 4) / baudrate) - 1;
+    SSP1CON1bits.SSPM = 0b1000;
+    SSP1CON1bits.SSPEN = 1;
+}
+
+void I2C_1_ACK(void)
+{
+    SSP1CON2bits.ACKDT = 0;
+    SSP1CON2bits.ACKEN = 1;
+    while (SSP1CON2bits.ACKEN);
+}
+
+void I2C_1_NACK(void)
+{
+    SSP1CON2bits.ACKDT = 1;
+    SSP1CON2bits.ACKEN = 1;
+    while (SSP1CON2bits.ACKEN);
+}
+
+void I2C_1_READY(void)
+{
     unsigned char temp = 0;
-
-    temp = BUTON_PROCESS(&MENU_UP, PIN_GET_PORT('B', 0), 10, 10);
-    if (temp) {
-        if (temp == 0x01) {
-
-        }
-        if (temp == 0x02) {
-            MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x02;
-        }
+    while (SSP1STATbits.BF || (SSP1STATbits.R_nW)) {
+        temp++;
+        __nop();
+        if (temp == 255) break;
     }
-
-
-    temp = BUTON_PROCESS(&MENU_OK, PIN_GET_PORT('B', 1), 10, 10);
-    if (temp) {
-        if (temp == 0x01) {
-
-        }
-        if (temp == 0x02) {
-            if (BUTON_GET_TIME(&MENU_OK) > 1000) MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x08;
-            else MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x01;
-        }
-    }
-
-
-    temp = BUTON_PROCESS(&MENU_DOWN, PIN_GET_PORT('B', 2), 10, 10);
-    if (temp) {
-        if (temp == 0x01) {
-
-        }
-        if (temp == 0x02) {
-
-            MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x04;
-        }
-    }
+    PIR1bits.SSP1IF = 0;
 }
 
-void MENU_BUTON_PROCESS()
+unsigned char I2C_1_WRITE(unsigned char data)
 {
+    SSP1BUF = data;
 
+    I2C_1_READY();
+
+    if (SSP1CON2bits.ACKSTAT) return 1;
+    else return 0;
 }
-# 150 "newmain.c"
-unsigned int IN_STATUS = 0;
 
-void INPUT_READ()
+void I2C_1_START(void)
 {
+    SSP1CON2bits.SEN = 1;
+    while (SSP1CON2bits.SEN);
+    PIR1bits.SSP1IF = 0;
+}
 
+unsigned char I2C_1_STOP(void)
+{
+    I2C_1_READY();
+    SSP1CON2bits.PEN = 1;
+    while (SSP1CON2bits.PEN);
+    PIR1bits.SSP1IF = 0;
+    if (!SSP1STATbits.P) return 0;
+    return 1;
+}
+
+unsigned char I2C_1_READ(unsigned char flag)
+{
+    unsigned char buffer = 0;
+    SSP1CON2bits.RCEN = 1;
+
+
+    while (!SSP1STATbits.BF);
+    buffer = SSP1BUF;
+
+
+    if (flag == 0) I2C_1_ACK();
+    else I2C_1_NACK();
+    I2C_1_READY();
+    return buffer;
+}
+
+
+
+void I2C_2_INIT(unsigned long baudrate)
+{
+    PIN_SET_IO('D', 'I', 'D', 6, 'L');
+    PIN_SET_IO('D', 'I', 'D', 5, 'L');
+    SSP2ADD = ((64000000 / 4) / baudrate) - 1;
+    SSP2CON1bits.SSPM = 0b1000;
+    SSP2CON1bits.SSPEN = 1;
+}
+
+void I2C_2_ACK(void)
+{
+    SSP2CON2bits.ACKDT = 0;
+    SSP2CON2bits.ACKEN = 1;
+    while (SSP2CON2bits.ACKEN);
+}
+
+void I2C_2_NACK(void)
+{
+    SSP2CON2bits.ACKDT = 1;
+    SSP2CON2bits.ACKEN = 1;
+    while (SSP2CON2bits.ACKEN);
+}
+
+void I2C_2_READY(void)
+{
     unsigned char temp = 0;
-    static Input_t INPUT_A;
-    temp = INPUT_DEBOUNCE(&INPUT_A, ((PORTF & (1 << 1)) / (1 << 1)), 4);
-    if (temp) {
-        if (temp == 0x01) IN_STATUS = IN_STATUS | 0x0001;
-        if (temp == 0x02) IN_STATUS = IN_STATUS | 0x0002;
+    while (SSP2STATbits.BF || (SSP2STATbits.R_nW)) {
+        temp++;
+        _delay((unsigned long)((1)*(64000000/4000000.0)));
+        if (temp == 255) break;
     }
-    static Input_t INPUT_B;
-    temp = INPUT_DEBOUNCE(&INPUT_B, ((PORTF & (1 << 2)) / (1 << 2)), 4);
-    if (temp) {
-        if (temp == 0x01) IN_STATUS = IN_STATUS | 0x0004;
-        if (temp == 0x02) IN_STATUS = IN_STATUS | 0x0008;
-    }
-    static Input_t INHIBIT_A;
-    temp = INPUT_DEBOUNCE(&INHIBIT_A, ((PORTF & (1 << 3)) / (1 << 3)), 4);
-    if (temp) {
-        if (temp == 0x01) IN_STATUS = IN_STATUS | 0x0010;
-        if (temp == 0x02) IN_STATUS = IN_STATUS | 0x0020;
-    }
-    static Input_t INHIBIT_B;
-    temp = INPUT_DEBOUNCE(&INHIBIT_B, ((PORTF & (1 << 4)) / (1 << 4)), 4);
-    if (temp) {
-        if (temp == 0x01) IN_STATUS = IN_STATUS | 0x0040;
-        if (temp == 0x02) IN_STATUS = IN_STATUS | 0x0080;
-    }
-    static Input_t INPUT_EMG;
-    temp = INPUT_DEBOUNCE(&INPUT_EMG, ((PORTF & (1 << 5)) / (1 << 5)), 4);
-    if (temp) {
-        if (temp == 0x01) IN_STATUS = IN_STATUS | 0x0100;
-        if (temp == 0x02) IN_STATUS = IN_STATUS | 0x0200;
-    }
-
-    static Input_t INPUT_EMG_MUTE;
-    temp = INPUT_DEBOUNCE(&INPUT_EMG_MUTE, ((PORTF & (1 << 6)) / (1 << 6)), 4);
-    if (temp) {
-        if (temp == 0x01) IN_STATUS = IN_STATUS | 0x0400;
-        if (temp == 0x02) IN_STATUS = IN_STATUS | 0x0800;
-    }
-    static Input_t RES;
-    temp = INPUT_DEBOUNCE(&RES, ((PORTF & (1 << 7)) / (1 << 7)), 4);
-    if (temp) {
-        if (temp == 0x01) IN_STATUS = IN_STATUS | 0x1000;
-        if (temp == 0x02) IN_STATUS = IN_STATUS | 0x2000;
-    }
+    PIR2bits.SSP2IF = 0;
 }
 
-void INPUT_PROCESS()
+unsigned char I2C_2_WRITE(unsigned char data)
 {
-    if (IN_STATUS) {
-        if (IN_STATUS & 0x0001) {
-            IN_STATUS = IN_STATUS &~0x0001;
-            LOG_PRINT("INPUT A PRESSED");
-        }
-        if (IN_STATUS & 0x0002) {
-            IN_STATUS = IN_STATUS &~0x0002;
-            LOG_PRINT("INPUT A RELEASED");
-        }
-        if (IN_STATUS & 0x0004) {
-            IN_STATUS = IN_STATUS &~0x0004;
-            LOG_PRINT("INPUT B PRESSED");
-        }
-        if (IN_STATUS & 0x0008) {
-            IN_STATUS = IN_STATUS &~0x0008;
-            LOG_PRINT("INPUT B RELEASED");
-        }
-        if (IN_STATUS & 0x0010) {
-            IN_STATUS = IN_STATUS &~0x0010;
-            LOG_PRINT("INHIBIT A PRESSED");
-        }
-        if (IN_STATUS & 0x0020) {
-            IN_STATUS = IN_STATUS &~0x0020;
-            LOG_PRINT("INHIBIT A RELEASED");
-        }
-        if (IN_STATUS & 0x0040) {
-            IN_STATUS = IN_STATUS &~0x0040;
-            LOG_PRINT("INHIBIT B PRESSED");
-        }
-        if (IN_STATUS & 0x0080) {
-            IN_STATUS = IN_STATUS &~0x0080;
-            LOG_PRINT("INHIBIT B RELEASED");
-        }
-        if (IN_STATUS & 0x0100) {
-            IN_STATUS = IN_STATUS &~0x0100;
-            LOG_PRINT("INPUT EMG PRESSED");
-        }
-        if (IN_STATUS & 0x0200) {
-            IN_STATUS = IN_STATUS &~0x0200;
-            LOG_PRINT("INPUT EMG RELEASED");
-        }
-        if (IN_STATUS & 0x0400) {
-            IN_STATUS = IN_STATUS &~0x0400;
-            LOG_PRINT("INPUT EMG MUTE PRESSED");
-        }
-        if (IN_STATUS & 0x0800) {
-            IN_STATUS = IN_STATUS &~0x0800;
-            LOG_PRINT("INPUT EMG MUTE RELEASED");
-        }
-        if (IN_STATUS & 0x1000) {
-            IN_STATUS = IN_STATUS &~0x1000;
-            LOG_PRINT("INPUT RES PRESSED");
-        }
-        if (IN_STATUS & 0x2000) {
-            IN_STATUS = IN_STATUS &~0x2000;
-            LOG_PRINT("INPUT RES RELEASED");
-        }
-    }
-}
-# 280 "newmain.c"
-typedef enum {
-    ROLE_CIKIS_AB = 0,
-    ROLE_CIKIS_BA,
-    ROLE_CIKIS_ALARM,
-    ROLE_CIKIS_BUSY,
-    ROLE_CIKIS_DONE,
-} ROLE_TYPES;
-unsigned char ROLE_CIKIS_MODE[ROLE_CIKIS_DONE];
-unsigned int ROLE_CIKIS_TIME[ROLE_CIKIS_DONE];
-unsigned char ROLE_CIKIS_STATE[ROLE_CIKIS_DONE];
+    SSP2BUF = data;
+    for (unsigned char x = 0; x < 8; x++) __nop();
+    I2C_2_READY();
 
-void ROLE_MODE_SELECT(unsigned char index, unsigned char mode)
-{
-    ROLE_CIKIS_MODE[index] = mode;
-    if (ROLE_CIKIS_MODE[index] == 0) {
-        if (index == ROLE_CIKIS_AB) (LATD = LATD & ~(1 << 1));
-        else if (index == ROLE_CIKIS_BA) (LATD = LATD & ~(1 << 2));
-        else if (index == ROLE_CIKIS_ALARM) (LATD = LATD & ~(1 << 3));
-        else if (index == ROLE_CIKIS_BUSY) (LATD = LATD & ~(1 << 4));
-    }
-    if (ROLE_CIKIS_MODE[index] == 1) {
-        if (index == ROLE_CIKIS_AB) (LATD = LATD | (1 << 1));
-        else if (index == ROLE_CIKIS_BA) (LATD = LATD | (1 << 2));
-        else if (index == ROLE_CIKIS_ALARM) (LATD = LATD | (1 << 3));
-        else if (index == ROLE_CIKIS_BUSY) (LATD = LATD | (1 << 4));
-    }
+    if (SSP2CON2bits.ACKSTAT) return 1;
+    else return 0;
 }
 
-void ROLE_GO_OUTPUT(unsigned char index, unsigned char time)
+void I2C_2_START(void)
 {
-    ROLE_CIKIS_STATE[index] = 1;
-    ROLE_CIKIS_TIME[index] = ((time));
-    if (ROLE_CIKIS_MODE[index] == 0) {
-        if (index == ROLE_CIKIS_AB) (LATD = LATD | (1 << 1));
-        else if (index == ROLE_CIKIS_BA) (LATD = LATD | (1 << 2));
-        else if (index == ROLE_CIKIS_ALARM) (LATD = LATD | (1 << 3));
-        else if (index == ROLE_CIKIS_BUSY) (LATD = LATD | (1 << 4));
-    }
-    if (ROLE_CIKIS_MODE[index] == 1) {
-        if (index == ROLE_CIKIS_AB) (LATD = LATD & ~(1 << 1));
-        else if (index == ROLE_CIKIS_BA) (LATD = LATD & ~(1 << 2));
-        else if (index == ROLE_CIKIS_ALARM) (LATD = LATD & ~(1 << 3));
-        else
-
-            if (index == ROLE_CIKIS_BUSY) (LATD = LATD & ~(1 << 4));
-    }
+    SSP2CON2bits.SEN = 1;
+    while (SSP2CON2bits.SEN);
+    PIR2bits.SSP2IF = 0;
 }
 
-void ROLE_OUTPUT(unsigned char index)
+unsigned char I2C_2_STOP(void)
 {
-    if (index == ROLE_CIKIS_AB)ROLE_GO_OUTPUT(ROLE_CIKIS_AB, SETTING_VALUES[ROLE_A_TIME]);
-    if (index == ROLE_CIKIS_BA)ROLE_GO_OUTPUT(ROLE_CIKIS_BA, SETTING_VALUES[ROLE_B_TIME]);
-    if (index == ROLE_CIKIS_BUSY)ROLE_GO_OUTPUT(ROLE_CIKIS_BUSY, SETTING_VALUES[ROLE_BUSY_TIME]);
-    if (index == ROLE_CIKIS_ALARM)ROLE_GO_OUTPUT(ROLE_CIKIS_ALARM, SETTING_VALUES[ROLE_ALARM_TIME]);
+    I2C_2_READY();
+    SSP2CON2bits.PEN = 1;
+    while (SSP2CON2bits.PEN);
+    PIR2bits.SSP2IF = 0;
+    if (!SSP2STATbits.P) return 0;
+    return 1;
 }
 
-void INTERRUPT_KONTROL_ROLE_TIME()
+unsigned char I2C_2_READ(unsigned char flag)
 {
-    for (unsigned char x = 0; x < 4; x++) {
-        if (ROLE_CIKIS_STATE[x] == 0) continue;
-        else {
-            if (ROLE_CIKIS_TIME[x]) ROLE_CIKIS_TIME[x] = ROLE_CIKIS_TIME[x] - 1;
-            else {
-                if (ROLE_CIKIS_MODE[x] == 0) {
-                    if (x == ROLE_CIKIS_AB) (LATD = LATD & ~(1 << 1));
-                    else if (x == ROLE_CIKIS_BA) (LATD = LATD & ~(1 << 2));
-                    else if (x == ROLE_CIKIS_ALARM) (LATD = LATD & ~(1 << 3));
-                    else if (x == ROLE_CIKIS_BUSY) (LATD = LATD & ~(1 << 4));
-                }
-                if (ROLE_CIKIS_MODE[x] == 1) {
-                    if (x == ROLE_CIKIS_AB) (LATD = LATD | (1 << 1));
-                    else if (x == ROLE_CIKIS_BA) (LATD = LATD | (1 << 2));
-                    else if (x == ROLE_CIKIS_ALARM) (LATD = LATD | (1 << 3));
-                    else if (x == ROLE_CIKIS_BUSY) (LATD = LATD | (1 << 4));
-                }
-                ROLE_CIKIS_STATE[x] = 0;
-            }
-        }
-    }
-}
+    unsigned char buffer = 0;
+    SSP2CON2bits.RCEN = 1;
 
-void INIT_ROLE()
-{
-    SETTING_VALUES[ROLE_A_TIME] = 5;
-    SETTING_VALUES[ROLE_B_TIME] = 10;
-    SETTING_VALUES[ROLE_BUSY_TIME] = 15;
-    SETTING_VALUES[ROLE_ALARM_TIME] = 20;
 
-    SETTING_VALUES[ROLE_A_MODE] = 0;
-    SETTING_VALUES[ROLE_B_MODE] = 0;
-    SETTING_VALUES[ROLE_ALARM_MODE] = 0;
-    SETTING_VALUES[ROLE_BUSY_MODE] = 0;
+    while (!SSP2STATbits.BF);
+    buffer = SSP2BUF;
 
-    ROLE_MODE_SELECT(ROLE_CIKIS_AB, SETTING_VALUES[ROLE_A_MODE]);
-    ROLE_MODE_SELECT(ROLE_CIKIS_BA, SETTING_VALUES[ROLE_B_MODE]);
-    ROLE_MODE_SELECT(ROLE_CIKIS_ALARM, SETTING_VALUES[ROLE_ALARM_MODE]);
-    ROLE_MODE_SELECT(ROLE_CIKIS_BUSY, SETTING_VALUES[ROLE_BUSY_MODE]);
+
+    if (flag == 0) I2C_2_ACK();
+    else I2C_2_NACK();
+    I2C_2_READY();
+    return buffer;
 }
 
 
 
-
-
-void LED_THREAD(unsigned char threadIndex)
+void PWM_TIMER_CHOOSE(unsigned char Channel, unsigned char timer)
 {
-    static THREAD_DELAY timer;
-    THREAD_TIME_START(&timer);
-    if (THREAD_TIME_WAIT(&timer, 950)) if (THREAD_GET_STATE() == 0x01) LATD4= ~LATD4;
-    if (THREAD_TIME_WAIT(&timer, 50)) if (THREAD_GET_STATE() == 0x01) LATD4= ~LATD4;
-    if (THREAD_TIME_DONE(&timer)) THREAD_DONE_CONTROL(threadIndex);
-}
-
-void INPUT_THREAD(unsigned char threadIndex)
-{
-    MENU_BUTON_READ();
-    MENU_BUTON_PROCESS();
-    INPUT_READ();
-    INPUT_PROCESS();
-}
-
-void ROLE_THREAD(unsigned char threadIndex)
-{
-    INTERRUPT_KONTROL_ROLE_TIME();
-}
-
-
-
-void main(void)
-{
-    SET_OSC(64);
-
-
-
-    PIN_SET_ANSEL(0xFF, 0xFF);
-    PIN_SET_IO('D', 'O', 'A', 3, 'L');
-
-    PIN_SET_IO('D', 'I', 'B', 4, 'L');
-    PIN_SET_IO('D', 'I', 'B', 5, 'L');
-    PIN_SET_IO('D', 'I', 'B', 6, 'L');
-
-    PIN_SET_IO('D', 'O', 'D', 1, 'L');
-    PIN_SET_IO('D', 'O', 'D', 2, 'L');
-    PIN_SET_IO('D', 'O', 'D', 3, 'L');
-    PIN_SET_IO('D', 'O', 'D', 4, 'L');
-
-    PIN_SET_IO('D', 'I', 'F', 1, 'L');
-    PIN_SET_IO('D', 'I', 'F', 2, 'L');
-    PIN_SET_IO('D', 'I', 'F', 3, 'L');
-    PIN_SET_IO('D', 'I', 'F', 4, 'L');
-    PIN_SET_IO('D', 'I', 'F', 5, 'L');
-    PIN_SET_IO('D', 'I', 'F', 6, 'L');
-    PIN_SET_IO('D', 'I', 'F', 7, 'L');
-# 454 "newmain.c"
-    TIMER_1_INIT(1);
-    PIN_IOC_INTERRUPT(1, 1);
-
-    SOFT_I2C_INIT(&TRISC, &LATC, &PORTC, 4, &TRISC, &LATC, &PORTC, 3);
-    OLED_Init(SOFT_I2C_START, SOFT_I2C_WRITE, SOFT_I2C_STOP);
-    OLED_Write_Dec(0, 0, 1253);
-    OLED_Update();
-    INIT_ROLE();
-    ROLE_OUTPUT(ROLE_CIKIS_AB);
-    ROLE_OUTPUT(ROLE_CIKIS_BA);
-    ROLE_OUTPUT(ROLE_CIKIS_BUSY);
-    ROLE_OUTPUT(ROLE_CIKIS_ALARM);
-
-    THREAD_CREATE(0, 0x01 | 0x08, 1, LED_THREAD);
-    THREAD_CREATE(1, 0x01 | 0x08, 10, INPUT_THREAD);
-    THREAD_CREATE(2, 0x01 | 0x08, 100, ROLE_THREAD);
-
-    INTERRUPT_ALL(1);
-
-
-    while (1) {
-
-        THREAD_MAIN();
+    if (Channel == 1) {
+        if (timer == 2) CCPTMRS0bits.C1TSEL = 0b00;
+        if (timer == 4) CCPTMRS0bits.C1TSEL = 0b01;
+        if (timer == 6) CCPTMRS0bits.C1TSEL = 0b10;
+        if (timer == 8) CCPTMRS0bits.C1TSEL = 0b11;
+    }
+    if (Channel == 2) {
+        if (timer == 2) CCPTMRS0bits.C2TSEL = 0b000;
+        if (timer == 4) CCPTMRS0bits.C2TSEL = 0b001;
+        if (timer == 6) CCPTMRS0bits.C2TSEL = 0b010;
+        if (timer == 8) CCPTMRS0bits.C2TSEL = 0b011;
+    }
+    if (Channel == 3) {
+        if (timer == 2) CCPTMRS0bits.C3TSEL = 0b00;
+        if (timer == 4) CCPTMRS0bits.C3TSEL = 0b01;
+        if (timer == 6) CCPTMRS0bits.C3TSEL = 0b10;
+        if (timer == 8) CCPTMRS0bits.C3TSEL = 0b11;
+    }
+    if (Channel == 4) {
+        if (timer == 2) CCPTMRS1bits.C4TSEL = 0b00;
+        if (timer == 4) CCPTMRS1bits.C4TSEL = 0b01;
+        if (timer == 6) CCPTMRS1bits.C4TSEL = 0b10;
+        if (timer == 8) CCPTMRS1bits.C4TSEL = 0b11;
+    }
+    if (Channel == 5) {
+        if (timer == 2) CCPTMRS1bits.C5TSEL0 = 0;
+        if (timer == 4) CCPTMRS1bits.C5TSEL0 = 1;
+    }
+    if (Channel == 6) {
+        if (timer == 2) CCPTMRS1bits.C5TSEL0 = 0;
+        if (timer == 2) CCPTMRS1bits.C5TSEL0 = 1;
+    }
+    if (Channel == 7) {
+        if (timer == 2) CCPTMRS1bits.C7TSEL = 0b00;
+        if (timer == 4) CCPTMRS1bits.C7TSEL = 0b01;
+        if (timer == 6) CCPTMRS1bits.C7TSEL = 0b10;
+        if (timer == 8) CCPTMRS1bits.C7TSEL = 0b11;
+    }
+    if (Channel == 8) {
+        if (timer == 2) CCPTMRS2bits.C8TSEL = 0b00;
+        if (timer == 4) CCPTMRS2bits.C8TSEL = 0b01;
+        if (timer == 6) CCPTMRS2bits.C8TSEL = 0b10;
+        if (timer == 8) CCPTMRS2bits.C8TSEL = 0b11;
+    }
+    if (Channel == 9) {
+        if (timer == 2) CCPTMRS2bits.C9TSEL0 = 0;
+        if (timer == 4) CCPTMRS2bits.C9TSEL0 = 1;
+    }
+    if (Channel == 10) {
+        if (timer == 2) CCPTMRS2bits.C10TSEL0 = 0;
+        if (timer == 2) CCPTMRS2bits.C10TSEL0 = 1;
     }
 }
 
-void __attribute__((picinterrupt(("")))) _ISR(void)
+void PWM_TIMER_DIVIDE(unsigned char timer, unsigned char Prescale)
 {
-    if (INTCONbits.RBIF) {
-        unsigned char x = PORTB;
-        INTCONbits.RBIF = 0;
-        PIN_SET_LAT_TOGGLE('A', 3);
-    } else if (PIR1bits.TMR1IF)
-    {
-        TIMER_1_INTERRUPT_FUNCT();
-        THREAD_INTERRUPT();
-    } else if (PIR2bits.TMR3IF)
-    {
-        TIMER_3_INTERRUPT_FUNCT();
-    } else if (PIR5bits.TMR5IF)
-    {
-        TIMER_5_INTERRUPT_FUNCT();
-    } else if (PIR1bits.RC1IF) {
-        PIR1bits.RC1IF = 0;
-        UART_1_BYTE(RCREG1);
-        if (RCREG1 == '+') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x02;
-        if (RCREG1 == '-') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x04;
-        if (RCREG1 == '*') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x01;
-        if (RCREG1 == '/') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x08;
-    } else if (PIR3bits.RC2IF) {
-        PIR3bits.RC2IF = 0;
-        UART_2_BYTE(RCREG2);
+    if (timer == 2) T2CONbits.T2CKPS = Prescale;
+    if (timer == 4) T4CONbits.T4CKPS = Prescale;
+    if (timer == 6) T6CONbits.T6CKPS = Prescale;
+    if (timer == 8) T8CONbits.T8CKPS = Prescale;
+}
+
+void PWM_TIMER_PR_LOAD(unsigned char timer, unsigned char period)
+{
+    if (timer == 2) PR2 = period;
+    if (timer == 4) PR4 = period;
+    if (timer == 6) PR6 = period;
+    if (timer == 8) PR8 = period;
+}
+
+
+unsigned char PWM_1_TIMER_SELECT = 0;
+
+void PWM_1_INIT(unsigned long freq, unsigned char timer)
+{
+    PWM_1_TIMER_SELECT = timer;
+    PWM_TIMER_CHOOSE(1, PWM_1_TIMER_SELECT);
+    PIN_SET_IO('D', 'O', 'C', 2, 'L');
+    CCP1CONbits.CCP1M = 0b1100;
+
+    unsigned long pwmPeriod = (64000000 / (freq * 4)) - 1;
+    unsigned char divide = 0;
+    if (pwmPeriod > 255) {
+        pwmPeriod = (64000000 / (freq * 4 * 16)) - 1;
+        divide = 0b11;
+    } else if (pwmPeriod > 63) {
+        pwmPeriod = (64000000 / (freq * 4 * 4)) - 1;
+        divide = 0b10;
+    } else divide = 0b00;
+    PWM_TIMER_DIVIDE(PWM_1_TIMER_SELECT, divide);
+    if (pwmPeriod > 255) pwmPeriod = 255;
+    PWM_TIMER_PR_LOAD(PWM_1_TIMER_SELECT, pwmPeriod);
+}
+
+void PWM_1_DUTY(unsigned int duty)
+{
+    if (duty > 100) duty = 100;
+    unsigned int dutyValue;
+    if (PWM_1_TIMER_SELECT == 2) dutyValue = ((PR2 + 1) * 4 * duty) / 100;
+    else if (PWM_1_TIMER_SELECT == 4) dutyValue = ((PR4 + 1) * 4 * duty) / 100;
+    else if (PWM_1_TIMER_SELECT == 6) dutyValue = ((PR6 + 1) * 4 * duty) / 100;
+    else if (PWM_1_TIMER_SELECT == 8) dutyValue = ((PR8 + 1) * 4 * duty) / 100;
+    CCPR1L = dutyValue >> 2;
+    CCP1CONbits.DC1B = dutyValue & 0x03;
+}
+
+void PWM_1_SET(unsigned char enable)
+{
+    if (enable) {
+        if (PWM_1_TIMER_SELECT == 2) T2CONbits.TMR2ON = 1;
+        else if (PWM_1_TIMER_SELECT == 4) T4CONbits.TMR4ON = 1;
+        else if (PWM_1_TIMER_SELECT == 6) T6CONbits.TMR6ON = 1;
+        else if (PWM_1_TIMER_SELECT == 8) T8CONbits.TMR8ON = 1;
+    } else {
+        if (PWM_1_TIMER_SELECT == 2) T2CONbits.TMR2ON = 0;
+        else if (PWM_1_TIMER_SELECT == 4) T4CONbits.TMR4ON = 0;
+        else if (PWM_1_TIMER_SELECT == 6) T6CONbits.TMR6ON = 0;
+        else if (PWM_1_TIMER_SELECT == 8) T8CONbits.TMR8ON = 0;
+        LATCbits.LATC2 = 0;
+    }
+}
+
+
+
+unsigned char PWM_2_TIMER_SELECT = 0;
+
+void PWM_2_INIT(unsigned long freq, unsigned char timer)
+{
+    PWM_2_TIMER_SELECT = timer;
+    PWM_TIMER_CHOOSE(2, PWM_2_TIMER_SELECT);
+    PIN_SET_IO('D', 'O', 'E', 7, 'L');
+    CCP2CONbits.CCP2M = 0b1100;
+
+    unsigned long pwmPeriod = (64000000 / (freq * 4)) - 1;
+    unsigned char divide = 0;
+    if (pwmPeriod > 255) {
+        pwmPeriod = (64000000 / (freq * 4 * 16)) - 1;
+        divide = 0b11;
+    } else if (pwmPeriod > 63) {
+        pwmPeriod = (64000000 / (freq * 4 * 4)) - 1;
+        divide = 0b10;
+    } else divide = 0b00;
+    PWM_TIMER_DIVIDE(PWM_2_TIMER_SELECT, divide);
+    if (pwmPeriod > 255) pwmPeriod = 255;
+    PWM_TIMER_PR_LOAD(PWM_2_TIMER_SELECT, pwmPeriod);
+
+}
+
+void PWM_2_DUTY(unsigned int duty)
+{
+    if (duty > 100) duty = 100;
+    unsigned int dutyValue;
+    if (PWM_2_TIMER_SELECT == 2) dutyValue = ((PR2 + 1) * 4 * duty) / 100;
+    else if (PWM_2_TIMER_SELECT == 4) dutyValue = ((PR4 + 1) * 4 * duty) / 100;
+    else if (PWM_2_TIMER_SELECT == 6) dutyValue = ((PR6 + 1) * 4 * duty) / 100;
+    else if (PWM_2_TIMER_SELECT == 8) dutyValue = ((PR8 + 1) * 4 * duty) / 100;
+    CCPR2L = dutyValue >> 2;
+    CCP2CONbits.DC2B = dutyValue & 0x03;
+}
+
+void PWM_2_SET(unsigned char enable)
+{
+    if (enable) {
+        if (PWM_2_TIMER_SELECT == 2) T2CONbits.TMR2ON = 1;
+        else if (PWM_2_TIMER_SELECT == 4) T4CONbits.TMR4ON = 1;
+        else if (PWM_2_TIMER_SELECT == 6) T6CONbits.TMR6ON = 1;
+        else if (PWM_2_TIMER_SELECT == 8) T8CONbits.TMR8ON = 1;
+    } else {
+        if (PWM_2_TIMER_SELECT == 2) T2CONbits.TMR2ON = 0;
+        else if (PWM_2_TIMER_SELECT == 4) T4CONbits.TMR4ON = 0;
+        else if (PWM_2_TIMER_SELECT == 6) T6CONbits.TMR6ON = 0;
+        else if (PWM_2_TIMER_SELECT == 8) T8CONbits.TMR8ON = 0;
+        LATCbits.LATC1 = 0;
+    }
+}
+
+
+
+unsigned char PWM_3_TIMER_SELECT = 0;
+
+void PWM_3_INIT(unsigned long freq, unsigned char timer)
+{
+    PWM_3_TIMER_SELECT = timer;
+    PWM_TIMER_CHOOSE(3, PWM_3_TIMER_SELECT);
+    PIN_SET_IO('D', 'O', 'G', 0, 'L');
+    CCP3CONbits.CCP3M = 0b1100;
+
+    unsigned long pwmPeriod = (64000000 / (freq * 4)) - 1;
+    unsigned char divide = 0;
+    if (pwmPeriod > 255) {
+        pwmPeriod = (64000000 / (freq * 4 * 16)) - 1;
+        divide = 0b11;
+    } else if (pwmPeriod > 63) {
+        pwmPeriod = (64000000 / (freq * 4 * 4)) - 1;
+        divide = 0b10;
+    } else divide = 0b00;
+    PWM_TIMER_DIVIDE(PWM_3_TIMER_SELECT, divide);
+    if (pwmPeriod > 255) pwmPeriod = 255;
+    PWM_TIMER_PR_LOAD(PWM_3_TIMER_SELECT, pwmPeriod);
+
+}
+
+void PWM_3_DUTY(unsigned int duty)
+{
+    if (duty > 100) duty = 100;
+    unsigned int dutyValue;
+    if (PWM_3_TIMER_SELECT == 2) dutyValue = ((PR2 + 1) * 4 * duty) / 100;
+    else if (PWM_3_TIMER_SELECT == 4) dutyValue = ((PR4 + 1) * 4 * duty) / 100;
+    else if (PWM_3_TIMER_SELECT == 6) dutyValue = ((PR6 + 1) * 4 * duty) / 100;
+    else if (PWM_3_TIMER_SELECT == 8) dutyValue = ((PR8 + 1) * 4 * duty) / 100;
+    CCPR3L = dutyValue >> 2;
+    CCP3CONbits.DC3B = dutyValue & 0x03;
+}
+
+void PWM_3_SET(unsigned char enable)
+{
+    if (enable) {
+        if (PWM_3_TIMER_SELECT == 2) T2CONbits.TMR2ON = 1;
+        else if (PWM_3_TIMER_SELECT == 4) T4CONbits.TMR4ON = 1;
+        else if (PWM_3_TIMER_SELECT == 6) T6CONbits.TMR6ON = 1;
+        else if (PWM_3_TIMER_SELECT == 8) T8CONbits.TMR8ON = 1;
+    } else {
+        if (PWM_3_TIMER_SELECT == 2) T2CONbits.TMR2ON = 0;
+        else if (PWM_3_TIMER_SELECT == 4) T4CONbits.TMR4ON = 0;
+        else if (PWM_3_TIMER_SELECT == 6) T6CONbits.TMR6ON = 0;
+        else if (PWM_3_TIMER_SELECT == 8) T8CONbits.TMR8ON = 0;
+        LATCbits.LATC2 = 0;
+    }
+}
+
+
+
+unsigned char PWM_4_TIMER_SELECT = 0;
+
+void PWM_4_INIT(unsigned long freq, unsigned char timer)
+{
+    PWM_4_TIMER_SELECT = timer;
+    PWM_TIMER_CHOOSE(4, PWM_4_TIMER_SELECT);
+    PIN_SET_IO('D', 'O', 'G', 3, 'L');
+    CCP4CONbits.CCP4M = 0b1100;
+
+    unsigned long pwmPeriod = (64000000 / (freq * 4)) - 1;
+    unsigned char divide = 0;
+    if (pwmPeriod > 255) {
+        pwmPeriod = (64000000 / (freq * 4 * 16)) - 1;
+        divide = 0b11;
+    } else if (pwmPeriod > 63) {
+        pwmPeriod = (64000000 / (freq * 4 * 4)) - 1;
+        divide = 0b10;
+    } else divide = 0b00;
+    PWM_TIMER_DIVIDE(PWM_4_TIMER_SELECT, divide);
+    if (pwmPeriod > 255) pwmPeriod = 255;
+    PWM_TIMER_PR_LOAD(PWM_4_TIMER_SELECT, pwmPeriod);
+
+}
+
+void PWM_4_DUTY(unsigned int duty)
+{
+    if (duty > 100) duty = 100;
+    unsigned int dutyValue;
+    if (PWM_4_TIMER_SELECT == 2) dutyValue = ((PR2 + 1) * 4 * duty) / 100;
+    else if (PWM_4_TIMER_SELECT == 4) dutyValue = ((PR4 + 1) * 4 * duty) / 100;
+    else if (PWM_4_TIMER_SELECT == 6) dutyValue = ((PR6 + 1) * 4 * duty) / 100;
+    else if (PWM_4_TIMER_SELECT == 8) dutyValue = ((PR8 + 1) * 4 * duty) / 100;
+    CCPR4L = dutyValue >> 2;
+    CCP4CONbits.DC4B = dutyValue & 0x03;
+}
+
+void PWM_4_SET(unsigned char enable)
+{
+    if (enable) {
+        if (PWM_4_TIMER_SELECT == 2) T2CONbits.TMR2ON = 1;
+        else if (PWM_4_TIMER_SELECT == 4) T4CONbits.TMR4ON = 1;
+        else if (PWM_4_TIMER_SELECT == 6) T6CONbits.TMR6ON = 1;
+        else if (PWM_4_TIMER_SELECT == 8) T8CONbits.TMR8ON = 1;
+    } else {
+        if (PWM_4_TIMER_SELECT == 2) T2CONbits.TMR2ON = 0;
+        else if (PWM_4_TIMER_SELECT == 4) T4CONbits.TMR4ON = 0;
+        else if (PWM_4_TIMER_SELECT == 6) T6CONbits.TMR6ON = 0;
+        else if (PWM_4_TIMER_SELECT == 8) T8CONbits.TMR8ON = 0;
+        LATCbits.LATC3 = 0;
+    }
+}
+
+
+
+unsigned char PWM_5_TIMER_SELECT = 0;
+
+void PWM_5_INIT(unsigned long freq, unsigned char timer)
+{
+    PWM_5_TIMER_SELECT = timer;
+    PWM_TIMER_CHOOSE(5, PWM_5_TIMER_SELECT);
+    PIN_SET_IO('D', 'O', 'G', 4, 'L');
+    CCP5CONbits.CCP5M = 0b1100;
+
+    unsigned long pwmPeriod = (64000000 / (freq * 4)) - 1;
+    unsigned char divide = 0;
+    if (pwmPeriod > 255) {
+        pwmPeriod = (64000000 / (freq * 4 * 16)) - 1;
+        divide = 0b11;
+    } else if (pwmPeriod > 63) {
+        pwmPeriod = (64000000 / (freq * 4 * 4)) - 1;
+        divide = 0b10;
+    } else divide = 0b00;
+    PWM_TIMER_DIVIDE(PWM_5_TIMER_SELECT, divide);
+    if (pwmPeriod > 255) pwmPeriod = 255;
+    PWM_TIMER_PR_LOAD(PWM_5_TIMER_SELECT, pwmPeriod);
+
+}
+
+void PWM_5_DUTY(unsigned int duty)
+{
+    if (duty > 100) duty = 100;
+    unsigned int dutyValue;
+    if (PWM_5_TIMER_SELECT == 2) dutyValue = ((PR2 + 1) * 4 * duty) / 100;
+    else if (PWM_5_TIMER_SELECT == 4) dutyValue = ((PR4 + 1) * 4 * duty) / 100;
+    else if (PWM_5_TIMER_SELECT == 6) dutyValue = ((PR6 + 1) * 4 * duty) / 100;
+    else if (PWM_5_TIMER_SELECT == 8) dutyValue = ((PR8 + 1) * 4 * duty) / 100;
+    CCPR5L = dutyValue >> 2;
+    CCP5CONbits.DC5B = dutyValue & 0x03;
+}
+
+void PWM_5_SET(unsigned char enable)
+{
+    if (enable) {
+        if (PWM_5_TIMER_SELECT == 2) T2CONbits.TMR2ON = 1;
+        else if (PWM_5_TIMER_SELECT == 4) T4CONbits.TMR4ON = 1;
+        else if (PWM_5_TIMER_SELECT == 6) T6CONbits.TMR6ON = 1;
+        else if (PWM_5_TIMER_SELECT == 8) T8CONbits.TMR8ON = 1;
+    } else {
+        if (PWM_5_TIMER_SELECT == 2) T2CONbits.TMR2ON = 0;
+        else if (PWM_5_TIMER_SELECT == 4) T4CONbits.TMR4ON = 0;
+        else if (PWM_5_TIMER_SELECT == 6) T6CONbits.TMR6ON = 0;
+        else if (PWM_5_TIMER_SELECT == 8) T8CONbits.TMR8ON = 0;
+        LATCbits.LATC4 = 0;
+    }
+}
+
+
+
+unsigned char PWM_6_TIMER_SELECT = 0;
+
+void PWM_6_INIT(unsigned long freq, unsigned char timer)
+{
+    PWM_6_TIMER_SELECT = timer;
+    PWM_TIMER_CHOOSE(6, PWM_6_TIMER_SELECT);
+    PIN_SET_IO('D', 'O', 'E', 6, 'L');
+    CCP6CONbits.CCP6M = 0b1100;
+
+    unsigned long pwmPeriod = (64000000 / (freq * 4)) - 1;
+    unsigned char divide = 0;
+    if (pwmPeriod > 255) {
+        pwmPeriod = (64000000 / (freq * 4 * 16)) - 1;
+        divide = 0b11;
+    } else if (pwmPeriod > 63) {
+        pwmPeriod = (64000000 / (freq * 4 * 4)) - 1;
+        divide = 0b10;
+    } else divide = 0b00;
+    PWM_TIMER_DIVIDE(PWM_6_TIMER_SELECT, divide);
+    if (pwmPeriod > 255) pwmPeriod = 255;
+    PWM_TIMER_PR_LOAD(PWM_6_TIMER_SELECT, pwmPeriod);
+
+}
+
+void PWM_6_DUTY(unsigned int duty)
+{
+    if (duty > 100) duty = 100;
+    unsigned int dutyValue;
+    if (PWM_6_TIMER_SELECT == 2) dutyValue = ((PR2 + 1) * 4 * duty) / 100;
+    else if (PWM_6_TIMER_SELECT == 4) dutyValue = ((PR4 + 1) * 4 * duty) / 100;
+    else if (PWM_6_TIMER_SELECT == 6) dutyValue = ((PR6 + 1) * 4 * duty) / 100;
+    else if (PWM_6_TIMER_SELECT == 8) dutyValue = ((PR8 + 1) * 4 * duty) / 100;
+    CCPR6L = dutyValue >> 2;
+    CCP6CONbits.DC6B = dutyValue & 0x03;
+}
+
+void PWM_6_SET(unsigned char enable)
+{
+    if (enable) {
+        if (PWM_6_TIMER_SELECT == 2) T2CONbits.TMR2ON = 1;
+        else if (PWM_6_TIMER_SELECT == 4) T4CONbits.TMR4ON = 1;
+        else if (PWM_6_TIMER_SELECT == 6) T6CONbits.TMR6ON = 1;
+        else if (PWM_6_TIMER_SELECT == 8) T8CONbits.TMR8ON = 1;
+    } else {
+        if (PWM_6_TIMER_SELECT == 2) T2CONbits.TMR2ON = 0;
+        else if (PWM_6_TIMER_SELECT == 4) T4CONbits.TMR4ON = 0;
+        else if (PWM_6_TIMER_SELECT == 6) T6CONbits.TMR6ON = 0;
+        else if (PWM_6_TIMER_SELECT == 8) T8CONbits.TMR8ON = 0;
+        LATCbits.LATC5 = 0;
+    }
+}
+
+
+
+unsigned char PWM_7_TIMER_SELECT = 0;
+
+void PWM_7_INIT(unsigned long freq, unsigned char timer)
+{
+    PWM_7_TIMER_SELECT = timer;
+    PWM_TIMER_CHOOSE(7, PWM_7_TIMER_SELECT);
+    PIN_SET_IO('D', 'O', 'E', 5, 'L');
+    CCP7CONbits.CCP7M = 0b1100;
+
+    unsigned long pwmPeriod = (64000000 / (freq * 4)) - 1;
+    unsigned char divide = 0;
+    if (pwmPeriod > 255) {
+        pwmPeriod = (64000000 / (freq * 4 * 16)) - 1;
+        divide = 0b11;
+    } else if (pwmPeriod > 63) {
+        pwmPeriod = (64000000 / (freq * 4 * 4)) - 1;
+        divide = 0b10;
+    } else divide = 0b00;
+    PWM_TIMER_DIVIDE(PWM_7_TIMER_SELECT, divide);
+    if (pwmPeriod > 255) pwmPeriod = 255;
+    PWM_TIMER_PR_LOAD(PWM_7_TIMER_SELECT, pwmPeriod);
+
+}
+
+void PWM_7_DUTY(unsigned int duty)
+{
+    if (duty > 100) duty = 100;
+    unsigned int dutyValue;
+    if (PWM_7_TIMER_SELECT == 2) dutyValue = ((PR2 + 1) * 4 * duty) / 100;
+    else if (PWM_7_TIMER_SELECT == 4) dutyValue = ((PR4 + 1) * 4 * duty) / 100;
+    else if (PWM_7_TIMER_SELECT == 6) dutyValue = ((PR6 + 1) * 4 * duty) / 100;
+    else if (PWM_7_TIMER_SELECT == 8) dutyValue = ((PR8 + 1) * 4 * duty) / 100;
+    CCPR7L = dutyValue >> 2;
+    CCP7CONbits.DC7B = dutyValue & 0x03;
+}
+
+void PWM_7_SET(unsigned char enable)
+{
+    if (enable) {
+        if (PWM_7_TIMER_SELECT == 2) T2CONbits.TMR2ON = 1;
+        else if (PWM_7_TIMER_SELECT == 4) T4CONbits.TMR4ON = 1;
+        else if (PWM_7_TIMER_SELECT == 6) T6CONbits.TMR6ON = 1;
+        else if (PWM_7_TIMER_SELECT == 8) T8CONbits.TMR8ON = 1;
+    } else {
+        if (PWM_7_TIMER_SELECT == 2) T2CONbits.TMR2ON = 0;
+        else if (PWM_7_TIMER_SELECT == 4) T4CONbits.TMR4ON = 0;
+        else if (PWM_7_TIMER_SELECT == 6) T6CONbits.TMR6ON = 0;
+        else if (PWM_7_TIMER_SELECT == 8) T8CONbits.TMR8ON = 0;
+        LATCbits.LATC6 = 0;
+    }
+}
+
+
+
+unsigned char PWM_8_TIMER_SELECT = 0;
+
+void PWM_8_INIT(unsigned long freq, unsigned char timer)
+{
+    PWM_8_TIMER_SELECT = timer;
+    PWM_TIMER_CHOOSE(8, PWM_8_TIMER_SELECT);
+    PIN_SET_IO('D', 'O', 'E', 4, 'L');
+    CCP8CONbits.CCP8M = 0b1100;
+
+    unsigned long pwmPeriod = (64000000 / (freq * 4)) - 1;
+    unsigned char divide = 0;
+    if (pwmPeriod > 255) {
+        pwmPeriod = (64000000 / (freq * 4 * 16)) - 1;
+        divide = 0b11;
+    } else if (pwmPeriod > 63) {
+        pwmPeriod = (64000000 / (freq * 4 * 4)) - 1;
+        divide = 0b10;
+    } else divide = 0b00;
+    PWM_TIMER_DIVIDE(PWM_8_TIMER_SELECT, divide);
+    if (pwmPeriod > 255) pwmPeriod = 255;
+    PWM_TIMER_PR_LOAD(PWM_8_TIMER_SELECT, pwmPeriod);
+
+}
+
+void PWM_8_DUTY(unsigned int duty)
+{
+    if (duty > 100) duty = 100;
+    unsigned int dutyValue;
+    if (PWM_8_TIMER_SELECT == 2) dutyValue = ((PR2 + 1) * 4 * duty) / 100;
+    else if (PWM_8_TIMER_SELECT == 4) dutyValue = ((PR4 + 1) * 4 * duty) / 100;
+    else if (PWM_8_TIMER_SELECT == 6) dutyValue = ((PR6 + 1) * 4 * duty) / 100;
+    else if (PWM_8_TIMER_SELECT == 8) dutyValue = ((PR8 + 1) * 4 * duty) / 100;
+    CCPR8L = dutyValue >> 2;
+    CCP8CONbits.DC8B = dutyValue & 0x03;
+}
+
+void PWM_8_SET(unsigned char enable)
+{
+    if (enable) {
+        if (PWM_8_TIMER_SELECT == 2) T2CONbits.TMR2ON = 1;
+        else if (PWM_8_TIMER_SELECT == 4) T4CONbits.TMR4ON = 1;
+        else if (PWM_8_TIMER_SELECT == 6) T6CONbits.TMR6ON = 1;
+        else if (PWM_8_TIMER_SELECT == 8) T8CONbits.TMR8ON = 1;
+    } else {
+        if (PWM_8_TIMER_SELECT == 2) T2CONbits.TMR2ON = 0;
+        else if (PWM_8_TIMER_SELECT == 4) T4CONbits.TMR4ON = 0;
+        else if (PWM_8_TIMER_SELECT == 6) T6CONbits.TMR6ON = 0;
+        else if (PWM_8_TIMER_SELECT == 8) T8CONbits.TMR8ON = 0;
+        LATCbits.LATC7 = 0;
     }
 }

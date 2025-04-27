@@ -6,10 +6,10 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v3.00\pic\dat\20241204225717_en.msgs \
   -cn -h+dist/default/production\TEST.X.production.sym \
   --cmf=dist/default/production\TEST.X.production.cmf -z -Q18F87K22 \
-  -oC:\Users\SERT\AppData\Local\Temp\xcBsbcc.1\driver_tmp_3.o \
+  -oC:\Users\SERT\AppData\Local\Temp\xcCs1h4.2\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/TEST.X.production.map \
-  --md=C:\Users\SERT\AppData\Local\Temp\xcBsbcc.1\driver_tmp_0.dat -E1 \
+  --md=C:\Users\SERT\AppData\Local\Temp\xcCs1h4.2\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh \
   -ASMALLCONST=01000h-010FFhx240,011000h-0110FFhx240 \
   -AMEDIUMCONST=01000h-0FFFFh,011000h-01FFFFh -ACOMRAM=01h-05Fh \
@@ -30,7 +30,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\SERT\AppData\Local\Temp\xcBsbcc.1\driver_tmp_14.o \
+  C:\Users\SERT\AppData\Local\Temp\xcCs1h4.2\driver_tmp_14.o \
   dist/default/production\TEST.X.production.o 
 
 Object code version is 3.11
@@ -40,7 +40,7 @@ Machine type is 18F87K22
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\SERT\AppData\Local\Temp\xcBsbcc.1\driver_tmp_14.o
+C:\Users\SERT\AppData\Local\Temp\xcCs1h4.2\driver_tmp_14.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 init                                 C8       C8        4        4       0
@@ -469,7 +469,7 @@ THREAD_TIME_WAIT@activeSleepNum      cstackCOMRAM 000013
 THREAD_TIME_WAIT@sleepNum            cstackCOMRAM 000014
 THREAD_TIME_WAIT@thread              cstackCOMRAM 00000E
 THREAD_TIME_WAIT@threadTime          cstackCOMRAM 00000F
-TIMER_1_INIT@F7173                   dataBANK0    0000E0
+TIMER_1_INIT@F6602                   dataBANK0    0000E0
 TIMER_1_INIT@Fcy                     cstackBANK0  0000C7
 TIMER_1_INIT@Prescalers              cstackBANK0  0000C3
 TIMER_1_INIT@TMR1_Tick               cstackBANK0  0000D0
@@ -479,8 +479,8 @@ TIMER_1_INIT@i                       cstackBANK0  0000D6
 TIMER_1_INIT@ms                      cstackBANK0  0000CF
 TIMER_1_INTERRUPT@openOrClose        cstackCOMRAM 00000E
 TIMER_1_SET@startOrStop              cstackCOMRAM 00000E
-TIMER_3_INIT@F7189                   dataBANK0    0000DC
-TIMER_5_INIT@F7205                   dataBANK0    0000D8
+TIMER_3_INIT@F6618                   dataBANK0    0000DC
+TIMER_5_INIT@F6634                   dataBANK0    0000D8
 UART_1_BYTE@data                     cstackCOMRAM 00000E
 UART_1_STRING@text                   cstackCOMRAM 00000F
 UART_2_BYTE@data                     cstackCOMRAM 000001
@@ -549,7 +549,7 @@ _LED_THREAD                          text8        011C2C
 _LOG_PRINT                           text24       012378
 _MENU_BUTON_PROCESS                  text20       01247A
 _MENU_BUTON_READ                     text16       011502
-_MENU_BUTON_STATUS                   bssCOMRAM    000045
+_MENU_BUTON_STATUS                   bssCOMRAM    00004D
 _OLED_ClearDisplay                   text61       01235A
 _OLED_DrawPixel                      text48       010CB2
 _OLED_Init                           text50       0111EE
@@ -584,14 +584,14 @@ _PR2                                 (abs)        000FCB
 _PR4                                 (abs)        000F6C
 _PR6                                 (abs)        000F3A
 _PR8                                 (abs)        000F37
-_PWM_1_TIMER_SELECT                  bssCOMRAM    00004D
-_PWM_2_TIMER_SELECT                  bssCOMRAM    00004C
-_PWM_3_TIMER_SELECT                  bssCOMRAM    00004B
-_PWM_4_TIMER_SELECT                  bssCOMRAM    00004A
-_PWM_5_TIMER_SELECT                  bssCOMRAM    000049
-_PWM_6_TIMER_SELECT                  bssCOMRAM    000048
-_PWM_7_TIMER_SELECT                  bssCOMRAM    000047
-_PWM_8_TIMER_SELECT                  bssCOMRAM    000046
+_PWM_1_TIMER_SELECT                  bssCOMRAM    00004B
+_PWM_2_TIMER_SELECT                  bssCOMRAM    00004A
+_PWM_3_TIMER_SELECT                  bssCOMRAM    000049
+_PWM_4_TIMER_SELECT                  bssCOMRAM    000048
+_PWM_5_TIMER_SELECT                  bssCOMRAM    000047
+_PWM_6_TIMER_SELECT                  bssCOMRAM    000046
+_PWM_7_TIMER_SELECT                  bssCOMRAM    000045
+_PWM_8_TIMER_SELECT                  bssCOMRAM    000044
 _RCREG1                              (abs)        000FAE
 _RCREG2                              (abs)        000F1D
 _RCSTA1bits                          (abs)        000FAB
@@ -605,10 +605,10 @@ _ROLE_OUTPUT                         text30       012058
 _ROLE_THREAD                         text9        012470
 _SETTING_VALUES                      bssBANK1     000150
 _SET_OSC                             text29       01179E
-_SET_OSC$2533                        cstackCOMRAM 000016
-_SET_OSC$2534                        cstackCOMRAM 000018
-_SET_OSC$2535                        cstackCOMRAM 00001A
-_SET_OSC$2536                        cstackCOMRAM 00001C
+_SET_OSC$3137                        cstackCOMRAM 000016
+_SET_OSC$3138                        cstackCOMRAM 000018
+_SET_OSC$3139                        cstackCOMRAM 00001A
+_SET_OSC$3140                        cstackCOMRAM 00001C
 _SMALL_FONTS                         mediumconst  00FCB5
 _SOFT_I2C_1                          bssBANK0     000060
 _SOFT_I2C_BIT_READ                   text54       0122C0
@@ -645,7 +645,7 @@ _THREAD_GET_STATE                    text14       012476
 _THREAD_INTERRUPT                    text72       011390
 _THREAD_LIST                         bssBANK1     000100
 _THREAD_MAIN                         text6        011B3C
-_THREAD_NUM                          bssCOMRAM    000044
+_THREAD_NUM                          bssCOMRAM    00004C
 _THREAD_TIME_DONE                    text13       012392
 _THREAD_TIME_START                   text12       0123EC
 _THREAD_TIME_WAIT                    text11       0112C0
@@ -1294,40 +1294,22 @@ input_debounce.c estimated size: 102
 
 newmain.c
 		_MENU_BUTON_PROCESS		CODE           	1247A	0000	2
-		_TIMER_3_INTERRUPT_FUNCT		CODE           	12458	0000	12
-		_UART_2_BYTE   		CODE           	1241A	0000	14
-		_TIMER_1_INTERRUPT		CODE           	123A6	0000	18
 		_INTERRUPT_KONTROL_ROLE_TIME		CODE           	11024	0000	242
 		_LED_THREAD    		CODE           	11C2C	0000	116
 		_ROLE_GO_OUTPUT		CODE           	1144E	0000	180
 		_INPUT_THREAD  		CODE           	123B8	0000	18
 		__ISR          		CODE           	0008	0000	192
 		_main          		CODE           	1032E	0000	622
-		_TIMER_1_SET   		CODE           	123DC	0000	16
-		_TIMER_1_INIT  		CODE           	10DFE	0000	300
-		_TIMER_5_INTERRUPT_FUNCT		CODE           	1244C	0000	12
-		_SET_OSC       		CODE           	1179E	0000	144
 		_INPUT_PROCESS 		CODE           	10990	0000	402
-		_PIN_IOC_INTERRUPT		CODE           	1240C	0000	14
 		_ROLE_THREAD   		CODE           	12470	0000	6
-		_TIMER_1_INTERRUPT_FUNCT		CODE           	12464	0000	12
-		_UART_1_BYTE   		CODE           	12434	0000	12
-		_UART_1_STRING 		CODE           	12238	0000	50
 		_INIT_ROLE     		CODE           	11D0E	0000	108
-		_PIN_GET_PORT  		CODE           	11EA4	0000	96
 		_INPUT_READ    		CODE           	1059C	0000	602
-		_PIN_SET_IO    		CODE           	1233C	0000	30
-		_PIN_SET_LAT   		CODE           	1165C	0000	168
 		_ROLE_MODE_SELECT		CODE           	11704	0000	154
 		_ROLE_OUTPUT   		CODE           	12058	0000	72
-		_PIN_SET_TRIS  		CODE           	115B4	0000	168
-		_PIN_SET_LAT_TOGGLE		CODE           	12004	0000	84
-		_PIN_SET_ANSEL 		CODE           	107F6	0000	410
 		_MENU_BUTON_READ		CODE           	11502	0000	178
-		_INTERRUPT_ALL 		CODE           	123CA	0000	18
 		_LOG_PRINT     		CODE           	12378	0000	26
 
-newmain.c estimated size: 4498
+newmain.c estimated size: 2920
 
 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\awmod.c
 		___awmod       		CODE           	11CA0	0000	110
@@ -1382,6 +1364,28 @@ C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\awdiv.c
 		___awdiv       		CODE           	11940	0000	130
 
 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\awdiv.c estimated size: 130
+
+PIC_18F87K22.c
+		_TIMER_3_INTERRUPT_FUNCT		CODE           	12458	0000	12
+		_UART_2_BYTE   		CODE           	1241A	0000	14
+		_TIMER_1_INTERRUPT		CODE           	123A6	0000	18
+		_TIMER_1_SET   		CODE           	123DC	0000	16
+		_TIMER_1_INIT  		CODE           	10DFE	0000	300
+		_TIMER_5_INTERRUPT_FUNCT		CODE           	1244C	0000	12
+		_SET_OSC       		CODE           	1179E	0000	144
+		_PIN_IOC_INTERRUPT		CODE           	1240C	0000	14
+		_TIMER_1_INTERRUPT_FUNCT		CODE           	12464	0000	12
+		_UART_1_BYTE   		CODE           	12434	0000	12
+		_UART_1_STRING 		CODE           	12238	0000	50
+		_PIN_GET_PORT  		CODE           	11EA4	0000	96
+		_PIN_SET_IO    		CODE           	1233C	0000	30
+		_PIN_SET_LAT   		CODE           	1165C	0000	168
+		_PIN_SET_TRIS  		CODE           	115B4	0000	168
+		_PIN_SET_LAT_TOGGLE		CODE           	12004	0000	84
+		_PIN_SET_ANSEL 		CODE           	107F6	0000	410
+		_INTERRUPT_ALL 		CODE           	123CA	0000	18
+
+PIC_18F87K22.c estimated size: 1578
 
 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\doprnt.c
 		_vfpfcnvrt     		CODE           	10B22	0000	400
