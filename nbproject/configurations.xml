@@ -28,6 +28,8 @@
       <itemPath>PIC_18F87K22.h</itemPath>
       <itemPath>task.c</itemPath>
       <itemPath>task.h</itemPath>
+      <itemPath>MENU.c</itemPath>
+      <itemPath>MENU.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

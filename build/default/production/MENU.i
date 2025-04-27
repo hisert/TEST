@@ -1,4 +1,4 @@
-# 1 "newmain.c"
+# 1 "MENU.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 285 "<built-in>" 3
@@ -6,16 +6,267 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "newmain.c" 2
-# 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/pic18.h" 1 3
+# 1 "MENU.c" 2
+# 1 "./MENU.h" 1
+# 20 "./MENU.h"
+    typedef struct {
+        const char *text;
+        unsigned char flag;
+        unsigned int(*Funct)(unsigned char komut, unsigned int data);
+        unsigned int max;
+        unsigned int min;
+    } Menu_One;
+
+    char *MENU_SELECT_LIST;
+    Menu_One *MENU_POINTER = 0;
+    unsigned char MENU_MAX = 0;
+    char *SHOW_DATA_TEXT = 0;
+    char *MENU_UST_YAZI = 0;
+    Menu_One *MENU_POINTER;
+# 42 "./MENU.h"
+    void MENU_GIR(Menu_One *Menu, unsigned char komut);
+    void MENU_CIK();
+    void MENU_TEXT_PRINT(char *text, unsigned char index);
+    void MENU_SHOW_DATA_PRINT(char *text, unsigned int data);
+    void MENU_USE_SELECT(char *ust_yazi, char *data[], unsigned char index);
+    void MENU_USE_VAL(char *ust_yazi, unsigned int data_max, unsigned int data_min, unsigned int data);
+    void MENU_WORK(char MENU_MOVEMENT);
+    void MENU_INIT(void (*MENU_CLEAR_t)(void), void (*MENU_UPDATE_t)(void), void(*MENU_WRITE_TEXT_t)(unsigned int, unsigned int, const char *), void(*MENU_WRITE_DEC_t)(unsigned int, unsigned int, unsigned long));
+    void MENU_ANA_INIT(Menu_One *MENU_ANA_MENU_ANA_t);
+    void MENU_GIR(Menu_One *Menu, unsigned char komut);
+    void MENU_CIK();
+    void MENU_PROCESS();
+    void MENU_BUTON_ADD(char process);
+# 2 "MENU.c" 2
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 1 3
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/musl_xc8.h" 1 3
+# 5 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 2 3
 
 
 
 
-# 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/htc.h" 1 3
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/features.h" 1 3
+# 11 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 2 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
+# 128 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef unsigned size_t;
+# 174 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef __int24 int24_t;
+# 210 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef __uint24 uint24_t;
+# 421 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef struct __locale_struct * locale_t;
+# 26 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 2 3
+
+void *memcpy (void *restrict, const void *restrict, size_t);
+void *memmove (void *, const void *, size_t);
+void *memset (void *, int, size_t);
+int memcmp (const void *, const void *, size_t);
+void *memchr (const void *, int, size_t);
+
+char *strcpy (char *restrict, const char *restrict);
+char *strncpy (char *restrict, const char *restrict, size_t);
+
+char *strcat (char *restrict, const char *restrict);
+char *strncat (char *restrict, const char *restrict, size_t);
+
+int strcmp (const char *, const char *);
+int strncmp (const char *, const char *, size_t);
+
+int strcoll (const char *, const char *);
+size_t strxfrm (char *restrict, const char *restrict, size_t);
+
+char *strchr (const char *, int);
+char *strrchr (const char *, int);
+
+size_t strcspn (const char *, const char *);
+size_t strspn (const char *, const char *);
+char *strpbrk (const char *, const char *);
+char *strstr (const char *, const char *);
+char *strtok (char *restrict, const char *restrict);
+
+size_t strlen (const char *);
+
+char *strerror (int);
 
 
 
+
+char *strtok_r (char *restrict, const char *restrict, char **restrict);
+int strerror_r (int, char *, size_t);
+char *stpcpy(char *restrict, const char *restrict);
+char *stpncpy(char *restrict, const char *restrict, size_t);
+size_t strnlen (const char *, size_t);
+char *strdup (const char *);
+char *strndup (const char *, size_t);
+char *strsignal(int);
+char *strerror_l (int, locale_t);
+int strcoll_l (const char *, const char *, locale_t);
+size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
+
+
+
+
+void *memccpy (void *restrict, const void *restrict, int, size_t);
+# 3 "MENU.c" 2
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 1 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
+# 12 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef void * va_list[1];
+
+
+
+
+typedef void * __isoc_va_list[1];
+# 143 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef __int24 ssize_t;
+# 255 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef long long off_t;
+# 409 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 25 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 2 3
+# 52 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
+
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
+
+
+
+
+
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
+
+int remove(const char *);
+int rename(const char *, const char *);
+
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
+
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
+
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
+
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
+
+
+
+
+
+int ungetc(int, FILE *);
+int getch(void);
+
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
+
+
+
+
+
+void putch(char);
+
+char *fgets(char *restrict, int, FILE *restrict);
+
+char *gets(char *);
+
+
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
+
+__attribute__((__format__(__printf__, 1, 2)))
+int printf(const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int fprintf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int sprintf(char *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 3, 4)))
+int snprintf(char *restrict, size_t, const char *restrict, ...);
+
+__attribute__((__format__(__printf__, 1, 0)))
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 2, 0)))
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 3, 0)))
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+
+__attribute__((__format__(__scanf__, 1, 2)))
+int scanf(const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int fscanf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int sscanf(const char *restrict, const char *restrict, ...);
+
+__attribute__((__format__(__scanf__, 1, 0)))
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__scanf__, 2, 0)))
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
+
+void perror(const char *);
+
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
+
+char *tmpnam(char *);
+FILE *tmpfile(void);
+
+
+
+
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
+
+
+
+
+
+
+
+char *tempnam(const char *, const char *);
+# 4 "MENU.c" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -28,28 +279,10 @@ extern double __fpnormalize(double);
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 1 3
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/musl_xc8.h" 1 3
-# 5 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 2 3
-
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/features.h" 1 3
-# 11 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 2 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
 typedef long int wchar_t;
-# 128 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef unsigned size_t;
-# 174 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef __int24 int24_t;
-# 210 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef __uint24 uint24_t;
 # 22 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 2 3
 
 int atoi (const char *);
@@ -142,7 +375,15 @@ extern void __builtin_software_breakpoint(void);
 
 
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/pic18.h" 1 3
-# 33 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/xc.h" 2 3
+
+
+
+
+# 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/htc.h" 1 3
+
+
+
+# 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/xc.h" 1 3
 # 5 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/htc.h" 2 3
 # 6 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/pic18.h" 2 3
 
@@ -11079,1277 +11320,217 @@ extern __attribute__((nonreentrant)) void _delay(unsigned long);
 extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
-# 2 "newmain.c" 2
+# 33 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/xc.h" 2 3
+# 5 "MENU.c" 2
+void (*MENU_CLEAR)(void);
+void (*MENU_UPDATE)(void);
+void(*MENU_WRITE_DEC)(unsigned int x, unsigned int y, unsigned long data);
+void(*MENU_WRITE_TEXT)(unsigned int x, unsigned int y, const char *text);
 
-# 1 "./config.h" 1
+extern void MENU_UST_DATA_GETIR();
 
+Menu_One * MENU_BACK_POINTER[5];
+unsigned char MENU_BACK_INDEX[5];
+unsigned char MENU_INDEX_COUNTER = 0;
+unsigned char MENU_MENU_COUNTER = 0;
+Menu_One *MENU_ANA_MENU_ANA;
 
 
 
-
-
-#pragma config RETEN = OFF
-#pragma config INTOSCSEL = HIGH
-#pragma config SOSCSEL = HIGH
-#pragma config XINST = OFF
-
-
-#pragma config FOSC = INTIO2
-#pragma config PLLCFG = ON
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
-
-
-#pragma config PWRTEN = OFF
-#pragma config BOREN = SBORDIS
-#pragma config BORV = 3
-#pragma config BORPWR = ZPBORMV
-
-
-#pragma config WDTEN = OFF
-#pragma config WDTPS = 1048576
-
-
-#pragma config RTCOSC = SOSCREF
-
-
-#pragma config CCP2MX = PORTBE
-#pragma config MSSPMSK = MSK7
-#pragma config MCLRE = OFF
-
-
-#pragma config STVREN = OFF
-#pragma config BBSIZ = BB2K
-
-
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-#pragma config CP4 = OFF
-#pragma config CP5 = OFF
-#pragma config CP6 = OFF
-#pragma config CP7 = OFF
-
-
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-
-
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-#pragma config WRT4 = OFF
-#pragma config WRT5 = OFF
-#pragma config WRT6 = OFF
-#pragma config WRT7 = OFF
-
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-
-#pragma config EBRT0 = OFF
-#pragma config EBRT1 = OFF
-#pragma config EBRT2 = OFF
-#pragma config EBRT3 = OFF
-#pragma config EBRT4 = OFF
-#pragma config EBRT5 = OFF
-#pragma config EBRT6 = OFF
-#pragma config EBRT7 = OFF
-
-
-#pragma config EBRTB = OFF
-# 4 "newmain.c" 2
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 1 3
-# 25 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
-# 421 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef struct __locale_struct * locale_t;
-# 26 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 2 3
-
-void *memcpy (void *restrict, const void *restrict, size_t);
-void *memmove (void *, const void *, size_t);
-void *memset (void *, int, size_t);
-int memcmp (const void *, const void *, size_t);
-void *memchr (const void *, int, size_t);
-
-char *strcpy (char *restrict, const char *restrict);
-char *strncpy (char *restrict, const char *restrict, size_t);
-
-char *strcat (char *restrict, const char *restrict);
-char *strncat (char *restrict, const char *restrict, size_t);
-
-int strcmp (const char *, const char *);
-int strncmp (const char *, const char *, size_t);
-
-int strcoll (const char *, const char *);
-size_t strxfrm (char *restrict, const char *restrict, size_t);
-
-char *strchr (const char *, int);
-char *strrchr (const char *, int);
-
-size_t strcspn (const char *, const char *);
-size_t strspn (const char *, const char *);
-char *strpbrk (const char *, const char *);
-char *strstr (const char *, const char *);
-char *strtok (char *restrict, const char *restrict);
-
-size_t strlen (const char *);
-
-char *strerror (int);
-
-
-
-
-char *strtok_r (char *restrict, const char *restrict, char **restrict);
-int strerror_r (int, char *, size_t);
-char *stpcpy(char *restrict, const char *restrict);
-char *stpncpy(char *restrict, const char *restrict, size_t);
-size_t strnlen (const char *, size_t);
-char *strdup (const char *);
-char *strndup (const char *, size_t);
-char *strsignal(int);
-char *strerror_l (int, locale_t);
-int strcoll_l (const char *, const char *, locale_t);
-size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
-
-
-
-
-void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 5 "newmain.c" 2
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
-# 12 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef void * va_list[1];
-
-
-
-
-typedef void * __isoc_va_list[1];
-# 143 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef __int24 ssize_t;
-# 255 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef long long off_t;
-# 409 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 25 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
-
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
-
-
-
-
-
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
-
-int remove(const char *);
-int rename(const char *, const char *);
-
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-
-
-
-
-
-int ungetc(int, FILE *);
-int getch(void);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-
-
-
-
-
-void putch(char);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-__attribute__((__format__(__printf__, 1, 2)))
-int printf(const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int fprintf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int sprintf(char *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 3, 4)))
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-__attribute__((__format__(__printf__, 1, 0)))
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 2, 0)))
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 3, 0)))
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-__attribute__((__format__(__scanf__, 1, 2)))
-int scanf(const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int fscanf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int sscanf(const char *restrict, const char *restrict, ...);
-
-__attribute__((__format__(__scanf__, 1, 0)))
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__scanf__, 2, 0)))
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
-
-
-
-
-
-
-
-char *tempnam(const char *, const char *);
-# 6 "newmain.c" 2
-
-# 1 "./PIC_18F87K22.h" 1
-# 21 "./PIC_18F87K22.h"
-    unsigned char PIN_GET_PORT(unsigned char Port, unsigned char Pin);
-    void PIN_SET_LAT(unsigned char Port, unsigned char Pin, unsigned char HighOrLow);
-    void PIN_SET_TRIS(unsigned char Port, unsigned char Pin, unsigned char InputOrOutput);
-    void PIN_SET_LAT_TOGGLE(unsigned char Port, unsigned char Pin);
-    void PIN_SET_ANSEL(unsigned char Pin, unsigned char OnOFF);
-    void PIN_SET_IO(unsigned char AnalogOrDijital, unsigned char InputOrOutput, unsigned char Port, unsigned char Pin, unsigned char HighOrLow);
-    void PIN_IOC_INTERRUPT(unsigned char Pin, unsigned char openOrClose);
-
-    void TIMER_1_INTERRUPT_FUNCT();
-    void TIMER_1_INTERRUPT(unsigned char openOrClose);
-    void TIMER_1_SET(unsigned char startOrStop);
-    unsigned int TIMER_1_INIT(unsigned char ms);
-
-    void TIMER_3_INTERRUPT_FUNCT();
-    void TIMER_3_INTERRUPT(unsigned char openOrClose);
-    void TIMER_3_SET(unsigned char startOrStop);
-    unsigned int TIMER_3_INIT(unsigned char ms);
-
-    void TIMER_5_INTERRUPT_FUNCT();
-    void TIMER_5_INTERRUPT(unsigned char openOrClose);
-    void TIMER_5_SET(unsigned char startOrStop);
-    unsigned int TIMER_5_INIT(unsigned char ms);
-
-    void UART_1_INTERRUPT(unsigned char openOrClose);
-    void UART_1_INIT(unsigned long baudrate);
-    void UART_1_BYTE(char data);
-    void UART_1_STRING(char* text);
-    void UART_1_DECIMAL(unsigned long val);
-
-    void UART_2_INTERRUPT(unsigned char openOrClose);
-    void UART_2_INIT(unsigned long baudrate);
-    void UART_2_BYTE(char data);
-    void UART_2_STRING(char* text);
-    void UART_2_DECIMAL(unsigned long val);
-
-    void SET_OSC(unsigned char MHz);
-    void INTERRUPT_ALL(unsigned char openOrClose);
-
-    void ADC_INIT();
-    unsigned int ADC_READ(unsigned char channel);
-
-    void I2C_1_INIT(unsigned long baudrate);
-    void I2C_1_ACK(void);
-    void I2C_1_NACK(void);
-    void I2C_1_READY(void);
-    unsigned char I2C_1_WRITE(unsigned char data);
-    void I2C_1_START(void);
-    unsigned char I2C_1_STOP(void);
-    unsigned char I2C_1_READ(unsigned char flag);
-
-    void I2C_2_INIT(unsigned long baudrate);
-    void I2C_2_ACK(void);
-    void I2C_2_NACK(void);
-    void I2C_2_READY(void);
-    unsigned char I2C_2_WRITE(unsigned char data);
-    void I2C_2_START(void);
-    unsigned char I2C_2_STOP(void);
-    unsigned char I2C_2_READ(unsigned char flag);
-# 8 "newmain.c" 2
-# 1 "./ssd1306_oled.h" 1
-# 16 "./ssd1306_oled.h"
-    void OLED_SetFont(const unsigned char *font);
-    void OLED_InvertFont(unsigned char invert_status);
-    void OLED_SetContrast(unsigned char contrast);
-    void OLED_ClearDisplay(void);
-    void OLED_FillDisplay(void);
-    void OLED_InvertDisplay(unsigned char value);
-    void OLED_DrawPixel(unsigned int x, unsigned int y, unsigned char color);
-    void OLED_Line(unsigned int x_start, unsigned int y_start, unsigned int x_end, unsigned int y_end, unsigned char color);
-    void OLED_V_Line(unsigned int y_start, unsigned int y_end, unsigned int x_pos, unsigned char color);
-    void OLED_H_Line(unsigned int x_start, unsigned int x_end, unsigned int y_pos, unsigned char color);
-    void OLED_Rectangle(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2, unsigned char color);
-    void OLED_FillRectangle(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2, unsigned char color);
-    void OLED_Triangle(unsigned int x0, unsigned int y0, unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2, unsigned char color);
-    void OLED_Image(const unsigned char *image);
-    void OLED_Circle(unsigned int x0, unsigned int y0, unsigned int r, unsigned char color);
-    void OLED_Write(unsigned int x, unsigned int y, char value);
-    void OLED_Write_Text(unsigned int x, unsigned int y, const char *text);
-    void OLED_Write_Dec(unsigned int x, unsigned int y, unsigned long data);
-    void OLED_Init(void (*startFunc)(void), unsigned char(*writeFunc)(unsigned char), unsigned char(*stopFunc)(void));
-    void OLED_Update(void);
-# 9 "newmain.c" 2
-# 1 "./input_debounce.h" 1
-# 14 "./input_debounce.h"
-    typedef struct {
-        unsigned char Temp_Counter;
-        unsigned char Old_state;
-    } Input_t;
-
-
-
-
-
-    unsigned char INPUT_DEBOUNCE(Input_t *Input, unsigned char Input_Val, unsigned char Debounce);
-# 10 "newmain.c" 2
-# 1 "./buton_debounce.h" 1
-# 14 "./buton_debounce.h"
-    typedef struct {
-        unsigned int PressTime;
-        unsigned char Temp_Counter;
-        unsigned char Flag;
-    } Buton_t;
-
-
-
-
-
-    unsigned char BUTON_PROCESS(Buton_t *Buton, unsigned char Buton_Val, unsigned char Buton_Up_Time, unsigned char Buton_Fall_Time);
-    unsigned int BUTON_GET_TIME(Buton_t *Buton);
-# 11 "newmain.c" 2
-# 1 "./thread.h" 1
-# 18 "./thread.h"
-    typedef struct {
-        unsigned char flag;
-        unsigned int duty_time;
-        unsigned int duty_temp_time;
-        void (*Funct)(unsigned char threadIndex);
-    } THREAD_t;
-
-    void THREAD_INTERRUPT();
-    void THREAD_MAIN();
-    void THREAD_START(unsigned char threadIndex);
-    void THREAD_STOP(unsigned char threadIndex);
-    void THREAD_DONE_CONTROL(unsigned char threadIndex);
-    void THREAD_TIME(unsigned char threadIndex, unsigned int threadTime);
-    void THREAD_CREATE(unsigned char threadIndex, unsigned char flag, unsigned char duty_time, void (*Funct_t)(unsigned char threadIndex));
-
-
-
-
-
-
-    unsigned char thread_return_temp = 0;
-
-    typedef struct {
-        unsigned char flag;
-        unsigned int duty_time;
-        unsigned char sleep_state_counter;
-    } THREAD_DELAY;
-
-    void THREAD_TIME_START(THREAD_DELAY *thread);
-    unsigned char THREAD_TIME_WAIT(THREAD_DELAY *thread, unsigned int threadTime);
-    unsigned char THREAD_TIME_DONE(THREAD_DELAY *thread);
-    void THREAD_CLEAR(THREAD_DELAY *thread);
-    unsigned char THREAD_GET_STATE();
-# 12 "newmain.c" 2
-# 1 "./soft_i2c.h" 1
-# 15 "./soft_i2c.h"
-    volatile unsigned char *pro_adress;
-
-    typedef struct {
-        unsigned char *lat_adress;
-        unsigned char *tris_adress;
-        unsigned char *port_adress;
-        unsigned char index;
-    } port_t;
-
-    typedef struct {
-        port_t SDA;
-        port_t SCK;
-    } i2c_t;
-
-    void SOFT_I2C_INIT(unsigned char *sda_tris_adress, unsigned char *sda_lat_adress, unsigned char *sda_port_adress, unsigned char sda_index, unsigned char *sck_tris_adress, unsigned char *sck_lat_adress, unsigned char *sck_port_adress, unsigned char sck_index);
-    void SOFT_I2C_START();
-    unsigned char SOFT_I2C_STOP();
-    void SOFT_I2C_SEND_ACK();
-    void SOFT_I2C_SEND_NACK();
-    unsigned char SOFT_I2C_WRITE(unsigned char data);
-    unsigned char SOFT_I2C_READ();
-# 13 "newmain.c" 2
-# 1 "./task.h" 1
-# 16 "./task.h"
-    typedef struct {
-        unsigned char flag;
-        void (*Funct)(unsigned char taskIndex);
-    } TASK_t;
-
-
-    void TASK_MAIN();
-    void TASK_START(unsigned char taskIndex);
-    void TASK_STOP(unsigned char taskIndex);
-    unsigned char TASK_is_START(unsigned char taskIndex);
-    void TASK_CREATE(unsigned char taskIndex, unsigned char flag, void (*Funct)(unsigned char taskIndex));
-# 14 "newmain.c" 2
-# 1 "./MENU.h" 1
-# 20 "./MENU.h"
-    typedef struct {
-        const char *text;
-        unsigned char flag;
-        unsigned int(*Funct)(unsigned char komut, unsigned int data);
-        unsigned int max;
-        unsigned int min;
-    } Menu_One;
-
-    char *MENU_SELECT_LIST;
-    Menu_One *MENU_POINTER = 0;
-    unsigned char MENU_MAX = 0;
-    char *SHOW_DATA_TEXT = 0;
-    char *MENU_UST_YAZI = 0;
-    Menu_One *MENU_POINTER;
-# 42 "./MENU.h"
-    void MENU_GIR(Menu_One *Menu, unsigned char komut);
-    void MENU_CIK();
-    void MENU_TEXT_PRINT(char *text, unsigned char index);
-    void MENU_SHOW_DATA_PRINT(char *text, unsigned int data);
-    void MENU_USE_SELECT(char *ust_yazi, char *data[], unsigned char index);
-    void MENU_USE_VAL(char *ust_yazi, unsigned int data_max, unsigned int data_min, unsigned int data);
-    void MENU_WORK(char MENU_MOVEMENT);
-    void MENU_INIT(void (*MENU_CLEAR_t)(void), void (*MENU_UPDATE_t)(void), void(*MENU_WRITE_TEXT_t)(unsigned int, unsigned int, const char *), void(*MENU_WRITE_DEC_t)(unsigned int, unsigned int, unsigned long));
-    void MENU_ANA_INIT(Menu_One *MENU_ANA_MENU_ANA_t);
-    void MENU_GIR(Menu_One *Menu, unsigned char komut);
-    void MENU_CIK();
-    void MENU_PROCESS();
-    void MENU_BUTON_ADD(char process);
-# 15 "newmain.c" 2
-# 33 "newmain.c"
-void PIN_SET_IO(unsigned char AnalogOrDijital, unsigned char InputOrOutput, unsigned char Port, unsigned char Pin, unsigned char HighOrLow);
-
-
-
-typedef enum {
-    ROLE_A_MODE,
-    ROLE_B_MODE,
-    ROLE_BUSY_MODE,
-    ROLE_ALARM_MODE,
-    ROLE_A_TIME,
-    ROLE_B_TIME,
-    ROLE_BUSY_TIME,
-    ROLE_ALARM_TIME,
-    COUNTER_A_FIX,
-    COUNTER_B_FIX,
-    COUNTER_A_TEMP,
-    COUNTER_B_TEMP,
-    RANDOM_A_MODE,
-    RANDOM_B_MODE,
-    RANDOM_A_AMOUNT,
-    RANDOM_B_AMOUNT,
-    INPUT_MODE,
-    INPUT_TIME_OUT,
-    INPUT_BUFFER,
-    INPUT_EMG_MODE,
-    ARM_DROP_MODE,
-    ARM_MOTOR_MODE,
-    ARM_MOTOR_SPEED,
-    ARM_MOTOR_BREAK_SPEED,
-    SETTINGS_DONE,
-} SETTINGS;
-
-unsigned int SETTING_VALUES[SETTINGS_DONE];
-
-void LOG_PRINT(char *msg)
-{
-    UART_1_STRING(msg);
-    UART_1_STRING("\r\n");
-}
-
-
-
-
-const char *SELECT_LIST_RELAY_MODE[] = {"MODE N/O", "MODE N/C"};
-
-unsigned int MENU_FUNCT_RELAY_A_MODE(unsigned char komut, unsigned int data)
+void MENU_GIR(Menu_One *Menu, unsigned char komut)
 {
     if (komut) {
-        SETTING_VALUES[ROLE_A_MODE] = data;
-        return 0;
+        MENU_BACK_POINTER[MENU_MENU_COUNTER] = MENU_POINTER;
+        MENU_BACK_INDEX[MENU_MENU_COUNTER] = MENU_INDEX_COUNTER;
+        MENU_MENU_COUNTER = MENU_MENU_COUNTER + 1;
+        MENU_POINTER = Menu;
+        MENU_INDEX_COUNTER = 0;
     } else {
-        MENU_SELECT_LIST = SELECT_LIST_RELAY_MODE;
-        return SETTING_VALUES[ROLE_A_MODE];
+        MENU_INDEX_COUNTER = 0;
+        MENU_MENU_COUNTER = 0;
+        MENU_POINTER = MENU_ANA_MENU_ANA;
+    }
+
+    MENU_UST_DATA_GETIR();
+}
+
+void MENU_CIK()
+{
+    if (MENU_MENU_COUNTER) {
+        MENU_MENU_COUNTER = MENU_MENU_COUNTER - 1;
+        MENU_POINTER = MENU_BACK_POINTER[MENU_MENU_COUNTER];
+        MENU_INDEX_COUNTER = MENU_BACK_INDEX[MENU_MENU_COUNTER];
+        MENU_UST_DATA_GETIR();
     }
 }
 
-unsigned int MENU_FUNCT_RELAY_B_MODE(unsigned char komut, unsigned int data)
+void MENU_TEXT_PRINT(char *text, unsigned char index)
 {
-    if (komut) {
-        SETTING_VALUES[ROLE_B_MODE] = data;
-        return 0;
-    } else {
-        MENU_SELECT_LIST = SELECT_LIST_RELAY_MODE;
-        return SETTING_VALUES[ROLE_B_MODE];
-    }
+    char msg[30];
+    MENU_CLEAR();
+    MENU_WRITE_TEXT(0, 0, MENU_UST_YAZI);
+
+    sprintf(msg, "%c) %s", (index + '1'), text);
+    MENU_WRITE_TEXT(0, 14, msg);
+    sprintf(msg, "%c/%c", (index + '1'), (MENU_MAX + '1'), text);
+    MENU_WRITE_TEXT(105, 24, msg);
+    MENU_UPDATE();
 }
 
-unsigned int MENU_FUNCT_RELAY_BUSY_MODE(unsigned char komut, unsigned int data)
+void MENU_SHOW_DATA_PRINT(char *text, unsigned int data)
 {
-    if (komut) {
-        SETTING_VALUES[ROLE_BUSY_MODE] = data;
-        return 0;
-    } else {
-        MENU_SELECT_LIST = SELECT_LIST_RELAY_MODE;
-        return SETTING_VALUES[ROLE_BUSY_MODE];
-    }
+    MENU_CLEAR();
+    MENU_WRITE_TEXT(0, 0, text);
+    if (data >= 1000) MENU_WRITE_DEC(51, 24, data);
+    else if (data >= 100) MENU_WRITE_DEC(53, 24, data);
+    else MENU_WRITE_DEC(56, 24, data);
+    MENU_UPDATE();
 }
 
-unsigned int MENU_FUNCT_RELAY_ALARM_MODE(unsigned char komut, unsigned int data)
+void MENU_USE_SELECT(char *ust_yazi, char *data[], unsigned char index)
 {
-    if (komut) {
-        SETTING_VALUES[ROLE_ALARM_MODE] = data;
-        return 0;
-    } else {
-        MENU_SELECT_LIST = SELECT_LIST_RELAY_MODE;
-        return SETTING_VALUES[ROLE_ALARM_MODE];
-    }
+    char msg[30];
+    MENU_CLEAR();
+    MENU_WRITE_TEXT(0, 0, ust_yazi);
+    sprintf(msg, "%c ) %s", ('a' + index), data[index]);
+    MENU_WRITE_TEXT(0, 16, msg);
+    MENU_UPDATE();
 }
 
-unsigned int MENU_FUNCT_RELAY_A_TIME(unsigned char komut, unsigned int data)
+void MENU_USE_VAL(char *ust_yazi, unsigned int data_max, unsigned int data_min, unsigned int data)
 {
-    if (komut) {
-        SETTING_VALUES[ROLE_A_TIME] = data;
-        return 0;
-    } else {
-        return SETTING_VALUES[ROLE_A_TIME];
-    }
+    MENU_CLEAR();
+    MENU_WRITE_TEXT(0, 0, ust_yazi);
+    MENU_WRITE_TEXT(0, 16, "MAX      NOW      MIN");
+    MENU_WRITE_DEC(0, 24, data_max);
+
+    if (data_min >= 1000) MENU_WRITE_DEC(103, 24, data_min);
+    else if (data_min >= 100) MENU_WRITE_DEC(109, 24, data_min);
+    else MENU_WRITE_DEC(116, 24, data_min);
+
+    if (data >= 1000) MENU_WRITE_DEC(51, 24, data);
+    else if (data >= 100) MENU_WRITE_DEC(53, 24, data);
+    else MENU_WRITE_DEC(56, 24, data);
+    MENU_UPDATE();
 }
 
-unsigned int MENU_FUNCT_RELAY_B_TIME(unsigned char komut, unsigned int data)
+void MENU_WORK(char MENU_MOVEMENT)
 {
-    if (komut) {
-        SETTING_VALUES[ROLE_B_TIME] = data;
-        return 0;
-    } else {
-        return SETTING_VALUES[ROLE_B_TIME];
-    }
-}
-
-unsigned int MENU_FUNCT_RELAY_BUSY_TIME(unsigned char komut, unsigned int data)
-{
-    if (komut) {
-        SETTING_VALUES[ROLE_BUSY_TIME] = data;
-        return 0;
-    } else {
-        return SETTING_VALUES[ROLE_BUSY_TIME];
-    }
-}
-
-unsigned int MENU_FUNCT_RELAY_ALARM_TIME(unsigned char komut, unsigned int data)
-{
-    if (komut) {
-        SETTING_VALUES[ROLE_ALARM_TIME] = data;
-        return 0;
-    } else {
-        return SETTING_VALUES[ROLE_ALARM_TIME];
-    }
-}
-
-Menu_One RELAY_MENU[] = {
-    {.text = "RELAY A MODE", .flag = 0x04, .Funct = MENU_FUNCT_RELAY_A_MODE, .max = 1},
-    {.text = "RELAY B MODE", .flag = 0x04, .Funct = MENU_FUNCT_RELAY_B_MODE, .max = 1},
-    {.text = "RELAY BUSY MODE", .flag = 0x04, .Funct = MENU_FUNCT_RELAY_BUSY_MODE, .max = 1},
-    {.text = "RELAY ALARM MODE", .flag = 0x04, .Funct = MENU_FUNCT_RELAY_ALARM_MODE, .max = 1},
-    {.text = "RELAY A TIME", .flag = 0x02, .Funct = MENU_FUNCT_RELAY_A_TIME, .max = 100, .min = 0},
-    {.text = "RELAY B TIME", .flag = 0x02, .Funct = MENU_FUNCT_RELAY_B_TIME, .max = 100, .min = 0},
-    {.text = "RELAY BUSY TIME", .flag = 0x02, .Funct = MENU_FUNCT_RELAY_BUSY_TIME, .max = 100, .min = 0},
-    {.text = "RELAY ALARM TIME", .flag = 0x02, .Funct = MENU_FUNCT_RELAY_ALARM_TIME, .max = 100, .min = 0},
-};
-
-
-
-char *COUNTER_CANT_ERASE = "CANT ERASE";
-char *COUNTER_ASK_ERASE = "ERASE DATA ?";
-
-unsigned int MENU_FUNCT_COUNTER_A_FIX(unsigned char komut, unsigned int data)
-{
-    if (komut) {
-        SETTING_VALUES[COUNTER_A_FIX] = data;
-        return 0;
-    } else {
-        SHOW_DATA_TEXT = COUNTER_CANT_ERASE;
-        return SETTING_VALUES[COUNTER_A_FIX];
-    }
-}
-
-unsigned int MENU_FUNCT_COUNTER_B_FIX(unsigned char komut, unsigned int data)
-{
-    if (komut) {
-        SETTING_VALUES[COUNTER_B_FIX] = data;
-        return 0;
-    } else {
-        SHOW_DATA_TEXT = COUNTER_CANT_ERASE;
-        return SETTING_VALUES[COUNTER_B_FIX];
-    }
-}
-
-unsigned int MENU_FUNCT_COUNTER_A_TEMP(unsigned char komut, unsigned int data)
-{
-    if (komut) {
-        SETTING_VALUES[COUNTER_A_TEMP] = data;
-        return 0;
-    } else {
-        SHOW_DATA_TEXT = COUNTER_ASK_ERASE;
-        return SETTING_VALUES[COUNTER_A_TEMP];
-    }
-}
-
-unsigned int MENU_FUNCT_COUNTER_B_TEMP(unsigned char komut, unsigned int data)
-{
-    if (komut) {
-        SETTING_VALUES[COUNTER_B_TEMP] = data;
-        return 0;
-    } else {
-        SHOW_DATA_TEXT = COUNTER_ASK_ERASE;
-        return SETTING_VALUES[COUNTER_B_TEMP];
-    }
-}
-
-Menu_One COUNTER_MENU[] = {
-    {.text = "FIX A COUNTER", .flag = 0x08, .Funct = MENU_FUNCT_COUNTER_A_FIX, .max = 65536, .min = 0},
-    {.text = "FIX B COUNTER", .flag = 0x08, .Funct = MENU_FUNCT_COUNTER_B_FIX, .max = 65536, .min = 0},
-    {.text = "TEMP A COUNTER", .flag = 0x08, .Funct = MENU_FUNCT_COUNTER_A_TEMP, .max = 65536, .min = 0},
-    {.text = "TEMP B COUNTER", .flag = 0x08, .Funct = MENU_FUNCT_COUNTER_B_TEMP, .max = 65536, .min = 0},
-};
-
-
-const char *SELECT_LIST_RANDOM_MODE[] = {"MODE DISABLE", "MODE ENABLE"};
-
-unsigned int MENU_FUNCT_RANDOM_A_MODE(unsigned char komut, unsigned int data)
-{
-    if (komut) {
-        SETTING_VALUES[RANDOM_A_MODE] = data;
-        return 0;
-    } else {
-        MENU_SELECT_LIST = SELECT_LIST_RANDOM_MODE;
-        return SETTING_VALUES[RANDOM_A_MODE];
-    }
-}
-
-unsigned int MENU_FUNCT_RANDOM_B_MODE(unsigned char komut, unsigned int data)
-{
-    if (komut) {
-        SETTING_VALUES[RANDOM_B_MODE] = data;
-        return 0;
-    } else {
-        MENU_SELECT_LIST = SELECT_LIST_RANDOM_MODE;
-        return SETTING_VALUES[RANDOM_B_MODE];
-    }
-}
-
-unsigned int MENU_FUNCT_RANDOM_A_AMOUNT(unsigned char komut, unsigned int data)
-{
-    if (komut) {
-        SETTING_VALUES[RANDOM_A_AMOUNT] = data;
-        return 0;
-    } else {
-        return SETTING_VALUES[RANDOM_A_AMOUNT];
-    }
-}
-
-unsigned int MENU_FUNCT_RANDOM_B_AMOUNT(unsigned char komut, unsigned int data)
-{
-    if (komut) {
-        SETTING_VALUES[RANDOM_B_AMOUNT] = data;
-        return 0;
-    } else {
-        return SETTING_VALUES[RANDOM_B_AMOUNT];
-    }
-}
-
-Menu_One RANDOM_MENU[] = {
-    {.text = "RANDOM A MODE", .flag = 0x04, .Funct = MENU_FUNCT_RANDOM_A_MODE, .max = 1},
-    {.text = "RANDOM B MODE", .flag = 0x04, .Funct = MENU_FUNCT_RANDOM_B_MODE, .max = 1},
-    {.text = "RELAY A AMOUNT", .flag = 0x02, .Funct = MENU_FUNCT_RANDOM_A_AMOUNT, .max = 250, .min = 0},
-    {.text = "RELAY B AMOUNT", .flag = 0x02, .Funct = MENU_FUNCT_RANDOM_B_AMOUNT, .max = 250, .min = 0},
-};
-
-
-const char *SELECT_LIST_INPUT_MODE[] = {"FREE", "CONTROL"};
-const char *SELECT_LIST_EMG_MODE[] = {"N/O", "N/C"};
-
-unsigned int MENU_FUNCT_INPUT_MODE(unsigned char komut, unsigned int data)
-{
-    if (komut) {
-        SETTING_VALUES[INPUT_MODE] = data;
-        return 0;
-    } else {
-        MENU_SELECT_LIST = SELECT_LIST_INPUT_MODE;
-        return SETTING_VALUES[INPUT_MODE];
-    }
-}
-
-unsigned int MENU_FUNCT_INPUT_TIME_OUT(unsigned char komut, unsigned int data)
-{
-    if (komut) {
-        SETTING_VALUES[INPUT_TIME_OUT] = data;
-        return 0;
-    } else {
-        return SETTING_VALUES[INPUT_TIME_OUT];
-    }
-}
-
-unsigned int MENU_FUNCT_INPUT_BUFFER(unsigned char komut, unsigned int data)
-{
-    if (komut) {
-        SETTING_VALUES[INPUT_BUFFER] = data;
-        return 0;
-    } else {
-        return SETTING_VALUES[INPUT_BUFFER];
-    }
-}
-
-unsigned int MENU_FUNCT_EMG_MODE(unsigned char komut, unsigned int data)
-{
-    if (komut) {
-        SETTING_VALUES[INPUT_EMG_MODE] = data;
-        return 0;
-    } else {
-        MENU_SELECT_LIST = SELECT_LIST_EMG_MODE;
-        return SETTING_VALUES[INPUT_EMG_MODE];
-    }
-}
-
-Menu_One INPUT_MENU[] = {
-    {.text = "INPUT MODE", .flag = 0x04, .Funct = MENU_FUNCT_INPUT_MODE, .max = 1},
-    {.text = "INPUT TIME OUT", .flag = 0x02, .Funct = MENU_FUNCT_INPUT_TIME_OUT, .max = 100, .min = 0},
-    {.text = "INPUT BUFFER", .flag = 0x02, .Funct = MENU_FUNCT_INPUT_BUFFER, .max = 20, .min = 0},
-    {.text = "EMG MODE", .flag = 0x04, .Funct = MENU_FUNCT_EMG_MODE, .max = 1},
-};
-
-
-
-const char *SELECT_LIST_DROP_ARM_MODE[] = {"DISABLE", "JUST EMG", "JUST POWER FAIL", "POWER FAIL & EMG"};
-const char *SELECT_LIST_ARM_MOTOR_MODE[] = {"PASSIVE", "ACTIVE"};
-
-unsigned int MENU_FUNCT_ARM_DROP_MODE(unsigned char komut, unsigned int data)
-{
-    if (komut) {
-        SETTING_VALUES[ARM_DROP_MODE] = data;
-        return 0;
-    } else {
-        MENU_SELECT_LIST = SELECT_LIST_DROP_ARM_MODE;
-        return SETTING_VALUES[ARM_DROP_MODE];
-    }
-}
-
-unsigned int MENU_FUNCT_ARM_MOTOR_MODE(unsigned char komut, unsigned int data)
-{
-    if (komut) {
-        SETTING_VALUES[ARM_MOTOR_MODE] = data;
-        return 0;
-    } else {
-        MENU_SELECT_LIST = SELECT_LIST_ARM_MOTOR_MODE;
-        return SETTING_VALUES[ARM_MOTOR_MODE];
-    }
-}
-
-unsigned int MENU_FUNCT_ARM_MOTOR_SPEED(unsigned char komut, unsigned int data)
-{
-    if (komut) {
-        SETTING_VALUES[ARM_MOTOR_SPEED] = data;
-        return 0;
-    } else {
-        return SETTING_VALUES[ARM_MOTOR_SPEED];
-    }
-}
-
-unsigned int MENU_FUNCT_ARM_MOTOR_BREAK_SPEED(unsigned char komut, unsigned int data)
-{
-    if (komut) {
-        SETTING_VALUES[ARM_MOTOR_BREAK_SPEED] = data;
-        return 0;
-    } else {
-        return SETTING_VALUES[ARM_MOTOR_BREAK_SPEED];
-    }
-}
-
-Menu_One ARM_SETTING_MENU[] = {
-    {.text = "DROP ARM MODE", .flag = 0x04, .Funct = MENU_FUNCT_ARM_DROP_MODE, .max = 3},
-    {.text = "MOTOR MODE", .flag = 0x04, .Funct = MENU_FUNCT_ARM_MOTOR_MODE, .max = 3},
-    {.text = "MOTOR SPEED", .flag = 0x02, .Funct = MENU_FUNCT_ARM_MOTOR_SPEED, .max = 100, .min = 0},
-    {.text = "MOTOR BREAK SPEED", .flag = 0x02, .Funct = MENU_FUNCT_ARM_MOTOR_BREAK_SPEED, .max = 100, .min = 0},
-    {.text = "MAS12 STATUS", .flag = 0x10, .Funct = 0, .max = 0, .min = 0},
-};
-
-
-Menu_One ANA_MENU[] = {
-    {.text = "INPUT SETTINGS", .flag = 0x01, .Funct = (unsigned int(*)(unsigned char, unsigned int)) INPUT_MENU},
-    {.text = "ARM SETTINGS", .flag = 0x01, .Funct = (unsigned int(*)(unsigned char, unsigned int)) ARM_SETTING_MENU},
-    {.text = "RELAY SETTINGS", .flag = 0x01, .Funct = (unsigned int(*)(unsigned char, unsigned int)) RELAY_MENU},
-    {.text = "SYSTEM COUNTER", .flag = 0x01, .Funct = (unsigned int(*)(unsigned char, unsigned int)) COUNTER_MENU},
-    {.text = "RANDOM SORTER", .flag = 0x01, .Funct = (unsigned int(*)(unsigned char, unsigned int)) RANDOM_MENU},
-};
-char *ANA_MENU_UST_YAZI = "   >> MAIN MENU <<";
-char *RELAY_MENU_UST_YAZI = "  >> RELAY MENU <<";
-char *ARM_MENU_UST_YAZI = "    >> ARM MENU <<";
-char *COUNTER_MENU_UST_YAZI = " >> COUNTER MENU <<";
-char *RANDOM_MENU_UST_YAZI = "  >> RANDOM MENU <<";
-char *INPUT_MENU_UST_YAZI = "  >> INPUT MENU <<";
-
-void MENU_UST_DATA_GETIR()
-{
-    if (MENU_POINTER == ANA_MENU) MENU_MAX = sizeof (ANA_MENU) / sizeof (ANA_MENU[0]) - 1;
-    if (MENU_POINTER == RELAY_MENU) MENU_MAX = sizeof (RELAY_MENU) / sizeof (RELAY_MENU[0]) - 1;
-    if (MENU_POINTER == COUNTER_MENU) MENU_MAX = sizeof (COUNTER_MENU) / sizeof (COUNTER_MENU[0]) - 1;
-    if (MENU_POINTER == RANDOM_MENU) MENU_MAX = sizeof (RANDOM_MENU) / sizeof (RANDOM_MENU[0]) - 1;
-    if (MENU_POINTER == INPUT_MENU) MENU_MAX = sizeof (INPUT_MENU) / sizeof (INPUT_MENU[0]) - 1;
-    if (MENU_POINTER == ARM_SETTING_MENU) sizeof (ARM_SETTING_MENU) / sizeof (ARM_SETTING_MENU[0]) - 1;
-
-    if (MENU_POINTER == ANA_MENU) MENU_UST_YAZI = ANA_MENU_UST_YAZI;
-    if (MENU_POINTER == RELAY_MENU) MENU_UST_YAZI = MENU_UST_YAZI = RELAY_MENU_UST_YAZI;
-    if (MENU_POINTER == ARM_SETTING_MENU) MENU_UST_YAZI = ARM_MENU_UST_YAZI;
-    if (MENU_POINTER == COUNTER_MENU) MENU_UST_YAZI = COUNTER_MENU_UST_YAZI;
-    if (MENU_POINTER == RANDOM_MENU) MENU_UST_YAZI = RANDOM_MENU_UST_YAZI;
-    if (MENU_POINTER == INPUT_MENU) MENU_UST_YAZI = INPUT_MENU_UST_YAZI;
-}
-
-
-
-void MENU_BUTON_READ()
-{
-    static Buton_t MENU_OK;
-    static Buton_t MENU_DOWN;
-    static Buton_t MENU_UP;
     unsigned char temp = 0;
-
-    temp = BUTON_PROCESS(&MENU_UP, PIN_GET_PORT('B', 0), 10, 10);
-    if (temp) {
-        if (temp == 0x01) {
-
-        }
-        if (temp == 0x02) {
-            MENU_BUTON_ADD('U');
-        }
-    }
-
-
-    temp = BUTON_PROCESS(&MENU_OK, PIN_GET_PORT('B', 1), 10, 10);
-    if (temp) {
-        if (temp == 0x01) {
+    static unsigned int MENU_TEMP_VAL = 0;
+    static unsigned int VAL_CHANGE_FLAG = 0;
+    static unsigned char MENU_SHOW_FLAG = 0;
+    if (MENU_SHOW_FLAG == 0) {
+        if (MENU_MOVEMENT == 'O') {
+            temp = 1;
+            MENU_GIR(MENU_ANA_MENU_ANA, 0);
+        } else return;
+    } else {
+        if (MENU_MOVEMENT == 'U') {
+            if (VAL_CHANGE_FLAG) {
+                if (MENU_POINTER[MENU_INDEX_COUNTER].max > MENU_TEMP_VAL) MENU_TEMP_VAL = MENU_TEMP_VAL + 1;
+            } else if (MENU_MAX > MENU_INDEX_COUNTER) MENU_INDEX_COUNTER = MENU_INDEX_COUNTER + 1;
 
         }
-        if (temp == 0x02) {
-            if (BUTON_GET_TIME(&MENU_OK) > 1000) MENU_BUTON_ADD('B');
-            else MENU_BUTON_ADD('O');
+        if (MENU_MOVEMENT == 'D') {
+            if (VAL_CHANGE_FLAG) {
+                if (MENU_POINTER[MENU_INDEX_COUNTER].min < MENU_TEMP_VAL) MENU_TEMP_VAL = MENU_TEMP_VAL - 1;
+            } else if (MENU_INDEX_COUNTER) MENU_INDEX_COUNTER = MENU_INDEX_COUNTER - 1;
         }
-    }
-
-
-    temp = BUTON_PROCESS(&MENU_DOWN, PIN_GET_PORT('B', 2), 10, 10);
-    if (temp) {
-        if (temp == 0x01) {
-
-        }
-        if (temp == 0x02) {
-
-            MENU_BUTON_ADD('D');
-        }
-    }
-}
-# 489 "newmain.c"
-unsigned int IN_STATUS = 0;
-
-void INPUT_READ()
-{
-
-    unsigned char temp = 0;
-    static Input_t INPUT_A;
-    temp = INPUT_DEBOUNCE(&INPUT_A, ((PORTF & (1 << 1)) / (1 << 1)), 4);
-    if (temp) {
-        if (temp == 0x01) IN_STATUS = IN_STATUS | 0x0001;
-        if (temp == 0x02) IN_STATUS = IN_STATUS | 0x0002;
-    }
-    static Input_t INPUT_B;
-    temp = INPUT_DEBOUNCE(&INPUT_B, ((PORTF & (1 << 2)) / (1 << 2)), 4);
-    if (temp) {
-        if (temp == 0x01) IN_STATUS = IN_STATUS | 0x0004;
-        if (temp == 0x02) IN_STATUS = IN_STATUS | 0x0008;
-    }
-    static Input_t INHIBIT_A;
-    temp = INPUT_DEBOUNCE(&INHIBIT_A, ((PORTF & (1 << 3)) / (1 << 3)), 4);
-    if (temp) {
-        if (temp == 0x01) IN_STATUS = IN_STATUS | 0x0010;
-        if (temp == 0x02) IN_STATUS = IN_STATUS | 0x0020;
-    }
-    static Input_t INHIBIT_B;
-    temp = INPUT_DEBOUNCE(&INHIBIT_B, ((PORTF & (1 << 4)) / (1 << 4)), 4);
-    if (temp) {
-        if (temp == 0x01) IN_STATUS = IN_STATUS | 0x0040;
-        if (temp == 0x02) IN_STATUS = IN_STATUS | 0x0080;
-    }
-    static Input_t INPUT_EMG;
-    temp = INPUT_DEBOUNCE(&INPUT_EMG, ((PORTF & (1 << 5)) / (1 << 5)), 4);
-    if (temp) {
-        if (temp == 0x01) IN_STATUS = IN_STATUS | 0x0100;
-        if (temp == 0x02) IN_STATUS = IN_STATUS | 0x0200;
-    }
-
-    static Input_t INPUT_EMG_MUTE;
-    temp = INPUT_DEBOUNCE(&INPUT_EMG_MUTE, ((PORTF & (1 << 6)) / (1 << 6)), 4);
-    if (temp) {
-        if (temp == 0x01) IN_STATUS = IN_STATUS | 0x0400;
-        if (temp == 0x02) IN_STATUS = IN_STATUS | 0x0800;
-    }
-    static Input_t RES;
-    temp = INPUT_DEBOUNCE(&RES, ((PORTF & (1 << 7)) / (1 << 7)), 4);
-    if (temp) {
-        if (temp == 0x01) IN_STATUS = IN_STATUS | 0x1000;
-        if (temp == 0x02) IN_STATUS = IN_STATUS | 0x2000;
-    }
-}
-
-void INPUT_PROCESS()
-{
-    if (IN_STATUS) {
-        if (IN_STATUS & 0x0001) {
-            IN_STATUS = IN_STATUS &~0x0001;
-            LOG_PRINT("INPUT A PRESSED");
-        }
-        if (IN_STATUS & 0x0002) {
-            IN_STATUS = IN_STATUS &~0x0002;
-            LOG_PRINT("INPUT A RELEASED");
-        }
-        if (IN_STATUS & 0x0004) {
-            IN_STATUS = IN_STATUS &~0x0004;
-            LOG_PRINT("INPUT B PRESSED");
-        }
-        if (IN_STATUS & 0x0008) {
-            IN_STATUS = IN_STATUS &~0x0008;
-            LOG_PRINT("INPUT B RELEASED");
-        }
-        if (IN_STATUS & 0x0010) {
-            IN_STATUS = IN_STATUS &~0x0010;
-            LOG_PRINT("INHIBIT A PRESSED");
-        }
-        if (IN_STATUS & 0x0020) {
-            IN_STATUS = IN_STATUS &~0x0020;
-            LOG_PRINT("INHIBIT A RELEASED");
-        }
-        if (IN_STATUS & 0x0040) {
-            IN_STATUS = IN_STATUS &~0x0040;
-            LOG_PRINT("INHIBIT B PRESSED");
-        }
-        if (IN_STATUS & 0x0080) {
-            IN_STATUS = IN_STATUS &~0x0080;
-            LOG_PRINT("INHIBIT B RELEASED");
-        }
-        if (IN_STATUS & 0x0100) {
-            IN_STATUS = IN_STATUS &~0x0100;
-            LOG_PRINT("INPUT EMG PRESSED");
-        }
-        if (IN_STATUS & 0x0200) {
-            IN_STATUS = IN_STATUS &~0x0200;
-            LOG_PRINT("INPUT EMG RELEASED");
-        }
-        if (IN_STATUS & 0x0400) {
-            IN_STATUS = IN_STATUS &~0x0400;
-            LOG_PRINT("INPUT EMG MUTE PRESSED");
-        }
-        if (IN_STATUS & 0x0800) {
-            IN_STATUS = IN_STATUS &~0x0800;
-            LOG_PRINT("INPUT EMG MUTE RELEASED");
-        }
-        if (IN_STATUS & 0x1000) {
-            IN_STATUS = IN_STATUS &~0x1000;
-            LOG_PRINT("INPUT RES PRESSED");
-        }
-        if (IN_STATUS & 0x2000) {
-            IN_STATUS = IN_STATUS &~0x2000;
-            LOG_PRINT("INPUT RES RELEASED");
-        }
-    }
-}
-# 619 "newmain.c"
-typedef enum {
-    ROLE_CIKIS_AB = 0,
-    ROLE_CIKIS_BA,
-    ROLE_CIKIS_ALARM,
-    ROLE_CIKIS_BUSY,
-    ROLE_CIKIS_DONE,
-} ROLE_TYPES;
-unsigned char ROLE_CIKIS_MODE[ROLE_CIKIS_DONE];
-unsigned int ROLE_CIKIS_TIME[ROLE_CIKIS_DONE];
-unsigned char ROLE_CIKIS_STATE[ROLE_CIKIS_DONE];
-
-void ROLE_MODE_SELECT(unsigned char index, unsigned char mode)
-{
-    ROLE_CIKIS_MODE[index] = mode;
-    if (ROLE_CIKIS_MODE[index] == 0) {
-        if (index == ROLE_CIKIS_AB) (LATD = LATD & ~(1 << 1));
-        else if (index == ROLE_CIKIS_BA) (LATD = LATD & ~(1 << 2));
-        else if (index == ROLE_CIKIS_ALARM) (LATD = LATD & ~(1 << 3));
-        else if (index == ROLE_CIKIS_BUSY) (LATD = LATD & ~(1 << 4));
-    }
-    if (ROLE_CIKIS_MODE[index] == 1) {
-        if (index == ROLE_CIKIS_AB) (LATD = LATD | (1 << 1));
-        else if (index == ROLE_CIKIS_BA) (LATD = LATD | (1 << 2));
-        else if (index == ROLE_CIKIS_ALARM) (LATD = LATD | (1 << 3));
-        else if (index == ROLE_CIKIS_BUSY) (LATD = LATD | (1 << 4));
-    }
-}
-
-void ROLE_GO_OUTPUT(unsigned char index, unsigned char time)
-{
-    ROLE_CIKIS_STATE[index] = 1;
-    ROLE_CIKIS_TIME[index] = ((time));
-    if (ROLE_CIKIS_MODE[index] == 0) {
-        if (index == ROLE_CIKIS_AB) (LATD = LATD | (1 << 1));
-        else if (index == ROLE_CIKIS_BA) (LATD = LATD | (1 << 2));
-        else if (index == ROLE_CIKIS_ALARM) (LATD = LATD | (1 << 3));
-        else if (index == ROLE_CIKIS_BUSY) (LATD = LATD | (1 << 4));
-    }
-    if (ROLE_CIKIS_MODE[index] == 1) {
-        if (index == ROLE_CIKIS_AB) (LATD = LATD & ~(1 << 1));
-        else if (index == ROLE_CIKIS_BA) (LATD = LATD & ~(1 << 2));
-        else if (index == ROLE_CIKIS_ALARM) (LATD = LATD & ~(1 << 3));
-        else
-
-            if (index == ROLE_CIKIS_BUSY) (LATD = LATD & ~(1 << 4));
-    }
-}
-
-void ROLE_OUTPUT(unsigned char index)
-{
-    if (index == ROLE_CIKIS_AB)ROLE_GO_OUTPUT(ROLE_CIKIS_AB, SETTING_VALUES[ROLE_A_TIME]);
-    if (index == ROLE_CIKIS_BA)ROLE_GO_OUTPUT(ROLE_CIKIS_BA, SETTING_VALUES[ROLE_B_TIME]);
-    if (index == ROLE_CIKIS_BUSY)ROLE_GO_OUTPUT(ROLE_CIKIS_BUSY, SETTING_VALUES[ROLE_BUSY_TIME]);
-    if (index == ROLE_CIKIS_ALARM)ROLE_GO_OUTPUT(ROLE_CIKIS_ALARM, SETTING_VALUES[ROLE_ALARM_TIME]);
-}
-
-void INTERRUPT_KONTROL_ROLE_TIME()
-{
-    for (unsigned char x = 0; x < 4; x++) {
-        if (ROLE_CIKIS_STATE[x] == 0) continue;
-        else {
-            if (ROLE_CIKIS_TIME[x]) ROLE_CIKIS_TIME[x] = ROLE_CIKIS_TIME[x] - 1;
-            else {
-                if (ROLE_CIKIS_MODE[x] == 0) {
-                    if (x == ROLE_CIKIS_AB) (LATD = LATD & ~(1 << 1));
-                    else if (x == ROLE_CIKIS_BA) (LATD = LATD & ~(1 << 2));
-                    else if (x == ROLE_CIKIS_ALARM) (LATD = LATD & ~(1 << 3));
-                    else if (x == ROLE_CIKIS_BUSY) (LATD = LATD & ~(1 << 4));
+        if (MENU_MOVEMENT == 'B') {
+            if (MENU_MOVEMENT == 'B') {
+                if (VAL_CHANGE_FLAG == 1) VAL_CHANGE_FLAG = 0;
+                else {
+                    if (MENU_MENU_COUNTER == 0) {
+                        MENU_SHOW_FLAG = 0;
+                        temp = 2;
+                    } else MENU_CIK();
                 }
-                if (ROLE_CIKIS_MODE[x] == 1) {
-                    if (x == ROLE_CIKIS_AB) (LATD = LATD | (1 << 1));
-                    else if (x == ROLE_CIKIS_BA) (LATD = LATD | (1 << 2));
-                    else if (x == ROLE_CIKIS_ALARM) (LATD = LATD | (1 << 3));
-                    else if (x == ROLE_CIKIS_BUSY) (LATD = LATD | (1 << 4));
-                }
-                ROLE_CIKIS_STATE[x] = 0;
             }
         }
+        if (MENU_MOVEMENT == 'O') {
+            if (MENU_POINTER[MENU_INDEX_COUNTER].flag & 0x01) {
+                MENU_GIR(MENU_POINTER[MENU_INDEX_COUNTER].Funct, 1);
+            } else if (MENU_POINTER[MENU_INDEX_COUNTER].flag & 0x08) {
+                if (VAL_CHANGE_FLAG == 0) {
+                    MENU_TEMP_VAL = 0;
+                    if (MENU_POINTER[MENU_INDEX_COUNTER].Funct != 0) MENU_TEMP_VAL = MENU_POINTER[MENU_INDEX_COUNTER].Funct(0, 9999);
+                    VAL_CHANGE_FLAG = 1;
+                } else {
+                    if (MENU_POINTER[MENU_INDEX_COUNTER].Funct != 0) MENU_POINTER[MENU_INDEX_COUNTER].Funct(1, MENU_TEMP_VAL);
+                    VAL_CHANGE_FLAG = 0;
+                }
+            } else if ((MENU_POINTER[MENU_INDEX_COUNTER].flag & 0x02) || (MENU_POINTER[MENU_INDEX_COUNTER].flag & 0x04)) {
+                if (VAL_CHANGE_FLAG == 0) {
+                    MENU_TEMP_VAL = 0;
+                    if (MENU_POINTER[MENU_INDEX_COUNTER].Funct != 0) MENU_TEMP_VAL = MENU_POINTER[MENU_INDEX_COUNTER].Funct(0, 9999);
+                    VAL_CHANGE_FLAG = 1;
+                } else {
+                    if (MENU_POINTER[MENU_INDEX_COUNTER].Funct != 0) MENU_POINTER[MENU_INDEX_COUNTER].Funct(1, MENU_TEMP_VAL);
+                    VAL_CHANGE_FLAG = 0;
+                }
+            }
+        }
+
+    }
+    if (temp == 1) MENU_SHOW_FLAG = 1;
+    if (temp == 2) {
+        MENU_CLEAR();
+        MENU_UPDATE();
+    }
+
+    if (MENU_SHOW_FLAG) {
+        if (VAL_CHANGE_FLAG) {
+            if (MENU_POINTER[MENU_INDEX_COUNTER].flag & 0x02) MENU_USE_VAL(MENU_POINTER[MENU_INDEX_COUNTER].text, MENU_POINTER[MENU_INDEX_COUNTER].max, MENU_POINTER[MENU_INDEX_COUNTER].min, MENU_TEMP_VAL);
+            else if (MENU_POINTER[MENU_INDEX_COUNTER].flag & 0x04) MENU_USE_SELECT(MENU_POINTER[MENU_INDEX_COUNTER].text, MENU_SELECT_LIST, MENU_TEMP_VAL);
+            else if (MENU_POINTER[MENU_INDEX_COUNTER].flag & 0x08) MENU_SHOW_DATA_PRINT(SHOW_DATA_TEXT, MENU_TEMP_VAL);
+        } else MENU_TEXT_PRINT(MENU_POINTER[MENU_INDEX_COUNTER].text, MENU_INDEX_COUNTER);
     }
 }
 
-void INIT_ROLE()
+void MENU_INIT(void (*MENU_CLEAR_t)(void), void (*MENU_UPDATE_t)(void), void(*MENU_WRITE_TEXT_t)(unsigned int, unsigned int, const char *), void(*MENU_WRITE_DEC_t)(unsigned int, unsigned int, unsigned long))
 {
-    SETTING_VALUES[ROLE_A_TIME] = 5;
-    SETTING_VALUES[ROLE_B_TIME] = 10;
-    SETTING_VALUES[ROLE_BUSY_TIME] = 15;
-    SETTING_VALUES[ROLE_ALARM_TIME] = 20;
-
-    SETTING_VALUES[ROLE_A_MODE] = 0;
-    SETTING_VALUES[ROLE_B_MODE] = 0;
-    SETTING_VALUES[ROLE_ALARM_MODE] = 0;
-    SETTING_VALUES[ROLE_BUSY_MODE] = 0;
-
-    ROLE_MODE_SELECT(ROLE_CIKIS_AB, SETTING_VALUES[ROLE_A_MODE]);
-    ROLE_MODE_SELECT(ROLE_CIKIS_BA, SETTING_VALUES[ROLE_B_MODE]);
-    ROLE_MODE_SELECT(ROLE_CIKIS_ALARM, SETTING_VALUES[ROLE_ALARM_MODE]);
-    ROLE_MODE_SELECT(ROLE_CIKIS_BUSY, SETTING_VALUES[ROLE_BUSY_MODE]);
+    MENU_CLEAR = MENU_CLEAR_t;
+    MENU_UPDATE = MENU_UPDATE_t;
+    MENU_WRITE_DEC = MENU_WRITE_DEC_t;
+    MENU_WRITE_TEXT = MENU_WRITE_TEXT_t;
 }
 
-
-
-
-
-void LED_THREAD(unsigned char threadIndex)
+void MENU_ANA_INIT(Menu_One *MENU_ANA_MENU_ANA_t)
 {
-    static THREAD_DELAY timer;
-    THREAD_TIME_START(&timer);
-    if (THREAD_TIME_WAIT(&timer, 950)) if (THREAD_GET_STATE() == 0x01) LATD4= ~LATD4;
-    if (THREAD_TIME_WAIT(&timer, 50)) if (THREAD_GET_STATE() == 0x01) LATD4= ~LATD4;
-    if (THREAD_TIME_DONE(&timer)) THREAD_DONE_CONTROL(threadIndex);
+    MENU_ANA_MENU_ANA = MENU_ANA_MENU_ANA_t;
 }
+# 193 "MENU.c"
+unsigned char MENU_BUTON_STATUS = 0;
 
-void INPUT_THREAD(unsigned char threadIndex)
+void MENU_PROCESS()
 {
-    MENU_BUTON_READ();
-    MENU_PROCESS();
-    INPUT_READ();
-    INPUT_PROCESS();
-}
+    if (MENU_BUTON_STATUS) {
+        if (MENU_BUTON_STATUS & 0x02) {
+            MENU_BUTON_STATUS = MENU_BUTON_STATUS & ~0x02;
+            MENU_WORK('U');
+        }
+        if (MENU_BUTON_STATUS & 0x01) {
+            MENU_BUTON_STATUS = MENU_BUTON_STATUS & ~0x01;
+            MENU_WORK('O');
+        }
 
-void ROLE_THREAD(unsigned char threadIndex)
-{
-    INTERRUPT_KONTROL_ROLE_TIME();
-}
+        if (MENU_BUTON_STATUS & 0x04) {
+            MENU_BUTON_STATUS = MENU_BUTON_STATUS & ~0x04;
+            MENU_WORK('D');
+        }
+        if (MENU_BUTON_STATUS & 0x08) {
 
-
-
-void TASK_TEST(unsigned char taskIndex)
-{
-    LATD1= ~LATD1;
-}
-
-void main(void)
-{
-    SET_OSC(64);
-
-
-
-    PIN_SET_ANSEL(0xFF, 0xFF);
-    PIN_SET_IO('D', 'O', 'A', 3, 'L');
-
-    PIN_SET_IO('D', 'I', 'B', 4, 'L');
-    PIN_SET_IO('D', 'I', 'B', 5, 'L');
-    PIN_SET_IO('D', 'I', 'B', 6, 'L');
-
-    PIN_SET_IO('D', 'O', 'D', 1, 'L');
-    PIN_SET_IO('D', 'O', 'D', 2, 'L');
-    PIN_SET_IO('D', 'O', 'D', 3, 'L');
-    PIN_SET_IO('D', 'O', 'D', 4, 'L');
-
-    PIN_SET_IO('D', 'I', 'F', 1, 'L');
-    PIN_SET_IO('D', 'I', 'F', 2, 'L');
-    PIN_SET_IO('D', 'I', 'F', 3, 'L');
-    PIN_SET_IO('D', 'I', 'F', 4, 'L');
-    PIN_SET_IO('D', 'I', 'F', 5, 'L');
-    PIN_SET_IO('D', 'I', 'F', 6, 'L');
-    PIN_SET_IO('D', 'I', 'F', 7, 'L');
-# 795 "newmain.c"
-    I2C_1_INIT(100000);
-
-    UART_1_INIT(38400);
-    TIMER_1_INIT(1);
-    PIN_IOC_INTERRUPT(1, 1);
-
-
-    OLED_Init(I2C_1_START, I2C_1_WRITE, I2C_1_STOP);
-    OLED_Write_Dec(0, 0, 1253);
-    OLED_Update();
-    INIT_ROLE();
-    ROLE_OUTPUT(ROLE_CIKIS_AB);
-    ROLE_OUTPUT(ROLE_CIKIS_BA);
-    ROLE_OUTPUT(ROLE_CIKIS_BUSY);
-    ROLE_OUTPUT(ROLE_CIKIS_ALARM);
-
-    THREAD_CREATE(0, 0x01 | 0x08, 1, LED_THREAD);
-    THREAD_CREATE(1, 0x01 | 0x08, 10, INPUT_THREAD);
-    THREAD_CREATE(2, 0x01 | 0x08, 100, ROLE_THREAD);
-    INTERRUPT_ALL(1);
-    MENU_INIT(OLED_ClearDisplay, OLED_Update, OLED_Write_Text, OLED_Write_Dec);
-    MENU_ANA_INIT(ANA_MENU);
-
-    while (1) {
-
-        THREAD_MAIN();
+            MENU_BUTON_STATUS = MENU_BUTON_STATUS & ~0x08;
+            MENU_WORK('B');
+        }
     }
 }
 
-void __attribute__((picinterrupt(("")))) _ISR(void)
+void MENU_BUTON_ADD(char process)
 {
-    if (INTCONbits.RBIF) {
-        unsigned char x = PORTB;
-        INTCONbits.RBIF = 0;
-        PIN_SET_LAT_TOGGLE('A', 3);
-    } else if (PIR1bits.TMR1IF)
-    {
-        TIMER_1_INTERRUPT_FUNCT();
-        THREAD_INTERRUPT();
-    } else if (PIR2bits.TMR3IF)
-    {
-        TIMER_3_INTERRUPT_FUNCT();
-    } else if (PIR5bits.TMR5IF)
-    {
-        TIMER_5_INTERRUPT_FUNCT();
-    } else if (PIR1bits.RC1IF) {
-        PIR1bits.RC1IF = 0;
-        UART_1_BYTE(RCREG1);
-        if (RCREG1 == '+') MENU_BUTON_ADD('U');
-        if (RCREG1 == '-') MENU_BUTON_ADD('D');
-        if (RCREG1 == '*') MENU_BUTON_ADD('O');
-        if (RCREG1 == '/') MENU_BUTON_ADD('B');
-    } else if (PIR3bits.RC2IF) {
-        PIR3bits.RC2IF = 0;
-        UART_2_BYTE(RCREG2);
-    }
+    if (process == 'U') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x02;
+    if (process == 'O') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x01;
+    if (process == 'D') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x04;
+    if (process == 'B') MENU_BUTON_STATUS = MENU_BUTON_STATUS | 0x08;
 }
