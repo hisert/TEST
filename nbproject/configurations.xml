@@ -26,6 +26,8 @@
       <itemPath>soft_i2c.h</itemPath>
       <itemPath>PIC_18F87K22.c</itemPath>
       <itemPath>PIC_18F87K22.h</itemPath>
+      <itemPath>task.c</itemPath>
+      <itemPath>task.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

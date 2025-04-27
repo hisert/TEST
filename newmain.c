@@ -10,6 +10,8 @@
 #include "buton_debounce.h"
 #include "thread.h"
 #include "soft_i2c.h"
+#include "task.h"
+
 // <editor-fold defaultstate="collapsed" desc="X">
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="TYPEDEF DEFINE">
@@ -404,6 +406,11 @@ void ROLE_THREAD(byte threadIndex)
 
 // </editor-fold>
 
+void TASK_TEST(byte taskIndex)
+{
+    TERSLE(LATD1);
+}
+
 void main(void)
 {
     SET_OSC(64);
@@ -467,13 +474,13 @@ void main(void)
     THREAD_CREATE(0, THREAD_FLG_START | THREAD_FLG_LOOP, 1, LED_THREAD);
     THREAD_CREATE(1, THREAD_FLG_START | THREAD_FLG_LOOP, 10, INPUT_THREAD);
     THREAD_CREATE(2, THREAD_FLG_START | THREAD_FLG_LOOP, 100, ROLE_THREAD);
-
+    TASK_CREATE(0, TASK_FLG_START, TASK_TEST);
     INTERRUPT_ALL(1);
-
 
     while (1) {
 
         THREAD_MAIN();
+        TASK_MAIN();
     }
 }
 

@@ -1,0 +1,141 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[v F5 `(v ~T0 @X0 0 tf1`uc ]
+"16 ./task.h
+[; ;./task.h: 16:     typedef struct {
+[s S1 `uc 1 `*F5 1 ]
+[n S1 . flag Funct ]
+[v F36 `(v ~T0 @X0 0 tf1`uc ]
+[v F41 `(v ~T0 @X0 0 tf1`uc ]
+"2 task.c
+[; ;task.c: 2: unsigned char TASK_NUM = 0;
+[v _TASK_NUM `uc ~T0 @X0 1 e ]
+[i _TASK_NUM
+-> -> 0 `i `uc
+]
+"3
+[; ;task.c: 3: TASK_t TASK_LIST[10];
+[v _TASK_LIST `S1 ~T0 @X0 -> 10 `i e ]
+"7
+[; ;task.c: 7: void TASK_MAIN()
+[v _TASK_MAIN `(v ~T0 @X0 1 ef ]
+"8
+[; ;task.c: 8: {
+{
+[e :U _TASK_MAIN ]
+[f ]
+"9
+[; ;task.c: 9:     for (unsigned char taskIndex = 0; taskIndex < TASK_NUM; taskIndex++) if (TASK_LIST[taskIndex].flag & 0x01) TASK_LIST[taskIndex].Funct(taskIndex);
+{
+[v _taskIndex `uc ~T0 @X0 1 a ]
+[e = _taskIndex -> -> 0 `i `uc ]
+[e $U 6  ]
+[e :U 3 ]
+[e $ ! != & -> . *U + &U _TASK_LIST * -> _taskIndex `ux -> -> # *U &U _TASK_LIST `ui `ux 0 `i -> 1 `i -> 0 `i 7  ]
+[e ( *U . *U + &U _TASK_LIST * -> _taskIndex `ux -> -> # *U &U _TASK_LIST `ui `ux 1 (1 _taskIndex ]
+[e :U 7 ]
+[e ++ _taskIndex -> -> 1 `i `uc ]
+[e :U 6 ]
+[e $ < -> _taskIndex `i -> _TASK_NUM `i 3  ]
+[e :U 4 ]
+}
+"10
+[; ;task.c: 10: }
+[e :UE 2 ]
+}
+"15
+[; ;task.c: 15: void TASK_START(unsigned char taskIndex)
+[v _TASK_START `(v ~T0 @X0 1 ef1`uc ]
+"16
+[; ;task.c: 16: {
+{
+[e :U _TASK_START ]
+"15
+[; ;task.c: 15: void TASK_START(unsigned char taskIndex)
+[v _taskIndex `uc ~T0 @X0 1 r1 ]
+"16
+[; ;task.c: 16: {
+[f ]
+"17
+[; ;task.c: 17:     TASK_LIST[taskIndex].flag |= 0x01;
+[e =| . *U + &U _TASK_LIST * -> _taskIndex `ux -> -> # *U &U _TASK_LIST `ui `ux 0 -> -> 1 `i `uc ]
+"18
+[; ;task.c: 18: }
+[e :UE 8 ]
+}
+"20
+[; ;task.c: 20: void TASK_STOP(unsigned char taskIndex)
+[v _TASK_STOP `(v ~T0 @X0 1 ef1`uc ]
+"21
+[; ;task.c: 21: {
+{
+[e :U _TASK_STOP ]
+"20
+[; ;task.c: 20: void TASK_STOP(unsigned char taskIndex)
+[v _taskIndex `uc ~T0 @X0 1 r1 ]
+"21
+[; ;task.c: 21: {
+[f ]
+"22
+[; ;task.c: 22:     TASK_LIST[taskIndex].flag &= ~0x01;
+[e =& . *U + &U _TASK_LIST * -> _taskIndex `ux -> -> # *U &U _TASK_LIST `ui `ux 0 -> ~ -> 1 `i `uc ]
+"23
+[; ;task.c: 23: }
+[e :UE 9 ]
+}
+"25
+[; ;task.c: 25: unsigned char TASK_is_START(unsigned char taskIndex)
+[v _TASK_is_START `(uc ~T0 @X0 1 ef1`uc ]
+"26
+[; ;task.c: 26: {
+{
+[e :U _TASK_is_START ]
+"25
+[; ;task.c: 25: unsigned char TASK_is_START(unsigned char taskIndex)
+[v _taskIndex `uc ~T0 @X0 1 r1 ]
+"26
+[; ;task.c: 26: {
+[f ]
+"27
+[; ;task.c: 27:     if (TASK_LIST[taskIndex].flag & 0x01) return 1;
+[e $ ! != & -> . *U + &U _TASK_LIST * -> _taskIndex `ux -> -> # *U &U _TASK_LIST `ui `ux 0 `i -> 1 `i -> 0 `i 11  ]
+[e ) -> -> 1 `i `uc ]
+[e $UE 10  ]
+[e $U 12  ]
+"28
+[; ;task.c: 28:     else return 0;
+[e :U 11 ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 10  ]
+[e :U 12 ]
+"29
+[; ;task.c: 29: }
+[e :UE 10 ]
+}
+"31
+[; ;task.c: 31: void TASK_CREATE(unsigned char taskIndex, unsigned char flag, void (*Funct)(unsigned char taskIndex))
+[v _TASK_CREATE `(v ~T0 @X0 1 ef3`uc`uc`*F36 ]
+"32
+[; ;task.c: 32: {
+{
+[e :U _TASK_CREATE ]
+"31
+[; ;task.c: 31: void TASK_CREATE(unsigned char taskIndex, unsigned char flag, void (*Funct)(unsigned char taskIndex))
+[v _taskIndex `uc ~T0 @X0 1 r1 ]
+[v _flag `uc ~T0 @X0 1 r2 ]
+[v _Funct `*F41 ~T0 @X0 1 r3 ]
+"32
+[; ;task.c: 32: {
+[f ]
+"33
+[; ;task.c: 33:     TASK_LIST[taskIndex].flag = flag;
+[e = . *U + &U _TASK_LIST * -> _taskIndex `ux -> -> # *U &U _TASK_LIST `ui `ux 0 _flag ]
+"34
+[; ;task.c: 34:     TASK_LIST[taskIndex].Funct = Funct;
+[e = . *U + &U _TASK_LIST * -> _taskIndex `ux -> -> # *U &U _TASK_LIST `ui `ux 1 _Funct ]
+"35
+[; ;task.c: 35:     TASK_NUM++;
+[e ++ _TASK_NUM -> -> 1 `i `uc ]
+"36
+[; ;task.c: 36: }
+[e :UE 13 ]
+}

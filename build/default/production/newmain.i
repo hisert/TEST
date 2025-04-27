@@ -11547,7 +11547,21 @@ char *tempnam(const char *, const char *);
     unsigned char SOFT_I2C_WRITE(unsigned char data);
     unsigned char SOFT_I2C_READ();
 # 13 "newmain.c" 2
-# 30 "newmain.c"
+# 1 "./task.h" 1
+# 16 "./task.h"
+    typedef struct {
+        unsigned char flag;
+        void (*Funct)(unsigned char taskIndex);
+    } TASK_t;
+
+
+    void TASK_MAIN();
+    void TASK_START(unsigned char taskIndex);
+    void TASK_STOP(unsigned char taskIndex);
+    unsigned char TASK_is_START(unsigned char taskIndex);
+    void TASK_CREATE(unsigned char taskIndex, unsigned char flag, void (*Funct)(unsigned char taskIndex));
+# 14 "newmain.c" 2
+# 32 "newmain.c"
 void PIN_SET_IO(unsigned char AnalogOrDijital, unsigned char InputOrOutput, unsigned char Port, unsigned char Pin, unsigned char HighOrLow);
 
 
@@ -11642,7 +11656,7 @@ void MENU_BUTON_PROCESS()
 {
 
 }
-# 150 "newmain.c"
+# 152 "newmain.c"
 unsigned int IN_STATUS = 0;
 
 void INPUT_READ()
@@ -11755,7 +11769,7 @@ void INPUT_PROCESS()
         }
     }
 }
-# 280 "newmain.c"
+# 282 "newmain.c"
 typedef enum {
     ROLE_CIKIS_AB = 0,
     ROLE_CIKIS_BA,
@@ -11874,6 +11888,7 @@ void INPUT_THREAD(unsigned char threadIndex)
     MENU_BUTON_PROCESS();
     INPUT_READ();
     INPUT_PROCESS();
+    TASK_MAIN();
 }
 
 void ROLE_THREAD(unsigned char threadIndex)
@@ -11882,6 +11897,11 @@ void ROLE_THREAD(unsigned char threadIndex)
 }
 
 
+
+void TASK_TEST(unsigned char taskIndex)
+{
+    LATD1= ~LATD1;
+}
 
 void main(void)
 {
@@ -11908,7 +11928,7 @@ void main(void)
     PIN_SET_IO('D', 'I', 'F', 5, 'L');
     PIN_SET_IO('D', 'I', 'F', 6, 'L');
     PIN_SET_IO('D', 'I', 'F', 7, 'L');
-# 454 "newmain.c"
+# 462 "newmain.c"
     TIMER_1_INIT(1);
     PIN_IOC_INTERRUPT(1, 1);
 
@@ -11925,13 +11945,16 @@ void main(void)
     THREAD_CREATE(0, 0x01 | 0x08, 1, LED_THREAD);
     THREAD_CREATE(1, 0x01 | 0x08, 10, INPUT_THREAD);
     THREAD_CREATE(2, 0x01 | 0x08, 100, ROLE_THREAD);
-
+    TASK_CREATE(0, 0x01, TASK_TEST);
+    TASK_STOP(0);
+    TASK_START(0);
     INTERRUPT_ALL(1);
 
 
     while (1) {
 
         THREAD_MAIN();
+
     }
 }
 
