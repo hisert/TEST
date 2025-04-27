@@ -909,25 +909,7 @@ vfpfcnvrt(FILE *fp, char *fmt[], va_list ap)
 
         flags = width = 0;
         prec = -1;
-# 1273 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c"
-        if ((*fmt)[0] == 'c') {
-            ++*fmt;
-            c = (unsigned char)(*(int *)__va_arg(*(int **)ap, (int)0));
-
-   fputc(c, fp);
-
-
-
-   return;
-
-
-
-
-        }
-
-
-
-
+# 1291 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c"
   cp = *fmt;
 # 1361 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c"
   if (*cp == 'd' || *cp == 'i') {
@@ -958,36 +940,6 @@ vfpfcnvrt(FILE *fp, char *fmt[], va_list ap)
 
 
    return;
-
-
-
-
-  }
-# 1656 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c"
-  done = 0;
-  if ((*fmt)[0] == 's') {
-   ++*fmt;
-   done = 1;
-  }
-  else if ((*fmt)[0] == 'l' && (*fmt)[1] == 'l' && (*fmt)[2] == 's') {
-   *fmt += 3;
-   done = 1;
-  }
-  if (done) {
-
-
-
-   for (char * cp = (*(char * *)__va_arg(*(char * **)ap, (char *)0)); *cp != '\0'; cp++) {
-    fputc(*cp, fp);
-
-
-
-   }
-
-
-
-   return;
-
 
 
 

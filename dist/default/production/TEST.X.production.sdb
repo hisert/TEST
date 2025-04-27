@@ -3,15 +3,23 @@
 [d edition pro ]
 [d chip 18F87K22 ]
 [d frameptr 4065 ]
-"1709 C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-[e E7346 . `uc
+"1187 C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+[e E7307 . `uc
 THREAD_LED 0
 THREAD_INPUT 1
 THREAD_RELAY 2
 THREAD_NUM 3
 ]
-"1833
-[e E7368 . `uc
+"1506
+[e E7377 . `uc
+ROLE_CIKIS_AB 0
+ROLE_CIKIS_BA 1
+ROLE_CIKIS_ALARM 2
+ROLE_CIKIS_BUSY 3
+ROLE_CIKIS_DONE 4
+]
+"1541
+[e E7329 . `uc
 ROLE_A_MODE 0
 ROLE_B_MODE 1
 ROLE_BUSY_MODE 2
@@ -37,14 +45,6 @@ ARM_MOTOR_MODE 21
 ARM_MOTOR_SPEED 22
 ARM_MOTOR_BREAK_SPEED 23
 SETTINGS_DONE 24
-]
-"2570
-[e E7684 . `uc
-ROLE_CIKIS_AB 0
-ROLE_CIKIS_BA 1
-ROLE_CIKIS_ALARM 2
-ROLE_CIKIS_BUSY 3
-ROLE_CIKIS_DONE 4
 ]
 "7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
@@ -98,241 +98,175 @@ ROLE_CIKIS_DONE 4
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"31 C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+"33 C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
 [v _PIN_GET_PORT PIN_GET_PORT `(uc  1 e 1 0 ]
-"42
+"44
 [v _PIN_SET_LAT PIN_SET_LAT `(v  1 e 1 0 ]
-"53
+"55
 [v _PIN_SET_TRIS PIN_SET_TRIS `(v  1 e 1 0 ]
-"65
+"67
 [v _PIN_SET_LAT_TOGGLE PIN_SET_LAT_TOGGLE `(v  1 e 1 0 ]
-"75
+"77
 [v _PIN_SET_ANSEL PIN_SET_ANSEL `(v  1 e 1 0 ]
-"103
+"105
 [v _PIN_SET_IO PIN_SET_IO `(v  1 e 1 0 ]
-"109
+"111
 [v _PIN_IOC_INTERRUPT PIN_IOC_INTERRUPT `(v  1 e 1 0 ]
-"119
+"121
 [v _TIMER_1_INTERRUPT_FUNCT TIMER_1_INTERRUPT_FUNCT `(v  1 e 1 0 ]
-"125
+"127
 [v _TIMER_1_INTERRUPT TIMER_1_INTERRUPT `(v  1 e 1 0 ]
-"132
+"134
 [v _TIMER_1_SET TIMER_1_SET `(v  1 e 1 0 ]
-"138
+"140
 [v _TIMER_1_INIT TIMER_1_INIT `(ui  1 e 2 0 ]
-"168
+"170
 [v _TIMER_3_INTERRUPT_FUNCT TIMER_3_INTERRUPT_FUNCT `(v  1 e 1 0 ]
-"174
+"176
 [v _TIMER_3_INTERRUPT TIMER_3_INTERRUPT `(v  1 e 1 0 ]
-"181
+"183
 [v _TIMER_3_SET TIMER_3_SET `(v  1 e 1 0 ]
-"217
+"219
 [v _TIMER_5_INTERRUPT_FUNCT TIMER_5_INTERRUPT_FUNCT `(v  1 e 1 0 ]
-"223
+"225
 [v _TIMER_5_INTERRUPT TIMER_5_INTERRUPT `(v  1 e 1 0 ]
-"230
+"232
 [v _TIMER_5_SET TIMER_5_SET `(v  1 e 1 0 ]
-"264
+"266
 [v _UART_1_INTERRUPT UART_1_INTERRUPT `(v  1 e 1 0 ]
-"271
+"273
 [v _UART_1_INIT UART_1_INIT `(v  1 e 1 0 ]
-"287
+"289
 [v _UART_1_BYTE UART_1_BYTE `(v  1 e 1 0 ]
 [v i2_UART_1_BYTE UART_1_BYTE `(v  1 e 1 0 ]
-"293
+"295
 [v _UART_1_STRING UART_1_STRING `(v  1 e 1 0 ]
-"320
+"322
 [v _UART_2_INTERRUPT UART_2_INTERRUPT `(v  1 e 1 0 ]
-"350
+"352
 [v _UART_2_BYTE UART_2_BYTE `(v  1 e 1 0 ]
-"383
+"385
 [v _SET_OSC SET_OSC `(v  1 e 1 0 ]
-"398
+"400
 [v _INTERRUPT_ALL INTERRUPT_ALL `(v  1 e 1 0 ]
-"428
+"430
 [v _I2C_1_INIT I2C_1_INIT `(v  1 e 1 0 ]
-"437
+"439
 [v _I2C_1_ACK I2C_1_ACK `(v  1 e 1 0 ]
-"444
+"446
 [v _I2C_1_NACK I2C_1_NACK `(v  1 e 1 0 ]
-"451
+"453
 [v _I2C_1_READY I2C_1_READY `(v  1 e 1 0 ]
-"462
+"464
 [v _I2C_1_WRITE I2C_1_WRITE `(uc  1 e 1 0 ]
-"472
+"474
 [v _I2C_1_START I2C_1_START `(v  1 e 1 0 ]
-"479
+"481
 [v _I2C_1_STOP I2C_1_STOP `(uc  1 e 1 0 ]
-"516
+"518
 [v _I2C_2_ACK I2C_2_ACK `(v  1 e 1 0 ]
-"523
+"525
 [v _I2C_2_NACK I2C_2_NACK `(v  1 e 1 0 ]
-"530
+"532
 [v _I2C_2_READY I2C_2_READY `(v  1 e 1 0 ]
-"586
+"588
 [v _PWM_TIMER_CHOOSE PWM_TIMER_CHOOSE `(v  1 e 1 0 ]
-"642
+"644
 [v _PWM_TIMER_DIVIDE PWM_TIMER_DIVIDE `(v  1 e 1 0 ]
-"650
+"652
 [v _PWM_TIMER_PR_LOAD PWM_TIMER_PR_LOAD `(v  1 e 1 0 ]
-"822
+"824
 [v _PWM_4_INIT PWM_4_INIT `(v  1 e 1 0 ]
-"844
+"846
 [v _PWM_4_DUTY PWM_4_DUTY `(v  1 e 1 0 ]
-"856
+"858
 [v _PWM_4_SET PWM_4_SET `(v  1 e 1 0 ]
-"876
+"878
 [v _PWM_5_INIT PWM_5_INIT `(v  1 e 1 0 ]
-"898
+"900
 [v _PWM_5_DUTY PWM_5_DUTY `(v  1 e 1 0 ]
-"910
+"912
 [v _PWM_5_SET PWM_5_SET `(v  1 e 1 0 ]
-"930
+"932
 [v _PWM_6_INIT PWM_6_INIT `(v  1 e 1 0 ]
-"952
+"954
 [v _PWM_6_DUTY PWM_6_DUTY `(v  1 e 1 0 ]
-"964
+"966
 [v _PWM_6_SET PWM_6_SET `(v  1 e 1 0 ]
-"984
+"986
 [v _PWM_7_INIT PWM_7_INIT `(v  1 e 1 0 ]
-"1006
+"1008
 [v _PWM_7_DUTY PWM_7_DUTY `(v  1 e 1 0 ]
-"1018
+"1020
 [v _PWM_7_SET PWM_7_SET `(v  1 e 1 0 ]
-"1038
+"1040
 [v _PWM_8_INIT PWM_8_INIT `(v  1 e 1 0 ]
-"1060
+"1062
 [v _PWM_8_DUTY PWM_8_DUTY `(v  1 e 1 0 ]
-"1072
+"1074
 [v _PWM_8_SET PWM_8_SET `(v  1 e 1 0 ]
-"1273
-[v _ssd1306_command ssd1306_command `(v  1 e 1 0 ]
-"1296
-[v _OLED_SetFont OLED_SetFont `(v  1 e 1 0 ]
-"1318
-[v _OLED_ClearDisplay OLED_ClearDisplay `(v  1 e 1 0 ]
-"1334
-[v _OLED_DrawPixel OLED_DrawPixel `(v  1 e 1 0 ]
-"1347
-[v _OLED_Line OLED_Line `(v  1 e 1 0 ]
-"1392
-[v _OLED_V_Line OLED_V_Line `(v  1 e 1 0 ]
-"1407
-[v _OLED_H_Line OLED_H_Line `(v  1 e 1 0 ]
-"1483
-[v _OLED_Write OLED_Write `(v  1 e 1 0 ]
-"1534
-[v _OLED_Write_Text OLED_Write_Text `(v  1 e 1 0 ]
-"1545
-[v _OLED_Write_Dec OLED_Write_Dec `(v  1 e 1 0 ]
-"1557
-[v _OLED_Init OLED_Init `(v  1 e 1 0 ]
-"1590
-[v _OLED_Update OLED_Update `(v  1 e 1 0 ]
-"1627
+"1105
 [v _INPUT_DEBOUNCE INPUT_DEBOUNCE `(uc  1 e 1 0 ]
-"1654
+"1132
 [v _BUTON_PROCESS BUTON_PROCESS `(uc  1 e 1 0 ]
-"1680
+"1158
 [v _BUTON_GET_TIME BUTON_GET_TIME `(ui  1 e 2 0 ]
-"1714
+"1192
 [v _THREAD_INTERRUPT THREAD_INTERRUPT `(v  1 e 1 0 ]
-"1729
+"1207
 [v _THREAD_MAIN THREAD_MAIN `(v  1 e 1 0 ]
-"1797
+"1275
 [v _LOG_PRINT LOG_PRINT `(v  1 e 1 0 ]
-"1830
-[v _MENU_FUNCT_RELAY_A_MODE MENU_FUNCT_RELAY_A_MODE `(ui  1 e 2 0 ]
-"1841
-[v _MENU_FUNCT_RELAY_B_MODE MENU_FUNCT_RELAY_B_MODE `(ui  1 e 2 0 ]
-"1852
-[v _MENU_FUNCT_RELAY_BUSY_MODE MENU_FUNCT_RELAY_BUSY_MODE `(ui  1 e 2 0 ]
-"1863
-[v _MENU_FUNCT_RELAY_ALARM_MODE MENU_FUNCT_RELAY_ALARM_MODE `(ui  1 e 2 0 ]
-"1874
-[v _MENU_FUNCT_RELAY_A_TIME MENU_FUNCT_RELAY_A_TIME `(ui  1 e 2 0 ]
-"1884
-[v _MENU_FUNCT_RELAY_B_TIME MENU_FUNCT_RELAY_B_TIME `(ui  1 e 2 0 ]
-"1894
-[v _MENU_FUNCT_RELAY_BUSY_TIME MENU_FUNCT_RELAY_BUSY_TIME `(ui  1 e 2 0 ]
-"1904
-[v _MENU_FUNCT_RELAY_ALARM_TIME MENU_FUNCT_RELAY_ALARM_TIME `(ui  1 e 2 0 ]
-"1930
-[v _MENU_FUNCT_COUNTER_A_FIX MENU_FUNCT_COUNTER_A_FIX `(ui  1 e 2 0 ]
-"1941
-[v _MENU_FUNCT_COUNTER_B_FIX MENU_FUNCT_COUNTER_B_FIX `(ui  1 e 2 0 ]
-"1952
-[v _MENU_FUNCT_COUNTER_A_TEMP MENU_FUNCT_COUNTER_A_TEMP `(ui  1 e 2 0 ]
-"1963
-[v _MENU_FUNCT_COUNTER_B_TEMP MENU_FUNCT_COUNTER_B_TEMP `(ui  1 e 2 0 ]
-"1984
-[v _MENU_FUNCT_RANDOM_A_MODE MENU_FUNCT_RANDOM_A_MODE `(ui  1 e 2 0 ]
-"1995
-[v _MENU_FUNCT_RANDOM_B_MODE MENU_FUNCT_RANDOM_B_MODE `(ui  1 e 2 0 ]
-"2006
-[v _MENU_FUNCT_RANDOM_A_AMOUNT MENU_FUNCT_RANDOM_A_AMOUNT `(ui  1 e 2 0 ]
-"2016
-[v _MENU_FUNCT_RANDOM_B_AMOUNT MENU_FUNCT_RANDOM_B_AMOUNT `(ui  1 e 2 0 ]
-"2037
-[v _MENU_FUNCT_INPUT_MODE MENU_FUNCT_INPUT_MODE `(ui  1 e 2 0 ]
-"2048
-[v _MENU_FUNCT_INPUT_TIME_OUT MENU_FUNCT_INPUT_TIME_OUT `(ui  1 e 2 0 ]
-"2058
-[v _MENU_FUNCT_INPUT_BUFFER MENU_FUNCT_INPUT_BUFFER `(ui  1 e 2 0 ]
-"2068
-[v _MENU_FUNCT_EMG_MODE MENU_FUNCT_EMG_MODE `(ui  1 e 2 0 ]
-"2091
-[v _MENU_FUNCT_ARM_DROP_MODE MENU_FUNCT_ARM_DROP_MODE `(ui  1 e 2 0 ]
-"2102
-[v _MENU_FUNCT_ARM_MOTOR_MODE MENU_FUNCT_ARM_MOTOR_MODE `(ui  1 e 2 0 ]
-"2113
-[v _MENU_FUNCT_ARM_MOTOR_SPEED MENU_FUNCT_ARM_MOTOR_SPEED `(ui  1 e 2 0 ]
-"2123
-[v _MENU_FUNCT_ARM_MOTOR_BREAK_SPEED MENU_FUNCT_ARM_MOTOR_BREAK_SPEED `(ui  1 e 2 0 ]
-"2156
-[v _MENU_UST_DATA_GETIR MENU_UST_DATA_GETIR `(v  1 e 1 0 ]
-"2173
-[v _MENU_GIR MENU_GIR `(v  1 e 1 0 ]
-"2190
-[v _MENU_CIK MENU_CIK `(v  1 e 1 0 ]
-"2201
-[v _MENU_TEXT_PRINT MENU_TEXT_PRINT `(v  1 e 1 0 ]
-"2214
-[v _MENU_SHOW_DATA_PRINT MENU_SHOW_DATA_PRINT `(v  1 e 1 0 ]
-"2224
-[v _MENU_USE_SELECT MENU_USE_SELECT `(v  1 e 1 0 ]
-"2234
-[v _MENU_USE_VAL MENU_USE_VAL `(v  1 e 1 0 ]
-"2251
-[v _MENU_WORK MENU_WORK `(v  1 e 1 0 ]
-"2334
+"1289
 [v _MENU_BUTON_READ MENU_BUTON_READ `(v  1 e 1 0 ]
-"2376
+"1331
 [v _MENU_BUTON_PROCESS MENU_BUTON_PROCESS `(v  1 e 1 0 ]
-"2427
+"1363
 [v _INPUT_READ INPUT_READ `(v  1 e 1 0 ]
-"2476
+"1412
 [v _INPUT_PROCESS INPUT_PROCESS `(v  1 e 1 0 ]
-"2566
+"1502
 [v _ROLE_MODE_SELECT ROLE_MODE_SELECT `(v  1 e 1 0 ]
-"2583
+"1519
 [v _ROLE_GO_OUTPUT ROLE_GO_OUTPUT `(v  1 e 1 0 ]
-"2603
+"1539
 [v _ROLE_OUTPUT ROLE_OUTPUT `(v  1 e 1 0 ]
-"2611
+"1547
 [v _INTERRUPT_KONTROL_ROLE_TIME INTERRUPT_KONTROL_ROLE_TIME `(v  1 e 1 0 ]
-"2636
+"1572
 [v _INIT_ROLE INIT_ROLE `(v  1 e 1 0 ]
-"2659
+"1595
 [v _LED_THREAD LED_THREAD `(v  1 e 1 0 ]
-"2664
+"1600
 [v _INPUT_THREAD INPUT_THREAD `(v  1 e 1 0 ]
-"2672
+"1608
 [v _ROLE_THREAD ROLE_THREAD `(v  1 e 1 0 ]
-"2689
+"1625
 [v _main main `(v  1 e 1 0 ]
-"2754
+"1692
 [v __ISR _ISR `IIH(v  1 e 1 0 ]
+"188 C:\Users\SERT\MPLABXProjects\TEST.X\ssd1306_oled.c
+[v _ssd1306_command ssd1306_command `(v  1 e 1 0 ]
+"211
+[v _OLED_SetFont OLED_SetFont `(v  1 e 1 0 ]
+"233
+[v _OLED_ClearDisplay OLED_ClearDisplay `(v  1 e 1 0 ]
+"249
+[v _OLED_DrawPixel OLED_DrawPixel `(v  1 e 1 0 ]
+"262
+[v _OLED_Line OLED_Line `(v  1 e 1 0 ]
+"307
+[v _OLED_V_Line OLED_V_Line `(v  1 e 1 0 ]
+"322
+[v _OLED_H_Line OLED_H_Line `(v  1 e 1 0 ]
+"398
+[v _OLED_Write OLED_Write `(v  1 e 1 0 ]
+"460
+[v _OLED_Write_Dec OLED_Write_Dec `(v  1 e 1 0 ]
+"472
+[v _OLED_Init OLED_Init `(v  1 e 1 0 ]
+"508
+[v _OLED_Update OLED_Update `(v  1 e 1 0 ]
 "615 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc/pic18f87k22.h
 [v _TXREG2 TXREG2 `VEuc  1 e 1 @3868 ]
 "635
@@ -975,7 +909,7 @@ ROLE_CIKIS_DONE 4
 ]
 [u S587 . 1 `S567 1 . 1 0 `S576 1 . 1 0 `S582 1 . 1 0 ]
 [v _PIE3bits PIE3bits `VES587  1 e 1 @4003 ]
-[s S2201 . 1 `uc 1 RTCCIF 1 0 :1:0 
+[s S2170 . 1 `uc 1 RTCCIF 1 0 :1:0 
 `uc 1 CCP1IF 1 0 :1:1 
 `uc 1 CCP2IF 1 0 :1:2 
 `uc 1 CTMUIF 1 0 :1:3 
@@ -985,13 +919,13 @@ ROLE_CIKIS_DONE 4
 `uc 1 TMR5GIF 1 0 :1:7 
 ]
 "11796
-[s S2210 . 1 `uc 1 . 1 0 :1:0 
+[s S2179 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RXBNIF 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXBNIF 1 0 :1:4 
 ]
-[u S2215 . 1 `S2201 1 . 1 0 `S2210 1 . 1 0 ]
-[v _PIR3bits PIR3bits `VES2215  1 e 1 @4004 ]
+[u S2184 . 1 `S2170 1 . 1 0 `S2179 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES2184  1 e 1 @4004 ]
 "12265
 [s S493 . 1 `uc 1 RCD8 1 0 :1:0 
 `uc 1 . 1 0 :2:1 
@@ -1383,139 +1317,102 @@ ROLE_CIKIS_DONE 4
 [v _flags flags `uc  1 s 1 flags ]
 "185
 [v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
-"117 C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+"119 C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
 [v _TIMER_1_TICK TIMER_1_TICK `ui  1 e 2 0 ]
-"166
+"168
 [v _TIMER_3_TICK TIMER_3_TICK `ui  1 e 2 0 ]
-"215
+"217
 [v _TIMER_5_TICK TIMER_5_TICK `ui  1 e 2 0 ]
-"659
+"661
 [v _PWM_1_TIMER_SELECT PWM_1_TIMER_SELECT `uc  1 e 1 0 ]
-"712
+"714
 [v _PWM_2_TIMER_SELECT PWM_2_TIMER_SELECT `uc  1 e 1 0 ]
-"766
+"768
 [v _PWM_3_TIMER_SELECT PWM_3_TIMER_SELECT `uc  1 e 1 0 ]
-"820
+"822
 [v _PWM_4_TIMER_SELECT PWM_4_TIMER_SELECT `uc  1 e 1 0 ]
-"874
+"876
 [v _PWM_5_TIMER_SELECT PWM_5_TIMER_SELECT `uc  1 e 1 0 ]
-"928
+"930
 [v _PWM_6_TIMER_SELECT PWM_6_TIMER_SELECT `uc  1 e 1 0 ]
-"982
+"984
 [v _PWM_7_TIMER_SELECT PWM_7_TIMER_SELECT `uc  1 e 1 0 ]
-"1036
+"1038
 [v _PWM_8_TIMER_SELECT PWM_8_TIMER_SELECT `uc  1 e 1 0 ]
-"1162
-[v _SMALL_FONTS SMALL_FONTS `C[574]uc  1 e 574 0 ]
-[s S2091 _Current_Font_s 7 `*.32Cuc 1 font 2 0 `uc 1 x_size 1 2 `uc 1 y_size 1 3 `uc 1 offset 1 4 `uc 1 numchars 1 5 `uc 1 inverted 1 6 ]
-"1265
-[v _cfont cfont `S2091  1 s 7 cfont ]
-"1266
-[v _buffer buffer `[512]uc  1 e 512 0 ]
-"1795
+"1273
 [v _SETTING_VALUES SETTING_VALUES `[24]ui  1 e 48 0 ]
-[s S2145 . 10 `*.32Cuc 1 text 2 0 `uc 1 flag 1 2 `*.38(ui 1 Funct 3 3 `ui 1 max 2 6 `ui 1 min 2 8 ]
-"1817
-[v _MENU_BACK_POINTER MENU_BACK_POINTER `[5]*.39S2145  1 e 10 0 ]
-"1818
-[v _MENU_SELECT_LIST MENU_SELECT_LIST `*.39uc  1 e 2 0 ]
-"1819
-[v _MENU_BACK_INDEX MENU_BACK_INDEX `[5]uc  1 e 5 0 ]
-"1820
-[v _MENU_POINTER MENU_POINTER `*.39S2145  1 e 2 0 ]
-"1821
-[v _MENU_INDEX_COUNTER MENU_INDEX_COUNTER `uc  1 e 1 0 ]
-"1822
-[v _MENU_MENU_COUNTER MENU_MENU_COUNTER `uc  1 e 1 0 ]
-"1823
-[v _MENU_MAX MENU_MAX `uc  1 e 1 0 ]
-"1824
-[v _SHOW_DATA_TEXT SHOW_DATA_TEXT `*.32uc  1 e 2 0 ]
-"1825
-[v _MENU_UST_YAZI MENU_UST_YAZI `*.32uc  1 e 2 0 ]
-"1828
-[v _SELECT_LIST_RELAY_MODE SELECT_LIST_RELAY_MODE `[2]*.32Cuc  1 e 4 0 ]
-"1914
-[v _RELAY_MENU RELAY_MENU `[8]S2145  1 e 80 0 ]
-"1974
-[v _COUNTER_MENU COUNTER_MENU `[4]S2145  1 e 40 0 ]
-"1982
-[v _SELECT_LIST_RANDOM_MODE SELECT_LIST_RANDOM_MODE `[2]*.32Cuc  1 e 4 0 ]
-"2026
-[v _RANDOM_MENU RANDOM_MENU `[4]S2145  1 e 40 0 ]
-"2034
-[v _SELECT_LIST_INPUT_MODE SELECT_LIST_INPUT_MODE `[2]*.32Cuc  1 e 4 0 ]
-"2035
-[v _SELECT_LIST_EMG_MODE SELECT_LIST_EMG_MODE `[2]*.32Cuc  1 e 4 0 ]
-"2079
-[v _INPUT_MENU INPUT_MENU `[4]S2145  1 e 40 0 ]
-"2088
-[v _SELECT_LIST_DROP_ARM_MODE SELECT_LIST_DROP_ARM_MODE `[4]*.32Cuc  1 e 8 0 ]
-"2089
-[v _SELECT_LIST_ARM_MOTOR_MODE SELECT_LIST_ARM_MOTOR_MODE `[2]*.32Cuc  1 e 4 0 ]
-"2133
-[v _ARM_SETTING_MENU ARM_SETTING_MENU `[5]S2145  1 e 50 0 ]
-"2142
-[v _ANA_MENU ANA_MENU `[5]S2145  1 e 50 0 ]
-"2332
+"1287
 [v _MENU_BUTON_STATUS MENU_BUTON_STATUS `uc  1 e 1 0 ]
-"2425
+"1361
 [v _IN_STATUS IN_STATUS `ui  1 e 2 0 ]
-"2562
+"1498
 [v _ROLE_CIKIS_MODE ROLE_CIKIS_MODE `[4]uc  1 e 4 0 ]
-"2563
+"1499
 [v _ROLE_CIKIS_TIME ROLE_CIKIS_TIME `[4]ui  1 e 8 0 ]
-"2564
+"1500
 [v _ROLE_CIKIS_STATE ROLE_CIKIS_STATE `[4]uc  1 e 4 0 ]
-[s S2134 . 8 `uc 1 flag 1 0 `ui 1 duty_time 2 1 `ui 1 duty_temp_time 2 3 `*.38(v 1 Funct 3 5 ]
-"2680
-[v _THREAD_LIST THREAD_LIST `[3]S2134  1 e 24 0 ]
-"2689
+[s S2104 . 8 `uc 1 flag 1 0 `ui 1 duty_time 2 1 `ui 1 duty_temp_time 2 3 `*.38(v 1 Funct 3 5 ]
+"1616
+[v _THREAD_LIST THREAD_LIST `[3]S2104  1 e 24 0 ]
+"74 C:\Users\SERT\MPLABXProjects\TEST.X\ssd1306_oled.c
+[v _SMALL_FONTS SMALL_FONTS `C[574]uc  1 e 574 0 ]
+[s S2892 _Current_Font_s 7 `*.32Cuc 1 font 2 0 `uc 1 x_size 1 2 `uc 1 y_size 1 3 `uc 1 offset 1 4 `uc 1 numchars 1 5 `uc 1 inverted 1 6 ]
+"177
+[v _cfont cfont `S2892  1 s 7 cfont ]
+"178
+[v _buffer buffer `[512]uc  1 e 512 0 ]
+"179
+[v _oled_i2c_start oled_i2c_start `*.38(v  1 e 3 0 ]
+"180
+[v _oled_i2c_write oled_i2c_write `*.38(uc  1 e 3 0 ]
+"181
+[v _oled_i2c_stop oled_i2c_stop `*.38(uc  1 e 3 0 ]
+"1625 C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
 [v _main main `(v  1 e 1 0 ]
 {
-"2752
+"1690
 } 0
-"271
+"273
 [v _UART_1_INIT UART_1_INIT `(v  1 e 1 0 ]
 {
-"275
+"277
 [v UART_1_INIT@spbrg_value spbrg_value `ui  1 a 2 34 ]
-"271
+"273
 [v UART_1_INIT@baudrate baudrate `ul  1 p 4 26 ]
-"285
+"287
 } 0
-"264
+"266
 [v _UART_1_INTERRUPT UART_1_INTERRUPT `(v  1 e 1 0 ]
 {
 [v UART_1_INTERRUPT@openOrClose openOrClose `uc  1 p 1 wreg ]
 [v UART_1_INTERRUPT@openOrClose openOrClose `uc  1 p 1 wreg ]
-"267
-[v UART_1_INTERRUPT@openOrClose openOrClose `uc  1 p 1 13 ]
 "269
+[v UART_1_INTERRUPT@openOrClose openOrClose `uc  1 p 1 13 ]
+"271
 } 0
-"138
+"140
 [v _TIMER_1_INIT TIMER_1_INIT `(ui  1 e 2 0 ]
 {
 [v TIMER_1_INIT@ms ms `uc  1 p 1 wreg ]
-"147
+"149
 [v TIMER_1_INIT@TickValue TickValue `ul  1 a 4 15 ]
-"146
+"148
 [v TIMER_1_INIT@TimerFreq TimerFreq `ul  1 a 4 8 ]
-"145
+"147
 [v TIMER_1_INIT@i i `i  1 a 2 19 ]
-"142
+"144
 [v TIMER_1_INIT@Prescalers Prescalers `[4]uc  1 a 4 0 ]
-"141
-[v TIMER_1_INIT@Fcy Fcy `ul  1 a 4 4 ]
 "143
+[v TIMER_1_INIT@Fcy Fcy `ul  1 a 4 4 ]
+"145
 [v TIMER_1_INIT@TMR1_Tick TMR1_Tick `ui  1 a 2 13 ]
-"138
+"140
 [v TIMER_1_INIT@ms ms `uc  1 p 1 wreg ]
-"141
-[v TIMER_1_INIT@F7000 F7000 `[4]uc  1 s 4 F7000 ]
-"138
+"143
+[v TIMER_1_INIT@F7082 F7082 `[4]uc  1 s 4 F7082 ]
+"140
 [v TIMER_1_INIT@ms ms `uc  1 p 1 12 ]
-"161
+"163
 } 0
 "15 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
@@ -1527,261 +1424,471 @@ ROLE_CIKIS_DONE 4
 [v ___lmul@multiplicand multiplicand `ul  1 p 4 30 ]
 "129
 } 0
-"132 C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+"134 C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
 [v _TIMER_1_SET TIMER_1_SET `(v  1 e 1 0 ]
 {
 [v TIMER_1_SET@startOrStop startOrStop `uc  1 p 1 wreg ]
 [v TIMER_1_SET@startOrStop startOrStop `uc  1 p 1 wreg ]
-"134
-[v TIMER_1_SET@startOrStop startOrStop `uc  1 p 1 13 ]
 "136
+[v TIMER_1_SET@startOrStop startOrStop `uc  1 p 1 13 ]
+"138
 } 0
-"125
+"127
 [v _TIMER_1_INTERRUPT TIMER_1_INTERRUPT `(v  1 e 1 0 ]
 {
 [v TIMER_1_INTERRUPT@openOrClose openOrClose `uc  1 p 1 wreg ]
 [v TIMER_1_INTERRUPT@openOrClose openOrClose `uc  1 p 1 wreg ]
-"127
+"129
 [v TIMER_1_INTERRUPT@openOrClose openOrClose `uc  1 p 1 13 ]
-"130
+"132
 } 0
-"1729
+"1207
 [v _THREAD_MAIN THREAD_MAIN `(v  1 e 1 0 ]
 {
-"1731
-[v THREAD_MAIN@threadIndex threadIndex `uc  1 a 1 45 ]
-"1737
+"1209
+[v THREAD_MAIN@threadIndex threadIndex `uc  1 a 1 27 ]
+"1215
 } 0
-"2664
+"1600
 [v _INPUT_THREAD INPUT_THREAD `(v  1 e 1 0 ]
 {
-"2670
+"1606
 } 0
-"2659
+"1595
 [v _LED_THREAD LED_THREAD `(v  1 e 1 0 ]
 {
-"2662
+"1598
 } 0
-"2672
+"1608
 [v _ROLE_THREAD ROLE_THREAD `(v  1 e 1 0 ]
 {
-"2675
+"1611
 } 0
-"2611
+"1547
 [v _INTERRUPT_KONTROL_ROLE_TIME INTERRUPT_KONTROL_ROLE_TIME `(v  1 e 1 0 ]
 {
-"2613
+"1549
 [v INTERRUPT_KONTROL_ROLE_TIME@x x `uc  1 a 1 17 ]
-"2634
+"1570
 } 0
-"2334
+"1289
 [v _MENU_BUTON_READ MENU_BUTON_READ `(v  1 e 1 0 ]
 {
-"2339
-[v MENU_BUTON_READ@temp temp `uc  1 a 1 26 ]
-[s S2124 . 4 `ui 1 PressTime 2 0 `uc 1 Temp_Counter 1 2 `uc 1 Flag 1 3 ]
-"2336
-[v MENU_BUTON_READ@MENU_OK MENU_OK `S2124  1 s 4 MENU_OK ]
-"2337
-[v MENU_BUTON_READ@MENU_DOWN MENU_DOWN `S2124  1 s 4 MENU_DOWN ]
-"2338
-[v MENU_BUTON_READ@MENU_UP MENU_UP `S2124  1 s 4 MENU_UP ]
-"2374
+"1294
+[v MENU_BUTON_READ@temp temp `uc  1 a 1 25 ]
+[s S2094 . 4 `ui 1 PressTime 2 0 `uc 1 Temp_Counter 1 2 `uc 1 Flag 1 3 ]
+"1291
+[v MENU_BUTON_READ@MENU_OK MENU_OK `S2094  1 s 4 MENU_OK ]
+"1292
+[v MENU_BUTON_READ@MENU_DOWN MENU_DOWN `S2094  1 s 4 MENU_DOWN ]
+"1293
+[v MENU_BUTON_READ@MENU_UP MENU_UP `S2094  1 s 4 MENU_UP ]
+"1329
 } 0
-"31
+"33
 [v _PIN_GET_PORT PIN_GET_PORT `(uc  1 e 1 0 ]
 {
 [v PIN_GET_PORT@Port Port `uc  1 p 1 wreg ]
-"34
+"36
 [v PIN_GET_PORT@work_adress work_adress `*.39VEuc  1 a 2 17 ]
-"33
+"35
 [v PIN_GET_PORT@hex hex `uc  1 a 1 16 ]
-"31
+"33
 [v PIN_GET_PORT@Port Port `uc  1 p 1 wreg ]
 [v PIN_GET_PORT@Pin Pin `uc  1 p 1 13 ]
-"33
+"35
 [v PIN_GET_PORT@Port Port `uc  1 p 1 19 ]
-"40
+"42
 } 0
-"1654
+"1132
 [v _BUTON_PROCESS BUTON_PROCESS `(uc  1 e 1 0 ]
 {
-[s S2124 . 4 `ui 1 PressTime 2 0 `uc 1 Temp_Counter 1 2 `uc 1 Flag 1 3 ]
-[v BUTON_PROCESS@Buton Buton `*.39S2124  1 p 2 20 ]
-[v BUTON_PROCESS@Buton_Val Buton_Val `uc  1 p 1 22 ]
-[v BUTON_PROCESS@Buton_Up_Time Buton_Up_Time `uc  1 p 1 23 ]
-[v BUTON_PROCESS@Buton_Fall_Time Buton_Fall_Time `uc  1 p 1 24 ]
-"1678
+[s S2094 . 4 `ui 1 PressTime 2 0 `uc 1 Temp_Counter 1 2 `uc 1 Flag 1 3 ]
+[v BUTON_PROCESS@Buton Buton `*.30S2094  1 p 1 20 ]
+[v BUTON_PROCESS@Buton_Val Buton_Val `uc  1 p 1 21 ]
+[v BUTON_PROCESS@Buton_Up_Time Buton_Up_Time `uc  1 p 1 22 ]
+[v BUTON_PROCESS@Buton_Fall_Time Buton_Fall_Time `uc  1 p 1 23 ]
+"1156
 } 0
-"1680
+"1158
 [v _BUTON_GET_TIME BUTON_GET_TIME `(ui  1 e 2 0 ]
 {
-[s S2124 . 4 `ui 1 PressTime 2 0 `uc 1 Temp_Counter 1 2 `uc 1 Flag 1 3 ]
-[v BUTON_GET_TIME@Buton Buton `*.39S2124  1 p 2 13 ]
-"1683
+[s S2094 . 4 `ui 1 PressTime 2 0 `uc 1 Temp_Counter 1 2 `uc 1 Flag 1 3 ]
+[v BUTON_GET_TIME@Buton Buton `*.30S2094  1 p 1 13 ]
+"1161
 } 0
-"2376
+"1331
 [v _MENU_BUTON_PROCESS MENU_BUTON_PROCESS `(v  1 e 1 0 ]
 {
-"2398
+"1334
 } 0
-"2251
-[v _MENU_WORK MENU_WORK `(v  1 e 1 0 ]
+"1363
+[v _INPUT_READ INPUT_READ `(v  1 e 1 0 ]
 {
-[v MENU_WORK@MENU_MOVEMENT MENU_MOVEMENT `uc  1 p 1 wreg ]
-"2253
-[v MENU_WORK@temp temp `uc  1 a 1 18 ]
-"2251
-[v MENU_WORK@MENU_MOVEMENT MENU_MOVEMENT `uc  1 p 1 wreg ]
-"2254
-[v MENU_WORK@MENU_TEMP_VAL MENU_TEMP_VAL `ui  1 s 2 MENU_TEMP_VAL ]
-"2255
-[v MENU_WORK@VAL_CHANGE_FLAG VAL_CHANGE_FLAG `ui  1 s 2 VAL_CHANGE_FLAG ]
-"2256
-[v MENU_WORK@MENU_SHOW_FLAG MENU_SHOW_FLAG `uc  1 s 1 MENU_SHOW_FLAG ]
-"2253
-[v MENU_WORK@MENU_MOVEMENT MENU_MOVEMENT `uc  1 p 1 19 ]
-"2323
+"1366
+[v INPUT_READ@temp temp `uc  1 a 1 26 ]
+[s S2091 . 2 `uc 1 Temp_Counter 1 0 `uc 1 Old_state 1 1 ]
+"1367
+[v INPUT_READ@INPUT_A INPUT_A `S2091  1 s 2 INPUT_A ]
+"1373
+[v INPUT_READ@INPUT_B INPUT_B `S2091  1 s 2 INPUT_B ]
+"1379
+[v INPUT_READ@INHIBIT_A INHIBIT_A `S2091  1 s 2 INHIBIT_A ]
+"1385
+[v INPUT_READ@INHIBIT_B INHIBIT_B `S2091  1 s 2 INHIBIT_B ]
+"1391
+[v INPUT_READ@INPUT_EMG INPUT_EMG `S2091  1 s 2 INPUT_EMG ]
+"1398
+[v INPUT_READ@INPUT_EMG_MUTE INPUT_EMG_MUTE `S2091  1 s 2 INPUT_EMG_MUTE ]
+"1404
+[v INPUT_READ@RES RES `S2091  1 s 2 RES ]
+"1410
 } 0
-"2234
-[v _MENU_USE_VAL MENU_USE_VAL `(v  1 e 1 0 ]
+"1105
+[v _INPUT_DEBOUNCE INPUT_DEBOUNCE `(uc  1 e 1 0 ]
 {
-[v MENU_USE_VAL@ust_yazi ust_yazi `*.32uc  1 p 2 0 ]
-[v MENU_USE_VAL@data_max data_max `ui  1 p 2 2 ]
-[v MENU_USE_VAL@data_min data_min `ui  1 p 2 4 ]
-[v MENU_USE_VAL@data data `ui  1 p 2 6 ]
-"2249
+[s S2091 . 2 `uc 1 Temp_Counter 1 0 `uc 1 Old_state 1 1 ]
+[v INPUT_DEBOUNCE@Input Input `*.30S2091  1 p 1 21 ]
+[v INPUT_DEBOUNCE@Input_Val Input_Val `uc  1 p 1 22 ]
+[v INPUT_DEBOUNCE@Debounce Debounce `uc  1 p 1 23 ]
+"1117
 } 0
-"2224
-[v _MENU_USE_SELECT MENU_USE_SELECT `(v  1 e 1 0 ]
+"1412
+[v _INPUT_PROCESS INPUT_PROCESS `(v  1 e 1 0 ]
 {
-"2226
-[v MENU_USE_SELECT@msg msg `[30]uc  1 a 30 0 ]
-"2224
-[v MENU_USE_SELECT@ust_yazi ust_yazi `*.32uc  1 p 2 12 ]
-[v MENU_USE_SELECT@data data `*.39*.32uc  1 p 2 14 ]
-[v MENU_USE_SELECT@index index `uc  1 p 1 16 ]
-"2232
+"1472
 } 0
-"2201
-[v _MENU_TEXT_PRINT MENU_TEXT_PRINT `(v  1 e 1 0 ]
+"1275
+[v _LOG_PRINT LOG_PRINT `(v  1 e 1 0 ]
 {
-"2203
-[v MENU_TEXT_PRINT@msg msg `[30]uc  1 a 30 15 ]
-"2201
-[v MENU_TEXT_PRINT@text text `*.32uc  1 p 2 12 ]
-[v MENU_TEXT_PRINT@index index `uc  1 p 1 14 ]
-"2212
+[v LOG_PRINT@msg msg `*.32uc  1 p 2 16 ]
+"1279
 } 0
-"1407
-[v _OLED_H_Line OLED_H_Line `(v  1 e 1 0 ]
+"295
+[v _UART_1_STRING UART_1_STRING `(v  1 e 1 0 ]
 {
-"1409
-[v OLED_H_Line@temp temp `ui  1 a 2 32 ]
-"1407
-[v OLED_H_Line@x_start x_start `ui  1 p 2 25 ]
-[v OLED_H_Line@x_end x_end `ui  1 p 2 27 ]
-[v OLED_H_Line@y_pos y_pos `ui  1 p 2 29 ]
-[v OLED_H_Line@color color `uc  1 p 1 31 ]
-"1420
+[v UART_1_STRING@text text `*.32uc  1 p 2 14 ]
+"301
 } 0
-"2214
-[v _MENU_SHOW_DATA_PRINT MENU_SHOW_DATA_PRINT `(v  1 e 1 0 ]
+"289
+[v _UART_1_BYTE UART_1_BYTE `(v  1 e 1 0 ]
 {
-[v MENU_SHOW_DATA_PRINT@text text `*.32uc  1 p 2 22 ]
-[v MENU_SHOW_DATA_PRINT@data data `ui  1 p 2 24 ]
-"2222
+[v UART_1_BYTE@data data `uc  1 p 1 wreg ]
+[v UART_1_BYTE@data data `uc  1 p 1 wreg ]
+[v UART_1_BYTE@data data `uc  1 p 1 13 ]
+"293
 } 0
-"1534
-[v _OLED_Write_Text OLED_Write_Text `(v  1 e 1 0 ]
+"385
+[v _SET_OSC SET_OSC `(v  1 e 1 0 ]
 {
-"1536
-[v OLED_Write_Text@cnt cnt `uc  1 a 1 9 ]
-"1537
-[v OLED_Write_Text@length length `uc  1 a 1 8 ]
-"1534
-[v OLED_Write_Text@x x `ui  1 p 2 0 ]
-[v OLED_Write_Text@y y `ui  1 p 2 2 ]
-[v OLED_Write_Text@text text `*.34Cuc  1 p 2 4 ]
-"1543
+[v SET_OSC@MHz MHz `uc  1 p 1 wreg ]
+[v SET_OSC@MHz MHz `uc  1 p 1 wreg ]
+"387
+[v SET_OSC@MHz MHz `uc  1 p 1 29 ]
+"398
 } 0
+"1539
+[v _ROLE_OUTPUT ROLE_OUTPUT `(v  1 e 1 0 ]
+{
+[v ROLE_OUTPUT@index index `uc  1 p 1 wreg ]
+[v ROLE_OUTPUT@index index `uc  1 p 1 wreg ]
+"1541
+[v ROLE_OUTPUT@index index `uc  1 p 1 17 ]
 "1545
+} 0
+"1519
+[v _ROLE_GO_OUTPUT ROLE_GO_OUTPUT `(v  1 e 1 0 ]
+{
+[v ROLE_GO_OUTPUT@index index `uc  1 p 1 wreg ]
+[v ROLE_GO_OUTPUT@index index `uc  1 p 1 wreg ]
+[v ROLE_GO_OUTPUT@time time `uc  1 p 1 13 ]
+"1521
+[v ROLE_GO_OUTPUT@index index `uc  1 p 1 16 ]
+"1537
+} 0
+"1074
+[v _PWM_8_SET PWM_8_SET `(v  1 e 1 0 ]
+{
+[v PWM_8_SET@enable enable `uc  1 p 1 wreg ]
+[v PWM_8_SET@enable enable `uc  1 p 1 wreg ]
+"1076
+[v PWM_8_SET@enable enable `uc  1 p 1 13 ]
+"1088
+} 0
+"1040
+[v _PWM_8_INIT PWM_8_INIT `(v  1 e 1 0 ]
+{
+"1047
+[v PWM_8_INIT@pwmPeriod pwmPeriod `ul  1 a 4 36 ]
+"1048
+[v PWM_8_INIT@divide divide `uc  1 a 1 35 ]
+"1040
+[v PWM_8_INIT@freq freq `ul  1 p 4 26 ]
+[v PWM_8_INIT@timer timer `uc  1 p 1 30 ]
+"1060
+} 0
+"1062
+[v _PWM_8_DUTY PWM_8_DUTY `(v  1 e 1 0 ]
+{
+"1065
+[v PWM_8_DUTY@dutyValue dutyValue `ui  1 a 2 26 ]
+"1062
+[v PWM_8_DUTY@duty duty `ui  1 p 2 20 ]
+"1072
+} 0
+"1020
+[v _PWM_7_SET PWM_7_SET `(v  1 e 1 0 ]
+{
+[v PWM_7_SET@enable enable `uc  1 p 1 wreg ]
+[v PWM_7_SET@enable enable `uc  1 p 1 wreg ]
+"1022
+[v PWM_7_SET@enable enable `uc  1 p 1 13 ]
+"1034
+} 0
+"986
+[v _PWM_7_INIT PWM_7_INIT `(v  1 e 1 0 ]
+{
+"993
+[v PWM_7_INIT@pwmPeriod pwmPeriod `ul  1 a 4 36 ]
+"994
+[v PWM_7_INIT@divide divide `uc  1 a 1 35 ]
+"986
+[v PWM_7_INIT@freq freq `ul  1 p 4 26 ]
+[v PWM_7_INIT@timer timer `uc  1 p 1 30 ]
+"1006
+} 0
+"1008
+[v _PWM_7_DUTY PWM_7_DUTY `(v  1 e 1 0 ]
+{
+"1011
+[v PWM_7_DUTY@dutyValue dutyValue `ui  1 a 2 26 ]
+"1008
+[v PWM_7_DUTY@duty duty `ui  1 p 2 20 ]
+"1018
+} 0
+"966
+[v _PWM_6_SET PWM_6_SET `(v  1 e 1 0 ]
+{
+[v PWM_6_SET@enable enable `uc  1 p 1 wreg ]
+[v PWM_6_SET@enable enable `uc  1 p 1 wreg ]
+"968
+[v PWM_6_SET@enable enable `uc  1 p 1 13 ]
+"980
+} 0
+"932
+[v _PWM_6_INIT PWM_6_INIT `(v  1 e 1 0 ]
+{
+"939
+[v PWM_6_INIT@pwmPeriod pwmPeriod `ul  1 a 4 36 ]
+"940
+[v PWM_6_INIT@divide divide `uc  1 a 1 35 ]
+"932
+[v PWM_6_INIT@freq freq `ul  1 p 4 26 ]
+[v PWM_6_INIT@timer timer `uc  1 p 1 30 ]
+"952
+} 0
+"954
+[v _PWM_6_DUTY PWM_6_DUTY `(v  1 e 1 0 ]
+{
+"957
+[v PWM_6_DUTY@dutyValue dutyValue `ui  1 a 2 26 ]
+"954
+[v PWM_6_DUTY@duty duty `ui  1 p 2 20 ]
+"964
+} 0
+"912
+[v _PWM_5_SET PWM_5_SET `(v  1 e 1 0 ]
+{
+[v PWM_5_SET@enable enable `uc  1 p 1 wreg ]
+[v PWM_5_SET@enable enable `uc  1 p 1 wreg ]
+"914
+[v PWM_5_SET@enable enable `uc  1 p 1 13 ]
+"926
+} 0
+"878
+[v _PWM_5_INIT PWM_5_INIT `(v  1 e 1 0 ]
+{
+"885
+[v PWM_5_INIT@pwmPeriod pwmPeriod `ul  1 a 4 36 ]
+"886
+[v PWM_5_INIT@divide divide `uc  1 a 1 35 ]
+"878
+[v PWM_5_INIT@freq freq `ul  1 p 4 26 ]
+[v PWM_5_INIT@timer timer `uc  1 p 1 30 ]
+"898
+} 0
+"900
+[v _PWM_5_DUTY PWM_5_DUTY `(v  1 e 1 0 ]
+{
+"903
+[v PWM_5_DUTY@dutyValue dutyValue `ui  1 a 2 26 ]
+"900
+[v PWM_5_DUTY@duty duty `ui  1 p 2 20 ]
+"910
+} 0
+"858
+[v _PWM_4_SET PWM_4_SET `(v  1 e 1 0 ]
+{
+[v PWM_4_SET@enable enable `uc  1 p 1 wreg ]
+[v PWM_4_SET@enable enable `uc  1 p 1 wreg ]
+"860
+[v PWM_4_SET@enable enable `uc  1 p 1 13 ]
+"872
+} 0
+"824
+[v _PWM_4_INIT PWM_4_INIT `(v  1 e 1 0 ]
+{
+"831
+[v PWM_4_INIT@pwmPeriod pwmPeriod `ul  1 a 4 36 ]
+"832
+[v PWM_4_INIT@divide divide `uc  1 a 1 35 ]
+"824
+[v PWM_4_INIT@freq freq `ul  1 p 4 26 ]
+[v PWM_4_INIT@timer timer `uc  1 p 1 30 ]
+"844
+} 0
+"652
+[v _PWM_TIMER_PR_LOAD PWM_TIMER_PR_LOAD `(v  1 e 1 0 ]
+{
+[v PWM_TIMER_PR_LOAD@timer timer `uc  1 p 1 wreg ]
+[v PWM_TIMER_PR_LOAD@timer timer `uc  1 p 1 wreg ]
+[v PWM_TIMER_PR_LOAD@period period `uc  1 p 1 13 ]
+"654
+[v PWM_TIMER_PR_LOAD@timer timer `uc  1 p 1 14 ]
+"658
+} 0
+"644
+[v _PWM_TIMER_DIVIDE PWM_TIMER_DIVIDE `(v  1 e 1 0 ]
+{
+[v PWM_TIMER_DIVIDE@timer timer `uc  1 p 1 wreg ]
+[v PWM_TIMER_DIVIDE@timer timer `uc  1 p 1 wreg ]
+[v PWM_TIMER_DIVIDE@Prescale Prescale `uc  1 p 1 13 ]
+"646
+[v PWM_TIMER_DIVIDE@timer timer `uc  1 p 1 14 ]
+"650
+} 0
+"588
+[v _PWM_TIMER_CHOOSE PWM_TIMER_CHOOSE `(v  1 e 1 0 ]
+{
+[v PWM_TIMER_CHOOSE@Channel Channel `uc  1 p 1 wreg ]
+[v PWM_TIMER_CHOOSE@Channel Channel `uc  1 p 1 wreg ]
+[v PWM_TIMER_CHOOSE@timer timer `uc  1 p 1 13 ]
+"590
+[v PWM_TIMER_CHOOSE@Channel Channel `uc  1 p 1 14 ]
+"642
+} 0
+"846
+[v _PWM_4_DUTY PWM_4_DUTY `(v  1 e 1 0 ]
+{
+"849
+[v PWM_4_DUTY@dutyValue dutyValue `ui  1 a 2 26 ]
+"846
+[v PWM_4_DUTY@duty duty `ui  1 p 2 20 ]
+"856
+} 0
+"7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwdiv@quotient quotient `ui  1 a 2 17 ]
+"11
+[v ___lwdiv@counter counter `uc  1 a 1 19 ]
+"7
+[v ___lwdiv@dividend dividend `ui  1 p 2 13 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 15 ]
+"30
+} 0
+"77 C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+[v _PIN_SET_ANSEL PIN_SET_ANSEL `(v  1 e 1 0 ]
+{
+[v PIN_SET_ANSEL@Pin Pin `uc  1 p 1 wreg ]
+[v PIN_SET_ANSEL@Pin Pin `uc  1 p 1 wreg ]
+[v PIN_SET_ANSEL@OnOFF OnOFF `uc  1 p 1 13 ]
+"79
+[v PIN_SET_ANSEL@Pin Pin `uc  1 p 1 14 ]
+"103
+} 0
+"111
+[v _PIN_IOC_INTERRUPT PIN_IOC_INTERRUPT `(v  1 e 1 0 ]
+{
+[v PIN_IOC_INTERRUPT@openOrClose openOrClose `uc  1 p 1 13 ]
+"115
+} 0
+"460 C:\Users\SERT\MPLABXProjects\TEST.X\ssd1306_oled.c
 [v _OLED_Write_Dec OLED_Write_Dec `(v  1 e 1 0 ]
 {
-"1547
+"462
 [v OLED_Write_Dec@text text `[30]uc  1 a 30 0 ]
-"1548
+"463
 [v OLED_Write_Dec@cnt cnt `uc  1 a 1 31 ]
-"1549
+"464
 [v OLED_Write_Dec@length length `uc  1 a 1 30 ]
-"1545
+"460
 [v OLED_Write_Dec@x x `ui  1 p 2 12 ]
 [v OLED_Write_Dec@y y `ui  1 p 2 14 ]
 [v OLED_Write_Dec@data data `ul  1 p 4 16 ]
-"1555
+"470
 } 0
 "5 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]
 {
 "7
-[v strlen@a a `*.34Cuc  1 a 2 15 ]
+[v strlen@a a `*.39Cuc  1 a 2 15 ]
 "5
-[v strlen@s s `*.34Cuc  1 p 2 13 ]
+[v strlen@s s `*.39Cuc  1 p 2 13 ]
 "12
 } 0
 "9 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[u S3742 . 2 `*.39uc 1 buffer 2 0 `*.39Cuc 1 source 2 0 ]
+[u S3519 . 2 `*.39uc 1 buffer 2 0 `*.39Cuc 1 source 2 0 ]
 "13
-[s S3745 _IO_FILE 11 `S3742 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S3745  1 a 11 1 ]
+[s S3522 _IO_FILE 11 `S3519 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v sprintf@f f `S3522  1 a 11 1 ]
 "12
 [v sprintf@ap ap `[1]*.30v  1 a 1 0 ]
 "9
-[v sprintf@s s `*.39uc  1 p 2 45 ]
-[v sprintf@fmt fmt `*.32Cuc  1 p 2 47 ]
+[v sprintf@s s `*.39uc  1 p 2 42 ]
+[v sprintf@fmt fmt `*.32Cuc  1 p 2 44 ]
 "23
 } 0
 "1817 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\doprnt.c
 [v _vfprintf vfprintf `(i  1 e 2 0 ]
 {
 "1820
-[v vfprintf@cfmt cfmt `*.32uc  1 a 2 43 ]
-[s S3777 _IO_FILE 0 ]
+[v vfprintf@cfmt cfmt `*.32uc  1 a 2 40 ]
+[s S3554 _IO_FILE 0 ]
 "1817
-[v vfprintf@fp fp `*.30S3777  1 p 1 39 ]
-[v vfprintf@fmt fmt `*.32Cuc  1 p 2 40 ]
-[v vfprintf@ap ap `*.30*.30v  1 p 1 42 ]
+[v vfprintf@fp fp `*.30S3554  1 p 1 36 ]
+[v vfprintf@fmt fmt `*.32Cuc  1 p 2 37 ]
+[v vfprintf@ap ap `*.30*.30v  1 p 1 39 ]
 "1840
 } 0
 "1177
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-"1669
-[v vfpfcnvrt@cp_3820 cp `*.34uc  1 a 2 29 ]
-[u S3790 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
+[u S3567 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
 "1188
-[v vfpfcnvrt@convarg convarg `S3790  1 a 4 34 ]
+[v vfpfcnvrt@convarg convarg `S3567  1 a 4 31 ]
 "1179
-[v vfpfcnvrt@cp cp `*.32uc  1 a 2 31 ]
-[v vfpfcnvrt@c c `uc  1 a 1 38 ]
+[v vfpfcnvrt@cp cp `*.32uc  1 a 2 29 ]
+[v vfpfcnvrt@c c `uc  1 a 1 35 ]
 "1180
-[v vfpfcnvrt@done done `a  1 a 1 33 ]
-[s S3777 _IO_FILE 0 ]
+[v vfpfcnvrt@done done `a  1 a 1 28 ]
+[s S3554 _IO_FILE 0 ]
 "1177
-[v vfpfcnvrt@fp fp `*.30S3777  1 p 1 23 ]
+[v vfpfcnvrt@fp fp `*.30S3554  1 p 1 23 ]
 [v vfpfcnvrt@fmt fmt `*.30*.32uc  1 p 1 24 ]
-[v vfpfcnvrt@ap ap `*.39*.30v  1 p 2 25 ]
+[v vfpfcnvrt@ap ap `*.30*.30v  1 p 1 25 ]
 "1814
 } 0
 "8 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 13 ]
-[u S3742 . 2 `*.39uc 1 buffer 2 0 `*.39Cuc 1 source 2 0 ]
-[s S3745 _IO_FILE 11 `S3742 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.30S3745  1 p 1 15 ]
+[u S3519 . 2 `*.39uc 1 buffer 2 0 `*.39Cuc 1 source 2 0 ]
+[s S3522 _IO_FILE 11 `S3519 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.30S3522  1 p 1 15 ]
 "24
 } 0
 "7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\putch.c
@@ -1806,371 +1913,31 @@ ROLE_CIKIS_DONE 4
 [v ___awmod@divisor divisor `i  1 p 2 15 ]
 "34
 } 0
-"1483 C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+"398 C:\Users\SERT\MPLABXProjects\TEST.X\ssd1306_oled.c
 [v _OLED_Write OLED_Write `(v  1 e 1 0 ]
 {
-"1487
+"402
 [v OLED_Write@cnt cnt `ui  1 a 2 52 ]
-"1486
+"401
 [v OLED_Write@rowcnt rowcnt `ui  1 a 2 50 ]
-"1491
+"406
 [v OLED_Write@cy cy `ui  1 a 2 48 ]
 [v OLED_Write@cx cx `ui  1 a 2 46 ]
-"1485
+"400
 [v OLED_Write@font_idx font_idx `ui  1 a 2 44 ]
-"1492
+"407
 [v OLED_Write@cbit cbit `ui  1 a 2 42 ]
-"1491
+"406
 [v OLED_Write@cbyte cbyte `ui  1 a 2 40 ]
-"1489
+"404
 [v OLED_Write@temp temp `ui  1 a 2 38 ]
-"1488
+"403
 [v OLED_Write@b b `uc  1 a 1 54 ]
-"1483
+"398
 [v OLED_Write@x x `ui  1 p 2 25 ]
 [v OLED_Write@y y `ui  1 p 2 27 ]
 [v OLED_Write@value value `uc  1 p 1 29 ]
-"1532
-} 0
-"1334
-[v _OLED_DrawPixel OLED_DrawPixel `(v  1 e 1 0 ]
-{
-[v OLED_DrawPixel@x x `ui  1 p 2 13 ]
-[v OLED_DrawPixel@y y `ui  1 p 2 15 ]
-[v OLED_DrawPixel@color color `uc  1 p 1 17 ]
-"1345
-} 0
-"1590
-[v _OLED_Update OLED_Update `(v  1 e 1 0 ]
-{
-"1592
-[v OLED_Update@i i `ui  1 a 2 17 ]
-"1593
-[v OLED_Update@x x `uc  1 a 1 16 ]
-"1611
-} 0
-"2173
-[v _MENU_GIR MENU_GIR `(v  1 e 1 0 ]
-{
-[s S2145 . 10 `*.32Cuc 1 text 2 0 `uc 1 flag 1 2 `*.38(ui 1 Funct 3 3 `ui 1 max 2 6 `ui 1 min 2 8 ]
-[v MENU_GIR@Menu Menu `*.39S2145  1 p 2 13 ]
-[v MENU_GIR@komut komut `uc  1 p 1 15 ]
-"2188
-} 0
-"2123
-[v _MENU_FUNCT_ARM_MOTOR_BREAK_SPEED MENU_FUNCT_ARM_MOTOR_BREAK_SPEED `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_ARM_MOTOR_BREAK_SPEED@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_ARM_MOTOR_BREAK_SPEED@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_ARM_MOTOR_BREAK_SPEED@data data `ui  1 p 2 13 ]
-"2125
-[v MENU_FUNCT_ARM_MOTOR_BREAK_SPEED@komut komut `uc  1 p 1 15 ]
-"2131
-} 0
-"2113
-[v _MENU_FUNCT_ARM_MOTOR_SPEED MENU_FUNCT_ARM_MOTOR_SPEED `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_ARM_MOTOR_SPEED@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_ARM_MOTOR_SPEED@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_ARM_MOTOR_SPEED@data data `ui  1 p 2 13 ]
-"2115
-[v MENU_FUNCT_ARM_MOTOR_SPEED@komut komut `uc  1 p 1 15 ]
-"2121
-} 0
-"2102
-[v _MENU_FUNCT_ARM_MOTOR_MODE MENU_FUNCT_ARM_MOTOR_MODE `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_ARM_MOTOR_MODE@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_ARM_MOTOR_MODE@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_ARM_MOTOR_MODE@data data `ui  1 p 2 13 ]
-"2104
-[v MENU_FUNCT_ARM_MOTOR_MODE@komut komut `uc  1 p 1 15 ]
-"2111
-} 0
-"2091
-[v _MENU_FUNCT_ARM_DROP_MODE MENU_FUNCT_ARM_DROP_MODE `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_ARM_DROP_MODE@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_ARM_DROP_MODE@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_ARM_DROP_MODE@data data `ui  1 p 2 13 ]
-"2093
-[v MENU_FUNCT_ARM_DROP_MODE@komut komut `uc  1 p 1 15 ]
-"2100
-} 0
-"2068
-[v _MENU_FUNCT_EMG_MODE MENU_FUNCT_EMG_MODE `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_EMG_MODE@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_EMG_MODE@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_EMG_MODE@data data `ui  1 p 2 13 ]
-"2070
-[v MENU_FUNCT_EMG_MODE@komut komut `uc  1 p 1 15 ]
-"2077
-} 0
-"2058
-[v _MENU_FUNCT_INPUT_BUFFER MENU_FUNCT_INPUT_BUFFER `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_INPUT_BUFFER@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_INPUT_BUFFER@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_INPUT_BUFFER@data data `ui  1 p 2 13 ]
-"2060
-[v MENU_FUNCT_INPUT_BUFFER@komut komut `uc  1 p 1 15 ]
-"2066
-} 0
-"2048
-[v _MENU_FUNCT_INPUT_TIME_OUT MENU_FUNCT_INPUT_TIME_OUT `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_INPUT_TIME_OUT@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_INPUT_TIME_OUT@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_INPUT_TIME_OUT@data data `ui  1 p 2 13 ]
-"2050
-[v MENU_FUNCT_INPUT_TIME_OUT@komut komut `uc  1 p 1 15 ]
-"2056
-} 0
-"2037
-[v _MENU_FUNCT_INPUT_MODE MENU_FUNCT_INPUT_MODE `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_INPUT_MODE@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_INPUT_MODE@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_INPUT_MODE@data data `ui  1 p 2 13 ]
-"2039
-[v MENU_FUNCT_INPUT_MODE@komut komut `uc  1 p 1 15 ]
-"2046
-} 0
-"2016
-[v _MENU_FUNCT_RANDOM_B_AMOUNT MENU_FUNCT_RANDOM_B_AMOUNT `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_RANDOM_B_AMOUNT@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RANDOM_B_AMOUNT@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RANDOM_B_AMOUNT@data data `ui  1 p 2 13 ]
-"2018
-[v MENU_FUNCT_RANDOM_B_AMOUNT@komut komut `uc  1 p 1 15 ]
-"2024
-} 0
-"2006
-[v _MENU_FUNCT_RANDOM_A_AMOUNT MENU_FUNCT_RANDOM_A_AMOUNT `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_RANDOM_A_AMOUNT@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RANDOM_A_AMOUNT@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RANDOM_A_AMOUNT@data data `ui  1 p 2 13 ]
-"2008
-[v MENU_FUNCT_RANDOM_A_AMOUNT@komut komut `uc  1 p 1 15 ]
-"2014
-} 0
-"1995
-[v _MENU_FUNCT_RANDOM_B_MODE MENU_FUNCT_RANDOM_B_MODE `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_RANDOM_B_MODE@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RANDOM_B_MODE@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RANDOM_B_MODE@data data `ui  1 p 2 13 ]
-"1997
-[v MENU_FUNCT_RANDOM_B_MODE@komut komut `uc  1 p 1 15 ]
-"2004
-} 0
-"1984
-[v _MENU_FUNCT_RANDOM_A_MODE MENU_FUNCT_RANDOM_A_MODE `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_RANDOM_A_MODE@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RANDOM_A_MODE@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RANDOM_A_MODE@data data `ui  1 p 2 13 ]
-"1986
-[v MENU_FUNCT_RANDOM_A_MODE@komut komut `uc  1 p 1 15 ]
-"1993
-} 0
-"1963
-[v _MENU_FUNCT_COUNTER_B_TEMP MENU_FUNCT_COUNTER_B_TEMP `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_COUNTER_B_TEMP@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_COUNTER_B_TEMP@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_COUNTER_B_TEMP@data data `ui  1 p 2 13 ]
-"1965
-[v MENU_FUNCT_COUNTER_B_TEMP@komut komut `uc  1 p 1 15 ]
-"1972
-} 0
-"1952
-[v _MENU_FUNCT_COUNTER_A_TEMP MENU_FUNCT_COUNTER_A_TEMP `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_COUNTER_A_TEMP@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_COUNTER_A_TEMP@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_COUNTER_A_TEMP@data data `ui  1 p 2 13 ]
-"1954
-[v MENU_FUNCT_COUNTER_A_TEMP@komut komut `uc  1 p 1 15 ]
-"1961
-} 0
-"1941
-[v _MENU_FUNCT_COUNTER_B_FIX MENU_FUNCT_COUNTER_B_FIX `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_COUNTER_B_FIX@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_COUNTER_B_FIX@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_COUNTER_B_FIX@data data `ui  1 p 2 13 ]
-"1943
-[v MENU_FUNCT_COUNTER_B_FIX@komut komut `uc  1 p 1 15 ]
-"1950
-} 0
-"1930
-[v _MENU_FUNCT_COUNTER_A_FIX MENU_FUNCT_COUNTER_A_FIX `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_COUNTER_A_FIX@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_COUNTER_A_FIX@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_COUNTER_A_FIX@data data `ui  1 p 2 13 ]
-"1932
-[v MENU_FUNCT_COUNTER_A_FIX@komut komut `uc  1 p 1 15 ]
-"1939
-} 0
-"1904
-[v _MENU_FUNCT_RELAY_ALARM_TIME MENU_FUNCT_RELAY_ALARM_TIME `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_RELAY_ALARM_TIME@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RELAY_ALARM_TIME@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RELAY_ALARM_TIME@data data `ui  1 p 2 13 ]
-"1906
-[v MENU_FUNCT_RELAY_ALARM_TIME@komut komut `uc  1 p 1 15 ]
-"1912
-} 0
-"1894
-[v _MENU_FUNCT_RELAY_BUSY_TIME MENU_FUNCT_RELAY_BUSY_TIME `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_RELAY_BUSY_TIME@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RELAY_BUSY_TIME@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RELAY_BUSY_TIME@data data `ui  1 p 2 13 ]
-"1896
-[v MENU_FUNCT_RELAY_BUSY_TIME@komut komut `uc  1 p 1 15 ]
-"1902
-} 0
-"1874
-[v _MENU_FUNCT_RELAY_A_TIME MENU_FUNCT_RELAY_A_TIME `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_RELAY_A_TIME@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RELAY_A_TIME@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RELAY_A_TIME@data data `ui  1 p 2 13 ]
-"1876
-[v MENU_FUNCT_RELAY_A_TIME@komut komut `uc  1 p 1 15 ]
-"1882
-} 0
-"1863
-[v _MENU_FUNCT_RELAY_ALARM_MODE MENU_FUNCT_RELAY_ALARM_MODE `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_RELAY_ALARM_MODE@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RELAY_ALARM_MODE@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RELAY_ALARM_MODE@data data `ui  1 p 2 13 ]
-"1865
-[v MENU_FUNCT_RELAY_ALARM_MODE@komut komut `uc  1 p 1 15 ]
-"1872
-} 0
-"1852
-[v _MENU_FUNCT_RELAY_BUSY_MODE MENU_FUNCT_RELAY_BUSY_MODE `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_RELAY_BUSY_MODE@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RELAY_BUSY_MODE@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RELAY_BUSY_MODE@data data `ui  1 p 2 13 ]
-"1854
-[v MENU_FUNCT_RELAY_BUSY_MODE@komut komut `uc  1 p 1 15 ]
-"1861
-} 0
-"1841
-[v _MENU_FUNCT_RELAY_B_MODE MENU_FUNCT_RELAY_B_MODE `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_RELAY_B_MODE@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RELAY_B_MODE@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RELAY_B_MODE@data data `ui  1 p 2 13 ]
-"1843
-[v MENU_FUNCT_RELAY_B_MODE@komut komut `uc  1 p 1 15 ]
-"1850
-} 0
-"1830
-[v _MENU_FUNCT_RELAY_A_MODE MENU_FUNCT_RELAY_A_MODE `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_RELAY_A_MODE@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RELAY_A_MODE@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RELAY_A_MODE@data data `ui  1 p 2 13 ]
-"1832
-[v MENU_FUNCT_RELAY_A_MODE@komut komut `uc  1 p 1 15 ]
-"1839
-} 0
-"1884
-[v _MENU_FUNCT_RELAY_B_TIME MENU_FUNCT_RELAY_B_TIME `(ui  1 e 2 0 ]
-{
-[v MENU_FUNCT_RELAY_B_TIME@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RELAY_B_TIME@komut komut `uc  1 p 1 wreg ]
-[v MENU_FUNCT_RELAY_B_TIME@data data `ui  1 p 2 13 ]
-"1886
-[v MENU_FUNCT_RELAY_B_TIME@komut komut `uc  1 p 1 15 ]
-"1892
-} 0
-"2190
-[v _MENU_CIK MENU_CIK `(v  1 e 1 0 ]
-{
-"2199
-} 0
-"2156
-[v _MENU_UST_DATA_GETIR MENU_UST_DATA_GETIR `(v  1 e 1 0 ]
-{
-"2171
-} 0
-"2427
-[v _INPUT_READ INPUT_READ `(v  1 e 1 0 ]
-{
-"2430
-[v INPUT_READ@temp temp `uc  1 a 1 26 ]
-[s S2121 . 2 `uc 1 Temp_Counter 1 0 `uc 1 Old_state 1 1 ]
-"2431
-[v INPUT_READ@INPUT_A INPUT_A `S2121  1 s 2 INPUT_A ]
-"2437
-[v INPUT_READ@INPUT_B INPUT_B `S2121  1 s 2 INPUT_B ]
-"2443
-[v INPUT_READ@INHIBIT_A INHIBIT_A `S2121  1 s 2 INHIBIT_A ]
-"2449
-[v INPUT_READ@INHIBIT_B INHIBIT_B `S2121  1 s 2 INHIBIT_B ]
-"2455
-[v INPUT_READ@INPUT_EMG INPUT_EMG `S2121  1 s 2 INPUT_EMG ]
-"2462
-[v INPUT_READ@INPUT_EMG_MUTE INPUT_EMG_MUTE `S2121  1 s 2 INPUT_EMG_MUTE ]
-"2468
-[v INPUT_READ@RES RES `S2121  1 s 2 RES ]
-"2474
-} 0
-"1627
-[v _INPUT_DEBOUNCE INPUT_DEBOUNCE `(uc  1 e 1 0 ]
-{
-[s S2121 . 2 `uc 1 Temp_Counter 1 0 `uc 1 Old_state 1 1 ]
-[v INPUT_DEBOUNCE@Input Input `*.30S2121  1 p 1 21 ]
-[v INPUT_DEBOUNCE@Input_Val Input_Val `uc  1 p 1 22 ]
-[v INPUT_DEBOUNCE@Debounce Debounce `uc  1 p 1 23 ]
-"1639
-} 0
-"2476
-[v _INPUT_PROCESS INPUT_PROCESS `(v  1 e 1 0 ]
-{
-"2536
-} 0
-"1797
-[v _LOG_PRINT LOG_PRINT `(v  1 e 1 0 ]
-{
-[v LOG_PRINT@msg msg `*.32uc  1 p 2 16 ]
-"1801
-} 0
-"293
-[v _UART_1_STRING UART_1_STRING `(v  1 e 1 0 ]
-{
-[v UART_1_STRING@text text `*.32uc  1 p 2 14 ]
-"299
-} 0
-"287
-[v _UART_1_BYTE UART_1_BYTE `(v  1 e 1 0 ]
-{
-[v UART_1_BYTE@data data `uc  1 p 1 wreg ]
-[v UART_1_BYTE@data data `uc  1 p 1 wreg ]
-[v UART_1_BYTE@data data `uc  1 p 1 13 ]
-"291
-} 0
-"383
-[v _SET_OSC SET_OSC `(v  1 e 1 0 ]
-{
-[v SET_OSC@MHz MHz `uc  1 p 1 wreg ]
-[v SET_OSC@MHz MHz `uc  1 p 1 wreg ]
-"385
-[v SET_OSC@MHz MHz `uc  1 p 1 29 ]
-"396
+"447
 } 0
 "7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
@@ -2185,282 +1952,75 @@ ROLE_CIKIS_DONE 4
 [v ___awdiv@divisor divisor `i  1 p 2 15 ]
 "41
 } 0
-"2603 C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-[v _ROLE_OUTPUT ROLE_OUTPUT `(v  1 e 1 0 ]
+"249 C:\Users\SERT\MPLABXProjects\TEST.X\ssd1306_oled.c
+[v _OLED_DrawPixel OLED_DrawPixel `(v  1 e 1 0 ]
 {
-[v ROLE_OUTPUT@index index `uc  1 p 1 wreg ]
-[v ROLE_OUTPUT@index index `uc  1 p 1 wreg ]
-"2605
-[v ROLE_OUTPUT@index index `uc  1 p 1 17 ]
-"2609
+[v OLED_DrawPixel@x x `ui  1 p 2 13 ]
+[v OLED_DrawPixel@y y `ui  1 p 2 15 ]
+[v OLED_DrawPixel@color color `uc  1 p 1 17 ]
+"260
 } 0
-"2583
-[v _ROLE_GO_OUTPUT ROLE_GO_OUTPUT `(v  1 e 1 0 ]
+"508
+[v _OLED_Update OLED_Update `(v  1 e 1 0 ]
 {
-[v ROLE_GO_OUTPUT@index index `uc  1 p 1 wreg ]
-[v ROLE_GO_OUTPUT@index index `uc  1 p 1 wreg ]
-[v ROLE_GO_OUTPUT@time time `uc  1 p 1 13 ]
-"2585
-[v ROLE_GO_OUTPUT@index index `uc  1 p 1 16 ]
-"2601
+"510
+[v OLED_Update@i i `ui  1 a 2 17 ]
+"511
+[v OLED_Update@x x `uc  1 a 1 16 ]
+"529
 } 0
-"1072
-[v _PWM_8_SET PWM_8_SET `(v  1 e 1 0 ]
-{
-[v PWM_8_SET@enable enable `uc  1 p 1 wreg ]
-[v PWM_8_SET@enable enable `uc  1 p 1 wreg ]
-"1074
-[v PWM_8_SET@enable enable `uc  1 p 1 13 ]
-"1086
-} 0
-"1038
-[v _PWM_8_INIT PWM_8_INIT `(v  1 e 1 0 ]
-{
-"1045
-[v PWM_8_INIT@pwmPeriod pwmPeriod `ul  1 a 4 36 ]
-"1046
-[v PWM_8_INIT@divide divide `uc  1 a 1 35 ]
-"1038
-[v PWM_8_INIT@freq freq `ul  1 p 4 26 ]
-[v PWM_8_INIT@timer timer `uc  1 p 1 30 ]
-"1058
-} 0
-"1060
-[v _PWM_8_DUTY PWM_8_DUTY `(v  1 e 1 0 ]
-{
-"1063
-[v PWM_8_DUTY@dutyValue dutyValue `ui  1 a 2 26 ]
-"1060
-[v PWM_8_DUTY@duty duty `ui  1 p 2 20 ]
-"1070
-} 0
-"1018
-[v _PWM_7_SET PWM_7_SET `(v  1 e 1 0 ]
-{
-[v PWM_7_SET@enable enable `uc  1 p 1 wreg ]
-[v PWM_7_SET@enable enable `uc  1 p 1 wreg ]
-"1020
-[v PWM_7_SET@enable enable `uc  1 p 1 13 ]
-"1032
-} 0
-"984
-[v _PWM_7_INIT PWM_7_INIT `(v  1 e 1 0 ]
-{
-"991
-[v PWM_7_INIT@pwmPeriod pwmPeriod `ul  1 a 4 36 ]
-"992
-[v PWM_7_INIT@divide divide `uc  1 a 1 35 ]
-"984
-[v PWM_7_INIT@freq freq `ul  1 p 4 26 ]
-[v PWM_7_INIT@timer timer `uc  1 p 1 30 ]
-"1004
-} 0
-"1006
-[v _PWM_7_DUTY PWM_7_DUTY `(v  1 e 1 0 ]
-{
-"1009
-[v PWM_7_DUTY@dutyValue dutyValue `ui  1 a 2 26 ]
-"1006
-[v PWM_7_DUTY@duty duty `ui  1 p 2 20 ]
-"1016
-} 0
-"964
-[v _PWM_6_SET PWM_6_SET `(v  1 e 1 0 ]
-{
-[v PWM_6_SET@enable enable `uc  1 p 1 wreg ]
-[v PWM_6_SET@enable enable `uc  1 p 1 wreg ]
-"966
-[v PWM_6_SET@enable enable `uc  1 p 1 13 ]
-"978
-} 0
-"930
-[v _PWM_6_INIT PWM_6_INIT `(v  1 e 1 0 ]
-{
-"937
-[v PWM_6_INIT@pwmPeriod pwmPeriod `ul  1 a 4 36 ]
-"938
-[v PWM_6_INIT@divide divide `uc  1 a 1 35 ]
-"930
-[v PWM_6_INIT@freq freq `ul  1 p 4 26 ]
-[v PWM_6_INIT@timer timer `uc  1 p 1 30 ]
-"950
-} 0
-"952
-[v _PWM_6_DUTY PWM_6_DUTY `(v  1 e 1 0 ]
-{
-"955
-[v PWM_6_DUTY@dutyValue dutyValue `ui  1 a 2 26 ]
-"952
-[v PWM_6_DUTY@duty duty `ui  1 p 2 20 ]
-"962
-} 0
-"910
-[v _PWM_5_SET PWM_5_SET `(v  1 e 1 0 ]
-{
-[v PWM_5_SET@enable enable `uc  1 p 1 wreg ]
-[v PWM_5_SET@enable enable `uc  1 p 1 wreg ]
-"912
-[v PWM_5_SET@enable enable `uc  1 p 1 13 ]
-"924
-} 0
-"876
-[v _PWM_5_INIT PWM_5_INIT `(v  1 e 1 0 ]
-{
-"883
-[v PWM_5_INIT@pwmPeriod pwmPeriod `ul  1 a 4 36 ]
-"884
-[v PWM_5_INIT@divide divide `uc  1 a 1 35 ]
-"876
-[v PWM_5_INIT@freq freq `ul  1 p 4 26 ]
-[v PWM_5_INIT@timer timer `uc  1 p 1 30 ]
-"896
-} 0
-"898
-[v _PWM_5_DUTY PWM_5_DUTY `(v  1 e 1 0 ]
-{
-"901
-[v PWM_5_DUTY@dutyValue dutyValue `ui  1 a 2 26 ]
-"898
-[v PWM_5_DUTY@duty duty `ui  1 p 2 20 ]
-"908
-} 0
-"856
-[v _PWM_4_SET PWM_4_SET `(v  1 e 1 0 ]
-{
-[v PWM_4_SET@enable enable `uc  1 p 1 wreg ]
-[v PWM_4_SET@enable enable `uc  1 p 1 wreg ]
-"858
-[v PWM_4_SET@enable enable `uc  1 p 1 13 ]
-"870
-} 0
-"822
-[v _PWM_4_INIT PWM_4_INIT `(v  1 e 1 0 ]
-{
-"829
-[v PWM_4_INIT@pwmPeriod pwmPeriod `ul  1 a 4 36 ]
-"830
-[v PWM_4_INIT@divide divide `uc  1 a 1 35 ]
-"822
-[v PWM_4_INIT@freq freq `ul  1 p 4 26 ]
-[v PWM_4_INIT@timer timer `uc  1 p 1 30 ]
-"842
-} 0
-"650
-[v _PWM_TIMER_PR_LOAD PWM_TIMER_PR_LOAD `(v  1 e 1 0 ]
-{
-[v PWM_TIMER_PR_LOAD@timer timer `uc  1 p 1 wreg ]
-[v PWM_TIMER_PR_LOAD@timer timer `uc  1 p 1 wreg ]
-[v PWM_TIMER_PR_LOAD@period period `uc  1 p 1 13 ]
-"652
-[v PWM_TIMER_PR_LOAD@timer timer `uc  1 p 1 14 ]
-"656
-} 0
-"642
-[v _PWM_TIMER_DIVIDE PWM_TIMER_DIVIDE `(v  1 e 1 0 ]
-{
-[v PWM_TIMER_DIVIDE@timer timer `uc  1 p 1 wreg ]
-[v PWM_TIMER_DIVIDE@timer timer `uc  1 p 1 wreg ]
-[v PWM_TIMER_DIVIDE@Prescale Prescale `uc  1 p 1 13 ]
-"644
-[v PWM_TIMER_DIVIDE@timer timer `uc  1 p 1 14 ]
-"648
-} 0
-"586
-[v _PWM_TIMER_CHOOSE PWM_TIMER_CHOOSE `(v  1 e 1 0 ]
-{
-[v PWM_TIMER_CHOOSE@Channel Channel `uc  1 p 1 wreg ]
-[v PWM_TIMER_CHOOSE@Channel Channel `uc  1 p 1 wreg ]
-[v PWM_TIMER_CHOOSE@timer timer `uc  1 p 1 13 ]
-"588
-[v PWM_TIMER_CHOOSE@Channel Channel `uc  1 p 1 14 ]
-"640
-} 0
-"844
-[v _PWM_4_DUTY PWM_4_DUTY `(v  1 e 1 0 ]
-{
-"847
-[v PWM_4_DUTY@dutyValue dutyValue `ui  1 a 2 26 ]
-"844
-[v PWM_4_DUTY@duty duty `ui  1 p 2 20 ]
-"854
-} 0
-"7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\lwdiv.c
-[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
-{
-"10
-[v ___lwdiv@quotient quotient `ui  1 a 2 17 ]
-"11
-[v ___lwdiv@counter counter `uc  1 a 1 19 ]
-"7
-[v ___lwdiv@dividend dividend `ui  1 p 2 13 ]
-[v ___lwdiv@divisor divisor `ui  1 p 2 15 ]
-"30
-} 0
-"75 C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
-[v _PIN_SET_ANSEL PIN_SET_ANSEL `(v  1 e 1 0 ]
-{
-[v PIN_SET_ANSEL@Pin Pin `uc  1 p 1 wreg ]
-[v PIN_SET_ANSEL@Pin Pin `uc  1 p 1 wreg ]
-[v PIN_SET_ANSEL@OnOFF OnOFF `uc  1 p 1 13 ]
-"77
-[v PIN_SET_ANSEL@Pin Pin `uc  1 p 1 14 ]
-"101
-} 0
-"109
-[v _PIN_IOC_INTERRUPT PIN_IOC_INTERRUPT `(v  1 e 1 0 ]
-{
-[v PIN_IOC_INTERRUPT@openOrClose openOrClose `uc  1 p 1 13 ]
-"113
-} 0
-"1557
+"472
 [v _OLED_Init OLED_Init `(v  1 e 1 0 ]
 {
-"1588
+[v OLED_Init@startFunc startFunc `*.38(v  1 p 3 21 ]
+[v OLED_Init@writeFunc writeFunc `*.38(uc  1 p 3 24 ]
+[v OLED_Init@stopFunc stopFunc `*.38(uc  1 p 3 27 ]
+"506
 } 0
-"1273
+"188
 [v _ssd1306_command ssd1306_command `(v  1 e 1 0 ]
 {
 [v ssd1306_command@command command `uc  1 p 1 wreg ]
 [v ssd1306_command@command command `uc  1 p 1 wreg ]
 [v ssd1306_command@command command `uc  1 p 1 15 ]
-"1281
+"196
 } 0
-"462
+"464 C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
 [v _I2C_1_WRITE I2C_1_WRITE `(uc  1 e 1 0 ]
 {
 [v I2C_1_WRITE@data data `uc  1 p 1 wreg ]
 [v I2C_1_WRITE@data data `uc  1 p 1 wreg ]
-"464
+"466
 [v I2C_1_WRITE@data data `uc  1 p 1 14 ]
-"470
+"472
 } 0
-"479
+"481
 [v _I2C_1_STOP I2C_1_STOP `(uc  1 e 1 0 ]
 {
-"487
+"489
 } 0
-"451
+"453
 [v _I2C_1_READY I2C_1_READY `(v  1 e 1 0 ]
 {
-"453
+"455
 [v I2C_1_READY@temp temp `uc  1 a 1 13 ]
-"460
+"462
 } 0
-"472
+"474
 [v _I2C_1_START I2C_1_START `(v  1 e 1 0 ]
 {
-"477
+"479
 } 0
-"1296
+"211 C:\Users\SERT\MPLABXProjects\TEST.X\ssd1306_oled.c
 [v _OLED_SetFont OLED_SetFont `(v  1 e 1 0 ]
 {
 [v OLED_SetFont@font font `*.32Cuc  1 p 2 13 ]
-"1304
+"219
 } 0
-"1318
+"233
 [v _OLED_ClearDisplay OLED_ClearDisplay `(v  1 e 1 0 ]
 {
-"1321
+"236
 } 0
 "3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\memset.c
 [v _memset memset `(*.39v  1 e 3 0 ]
@@ -2473,35 +2033,35 @@ ROLE_CIKIS_DONE 4
 [v memset@n n `ui  1 p 2 17 ]
 "10
 } 0
-"398 C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+"400 C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
 [v _INTERRUPT_ALL INTERRUPT_ALL `(v  1 e 1 0 ]
 {
 [v INTERRUPT_ALL@openOrClose openOrClose `uc  1 p 1 wreg ]
 [v INTERRUPT_ALL@openOrClose openOrClose `uc  1 p 1 wreg ]
-"400
+"402
 [v INTERRUPT_ALL@openOrClose openOrClose `uc  1 p 1 13 ]
-"403
+"405
 } 0
-"2636
+"1572
 [v _INIT_ROLE INIT_ROLE `(v  1 e 1 0 ]
 {
-"2652
+"1588
 } 0
-"2566
+"1502
 [v _ROLE_MODE_SELECT ROLE_MODE_SELECT `(v  1 e 1 0 ]
 {
 [v ROLE_MODE_SELECT@index index `uc  1 p 1 wreg ]
 [v ROLE_MODE_SELECT@index index `uc  1 p 1 wreg ]
 [v ROLE_MODE_SELECT@mode mode `uc  1 p 1 13 ]
-"2568
+"1504
 [v ROLE_MODE_SELECT@index index `uc  1 p 1 15 ]
-"2581
+"1517
 } 0
-"428
+"430
 [v _I2C_1_INIT I2C_1_INIT `(v  1 e 1 0 ]
 {
 [v I2C_1_INIT@baudrate baudrate `ul  1 p 4 26 ]
-"435
+"437
 } 0
 "7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
@@ -2515,102 +2075,102 @@ ROLE_CIKIS_DONE 4
 [v ___lldiv@divisor divisor `ul  1 p 4 17 ]
 "30
 } 0
-"103 C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
+"105 C:\Users\SERT\MPLABXProjects\TEST.X\newmain.c
 [v _PIN_SET_IO PIN_SET_IO `(v  1 e 1 0 ]
 {
 [v PIN_SET_IO@InputOrOutput InputOrOutput `uc  1 p 1 21 ]
 [v PIN_SET_IO@Port Port `uc  1 p 1 22 ]
 [v PIN_SET_IO@Pin Pin `uc  1 p 1 23 ]
 [v PIN_SET_IO@HighOrLow HighOrLow `uc  1 p 1 24 ]
-"107
+"109
 } 0
-"53
+"55
 [v _PIN_SET_TRIS PIN_SET_TRIS `(v  1 e 1 0 ]
 {
 [v PIN_SET_TRIS@Port Port `uc  1 p 1 wreg ]
-"56
+"58
 [v PIN_SET_TRIS@work_adress work_adress `*.39VEuc  1 a 2 19 ]
-"55
+"57
 [v PIN_SET_TRIS@hex hex `uc  1 a 1 17 ]
-"53
+"55
 [v PIN_SET_TRIS@Port Port `uc  1 p 1 wreg ]
 [v PIN_SET_TRIS@Pin Pin `uc  1 p 1 13 ]
 [v PIN_SET_TRIS@InputOrOutput InputOrOutput `uc  1 p 1 14 ]
-"55
+"57
 [v PIN_SET_TRIS@Port Port `uc  1 p 1 18 ]
-"63
+"65
 } 0
-"42
+"44
 [v _PIN_SET_LAT PIN_SET_LAT `(v  1 e 1 0 ]
 {
 [v PIN_SET_LAT@Port Port `uc  1 p 1 wreg ]
-"45
+"47
 [v PIN_SET_LAT@work_adress work_adress `*.39VEuc  1 a 2 19 ]
-"44
+"46
 [v PIN_SET_LAT@hex hex `uc  1 a 1 17 ]
-"42
+"44
 [v PIN_SET_LAT@Port Port `uc  1 p 1 wreg ]
 [v PIN_SET_LAT@Pin Pin `uc  1 p 1 13 ]
 [v PIN_SET_LAT@HighOrLow HighOrLow `uc  1 p 1 14 ]
-"44
+"46
 [v PIN_SET_LAT@Port Port `uc  1 p 1 18 ]
-"51
+"53
 } 0
-"2754
+"1692
 [v __ISR _ISR `IIH(v  1 e 1 0 ]
 {
-"2781
+"1719
 } 0
-"287
+"289
 [v i2_UART_1_BYTE UART_1_BYTE `(v  1 e 1 0 ]
 {
 [v i2UART_1_BYTE@data data `uc  1 p 1 wreg ]
 [v i2UART_1_BYTE@data data `uc  1 p 1 wreg ]
 [v i2UART_1_BYTE@data data `uc  1 p 1 0 ]
-"291
+"293
 } 0
-"350
+"352
 [v _UART_2_BYTE UART_2_BYTE `(v  1 e 1 0 ]
 {
 [v UART_2_BYTE@data data `uc  1 p 1 wreg ]
 [v UART_2_BYTE@data data `uc  1 p 1 wreg ]
 [v UART_2_BYTE@data data `uc  1 p 1 0 ]
-"354
+"356
 } 0
-"217
+"219
 [v _TIMER_5_INTERRUPT_FUNCT TIMER_5_INTERRUPT_FUNCT `(v  1 e 1 0 ]
 {
-"221
+"223
 } 0
-"168
+"170
 [v _TIMER_3_INTERRUPT_FUNCT TIMER_3_INTERRUPT_FUNCT `(v  1 e 1 0 ]
 {
-"172
+"174
 } 0
-"119
+"121
 [v _TIMER_1_INTERRUPT_FUNCT TIMER_1_INTERRUPT_FUNCT `(v  1 e 1 0 ]
 {
-"123
+"125
 } 0
-"1714
+"1192
 [v _THREAD_INTERRUPT THREAD_INTERRUPT `(v  1 e 1 0 ]
 {
-"1716
+"1194
 [v THREAD_INTERRUPT@threadIndex threadIndex `uc  1 a 1 2 ]
-"1727
+"1205
 } 0
-"65
+"67
 [v _PIN_SET_LAT_TOGGLE PIN_SET_LAT_TOGGLE `(v  1 e 1 0 ]
 {
 [v PIN_SET_LAT_TOGGLE@Port Port `uc  1 p 1 wreg ]
-"68
+"70
 [v PIN_SET_LAT_TOGGLE@work_adress work_adress `*.39VEuc  1 a 2 4 ]
-"67
+"69
 [v PIN_SET_LAT_TOGGLE@hex hex `uc  1 a 1 3 ]
-"65
+"67
 [v PIN_SET_LAT_TOGGLE@Port Port `uc  1 p 1 wreg ]
 [v PIN_SET_LAT_TOGGLE@Pin Pin `uc  1 p 1 0 ]
-"67
+"69
 [v PIN_SET_LAT_TOGGLE@Port Port `uc  1 p 1 6 ]
-"73
+"75
 } 0
