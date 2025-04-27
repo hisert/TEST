@@ -11426,7 +11426,43 @@ char *tempnam(const char *, const char *);
     unsigned char BUTON_PROCESS(Buton_t *Buton, unsigned char Buton_Val, unsigned char Buton_Up_Time, unsigned char Buton_Fall_Time);
     unsigned int BUTON_GET_TIME(Buton_t *Buton);
 # 10 "newmain.c" 2
-# 28 "newmain.c"
+# 1 "./thread.h" 1
+# 18 "./thread.h"
+    typedef struct {
+        unsigned char flag;
+        unsigned int duty_time;
+        unsigned int duty_temp_time;
+        void (*Funct)(unsigned char threadIndex);
+    } THREAD_t;
+
+    void THREAD_INTERRUPT();
+    void THREAD_MAIN();
+    void THREAD_START(unsigned char threadIndex);
+    void THREAD_STOP(unsigned char threadIndex);
+    void THREAD_DONE_CONTROL(unsigned char threadIndex);
+    void THREAD_TIME(unsigned char threadIndex, unsigned int threadTime);
+    void THREAD_CREATE(unsigned char threadIndex, unsigned char flag, unsigned char duty_time, void (*Funct_t)(unsigned char threadIndex));
+
+
+
+
+
+
+    unsigned char thread_return_temp = 0;
+
+    typedef struct {
+        unsigned char flag;
+        unsigned int duty_time;
+        unsigned char sleep_state_counter;
+    } THREAD_DELAY;
+
+    void THREAD_TIME_START(THREAD_DELAY *thread);
+    unsigned char THREAD_TIME_WAIT(THREAD_DELAY *thread, unsigned int threadTime);
+    unsigned char THREAD_TIME_DONE(THREAD_DELAY *thread);
+    void THREAD_CLEAR(THREAD_DELAY *thread);
+    unsigned char THREAD_GET_STATE();
+# 11 "newmain.c" 2
+# 29 "newmain.c"
 void PIN_SET_IO(unsigned char AnalogOrDijital, unsigned char InputOrOutput, unsigned char Port, unsigned char Pin, unsigned char HighOrLow);
 
 
@@ -12490,75 +12526,6 @@ void PWM_8_SET(unsigned char enable)
         LATCbits.LATC7 = 0;
     }
 }
-# 1103 "newmain.c"
-typedef struct {
-    unsigned char flag;
-    unsigned int duty_time;
-    unsigned int duty_temp_time;
-    void (*Funct)(unsigned char threadIndex);
-} THREAD_t;
-
-
-
-
-enum {
-    THREAD_LED = 0,
-    THREAD_INPUT,
-    THREAD_RELAY,
-    THREAD_NUM,
-} THREAD_NAME;
-extern THREAD_t THREAD_LIST[THREAD_NUM];
-
-
-
-void THREAD_INTERRUPT()
-{
-    for (unsigned char threadIndex = 0; threadIndex < THREAD_NUM; threadIndex++) {
-        if (THREAD_LIST[threadIndex].flag & 0x01) {
-            if ((THREAD_LIST[threadIndex].flag & 0x04) == 0) {
-                if ((THREAD_LIST[threadIndex].duty_temp_time) > 1) (THREAD_LIST[threadIndex].duty_temp_time)--;
-                else {
-                    THREAD_LIST[threadIndex].flag = THREAD_LIST[threadIndex].flag | 0x04;
-                    THREAD_LIST[threadIndex].duty_temp_time = THREAD_LIST[threadIndex].duty_time;
-                }
-            }
-        }
-    }
-}
-
-void THREAD_MAIN()
-{
-    for (unsigned char threadIndex = 0; threadIndex < THREAD_NUM; threadIndex++) {
-        if ((THREAD_LIST[threadIndex].flag & 0x04)) {
-            THREAD_LIST[threadIndex].flag = THREAD_LIST[threadIndex].flag &= ~0x04;
-            THREAD_LIST[threadIndex].Funct(threadIndex);
-        }
-    }
-}
-
-
-
-
-void THREAD_START(unsigned char threadIndex)
-{
-    THREAD_LIST[threadIndex].flag = THREAD_LIST[threadIndex].flag | 0x01;
-}
-
-void THREAD_STOP(unsigned char threadIndex)
-{
-    THREAD_LIST[threadIndex].flag = THREAD_LIST[threadIndex].flag & ~0x01;
-}
-
-void THREAD_DONE_CONTROL(unsigned char threadIndex)
-{
-    if ((THREAD_LIST[threadIndex].flag & 0x08) == 0) THREAD_LIST[threadIndex].flag = THREAD_LIST[threadIndex].flag & ~0x01;
-}
-
-void THREAD_TIME(unsigned char threadIndex, unsigned int threadTime)
-{
-    THREAD_LIST[threadIndex].duty_time = threadTime;
-    THREAD_LIST[threadIndex].duty_temp_time = threadTime;
-}
 
 
 
@@ -12654,7 +12621,7 @@ void MENU_BUTON_PROCESS()
 {
 
 }
-# 1292 "newmain.c"
+# 1213 "newmain.c"
 unsigned int IN_STATUS = 0;
 
 void INPUT_READ()
@@ -12767,7 +12734,7 @@ void INPUT_PROCESS()
         }
     }
 }
-# 1422 "newmain.c"
+# 1343 "newmain.c"
 typedef enum {
     ROLE_CIKIS_AB = 0,
     ROLE_CIKIS_BA,
@@ -12871,10 +12838,13 @@ void INIT_ROLE()
 
 
 
-
 void LED_THREAD(unsigned char threadIndex)
 {
-
+    static THREAD_DELAY timer;
+    THREAD_TIME_START(&timer);
+    if (THREAD_TIME_WAIT(&timer, 950)) if (THREAD_GET_STATE() == 0x01) LATD4= ~LATD4;
+    if (THREAD_TIME_WAIT(&timer, 50)) if (THREAD_GET_STATE() == 0x01) LATD4= ~LATD4;
+    if (THREAD_TIME_DONE(&timer)) THREAD_DONE_CONTROL(threadIndex);
 }
 
 void INPUT_THREAD(unsigned char threadIndex)
@@ -12889,16 +12859,6 @@ void ROLE_THREAD(unsigned char threadIndex)
 {
     INTERRUPT_KONTROL_ROLE_TIME();
 }
-
-
-
-
-THREAD_t THREAD_LIST[THREAD_NUM] = {
-    {.flag = 0x01 | 0x08, .duty_time = 1, .Funct = &LED_THREAD},
-    {.flag = 0x01 | 0x08, .duty_time = 10, .Funct = &INPUT_THREAD},
-    {.flag = 0x01 | 0x08, .duty_time = 100, .Funct = &ROLE_THREAD},
-};
-
 
 
 
@@ -12927,40 +12887,24 @@ void main(void)
     PIN_SET_IO('D', 'I', 'F', 5, 'L');
     PIN_SET_IO('D', 'I', 'F', 6, 'L');
     PIN_SET_IO('D', 'I', 'F', 7, 'L');
-
-    PWM_6_INIT(10000, 2);
-    PWM_7_INIT(10000, 2);
-    PWM_8_INIT(10000, 2);
-    PWM_6_SET(1);
-    PWM_7_SET(1);
-    PWM_8_SET(1);
-    PWM_6_DUTY(10);
-    PWM_7_DUTY(20);
-    PWM_8_DUTY(30);
-
-    PWM_4_INIT(10000, 4);
-    PWM_5_INIT(10000, 4);
-    PWM_4_SET(1);
-    PWM_5_SET(1);
-    PWM_4_DUTY(80);
-    PWM_5_DUTY(90);
-
-
-    I2C_1_INIT(100000);
-
-    UART_1_INIT(38400);
+# 1517 "newmain.c"
     TIMER_1_INIT(1);
     PIN_IOC_INTERRUPT(1, 1);
-    INTERRUPT_ALL(1);
-    OLED_Init(I2C_1_START, I2C_1_WRITE, I2C_1_STOP);
-    OLED_Write_Dec(0, 0, 123);
-    OLED_Update();
+
+
+
+
     INIT_ROLE();
     ROLE_OUTPUT(ROLE_CIKIS_AB);
     ROLE_OUTPUT(ROLE_CIKIS_BA);
     ROLE_OUTPUT(ROLE_CIKIS_BUSY);
     ROLE_OUTPUT(ROLE_CIKIS_ALARM);
 
+    THREAD_CREATE(0, 0x01 | 0x08, 1, LED_THREAD);
+    THREAD_CREATE(1, 0x01 | 0x08, 10, INPUT_THREAD);
+    THREAD_CREATE(2, 0x01 | 0x08, 100, ROLE_THREAD);
+
+    INTERRUPT_ALL(1);
 
 
     while (1) {

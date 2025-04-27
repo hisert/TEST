@@ -7,6 +7,7 @@
 #include "ssd1306_oled.h"
 #include "input_debounce.h"
 #include "buton_debounce.h"
+#include "thread.h"
 // <editor-fold defaultstate="collapsed" desc="X">
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="TYPEDEF DEFINE">
@@ -1093,86 +1094,6 @@ void PWM_8_SET(unsigned char enable)
 // </editor-fold>
 // </editor-fold>
 
-// <editor-fold defaultstate="collapsed" desc="THREAD LIBRARY">
-//---------------------------------------------------------------------------------------------------------------------
-// <editor-fold defaultstate="collapsed" desc="LIBRARY DEFINE    ">
-#define THREAD_FLG_START 0x01
-#define THREAD_FLG_READY 0x04
-#define THREAD_FLG_LOOP 0x08
-
-typedef struct {
-    byte flag;
-    word duty_time;
-    word duty_temp_time;
-    void (*Funct)(byte threadIndex);
-} THREAD_t;
-
-// </editor-fold> 
-// <editor-fold defaultstate="collapsed" desc="LIBRARY CONFIG    ">
-
-enum {
-    THREAD_LED = 0,
-    THREAD_INPUT,
-    THREAD_RELAY,
-    THREAD_NUM,
-} THREAD_NAME;
-extern THREAD_t THREAD_LIST[THREAD_NUM];
-// </editor-fold> 
-// <editor-fold defaultstate="collapsed" desc="LIBRARY FUNCT     ">
-
-void THREAD_INTERRUPT()
-{
-    for (byte threadIndex = 0; threadIndex < THREAD_NUM; threadIndex++) {
-        if (THREAD_LIST[threadIndex].flag & THREAD_FLG_START) {
-            if ((THREAD_LIST[threadIndex].flag & THREAD_FLG_READY) == 0) {
-                if ((THREAD_LIST[threadIndex].duty_temp_time) > 1) (THREAD_LIST[threadIndex].duty_temp_time)--;
-                else {
-                    THREAD_LIST[threadIndex].flag = THREAD_LIST[threadIndex].flag | THREAD_FLG_READY;
-                    THREAD_LIST[threadIndex].duty_temp_time = THREAD_LIST[threadIndex].duty_time;
-                }
-            }
-        }
-    }
-}
-
-void THREAD_MAIN()
-{
-    for (byte threadIndex = 0; threadIndex < THREAD_NUM; threadIndex++) {
-        if ((THREAD_LIST[threadIndex].flag & THREAD_FLG_READY)) {
-            THREAD_LIST[threadIndex].flag = THREAD_LIST[threadIndex].flag &= ~THREAD_FLG_READY;
-            THREAD_LIST[threadIndex].Funct(threadIndex);
-        }
-    }
-}
-
-// </editor-fold> 
-// <editor-fold defaultstate="collapsed" desc="USER FUNCT        ">
-
-void THREAD_START(byte threadIndex)
-{
-    THREAD_LIST[threadIndex].flag = THREAD_LIST[threadIndex].flag | THREAD_FLG_START;
-}
-
-void THREAD_STOP(byte threadIndex)
-{
-    THREAD_LIST[threadIndex].flag = THREAD_LIST[threadIndex].flag & ~THREAD_FLG_START;
-}
-
-void THREAD_DONE_CONTROL(byte threadIndex)
-{
-    if ((THREAD_LIST[threadIndex].flag & THREAD_FLG_LOOP) == 0) THREAD_LIST[threadIndex].flag = THREAD_LIST[threadIndex].flag & ~THREAD_FLG_START;
-}
-
-void THREAD_TIME(byte threadIndex, word threadTime)
-{
-    THREAD_LIST[threadIndex].duty_time = threadTime;
-    THREAD_LIST[threadIndex].duty_temp_time = threadTime;
-}
-
-// </editor-fold> 
-//---------------------------------------------------------------------------------------------------------------------
-// </editor-fold> //-->>NEED DATA
-
 typedef enum {
     ROLE_A_MODE,
     ROLE_B_MODE,
@@ -1519,13 +1440,16 @@ void INIT_ROLE()
 } //ROLE NO NC EPROOMDAKI KAYITLI DURUMA GORE SETLENIYOR.
 
 //// </editor-fold>
-// <editor-fold defaultstate="collapsed" desc="THREAD      ">
-//---------------------------------------------------------------------------------------------------------------------
+
 // <editor-fold defaultstate="collapsed" desc="THREAD FUNCT">
 
 void LED_THREAD(byte threadIndex)
 {
-
+    static THREAD_DELAY timer;
+    THREAD_TIME_START(&timer);
+    if (THREAD_TIME_WAIT(&timer, 950)) if (THREAD_GET_STATE() == THREAD_FUNCT_FIRST) TERSLE(LATD4);
+    if (THREAD_TIME_WAIT(&timer, 50)) if (THREAD_GET_STATE() == THREAD_FUNCT_FIRST) TERSLE(LATD4);
+    if (THREAD_TIME_DONE(&timer)) THREAD_DONE_CONTROL(threadIndex);
 }
 
 void INPUT_THREAD(byte threadIndex)
@@ -1541,16 +1465,6 @@ void ROLE_THREAD(byte threadIndex)
     INTERRUPT_KONTROL_ROLE_TIME();
 }
 
-// </editor-fold>
-// <editor-fold defaultstate="collapsed" desc="CONFIG      ">
-
-THREAD_t THREAD_LIST[THREAD_NUM] = {
-    {.flag = THREAD_FLG_START | THREAD_FLG_LOOP, .duty_time = 1, .Funct = &LED_THREAD},
-    {.flag = THREAD_FLG_START | THREAD_FLG_LOOP, .duty_time = 10, .Funct = &INPUT_THREAD},
-    {.flag = THREAD_FLG_START | THREAD_FLG_LOOP, .duty_time = 100, .Funct = &ROLE_THREAD},
-};
-// </editor-fold> 
-//---------------------------------------------------------------------------------------------------------------------
 // </editor-fold>
 
 void main(void)
@@ -1579,39 +1493,44 @@ void main(void)
     PIN_SET_IO('D', 'I', 'F', 6, 'L'); //INPUT EMG MUTE
     PIN_SET_IO('D', 'I', 'F', 7, 'L'); //INPUT RES
 
-    PWM_6_INIT(10000, 2); //MOTOR FAZ1
-    PWM_7_INIT(10000, 2); //MOTOR FAZ2
-    PWM_8_INIT(10000, 2); //MOTOR FAZ3
-    PWM_6_SET(1);
-    PWM_7_SET(1);
-    PWM_8_SET(1);
-    PWM_6_DUTY(10);
-    PWM_7_DUTY(20);
-    PWM_8_DUTY(30);
-
-    PWM_4_INIT(10000, 4); //MOSFET 1 
-    PWM_5_INIT(10000, 4); //MOSFET 2
-    PWM_4_SET(1);
-    PWM_5_SET(1);
-    PWM_4_DUTY(80);
-    PWM_5_DUTY(90);
-
-
-    I2C_1_INIT(100000);
-    // I2C_2_INIT(100000);
-    UART_1_INIT(38400);
+    //    PWM_6_INIT(10000, 2); //MOTOR FAZ1
+    //    PWM_7_INIT(10000, 2); //MOTOR FAZ2
+    //    PWM_8_INIT(10000, 2); //MOTOR FAZ3
+    //    PWM_6_SET(1);
+    //    PWM_7_SET(1);
+    //    PWM_8_SET(1);
+    //    PWM_6_DUTY(10);
+    //    PWM_7_DUTY(20);
+    //    PWM_8_DUTY(30);
+    //
+    //    PWM_4_INIT(10000, 4); //MOSFET 1 
+    //    PWM_5_INIT(10000, 4); //MOSFET 2
+    //    PWM_4_SET(1);
+    //    PWM_5_SET(1);
+    //    PWM_4_DUTY(80);
+    //    PWM_5_DUTY(90);
+    //
+    //
+    //    I2C_1_INIT(100000);
+    //    // I2C_2_INIT(100000);
+    //    UART_1_INIT(38400);
     TIMER_1_INIT(1);
     PIN_IOC_INTERRUPT(1, 1);
-    INTERRUPT_ALL(1);
-    OLED_Init(I2C_1_START, I2C_1_WRITE, I2C_1_STOP);
-    OLED_Write_Dec(0, 0, 123);
-    OLED_Update();
+
+    //    OLED_Init(I2C_1_START, I2C_1_WRITE, I2C_1_STOP);
+    //    OLED_Write_Dec(0, 0, 123);
+    //    OLED_Update();
     INIT_ROLE();
     ROLE_OUTPUT(ROLE_CIKIS_AB);
     ROLE_OUTPUT(ROLE_CIKIS_BA);
     ROLE_OUTPUT(ROLE_CIKIS_BUSY);
     ROLE_OUTPUT(ROLE_CIKIS_ALARM);
 
+    THREAD_CREATE(0, THREAD_FLG_START | THREAD_FLG_LOOP, 1, LED_THREAD);
+    THREAD_CREATE(1, THREAD_FLG_START | THREAD_FLG_LOOP, 10, INPUT_THREAD);
+    THREAD_CREATE(2, THREAD_FLG_START | THREAD_FLG_LOOP, 100, ROLE_THREAD);
+
+    INTERRUPT_ALL(1);
 
 
     while (1) {

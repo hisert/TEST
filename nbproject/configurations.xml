@@ -20,6 +20,8 @@
       <itemPath>input_debounce.h</itemPath>
       <itemPath>buton_debounce.c</itemPath>
       <itemPath>buton_debounce.h</itemPath>
+      <itemPath>thread.c</itemPath>
+      <itemPath>thread.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
