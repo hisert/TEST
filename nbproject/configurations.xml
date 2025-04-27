@@ -16,6 +16,8 @@
       <itemPath>newmain.c</itemPath>
       <itemPath>ssd1306_oled.c</itemPath>
       <itemPath>ssd1306_oled.h</itemPath>
+      <itemPath>input_debounce.c</itemPath>
+      <itemPath>input_debounce.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

@@ -6,10 +6,10 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v3.00\pic\dat\20241204225717_en.msgs \
   -cn -h+dist/default/production\TEST.X.production.sym \
   --cmf=dist/default/production\TEST.X.production.cmf -z -Q18F87K22 \
-  -oC:\Users\SERT\AppData\Local\Temp\xcBsafo.1\driver_tmp_3.o \
+  -oC:\Users\SERT\AppData\Local\Temp\xcBscl4.1\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/TEST.X.production.map \
-  --md=C:\Users\SERT\AppData\Local\Temp\xcBsafo.1\driver_tmp_0.dat -E1 \
+  --md=C:\Users\SERT\AppData\Local\Temp\xcBscl4.1\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh \
   -ASMALLCONST=01000h-010FFhx240,011000h-0110FFhx240 \
   -AMEDIUMCONST=01000h-0FFFFh,011000h-01FFFFh -ACOMRAM=01h-05Fh \
@@ -30,7 +30,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\SERT\AppData\Local\Temp\xcBsafo.1\driver_tmp_14.o \
+  C:\Users\SERT\AppData\Local\Temp\xcBscl4.1\driver_tmp_14.o \
   dist/default/production\TEST.X.production.o 
 
 Object code version is 3.11
@@ -40,7 +40,7 @@ Machine type is 18F87K22
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\SERT\AppData\Local\Temp\xcBsafo.1\driver_tmp_14.o
+C:\Users\SERT\AppData\Local\Temp\xcBscl4.1\driver_tmp_14.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 init                                 C8       C8        4        4       0
@@ -502,7 +502,7 @@ ROLE_OUTPUT@index                    cstackCOMRAM 000012
 SET_OSC@MHz                          cstackCOMRAM 00001E
 THREAD_INTERRUPT@threadIndex         cstackCOMRAM 000003
 THREAD_MAIN@threadIndex              cstackCOMRAM 00001C
-TIMER_1_INIT@F7082                   dataBANK0    0000CE
+TIMER_1_INIT@F7090                   dataBANK0    0000CE
 TIMER_1_INIT@Fcy                     cstackBANK0  0000D6
 TIMER_1_INIT@Prescalers              cstackBANK0  0000D2
 TIMER_1_INIT@TMR1_Tick               cstackBANK0  0000DF
@@ -512,8 +512,8 @@ TIMER_1_INIT@i                       cstackBANK0  0000E5
 TIMER_1_INIT@ms                      cstackBANK0  0000DE
 TIMER_1_INTERRUPT@openOrClose        cstackCOMRAM 00000E
 TIMER_1_SET@startOrStop              cstackCOMRAM 00000E
-TIMER_3_INIT@F7098                   dataBANK0    0000CA
-TIMER_5_INIT@F7114                   dataBANK0    0000C6
+TIMER_3_INIT@F7106                   dataBANK0    0000CA
+TIMER_5_INIT@F7122                   dataBANK0    0000C6
 UART_1_BYTE@data                     cstackCOMRAM 00000E
 UART_1_INIT@baudrate                 cstackCOMRAM 00001B
 UART_1_INIT@spbrg_value              cstackCOMRAM 000023
@@ -661,10 +661,10 @@ _ROLE_OUTPUT                         text24       013452
 _ROLE_THREAD                         text10       01376E
 _SETTING_VALUES                      bssBANK1     000100
 _SET_OSC                             text23       012A66
-_SET_OSC$2450                        cstackCOMRAM 000016
-_SET_OSC$2451                        cstackCOMRAM 000018
-_SET_OSC$2452                        cstackCOMRAM 00001A
-_SET_OSC$2453                        cstackCOMRAM 00001C
+_SET_OSC$2457                        cstackCOMRAM 000016
+_SET_OSC$2458                        cstackCOMRAM 000018
+_SET_OSC$2459                        cstackCOMRAM 00001A
+_SET_OSC$2460                        cstackCOMRAM 00001C
 _SMALL_FONTS                         mediumconst  00FCB5
 _SPBRG1                              (abs)        000FAF
 _SPBRG2                              (abs)        000F1E
@@ -1369,6 +1369,11 @@ C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\nf_sprintf.c
 
 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\nf_sprintf.c estimated size: 68
 
+input_debounce.c
+		_INPUT_DEBOUNCE		CODE           	1311A	0000	102
+
+input_debounce.c estimated size: 102
+
 newmain.c
 		_MENU_BUTON_PROCESS		CODE           	13776	0000	2
 		_PWM_4_SET     		CODE           	12FCE	0000	114
@@ -1395,7 +1400,6 @@ newmain.c
 		_PWM_TIMER_PR_LOAD		CODE           	1354A	0000	46
 		_TIMER_1_INIT  		CODE           	12120	0000	300
 		_PWM_6_SET     		CODE           	12EEA	0000	114
-		_INPUT_DEBOUNCE		CODE           	1311A	0000	102
 		_PWM_8_DUTY    		CODE           	114CC	0000	406
 		_TIMER_5_INTERRUPT_FUNCT		CODE           	13740	0000	12
 		_SET_OSC       		CODE           	12A66	0000	144
@@ -1434,7 +1438,7 @@ newmain.c
 		_INTERRUPT_ALL 		CODE           	136AC	0000	18
 		_LOG_PRINT     		CODE           	13656	0000	26
 
-newmain.c estimated size: 10944
+newmain.c estimated size: 10842
 
 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\awmod.c
 		___awmod       		CODE           	13040	0000	110

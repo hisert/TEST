@@ -5,6 +5,7 @@
 #include <stdio.h>
 
 #include "ssd1306_oled.h"
+#include "input_debounce.h"
 // <editor-fold defaultstate="collapsed" desc="X">
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="TYPEDEF DEFINE">
@@ -1091,32 +1092,7 @@ void PWM_8_SET(unsigned char enable)
 // </editor-fold>
 // </editor-fold>
 
-// <editor-fold defaultstate="collapsed" desc="INPUT LIBRARY">
 
-typedef struct {
-    byte Temp_Counter;
-    byte Old_state;
-} Input_t;
-
-#define NO_CHANGEE 0x00
-#define INPUT_RAISE_EDGE 0x01
-#define IINPUT_FALL_EDGE 0x02
-
-byte INPUT_DEBOUNCE(Input_t *Input, byte Input_Val, byte Debounce)
-{
-    if (Input->Old_state == Input_Val) Input->Temp_Counter = 0;
-    else {
-        if (Input->Temp_Counter >= Debounce) {
-            Input->Temp_Counter = 0;
-            Input->Old_state = Input_Val;
-            if (Input_Val == 0) return INPUT_RAISE_EDGE;
-            else return IINPUT_FALL_EDGE;
-        } else Input->Temp_Counter = Input->Temp_Counter + 1;
-    }
-    return NO_CHANGEE;
-}
-
-// </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="BUTON LIBRARY">
 
 typedef struct {
