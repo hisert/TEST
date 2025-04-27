@@ -2742,8 +2742,9 @@ void main(void)
     ROLE_OUTPUT(ROLE_CIKIS_BA);
     ROLE_OUTPUT(ROLE_CIKIS_BUSY);
     ROLE_OUTPUT(ROLE_CIKIS_ALARM);
-    //s
+    
 
+    
     while (1) {
 
         THREAD_MAIN();
