@@ -8,6 +8,7 @@
 #include "input_debounce.h"
 #include "buton_debounce.h"
 #include "thread.h"
+#include "soft_i2c.h"
 // <editor-fold defaultstate="collapsed" desc="X">
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="TYPEDEF DEFINE">
@@ -1517,9 +1518,10 @@ void main(void)
     TIMER_1_INIT(1);
     PIN_IOC_INTERRUPT(1, 1);
 
-    //    OLED_Init(I2C_1_START, I2C_1_WRITE, I2C_1_STOP);
-    //    OLED_Write_Dec(0, 0, 123);
-    //    OLED_Update();
+    SOFT_I2C_INIT(&TRISC, &LATC, &PORTC, 4, &TRISC, &LATC, &PORTC, 3);
+    OLED_Init(SOFT_I2C_START, SOFT_I2C_WRITE, SOFT_I2C_STOP);
+    OLED_Write_Dec(0, 0, 1253);
+    OLED_Update();
     INIT_ROLE();
     ROLE_OUTPUT(ROLE_CIKIS_AB);
     ROLE_OUTPUT(ROLE_CIKIS_BA);

@@ -11462,7 +11462,31 @@ char *tempnam(const char *, const char *);
     void THREAD_CLEAR(THREAD_DELAY *thread);
     unsigned char THREAD_GET_STATE();
 # 11 "newmain.c" 2
-# 29 "newmain.c"
+# 1 "./soft_i2c.h" 1
+# 15 "./soft_i2c.h"
+    volatile unsigned char *pro_adress;
+
+    typedef struct {
+        unsigned char *lat_adress;
+        unsigned char *tris_adress;
+        unsigned char *port_adress;
+        unsigned char index;
+    } port_t;
+
+    typedef struct {
+        port_t SDA;
+        port_t SCK;
+    } i2c_t;
+
+    void SOFT_I2C_INIT(unsigned char *sda_tris_adress, unsigned char *sda_lat_adress, unsigned char *sda_port_adress, unsigned char sda_index, unsigned char *sck_tris_adress, unsigned char *sck_lat_adress, unsigned char *sck_port_adress, unsigned char sck_index);
+    void SOFT_I2C_START();
+    unsigned char SOFT_I2C_STOP();
+    void SOFT_I2C_SEND_ACK();
+    void SOFT_I2C_SEND_NACK();
+    unsigned char SOFT_I2C_WRITE(unsigned char data);
+    unsigned char SOFT_I2C_READ();
+# 12 "newmain.c" 2
+# 30 "newmain.c"
 void PIN_SET_IO(unsigned char AnalogOrDijital, unsigned char InputOrOutput, unsigned char Port, unsigned char Pin, unsigned char HighOrLow);
 
 
@@ -12621,7 +12645,7 @@ void MENU_BUTON_PROCESS()
 {
 
 }
-# 1213 "newmain.c"
+# 1214 "newmain.c"
 unsigned int IN_STATUS = 0;
 
 void INPUT_READ()
@@ -12734,7 +12758,7 @@ void INPUT_PROCESS()
         }
     }
 }
-# 1343 "newmain.c"
+# 1344 "newmain.c"
 typedef enum {
     ROLE_CIKIS_AB = 0,
     ROLE_CIKIS_BA,
@@ -12887,13 +12911,14 @@ void main(void)
     PIN_SET_IO('D', 'I', 'F', 5, 'L');
     PIN_SET_IO('D', 'I', 'F', 6, 'L');
     PIN_SET_IO('D', 'I', 'F', 7, 'L');
-# 1517 "newmain.c"
+# 1518 "newmain.c"
     TIMER_1_INIT(1);
     PIN_IOC_INTERRUPT(1, 1);
 
-
-
-
+    SOFT_I2C_INIT(&TRISC, &LATC, &PORTC, 4, &TRISC, &LATC, &PORTC, 3);
+    OLED_Init(SOFT_I2C_START, SOFT_I2C_WRITE, SOFT_I2C_STOP);
+    OLED_Write_Dec(0, 0, 1253);
+    OLED_Update();
     INIT_ROLE();
     ROLE_OUTPUT(ROLE_CIKIS_AB);
     ROLE_OUTPUT(ROLE_CIKIS_BA);
