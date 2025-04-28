@@ -117,7 +117,7 @@ void TIMER_1_INIT(byte ms)
   while (1)
     {
     counter++;
-    calculater = (CRYSTAL_FREKANS / 10000) / prescale;
+    calculater = (CRYSTAL_FREKANS / 1000) / prescale;
     calculater = 1 / calculater;
     calculater = ms / calculater;
     if (calculater < 0xFFFF) break;
@@ -348,7 +348,7 @@ void I2C_1_READ_NACK()
     else break;
     _delay_us(1);
     }
-  //  return TWDR;
+   return TWDR;
   }
 
 byte I2C_1_WRITE(byte data)

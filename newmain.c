@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdio.h>
 
-//#include "PIC_18F87K22.h"
+#include "PIC_18F87K22.h"
 //#include "ssd1306_oled.h"
 #include "input_debounce.h"
 #include "buton_debounce.h"
@@ -12,6 +12,7 @@
 #include "task.h"
 //#include "MENU.h"
 #include "ATMEGA_64.h"
+#include "ssh1106_oled.h"
 
 // <editor-fold defaultstate="collapsed" desc="X">
 // </editor-fold>
@@ -38,31 +39,33 @@ void LED_THREAD(byte threadIndex)
   {
   static THREAD_DELAY timer;
   THREAD_TIME_START(&timer);
-  if (THREAD_TIME_WAIT(&timer, 950)) if (THREAD_GET_STATE() == THREAD_FUNCT_FIRST) PIN_SET_LAT_TOGGLE('E', 2);
-  if (THREAD_TIME_WAIT(&timer, 50)) if (THREAD_GET_STATE() == THREAD_FUNCT_FIRST) PIN_SET_LAT_TOGGLE('E', 2);
+  if (THREAD_TIME_WAIT(&timer, 950)) if (THREAD_GET_STATE() == THREAD_FUNCT_FIRST) PIN_SET_LAT_TOGGLE('B', 4);
+  if (THREAD_TIME_WAIT(&timer, 50)) if (THREAD_GET_STATE() == THREAD_FUNCT_FIRST) PIN_SET_LAT_TOGGLE('B', 4);
   if (THREAD_TIME_DONE(&timer)) THREAD_DONE_CONTROL(threadIndex);
   }
 
 int main(void)
   {
-  TIMER_3_INIT(1);
-  PIN_SET_IO('D', 'O', 'E', 2, 'H');
+  TIMER_1_INIT(1);
+  PIN_SET_IO('D', 'O', 'B', 4, 'L'); //LED
+  PIN_SET_IO('D', 'O', 'C', 6, 'H'); //RS45
   // SOFT_I2C_INIT(&TRISC, &LATC, &PORTC, 4, &TRISC, &LATC, &PORTC, 3);
   //    OLED_Init(I2C_1_START, I2C_1_WRITE, I2C_1_STOP);
   //    OLED_Write_Dec(0, 0, 1253);
   //    OLED_Update();
   //    INIT_ROLE();
-  //    ROLE_OUTPUT(ROLE_CIKIS_AB);
-  //    ROLE_OUTPUT(ROLE_CIKIS_BA);
-  //    ROLE_OUTPUT(ROLE_CIKIS_BUSY);
-  //    ROLE_OUTPUT(ROLE_CIKIS_ALARM);
 
   THREAD_CREATE(0, THREAD_FLG_START | THREAD_FLG_LOOP, 1, LED_THREAD);
   INTERRUPT_ALL(1);
-  UART_0_INIT(9600);
-  UART_0_STRING("HELLO");
-  UART_1_INIT(9600);
-  UART_1_STRING("WORLD");
+  UART_1_INIT(19200);
+  UART_0_INIT(19200);
+  UART_1_STRING("HELLO");
+  UART_0_STRING("WORLD");
+
+  SSH1106_OLED_INIT(I2C_1_START, I2C_1_WRITE, I2C_1_STOP);
+  SSH1106_OLED_Write_Text(0, 0, "HELLO");
+  SSH1106_OLED_Update();
+
   while (1)
     {
     THREAD_MAIN();
@@ -98,9 +101,36 @@ int main(void)
 //    }
 //}
 
+#ifdef ATMEGA_64
+
+ISR(TIMER1_OVF_vect)
+  {
+  TIMER_1_INTERRUPT_FUNCT();
+  THREAD_INTERRUPT();
+  }
+
 ISR(TIMER3_OVF_vect)
   {
   TIMER_3_INTERRUPT_FUNCT();
-  THREAD_INTERRUPT();
   }
+
+ISR(USART0_TX_vect)
+  {
+  }
+
+ISR(USART0_RX_vect)
+  {
+  byte x = UDR0;
+  }
+
+ISR(USART1_RX_vect)
+  {
+  byte x = UDR1;
+  }
+
+ISR(USART1_TX_vect)
+  {
+  }
+
+#endif
 

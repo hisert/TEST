@@ -1,8 +1,6 @@
-build/default/production/newmain.o.d build/default/production/newmain.o: \
- newmain.c \
- c:\program\ files\microchip\xc8\v2.20\avr\lib\gcc\avr\5.4.0\include\xc.h \
- c:\program\ files\microchip\xc8\v2.20\avr\lib\gcc\avr\5.4.0\include\cci.h \
- c:\program\ files\microchip\xc8\v2.20\avr\avr\include\avr\io.h \
+build/default/production/ssh1106_oled.o.d \
+ build/default/production/ssh1106_oled.o: ssh1106_oled.c ssh1106_oled.h \
+ common.h c:\program\ files\microchip\xc8\v2.20\avr\avr\include\avr\io.h \
  c:\program\ files\microchip\xc8\v2.20\avr\avr\include\avr\sfr_defs.h \
  c:\program\ files\microchip\xc8\v2.20\avr\avr\include\inttypes.h \
  c:\program\ files\microchip\xc8\v2.20\avr\lib\gcc\avr\5.4.0\include\stdint.h \
@@ -13,21 +11,20 @@ build/default/production/newmain.o.d build/default/production/newmain.o: \
  c:\program\ files\microchip\xc8\v2.20\avr\avr\include\avr\version.h \
  c:\program\ files\microchip\xc8\v2.20\avr\avr\include\avr\fuse.h \
  c:\program\ files\microchip\xc8\v2.20\avr\avr\include\avr\lock.h \
- config.h c:\program\ files\microchip\xc8\v2.20\avr\avr\include\string.h \
- c:\program\ files\microchip\xc8\v2.20\avr\lib\gcc\avr\5.4.0\include\stddef.h \
- c:\program\ files\microchip\xc8\v2.20\avr\avr\include\stdio.h \
- c:\program\ files\microchip\xc8\v2.20\avr\lib\gcc\avr\5.4.0\include\stdarg.h \
- PIC_18F87K22.h common.h \
  c:\program\ files\microchip\xc8\v2.20\avr\avr\include\util\delay.h \
  c:\program\ files\microchip\xc8\v2.20\avr\avr\include\util\delay_basic.h \
  c:\program\ files\microchip\xc8\v2.20\avr\avr\include\math.h \
  c:\program\ files\microchip\xc8\v2.20\avr\avr\include\avr\interrupt.h \
- input_debounce.h buton_debounce.h thread.h soft_i2c.h task.h ATMEGA_64.h \
- ssh1106_oled.h
+ c:\program\ files\microchip\xc8\v2.20\avr\avr\include\string.h \
+ c:\program\ files\microchip\xc8\v2.20\avr\lib\gcc\avr\5.4.0\include\stddef.h \
+ c:\program\ files\microchip\xc8\v2.20\avr\avr\include\stdio.h \
+ c:\program\ files\microchip\xc8\v2.20\avr\lib\gcc\avr\5.4.0\include\stdarg.h \
+ c:\program\ files\microchip\xc8\v2.20\avr\lib\gcc\avr\5.4.0\include\xc.h \
+ c:\program\ files\microchip\xc8\v2.20\avr\lib\gcc\avr\5.4.0\include\cci.h
 
-c:\program\ files\microchip\xc8\v2.20\avr\lib\gcc\avr\5.4.0\include\xc.h:
+ssh1106_oled.h:
 
-c:\program\ files\microchip\xc8\v2.20\avr\lib\gcc\avr\5.4.0\include\cci.h:
+common.h:
 
 c:\program\ files\microchip\xc8\v2.20\avr\avr\include\avr\io.h:
 
@@ -51,7 +48,13 @@ c:\program\ files\microchip\xc8\v2.20\avr\avr\include\avr\fuse.h:
 
 c:\program\ files\microchip\xc8\v2.20\avr\avr\include\avr\lock.h:
 
-config.h:
+c:\program\ files\microchip\xc8\v2.20\avr\avr\include\util\delay.h:
+
+c:\program\ files\microchip\xc8\v2.20\avr\avr\include\util\delay_basic.h:
+
+c:\program\ files\microchip\xc8\v2.20\avr\avr\include\math.h:
+
+c:\program\ files\microchip\xc8\v2.20\avr\avr\include\avr\interrupt.h:
 
 c:\program\ files\microchip\xc8\v2.20\avr\avr\include\string.h:
 
@@ -61,28 +64,6 @@ c:\program\ files\microchip\xc8\v2.20\avr\avr\include\stdio.h:
 
 c:\program\ files\microchip\xc8\v2.20\avr\lib\gcc\avr\5.4.0\include\stdarg.h:
 
-PIC_18F87K22.h:
+c:\program\ files\microchip\xc8\v2.20\avr\lib\gcc\avr\5.4.0\include\xc.h:
 
-common.h:
-
-c:\program\ files\microchip\xc8\v2.20\avr\avr\include\util\delay.h:
-
-c:\program\ files\microchip\xc8\v2.20\avr\avr\include\util\delay_basic.h:
-
-c:\program\ files\microchip\xc8\v2.20\avr\avr\include\math.h:
-
-c:\program\ files\microchip\xc8\v2.20\avr\avr\include\avr\interrupt.h:
-
-input_debounce.h:
-
-buton_debounce.h:
-
-thread.h:
-
-soft_i2c.h:
-
-task.h:
-
-ATMEGA_64.h:
-
-ssh1106_oled.h:
+c:\program\ files\microchip\xc8\v2.20\avr\lib\gcc\avr\5.4.0\include\cci.h:

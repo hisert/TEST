@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=newmain.c ssd1306_oled.c input_debounce.c buton_debounce.c thread.c soft_i2c.c PIC_18F87K22.c task.c MENU.c ATMEGA_64.c
+SOURCEFILES_QUOTED_IF_SPACED=newmain.c ssd1306_oled.c input_debounce.c buton_debounce.c thread.c soft_i2c.c PIC_18F87K22.c task.c MENU.c ATMEGA_64.c ssh1106_oled.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/newmain.o ${OBJECTDIR}/ssd1306_oled.o ${OBJECTDIR}/input_debounce.o ${OBJECTDIR}/buton_debounce.o ${OBJECTDIR}/thread.o ${OBJECTDIR}/soft_i2c.o ${OBJECTDIR}/PIC_18F87K22.o ${OBJECTDIR}/task.o ${OBJECTDIR}/MENU.o ${OBJECTDIR}/ATMEGA_64.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/newmain.o.d ${OBJECTDIR}/ssd1306_oled.o.d ${OBJECTDIR}/input_debounce.o.d ${OBJECTDIR}/buton_debounce.o.d ${OBJECTDIR}/thread.o.d ${OBJECTDIR}/soft_i2c.o.d ${OBJECTDIR}/PIC_18F87K22.o.d ${OBJECTDIR}/task.o.d ${OBJECTDIR}/MENU.o.d ${OBJECTDIR}/ATMEGA_64.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/newmain.o ${OBJECTDIR}/ssd1306_oled.o ${OBJECTDIR}/input_debounce.o ${OBJECTDIR}/buton_debounce.o ${OBJECTDIR}/thread.o ${OBJECTDIR}/soft_i2c.o ${OBJECTDIR}/PIC_18F87K22.o ${OBJECTDIR}/task.o ${OBJECTDIR}/MENU.o ${OBJECTDIR}/ATMEGA_64.o ${OBJECTDIR}/ssh1106_oled.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/newmain.o.d ${OBJECTDIR}/ssd1306_oled.o.d ${OBJECTDIR}/input_debounce.o.d ${OBJECTDIR}/buton_debounce.o.d ${OBJECTDIR}/thread.o.d ${OBJECTDIR}/soft_i2c.o.d ${OBJECTDIR}/PIC_18F87K22.o.d ${OBJECTDIR}/task.o.d ${OBJECTDIR}/MENU.o.d ${OBJECTDIR}/ATMEGA_64.o.d ${OBJECTDIR}/ssh1106_oled.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/newmain.o ${OBJECTDIR}/ssd1306_oled.o ${OBJECTDIR}/input_debounce.o ${OBJECTDIR}/buton_debounce.o ${OBJECTDIR}/thread.o ${OBJECTDIR}/soft_i2c.o ${OBJECTDIR}/PIC_18F87K22.o ${OBJECTDIR}/task.o ${OBJECTDIR}/MENU.o ${OBJECTDIR}/ATMEGA_64.o
+OBJECTFILES=${OBJECTDIR}/newmain.o ${OBJECTDIR}/ssd1306_oled.o ${OBJECTDIR}/input_debounce.o ${OBJECTDIR}/buton_debounce.o ${OBJECTDIR}/thread.o ${OBJECTDIR}/soft_i2c.o ${OBJECTDIR}/PIC_18F87K22.o ${OBJECTDIR}/task.o ${OBJECTDIR}/MENU.o ${OBJECTDIR}/ATMEGA_64.o ${OBJECTDIR}/ssh1106_oled.o
 
 # Source Files
-SOURCEFILES=newmain.c ssd1306_oled.c input_debounce.c buton_debounce.c thread.c soft_i2c.c PIC_18F87K22.c task.c MENU.c ATMEGA_64.c
+SOURCEFILES=newmain.c ssd1306_oled.c input_debounce.c buton_debounce.c thread.c soft_i2c.c PIC_18F87K22.c task.c MENU.c ATMEGA_64.c ssh1106_oled.c
 
 
 
@@ -154,6 +154,12 @@ ${OBJECTDIR}/ATMEGA_64.o: ATMEGA_64.c  .generated_files/flags/default/1495f605c1
 	@${RM} ${OBJECTDIR}/ATMEGA_64.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ATMEGA_64.o.d" -MT "${OBJECTDIR}/ATMEGA_64.o.d" -MT ${OBJECTDIR}/ATMEGA_64.o -o ${OBJECTDIR}/ATMEGA_64.o ATMEGA_64.c 
 	
+${OBJECTDIR}/ssh1106_oled.o: ssh1106_oled.c  .generated_files/flags/default/28d0716860c5f2a9d0ba827228363597db57d813 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ssh1106_oled.o.d 
+	@${RM} ${OBJECTDIR}/ssh1106_oled.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ssh1106_oled.o.d" -MT "${OBJECTDIR}/ssh1106_oled.o.d" -MT ${OBJECTDIR}/ssh1106_oled.o -o ${OBJECTDIR}/ssh1106_oled.o ssh1106_oled.c 
+	
 else
 ${OBJECTDIR}/newmain.o: newmain.c  .generated_files/flags/default/509dd139db1aa1bb7b3ee69270b320c554651b05 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
@@ -214,6 +220,12 @@ ${OBJECTDIR}/ATMEGA_64.o: ATMEGA_64.c  .generated_files/flags/default/3ad759481b
 	@${RM} ${OBJECTDIR}/ATMEGA_64.o.d 
 	@${RM} ${OBJECTDIR}/ATMEGA_64.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ATMEGA_64.o.d" -MT "${OBJECTDIR}/ATMEGA_64.o.d" -MT ${OBJECTDIR}/ATMEGA_64.o -o ${OBJECTDIR}/ATMEGA_64.o ATMEGA_64.c 
+	
+${OBJECTDIR}/ssh1106_oled.o: ssh1106_oled.c  .generated_files/flags/default/c51ec652b9a6210f937b78b0ba2c6afda47023a2 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ssh1106_oled.o.d 
+	@${RM} ${OBJECTDIR}/ssh1106_oled.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ssh1106_oled.o.d" -MT "${OBJECTDIR}/ssh1106_oled.o.d" -MT ${OBJECTDIR}/ssh1106_oled.o -o ${OBJECTDIR}/ssh1106_oled.o ssh1106_oled.c 
 	
 endif
 

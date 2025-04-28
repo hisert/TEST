@@ -20,7 +20,7 @@ extern "C" {
     
 #define _XTAL_FREQ 64000000
 #define F_CPU 16000000UL
-#define CRYSTAL_FREKANS 16000000
+#define CRYSTAL_FREKANS 8000000
 
 #ifdef	__cplusplus
 }

@@ -33,6 +33,8 @@
       <itemPath>ATMEGA_64.c</itemPath>
       <itemPath>ATMEGA_64.h</itemPath>
       <itemPath>common.h</itemPath>
+      <itemPath>ssh1106_oled.c</itemPath>
+      <itemPath>ssh1106_oled.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
