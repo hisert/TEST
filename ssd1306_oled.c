@@ -207,7 +207,7 @@ void ssd1306_data(byte value)
 // </editor-fold> 
 // <editor-fold defaultstate="collapsed" desc="USER FUNCT        ">
 
-void OLED_SetFont(const byte *font)
+void SSH1306_OLED_SetFont(const byte *font)
   {
   cfont.font = font;
   cfont.x_size = *(font + 0);
@@ -217,35 +217,35 @@ void OLED_SetFont(const byte *font)
   cfont.inverted = 0;
   }
 
-void OLED_InvertFont(byte invert_status)
+void SSH1306_OLED_InvertFont(byte invert_status)
   {
   if (invert_status) cfont.inverted = 1;
   else cfont.inverted = 0;
   }
 
-void OLED_SetContrast(byte contrast)
+void SSH1306_OLED_SetContrast(byte contrast)
   {
   ssd1306_command(SSD1306_SET_CONTRAST_CONTROL);
   ssd1306_command(contrast);
   }
 
-void OLED_ClearDisplay(void)
+void SSH1306_OLED_ClearDisplay(void)
   {
   memset(ssd1306_buffer, 0, (SSD1306_LCDWIDTH * SSD1306_LCDHEIGHT / 8));
   }
 
-void OLED_FillDisplay(void)
+void SSH1306_OLED_FillDisplay(void)
   {
   memset(ssd1306_buffer, 0xFF, (SSD1306_LCDWIDTH * SSD1306_LCDHEIGHT / 8));
   }
 
-void OLED_InvertDisplay(byte value)
+void SSH1306_OLED_InvertDisplay(byte value)
   {
   if (value) ssd1306_command(SSD1306_INVERT_DISPLAY);
   else ssd1306_command(SSD1306_NORMAL_DISPLAY);
   }
 
-void OLED_DrawPixel(word x, word y, byte color)
+void SSH1306_OLED_DrawPixel(word x, word y, byte color)
   {
   if ((x < 0) || (x >= SSD1306_LCDWIDTH) || (y < 0) || (y >= SSD1306_LCDHEIGHT)) return;
   switch (color)
@@ -259,7 +259,7 @@ void OLED_DrawPixel(word x, word y, byte color)
     }
   }
 
-void OLED_Line(word x_start, word y_start, word x_end, word y_end, byte color)
+void SSH1306_OLED_Line(word x_start, word y_start, word x_end, word y_end, byte color)
   {
   word x, y, addx, addy, dx, dy;
   signed long P;
@@ -279,7 +279,7 @@ void OLED_Line(word x_start, word y_start, word x_end, word y_end, byte color)
 
     for (i = 0; i <= dx; ++i)
       {
-      OLED_DrawPixel(x, y, color);
+      SSH1306_OLED_DrawPixel(x, y, color);
       if (P < 0)
         {
         P += 2 * dy;
@@ -298,7 +298,7 @@ void OLED_Line(word x_start, word y_start, word x_end, word y_end, byte color)
     P = 2 * dx - dy;
     for (i = 0; i <= dy; ++i)
       {
-      OLED_DrawPixel(x, y, color);
+      SSH1306_OLED_DrawPixel(x, y, color);
 
       if (P < 0)
         {
@@ -315,7 +315,7 @@ void OLED_Line(word x_start, word y_start, word x_end, word y_end, byte color)
     }
   }
 
-void OLED_V_Line(word y_start, word y_end, word x_pos, byte color)
+void SSH1306_OLED_V_Line(word y_start, word y_end, word x_pos, byte color)
   {
   word temp;
   if (y_start > y_end)
@@ -327,12 +327,12 @@ void OLED_V_Line(word y_start, word y_end, word x_pos, byte color)
 
   while (y_start <= y_end)
     {
-    OLED_DrawPixel(x_pos, y_start, color);
+    SSH1306_OLED_DrawPixel(x_pos, y_start, color);
     y_start++;
     }
   }
 
-void OLED_H_Line(word x_start, word x_end, word y_pos, byte color)
+void SSH1306_OLED_H_Line(word x_start, word x_end, word y_pos, byte color)
   {
   word temp;
   if (x_start > x_end)
@@ -344,39 +344,39 @@ void OLED_H_Line(word x_start, word x_end, word y_pos, byte color)
 
   while (x_start <= x_end)
     {
-    OLED_DrawPixel(x_start, y_pos, color);
+    SSH1306_OLED_DrawPixel(x_start, y_pos, color);
     x_start++;
     }
   }
 
-void OLED_Rectangle(word x1, word y1, word x2, word y2, byte color)
+void SSH1306_OLED_Rectangle(word x1, word y1, word x2, word y2, byte color)
   {
-  OLED_H_Line(x1, x2, y1, color);
-  OLED_H_Line(x1, x2, y2, color);
-  OLED_V_Line(y1, y2, x1, color);
-  OLED_V_Line(y1, y2, x2, color);
+  SSH1306_OLED_H_Line(x1, x2, y1, color);
+  SSH1306_OLED_H_Line(x1, x2, y2, color);
+  SSH1306_OLED_V_Line(y1, y2, x1, color);
+  SSH1306_OLED_V_Line(y1, y2, x2, color);
   }
 
-void OLED_FillRectangle(word x1, word y1, word x2, word y2, byte color)
+void SSH1306_OLED_FillRectangle(word x1, word y1, word x2, word y2, byte color)
   {
   word i;
-  for (i = x1; i <= x2; i++) OLED_V_Line(y1, y2, i, color);
+  for (i = x1; i <= x2; i++) SSH1306_OLED_V_Line(y1, y2, i, color);
   }
 
-void OLED_Triangle(word x0, word y0, word x1, word y1, word x2, word y2, byte color)
+void SSH1306_OLED_Triangle(word x0, word y0, word x1, word y1, word x2, word y2, byte color)
   {
-  OLED_Line(x0, y0, x1, y1, color);
-  OLED_Line(x1, y1, x2, y2, color);
-  OLED_Line(x2, y2, x0, y0, color);
+  SSH1306_OLED_Line(x0, y0, x1, y1, color);
+  SSH1306_OLED_Line(x1, y1, x2, y2, color);
+  SSH1306_OLED_Line(x2, y2, x0, y0, color);
   }
 
-void OLED_Image(const byte *image)
+void SSH1306_OLED_Image(const byte *image)
   {
   word i;
   for (i = 0; i < (SSD1306_LCDWIDTH * SSD1306_LCDHEIGHT / 8); i++) ssd1306_buffer[i] = *(image + i);
   }
 
-void OLED_Circle(word x0, word y0, word r, byte color)
+void SSH1306_OLED_Circle(word x0, word y0, word r, byte color)
   {
   word f = 1 - r;
   word ddF_x = 1;
@@ -384,10 +384,10 @@ void OLED_Circle(word x0, word y0, word r, byte color)
   word x = 0;
   word y = r;
 
-  OLED_DrawPixel(x0, y0 + r, color);
-  OLED_DrawPixel(x0, y0 - r, color);
-  OLED_DrawPixel(x0 + r, y0, color);
-  OLED_DrawPixel(x0 - r, y0, color);
+  SSH1306_OLED_DrawPixel(x0, y0 + r, color);
+  SSH1306_OLED_DrawPixel(x0, y0 - r, color);
+  SSH1306_OLED_DrawPixel(x0 + r, y0, color);
+  SSH1306_OLED_DrawPixel(x0 - r, y0, color);
 
   while (x < y)
     {
@@ -401,18 +401,18 @@ void OLED_Circle(word x0, word y0, word r, byte color)
     ddF_x += 2;
     f += ddF_x;
 
-    OLED_DrawPixel(x0 + x, y0 + y, color);
-    OLED_DrawPixel(x0 - x, y0 + y, color);
-    OLED_DrawPixel(x0 + x, y0 - y, color);
-    OLED_DrawPixel(x0 - x, y0 - y, color);
-    OLED_DrawPixel(x0 + y, y0 + x, color);
-    OLED_DrawPixel(x0 - y, y0 + x, color);
-    OLED_DrawPixel(x0 + y, y0 - x, color);
-    OLED_DrawPixel(x0 - y, y0 - x, color);
+    SSH1306_OLED_DrawPixel(x0 + x, y0 + y, color);
+    SSH1306_OLED_DrawPixel(x0 - x, y0 + y, color);
+    SSH1306_OLED_DrawPixel(x0 + x, y0 - y, color);
+    SSH1306_OLED_DrawPixel(x0 - x, y0 - y, color);
+    SSH1306_OLED_DrawPixel(x0 + y, y0 + x, color);
+    SSH1306_OLED_DrawPixel(x0 - y, y0 + x, color);
+    SSH1306_OLED_DrawPixel(x0 + y, y0 - x, color);
+    SSH1306_OLED_DrawPixel(x0 - y, y0 - x, color);
     }
   }
 
-void OLED_Write(word x, word y, char value)
+void SSH1306_OLED_Write(word x, word y, char value)
   {
   word font_idx = 0;
   word rowcnt = 0;
@@ -435,13 +435,13 @@ void OLED_Write(word x, word y, char value)
           {
           if (temp & (1 << b))
             {
-            if (cfont.inverted == 0) OLED_DrawPixel(x + cnt, y + (rowcnt * 8) + b, 1);
-            else OLED_DrawPixel(x + cnt, y + (rowcnt * 8) + b, 0);
+            if (cfont.inverted == 0) SSH1306_OLED_DrawPixel(x + cnt, y + (rowcnt * 8) + b, 1);
+            else SSH1306_OLED_DrawPixel(x + cnt, y + (rowcnt * 8) + b, 0);
             }
           else
             {
-            if (cfont.inverted == 0) OLED_DrawPixel(x + cnt, y + (rowcnt * 8) + b, 0);
-            else OLED_DrawPixel(x + cnt, y + (rowcnt * 8) + b, 1);
+            if (cfont.inverted == 0) SSH1306_OLED_DrawPixel(x + cnt, y + (rowcnt * 8) + b, 0);
+            else SSH1306_OLED_DrawPixel(x + cnt, y + (rowcnt * 8) + b, 1);
             }
           }
         }
@@ -458,13 +458,13 @@ void OLED_Write(word x, word y, char value)
         {
         if ((cbyte & (1 << cbit)) != 0)
           {
-          if (cfont.inverted == 0) OLED_DrawPixel(x + cx, y + cy, 1);
-          else OLED_DrawPixel(x + cx, y + cy, 0);
+          if (cfont.inverted == 0) SSH1306_OLED_DrawPixel(x + cx, y + cy, 1);
+          else SSH1306_OLED_DrawPixel(x + cx, y + cy, 0);
           }
         else
           {
-          if (cfont.inverted == 0) OLED_DrawPixel(x + cx, y + cy, 0);
-          else OLED_DrawPixel(x + cx, y + cy, 1);
+          if (cfont.inverted == 0) SSH1306_OLED_DrawPixel(x + cx, y + cy, 0);
+          else SSH1306_OLED_DrawPixel(x + cx, y + cy, 1);
           }
         cbit--;
         if (cbit < 0)
@@ -478,7 +478,7 @@ void OLED_Write(word x, word y, char value)
     }
   }
 
-void OLED_Write_Text(word x, word y, const char *text)
+void SSH1306_OLED_Write_Text(word x, word y, const char *text)
   {
   byte cnt;
   byte length;
@@ -486,10 +486,10 @@ void OLED_Write_Text(word x, word y, const char *text)
   length = strlen((const char*) text);
   // if (x == RIGHT) x = 128 - (length * cfont.x_size);
   // if (x == CENTER) x = (128 - (length * cfont.x_size)) / 2;
-  for (cnt = 0; cnt < length; cnt++) OLED_Write(x + (cnt * (cfont.x_size)), y, *text++);
+  for (cnt = 0; cnt < length; cnt++) SSH1306_OLED_Write(x + (cnt * (cfont.x_size)), y, *text++);
   }
 
-void OLED_Write_Dec(word x, word y, dword data)
+void SSH1306_OLED_Write_Dec(word x, word y, dword data)
   {
   char text[30];
   byte cnt;
@@ -498,10 +498,10 @@ void OLED_Write_Dec(word x, word y, dword data)
   length = strlen(text);
   // if (x == RIGHT) x = 128 - (length * cfont.x_size);
   // if (x == CENTER) x = (128 - (length * cfont.x_size)) / 2;
-  for (cnt = 0; cnt < length; cnt++) OLED_Write(x + (cnt * (cfont.x_size)), y, text[cnt]);
+  for (cnt = 0; cnt < length; cnt++) SSH1306_OLED_Write(x + (cnt * (cfont.x_size)), y, text[cnt]);
   }
 
-void OLED_Init(void (*startFunc)(void), byte(*writeFunc)(byte), byte(*stopFunc)(void))
+void SSH1306_OLED_Init(void (*startFunc)(void), byte(*writeFunc)(byte), byte(*stopFunc)(void))
   {
   ssd1306_oled_i2c_start = startFunc;
   ssd1306_oled_i2c_write = writeFunc;
@@ -533,11 +533,11 @@ void OLED_Init(void (*startFunc)(void), byte(*writeFunc)(byte), byte(*stopFunc)(
   ssd1306_command(SSD1306_DEACTIVATE_SCROLL);
   ssd1306_command(SSD1306_DISPLAY_ON);
 
-  OLED_SetFont(SMALL_FONTS);
-  OLED_ClearDisplay();
+  SSH1306_OLED_SetFont(SMALL_FONTS);
+  SSH1306_OLED_ClearDisplay();
   }
 
-void OLED_Update(void)
+void SSH1306_OLED_Update(void)
   {
   word i = 0;
   byte x = 0;

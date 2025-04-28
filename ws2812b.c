@@ -77,7 +77,7 @@ void LED_DATA_REVERSE(word dataLen)
 
 void rotate(dword arr[], int n, int amount)
   {
-  dword temp[250];
+  dword temp[50];
   for (int i = 0; i < amount; i++) temp[i] = arr[n - amount + i];
   for (int i = n - 1; i >= amount; i--) arr[i] = arr[i - amount];
 

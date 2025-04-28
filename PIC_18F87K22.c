@@ -1,7 +1,5 @@
 #include "PIC_18F87K22.h"
-
-#include <xc.h>
-#ifdef PIC_18F67K22
+#ifdef PIC_18F87K22
 // <editor-fold defaultstate="collapsed" desc="PIN IO">
 
 byte PIN_GET_PORT(byte Port, byte Pin)
@@ -133,7 +131,6 @@ void TIMER_1_INIT(byte ms)
     TIMER_1_INTERRUPT(1);
     TIMER_1_TICK = TMR1_Tick;
     TMR1 = TIMER_1_TICK;
-    return TMR1_Tick;
 }
 
 // </editor-fold> 
@@ -182,7 +179,6 @@ void TIMER_3_INIT(byte ms)
     TIMER_3_INTERRUPT(1); // Kesme aç
     TIMER_3_TICK = TMR3_Tick;
     TMR3 = TIMER_3_TICK; // Timer3'e de?er yükle
-    return TMR3_Tick;
 }
 
 // </editor-fold>
@@ -231,7 +227,6 @@ void TIMER_5_INIT(byte ms)
     TIMER_5_INTERRUPT(1); // Kesme aç
     TIMER_5_TICK = TMR5_Tick;
     TMR5 = TIMER_5_TICK; // Timer5'e de?er yükle
-    return TMR5_Tick;
 }
 
 // </editor-fold>
