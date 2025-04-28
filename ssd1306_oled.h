@@ -1,17 +1,10 @@
-
+#include "common.h"
 #ifndef SSD1306_OLED_H
 #define	SSD1306_OLED_H
 
 #ifdef	__cplusplus
 extern "C" {
 #endif
-
-#define byte unsigned char
-#define word unsigned int
-#define dword unsigned long
-#define qword unsigned long long
-#define open 1
-#define close 0
 
     void OLED_SetFont(const byte *font);
     void OLED_InvertFont(byte invert_status);

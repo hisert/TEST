@@ -1,4 +1,4 @@
-
+#include "common.h"
 #ifndef INPUT_DEBOUNCE_H
 #define	INPUT_DEBOUNCE_H
 

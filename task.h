@@ -1,3 +1,4 @@
+#include "common.h"
 
 #ifndef TASK_H
 #define	TASK_H
@@ -6,10 +7,6 @@
 extern "C" {
 #endif
 
-#define byte unsigned char
-#define word unsigned int
-#define dword unsigned long
-#define qword unsigned long long
 
 #define TASK_FLG_START 0x01
 

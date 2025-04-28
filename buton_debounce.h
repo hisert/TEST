@@ -1,15 +1,10 @@
-
+#include "common.h"
 #ifndef BUTON_DEBOUNCE_H
 #define	BUTON_DEBOUNCE_H
 
 #ifdef	__cplusplus
 extern "C" {
 #endif
-
-#define byte unsigned char
-#define word unsigned int
-#define dword unsigned long
-#define qword unsigned long long
 
     typedef struct {
         word PressTime;

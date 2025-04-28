@@ -1,18 +1,11 @@
 
 #ifndef SOFT_I2C_H
+#include "common.h"
 #define	SOFT_I2C_H
 
 #ifdef	__cplusplus
 extern "C" {
 #endif
-
-#define byte unsigned char
-#define word unsigned int
-#define dword unsigned long
-#define qword unsigned long long
-
-
-    volatile byte *pro_adress;
 
     typedef struct {
         byte *lat_adress;

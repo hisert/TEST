@@ -1,9 +1,4 @@
-/* 
- * File:   MENU.h
- * Author: SERT
- *
- * Created on 27 Nisan 2025 Pazar, 23:55
- */
+#include "common.h"
 
 #ifndef MENU_H
 #define	MENU_H
@@ -12,10 +7,6 @@
 extern "C" {
 #endif
 
-#define byte unsigned char
-#define word unsigned int
-#define dword unsigned long
-#define qword unsigned long long
 
     typedef struct {
         const char *text;

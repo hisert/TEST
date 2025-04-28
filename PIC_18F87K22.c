@@ -1,6 +1,7 @@
 #include "PIC_18F87K22.h"
-#include <xc.h>
 
+#include <xc.h>
+#ifdef PIC_18F67K22
 // <editor-fold defaultstate="collapsed" desc="PIN IO">
 
 byte PIN_GET_PORT(byte Port, byte Pin)
@@ -110,9 +111,9 @@ void TIMER_1_SET(byte startOrStop)
     else T1CONbits.TMR1ON = 0;
 }
 
-word TIMER_1_INIT(byte ms)
+void TIMER_1_INIT(byte ms)
 {
-    unsigned long Fosc = _XTAL_FREQ; // Sistem frekans?
+    unsigned long Fosc = CRYSTAL_FREKANS; // Sistem frekans?
     unsigned long Fcy = Fosc / 4; // Timer kaynak frekans? (Fosc/4)
     byte Prescalers[] = {1, 2, 4, 8}; // Mümkün olan prescaler de?erleri
     word TMR1_Tick = 0;
@@ -159,9 +160,9 @@ void TIMER_3_SET(byte startOrStop)
     else T3CONbits.TMR3ON = 0;
 }
 
-word TIMER_3_INIT(byte ms)
+void TIMER_3_INIT(byte ms)
 {
-    unsigned long Fosc = _XTAL_FREQ; // Sistem frekans?
+    unsigned long Fosc = CRYSTAL_FREKANS; // Sistem frekans?
     unsigned long Fcy = Fosc / 4; // Timer kaynak frekans? (Fosc/4)
     byte Prescalers[] = {1, 2, 4, 8}; // Mümkün olan prescaler de?erleri
     word TMR3_Tick = 0;
@@ -208,9 +209,9 @@ void TIMER_5_SET(byte startOrStop)
     else T5CONbits.TMR5ON = 0;
 }
 
-word TIMER_5_INIT(byte ms)
+void TIMER_5_INIT(byte ms)
 {
-    unsigned long Fosc = _XTAL_FREQ; // Sistem frekans?
+    unsigned long Fosc = CRYSTAL_FREKANS; // Sistem frekans?
     unsigned long Fcy = Fosc / 4; // Timer kaynak frekans? (Fosc/4)
     byte Prescalers[] = {1, 2, 4, 8}; // Mümkün olan prescaler de?erleri
     word TMR5_Tick = 0;
@@ -247,7 +248,7 @@ void UART_1_INIT(unsigned long baudrate)
 {
     PIN_SET_IO('D', 'O', 'C', 6, 'H');
     PIN_SET_IO('D', 'I', 'C', 7, 'H');
-    unsigned int spbrg_value = (_XTAL_FREQ / (16 * baudrate)) - 1; // 16 ile bölme yaparak daha yüksek baud h?zlar?n? elde edebilirsiniz.
+    unsigned int spbrg_value = (CRYSTAL_FREKANS / (16 * baudrate)) - 1; // 16 ile bölme yaparak daha yüksek baud h?zlar?n? elde edebilirsiniz.
     TXSTA1bits.SYNC = 0; // Asenkron mod
     TXSTA1bits.TX9 = 0; // 8-bit veri
     RCSTA1bits.RX9 = 0; // 8-bit veri
@@ -304,7 +305,7 @@ void UART_2_INIT(unsigned long baudrate)
     PIN_SET_IO('D', 'O', 'G', 1, 'H');
     PIN_SET_IO('D', 'I', 'G', 2, 'H');
     PIN_SET_ANSEL(18, 0);
-    unsigned int spbrg_value = (_XTAL_FREQ / (16 * baudrate)) - 1; // 16 ile bölme yaparak daha yüksek baud h?zlar?n? elde edebilirsiniz.
+    unsigned int spbrg_value = (CRYSTAL_FREKANS / (16 * baudrate)) - 1; // 16 ile bölme yaparak daha yüksek baud h?zlar?n? elde edebilirsiniz.
 
     TXSTA2bits.SYNC = 0; // Asenkron mod
     TXSTA2bits.TX9 = 0; // 8-bit veri
@@ -389,7 +390,7 @@ void ADC_INIT()
     ADCON0bits.ADON = 1;
 }
 
-unsigned int ADC_READ(unsigned char channel)
+word ADC_READ(unsigned char channel)
 {
     ADCON0bits.CHS = channel; // Kanal numaras?n? seç (0-13 aras?nda)
     ADCON0bits.GO_nDONE = 1;
@@ -404,7 +405,7 @@ void I2C_1_INIT(unsigned long baudrate)
 {
     PIN_SET_IO('D', 'I', 'C', 3, 'L');
     PIN_SET_IO('D', 'I', 'C', 4, 'L');
-    SSP1ADD = ((_XTAL_FREQ / 4) / baudrate) - 1; // H?z hesaplama
+    SSP1ADD = ((CRYSTAL_FREKANS / 4) / baudrate) - 1; // H?z hesaplama
     SSP1CON1bits.SSPM = 0b1000; // Master mode, I2C Clock = Fosc/4 (Fosc = sistem saati)
     SSP1CON1bits.SSPEN = 1; // Seri portu etkinle?tir
 }
@@ -483,7 +484,7 @@ void I2C_2_INIT(unsigned long baudrate)
 {
     PIN_SET_IO('D', 'I', 'D', 6, 'L'); // SDA2
     PIN_SET_IO('D', 'I', 'D', 5, 'L'); // SCL2
-    SSP2ADD = ((_XTAL_FREQ / 4) / baudrate) - 1; // H?z hesaplama
+    SSP2ADD = ((CRYSTAL_FREKANS / 4) / baudrate) - 1; // H?z hesaplama
     SSP2CON1bits.SSPM = 0b1000; // Master mode, I2C Clock = Fosc/4 (Fosc = sistem saati)
     SSP2CON1bits.SSPEN = 1; // Seri portu etkinle?tir
 }
@@ -640,13 +641,13 @@ void PWM_1_INIT(unsigned long freq, unsigned char timer)
     PIN_SET_IO('D', 'O', 'C', 2, 'L'); // PWM1 ç?k??? için pin ayar? (RC0)
     CCP1CONbits.CCP1M = 0b1100; // PWM modunu ayarla
 
-    unsigned long pwmPeriod = (_XTAL_FREQ / (freq * 4)) - 1;
+    unsigned long pwmPeriod = (CRYSTAL_FREKANS / (freq * 4)) - 1;
     byte divide = 0;
     if (pwmPeriod > 255) {
-        pwmPeriod = (_XTAL_FREQ / (freq * 4 * 16)) - 1;
+        pwmPeriod = (CRYSTAL_FREKANS / (freq * 4 * 16)) - 1;
         divide = 0b11;
     } else if (pwmPeriod > 63) {
-        pwmPeriod = (_XTAL_FREQ / (freq * 4 * 4)) - 1;
+        pwmPeriod = (CRYSTAL_FREKANS / (freq * 4 * 4)) - 1;
         divide = 0b10;
     } else divide = 0b00;
     PWM_TIMER_DIVIDE(PWM_1_TIMER_SELECT, divide);
@@ -693,13 +694,13 @@ void PWM_2_INIT(unsigned long freq, unsigned char timer)
     PIN_SET_IO('D', 'O', 'E', 7, 'L');
     CCP2CONbits.CCP2M = 0b1100;
 
-    unsigned long pwmPeriod = (_XTAL_FREQ / (freq * 4)) - 1;
+    unsigned long pwmPeriod = (CRYSTAL_FREKANS / (freq * 4)) - 1;
     byte divide = 0;
     if (pwmPeriod > 255) {
-        pwmPeriod = (_XTAL_FREQ / (freq * 4 * 16)) - 1;
+        pwmPeriod = (CRYSTAL_FREKANS / (freq * 4 * 16)) - 1;
         divide = 0b11;
     } else if (pwmPeriod > 63) {
-        pwmPeriod = (_XTAL_FREQ / (freq * 4 * 4)) - 1;
+        pwmPeriod = (CRYSTAL_FREKANS / (freq * 4 * 4)) - 1;
         divide = 0b10;
     } else divide = 0b00;
     PWM_TIMER_DIVIDE(PWM_2_TIMER_SELECT, divide);
@@ -747,13 +748,13 @@ void PWM_3_INIT(unsigned long freq, unsigned char timer)
     PIN_SET_IO('D', 'O', 'G', 0, 'L');
     CCP3CONbits.CCP3M = 0b1100;
 
-    unsigned long pwmPeriod = (_XTAL_FREQ / (freq * 4)) - 1;
+    unsigned long pwmPeriod = (CRYSTAL_FREKANS / (freq * 4)) - 1;
     byte divide = 0;
     if (pwmPeriod > 255) {
-        pwmPeriod = (_XTAL_FREQ / (freq * 4 * 16)) - 1;
+        pwmPeriod = (CRYSTAL_FREKANS / (freq * 4 * 16)) - 1;
         divide = 0b11;
     } else if (pwmPeriod > 63) {
-        pwmPeriod = (_XTAL_FREQ / (freq * 4 * 4)) - 1;
+        pwmPeriod = (CRYSTAL_FREKANS / (freq * 4 * 4)) - 1;
         divide = 0b10;
     } else divide = 0b00;
     PWM_TIMER_DIVIDE(PWM_3_TIMER_SELECT, divide);
@@ -801,13 +802,13 @@ void PWM_4_INIT(unsigned long freq, unsigned char timer)
     PIN_SET_IO('D', 'O', 'G', 3, 'L');
     CCP4CONbits.CCP4M = 0b1100;
 
-    unsigned long pwmPeriod = (_XTAL_FREQ / (freq * 4)) - 1;
+    unsigned long pwmPeriod = (CRYSTAL_FREKANS / (freq * 4)) - 1;
     byte divide = 0;
     if (pwmPeriod > 255) {
-        pwmPeriod = (_XTAL_FREQ / (freq * 4 * 16)) - 1;
+        pwmPeriod = (CRYSTAL_FREKANS / (freq * 4 * 16)) - 1;
         divide = 0b11;
     } else if (pwmPeriod > 63) {
-        pwmPeriod = (_XTAL_FREQ / (freq * 4 * 4)) - 1;
+        pwmPeriod = (CRYSTAL_FREKANS / (freq * 4 * 4)) - 1;
         divide = 0b10;
     } else divide = 0b00;
     PWM_TIMER_DIVIDE(PWM_4_TIMER_SELECT, divide);
@@ -855,13 +856,13 @@ void PWM_5_INIT(unsigned long freq, unsigned char timer)
     PIN_SET_IO('D', 'O', 'G', 4, 'L');
     CCP5CONbits.CCP5M = 0b1100;
 
-    unsigned long pwmPeriod = (_XTAL_FREQ / (freq * 4)) - 1;
+    unsigned long pwmPeriod = (CRYSTAL_FREKANS / (freq * 4)) - 1;
     byte divide = 0;
     if (pwmPeriod > 255) {
-        pwmPeriod = (_XTAL_FREQ / (freq * 4 * 16)) - 1;
+        pwmPeriod = (CRYSTAL_FREKANS / (freq * 4 * 16)) - 1;
         divide = 0b11;
     } else if (pwmPeriod > 63) {
-        pwmPeriod = (_XTAL_FREQ / (freq * 4 * 4)) - 1;
+        pwmPeriod = (CRYSTAL_FREKANS / (freq * 4 * 4)) - 1;
         divide = 0b10;
     } else divide = 0b00;
     PWM_TIMER_DIVIDE(PWM_5_TIMER_SELECT, divide);
@@ -909,13 +910,13 @@ void PWM_6_INIT(unsigned long freq, unsigned char timer)
     PIN_SET_IO('D', 'O', 'E', 6, 'L');
     CCP6CONbits.CCP6M = 0b1100;
 
-    unsigned long pwmPeriod = (_XTAL_FREQ / (freq * 4)) - 1;
+    unsigned long pwmPeriod = (CRYSTAL_FREKANS / (freq * 4)) - 1;
     byte divide = 0;
     if (pwmPeriod > 255) {
-        pwmPeriod = (_XTAL_FREQ / (freq * 4 * 16)) - 1;
+        pwmPeriod = (CRYSTAL_FREKANS / (freq * 4 * 16)) - 1;
         divide = 0b11;
     } else if (pwmPeriod > 63) {
-        pwmPeriod = (_XTAL_FREQ / (freq * 4 * 4)) - 1;
+        pwmPeriod = (CRYSTAL_FREKANS / (freq * 4 * 4)) - 1;
         divide = 0b10;
     } else divide = 0b00;
     PWM_TIMER_DIVIDE(PWM_6_TIMER_SELECT, divide);
@@ -963,13 +964,13 @@ void PWM_7_INIT(unsigned long freq, unsigned char timer)
     PIN_SET_IO('D', 'O', 'E', 5, 'L');
     CCP7CONbits.CCP7M = 0b1100;
 
-    unsigned long pwmPeriod = (_XTAL_FREQ / (freq * 4)) - 1;
+    unsigned long pwmPeriod = (CRYSTAL_FREKANS / (freq * 4)) - 1;
     byte divide = 0;
     if (pwmPeriod > 255) {
-        pwmPeriod = (_XTAL_FREQ / (freq * 4 * 16)) - 1;
+        pwmPeriod = (CRYSTAL_FREKANS / (freq * 4 * 16)) - 1;
         divide = 0b11;
     } else if (pwmPeriod > 63) {
-        pwmPeriod = (_XTAL_FREQ / (freq * 4 * 4)) - 1;
+        pwmPeriod = (CRYSTAL_FREKANS / (freq * 4 * 4)) - 1;
         divide = 0b10;
     } else divide = 0b00;
     PWM_TIMER_DIVIDE(PWM_7_TIMER_SELECT, divide);
@@ -1017,13 +1018,13 @@ void PWM_8_INIT(unsigned long freq, unsigned char timer)
     PIN_SET_IO('D', 'O', 'E', 4, 'L');
     CCP8CONbits.CCP8M = 0b1100;
 
-    unsigned long pwmPeriod = (_XTAL_FREQ / (freq * 4)) - 1;
+    unsigned long pwmPeriod = (CRYSTAL_FREKANS / (freq * 4)) - 1;
     byte divide = 0;
     if (pwmPeriod > 255) {
-        pwmPeriod = (_XTAL_FREQ / (freq * 4 * 16)) - 1;
+        pwmPeriod = (CRYSTAL_FREKANS / (freq * 4 * 16)) - 1;
         divide = 0b11;
     } else if (pwmPeriod > 63) {
-        pwmPeriod = (_XTAL_FREQ / (freq * 4 * 4)) - 1;
+        pwmPeriod = (CRYSTAL_FREKANS / (freq * 4 * 4)) - 1;
         divide = 0b10;
     } else divide = 0b00;
     PWM_TIMER_DIVIDE(PWM_8_TIMER_SELECT, divide);
@@ -1062,3 +1063,4 @@ void PWM_8_SET(unsigned char enable)
 // </editor-fold>
 
 // </editor-fold>
+#endif

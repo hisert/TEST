@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project>
-  <executable name="dist/default/production\TEST.production.hex">
-    <memory name="program">
-      <units>bytes</units>
-      <length>131072</length>
-      <used>18473</used>
-      <free>112599</free>
-    </memory>
-    <memory name="data">
-      <units>bytes</units>
-      <length>3862</length>
-      <used>1434</used>
-      <free>2428</free>
-    </memory>
-  </executable>
-</project>
+<?xml version="1.0" encoding="UTF-8"?> 
+<project>                                  
+  <executable name="dist/default/production/TEST.production.elf">                 
+    <memory name="program">              
+      <units>bytes</units>                 
+      <length>65536</length>                 
+      <used>3174</used>                     
+      <free>62362</free>                     
+    </memory>                              
+    <memory name="data">                 
+      <units>bytes</units>                 
+      <length>4096</length>                 
+      <used>78</used>                     
+      <free>4018</free>                     
+    </memory>                              
+  </executable>                            
+</project>                                 

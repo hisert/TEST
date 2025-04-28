@@ -39,7 +39,7 @@ FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/TEST.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 endif
 
 ifeq ($(COMPARE_BUILD), true)
-COMPARISON_BUILD=-mafrlcsj
+COMPARISON_BUILD=
 else
 COMPARISON_BUILD=
 endif
@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=newmain.c ssd1306_oled.c input_debounce.c buton_debounce.c thread.c soft_i2c.c PIC_18F87K22.c task.c MENU.c
+SOURCEFILES_QUOTED_IF_SPACED=newmain.c ssd1306_oled.c input_debounce.c buton_debounce.c thread.c soft_i2c.c PIC_18F87K22.c task.c MENU.c ATMEGA_64.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/newmain.p1 ${OBJECTDIR}/ssd1306_oled.p1 ${OBJECTDIR}/input_debounce.p1 ${OBJECTDIR}/buton_debounce.p1 ${OBJECTDIR}/thread.p1 ${OBJECTDIR}/soft_i2c.p1 ${OBJECTDIR}/PIC_18F87K22.p1 ${OBJECTDIR}/task.p1 ${OBJECTDIR}/MENU.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/newmain.p1.d ${OBJECTDIR}/ssd1306_oled.p1.d ${OBJECTDIR}/input_debounce.p1.d ${OBJECTDIR}/buton_debounce.p1.d ${OBJECTDIR}/thread.p1.d ${OBJECTDIR}/soft_i2c.p1.d ${OBJECTDIR}/PIC_18F87K22.p1.d ${OBJECTDIR}/task.p1.d ${OBJECTDIR}/MENU.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/newmain.o ${OBJECTDIR}/ssd1306_oled.o ${OBJECTDIR}/input_debounce.o ${OBJECTDIR}/buton_debounce.o ${OBJECTDIR}/thread.o ${OBJECTDIR}/soft_i2c.o ${OBJECTDIR}/PIC_18F87K22.o ${OBJECTDIR}/task.o ${OBJECTDIR}/MENU.o ${OBJECTDIR}/ATMEGA_64.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/newmain.o.d ${OBJECTDIR}/ssd1306_oled.o.d ${OBJECTDIR}/input_debounce.o.d ${OBJECTDIR}/buton_debounce.o.d ${OBJECTDIR}/thread.o.d ${OBJECTDIR}/soft_i2c.o.d ${OBJECTDIR}/PIC_18F87K22.o.d ${OBJECTDIR}/task.o.d ${OBJECTDIR}/MENU.o.d ${OBJECTDIR}/ATMEGA_64.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/newmain.p1 ${OBJECTDIR}/ssd1306_oled.p1 ${OBJECTDIR}/input_debounce.p1 ${OBJECTDIR}/buton_debounce.p1 ${OBJECTDIR}/thread.p1 ${OBJECTDIR}/soft_i2c.p1 ${OBJECTDIR}/PIC_18F87K22.p1 ${OBJECTDIR}/task.p1 ${OBJECTDIR}/MENU.p1
+OBJECTFILES=${OBJECTDIR}/newmain.o ${OBJECTDIR}/ssd1306_oled.o ${OBJECTDIR}/input_debounce.o ${OBJECTDIR}/buton_debounce.o ${OBJECTDIR}/thread.o ${OBJECTDIR}/soft_i2c.o ${OBJECTDIR}/PIC_18F87K22.o ${OBJECTDIR}/task.o ${OBJECTDIR}/MENU.o ${OBJECTDIR}/ATMEGA_64.o
 
 # Source Files
-SOURCEFILES=newmain.c ssd1306_oled.c input_debounce.c buton_debounce.c thread.c soft_i2c.c PIC_18F87K22.c task.c MENU.c
+SOURCEFILES=newmain.c ssd1306_oled.c input_debounce.c buton_debounce.c thread.c soft_i2c.c PIC_18F87K22.c task.c MENU.c ATMEGA_64.c
 
 
 
@@ -90,154 +90,130 @@ ifneq ($(INFORMATION_MESSAGE), )
 endif
 	${MAKE}  -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/TEST.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
-MP_PROCESSOR_OPTION=18F87K22
+MP_PROCESSOR_OPTION=ATmega64
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/newmain.p1: newmain.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/newmain.o: newmain.c  .generated_files/flags/default/a653c307c16c2a3ca3e5a5fa504979c3475b6fea .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/newmain.p1.d 
-	@${RM} ${OBJECTDIR}/newmain.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/newmain.p1 newmain.c 
-	@-${MV} ${OBJECTDIR}/newmain.d ${OBJECTDIR}/newmain.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/newmain.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/newmain.o.d 
+	@${RM} ${OBJECTDIR}/newmain.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/newmain.o.d" -MT "${OBJECTDIR}/newmain.o.d" -MT ${OBJECTDIR}/newmain.o -o ${OBJECTDIR}/newmain.o newmain.c 
 	
-${OBJECTDIR}/ssd1306_oled.p1: ssd1306_oled.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/ssd1306_oled.o: ssd1306_oled.c  .generated_files/flags/default/64eab301af75d578c74ec83259c7c75126d1006c .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/ssd1306_oled.p1.d 
-	@${RM} ${OBJECTDIR}/ssd1306_oled.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/ssd1306_oled.p1 ssd1306_oled.c 
-	@-${MV} ${OBJECTDIR}/ssd1306_oled.d ${OBJECTDIR}/ssd1306_oled.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/ssd1306_oled.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/ssd1306_oled.o.d 
+	@${RM} ${OBJECTDIR}/ssd1306_oled.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ssd1306_oled.o.d" -MT "${OBJECTDIR}/ssd1306_oled.o.d" -MT ${OBJECTDIR}/ssd1306_oled.o -o ${OBJECTDIR}/ssd1306_oled.o ssd1306_oled.c 
 	
-${OBJECTDIR}/input_debounce.p1: input_debounce.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/input_debounce.o: input_debounce.c  .generated_files/flags/default/d62d0eeb234cf83ae64e3d19238218effcc44e12 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/input_debounce.p1.d 
-	@${RM} ${OBJECTDIR}/input_debounce.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/input_debounce.p1 input_debounce.c 
-	@-${MV} ${OBJECTDIR}/input_debounce.d ${OBJECTDIR}/input_debounce.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/input_debounce.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/input_debounce.o.d 
+	@${RM} ${OBJECTDIR}/input_debounce.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/input_debounce.o.d" -MT "${OBJECTDIR}/input_debounce.o.d" -MT ${OBJECTDIR}/input_debounce.o -o ${OBJECTDIR}/input_debounce.o input_debounce.c 
 	
-${OBJECTDIR}/buton_debounce.p1: buton_debounce.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/buton_debounce.o: buton_debounce.c  .generated_files/flags/default/9063995d0267234dd0a2188765bc2c25c85cf526 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/buton_debounce.p1.d 
-	@${RM} ${OBJECTDIR}/buton_debounce.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/buton_debounce.p1 buton_debounce.c 
-	@-${MV} ${OBJECTDIR}/buton_debounce.d ${OBJECTDIR}/buton_debounce.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/buton_debounce.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/buton_debounce.o.d 
+	@${RM} ${OBJECTDIR}/buton_debounce.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/buton_debounce.o.d" -MT "${OBJECTDIR}/buton_debounce.o.d" -MT ${OBJECTDIR}/buton_debounce.o -o ${OBJECTDIR}/buton_debounce.o buton_debounce.c 
 	
-${OBJECTDIR}/thread.p1: thread.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/thread.o: thread.c  .generated_files/flags/default/134caf06518ec6f70760b6615a80084c11cd3fa5 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/thread.p1.d 
-	@${RM} ${OBJECTDIR}/thread.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/thread.p1 thread.c 
-	@-${MV} ${OBJECTDIR}/thread.d ${OBJECTDIR}/thread.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/thread.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/thread.o.d 
+	@${RM} ${OBJECTDIR}/thread.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/thread.o.d" -MT "${OBJECTDIR}/thread.o.d" -MT ${OBJECTDIR}/thread.o -o ${OBJECTDIR}/thread.o thread.c 
 	
-${OBJECTDIR}/soft_i2c.p1: soft_i2c.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/soft_i2c.o: soft_i2c.c  .generated_files/flags/default/f97bf75276d3ca09dce0e0aaca0f018ceca820ec .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/soft_i2c.p1.d 
-	@${RM} ${OBJECTDIR}/soft_i2c.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/soft_i2c.p1 soft_i2c.c 
-	@-${MV} ${OBJECTDIR}/soft_i2c.d ${OBJECTDIR}/soft_i2c.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/soft_i2c.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/soft_i2c.o.d 
+	@${RM} ${OBJECTDIR}/soft_i2c.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/soft_i2c.o.d" -MT "${OBJECTDIR}/soft_i2c.o.d" -MT ${OBJECTDIR}/soft_i2c.o -o ${OBJECTDIR}/soft_i2c.o soft_i2c.c 
 	
-${OBJECTDIR}/PIC_18F87K22.p1: PIC_18F87K22.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/PIC_18F87K22.o: PIC_18F87K22.c  .generated_files/flags/default/24717a3af5fb0e2f2cc4565c2c742501e7f1a695 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/PIC_18F87K22.p1.d 
-	@${RM} ${OBJECTDIR}/PIC_18F87K22.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/PIC_18F87K22.p1 PIC_18F87K22.c 
-	@-${MV} ${OBJECTDIR}/PIC_18F87K22.d ${OBJECTDIR}/PIC_18F87K22.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/PIC_18F87K22.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/PIC_18F87K22.o.d 
+	@${RM} ${OBJECTDIR}/PIC_18F87K22.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/PIC_18F87K22.o.d" -MT "${OBJECTDIR}/PIC_18F87K22.o.d" -MT ${OBJECTDIR}/PIC_18F87K22.o -o ${OBJECTDIR}/PIC_18F87K22.o PIC_18F87K22.c 
 	
-${OBJECTDIR}/task.p1: task.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/task.o: task.c  .generated_files/flags/default/85062aa1079cc88d4c650c89ed1a6dc6422e8d71 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/task.p1.d 
-	@${RM} ${OBJECTDIR}/task.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/task.p1 task.c 
-	@-${MV} ${OBJECTDIR}/task.d ${OBJECTDIR}/task.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/task.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/task.o.d 
+	@${RM} ${OBJECTDIR}/task.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/task.o.d" -MT "${OBJECTDIR}/task.o.d" -MT ${OBJECTDIR}/task.o -o ${OBJECTDIR}/task.o task.c 
 	
-${OBJECTDIR}/MENU.p1: MENU.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/MENU.o: MENU.c  .generated_files/flags/default/dcbfd75a91fec86e161bc9ead6f1303520ef8f1a .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/MENU.p1.d 
-	@${RM} ${OBJECTDIR}/MENU.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/MENU.p1 MENU.c 
-	@-${MV} ${OBJECTDIR}/MENU.d ${OBJECTDIR}/MENU.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/MENU.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/MENU.o.d 
+	@${RM} ${OBJECTDIR}/MENU.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/MENU.o.d" -MT "${OBJECTDIR}/MENU.o.d" -MT ${OBJECTDIR}/MENU.o -o ${OBJECTDIR}/MENU.o MENU.c 
+	
+${OBJECTDIR}/ATMEGA_64.o: ATMEGA_64.c  .generated_files/flags/default/1495f605c154763492f8308486db0345bec62e99 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ATMEGA_64.o.d 
+	@${RM} ${OBJECTDIR}/ATMEGA_64.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ATMEGA_64.o.d" -MT "${OBJECTDIR}/ATMEGA_64.o.d" -MT ${OBJECTDIR}/ATMEGA_64.o -o ${OBJECTDIR}/ATMEGA_64.o ATMEGA_64.c 
 	
 else
-${OBJECTDIR}/newmain.p1: newmain.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/newmain.o: newmain.c  .generated_files/flags/default/509dd139db1aa1bb7b3ee69270b320c554651b05 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/newmain.p1.d 
-	@${RM} ${OBJECTDIR}/newmain.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/newmain.p1 newmain.c 
-	@-${MV} ${OBJECTDIR}/newmain.d ${OBJECTDIR}/newmain.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/newmain.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/newmain.o.d 
+	@${RM} ${OBJECTDIR}/newmain.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/newmain.o.d" -MT "${OBJECTDIR}/newmain.o.d" -MT ${OBJECTDIR}/newmain.o -o ${OBJECTDIR}/newmain.o newmain.c 
 	
-${OBJECTDIR}/ssd1306_oled.p1: ssd1306_oled.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/ssd1306_oled.o: ssd1306_oled.c  .generated_files/flags/default/7bfe63b1549a7293c835af26157bca987e82532e .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/ssd1306_oled.p1.d 
-	@${RM} ${OBJECTDIR}/ssd1306_oled.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/ssd1306_oled.p1 ssd1306_oled.c 
-	@-${MV} ${OBJECTDIR}/ssd1306_oled.d ${OBJECTDIR}/ssd1306_oled.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/ssd1306_oled.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/ssd1306_oled.o.d 
+	@${RM} ${OBJECTDIR}/ssd1306_oled.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ssd1306_oled.o.d" -MT "${OBJECTDIR}/ssd1306_oled.o.d" -MT ${OBJECTDIR}/ssd1306_oled.o -o ${OBJECTDIR}/ssd1306_oled.o ssd1306_oled.c 
 	
-${OBJECTDIR}/input_debounce.p1: input_debounce.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/input_debounce.o: input_debounce.c  .generated_files/flags/default/6af85c117ed99c64859d13999439a8849cbae0d3 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/input_debounce.p1.d 
-	@${RM} ${OBJECTDIR}/input_debounce.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/input_debounce.p1 input_debounce.c 
-	@-${MV} ${OBJECTDIR}/input_debounce.d ${OBJECTDIR}/input_debounce.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/input_debounce.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/input_debounce.o.d 
+	@${RM} ${OBJECTDIR}/input_debounce.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/input_debounce.o.d" -MT "${OBJECTDIR}/input_debounce.o.d" -MT ${OBJECTDIR}/input_debounce.o -o ${OBJECTDIR}/input_debounce.o input_debounce.c 
 	
-${OBJECTDIR}/buton_debounce.p1: buton_debounce.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/buton_debounce.o: buton_debounce.c  .generated_files/flags/default/8f63ba66fdbc5ef528074104c53bde9fc17f1916 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/buton_debounce.p1.d 
-	@${RM} ${OBJECTDIR}/buton_debounce.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/buton_debounce.p1 buton_debounce.c 
-	@-${MV} ${OBJECTDIR}/buton_debounce.d ${OBJECTDIR}/buton_debounce.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/buton_debounce.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/buton_debounce.o.d 
+	@${RM} ${OBJECTDIR}/buton_debounce.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/buton_debounce.o.d" -MT "${OBJECTDIR}/buton_debounce.o.d" -MT ${OBJECTDIR}/buton_debounce.o -o ${OBJECTDIR}/buton_debounce.o buton_debounce.c 
 	
-${OBJECTDIR}/thread.p1: thread.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/thread.o: thread.c  .generated_files/flags/default/629321f7bf6cabe8903c2f5a6a5d60f02ab723d .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/thread.p1.d 
-	@${RM} ${OBJECTDIR}/thread.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/thread.p1 thread.c 
-	@-${MV} ${OBJECTDIR}/thread.d ${OBJECTDIR}/thread.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/thread.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/thread.o.d 
+	@${RM} ${OBJECTDIR}/thread.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/thread.o.d" -MT "${OBJECTDIR}/thread.o.d" -MT ${OBJECTDIR}/thread.o -o ${OBJECTDIR}/thread.o thread.c 
 	
-${OBJECTDIR}/soft_i2c.p1: soft_i2c.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/soft_i2c.o: soft_i2c.c  .generated_files/flags/default/4168ad30400e6753207c2344f18275fceba65008 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/soft_i2c.p1.d 
-	@${RM} ${OBJECTDIR}/soft_i2c.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/soft_i2c.p1 soft_i2c.c 
-	@-${MV} ${OBJECTDIR}/soft_i2c.d ${OBJECTDIR}/soft_i2c.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/soft_i2c.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/soft_i2c.o.d 
+	@${RM} ${OBJECTDIR}/soft_i2c.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/soft_i2c.o.d" -MT "${OBJECTDIR}/soft_i2c.o.d" -MT ${OBJECTDIR}/soft_i2c.o -o ${OBJECTDIR}/soft_i2c.o soft_i2c.c 
 	
-${OBJECTDIR}/PIC_18F87K22.p1: PIC_18F87K22.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/PIC_18F87K22.o: PIC_18F87K22.c  .generated_files/flags/default/46c1296d7f5524fcfce2d949e38a37c981c9a1dc .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/PIC_18F87K22.p1.d 
-	@${RM} ${OBJECTDIR}/PIC_18F87K22.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/PIC_18F87K22.p1 PIC_18F87K22.c 
-	@-${MV} ${OBJECTDIR}/PIC_18F87K22.d ${OBJECTDIR}/PIC_18F87K22.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/PIC_18F87K22.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/PIC_18F87K22.o.d 
+	@${RM} ${OBJECTDIR}/PIC_18F87K22.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/PIC_18F87K22.o.d" -MT "${OBJECTDIR}/PIC_18F87K22.o.d" -MT ${OBJECTDIR}/PIC_18F87K22.o -o ${OBJECTDIR}/PIC_18F87K22.o PIC_18F87K22.c 
 	
-${OBJECTDIR}/task.p1: task.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/task.o: task.c  .generated_files/flags/default/8e59efe57f939787288a07ca7e017801f07c1913 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/task.p1.d 
-	@${RM} ${OBJECTDIR}/task.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/task.p1 task.c 
-	@-${MV} ${OBJECTDIR}/task.d ${OBJECTDIR}/task.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/task.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/task.o.d 
+	@${RM} ${OBJECTDIR}/task.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/task.o.d" -MT "${OBJECTDIR}/task.o.d" -MT ${OBJECTDIR}/task.o -o ${OBJECTDIR}/task.o task.c 
 	
-${OBJECTDIR}/MENU.p1: MENU.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/MENU.o: MENU.c  .generated_files/flags/default/6e34c96a81d14d9ac515eb99a3855b3916b345e7 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/MENU.p1.d 
-	@${RM} ${OBJECTDIR}/MENU.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/MENU.p1 MENU.c 
-	@-${MV} ${OBJECTDIR}/MENU.d ${OBJECTDIR}/MENU.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/MENU.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/MENU.o.d 
+	@${RM} ${OBJECTDIR}/MENU.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/MENU.o.d" -MT "${OBJECTDIR}/MENU.o.d" -MT ${OBJECTDIR}/MENU.o -o ${OBJECTDIR}/MENU.o MENU.c 
+	
+${OBJECTDIR}/ATMEGA_64.o: ATMEGA_64.c  .generated_files/flags/default/3ad759481bba098adae96bb29894653057a176a1 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ATMEGA_64.o.d 
+	@${RM} ${OBJECTDIR}/ATMEGA_64.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ATMEGA_64.o.d" -MT "${OBJECTDIR}/ATMEGA_64.o.d" -MT ${OBJECTDIR}/ATMEGA_64.o -o ${OBJECTDIR}/ATMEGA_64.o ATMEGA_64.c 
 	
 endif
 
@@ -258,14 +234,14 @@ endif
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 dist/${CND_CONF}/${IMAGE_TYPE}/TEST.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -Wl,-Map=dist/${CND_CONF}/${IMAGE_TYPE}/TEST.${IMAGE_TYPE}.map  -D__DEBUG=1  -DXPRJ_default=$(CND_CONF)  -Wl,--defsym=__MPLAB_BUILD=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto        $(COMPARISON_BUILD) -Wl,--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -o dist/${CND_CONF}/${IMAGE_TYPE}/TEST.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
+	${MP_CC} $(MP_EXTRA_LD_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -Wl,-Map=dist/${CND_CONF}/${IMAGE_TYPE}/TEST.${IMAGE_TYPE}.map  -D__DEBUG=1  -DXPRJ_default=$(CND_CONF)  -Wl,--defsym=__MPLAB_BUILD=1   -mdfp="${DFP_DIR}/xc8"   -gdwarf-2 -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -gdwarf-3     $(COMPARISON_BUILD) -Wl,--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -o dist/${CND_CONF}/${IMAGE_TYPE}/TEST.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  -o dist/${CND_CONF}/${IMAGE_TYPE}/TEST.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -Wl,--start-group  -Wl,-lm -Wl,--end-group  -Wl,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1
 	@${RM} dist/${CND_CONF}/${IMAGE_TYPE}/TEST.${IMAGE_TYPE}.hex 
 	
 else
 dist/${CND_CONF}/${IMAGE_TYPE}/TEST.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -Wl,-Map=dist/${CND_CONF}/${IMAGE_TYPE}/TEST.${IMAGE_TYPE}.map  -DXPRJ_default=$(CND_CONF)  -Wl,--defsym=__MPLAB_BUILD=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O1 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     $(COMPARISON_BUILD) -Wl,--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -o dist/${CND_CONF}/${IMAGE_TYPE}/TEST.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
-	
+	${MP_CC} $(MP_EXTRA_LD_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -Wl,-Map=dist/${CND_CONF}/${IMAGE_TYPE}/TEST.${IMAGE_TYPE}.map  -DXPRJ_default=$(CND_CONF)  -Wl,--defsym=__MPLAB_BUILD=1   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -gdwarf-3     $(COMPARISON_BUILD) -Wl,--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -o dist/${CND_CONF}/${IMAGE_TYPE}/TEST.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  -o dist/${CND_CONF}/${IMAGE_TYPE}/TEST.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -Wl,--start-group  -Wl,-lm -Wl,--end-group 
+	${MP_CC_DIR}\\avr-objcopy -O ihex "dist/${CND_CONF}/${IMAGE_TYPE}/TEST.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}" "dist/${CND_CONF}/${IMAGE_TYPE}/TEST.${IMAGE_TYPE}.hex"
 endif
 
 

@@ -30,6 +30,9 @@
       <itemPath>task.h</itemPath>
       <itemPath>MENU.c</itemPath>
       <itemPath>MENU.h</itemPath>
+      <itemPath>ATMEGA_64.c</itemPath>
+      <itemPath>ATMEGA_64.h</itemPath>
+      <itemPath>common.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -42,7 +45,7 @@
     <conf name="default" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>PIC18F87K22</targetDevice>
+        <targetDevice>ATmega64</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
         <platformTool>noID</platformTool>
@@ -51,7 +54,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC18F-K_DFP" vendor="Microchip" version="1.4.87"/>
+        <pack name="ATmega_DFP" vendor="Microchip" version="2.3.126"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
