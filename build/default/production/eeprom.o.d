@@ -1,6 +1,5 @@
-build/default/production/input_debounce.o.d \
- build/default/production/input_debounce.o: input_debounce.c \
- input_debounce.h common.h \
+build/default/production/eeprom.o.d build/default/production/eeprom.o: \
+ eeprom.c eeprom.h common.h \
  c:\program\ files\microchip\xc8\v2.46\avr\lib\gcc\avr\5.4.0\include\xc.h \
  c:\program\ files\microchip\xc8\v2.46\avr\lib\gcc\avr\5.4.0\include\cci.h \
  c:\program\ files\microchip\xc8\v2.46\avr\avr\include\avr\io.h \
@@ -26,7 +25,7 @@ build/default/production/input_debounce.o.d \
  config.h c:\program\ files\microchip\xc8\v2.46\avr\avr\include\string.h \
  c:\program\ files\microchip\xc8\v2.46\avr\avr\include\stdio.h
 
-input_debounce.h:
+eeprom.h:
 
 common.h:
 

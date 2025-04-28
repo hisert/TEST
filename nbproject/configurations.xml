@@ -41,6 +41,8 @@
       <itemPath>AS5600_MAS.c</itemPath>
       <itemPath>ws2812b.c</itemPath>
       <itemPath>ws2812b.h</itemPath>
+      <itemPath>eeprom.c</itemPath>
+      <itemPath>eeprom.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -58,7 +60,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>noID</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>2.20</languageToolchainVersion>
+        <languageToolchainVersion>2.46</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>

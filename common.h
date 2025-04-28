@@ -2,6 +2,7 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
+#include <avr/eeprom.h>
 #include "config.h"
 #include <string.h>
 #include <stdio.h>
@@ -33,7 +34,7 @@ extern "C" {
 #define CHECK_BIT(reg,bit) ((reg & (1 << bit)) / (1 << bit))
 
 #define _XTAL_FREQ 64000000
-#define F_CPU 8000000UL
+#define F_CPU 16000000UL
 #define CRYSTAL_FREKANS 16000000UL
 
 #ifdef	__cplusplus

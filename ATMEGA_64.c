@@ -6,133 +6,126 @@
 // <editor-fold defaultstate="collapsed" desc="PIN IO">
 
 byte PIN_GET_PORT(byte Port, byte Pin)
-  {
-  byte hex = (byte) (1 << Pin);
-  byte data = 0;
-  for (byte i = 0; i < Pin; i++) hex *= 2;
-  if (Port == SYSTEM_IO_PORT_A) data = PINA;
-  else if (Port == SYSTEM_IO_PORT_B) data = PINB;
-  else if (Port == SYSTEM_IO_PORT_C) data = PINC;
-  else if (Port == SYSTEM_IO_PORT_D) data = PIND;
-  else if (Port == SYSTEM_IO_PORT_E) data = PINE;
-  else if (Port == SYSTEM_IO_PORT_F) data = PINF;
-  else if (Port == SYSTEM_IO_PORT_G) data = PING;
-  if (data & hex) return 1;
-  else return 0;
-  }
+{
+    byte hex = (byte) (1 << Pin);
+    byte data = 0;
+    for (byte i = 0; i < Pin; i++) hex *= 2;
+    if (Port == SYSTEM_IO_PORT_A) data = PINA;
+    else if (Port == SYSTEM_IO_PORT_B) data = PINB;
+    else if (Port == SYSTEM_IO_PORT_C) data = PINC;
+    else if (Port == SYSTEM_IO_PORT_D) data = PIND;
+    else if (Port == SYSTEM_IO_PORT_E) data = PINE;
+    else if (Port == SYSTEM_IO_PORT_F) data = PINF;
+    else if (Port == SYSTEM_IO_PORT_G) data = PING;
+    if (data & hex) return 1;
+    else return 0;
+}
 
 void PIN_SET_LAT(byte Port, byte Pin, byte HighOrLow)
-  {
-  byte hex = (byte) (1 << Pin);
-  if (HighOrLow == SYSTEM_IO_HIGH)
-    {
-    if (Port == SYSTEM_IO_PORT_A) PORTA = PORTA | hex;
-    else if (Port == SYSTEM_IO_PORT_B) PORTB = PORTB | hex;
-    else if (Port == SYSTEM_IO_PORT_C) PORTC = PORTC | hex;
-    else if (Port == SYSTEM_IO_PORT_D) PORTD = PORTD | hex;
-    else if (Port == SYSTEM_IO_PORT_E) PORTE = PORTE | hex;
-    else if (Port == SYSTEM_IO_PORT_F) PORTF = PORTF | hex;
-    else if (Port == SYSTEM_IO_PORT_G) PORTG = PORTG | hex;
+{
+    byte hex = (byte) (1 << Pin);
+    if (HighOrLow == SYSTEM_IO_HIGH) {
+        if (Port == SYSTEM_IO_PORT_A) PORTA = PORTA | hex;
+        else if (Port == SYSTEM_IO_PORT_B) PORTB = PORTB | hex;
+        else if (Port == SYSTEM_IO_PORT_C) PORTC = PORTC | hex;
+        else if (Port == SYSTEM_IO_PORT_D) PORTD = PORTD | hex;
+        else if (Port == SYSTEM_IO_PORT_E) PORTE = PORTE | hex;
+        else if (Port == SYSTEM_IO_PORT_F) PORTF = PORTF | hex;
+        else if (Port == SYSTEM_IO_PORT_G) PORTG = PORTG | hex;
+    } else if (HighOrLow == SYSTEM_IO_LOW) {
+        if (Port == SYSTEM_IO_PORT_A) PORTA = PORTA & ~hex;
+        else if (Port == SYSTEM_IO_PORT_B) PORTB = PORTB & ~hex;
+        else if (Port == SYSTEM_IO_PORT_C) PORTC = PORTC & ~hex;
+        else if (Port == SYSTEM_IO_PORT_D) PORTD = PORTD & ~hex;
+        else if (Port == SYSTEM_IO_PORT_E) PORTE = PORTE & ~hex;
+        else if (Port == SYSTEM_IO_PORT_F) PORTF = PORTF & ~hex;
+        else if (Port == SYSTEM_IO_PORT_G) PORTG = PORTG & ~hex;
     }
-  else if (HighOrLow == SYSTEM_IO_LOW)
-    {
-    if (Port == SYSTEM_IO_PORT_A) PORTA = PORTA & ~hex;
-    else if (Port == SYSTEM_IO_PORT_B) PORTB = PORTB & ~hex;
-    else if (Port == SYSTEM_IO_PORT_C) PORTC = PORTC & ~hex;
-    else if (Port == SYSTEM_IO_PORT_D) PORTD = PORTD & ~hex;
-    else if (Port == SYSTEM_IO_PORT_E) PORTE = PORTE & ~hex;
-    else if (Port == SYSTEM_IO_PORT_F) PORTF = PORTF & ~hex;
-    else if (Port == SYSTEM_IO_PORT_G) PORTG = PORTG & ~hex;
-    }
-  }
+}
 
 void PIN_SET_TRIS(byte Port, byte Pin, byte InputOrOutput)
-  {
-  byte hex = (byte) (1 << Pin);
-  if (InputOrOutput == SYSTEM_IO_OUTPUT)
-    {
-    if (Port == SYSTEM_IO_PORT_A) DDRA = DDRA | hex;
-    else if (Port == SYSTEM_IO_PORT_B) DDRB = DDRB | hex;
-    else if (Port == SYSTEM_IO_PORT_C) DDRC = DDRC | hex;
-    else if (Port == SYSTEM_IO_PORT_D) DDRD = DDRD | hex;
-    else if (Port == SYSTEM_IO_PORT_E) DDRE = DDRE | hex;
-    else if (Port == SYSTEM_IO_PORT_F) DDRF = DDRF | hex;
-    else if (Port == SYSTEM_IO_PORT_G) DDRG = DDRG | hex;
+{
+    byte hex = (byte) (1 << Pin);
+    if (InputOrOutput == SYSTEM_IO_OUTPUT) {
+        if (Port == SYSTEM_IO_PORT_A) DDRA = DDRA | hex;
+        else if (Port == SYSTEM_IO_PORT_B) DDRB = DDRB | hex;
+        else if (Port == SYSTEM_IO_PORT_C) DDRC = DDRC | hex;
+        else if (Port == SYSTEM_IO_PORT_D) DDRD = DDRD | hex;
+        else if (Port == SYSTEM_IO_PORT_E) DDRE = DDRE | hex;
+        else if (Port == SYSTEM_IO_PORT_F) DDRF = DDRF | hex;
+        else if (Port == SYSTEM_IO_PORT_G) DDRG = DDRG | hex;
+    } else if (InputOrOutput == SYSTEM_IO_INPUT) {
+        if (Port == SYSTEM_IO_PORT_A) DDRA = DDRA & ~hex;
+        else if (Port == SYSTEM_IO_PORT_B) DDRB = DDRB & ~hex;
+        else if (Port == SYSTEM_IO_PORT_C) DDRC = DDRC & ~hex;
+        else if (Port == SYSTEM_IO_PORT_D) DDRD = DDRD & ~hex;
+        else if (Port == SYSTEM_IO_PORT_E) DDRE = DDRE & ~hex;
+        else if (Port == SYSTEM_IO_PORT_F) DDRF = DDRF & ~hex;
+        else if (Port == SYSTEM_IO_PORT_G) DDRG = DDRG & ~hex;
     }
-  else if (InputOrOutput == SYSTEM_IO_INPUT)
-    {
-    if (Port == SYSTEM_IO_PORT_A) DDRA = DDRA & ~hex;
-    else if (Port == SYSTEM_IO_PORT_B) DDRB = DDRB & ~hex;
-    else if (Port == SYSTEM_IO_PORT_C) DDRC = DDRC & ~hex;
-    else if (Port == SYSTEM_IO_PORT_D) DDRD = DDRD & ~hex;
-    else if (Port == SYSTEM_IO_PORT_E) DDRE = DDRE & ~hex;
-    else if (Port == SYSTEM_IO_PORT_F) DDRF = DDRF & ~hex;
-    else if (Port == SYSTEM_IO_PORT_G) DDRG = DDRG & ~hex;
-    }
-  }
+}
 
 void PIN_SET_LAT_TOGGLE(byte Port, byte Pin)
-  {
-  byte hex = (byte) (1 << Pin);
-  if (Port == SYSTEM_IO_PORT_A) PORTA = PORTA ^ hex;
-  else if (Port == SYSTEM_IO_PORT_B) PORTB = PORTB ^ hex;
-  else if (Port == SYSTEM_IO_PORT_C) PORTC = PORTC ^ hex;
-  else if (Port == SYSTEM_IO_PORT_D) PORTD = PORTD ^ hex;
-  else if (Port == SYSTEM_IO_PORT_E) PORTE = PORTE ^ hex;
-  else if (Port == SYSTEM_IO_PORT_F) PORTF = PORTF ^ hex;
-  else if (Port == SYSTEM_IO_PORT_G) PORTG = PORTG ^ hex;
-  }
+{
+    byte hex = (byte) (1 << Pin);
+    if (Port == SYSTEM_IO_PORT_A) PORTA = PORTA ^ hex;
+    else if (Port == SYSTEM_IO_PORT_B) PORTB = PORTB ^ hex;
+    else if (Port == SYSTEM_IO_PORT_C) PORTC = PORTC ^ hex;
+    else if (Port == SYSTEM_IO_PORT_D) PORTD = PORTD ^ hex;
+    else if (Port == SYSTEM_IO_PORT_E) PORTE = PORTE ^ hex;
+    else if (Port == SYSTEM_IO_PORT_F) PORTF = PORTF ^ hex;
+    else if (Port == SYSTEM_IO_PORT_G) PORTG = PORTG ^ hex;
+}
 
 void PIN_SET_IO(byte AnalogOrDijital, byte InputOrOutput, byte Port, byte Pin, byte HighOrLow)
-  {
-  PIN_SET_LAT(Port, Pin, HighOrLow);
-  PIN_SET_TRIS(Port, Pin, InputOrOutput);
-  }
+{
+    PIN_SET_LAT(Port, Pin, HighOrLow);
+    PIN_SET_TRIS(Port, Pin, InputOrOutput);
+}
 
 // </editor-fold> 
 // <editor-fold defaultstate="collapsed" desc="TIMER 1">
 word TIMER_1_TICKS;
 
 void TIMER_1_INTERRUPT_FUNCT()
-  {
-  TCNT1 = TIMER_1_TICKS;
-  }
+{
+    TCNT1 = TIMER_1_TICKS;
+}
 
 void TIMER_1_INTERRUPT(byte openOrClose)
-  {
-  if (openOrClose) TIMSK |= (1 << TOIE1);
-  else TIMSK &= ~(1 << TOIE1);
-  }
+{
+    if (openOrClose) TIMSK |= (1 << TOIE1);
+    else TIMSK &= ~(1 << TOIE1);
+}
 
 void TIMER_1_SET(byte startOrStop)
-  {
-  if (startOrStop);
-  else TCCR1B = 0;
-  }
+{
+    if (startOrStop);
+    else TCCR1B = 0;
+}
 
 void TIMER_1_INIT(byte ms)
-  {
-  float calculater;
-  word prescale = 1;
-  byte counter = 0;
-  while (1)
-    {
-    counter++;
-    calculater = (CRYSTAL_FREKANS / 1000) / prescale;
-    calculater = 1 / calculater;
-    calculater = ms / calculater;
-    if (calculater < 0xFFFF) break;
-    else prescale = prescale * 8;
-    if (prescale == 512) prescale = 256;
-    if (prescale == 2048) prescale = 1024;
+{
+    float calculater;
+    word prescale = 1;
+    byte counter = 0;
+    while (1) {
+        counter++;
+        calculater = (CRYSTAL_FREKANS / 1000) / prescale;
+        calculater = 1 / calculater;
+        calculater = ms / calculater;
+        if (calculater < 0xFFFF) break;
+        else prescale = prescale * 8;
+        if (prescale == 512) prescale = 256;
+        if (prescale == 2048) prescale = 1024;
 
     }
-  TCCR1A = 0;
-  TIMER_1_TICKS = 0xFFFF - calculater;
-  TIMER_1_INTERRUPT_FUNCT();
-  TCCR1B = counter;
-  TIMER_1_INTERRUPT(1);
-  }
+    TCCR1A = 0;
+    TIMER_1_TICKS = 0xFFFF - calculater;
+    TIMER_1_INTERRUPT_FUNCT();
+    TCCR1B = counter;
+    TIMER_1_INTERRUPT(1);
+}
 
 // </editor-fold> 
 // <editor-fold defaultstate="collapsed" desc="TIMER 3">
@@ -140,261 +133,247 @@ void TIMER_1_INIT(byte ms)
 word TIMER_3_TICKS;
 
 void TIMER_3_INTERRUPT(byte openOrClose)
-  {
-  if (openOrClose) ETIMSK |= (1 << TOIE3);
-  else ETIMSK &= ~(1 << TOIE3);
-  }
+{
+    if (openOrClose) ETIMSK |= (1 << TOIE3);
+    else ETIMSK &= ~(1 << TOIE3);
+}
 
 void TIMER_3_INTERRUPT_FUNCT()
-  {
-  TCNT3 = TIMER_3_TICKS;
-  }
+{
+    TCNT3 = TIMER_3_TICKS;
+}
 
 void TIMER_3_SET(byte startOrStop)
-  {
-  if (startOrStop);
-  else TCCR3B = 0;
-  }
+{
+    if (startOrStop);
+    else TCCR3B = 0;
+}
 
 void TIMER_3_INIT(byte ms)
-  {
-  float calculater;
-  word prescale = 1;
-  byte counter = 0;
-  while (1)
-    {
-    counter++;
-    calculater = (CRYSTAL_FREKANS / 1000) / prescale;
-    calculater = 1 / calculater;
-    calculater = ms / calculater;
-    if (calculater < 0xFFFF) break;
-    else prescale = prescale * 8;
-    if (prescale == 512) prescale = 256;
-    if (prescale == 2048) prescale = 1024;
+{
+    float calculater;
+    word prescale = 1;
+    byte counter = 0;
+    while (1) {
+        counter++;
+        calculater = (CRYSTAL_FREKANS / 1000) / prescale;
+        calculater = 1 / calculater;
+        calculater = ms / calculater;
+        if (calculater < 0xFFFF) break;
+        else prescale = prescale * 8;
+        if (prescale == 512) prescale = 256;
+        if (prescale == 2048) prescale = 1024;
 
     }
-  TCCR3A = 0;
-  TIMER_3_TICKS = 0xFFFF - calculater;
-  TIMER_3_INTERRUPT_FUNCT(TIMER_3_TICKS);
-  TCCR3B = counter;
-  TIMER_3_INTERRUPT(1);
-  }
+    TCCR3A = 0;
+    TIMER_3_TICKS = 0xFFFF - calculater;
+    TIMER_3_INTERRUPT_FUNCT(TIMER_3_TICKS);
+    TCCR3B = counter;
+    TIMER_3_INTERRUPT(1);
+}
 
 // </editor-fold> 
 // <editor-fold defaultstate="collapsed" desc="UART 0">
 
 void UART_0_INTERRUPT(byte openOrClose)
-  {
-  if (openOrClose) UCSR0B = UCSR0B | (1 << RXCIE0);
-  else UCSR0B = UCSR0B & ~(1 << RXCIE0);
-  }
+{
+    if (openOrClose) UCSR0B = UCSR0B | (1 << RXCIE0);
+    else UCSR0B = UCSR0B & ~(1 << RXCIE0);
+}
 
 void UART_0_INIT(unsigned long baudrate)
-  {
-  UCSR0B |= (1 << RXEN0) | (1 << TXEN0) | (1 << RXCIE0) | (0 << TXCIE0);
-  UCSR0C |= (1 << UCSZ00) | (1 << UCSZ01);
-  baudrate = (((CRYSTAL_FREKANS / (baudrate * 16UL))) - 1);
-  UBRR0L = baudrate;
-  UBRR0H = (baudrate >> 8);
-  }
+{
+    UCSR0B |= (1 << RXEN0) | (1 << TXEN0) | (1 << RXCIE0) | (0 << TXCIE0);
+    UCSR0C |= (1 << UCSZ00) | (1 << UCSZ01);
+    baudrate = (((CRYSTAL_FREKANS / (baudrate * 16UL))) - 1);
+    UBRR0L = baudrate;
+    UBRR0H = (baudrate >> 8);
+}
 
 void UART_0_BYTE(char data)
-  {
-  while (!(UCSR0A & (1 << UDRE0))); /* Wait for empty transmit buffer*/
-  UDR0 = data;
-  }
+{
+    while (!(UCSR0A & (1 << UDRE0))); /* Wait for empty transmit buffer*/
+    UDR0 = data;
+}
 
 void UART_0_STRING(const char* text)
-  {
-  unsigned char j = 0;
-  while (text[j] != 0) /* Send string till null */
-    {
-    UART_0_BYTE(text[j]);
-    j++;
+{
+    unsigned char j = 0;
+    while (text[j] != 0) /* Send string till null */ {
+        UART_0_BYTE(text[j]);
+        j++;
     }
-  }
+}
 
 void UART_0_DECIMAL(dword val)
-  {
+{
 
-  byte basamak[10] = {};
-  signed char i = 0;
-  do
-    {
-    basamak[ i ] = (val % 10) + 0x30;
-    val /= 10;
-    i++;
-    }
-  while (val != 0);
-  i--;
-  while (i >= 0)
-    {
-    UART_0_BYTE(basamak[ i ]);
+    byte basamak[10] = {};
+    signed char i = 0;
+    do {
+        basamak[ i ] = (val % 10) + 0x30;
+        val /= 10;
+        i++;
+    } while (val != 0);
     i--;
+    while (i >= 0) {
+        UART_0_BYTE(basamak[ i ]);
+        i--;
     }
-  }
+}
 
 // </editor-fold> 
 // <editor-fold defaultstate="collapsed" desc="UART 1">
 
 void UART_1_INTERRUPT(byte openOrClose)
-  {
-  if (openOrClose) UCSR1B = UCSR1B | (1 << RXCIE1);
-  else UCSR1B = UCSR1B & ~(1 << RXCIE1);
-  }
+{
+    if (openOrClose) UCSR1B = UCSR1B | (1 << RXCIE1);
+    else UCSR1B = UCSR1B & ~(1 << RXCIE1);
+}
 
 void UART_1_INIT(unsigned long baudrate)
-  {
-  UCSR1B |= (1 << RXEN1) | (1 << TXEN1) | (1 << RXCIE1) | (0 << TXCIE1);
-  UCSR1C |= (1 << UCSZ00) | (1 << UCSZ01);
-  baudrate = (((CRYSTAL_FREKANS / (baudrate * 16UL))) - 1);
-  UBRR1L = baudrate;
-  UBRR1H = (baudrate >> 8);
-  }
+{
+    UCSR1B |= (1 << RXEN1) | (1 << TXEN1) | (1 << RXCIE1) | (0 << TXCIE1);
+    UCSR1C |= (1 << UCSZ00) | (1 << UCSZ01);
+    baudrate = (((CRYSTAL_FREKANS / (baudrate * 16UL))) - 1);
+    UBRR1L = baudrate;
+    UBRR1H = (baudrate >> 8);
+}
 
 void UART_1_BYTE(char data)
-  {
-  while (!(UCSR1A & (1 << UDRE1))); /* Wait for empty transmit buffer*/
-  UDR1 = data;
-  }
+{
+    while (!(UCSR1A & (1 << UDRE1))); /* Wait for empty transmit buffer*/
+    UDR1 = data;
+}
 
 void UART_1_STRING(const char* text)
-  {
-  unsigned char j = 0;
-  while (text[j] != 0) /* Send string till null */
-    {
-    UART_1_BYTE(text[j]);
-    j++;
+{
+    unsigned char j = 0;
+    while (text[j] != 0) /* Send string till null */ {
+        UART_1_BYTE(text[j]);
+        j++;
     }
-  }
+}
 
 void UART_1_DECIMAL(dword val)
-  {
-  byte basamak[10] = {};
-  signed char i = 0;
-  do
-    {
-    basamak[ i ] = (val % 10) + 0x30;
-    val /= 10;
-    i++;
-    }
-  while (val != 0);
-  i--;
-  while (i >= 0)
-    {
-    UART_1_BYTE(basamak[ i ]);
+{
+    byte basamak[10] = {};
+    signed char i = 0;
+    do {
+        basamak[ i ] = (val % 10) + 0x30;
+        val /= 10;
+        i++;
+    } while (val != 0);
     i--;
+    while (i >= 0) {
+        UART_1_BYTE(basamak[ i ]);
+        i--;
     }
-  }
+}
 // </editor-fold> 
 //// <editor-fold defaultstate="collapsed" desc="SYSTEM">
 
 void INTERRUPT_ALL(byte x)
-  {
-  if (x) sei();
-  if (x == 0) cli();
-  }
+{
+    if (x) sei();
+    if (x == 0) cli();
+}
 
 //// </editor-fold> 
 // <editor-fold defaultstate="collapsed" desc="ADC">
 
 void ADC_INIT()
-  {
-  ADCSRA = 0x87; /* Enable ADC, fr/128  */
-  ADMUX = 0x40; /* Vref: Avcc, ADC channel: 0 */
-  }
+{
+    ADCSRA = 0x87; /* Enable ADC, fr/128  */
+    ADMUX = 0x40; /* Vref: Avcc, ADC channel: 0 */
+}
 
 word ADC_READ(byte channel)
-  {
-  word Ain, AinLow;
-  ADMUX = ADMUX | (channel & 0x0f);
-  ADCSRA |= (1 << ADSC);
-  while ((ADCSRA & (1 << ADIF)) == 0);
-  _delay_us(10);
-  AinLow = (word) ADCL;
-  Ain = (word) ADCH * 256;
-  Ain = Ain + AinLow;
-  return (Ain);
-  }
+{
+    word Ain, AinLow;
+    ADMUX = ADMUX | (channel & 0x0f);
+    ADCSRA |= (1 << ADSC);
+    while ((ADCSRA & (1 << ADIF)) == 0);
+    _delay_us(10);
+    AinLow = (word) ADCL;
+    Ain = (word) ADCH * 256;
+    Ain = Ain + AinLow;
+    return (Ain);
+}
 
 // </editor-fold> 
 // <editor-fold defaultstate="collapsed" desc="I2C">
 #define I2C_DELAY 35
 
 void I2C_1_INIT()
-  {
+{
 #define BITRATE(TWSR)	((CRYSTAL_FREKANS/500000)-16)/(2*pow(4,(TWSR&((1<<TWPS0)|(1<<TWPS1)))))
-  TWBR = BITRATE(TWSR = 0x00);
-  }
+    TWBR = BITRATE(TWSR = 0x00);
+}
 
 byte I2C_1_READ_ACK()
-  {
-  TWCR = (1 << TWEN) | (1 << TWINT) | (1 << TWEA);
-  byte delay_counter = I2C_DELAY;
-  while (!(TWCR & (1 << TWINT)))
-    {
-    if (delay_counter) delay_counter--;
-    else break;
-    _delay_us(1);
+{
+    TWCR = (1 << TWEN) | (1 << TWINT) | (1 << TWEA);
+    byte delay_counter = I2C_DELAY;
+    while (!(TWCR & (1 << TWINT))) {
+        if (delay_counter) delay_counter--;
+        else break;
+        _delay_us(1);
     }
-  return TWDR;
-  }
+    return TWDR;
+}
 
 byte I2C_1_READ_NACK()
-  {
-  TWCR = (1 << TWEN) | (1 << TWINT);
-  byte delay_counter = I2C_DELAY;
-  while (!(TWCR & (1 << TWINT)))
-    {
-    if (delay_counter) delay_counter--;
-    else break;
-    _delay_us(1);
+{
+    TWCR = (1 << TWEN) | (1 << TWINT);
+    byte delay_counter = I2C_DELAY;
+    while (!(TWCR & (1 << TWINT))) {
+        if (delay_counter) delay_counter--;
+        else break;
+        _delay_us(1);
     }
-   return TWDR;
-  }
+    return TWDR;
+}
 
 byte I2C_1_WRITE(byte data)
-  {
-  byte status;
-  TWDR = data;
-  TWCR = TWCR & ~(1 << TWINT);
-  TWCR = (1 << TWEN) | (1 << TWINT);
-  byte delay_counter = I2C_DELAY;
-  while (!(TWCR & (1 << TWINT)))
-    {
-    if (delay_counter) delay_counter--;
-    else break;
-    _delay_us(1);
+{
+    byte status;
+    TWDR = data;
+    TWCR = TWCR & ~(1 << TWINT);
+    TWCR = (1 << TWEN) | (1 << TWINT);
+    byte delay_counter = I2C_DELAY;
+    while (!(TWCR & (1 << TWINT))) {
+        if (delay_counter) delay_counter--;
+        else break;
+        _delay_us(1);
     }
-  status = TWSR & 0xF8;
-  if (status == 0x28) return 0;
-  if (status == 0x30) return 1;
-  else return 2;
-  }
+    status = TWSR & 0xF8;
+    if (status == 0x28) return 0;
+    if (status == 0x30) return 1;
+    else return 2;
+}
 
 void I2C_1_START()
-  {
-  TWCR = (1 << TWSTA) | (1 << TWEN) | (1 << TWINT);
-  byte delay_counter = I2C_DELAY;
-  while (!(TWCR & (1 << TWINT)))
-    {
-    if (delay_counter) delay_counter--;
-    else break;
-    _delay_us(1);
+{
+    TWCR = (1 << TWSTA) | (1 << TWEN) | (1 << TWINT);
+    byte delay_counter = I2C_DELAY;
+    while (!(TWCR & (1 << TWINT))) {
+        if (delay_counter) delay_counter--;
+        else break;
+        _delay_us(1);
     }
-  }
+}
 
 void I2C_1_STOP()
-  {
-  TWCR = (1 << TWSTO) | (1 << TWINT) | (1 << TWEN);
-  byte delay_counter = I2C_DELAY;
-  while (!(TWCR & (1 << TWINT)))
-    {
-    if (delay_counter) delay_counter--;
-    else break;
-    _delay_us(1);
+{
+    TWCR = (1 << TWSTO) | (1 << TWINT) | (1 << TWEN);
+    byte delay_counter = I2C_DELAY;
+    while (!(TWCR & (1 << TWINT))) {
+        if (delay_counter) delay_counter--;
+        else break;
+        _delay_us(1);
     }
-  }
+}
 
 // </editor-fold> 
 //// <editor-fold defaultstate="collapsed" desc="PWM ALL">
@@ -598,5 +577,25 @@ void I2C_1_STOP()
 //// </editor-fold> 
 
 //// </editor-fold> 
+// <editor-fold defaultstate="collapsed" desc="EEPROM">
+
+void EEPROM_B_WRITE(word address, byte data)
+{
+    while (EECR & (1 << EEWE)); // EEWE = EEPROM Write Enable
+    EEAR = address;
+    EEDR = data;
+    EECR |= (1 << EEMWE);
+    EECR |= (1 << EEWE);
+}
+
+byte EEPROM_B_READ(word address)
+{
+    while (EECR & (1 << EEWE)); // Yazma bitmediyse bekle
+    EEAR = address;
+    EECR |= (1 << EERE); // EEPROM Read Enable
+    return EEDR;
+}
+// </editor-fold> 
+
 
 #endif
