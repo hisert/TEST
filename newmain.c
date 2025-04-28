@@ -12,7 +12,6 @@
 #include "soft_i2c.h"
 #include "task.h"
 #include "MENU.h"
-
 // <editor-fold defaultstate="collapsed" desc="X">
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="TYPEDEF DEFINE">

@@ -1,10 +1,10 @@
 # 1 "soft_i2c.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
-# 285 "<built-in>" 3
+# 288 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include/language_support.h" 1 3
+# 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "soft_i2c.c" 2
 # 1 "./soft_i2c.h" 1
@@ -30,7 +30,8 @@
     void SOFT_I2C_SEND_NACK();
     unsigned char SOFT_I2C_WRITE(unsigned char data);
     unsigned char SOFT_I2C_READ();
-# 2 "soft_i2c.c" 2
+# 1 "soft_i2c.c" 2
+
 i2c_t SOFT_I2C_1;
 
 
