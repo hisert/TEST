@@ -1,51 +1,43 @@
 #include "ATMEGA_64.h"
 #include "ATMEGA_328.h"
 #include "PIC_18F87K22.h"
-#include "ssd1306_oled.h"
+
 #include "input_debounce.h"
 #include "buton_debounce.h"
 #include "thread.h"
 #include "soft_i2c.h"
 #include "task.h"
 //#include "MENU.h"
-
+#include "ssd1306_oled.h"
 #include "ssh1106_oled.h"
 #include "AS5600_MAS.h"
+#include "ws2812b.h"
 
 void LED_THREAD(byte threadIndex)
   {
   static THREAD_DELAY timer;
   THREAD_TIME_START(&timer);
-  if (THREAD_TIME_WAIT(&timer, 50)) if (THREAD_GET_STATE() == THREAD_FUNCT_FIRST) PIN_SET_LAT_TOGGLE('C', 0);
-  if (THREAD_TIME_WAIT(&timer, 950)) if (THREAD_GET_STATE() == THREAD_FUNCT_FIRST) PIN_SET_LAT_TOGGLE('C', 0);
+  if (THREAD_TIME_WAIT(&timer, 50)) if (THREAD_GET_STATE() == THREAD_FUNCT_FIRST) PIN_SET_LAT_TOGGLE('F', 0);
+  if (THREAD_TIME_WAIT(&timer, 950)) if (THREAD_GET_STATE() == THREAD_FUNCT_FIRST) PIN_SET_LAT_TOGGLE('F', 0);
   if (THREAD_TIME_DONE(&timer)) THREAD_DONE_CONTROL(threadIndex);
   }
 
 int main(void)
   {
+  PIN_SET_IO('D', 'O', 'F', 0, 'H'); //LED
+  PIN_SET_IO('D', 'O', 'D', 5, 'L'); //RS45
+  PIN_SET_IO('D', 'O', 'D', 6, 'L'); //RS45
 
-  PIN_SET_IO('D', 'O', 'C', 0, 'H'); //LED
-  PIN_SET_IO('D', 'O', 'B', 0, 'H'); //RS45
-  // SOFT_I2C_INIT(&TRISC, &LATC, &PORTC, 4, &TRISC, &LATC, &PORTC, 3);
-  //    OLED_Init(I2C_1_START, I2C_1_WRITE, I2C_1_STOP);
-  //    OLED_Write_Dec(0, 0, 1253);
-  //    OLED_Update();
-  //    INIT_ROLE();
-
-  THREAD_CREATE(0, THREAD_FLG_START | THREAD_FLG_LOOP, 1, LED_THREAD);
-  I2C_1_INIT();
-  MAS12_INIT(I2C_1_START,I2C_1_WRITE,I2C_1_READ_ACK,I2C_1_READ_NACK,I2C_1_STOP);
+  THREAD_CREATE(0, THREAD_FLG_START | THREAD_FLG_LOOP, 10, LED_THREAD);
   TIMER_1_INIT(1);
   INTERRUPT_ALL(1);
-  UART_0_INIT(19200);
-  UART_0_DECIMAL(MAS12_READ_HAL_DATA());
 
   while (1)
     {
     THREAD_MAIN();
+    TASK_MAIN();
     }
   }
-
 
 #ifdef ATMEGA_64
 
@@ -79,7 +71,30 @@ ISR(USART1_TX_vect)
   }
 
 #endif
+#ifdef ATMEGA_328
 
+ISR(TIMER1_OVF_vect)
+  {
+  TIMER_1_INTERRUPT_FUNCT();
+  THREAD_INTERRUPT();
+  }
+
+ISR(USART_RX_vect)
+  {
+
+  }
+
+ISR(USART_TX_vect)
+  {
+
+  }
+
+ISR(PCINT0_vect)
+  {
+
+  }
+
+#endif
 #ifdef PIC_18F87K22
 
 void __interrupt() _ISR(void)
@@ -118,28 +133,4 @@ void __interrupt() _ISR(void)
     UART_2_BYTE(RCREG2);
     }
   }
-#endif
-#ifdef ATMEGA_328
-
-ISR(TIMER1_OVF_vect)
-  {
-  TIMER_1_INTERRUPT_FUNCT();
-  THREAD_INTERRUPT();
-  }
-
-ISR(USART_RX_vect)
-  {
-
-  }
-
-ISR(USART_TX_vect)
-  {
-
-  }
-
-ISR(PCINT0_vect)
-  {
-
-  }
-
 #endif

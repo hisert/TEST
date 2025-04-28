@@ -13,7 +13,7 @@
 extern "C" {
 #endif
 
-#define ATMEGA_328
+#define ATMEGA_64
 
 #define FLAG_JOIN(TASK_REG,TASK)      TASK_REG = TASK_REG | TASK
 #define FLAG_ERASE(TASK_REG,TASK)     TASK_REG =TASK_REG & ~TASK
@@ -34,7 +34,7 @@ extern "C" {
 
 #define _XTAL_FREQ 64000000
 #define F_CPU 8000000UL
-#define CRYSTAL_FREKANS 8000000UL
+#define CRYSTAL_FREKANS 16000000UL
 
 #ifdef	__cplusplus
 }
