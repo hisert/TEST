@@ -1,5 +1,5 @@
-build/default/production/ssh1106_oled.o.d \
- build/default/production/ssh1106_oled.o: ssh1106_oled.c ssh1106_oled.h \
+build/default/production/AS5600_MAS.o.d \
+ build/default/production/AS5600_MAS.o: AS5600_MAS.c AS5600_MAS.h \
  common.h \
  c:\program\ files\microchip\xc8\v2.20\avr\lib\gcc\avr\5.4.0\include\xc.h \
  c:\program\ files\microchip\xc8\v2.20\avr\lib\gcc\avr\5.4.0\include\cci.h \
@@ -24,7 +24,7 @@ build/default/production/ssh1106_oled.o.d \
  c:\program\ files\microchip\xc8\v2.20\avr\avr\include\stdio.h \
  c:\program\ files\microchip\xc8\v2.20\avr\lib\gcc\avr\5.4.0\include\stdarg.h
 
-ssh1106_oled.h:
+AS5600_MAS.h:
 
 common.h:
 

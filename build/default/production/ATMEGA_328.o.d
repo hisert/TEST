@@ -1,5 +1,5 @@
-build/default/production/ssh1106_oled.o.d \
- build/default/production/ssh1106_oled.o: ssh1106_oled.c ssh1106_oled.h \
+build/default/production/ATMEGA_328.o.d \
+ build/default/production/ATMEGA_328.o: ATMEGA_328.c ATMEGA_328.h \
  common.h \
  c:\program\ files\microchip\xc8\v2.20\avr\lib\gcc\avr\5.4.0\include\xc.h \
  c:\program\ files\microchip\xc8\v2.20\avr\lib\gcc\avr\5.4.0\include\cci.h \
@@ -24,7 +24,7 @@ build/default/production/ssh1106_oled.o.d \
  c:\program\ files\microchip\xc8\v2.20\avr\avr\include\stdio.h \
  c:\program\ files\microchip\xc8\v2.20\avr\lib\gcc\avr\5.4.0\include\stdarg.h
 
-ssh1106_oled.h:
+ATMEGA_328.h:
 
 common.h:
 

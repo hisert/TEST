@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=newmain.c ssd1306_oled.c input_debounce.c buton_debounce.c thread.c soft_i2c.c PIC_18F87K22.c task.c MENU.c ATMEGA_64.c ssh1106_oled.c
+SOURCEFILES_QUOTED_IF_SPACED=newmain.c ssd1306_oled.c input_debounce.c buton_debounce.c thread.c soft_i2c.c PIC_18F87K22.c task.c MENU.c ATMEGA_64.c ssh1106_oled.c ATMEGA_328.c AS5600_MAS.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/newmain.o ${OBJECTDIR}/ssd1306_oled.o ${OBJECTDIR}/input_debounce.o ${OBJECTDIR}/buton_debounce.o ${OBJECTDIR}/thread.o ${OBJECTDIR}/soft_i2c.o ${OBJECTDIR}/PIC_18F87K22.o ${OBJECTDIR}/task.o ${OBJECTDIR}/MENU.o ${OBJECTDIR}/ATMEGA_64.o ${OBJECTDIR}/ssh1106_oled.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/newmain.o.d ${OBJECTDIR}/ssd1306_oled.o.d ${OBJECTDIR}/input_debounce.o.d ${OBJECTDIR}/buton_debounce.o.d ${OBJECTDIR}/thread.o.d ${OBJECTDIR}/soft_i2c.o.d ${OBJECTDIR}/PIC_18F87K22.o.d ${OBJECTDIR}/task.o.d ${OBJECTDIR}/MENU.o.d ${OBJECTDIR}/ATMEGA_64.o.d ${OBJECTDIR}/ssh1106_oled.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/newmain.o ${OBJECTDIR}/ssd1306_oled.o ${OBJECTDIR}/input_debounce.o ${OBJECTDIR}/buton_debounce.o ${OBJECTDIR}/thread.o ${OBJECTDIR}/soft_i2c.o ${OBJECTDIR}/PIC_18F87K22.o ${OBJECTDIR}/task.o ${OBJECTDIR}/MENU.o ${OBJECTDIR}/ATMEGA_64.o ${OBJECTDIR}/ssh1106_oled.o ${OBJECTDIR}/ATMEGA_328.o ${OBJECTDIR}/AS5600_MAS.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/newmain.o.d ${OBJECTDIR}/ssd1306_oled.o.d ${OBJECTDIR}/input_debounce.o.d ${OBJECTDIR}/buton_debounce.o.d ${OBJECTDIR}/thread.o.d ${OBJECTDIR}/soft_i2c.o.d ${OBJECTDIR}/PIC_18F87K22.o.d ${OBJECTDIR}/task.o.d ${OBJECTDIR}/MENU.o.d ${OBJECTDIR}/ATMEGA_64.o.d ${OBJECTDIR}/ssh1106_oled.o.d ${OBJECTDIR}/ATMEGA_328.o.d ${OBJECTDIR}/AS5600_MAS.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/newmain.o ${OBJECTDIR}/ssd1306_oled.o ${OBJECTDIR}/input_debounce.o ${OBJECTDIR}/buton_debounce.o ${OBJECTDIR}/thread.o ${OBJECTDIR}/soft_i2c.o ${OBJECTDIR}/PIC_18F87K22.o ${OBJECTDIR}/task.o ${OBJECTDIR}/MENU.o ${OBJECTDIR}/ATMEGA_64.o ${OBJECTDIR}/ssh1106_oled.o
+OBJECTFILES=${OBJECTDIR}/newmain.o ${OBJECTDIR}/ssd1306_oled.o ${OBJECTDIR}/input_debounce.o ${OBJECTDIR}/buton_debounce.o ${OBJECTDIR}/thread.o ${OBJECTDIR}/soft_i2c.o ${OBJECTDIR}/PIC_18F87K22.o ${OBJECTDIR}/task.o ${OBJECTDIR}/MENU.o ${OBJECTDIR}/ATMEGA_64.o ${OBJECTDIR}/ssh1106_oled.o ${OBJECTDIR}/ATMEGA_328.o ${OBJECTDIR}/AS5600_MAS.o
 
 # Source Files
-SOURCEFILES=newmain.c ssd1306_oled.c input_debounce.c buton_debounce.c thread.c soft_i2c.c PIC_18F87K22.c task.c MENU.c ATMEGA_64.c ssh1106_oled.c
+SOURCEFILES=newmain.c ssd1306_oled.c input_debounce.c buton_debounce.c thread.c soft_i2c.c PIC_18F87K22.c task.c MENU.c ATMEGA_64.c ssh1106_oled.c ATMEGA_328.c AS5600_MAS.c
 
 
 
@@ -90,7 +90,7 @@ ifneq ($(INFORMATION_MESSAGE), )
 endif
 	${MAKE}  -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/TEST.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
-MP_PROCESSOR_OPTION=ATmega64
+MP_PROCESSOR_OPTION=ATmega328
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
@@ -160,6 +160,18 @@ ${OBJECTDIR}/ssh1106_oled.o: ssh1106_oled.c  .generated_files/flags/default/28d0
 	@${RM} ${OBJECTDIR}/ssh1106_oled.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ssh1106_oled.o.d" -MT "${OBJECTDIR}/ssh1106_oled.o.d" -MT ${OBJECTDIR}/ssh1106_oled.o -o ${OBJECTDIR}/ssh1106_oled.o ssh1106_oled.c 
 	
+${OBJECTDIR}/ATMEGA_328.o: ATMEGA_328.c  .generated_files/flags/default/9e99e32f597c24a86ae340643c881ce132d3e7f1 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ATMEGA_328.o.d 
+	@${RM} ${OBJECTDIR}/ATMEGA_328.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ATMEGA_328.o.d" -MT "${OBJECTDIR}/ATMEGA_328.o.d" -MT ${OBJECTDIR}/ATMEGA_328.o -o ${OBJECTDIR}/ATMEGA_328.o ATMEGA_328.c 
+	
+${OBJECTDIR}/AS5600_MAS.o: AS5600_MAS.c  .generated_files/flags/default/70f0edd40b0424f504276a73ba4655a74d657acd .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/AS5600_MAS.o.d 
+	@${RM} ${OBJECTDIR}/AS5600_MAS.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/AS5600_MAS.o.d" -MT "${OBJECTDIR}/AS5600_MAS.o.d" -MT ${OBJECTDIR}/AS5600_MAS.o -o ${OBJECTDIR}/AS5600_MAS.o AS5600_MAS.c 
+	
 else
 ${OBJECTDIR}/newmain.o: newmain.c  .generated_files/flags/default/509dd139db1aa1bb7b3ee69270b320c554651b05 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
@@ -226,6 +238,18 @@ ${OBJECTDIR}/ssh1106_oled.o: ssh1106_oled.c  .generated_files/flags/default/c51e
 	@${RM} ${OBJECTDIR}/ssh1106_oled.o.d 
 	@${RM} ${OBJECTDIR}/ssh1106_oled.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ssh1106_oled.o.d" -MT "${OBJECTDIR}/ssh1106_oled.o.d" -MT ${OBJECTDIR}/ssh1106_oled.o -o ${OBJECTDIR}/ssh1106_oled.o ssh1106_oled.c 
+	
+${OBJECTDIR}/ATMEGA_328.o: ATMEGA_328.c  .generated_files/flags/default/3fc780d8bf3579228bcfa3d75c21a05679dfd412 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ATMEGA_328.o.d 
+	@${RM} ${OBJECTDIR}/ATMEGA_328.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ATMEGA_328.o.d" -MT "${OBJECTDIR}/ATMEGA_328.o.d" -MT ${OBJECTDIR}/ATMEGA_328.o -o ${OBJECTDIR}/ATMEGA_328.o ATMEGA_328.c 
+	
+${OBJECTDIR}/AS5600_MAS.o: AS5600_MAS.c  .generated_files/flags/default/6b23a1db665ca960d34eb9fad6f2ae2fb28d5192 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/AS5600_MAS.o.d 
+	@${RM} ${OBJECTDIR}/AS5600_MAS.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/AS5600_MAS.o.d" -MT "${OBJECTDIR}/AS5600_MAS.o.d" -MT ${OBJECTDIR}/AS5600_MAS.o -o ${OBJECTDIR}/AS5600_MAS.o AS5600_MAS.c 
 	
 endif
 

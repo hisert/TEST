@@ -180,30 +180,28 @@ byte ssd1306_buffer[SSD1306_LCDHEIGHT * SSD1306_LCDWIDTH / 8];
 void (*ssd1306_oled_i2c_start)(void);
 byte(*ssd1306_oled_i2c_write)(byte data);
 byte(*ssd1306_oled_i2c_stop)(void);
-#define DEF_I2C_OLED_START  ssd1306_oled_i2c_start()
-#define DEF_I2C_OLED_WRITE(data) ssd1306_oled_i2c_write(data);
-#define DEF_I2C_OLED_STOP ssd1306_oled_i2c_stop()
+
 // </editor-fold> 
 // <editor-fold defaultstate="collapsed" desc="LIBRARY FUNCT     ">
 
 void ssd1306_command(byte command)
   {
   byte controlx = 0x00; // Co=0, D/C=0
-  DEF_I2C_OLED_START;
-  DEF_I2C_OLED_WRITE(SSD1306_ADDR << 1);
-  DEF_I2C_OLED_WRITE(controlx);
-  DEF_I2C_OLED_WRITE(command);
-  DEF_I2C_OLED_STOP;
+  ssd1306_oled_i2c_start();
+  ssd1306_oled_i2c_write(SSD1306_ADDR << 1);
+  ssd1306_oled_i2c_write(controlx);
+  ssd1306_oled_i2c_write(command);
+  ssd1306_oled_i2c_stop();
   }
 
 void ssd1306_data(byte value)
   {
   byte controlx = 0x40; // Co = 0, D/C = 1
-  DEF_I2C_OLED_START;
-  DEF_I2C_OLED_WRITE(SSD1306_ADDR << 1);
-  DEF_I2C_OLED_WRITE(controlx);
-  DEF_I2C_OLED_WRITE(value);
-  DEF_I2C_OLED_STOP;
+  ssd1306_oled_i2c_start();
+  ssd1306_oled_i2c_write(SSD1306_ADDR << 1);
+  ssd1306_oled_i2c_write(controlx);
+  ssd1306_oled_i2c_write(value);
+  ssd1306_oled_i2c_stop();
   }
 
 // </editor-fold> 
@@ -551,16 +549,16 @@ void OLED_Update(void)
   ssd1306_command(3); // Page end address
   for (i = 0; i < (SSD1306_LCDWIDTH * SSD1306_LCDHEIGHT / 8); i++)
     {
-    DEF_I2C_OLED_START;
-    DEF_I2C_OLED_WRITE(SSD1306_ADDR << 1);
-    DEF_I2C_OLED_WRITE(0x40);
+    ssd1306_oled_i2c_start();
+    ssd1306_oled_i2c_write(SSD1306_ADDR << 1);
+    ssd1306_oled_i2c_write(0x40);
     for (x = 0; x < 16; x++)
       {
-      DEF_I2C_OLED_WRITE(ssd1306_buffer[i]);
+      ssd1306_oled_i2c_write(ssd1306_buffer[i]);
       i++;
       }
     i--;
-    DEF_I2C_OLED_STOP;
+    ssd1306_oled_i2c_stop();
     }
   }
 

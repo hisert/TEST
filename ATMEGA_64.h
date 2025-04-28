@@ -41,6 +41,7 @@ extern "C" {
     void PIN_SET_LAT(byte Port, byte Pin, byte HighOrLow);
     void PIN_SET_TRIS(byte Port, byte Pin, byte InputOrOutput);
     void PIN_SET_LAT_TOGGLE(byte Port, byte Pin);
+    void PIN_SET_IO(byte AnalogOrDijital, byte InputOrOutput, byte Port, byte Pin, byte HighOrLow);
 
 
     void TIMER_1_INTERRUPT_FUNCT();
@@ -69,8 +70,8 @@ extern "C" {
     word ADC_READ(unsigned char channel);
 
     void I2C_1_INIT();
-    void I2C_1_READ_ACK();
-    void I2C_1_READ_NACK();
+    byte I2C_1_READ_ACK();
+    byte I2C_1_READ_NACK();
     byte I2C_1_WRITE(byte data);
     void I2C_1_START();
     void I2C_1_STOP();

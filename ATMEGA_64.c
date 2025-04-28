@@ -88,6 +88,7 @@ void PIN_SET_IO(byte AnalogOrDijital, byte InputOrOutput, byte Port, byte Pin, b
   PIN_SET_LAT(Port, Pin, HighOrLow);
   PIN_SET_TRIS(Port, Pin, InputOrOutput);
   }
+
 // </editor-fold> 
 // <editor-fold defaultstate="collapsed" desc="TIMER 1">
 word TIMER_1_TICKS;
@@ -232,6 +233,7 @@ void UART_0_DECIMAL(dword val)
     i--;
     }
   }
+
 // </editor-fold> 
 // <editor-fold defaultstate="collapsed" desc="UART 1">
 
@@ -302,7 +304,7 @@ void ADC_INIT()
   ADMUX = 0x40; /* Vref: Avcc, ADC channel: 0 */
   }
 
-word ADC_READ(unsigned char channel)
+word ADC_READ(byte channel)
   {
   word Ain, AinLow;
   ADMUX = ADMUX | (channel & 0x0f);
@@ -325,7 +327,7 @@ void I2C_1_INIT()
   TWBR = BITRATE(TWSR = 0x00);
   }
 
-void I2C_1_READ_ACK()
+byte I2C_1_READ_ACK()
   {
   TWCR = (1 << TWEN) | (1 << TWINT) | (1 << TWEA);
   byte delay_counter = I2C_DELAY;
@@ -338,7 +340,7 @@ void I2C_1_READ_ACK()
   return TWDR;
   }
 
-void I2C_1_READ_NACK()
+byte I2C_1_READ_NACK()
   {
   TWCR = (1 << TWEN) | (1 << TWINT);
   byte delay_counter = I2C_DELAY;

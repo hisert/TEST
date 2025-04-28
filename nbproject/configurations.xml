@@ -35,6 +35,10 @@
       <itemPath>common.h</itemPath>
       <itemPath>ssh1106_oled.c</itemPath>
       <itemPath>ssh1106_oled.h</itemPath>
+      <itemPath>ATMEGA_328.c</itemPath>
+      <itemPath>ATMEGA_328.h</itemPath>
+      <itemPath>AS5600_MAS.h</itemPath>
+      <itemPath>AS5600_MAS.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -47,7 +51,7 @@
     <conf name="default" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>ATmega64</targetDevice>
+        <targetDevice>ATmega328</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
         <platformTool>noID</platformTool>
