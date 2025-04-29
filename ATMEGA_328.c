@@ -612,6 +612,31 @@ void INTERRUPT_ALL(byte x)
   }
 
 //// </editor-fold> 
+// <editor-fold defaultstate="collapsed" desc="EEPROM">
 
+void EEPROM_B_WRITE(word address, byte data)
+  {
+  while (EECR & (1 << EEPE)); // Önceki yazma i?lemi bitene kadar bekle
 
+  EEAR = address; // Adresi ayarla
+  EEDR = data; // Yaz?lacak veriyi yükle
+
+  EECR |= (1 << EEMPE); // Yazma etkinle?tirme sinyali
+  EECR |= (1 << EEPE); // Yazma i?lemini ba?lat
+  while (EECR & (1 << EEPE)); // Önceki yazma i?lemi bitene kadar bekle
+
+  }
+
+// EEPROM'dan 1 byte oku
+
+byte EEPROM_B_READ(word address)
+  {
+  while (EECR & (1 << EEPE)); // Yazma i?lemi varsa bekle
+
+  EEAR = address; // Adresi ayarla
+  EECR |= (1 << EERE); // Okuma i?lemini ba?lat
+
+  return EEDR; // Okunan veriyi döndür
+  }
+// </editor-fold> 
 #endif

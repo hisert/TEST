@@ -27,6 +27,7 @@ extern "C" {
     void SSH1106_OLED_Circle(word x0, word y0, word r, byte color);
     void SSH1106_OLED_Write(word x, word y, char value);
     void SSH1106_OLED_Write_Text(word x, word y, const char *text);
+    void SSH1106_OLED_Write_Dec(word x, word y, dword data);
     void SSH1106_OLED_INIT(void (*startFunc)(void), byte(*writeFunc)(byte), byte(*stopFunc)(void));
     void SSH1106_OLED_Update(void);
 

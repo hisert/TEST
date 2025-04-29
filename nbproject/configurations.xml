@@ -43,6 +43,10 @@
       <itemPath>ws2812b.h</itemPath>
       <itemPath>eeprom.c</itemPath>
       <itemPath>eeprom.h</itemPath>
+      <itemPath>ATMEGA_88.c</itemPath>
+      <itemPath>ATMEGA_88.h</itemPath>
+      <itemPath>ATMEGA_8.c</itemPath>
+      <itemPath>ATMEGA_8.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -55,16 +59,16 @@
     <conf name="default" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>PIC18F87K22</targetDevice>
+        <targetDevice>ATmega64</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
         <platformTool>noID</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>2.46</languageToolchainVersion>
+        <languageToolchainVersion>2.20</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC18F-K_DFP" vendor="Microchip" version="1.4.87"/>
+        <pack name="ATmega_DFP" vendor="Microchip" version="2.3.126"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>

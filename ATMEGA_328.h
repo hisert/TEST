@@ -58,6 +58,8 @@ extern "C" {
 
     void INTERRUPT_ALL(byte openOrClose);
 
+    void EEPROM_B_WRITE(word address, byte data);
+    byte EEPROM_B_READ(word address);
 #endif
 #ifdef	__cplusplus
 }
