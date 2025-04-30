@@ -41,7 +41,7 @@ extern "C" {
 #define TOGGLE_BIT(reg,bit) (reg = reg ^ (1 << bit))
 #define CHECK_BIT(reg,bit) ((reg & (1 << bit)) / (1 << bit))
 
-#define _XTAL_FREQ 64000000
+#define _XTAL_FREQ 8000000
 #define F_CPU 8000000UL
 #define CRYSTAL_FREKANS 8000000UL
 

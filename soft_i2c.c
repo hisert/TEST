@@ -21,12 +21,18 @@ void SOFT_I2C_BIT_WRITE(byte *REG_, byte index, byte onOrOff)
 
 void SOFT_I2C_TRIS_WRITE(byte SdaOrSck, byte onOroff)
   {
+#ifdef ATMEGA
+  if (onOroff) onOroff = 0;
+  else onOroff = 1;
+#endif
+
   if (SdaOrSck == PORT_SDA) SOFT_I2C_BIT_WRITE((SOFT_I2C_1.SDA.tris_adress), SOFT_I2C_1.SDA.index, onOroff);
   if (SdaOrSck == PORT_SCK) SOFT_I2C_BIT_WRITE((SOFT_I2C_1.SCK.tris_adress), SOFT_I2C_1.SCK.index, onOroff);
   }
 
 void SOFT_I2C_LAT_WRITE(byte SdaOrSck, byte onOroff)
   {
+
   if (SdaOrSck == PORT_SDA) SOFT_I2C_BIT_WRITE((SOFT_I2C_1.SDA.lat_adress), SOFT_I2C_1.SDA.index, onOroff);
   if (SdaOrSck == PORT_SCK) SOFT_I2C_BIT_WRITE((SOFT_I2C_1.SCK.lat_adress), SOFT_I2C_1.SCK.index, onOroff);
   }

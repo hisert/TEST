@@ -69,7 +69,7 @@ extern "C" {
     void ADC_INIT();
     word ADC_READ(unsigned char channel);
 
-    void I2C_1_INIT();
+    void I2C_1_INIT(dword freq);
     byte I2C_1_READ_ACK();
     byte I2C_1_READ_NACK();
     byte I2C_1_WRITE(byte data);

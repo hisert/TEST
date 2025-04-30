@@ -169,14 +169,8 @@ Discarded input sections
                 0x0000000000000000       0x16 build/default/production/thread.o
  .text.THREAD_TIME
                 0x0000000000000000       0x18 build/default/production/thread.o
- .text.THREAD_TIME_WAIT
-                0x0000000000000000       0x50 build/default/production/thread.o
  .text.THREAD_CLEAR
                 0x0000000000000000        0x6 build/default/production/thread.o
- .text.THREAD_GET_STATE
-                0x0000000000000000        0x6 build/default/production/thread.o
- .bss.thread_return_temp
-                0x0000000000000000        0x1 build/default/production/thread.o
  .text          0x0000000000000000        0x0 build/default/production/soft_i2c.o
  .data          0x0000000000000000        0x0 build/default/production/soft_i2c.o
  .bss           0x0000000000000000        0x0 build/default/production/soft_i2c.o
@@ -185,7 +179,7 @@ Discarded input sections
  .text.SOFT_I2C_BIT_WRITE
                 0x0000000000000000       0x34 build/default/production/soft_i2c.o
  .text.SOFT_I2C_TRIS_WRITE
-                0x0000000000000000       0x2c build/default/production/soft_i2c.o
+                0x0000000000000000       0x2e build/default/production/soft_i2c.o
  .text.SOFT_I2C_LAT_WRITE
                 0x0000000000000000       0x2c build/default/production/soft_i2c.o
  .text.SOFT_I2C_PORT_READ
@@ -206,13 +200,13 @@ Discarded input sections
                 0x0000000000000000       0x48 build/default/production/soft_i2c.o
  .bss.SOFT_I2C_1
                 0x0000000000000000        0xe build/default/production/soft_i2c.o
- .debug_info    0x0000000000000000      0x9be build/default/production/soft_i2c.o
- .debug_abbrev  0x0000000000000000      0x181 build/default/production/soft_i2c.o
- .debug_loc     0x0000000000000000      0x48b build/default/production/soft_i2c.o
+ .debug_info    0x0000000000000000      0x9aa build/default/production/soft_i2c.o
+ .debug_abbrev  0x0000000000000000      0x18c build/default/production/soft_i2c.o
+ .debug_loc     0x0000000000000000      0x464 build/default/production/soft_i2c.o
  .debug_aranges
                 0x0000000000000000       0x78 build/default/production/soft_i2c.o
  .debug_ranges  0x0000000000000000       0x90 build/default/production/soft_i2c.o
- .debug_line    0x0000000000000000      0x313 build/default/production/soft_i2c.o
+ .debug_line    0x0000000000000000      0x31a build/default/production/soft_i2c.o
  .debug_str     0x0000000000000000        0x9 build/default/production/soft_i2c.o
  .comment       0x0000000000000000       0x30 build/default/production/soft_i2c.o
  .debug_frame   0x0000000000000000      0x11c build/default/production/soft_i2c.o
@@ -244,8 +238,6 @@ Discarded input sections
  .text          0x0000000000000000        0x0 build/default/production/ATMEGA_64.o
  .data          0x0000000000000000        0x0 build/default/production/ATMEGA_64.o
  .bss           0x0000000000000000        0x0 build/default/production/ATMEGA_64.o
- .text.PIN_SET_LAT_TOGGLE
-                0x0000000000000000       0x6a build/default/production/ATMEGA_64.o
  .text.TIMER_1_SET
                 0x0000000000000000        0x8 build/default/production/ATMEGA_64.o
  .text.TIMER_3_INTERRUPT
@@ -257,7 +249,7 @@ Discarded input sections
  .text.UART_0_INTERRUPT
                 0x0000000000000000        0xc build/default/production/ATMEGA_64.o
  .text.UART_0_INIT
-                0x0000000000000000       0x5e build/default/production/ATMEGA_64.o
+                0x0000000000000000       0x5a build/default/production/ATMEGA_64.o
  .text.UART_0_BYTE
                 0x0000000000000000        0xe build/default/production/ATMEGA_64.o
  .text.UART_0_STRING
@@ -925,89 +917,89 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x0000000000000000      0x4d8
+.debug_aranges  0x0000000000000000      0x4e8
  *(.debug_aranges)
  .debug_aranges
-                0x0000000000000000      0x1c0 build/default/production/newmain.o
+                0x0000000000000000      0x1d0 build/default/production/newmain.o
  .debug_aranges
-                0x00000000000001c0       0x28 build/default/production/buton_debounce.o
+                0x00000000000001d0       0x28 build/default/production/buton_debounce.o
  .debug_aranges
-                0x00000000000001e8       0x78 build/default/production/thread.o
+                0x00000000000001f8       0x78 build/default/production/thread.o
  .debug_aranges
-                0x0000000000000260       0x40 build/default/production/task.o
+                0x0000000000000270       0x40 build/default/production/task.o
  .debug_aranges
-                0x00000000000002a0      0x128 build/default/production/ATMEGA_64.o
+                0x00000000000002b0      0x128 build/default/production/ATMEGA_64.o
  .debug_aranges
-                0x00000000000003c8       0xd0 build/default/production/ssh1106_oled.o
+                0x00000000000003d8       0xd0 build/default/production/ssh1106_oled.o
  .debug_aranges
-                0x0000000000000498       0x40 build/default/production/eeprom.o
+                0x00000000000004a8       0x40 build/default/production/eeprom.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0x665c
+.debug_info     0x0000000000000000     0x6942
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0x780 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega64.o
- .debug_info    0x0000000000000780     0x274f build/default/production/newmain.o
- .debug_info    0x0000000000002ecf      0x334 build/default/production/buton_debounce.o
- .debug_info    0x0000000000003203      0x65a build/default/production/thread.o
- .debug_info    0x000000000000385d      0x3df build/default/production/task.o
- .debug_info    0x0000000000003c3c      0xdaf build/default/production/ATMEGA_64.o
- .debug_info    0x00000000000049eb     0x179b build/default/production/ssh1106_oled.o
- .debug_info    0x0000000000006186      0x4d6 build/default/production/eeprom.o
+ .debug_info    0x0000000000000780     0x2a15 build/default/production/newmain.o
+ .debug_info    0x0000000000003195      0x334 build/default/production/buton_debounce.o
+ .debug_info    0x00000000000034c9      0x65a build/default/production/thread.o
+ .debug_info    0x0000000000003b23      0x3df build/default/production/task.o
+ .debug_info    0x0000000000003f02      0xdcf build/default/production/ATMEGA_64.o
+ .debug_info    0x0000000000004cd1     0x179b build/default/production/ssh1106_oled.o
+ .debug_info    0x000000000000646c      0x4d6 build/default/production/eeprom.o
 
-.debug_abbrev   0x0000000000000000     0x1304
+.debug_abbrev   0x0000000000000000     0x1364
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000      0x718 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega64.o
- .debug_abbrev  0x0000000000000718      0x311 build/default/production/newmain.o
- .debug_abbrev  0x0000000000000a29       0xa7 build/default/production/buton_debounce.o
- .debug_abbrev  0x0000000000000ad0      0x173 build/default/production/thread.o
- .debug_abbrev  0x0000000000000c43      0x11f build/default/production/task.o
- .debug_abbrev  0x0000000000000d62      0x299 build/default/production/ATMEGA_64.o
- .debug_abbrev  0x0000000000000ffb      0x218 build/default/production/ssh1106_oled.o
- .debug_abbrev  0x0000000000001213       0xf1 build/default/production/eeprom.o
+ .debug_abbrev  0x0000000000000718      0x371 build/default/production/newmain.o
+ .debug_abbrev  0x0000000000000a89       0xa7 build/default/production/buton_debounce.o
+ .debug_abbrev  0x0000000000000b30      0x173 build/default/production/thread.o
+ .debug_abbrev  0x0000000000000ca3      0x11f build/default/production/task.o
+ .debug_abbrev  0x0000000000000dc2      0x299 build/default/production/ATMEGA_64.o
+ .debug_abbrev  0x000000000000105b      0x218 build/default/production/ssh1106_oled.o
+ .debug_abbrev  0x0000000000001273       0xf1 build/default/production/eeprom.o
 
-.debug_line     0x0000000000000000     0x27eb
+.debug_line     0x0000000000000000     0x28c9
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000      0x16d C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega64.o
- .debug_line    0x000000000000016d      0xf71 build/default/production/newmain.o
- .debug_line    0x00000000000010de       0xee build/default/production/buton_debounce.o
- .debug_line    0x00000000000011cc      0x225 build/default/production/thread.o
- .debug_line    0x00000000000013f1       0xd2 build/default/production/task.o
- .debug_line    0x00000000000014c3      0xae5 build/default/production/ATMEGA_64.o
- .debug_line    0x0000000000001fa8      0x761 build/default/production/ssh1106_oled.o
- .debug_line    0x0000000000002709       0xe2 build/default/production/eeprom.o
+ .debug_line    0x000000000000016d     0x1041 build/default/production/newmain.o
+ .debug_line    0x00000000000011ae       0xee build/default/production/buton_debounce.o
+ .debug_line    0x000000000000129c      0x225 build/default/production/thread.o
+ .debug_line    0x00000000000014c1       0xd2 build/default/production/task.o
+ .debug_line    0x0000000000001593      0xaf3 build/default/production/ATMEGA_64.o
+ .debug_line    0x0000000000002086      0x761 build/default/production/ssh1106_oled.o
+ .debug_line    0x00000000000027e7       0xe2 build/default/production/eeprom.o
 
-.debug_frame    0x0000000000000000      0xff0
+.debug_frame    0x0000000000000000     0x101c
  *(.debug_frame)
- .debug_frame   0x0000000000000000      0x5fc build/default/production/newmain.o
- .debug_frame   0x00000000000005fc       0x34 build/default/production/buton_debounce.o
- .debug_frame   0x0000000000000630       0xdc build/default/production/thread.o
- .debug_frame   0x000000000000070c       0x6c build/default/production/task.o
- .debug_frame   0x0000000000000778      0x360 build/default/production/ATMEGA_64.o
- .debug_frame   0x0000000000000ad8      0x464 build/default/production/ssh1106_oled.o
- .debug_frame   0x0000000000000f3c       0xb4 build/default/production/eeprom.o
+ .debug_frame   0x0000000000000000      0x628 build/default/production/newmain.o
+ .debug_frame   0x0000000000000628       0x34 build/default/production/buton_debounce.o
+ .debug_frame   0x000000000000065c       0xdc build/default/production/thread.o
+ .debug_frame   0x0000000000000738       0x6c build/default/production/task.o
+ .debug_frame   0x00000000000007a4      0x360 build/default/production/ATMEGA_64.o
+ .debug_frame   0x0000000000000b04      0x464 build/default/production/ssh1106_oled.o
+ .debug_frame   0x0000000000000f68       0xb4 build/default/production/eeprom.o
 
-.debug_str      0x0000000000000000      0x4b5
+.debug_str      0x0000000000000000      0x509
  *(.debug_str)
  .debug_str     0x0000000000000000      0x27e C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega64.o
- .debug_str     0x000000000000027e      0x190 build/default/production/newmain.o
- .debug_str     0x000000000000040e        0x0 build/default/production/buton_debounce.o
- .debug_str     0x000000000000040e       0x28 build/default/production/thread.o
- .debug_str     0x0000000000000436        0xa build/default/production/task.o
- .debug_str     0x0000000000000440       0x5b build/default/production/ATMEGA_64.o
- .debug_str     0x000000000000049b        0xf build/default/production/ssh1106_oled.o
- .debug_str     0x00000000000004aa        0xb build/default/production/eeprom.o
+ .debug_str     0x000000000000027e      0x1e4 build/default/production/newmain.o
+ .debug_str     0x0000000000000462        0x0 build/default/production/buton_debounce.o
+ .debug_str     0x0000000000000462       0x28 build/default/production/thread.o
+ .debug_str     0x000000000000048a        0xa build/default/production/task.o
+ .debug_str     0x0000000000000494       0x5b build/default/production/ATMEGA_64.o
+ .debug_str     0x00000000000004ef        0xf build/default/production/ssh1106_oled.o
+ .debug_str     0x00000000000004fe        0xb build/default/production/eeprom.o
 
-.debug_loc      0x0000000000000000     0x36a3
+.debug_loc      0x0000000000000000     0x377c
  *(.debug_loc)
- .debug_loc     0x0000000000000000      0xd4f build/default/production/newmain.o
- .debug_loc     0x0000000000000d4f       0x50 build/default/production/buton_debounce.o
- .debug_loc     0x0000000000000d9f      0x18f build/default/production/thread.o
- .debug_loc     0x0000000000000f2e       0xa3 build/default/production/task.o
- .debug_loc     0x0000000000000fd1     0x12c7 build/default/production/ATMEGA_64.o
- .debug_loc     0x0000000000002298     0x11fa build/default/production/ssh1106_oled.o
- .debug_loc     0x0000000000003492      0x211 build/default/production/eeprom.o
+ .debug_loc     0x0000000000000000      0xe06 build/default/production/newmain.o
+ .debug_loc     0x0000000000000e06       0x50 build/default/production/buton_debounce.o
+ .debug_loc     0x0000000000000e56      0x18f build/default/production/thread.o
+ .debug_loc     0x0000000000000fe5       0xa3 build/default/production/task.o
+ .debug_loc     0x0000000000001088     0x12e9 build/default/production/ATMEGA_64.o
+ .debug_loc     0x0000000000002371     0x11fa build/default/production/ssh1106_oled.o
+ .debug_loc     0x000000000000356b      0x211 build/default/production/eeprom.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1027,15 +1019,15 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x0000000000000000      0x468
+.debug_ranges   0x0000000000000000      0x478
  *(.debug_ranges)
- .debug_ranges  0x0000000000000000      0x1b0 build/default/production/newmain.o
- .debug_ranges  0x00000000000001b0       0x18 build/default/production/buton_debounce.o
- .debug_ranges  0x00000000000001c8       0x68 build/default/production/thread.o
- .debug_ranges  0x0000000000000230       0x30 build/default/production/task.o
- .debug_ranges  0x0000000000000260      0x118 build/default/production/ATMEGA_64.o
- .debug_ranges  0x0000000000000378       0xc0 build/default/production/ssh1106_oled.o
- .debug_ranges  0x0000000000000438       0x30 build/default/production/eeprom.o
+ .debug_ranges  0x0000000000000000      0x1c0 build/default/production/newmain.o
+ .debug_ranges  0x00000000000001c0       0x18 build/default/production/buton_debounce.o
+ .debug_ranges  0x00000000000001d8       0x68 build/default/production/thread.o
+ .debug_ranges  0x0000000000000240       0x30 build/default/production/task.o
+ .debug_ranges  0x0000000000000270      0x118 build/default/production/ATMEGA_64.o
+ .debug_ranges  0x0000000000000388       0xc0 build/default/production/ssh1106_oled.o
+ .debug_ranges  0x0000000000000448       0x30 build/default/production/eeprom.o
 
 .debug_macro
  *(.debug_macro)
@@ -1048,56 +1040,56 @@ LOAD data_init
  .note.gnu.avr.deviceinfo
                 0x0000000000000000       0x3c C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega64.o
 
-.bss.counter.2866
-                0x0000000000800779        0x1
- .bss.counter.2866
-                0x0000000000800779        0x1 build/default/production/newmain.o
-
-.bss.counter.2861
-                0x000000000080077a        0x1
- .bss.counter.2861
-                0x000000000080077a        0x1 build/default/production/newmain.o
-
-.bss.timer.2846
-                0x000000000080072b        0x4
- .bss.timer.2846
-                0x000000000080072b        0x4 build/default/production/newmain.o
-
-.bss.MENU_DOWN.2836
-                0x000000000080072f        0x4
- .bss.MENU_DOWN.2836
-                0x000000000080072f        0x4 build/default/production/newmain.o
-
-.bss.MENU_OK.2835
-                0x0000000000800733        0x4
- .bss.MENU_OK.2835
-                0x0000000000800733        0x4 build/default/production/newmain.o
-
-.bss.MENU_UP.2837
-                0x0000000000800737        0x4
- .bss.MENU_UP.2837
-                0x0000000000800737        0x4 build/default/production/newmain.o
-
-.bss.MENU_TEMP_VAL.2808
-                0x0000000000800759        0x2
- .bss.MENU_TEMP_VAL.2808
-                0x0000000000800759        0x2 build/default/production/newmain.o
-
-.bss.VAL_CHANGE_FLAG.2809
-                0x000000000080075b        0x2
- .bss.VAL_CHANGE_FLAG.2809
-                0x000000000080075b        0x2 build/default/production/newmain.o
-
-.bss.MENU_SHOW_FLAG.2810
+.bss.counter.2891
                 0x000000000080077b        0x1
- .bss.MENU_SHOW_FLAG.2810
+ .bss.counter.2891
                 0x000000000080077b        0x1 build/default/production/newmain.o
 
-.bss.MENU_BUTON_STATUS
+.bss.counter.2886
                 0x000000000080077c        0x1
- .bss.MENU_BUTON_STATUS
+ .bss.counter.2886
                 0x000000000080077c        0x1 build/default/production/newmain.o
-                0x000000000080077c                MENU_BUTON_STATUS
+
+.bss.timer.2868
+                0x000000000080072b        0x4
+ .bss.timer.2868
+                0x000000000080072b        0x4 build/default/production/newmain.o
+
+.bss.MENU_DOWN.2857
+                0x000000000080072f        0x4
+ .bss.MENU_DOWN.2857
+                0x000000000080072f        0x4 build/default/production/newmain.o
+
+.bss.MENU_OK.2856
+                0x0000000000800733        0x4
+ .bss.MENU_OK.2856
+                0x0000000000800733        0x4 build/default/production/newmain.o
+
+.bss.MENU_UP.2858
+                0x0000000000800737        0x4
+ .bss.MENU_UP.2858
+                0x0000000000800737        0x4 build/default/production/newmain.o
+
+.bss.MENU_TEMP_VAL.2829
+                0x0000000000800759        0x2
+ .bss.MENU_TEMP_VAL.2829
+                0x0000000000800759        0x2 build/default/production/newmain.o
+
+.bss.VAL_CHANGE_FLAG.2830
+                0x000000000080075b        0x2
+ .bss.VAL_CHANGE_FLAG.2830
+                0x000000000080075b        0x2 build/default/production/newmain.o
+
+.bss.MENU_SHOW_FLAG.2831
+                0x000000000080077d        0x1
+ .bss.MENU_SHOW_FLAG.2831
+                0x000000000080077d        0x1 build/default/production/newmain.o
+
+.bss.MENU_BUTON_STATUS
+                0x000000000080077e        0x1
+ .bss.MENU_BUTON_STATUS
+                0x000000000080077e        0x1 build/default/production/newmain.o
+                0x000000000080077e                MENU_BUTON_STATUS
 
 .bss.MENU_ANA_MENU_ANA
                 0x000000000080075d        0x2
@@ -1106,16 +1098,16 @@ LOAD data_init
                 0x000000000080075d                MENU_ANA_MENU_ANA
 
 .bss.MENU_MENU_COUNTER
-                0x000000000080077d        0x1
+                0x000000000080077f        0x1
  .bss.MENU_MENU_COUNTER
-                0x000000000080077d        0x1 build/default/production/newmain.o
-                0x000000000080077d                MENU_MENU_COUNTER
+                0x000000000080077f        0x1 build/default/production/newmain.o
+                0x000000000080077f                MENU_MENU_COUNTER
 
 .bss.MENU_INDEX_COUNTER
-                0x000000000080077e        0x1
+                0x0000000000800780        0x1
  .bss.MENU_INDEX_COUNTER
-                0x000000000080077e        0x1 build/default/production/newmain.o
-                0x000000000080077e                MENU_INDEX_COUNTER
+                0x0000000000800780        0x1 build/default/production/newmain.o
+                0x0000000000800780                MENU_INDEX_COUNTER
 
 .bss.MENU_BACK_INDEX
                 0x0000000000800726        0x5
@@ -1141,9 +1133,9 @@ LOAD data_init
                 0x0000000000800756        0x3 build/default/production/newmain.o
                 0x0000000000800756                SHOW_DATA_TEXT
 
-.bss.MENU_MAX   0x000000000080077f        0x1
- .bss.MENU_MAX  0x000000000080077f        0x1 build/default/production/newmain.o
-                0x000000000080077f                MENU_MAX
+.bss.MENU_MAX   0x0000000000800781        0x1
+ .bss.MENU_MAX  0x0000000000800781        0x1 build/default/production/newmain.o
+                0x0000000000800781                MENU_MAX
 
 .bss.MENU_POINTER
                 0x000000000080075f        0x2
@@ -1187,6 +1179,12 @@ LOAD data_init
                 0x00000000008005fa       0x32 build/default/production/newmain.o
                 0x00000000008005fa                SETTING_VALUES
 
+.bss.SYSTEM_INTERRUPT_WAIT_COUNTER
+                0x000000000080076b        0x2
+ .bss.SYSTEM_INTERRUPT_WAIT_COUNTER
+                0x000000000080076b        0x2 build/default/production/newmain.o
+                0x000000000080076b                SYSTEM_INTERRUPT_WAIT_COUNTER
+
 .bss.UART_0_MSG
                 0x00000000008006c2       0x14
  .bss.UART_0_MSG
@@ -1205,50 +1203,56 @@ LOAD data_init
                 0x0000000000800550       0x46 build/default/production/thread.o
                 0x0000000000800550                THREAD_LIST
 
+.bss.thread_return_temp
+                0x0000000000800782        0x1
+ .bss.thread_return_temp
+                0x0000000000800782        0x1 build/default/production/thread.o
+                0x0000000000800782                thread_return_temp
+
 .bss.THREAD_NUM
-                0x0000000000800780        0x1
+                0x0000000000800783        0x1
  .bss.THREAD_NUM
-                0x0000000000800780        0x1 build/default/production/thread.o
-                0x0000000000800780                THREAD_NUM
+                0x0000000000800783        0x1 build/default/production/thread.o
+                0x0000000000800783                THREAD_NUM
 
 .bss.TASK_LIST  0x00000000008006a4       0x1e
  .bss.TASK_LIST
                 0x00000000008006a4       0x1e build/default/production/task.o
                 0x00000000008006a4                TASK_LIST
 
-.bss.TASK_NUM   0x0000000000800781        0x1
- .bss.TASK_NUM  0x0000000000800781        0x1 build/default/production/task.o
-                0x0000000000800781                TASK_NUM
+.bss.TASK_NUM   0x0000000000800784        0x1
+ .bss.TASK_NUM  0x0000000000800784        0x1 build/default/production/task.o
+                0x0000000000800784                TASK_NUM
 
 .bss.TIMER_3_TICKS
-                0x000000000080076b        0x2
+                0x000000000080076d        0x2
  .bss.TIMER_3_TICKS
-                0x000000000080076b        0x2 build/default/production/ATMEGA_64.o
-                0x000000000080076b                TIMER_3_TICKS
+                0x000000000080076d        0x2 build/default/production/ATMEGA_64.o
+                0x000000000080076d                TIMER_3_TICKS
 
 .bss.TIMER_1_TICKS
-                0x000000000080076d        0x2
+                0x000000000080076f        0x2
  .bss.TIMER_1_TICKS
-                0x000000000080076d        0x2 build/default/production/ATMEGA_64.o
-                0x000000000080076d                TIMER_1_TICKS
+                0x000000000080076f        0x2 build/default/production/ATMEGA_64.o
+                0x000000000080076f                TIMER_1_TICKS
 
 .bss.ssh1106_oled_i2c_stop
-                0x000000000080076f        0x2
+                0x0000000000800771        0x2
  .bss.ssh1106_oled_i2c_stop
-                0x000000000080076f        0x2 build/default/production/ssh1106_oled.o
-                0x000000000080076f                ssh1106_oled_i2c_stop
+                0x0000000000800771        0x2 build/default/production/ssh1106_oled.o
+                0x0000000000800771                ssh1106_oled_i2c_stop
 
 .bss.ssh1106_oled_i2c_write
-                0x0000000000800771        0x2
+                0x0000000000800773        0x2
  .bss.ssh1106_oled_i2c_write
-                0x0000000000800771        0x2 build/default/production/ssh1106_oled.o
-                0x0000000000800771                ssh1106_oled_i2c_write
+                0x0000000000800773        0x2 build/default/production/ssh1106_oled.o
+                0x0000000000800773                ssh1106_oled_i2c_write
 
 .bss.ssh1106_oled_i2c_start
-                0x0000000000800773        0x2
+                0x0000000000800775        0x2
  .bss.ssh1106_oled_i2c_start
-                0x0000000000800773        0x2 build/default/production/ssh1106_oled.o
-                0x0000000000800773                ssh1106_oled_i2c_start
+                0x0000000000800775        0x2 build/default/production/ssh1106_oled.o
+                0x0000000000800775                ssh1106_oled_i2c_start
 
 .bss.ssh1106_buffer
                 0x0000000000800100      0x400
@@ -1260,16 +1264,16 @@ LOAD data_init
  .bss.cfont     0x0000000000800700        0x8 build/default/production/ssh1106_oled.o
 
 .bss.eeprom_byte_read
-                0x0000000000800775        0x2
+                0x0000000000800777        0x2
  .bss.eeprom_byte_read
-                0x0000000000800775        0x2 build/default/production/eeprom.o
-                0x0000000000800775                eeprom_byte_read
+                0x0000000000800777        0x2 build/default/production/eeprom.o
+                0x0000000000800777                eeprom_byte_read
 
 .bss.eeprom_byte_write
-                0x0000000000800777        0x2
+                0x0000000000800779        0x2
  .bss.eeprom_byte_write
-                0x0000000000800777        0x2 build/default/production/eeprom.o
-                0x0000000000800777                eeprom_byte_write
+                0x0000000000800779        0x2 build/default/production/eeprom.o
+                0x0000000000800779                eeprom_byte_write
 
 .progmemx.data.font_8x16BOLD
                 0x000000000000012e      0x5f4
@@ -1277,878 +1281,910 @@ LOAD data_init
                 0x000000000000012e      0x5f4 build/default/production/ssh1106_oled.o
                 0x000000000000012e                font_8x16BOLD
 
-.progmemx.data  0x0000000000000722      0x2a7
+.progmemx.data  0x0000000000000722      0x2ad
  .progmemx.data
-                0x0000000000000722      0x2a7 build/default/production/newmain.o
+                0x0000000000000722      0x2ad build/default/production/newmain.o
 
-.progmemx.data  0x00000000000009c9        0x3
+.progmemx.data  0x00000000000009cf        0x3
  .progmemx.data
-                0x00000000000009c9        0x3 build/default/production/ssh1106_oled.o
+                0x00000000000009cf        0x3 build/default/production/ssh1106_oled.o
 
-.text.avrlibc   0x00000000000009cc      0x448
- .text.avrlibc  0x00000000000009cc      0x448 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(vfprintf_std.o)
-                0x00000000000009cc                vfprintf
+.text.avrlibc   0x00000000000009d2      0x448
+ .text.avrlibc  0x00000000000009d2      0x448 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(vfprintf_std.o)
+                0x00000000000009d2                vfprintf
 
 .text.MENU_WORK
-                0x0000000000000e14      0x330
+                0x0000000000000e1a      0x33e
  .text.MENU_WORK
-                0x0000000000000e14      0x330 build/default/production/newmain.o
-                0x0000000000000e14                MENU_WORK
+                0x0000000000000e1a      0x33e build/default/production/newmain.o
+                0x0000000000000e1a                MENU_WORK
 
 .text.SSH1106_OLED_Write
-                0x0000000000001144      0x2fc
+                0x0000000000001158      0x2fc
  .text.SSH1106_OLED_Write
-                0x0000000000001144      0x2fc build/default/production/ssh1106_oled.o
-                0x0000000000001144                SSH1106_OLED_Write
+                0x0000000000001158      0x2fc build/default/production/ssh1106_oled.o
+                0x0000000000001158                SSH1106_OLED_Write
 
 .text.SSH1106_OLED_INIT
-                0x0000000000001440      0x18a
+                0x0000000000001454      0x18a
  .text.SSH1106_OLED_INIT
-                0x0000000000001440      0x18a build/default/production/ssh1106_oled.o
-                0x0000000000001440                SSH1106_OLED_INIT
+                0x0000000000001454      0x18a build/default/production/ssh1106_oled.o
+                0x0000000000001454                SSH1106_OLED_INIT
 
 .text.MENU_USE_VAL
-                0x00000000000015ca      0x17e
+                0x00000000000015de      0x17e
  .text.MENU_USE_VAL
-                0x00000000000015ca      0x17e build/default/production/newmain.o
-                0x00000000000015ca                MENU_USE_VAL
+                0x00000000000015de      0x17e build/default/production/newmain.o
+                0x00000000000015de                MENU_USE_VAL
 
 .text.MENU_USE_SELECT
-                0x0000000000001748      0x154
+                0x000000000000175c      0x154
  .text.MENU_USE_SELECT
-                0x0000000000001748      0x154 build/default/production/newmain.o
-                0x0000000000001748                MENU_USE_SELECT
+                0x000000000000175c      0x154 build/default/production/newmain.o
+                0x000000000000175c                MENU_USE_SELECT
 
 .text.MENU_BUTON_READ
-                0x000000000000189c      0x146
+                0x00000000000018b0      0x146
  .text.MENU_BUTON_READ
-                0x000000000000189c      0x146 build/default/production/newmain.o
-                0x000000000000189c                MENU_BUTON_READ
+                0x00000000000018b0      0x146 build/default/production/newmain.o
+                0x00000000000018b0                MENU_BUTON_READ
 
 .text.MENU_UST_DATA_GETIR
-                0x00000000000019e2      0x132
+                0x00000000000019f6      0x132
  .text.MENU_UST_DATA_GETIR
-                0x00000000000019e2      0x132 build/default/production/newmain.o
-                0x00000000000019e2                MENU_UST_DATA_GETIR
+                0x00000000000019f6      0x132 build/default/production/newmain.o
+                0x00000000000019f6                MENU_UST_DATA_GETIR
 
 .text.MENU_TEXT_PRINT
-                0x0000000000001b14      0x11e
+                0x0000000000001b28      0x11e
  .text.MENU_TEXT_PRINT
-                0x0000000000001b14      0x11e build/default/production/newmain.o
-                0x0000000000001b14                MENU_TEXT_PRINT
+                0x0000000000001b28      0x11e build/default/production/newmain.o
+                0x0000000000001b28                MENU_TEXT_PRINT
+
+.text.main      0x0000000000001c46       0xf2
+ .text.main     0x0000000000001c46       0xf2 build/default/production/newmain.o
+                0x0000000000001c46                main
 
 .text.TIMER_1_INIT
-                0x0000000000001c32       0xe4
+                0x0000000000001d38       0xe4
  .text.TIMER_1_INIT
-                0x0000000000001c32       0xe4 build/default/production/ATMEGA_64.o
-                0x0000000000001c32                TIMER_1_INIT
+                0x0000000000001d38       0xe4 build/default/production/ATMEGA_64.o
+                0x0000000000001d38                TIMER_1_INIT
 
 .text.MENU_SHOW_DATA_PRINT
-                0x0000000000001d16       0xe2
+                0x0000000000001e1c       0xe2
  .text.MENU_SHOW_DATA_PRINT
-                0x0000000000001d16       0xe2 build/default/production/newmain.o
-                0x0000000000001d16                MENU_SHOW_DATA_PRINT
+                0x0000000000001e1c       0xe2 build/default/production/newmain.o
+                0x0000000000001e1c                MENU_SHOW_DATA_PRINT
 
 .text.PIN_SET_LAT
-                0x0000000000001df8       0xdc
+                0x0000000000001efe       0xdc
  .text.PIN_SET_LAT
-                0x0000000000001df8       0xdc build/default/production/ATMEGA_64.o
-                0x0000000000001df8                PIN_SET_LAT
+                0x0000000000001efe       0xdc build/default/production/ATMEGA_64.o
+                0x0000000000001efe                PIN_SET_LAT
 
 .text.PIN_SET_TRIS
-                0x0000000000001ed4       0xdc
+                0x0000000000001fda       0xdc
  .text.PIN_SET_TRIS
-                0x0000000000001ed4       0xdc build/default/production/ATMEGA_64.o
-                0x0000000000001ed4                PIN_SET_TRIS
+                0x0000000000001fda       0xdc build/default/production/ATMEGA_64.o
+                0x0000000000001fda                PIN_SET_TRIS
 
 .text.avrlibc.fplib
-                0x0000000000001fb0       0xdc
+                0x00000000000020b6       0xdc
  .text.avrlibc.fplib
-                0x0000000000001fb0       0xdc c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3x.o)
-                0x0000000000001fd0                __divsf3x
-                0x0000000000001fd6                __divsf3_pse
+                0x00000000000020b6       0xdc c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3x.o)
+                0x00000000000020d6                __divsf3x
+                0x00000000000020dc                __divsf3_pse
 
 .text.SSH1106_OLED_Write_Dec
-                0x000000000000208c       0xda
+                0x0000000000002192       0xda
  .text.SSH1106_OLED_Write_Dec
-                0x000000000000208c       0xda build/default/production/ssh1106_oled.o
-                0x000000000000208c                SSH1106_OLED_Write_Dec
-
-.text.main      0x0000000000002166       0xd4
- .text.main     0x0000000000002166       0xd4 build/default/production/newmain.o
-                0x0000000000002166                main
+                0x0000000000002192       0xda build/default/production/ssh1106_oled.o
+                0x0000000000002192                SSH1106_OLED_Write_Dec
 
 .text.avrlibc.fplib
-                0x000000000000223a       0xcc
+                0x000000000000226c       0xcc
  .text.avrlibc.fplib
-                0x000000000000223a       0xcc c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(addsf3x.o)
-                0x000000000000225c                __addsf3x
+                0x000000000000226c       0xcc c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(addsf3x.o)
+                0x000000000000228e                __addsf3x
 
 .text.MENU_TEXT_ORTALA
-                0x0000000000002306       0xbc
+                0x0000000000002338       0xbc
  .text.MENU_TEXT_ORTALA
-                0x0000000000002306       0xbc build/default/production/newmain.o
-                0x0000000000002306                MENU_TEXT_ORTALA
+                0x0000000000002338       0xbc build/default/production/newmain.o
+                0x0000000000002338                MENU_TEXT_ORTALA
 
 .text.SSH1106_OLED_Update
-                0x00000000000023c2       0xbc
+                0x00000000000023f4       0xbc
  .text.SSH1106_OLED_Update
-                0x00000000000023c2       0xbc build/default/production/ssh1106_oled.o
-                0x00000000000023c2                SSH1106_OLED_Update
+                0x00000000000023f4       0xbc build/default/production/ssh1106_oled.o
+                0x00000000000023f4                SSH1106_OLED_Update
 
-.text.avrlibc   0x000000000000247e       0xbc
- .text.avrlibc  0x000000000000247e       0xbc c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(ultoa_invert.o)
-                0x000000000000247e                __ultoa_invert
+.text.avrlibc   0x00000000000024b0       0xbc
+ .text.avrlibc  0x00000000000024b0       0xbc c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(ultoa_invert.o)
+                0x00000000000024b0                __ultoa_invert
 
 .text.SSH1106_OLED_Write_Text
-                0x000000000000253a       0x90
+                0x000000000000256c       0x90
  .text.SSH1106_OLED_Write_Text
-                0x000000000000253a       0x90 build/default/production/ssh1106_oled.o
-                0x000000000000253a                SSH1106_OLED_Write_Text
+                0x000000000000256c       0x90 build/default/production/ssh1106_oled.o
+                0x000000000000256c                SSH1106_OLED_Write_Text
 
 .text.SSH1106_OLED_DrawPixel
-                0x00000000000025ca       0x8c
+                0x00000000000025fc       0x8c
  .text.SSH1106_OLED_DrawPixel
-                0x00000000000025ca       0x8c build/default/production/ssh1106_oled.o
-                0x00000000000025ca                SSH1106_OLED_DrawPixel
+                0x00000000000025fc       0x8c build/default/production/ssh1106_oled.o
+                0x00000000000025fc                SSH1106_OLED_DrawPixel
 
 .text.avrlibc.fplib
-                0x0000000000002656       0x7a
+                0x0000000000002688       0x7a
  .text.avrlibc.fplib
-                0x0000000000002656       0x7a c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(floatsisf.o)
-                0x0000000000002656                __floatunsisf
-                0x000000000000265a                __floatsisf
+                0x0000000000002688       0x7a c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(floatsisf.o)
+                0x0000000000002688                __floatunsisf
+                0x000000000000268c                __floatsisf
 
-.text.avrlibc   0x00000000000026d0       0x78
- .text.avrlibc  0x00000000000026d0       0x78 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(fputc.o)
-                0x00000000000026d0                fputc
+.text.avrlibc   0x0000000000002702       0x78
+ .text.avrlibc  0x0000000000002702       0x78 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(fputc.o)
+                0x0000000000002702                fputc
 
-.text.EEPROM_READ_DWORD
-                0x0000000000002748       0x68
- .text.EEPROM_READ_DWORD
-                0x0000000000002748       0x68 build/default/production/eeprom.o
-                0x0000000000002748                EEPROM_READ_DWORD
-
-.text.UART_1_INIT
-                0x00000000000027b0       0x64
- .text.UART_1_INIT
-                0x00000000000027b0       0x64 build/default/production/ATMEGA_64.o
-                0x00000000000027b0                UART_1_INIT
-
-.text.MENU_GIR  0x0000000000002814       0x62
- .text.MENU_GIR
-                0x0000000000002814       0x62 build/default/production/newmain.o
-                0x0000000000002814                MENU_GIR
-
-.text.avrlibc.fplib
-                0x0000000000002876       0x5e
- .text.avrlibc.fplib
-                0x0000000000002876       0x5e c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fixunssfsi.o)
-                0x0000000000002876                __fixunssfsi
-
-.text.THREAD_INTERRUPT
-                0x00000000000028d4       0x5c
- .text.THREAD_INTERRUPT
-                0x00000000000028d4       0x5c build/default/production/thread.o
-                0x00000000000028d4                THREAD_INTERRUPT
-
-.text.BUTON_PROCESS
-                0x0000000000002930       0x5a
- .text.BUTON_PROCESS
-                0x0000000000002930       0x5a build/default/production/buton_debounce.o
-                0x0000000000002930                BUTON_PROCESS
-
-.text.SSH1106_OLED_SetFont
-                0x000000000000298a       0x5a
- .text.SSH1106_OLED_SetFont
-                0x000000000000298a       0x5a build/default/production/ssh1106_oled.o
-                0x000000000000298a                SSH1106_OLED_SetFont
-
-.text.EEPROM_WRITE_DWORD
-                0x00000000000029e4       0x58
- .text.EEPROM_WRITE_DWORD
-                0x00000000000029e4       0x58 build/default/production/eeprom.o
-                0x00000000000029e4                EEPROM_WRITE_DWORD
-
-.text.MENU_PROCESS
-                0x0000000000002a3c       0x56
- .text.MENU_PROCESS
-                0x0000000000002a3c       0x56 build/default/production/newmain.o
-                0x0000000000002a3c                MENU_PROCESS
-
-.text.THREAD_MAIN
-                0x0000000000002a92       0x54
- .text.THREAD_MAIN
-                0x0000000000002a92       0x54 build/default/production/thread.o
-                0x0000000000002a92                THREAD_MAIN
+.text.MENU_TEXT_SAVED
+                0x000000000000277a       0x6c
+ .text.MENU_TEXT_SAVED
+                0x000000000000277a       0x6c build/default/production/newmain.o
+                0x000000000000277a                MENU_TEXT_SAVED
 
 .text.__vector_14
-                0x0000000000002ae6       0x4c
+                0x00000000000027e6       0x6a
  .text.__vector_14
-                0x0000000000002ae6       0x4c build/default/production/newmain.o
-                0x0000000000002ae6                __vector_14
+                0x00000000000027e6       0x6a build/default/production/newmain.o
+                0x00000000000027e6                __vector_14
 
-.text.__vector_30
-                0x0000000000002b32       0x4c
- .text.__vector_30
-                0x0000000000002b32       0x4c build/default/production/newmain.o
-                0x0000000000002b32                __vector_30
+.text.PIN_SET_LAT_TOGGLE
+                0x0000000000002850       0x6a
+ .text.PIN_SET_LAT_TOGGLE
+                0x0000000000002850       0x6a build/default/production/ATMEGA_64.o
+                0x0000000000002850                PIN_SET_LAT_TOGGLE
 
-.text.TASK_MAIN
-                0x0000000000002b7e       0x4c
- .text.TASK_MAIN
-                0x0000000000002b7e       0x4c build/default/production/task.o
-                0x0000000000002b7e                TASK_MAIN
+.text.UART_1_INIT
+                0x00000000000028ba       0x68
+ .text.UART_1_INIT
+                0x00000000000028ba       0x68 build/default/production/ATMEGA_64.o
+                0x00000000000028ba                UART_1_INIT
 
-.text.PIN_GET_PORT
-                0x0000000000002bca       0x4c
- .text.PIN_GET_PORT
-                0x0000000000002bca       0x4c build/default/production/ATMEGA_64.o
-                0x0000000000002bca                PIN_GET_PORT
-
-.text.__vector_18
-                0x0000000000002c16       0x4a
- .text.__vector_18
-                0x0000000000002c16       0x4a build/default/production/newmain.o
-                0x0000000000002c16                __vector_18
-
-.text.__vector_29
-                0x0000000000002c60       0x48
- .text.__vector_29
-                0x0000000000002c60       0x48 build/default/production/newmain.o
-                0x0000000000002c60                __vector_29
-
-.text.I2C_1_WRITE
-                0x0000000000002ca8       0x48
- .text.I2C_1_WRITE
-                0x0000000000002ca8       0x48 build/default/production/ATMEGA_64.o
-                0x0000000000002ca8                I2C_1_WRITE
-
-.text.avrlibc.fplib
-                0x0000000000002cf0       0x48
- .text.avrlibc.fplib
-                0x0000000000002cf0       0x48 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_cmp.o)
-                0x0000000000002cf0                __fp_cmp
-
-.text.avrlibc   0x0000000000002d38       0x46
- .text.avrlibc  0x0000000000002d38       0x46 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(strncpy_M.o)
-                0x0000000000002d38                strncpy
-
-.text.avrlibc   0x0000000000002d7e       0x46
- .text.avrlibc  0x0000000000002d7e       0x46 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(sprintf.o)
-                0x0000000000002d7e                sprintf
-
-.text.avrlibc.fplib
-                0x0000000000002dc4       0x44
- .text.avrlibc.fplib
-                0x0000000000002dc4       0x44 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_split3.o)
-                0x0000000000002dc4                __fp_split3
-                0x0000000000002dd4                __fp_splitA
-
-.text.libgcc.div
-                0x0000000000002e08       0x44
- .text.libgcc.div
-                0x0000000000002e08       0x44 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_udivmodsi4.o)
-                0x0000000000002e08                __udivmodsi4
-
-.text.MENU_BUTON_ADD
-                0x0000000000002e4c       0x40
- .text.MENU_BUTON_ADD
-                0x0000000000002e4c       0x40 build/default/production/newmain.o
-                0x0000000000002e4c                MENU_BUTON_ADD
-
-.text.UART_1_STRING
-                0x0000000000002e8c       0x40
- .text.UART_1_STRING
-                0x0000000000002e8c       0x40 build/default/production/ATMEGA_64.o
-                0x0000000000002e8c                UART_1_STRING
-
-.text.UART_1_INTERRUPT_FUNCT
-                0x0000000000002ecc       0x3e
- .text.UART_1_INTERRUPT_FUNCT
-                0x0000000000002ecc       0x3e build/default/production/newmain.o
-                0x0000000000002ecc                UART_1_INTERRUPT_FUNCT
-
-.text.UART_0_INTERRUPT_FUNCT
-                0x0000000000002f0a       0x3e
- .text.UART_0_INTERRUPT_FUNCT
-                0x0000000000002f0a       0x3e build/default/production/newmain.o
-                0x0000000000002f0a                UART_0_INTERRUPT_FUNCT
-
-.text.MENU_CIK  0x0000000000002f48       0x38
- .text.MENU_CIK
-                0x0000000000002f48       0x38 build/default/production/newmain.o
-                0x0000000000002f48                MENU_CIK
-
-.text.libgcc.prologue
-                0x0000000000002f80       0x38
- .text.libgcc.prologue
-                0x0000000000002f80       0x38 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_prologue.o)
-                0x0000000000002f80                __prologue_saves__
-
-.text.avrlibc   0x0000000000002fb8       0x36
- .text.avrlibc  0x0000000000002fb8       0x36 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(strnlen_M.o)
-                0x0000000000002fb8                strnlen
-
-.text.libgcc.prologue
-                0x0000000000002fee       0x36
- .text.libgcc.prologue
-                0x0000000000002fee       0x36 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_epilogue.o)
-                0x0000000000002fee                __epilogue_restores__
-
-.text.MENU_FUNCT_COUNTER_A_FIX
-                0x0000000000003024       0x34
- .text.MENU_FUNCT_COUNTER_A_FIX
-                0x0000000000003024       0x34 build/default/production/newmain.o
-                0x0000000000003024                MENU_FUNCT_COUNTER_A_FIX
-
-.text.MENU_FUNCT_COUNTER_B_FIX
-                0x0000000000003058       0x34
- .text.MENU_FUNCT_COUNTER_B_FIX
-                0x0000000000003058       0x34 build/default/production/newmain.o
-                0x0000000000003058                MENU_FUNCT_COUNTER_B_FIX
-
-.text.MENU_FUNCT_COUNTER_A_TEMP
-                0x000000000000308c       0x34
- .text.MENU_FUNCT_COUNTER_A_TEMP
-                0x000000000000308c       0x34 build/default/production/newmain.o
-                0x000000000000308c                MENU_FUNCT_COUNTER_A_TEMP
-
-.text.MENU_FUNCT_COUNTER_B_TEMP
-                0x00000000000030c0       0x34
- .text.MENU_FUNCT_COUNTER_B_TEMP
-                0x00000000000030c0       0x34 build/default/production/newmain.o
-                0x00000000000030c0                MENU_FUNCT_COUNTER_B_TEMP
-
-.text.THREAD_DONE_CONTROL
-                0x00000000000030f4       0x32
- .text.THREAD_DONE_CONTROL
-                0x00000000000030f4       0x32 build/default/production/thread.o
-                0x00000000000030f4                THREAD_DONE_CONTROL
-
-.text.TASK_UART_1_RX_FUNCT
-                0x0000000000003126       0x2c
- .text.TASK_UART_1_RX_FUNCT
-                0x0000000000003126       0x2c build/default/production/newmain.o
-                0x0000000000003126                TASK_UART_1_RX_FUNCT
-
-.text.PIN_SET_IO
-                0x0000000000003152       0x2c
- .text.PIN_SET_IO
-                0x0000000000003152       0x2c build/default/production/ATMEGA_64.o
-                0x0000000000003152                PIN_SET_IO
-
-.text.avrlibc   0x000000000000317e       0x2c
- .text.avrlibc  0x000000000000317e       0x2c c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(strlen_M.o)
-                0x000000000000317e                strlen
-
-.text.MENU_FUNCT_RELAY_A_MODE
-                0x00000000000031aa       0x28
- .text.MENU_FUNCT_RELAY_A_MODE
-                0x00000000000031aa       0x28 build/default/production/newmain.o
-                0x00000000000031aa                MENU_FUNCT_RELAY_A_MODE
-
-.text.MENU_FUNCT_RELAY_B_MODE
-                0x00000000000031d2       0x28
- .text.MENU_FUNCT_RELAY_B_MODE
-                0x00000000000031d2       0x28 build/default/production/newmain.o
-                0x00000000000031d2                MENU_FUNCT_RELAY_B_MODE
-
-.text.MENU_FUNCT_RELAY_BUSY_MODE
-                0x00000000000031fa       0x28
- .text.MENU_FUNCT_RELAY_BUSY_MODE
-                0x00000000000031fa       0x28 build/default/production/newmain.o
-                0x00000000000031fa                MENU_FUNCT_RELAY_BUSY_MODE
-
-.text.MENU_FUNCT_RELAY_ALARM_MODE
-                0x0000000000003222       0x28
- .text.MENU_FUNCT_RELAY_ALARM_MODE
-                0x0000000000003222       0x28 build/default/production/newmain.o
-                0x0000000000003222                MENU_FUNCT_RELAY_ALARM_MODE
-
-.text.MENU_FUNCT_RANDOM_A_MODE
-                0x000000000000324a       0x28
- .text.MENU_FUNCT_RANDOM_A_MODE
-                0x000000000000324a       0x28 build/default/production/newmain.o
-                0x000000000000324a                MENU_FUNCT_RANDOM_A_MODE
-
-.text.MENU_FUNCT_RANDOM_B_MODE
-                0x0000000000003272       0x28
- .text.MENU_FUNCT_RANDOM_B_MODE
-                0x0000000000003272       0x28 build/default/production/newmain.o
-                0x0000000000003272                MENU_FUNCT_RANDOM_B_MODE
-
-.text.MENU_FUNCT_INPUT_MODE
-                0x000000000000329a       0x28
- .text.MENU_FUNCT_INPUT_MODE
-                0x000000000000329a       0x28 build/default/production/newmain.o
-                0x000000000000329a                MENU_FUNCT_INPUT_MODE
-
-.text.MENU_FUNCT_EMG_MODE
-                0x00000000000032c2       0x28
- .text.MENU_FUNCT_EMG_MODE
-                0x00000000000032c2       0x28 build/default/production/newmain.o
-                0x00000000000032c2                MENU_FUNCT_EMG_MODE
-
-.text.MENU_FUNCT_ARM_DROP_MODE
-                0x00000000000032ea       0x28
- .text.MENU_FUNCT_ARM_DROP_MODE
-                0x00000000000032ea       0x28 build/default/production/newmain.o
-                0x00000000000032ea                MENU_FUNCT_ARM_DROP_MODE
-
-.text.MENU_FUNCT_ARM_MOTOR_MODE
-                0x0000000000003312       0x28
- .text.MENU_FUNCT_ARM_MOTOR_MODE
-                0x0000000000003312       0x28 build/default/production/newmain.o
-                0x0000000000003312                MENU_FUNCT_ARM_MOTOR_MODE
-
-.text.EEPROM_GET_ALL
-                0x000000000000333a       0x28
- .text.EEPROM_GET_ALL
-                0x000000000000333a       0x28 build/default/production/newmain.o
-                0x000000000000333a                EEPROM_GET_ALL
-
-.text.libgcc.div
-                0x0000000000003362       0x28
- .text.libgcc.div
-                0x0000000000003362       0x28 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_udivmodhi4.o)
-                0x0000000000003362                __udivmodhi4
+.text.EEPROM_READ_DWORD
+                0x0000000000002922       0x68
+ .text.EEPROM_READ_DWORD
+                0x0000000000002922       0x68 build/default/production/eeprom.o
+                0x0000000000002922                EEPROM_READ_DWORD
 
 .text.LED_THREAD
-                0x000000000000338a       0x26
+                0x000000000000298a       0x62
  .text.LED_THREAD
-                0x000000000000338a       0x26 build/default/production/newmain.o
-                0x000000000000338a                LED_THREAD
+                0x000000000000298a       0x62 build/default/production/newmain.o
+                0x000000000000298a                LED_THREAD
 
-.text.THREAD_CREATE
-                0x00000000000033b0       0x26
- .text.THREAD_CREATE
-                0x00000000000033b0       0x26 build/default/production/thread.o
-                0x00000000000033b0                THREAD_CREATE
-
-.text.I2C_1_START
-                0x00000000000033d6       0x26
- .text.I2C_1_START
-                0x00000000000033d6       0x26 build/default/production/ATMEGA_64.o
-                0x00000000000033d6                I2C_1_START
-
-.text.I2C_1_STOP
-                0x00000000000033fc       0x26
- .text.I2C_1_STOP
-                0x00000000000033fc       0x26 build/default/production/ATMEGA_64.o
-                0x00000000000033fc                I2C_1_STOP
-
-.text.EEPROM_START
-                0x0000000000003422       0x24
- .text.EEPROM_START
-                0x0000000000003422       0x24 build/default/production/newmain.o
-                0x0000000000003422                EEPROM_START
-
-.text.TASK_CREATE
-                0x0000000000003446       0x24
- .text.TASK_CREATE
-                0x0000000000003446       0x24 build/default/production/task.o
-                0x0000000000003446                TASK_CREATE
-
-.text.UART_1_BYTE
-                0x000000000000346a       0x24
- .text.UART_1_BYTE
-                0x000000000000346a       0x24 build/default/production/ATMEGA_64.o
-                0x000000000000346a                UART_1_BYTE
+.text.MENU_GIR  0x00000000000029ec       0x62
+ .text.MENU_GIR
+                0x00000000000029ec       0x62 build/default/production/newmain.o
+                0x00000000000029ec                MENU_GIR
 
 .text.avrlibc.fplib
-                0x000000000000348e       0x22
+                0x0000000000002a4e       0x5e
  .text.avrlibc.fplib
-                0x000000000000348e       0x22 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_round.o)
-                0x000000000000348e                __fp_round
+                0x0000000000002a4e       0x5e c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fixunssfsi.o)
+                0x0000000000002a4e                __fixunssfsi
 
-.text.libgcc.mul
-                0x00000000000034b0       0x1e
- .text.libgcc.mul
-                0x00000000000034b0       0x1e c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_umulhisi3.o)
-                0x00000000000034b0                __umulhisi3
+.text.THREAD_INTERRUPT
+                0x0000000000002aac       0x5c
+ .text.THREAD_INTERRUPT
+                0x0000000000002aac       0x5c build/default/production/thread.o
+                0x0000000000002aac                THREAD_INTERRUPT
 
-.text.MENU_FUNCT_RELAY_A_TIME
-                0x00000000000034ce       0x1c
- .text.MENU_FUNCT_RELAY_A_TIME
-                0x00000000000034ce       0x1c build/default/production/newmain.o
-                0x00000000000034ce                MENU_FUNCT_RELAY_A_TIME
+.text.BUTON_PROCESS
+                0x0000000000002b08       0x5a
+ .text.BUTON_PROCESS
+                0x0000000000002b08       0x5a build/default/production/buton_debounce.o
+                0x0000000000002b08                BUTON_PROCESS
 
-.text.MENU_FUNCT_RELAY_B_TIME
-                0x00000000000034ea       0x1c
- .text.MENU_FUNCT_RELAY_B_TIME
-                0x00000000000034ea       0x1c build/default/production/newmain.o
-                0x00000000000034ea                MENU_FUNCT_RELAY_B_TIME
+.text.SSH1106_OLED_SetFont
+                0x0000000000002b62       0x5a
+ .text.SSH1106_OLED_SetFont
+                0x0000000000002b62       0x5a build/default/production/ssh1106_oled.o
+                0x0000000000002b62                SSH1106_OLED_SetFont
 
-.text.MENU_FUNCT_RELAY_BUSY_TIME
-                0x0000000000003506       0x1c
- .text.MENU_FUNCT_RELAY_BUSY_TIME
-                0x0000000000003506       0x1c build/default/production/newmain.o
-                0x0000000000003506                MENU_FUNCT_RELAY_BUSY_TIME
+.text.EEPROM_WRITE_DWORD
+                0x0000000000002bbc       0x58
+ .text.EEPROM_WRITE_DWORD
+                0x0000000000002bbc       0x58 build/default/production/eeprom.o
+                0x0000000000002bbc                EEPROM_WRITE_DWORD
 
-.text.MENU_FUNCT_RELAY_ALARM_TIME
-                0x0000000000003522       0x1c
- .text.MENU_FUNCT_RELAY_ALARM_TIME
-                0x0000000000003522       0x1c build/default/production/newmain.o
-                0x0000000000003522                MENU_FUNCT_RELAY_ALARM_TIME
+.text.MENU_PROCESS
+                0x0000000000002c14       0x56
+ .text.MENU_PROCESS
+                0x0000000000002c14       0x56 build/default/production/newmain.o
+                0x0000000000002c14                MENU_PROCESS
 
-.text.MENU_FUNCT_RANDOM_A_AMOUNT
-                0x000000000000353e       0x1c
- .text.MENU_FUNCT_RANDOM_A_AMOUNT
-                0x000000000000353e       0x1c build/default/production/newmain.o
-                0x000000000000353e                MENU_FUNCT_RANDOM_A_AMOUNT
+.text.THREAD_MAIN
+                0x0000000000002c6a       0x54
+ .text.THREAD_MAIN
+                0x0000000000002c6a       0x54 build/default/production/thread.o
+                0x0000000000002c6a                THREAD_MAIN
 
-.text.MENU_FUNCT_RANDOM_B_AMOUNT
-                0x000000000000355a       0x1c
- .text.MENU_FUNCT_RANDOM_B_AMOUNT
-                0x000000000000355a       0x1c build/default/production/newmain.o
-                0x000000000000355a                MENU_FUNCT_RANDOM_B_AMOUNT
+.text.THREAD_TIME_WAIT
+                0x0000000000002cbe       0x50
+ .text.THREAD_TIME_WAIT
+                0x0000000000002cbe       0x50 build/default/production/thread.o
+                0x0000000000002cbe                THREAD_TIME_WAIT
 
-.text.MENU_FUNCT_INPUT_TIME_OUT
-                0x0000000000003576       0x1c
- .text.MENU_FUNCT_INPUT_TIME_OUT
-                0x0000000000003576       0x1c build/default/production/newmain.o
-                0x0000000000003576                MENU_FUNCT_INPUT_TIME_OUT
+.text.__vector_30
+                0x0000000000002d0e       0x4c
+ .text.__vector_30
+                0x0000000000002d0e       0x4c build/default/production/newmain.o
+                0x0000000000002d0e                __vector_30
 
-.text.MENU_FUNCT_INPUT_BUFFER
-                0x0000000000003592       0x1c
- .text.MENU_FUNCT_INPUT_BUFFER
-                0x0000000000003592       0x1c build/default/production/newmain.o
-                0x0000000000003592                MENU_FUNCT_INPUT_BUFFER
+.text.TASK_MAIN
+                0x0000000000002d5a       0x4c
+ .text.TASK_MAIN
+                0x0000000000002d5a       0x4c build/default/production/task.o
+                0x0000000000002d5a                TASK_MAIN
 
-.text.MENU_FUNCT_ARM_MOTOR_SPEED
-                0x00000000000035ae       0x1c
- .text.MENU_FUNCT_ARM_MOTOR_SPEED
-                0x00000000000035ae       0x1c build/default/production/newmain.o
-                0x00000000000035ae                MENU_FUNCT_ARM_MOTOR_SPEED
+.text.PIN_GET_PORT
+                0x0000000000002da6       0x4c
+ .text.PIN_GET_PORT
+                0x0000000000002da6       0x4c build/default/production/ATMEGA_64.o
+                0x0000000000002da6                PIN_GET_PORT
 
-.text.MENU_FUNCT_ARM_MOTOR_BREAK_SPEED
-                0x00000000000035ca       0x1c
- .text.MENU_FUNCT_ARM_MOTOR_BREAK_SPEED
-                0x00000000000035ca       0x1c build/default/production/newmain.o
-                0x00000000000035ca                MENU_FUNCT_ARM_MOTOR_BREAK_SPEED
+.text.__vector_18
+                0x0000000000002df2       0x4a
+ .text.__vector_18
+                0x0000000000002df2       0x4a build/default/production/newmain.o
+                0x0000000000002df2                __vector_18
 
-.text.TASK_START
-                0x00000000000035e6       0x1a
- .text.TASK_START
-                0x00000000000035e6       0x1a build/default/production/task.o
-                0x00000000000035e6                TASK_START
+.text.__vector_29
+                0x0000000000002e3c       0x48
+ .text.__vector_29
+                0x0000000000002e3c       0x48 build/default/production/newmain.o
+                0x0000000000002e3c                __vector_29
 
-.text.TASK_STOP
-                0x0000000000003600       0x1a
- .text.TASK_STOP
-                0x0000000000003600       0x1a build/default/production/task.o
-                0x0000000000003600                TASK_STOP
+.text.I2C_1_WRITE
+                0x0000000000002e84       0x48
+ .text.I2C_1_WRITE
+                0x0000000000002e84       0x48 build/default/production/ATMEGA_64.o
+                0x0000000000002e84                I2C_1_WRITE
 
-.text.SSH1106_OLED_ClearDisplay
-                0x000000000000361a       0x16
- .text.SSH1106_OLED_ClearDisplay
-                0x000000000000361a       0x16 build/default/production/ssh1106_oled.o
-                0x000000000000361a                SSH1106_OLED_ClearDisplay
+.text.avrlibc.fplib
+                0x0000000000002ecc       0x48
+ .text.avrlibc.fplib
+                0x0000000000002ecc       0x48 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_cmp.o)
+                0x0000000000002ecc                __fp_cmp
 
-.text.__vector_20
-                0x0000000000003630       0x14
- .text.__vector_20
-                0x0000000000003630       0x14 build/default/production/newmain.o
-                0x0000000000003630                __vector_20
+.text.avrlibc   0x0000000000002f14       0x46
+ .text.avrlibc  0x0000000000002f14       0x46 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(strncpy_M.o)
+                0x0000000000002f14                strncpy
 
-.text.__vector_32
-                0x0000000000003644       0x14
- .text.__vector_32
-                0x0000000000003644       0x14 build/default/production/newmain.o
-                0x0000000000003644                __vector_32
+.text.avrlibc   0x0000000000002f5a       0x46
+ .text.avrlibc  0x0000000000002f5a       0x46 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(sprintf.o)
+                0x0000000000002f5a                sprintf
 
-.text.TIMER_1_INTERRUPT
-                0x0000000000003658       0x14
- .text.TIMER_1_INTERRUPT
-                0x0000000000003658       0x14 build/default/production/ATMEGA_64.o
-                0x0000000000003658                TIMER_1_INTERRUPT
+.text.avrlibc.fplib
+                0x0000000000002fa0       0x44
+ .text.avrlibc.fplib
+                0x0000000000002fa0       0x44 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_split3.o)
+                0x0000000000002fa0                __fp_split3
+                0x0000000000002fb0                __fp_splitA
 
-.text.EEPROM_B_WRITE
-                0x000000000000366c       0x14
- .text.EEPROM_B_WRITE
-                0x000000000000366c       0x14 build/default/production/ATMEGA_64.o
-                0x000000000000366c                EEPROM_B_WRITE
+.text.libgcc.div
+                0x0000000000002fe4       0x44
+ .text.libgcc.div
+                0x0000000000002fe4       0x44 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_udivmodsi4.o)
+                0x0000000000002fe4                __udivmodsi4
 
-.text.TIMER_3_INTERRUPT_FUNCT
-                0x0000000000003680       0x12
- .text.TIMER_3_INTERRUPT_FUNCT
-                0x0000000000003680       0x12 build/default/production/ATMEGA_64.o
-                0x0000000000003680                TIMER_3_INTERRUPT_FUNCT
+.text.MENU_BUTON_ADD
+                0x0000000000003028       0x40
+ .text.MENU_BUTON_ADD
+                0x0000000000003028       0x40 build/default/production/newmain.o
+                0x0000000000003028                MENU_BUTON_ADD
 
-.text.EEPROM_INIT
-                0x0000000000003692       0x12
- .text.EEPROM_INIT
-                0x0000000000003692       0x12 build/default/production/eeprom.o
-                0x0000000000003692                EEPROM_INIT
+.text.UART_1_STRING
+                0x0000000000003068       0x40
+ .text.UART_1_STRING
+                0x0000000000003068       0x40 build/default/production/ATMEGA_64.o
+                0x0000000000003068                UART_1_STRING
+
+.text.UART_1_INTERRUPT_FUNCT
+                0x00000000000030a8       0x3e
+ .text.UART_1_INTERRUPT_FUNCT
+                0x00000000000030a8       0x3e build/default/production/newmain.o
+                0x00000000000030a8                UART_1_INTERRUPT_FUNCT
+
+.text.UART_0_INTERRUPT_FUNCT
+                0x00000000000030e6       0x3e
+ .text.UART_0_INTERRUPT_FUNCT
+                0x00000000000030e6       0x3e build/default/production/newmain.o
+                0x00000000000030e6                UART_0_INTERRUPT_FUNCT
+
+.text.MENU_CIK  0x0000000000003124       0x38
+ .text.MENU_CIK
+                0x0000000000003124       0x38 build/default/production/newmain.o
+                0x0000000000003124                MENU_CIK
+
+.text.libgcc.prologue
+                0x000000000000315c       0x38
+ .text.libgcc.prologue
+                0x000000000000315c       0x38 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_prologue.o)
+                0x000000000000315c                __prologue_saves__
+
+.text.avrlibc   0x0000000000003194       0x36
+ .text.avrlibc  0x0000000000003194       0x36 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(strnlen_M.o)
+                0x0000000000003194                strnlen
+
+.text.libgcc.prologue
+                0x00000000000031ca       0x36
+ .text.libgcc.prologue
+                0x00000000000031ca       0x36 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_epilogue.o)
+                0x00000000000031ca                __epilogue_restores__
+
+.text.MENU_FUNCT_COUNTER_A_FIX
+                0x0000000000003200       0x34
+ .text.MENU_FUNCT_COUNTER_A_FIX
+                0x0000000000003200       0x34 build/default/production/newmain.o
+                0x0000000000003200                MENU_FUNCT_COUNTER_A_FIX
+
+.text.MENU_FUNCT_COUNTER_B_FIX
+                0x0000000000003234       0x34
+ .text.MENU_FUNCT_COUNTER_B_FIX
+                0x0000000000003234       0x34 build/default/production/newmain.o
+                0x0000000000003234                MENU_FUNCT_COUNTER_B_FIX
+
+.text.MENU_FUNCT_COUNTER_A_TEMP
+                0x0000000000003268       0x34
+ .text.MENU_FUNCT_COUNTER_A_TEMP
+                0x0000000000003268       0x34 build/default/production/newmain.o
+                0x0000000000003268                MENU_FUNCT_COUNTER_A_TEMP
+
+.text.MENU_FUNCT_COUNTER_B_TEMP
+                0x000000000000329c       0x34
+ .text.MENU_FUNCT_COUNTER_B_TEMP
+                0x000000000000329c       0x34 build/default/production/newmain.o
+                0x000000000000329c                MENU_FUNCT_COUNTER_B_TEMP
+
+.text.THREAD_DONE_CONTROL
+                0x00000000000032d0       0x32
+ .text.THREAD_DONE_CONTROL
+                0x00000000000032d0       0x32 build/default/production/thread.o
+                0x00000000000032d0                THREAD_DONE_CONTROL
+
+.text.WAIT_INTERRUPT
+                0x0000000000003302       0x2e
+ .text.WAIT_INTERRUPT
+                0x0000000000003302       0x2e build/default/production/newmain.o
+                0x0000000000003302                WAIT_INTERRUPT
+
+.text.TASK_UART_1_RX_FUNCT
+                0x0000000000003330       0x2c
+ .text.TASK_UART_1_RX_FUNCT
+                0x0000000000003330       0x2c build/default/production/newmain.o
+                0x0000000000003330                TASK_UART_1_RX_FUNCT
+
+.text.PIN_SET_IO
+                0x000000000000335c       0x2c
+ .text.PIN_SET_IO
+                0x000000000000335c       0x2c build/default/production/ATMEGA_64.o
+                0x000000000000335c                PIN_SET_IO
+
+.text.avrlibc   0x0000000000003388       0x2c
+ .text.avrlibc  0x0000000000003388       0x2c c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(strlen_M.o)
+                0x0000000000003388                strlen
+
+.text.MENU_FUNCT_RELAY_A_MODE
+                0x00000000000033b4       0x28
+ .text.MENU_FUNCT_RELAY_A_MODE
+                0x00000000000033b4       0x28 build/default/production/newmain.o
+                0x00000000000033b4                MENU_FUNCT_RELAY_A_MODE
+
+.text.MENU_FUNCT_RELAY_B_MODE
+                0x00000000000033dc       0x28
+ .text.MENU_FUNCT_RELAY_B_MODE
+                0x00000000000033dc       0x28 build/default/production/newmain.o
+                0x00000000000033dc                MENU_FUNCT_RELAY_B_MODE
+
+.text.MENU_FUNCT_RELAY_BUSY_MODE
+                0x0000000000003404       0x28
+ .text.MENU_FUNCT_RELAY_BUSY_MODE
+                0x0000000000003404       0x28 build/default/production/newmain.o
+                0x0000000000003404                MENU_FUNCT_RELAY_BUSY_MODE
+
+.text.MENU_FUNCT_RELAY_ALARM_MODE
+                0x000000000000342c       0x28
+ .text.MENU_FUNCT_RELAY_ALARM_MODE
+                0x000000000000342c       0x28 build/default/production/newmain.o
+                0x000000000000342c                MENU_FUNCT_RELAY_ALARM_MODE
+
+.text.MENU_FUNCT_RANDOM_A_MODE
+                0x0000000000003454       0x28
+ .text.MENU_FUNCT_RANDOM_A_MODE
+                0x0000000000003454       0x28 build/default/production/newmain.o
+                0x0000000000003454                MENU_FUNCT_RANDOM_A_MODE
+
+.text.MENU_FUNCT_RANDOM_B_MODE
+                0x000000000000347c       0x28
+ .text.MENU_FUNCT_RANDOM_B_MODE
+                0x000000000000347c       0x28 build/default/production/newmain.o
+                0x000000000000347c                MENU_FUNCT_RANDOM_B_MODE
+
+.text.MENU_FUNCT_INPUT_MODE
+                0x00000000000034a4       0x28
+ .text.MENU_FUNCT_INPUT_MODE
+                0x00000000000034a4       0x28 build/default/production/newmain.o
+                0x00000000000034a4                MENU_FUNCT_INPUT_MODE
+
+.text.MENU_FUNCT_EMG_MODE
+                0x00000000000034cc       0x28
+ .text.MENU_FUNCT_EMG_MODE
+                0x00000000000034cc       0x28 build/default/production/newmain.o
+                0x00000000000034cc                MENU_FUNCT_EMG_MODE
+
+.text.MENU_FUNCT_ARM_DROP_MODE
+                0x00000000000034f4       0x28
+ .text.MENU_FUNCT_ARM_DROP_MODE
+                0x00000000000034f4       0x28 build/default/production/newmain.o
+                0x00000000000034f4                MENU_FUNCT_ARM_DROP_MODE
+
+.text.MENU_FUNCT_ARM_MOTOR_MODE
+                0x000000000000351c       0x28
+ .text.MENU_FUNCT_ARM_MOTOR_MODE
+                0x000000000000351c       0x28 build/default/production/newmain.o
+                0x000000000000351c                MENU_FUNCT_ARM_MOTOR_MODE
+
+.text.EEPROM_GET_ALL
+                0x0000000000003544       0x28
+ .text.EEPROM_GET_ALL
+                0x0000000000003544       0x28 build/default/production/newmain.o
+                0x0000000000003544                EEPROM_GET_ALL
 
 .text.EEPROM_SET_ALL
-                0x00000000000036a4       0x10
+                0x000000000000356c       0x28
  .text.EEPROM_SET_ALL
-                0x00000000000036a4       0x10 build/default/production/newmain.o
-                0x00000000000036a4                EEPROM_SET_ALL
+                0x000000000000356c       0x28 build/default/production/newmain.o
+                0x000000000000356c                EEPROM_SET_ALL
+
+.text.libgcc.div
+                0x0000000000003594       0x28
+ .text.libgcc.div
+                0x0000000000003594       0x28 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_udivmodhi4.o)
+                0x0000000000003594                __udivmodhi4
+
+.text.THREAD_CREATE
+                0x00000000000035bc       0x26
+ .text.THREAD_CREATE
+                0x00000000000035bc       0x26 build/default/production/thread.o
+                0x00000000000035bc                THREAD_CREATE
+
+.text.I2C_1_START
+                0x00000000000035e2       0x26
+ .text.I2C_1_START
+                0x00000000000035e2       0x26 build/default/production/ATMEGA_64.o
+                0x00000000000035e2                I2C_1_START
+
+.text.I2C_1_STOP
+                0x0000000000003608       0x26
+ .text.I2C_1_STOP
+                0x0000000000003608       0x26 build/default/production/ATMEGA_64.o
+                0x0000000000003608                I2C_1_STOP
+
+.text.EEPROM_START
+                0x000000000000362e       0x24
+ .text.EEPROM_START
+                0x000000000000362e       0x24 build/default/production/newmain.o
+                0x000000000000362e                EEPROM_START
+
+.text.TASK_CREATE
+                0x0000000000003652       0x24
+ .text.TASK_CREATE
+                0x0000000000003652       0x24 build/default/production/task.o
+                0x0000000000003652                TASK_CREATE
+
+.text.UART_1_BYTE
+                0x0000000000003676       0x24
+ .text.UART_1_BYTE
+                0x0000000000003676       0x24 build/default/production/ATMEGA_64.o
+                0x0000000000003676                UART_1_BYTE
+
+.text.avrlibc.fplib
+                0x000000000000369a       0x22
+ .text.avrlibc.fplib
+                0x000000000000369a       0x22 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_round.o)
+                0x000000000000369a                __fp_round
+
+.text.libgcc.mul
+                0x00000000000036bc       0x1e
+ .text.libgcc.mul
+                0x00000000000036bc       0x1e c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_umulhisi3.o)
+                0x00000000000036bc                __umulhisi3
+
+.text.MENU_FUNCT_RELAY_A_TIME
+                0x00000000000036da       0x1c
+ .text.MENU_FUNCT_RELAY_A_TIME
+                0x00000000000036da       0x1c build/default/production/newmain.o
+                0x00000000000036da                MENU_FUNCT_RELAY_A_TIME
+
+.text.MENU_FUNCT_RELAY_B_TIME
+                0x00000000000036f6       0x1c
+ .text.MENU_FUNCT_RELAY_B_TIME
+                0x00000000000036f6       0x1c build/default/production/newmain.o
+                0x00000000000036f6                MENU_FUNCT_RELAY_B_TIME
+
+.text.MENU_FUNCT_RELAY_BUSY_TIME
+                0x0000000000003712       0x1c
+ .text.MENU_FUNCT_RELAY_BUSY_TIME
+                0x0000000000003712       0x1c build/default/production/newmain.o
+                0x0000000000003712                MENU_FUNCT_RELAY_BUSY_TIME
+
+.text.MENU_FUNCT_RELAY_ALARM_TIME
+                0x000000000000372e       0x1c
+ .text.MENU_FUNCT_RELAY_ALARM_TIME
+                0x000000000000372e       0x1c build/default/production/newmain.o
+                0x000000000000372e                MENU_FUNCT_RELAY_ALARM_TIME
+
+.text.MENU_FUNCT_RANDOM_A_AMOUNT
+                0x000000000000374a       0x1c
+ .text.MENU_FUNCT_RANDOM_A_AMOUNT
+                0x000000000000374a       0x1c build/default/production/newmain.o
+                0x000000000000374a                MENU_FUNCT_RANDOM_A_AMOUNT
+
+.text.MENU_FUNCT_RANDOM_B_AMOUNT
+                0x0000000000003766       0x1c
+ .text.MENU_FUNCT_RANDOM_B_AMOUNT
+                0x0000000000003766       0x1c build/default/production/newmain.o
+                0x0000000000003766                MENU_FUNCT_RANDOM_B_AMOUNT
+
+.text.MENU_FUNCT_INPUT_TIME_OUT
+                0x0000000000003782       0x1c
+ .text.MENU_FUNCT_INPUT_TIME_OUT
+                0x0000000000003782       0x1c build/default/production/newmain.o
+                0x0000000000003782                MENU_FUNCT_INPUT_TIME_OUT
+
+.text.MENU_FUNCT_INPUT_BUFFER
+                0x000000000000379e       0x1c
+ .text.MENU_FUNCT_INPUT_BUFFER
+                0x000000000000379e       0x1c build/default/production/newmain.o
+                0x000000000000379e                MENU_FUNCT_INPUT_BUFFER
+
+.text.MENU_FUNCT_ARM_MOTOR_SPEED
+                0x00000000000037ba       0x1c
+ .text.MENU_FUNCT_ARM_MOTOR_SPEED
+                0x00000000000037ba       0x1c build/default/production/newmain.o
+                0x00000000000037ba                MENU_FUNCT_ARM_MOTOR_SPEED
+
+.text.MENU_FUNCT_ARM_MOTOR_BREAK_SPEED
+                0x00000000000037d6       0x1c
+ .text.MENU_FUNCT_ARM_MOTOR_BREAK_SPEED
+                0x00000000000037d6       0x1c build/default/production/newmain.o
+                0x00000000000037d6                MENU_FUNCT_ARM_MOTOR_BREAK_SPEED
+
+.text.TASK_START
+                0x00000000000037f2       0x1a
+ .text.TASK_START
+                0x00000000000037f2       0x1a build/default/production/task.o
+                0x00000000000037f2                TASK_START
+
+.text.TASK_STOP
+                0x000000000000380c       0x1a
+ .text.TASK_STOP
+                0x000000000000380c       0x1a build/default/production/task.o
+                0x000000000000380c                TASK_STOP
+
+.text.SSH1106_OLED_ClearDisplay
+                0x0000000000003826       0x16
+ .text.SSH1106_OLED_ClearDisplay
+                0x0000000000003826       0x16 build/default/production/ssh1106_oled.o
+                0x0000000000003826                SSH1106_OLED_ClearDisplay
+
+.text.TIMER_1_INTERRUPT
+                0x000000000000383c       0x14
+ .text.TIMER_1_INTERRUPT
+                0x000000000000383c       0x14 build/default/production/ATMEGA_64.o
+                0x000000000000383c                TIMER_1_INTERRUPT
+
+.text.EEPROM_B_WRITE
+                0x0000000000003850       0x14
+ .text.EEPROM_B_WRITE
+                0x0000000000003850       0x14 build/default/production/ATMEGA_64.o
+                0x0000000000003850                EEPROM_B_WRITE
+
+.text.TIMER_3_INTERRUPT_FUNCT
+                0x0000000000003864       0x12
+ .text.TIMER_3_INTERRUPT_FUNCT
+                0x0000000000003864       0x12 build/default/production/ATMEGA_64.o
+                0x0000000000003864                TIMER_3_INTERRUPT_FUNCT
+
+.text.EEPROM_INIT
+                0x0000000000003876       0x12
+ .text.EEPROM_INIT
+                0x0000000000003876       0x12 build/default/production/eeprom.o
+                0x0000000000003876                EEPROM_INIT
 
 .text.TIMER_1_INTERRUPT_FUNCT
-                0x00000000000036b4        0xe
+                0x0000000000003888        0xe
  .text.TIMER_1_INTERRUPT_FUNCT
-                0x00000000000036b4        0xe build/default/production/ATMEGA_64.o
-                0x00000000000036b4                TIMER_1_INTERRUPT_FUNCT
+                0x0000000000003888        0xe build/default/production/ATMEGA_64.o
+                0x0000000000003888                TIMER_1_INTERRUPT_FUNCT
 
 .text.EEPROM_B_READ
-                0x00000000000036c2        0xe
+                0x0000000000003896        0xe
  .text.EEPROM_B_READ
-                0x00000000000036c2        0xe build/default/production/ATMEGA_64.o
-                0x00000000000036c2                EEPROM_B_READ
+                0x0000000000003896        0xe build/default/production/ATMEGA_64.o
+                0x0000000000003896                EEPROM_B_READ
 
 .text.EEPROM_SET
-                0x00000000000036d0        0xe
+                0x00000000000038a4        0xe
  .text.EEPROM_SET
-                0x00000000000036d0        0xe build/default/production/eeprom.o
-                0x00000000000036d0                EEPROM_SET
+                0x00000000000038a4        0xe build/default/production/eeprom.o
+                0x00000000000038a4                EEPROM_SET
 
 .text.EEPROM_GET
-                0x00000000000036de        0xe
+                0x00000000000038b2        0xe
  .text.EEPROM_GET
-                0x00000000000036de        0xe build/default/production/eeprom.o
-                0x00000000000036de                EEPROM_GET
+                0x00000000000038b2        0xe build/default/production/eeprom.o
+                0x00000000000038b2                EEPROM_GET
 
 .text.avrlibc.fplib
-                0x00000000000036ec        0xe
+                0x00000000000038c0        0xe
  .text.avrlibc.fplib
-                0x00000000000036ec        0xe c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(addsf3.o)
-                0x00000000000036ec                __subsf3
-                0x00000000000036ee                __addsf3
+                0x00000000000038c0        0xe c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(addsf3.o)
+                0x00000000000038c0                __subsf3
+                0x00000000000038c2                __addsf3
 
 .text.avrlibc.fplib
-                0x00000000000036fa        0xe
+                0x00000000000038ce        0xe
  .text.avrlibc.fplib
-                0x00000000000036fa        0xe c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscA.o)
-                0x00000000000036fa                __fp_pscA
+                0x00000000000038ce        0xe c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscA.o)
+                0x00000000000038ce                __fp_pscA
 
 .text.avrlibc.fplib
-                0x0000000000003708        0xe
+                0x00000000000038dc        0xe
  .text.avrlibc.fplib
-                0x0000000000003708        0xe c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscB.o)
-                0x0000000000003708                __fp_pscB
+                0x00000000000038dc        0xe c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscB.o)
+                0x00000000000038dc                __fp_pscB
 
 .text.avrlibc.fplib
-                0x0000000000003716        0xe
+                0x00000000000038ea        0xe
  .text.avrlibc.fplib
-                0x0000000000003716        0xe c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_zero.o)
-                0x0000000000003716                __fp_zero
-                0x0000000000003718                __fp_szero
+                0x00000000000038ea        0xe c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_zero.o)
+                0x00000000000038ea                __fp_zero
+                0x00000000000038ec                __fp_szero
 
 .text.THREAD_TIME_DONE
-                0x0000000000003724        0xc
+                0x00000000000038f8        0xc
  .text.THREAD_TIME_DONE
-                0x0000000000003724        0xc build/default/production/thread.o
-                0x0000000000003724                THREAD_TIME_DONE
+                0x00000000000038f8        0xc build/default/production/thread.o
+                0x00000000000038f8                THREAD_TIME_DONE
 
 .text.INTERRUPT_ALL
-                0x0000000000003730        0xc
+                0x0000000000003904        0xc
  .text.INTERRUPT_ALL
-                0x0000000000003730        0xc build/default/production/ATMEGA_64.o
-                0x0000000000003730                INTERRUPT_ALL
+                0x0000000000003904        0xc build/default/production/ATMEGA_64.o
+                0x0000000000003904                INTERRUPT_ALL
 
 .text.avrlibc.fplib
-                0x000000000000373c        0xc
+                0x0000000000003910        0xc
  .text.avrlibc.fplib
-                0x000000000000373c        0xc c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_inf.o)
-                0x000000000000373c                __fp_inf
+                0x0000000000003910        0xc c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_inf.o)
+                0x0000000000003910                __fp_inf
+
+.text.SYSTEM_CONTROL_ALL
+                0x000000000000391c        0xa
+ .text.SYSTEM_CONTROL_ALL
+                0x000000000000391c        0xa build/default/production/newmain.o
+                0x000000000000391c                SYSTEM_CONTROL_ALL
 
 .text.avrlibc.fplib
-                0x0000000000003748        0xa
+                0x0000000000003926        0xa
  .text.avrlibc.fplib
-                0x0000000000003748        0xa c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(cmpsf2.o)
-                0x0000000000003748                __nesf2
-                0x0000000000003748                __eqsf2
-                0x0000000000003748                __cmpsf2
-                0x0000000000003748                __ltsf2
-                0x0000000000003748                __lesf2
+                0x0000000000003926        0xa c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(cmpsf2.o)
+                0x0000000000003926                __nesf2
+                0x0000000000003926                __eqsf2
+                0x0000000000003926                __cmpsf2
+                0x0000000000003926                __ltsf2
+                0x0000000000003926                __lesf2
 
 .text.BUTON_GET_TIME
-                0x0000000000003752        0x8
+                0x0000000000003930        0x8
  .text.BUTON_GET_TIME
-                0x0000000000003752        0x8 build/default/production/buton_debounce.o
-                0x0000000000003752                BUTON_GET_TIME
+                0x0000000000003930        0x8 build/default/production/buton_debounce.o
+                0x0000000000003930                BUTON_GET_TIME
 
 .text.THREAD_TIME_START
-                0x000000000000375a        0x8
+                0x0000000000003938        0x8
  .text.THREAD_TIME_START
-                0x000000000000375a        0x8 build/default/production/thread.o
-                0x000000000000375a                THREAD_TIME_START
+                0x0000000000003938        0x8 build/default/production/thread.o
+                0x0000000000003938                THREAD_TIME_START
 
 .text.I2C_1_INIT
-                0x0000000000003762        0x8
+                0x0000000000003940        0x8
  .text.I2C_1_INIT
-                0x0000000000003762        0x8 build/default/production/ATMEGA_64.o
-                0x0000000000003762                I2C_1_INIT
+                0x0000000000003940        0x8 build/default/production/ATMEGA_64.o
+                0x0000000000003940                I2C_1_INIT
 
 .text.avrlibc.fplib
-                0x000000000000376a        0x8
+                0x0000000000003948        0x8
  .text.avrlibc.fplib
-                0x000000000000376a        0x8 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3.o)
-                0x000000000000376a                __divsf3
+                0x0000000000003948        0x8 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3.o)
+                0x0000000000003948                __divsf3
 
 .text.TASK_UART_0_RX_FUNCT
-                0x0000000000003772        0x6
+                0x0000000000003950        0x6
  .text.TASK_UART_0_RX_FUNCT
-                0x0000000000003772        0x6 build/default/production/newmain.o
-                0x0000000000003772                TASK_UART_0_RX_FUNCT
+                0x0000000000003950        0x6 build/default/production/newmain.o
+                0x0000000000003950                TASK_UART_0_RX_FUNCT
+
+.text.INPUT_THREAD
+                0x0000000000003956        0x6
+ .text.INPUT_THREAD
+                0x0000000000003956        0x6 build/default/production/newmain.o
+                0x0000000000003956                INPUT_THREAD
+
+.text.THREAD_GET_STATE
+                0x000000000000395c        0x6
+ .text.THREAD_GET_STATE
+                0x000000000000395c        0x6 build/default/production/thread.o
+                0x000000000000395c                THREAD_GET_STATE
 
 .text.avrlibc.fplib
-                0x0000000000003778        0x6
+                0x0000000000003962        0x6
  .text.avrlibc.fplib
-                0x0000000000003778        0x6 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_nan.o)
-                0x0000000000003778                __fp_nan
+                0x0000000000003962        0x6 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_nan.o)
+                0x0000000000003962                __fp_nan
 
-.text           0x000000000000377e        0x4
- .text          0x000000000000377e        0x4 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega64.o
-                0x000000000000377e                __vector_22
-                0x000000000000377e                __vector_28
-                0x000000000000377e                __vector_1
-                0x000000000000377e                __vector_34
-                0x000000000000377e                __vector_24
-                0x000000000000377e                __vector_12
-                0x000000000000377e                __bad_interrupt
-                0x000000000000377e                __vector_6
-                0x000000000000377e                __vector_31
-                0x000000000000377e                __vector_3
-                0x000000000000377e                __vector_23
-                0x000000000000377e                __vector_25
-                0x000000000000377e                __vector_11
-                0x000000000000377e                __vector_13
-                0x000000000000377e                __vector_17
-                0x000000000000377e                __vector_19
-                0x000000000000377e                __vector_7
-                0x000000000000377e                __vector_27
-                0x000000000000377e                __vector_5
-                0x000000000000377e                __vector_33
-                0x000000000000377e                __vector_4
-                0x000000000000377e                __vector_9
-                0x000000000000377e                __vector_2
-                0x000000000000377e                __vector_21
-                0x000000000000377e                __vector_15
-                0x000000000000377e                __vector_8
-                0x000000000000377e                __vector_26
-                0x000000000000377e                __vector_10
-                0x000000000000377e                __vector_16
+.text           0x0000000000003968        0x4
+ .text          0x0000000000003968        0x4 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega64.o
+                0x0000000000003968                __vector_22
+                0x0000000000003968                __vector_28
+                0x0000000000003968                __vector_1
+                0x0000000000003968                __vector_32
+                0x0000000000003968                __vector_34
+                0x0000000000003968                __vector_24
+                0x0000000000003968                __vector_12
+                0x0000000000003968                __bad_interrupt
+                0x0000000000003968                __vector_6
+                0x0000000000003968                __vector_31
+                0x0000000000003968                __vector_3
+                0x0000000000003968                __vector_23
+                0x0000000000003968                __vector_25
+                0x0000000000003968                __vector_11
+                0x0000000000003968                __vector_13
+                0x0000000000003968                __vector_17
+                0x0000000000003968                __vector_19
+                0x0000000000003968                __vector_7
+                0x0000000000003968                __vector_27
+                0x0000000000003968                __vector_5
+                0x0000000000003968                __vector_33
+                0x0000000000003968                __vector_4
+                0x0000000000003968                __vector_9
+                0x0000000000003968                __vector_2
+                0x0000000000003968                __vector_21
+                0x0000000000003968                __vector_15
+                0x0000000000003968                __vector_8
+                0x0000000000003968                __vector_26
+                0x0000000000003968                __vector_10
+                0x0000000000003968                __vector_16
+                0x0000000000003968                __vector_20
 
 .data.RELAY_MENU
-                0x0000000000800500       0x50 load address 0x0000000000003782
+                0x0000000000800500       0x50 load address 0x000000000000396c
  .data.RELAY_MENU
                 0x0000000000800500       0x50 build/default/production/newmain.o
                 0x0000000000800500                RELAY_MENU
 
-.data.ANA_MENU  0x0000000000800596       0x32 load address 0x00000000000037d2
+.data.ANA_MENU  0x0000000000800596       0x32 load address 0x00000000000039bc
  .data.ANA_MENU
                 0x0000000000800596       0x32 build/default/production/newmain.o
                 0x0000000000800596                ANA_MENU
 
 .data.ARM_SETTING_MENU
-                0x00000000008005c8       0x32 load address 0x0000000000003804
+                0x00000000008005c8       0x32 load address 0x00000000000039ee
  .data.ARM_SETTING_MENU
                 0x00000000008005c8       0x32 build/default/production/newmain.o
                 0x00000000008005c8                ARM_SETTING_MENU
 
 .data.INPUT_MENU
-                0x000000000080062c       0x28 load address 0x0000000000003836
+                0x000000000080062c       0x28 load address 0x0000000000003a20
  .data.INPUT_MENU
                 0x000000000080062c       0x28 build/default/production/newmain.o
                 0x000000000080062c                INPUT_MENU
 
 .data.RANDOM_MENU
-                0x0000000000800654       0x28 load address 0x000000000000385e
+                0x0000000000800654       0x28 load address 0x0000000000003a48
  .data.RANDOM_MENU
                 0x0000000000800654       0x28 build/default/production/newmain.o
                 0x0000000000800654                RANDOM_MENU
 
 .data.COUNTER_MENU
-                0x000000000080067c       0x28 load address 0x0000000000003886
+                0x000000000080067c       0x28 load address 0x0000000000003a70
  .data.COUNTER_MENU
                 0x000000000080067c       0x28 build/default/production/newmain.o
                 0x000000000080067c                COUNTER_MENU
 
 .data.SELECT_LIST_DROP_ARM_MODE
-                0x00000000008006ea        0xc load address 0x00000000000038ae
+                0x00000000008006ea        0xc load address 0x0000000000003a98
  .data.SELECT_LIST_DROP_ARM_MODE
                 0x00000000008006ea        0xc build/default/production/newmain.o
                 0x00000000008006ea                SELECT_LIST_DROP_ARM_MODE
 
 .data.SELECT_LIST_ARM_MOTOR_MODE
-                0x0000000000800708        0x6 load address 0x00000000000038ba
+                0x0000000000800708        0x6 load address 0x0000000000003aa4
  .data.SELECT_LIST_ARM_MOTOR_MODE
                 0x0000000000800708        0x6 build/default/production/newmain.o
                 0x0000000000800708                SELECT_LIST_ARM_MOTOR_MODE
 
 .data.SELECT_LIST_EMG_MODE
-                0x000000000080070e        0x6 load address 0x00000000000038c0
+                0x000000000080070e        0x6 load address 0x0000000000003aaa
  .data.SELECT_LIST_EMG_MODE
                 0x000000000080070e        0x6 build/default/production/newmain.o
                 0x000000000080070e                SELECT_LIST_EMG_MODE
 
 .data.SELECT_LIST_INPUT_MODE
-                0x0000000000800714        0x6 load address 0x00000000000038c6
+                0x0000000000800714        0x6 load address 0x0000000000003ab0
  .data.SELECT_LIST_INPUT_MODE
                 0x0000000000800714        0x6 build/default/production/newmain.o
                 0x0000000000800714                SELECT_LIST_INPUT_MODE
 
 .data.SELECT_LIST_RANDOM_MODE
-                0x000000000080071a        0x6 load address 0x00000000000038cc
+                0x000000000080071a        0x6 load address 0x0000000000003ab6
  .data.SELECT_LIST_RANDOM_MODE
                 0x000000000080071a        0x6 build/default/production/newmain.o
                 0x000000000080071a                SELECT_LIST_RANDOM_MODE
 
 .data.SELECT_LIST_RELAY_MODE
-                0x0000000000800720        0x6 load address 0x00000000000038d2
+                0x0000000000800720        0x6 load address 0x0000000000003abc
  .data.SELECT_LIST_RELAY_MODE
                 0x0000000000800720        0x6 build/default/production/newmain.o
                 0x0000000000800720                SELECT_LIST_RELAY_MODE
 
 .data.INPUT_MENU_UST_YAZI
-                0x000000000080073b        0x3 load address 0x00000000000038d8
+                0x000000000080073b        0x3 load address 0x0000000000003ac2
  .data.INPUT_MENU_UST_YAZI
                 0x000000000080073b        0x3 build/default/production/newmain.o
                 0x000000000080073b                INPUT_MENU_UST_YAZI
 
 .data.RANDOM_MENU_UST_YAZI
-                0x000000000080073e        0x3 load address 0x00000000000038db
+                0x000000000080073e        0x3 load address 0x0000000000003ac5
  .data.RANDOM_MENU_UST_YAZI
                 0x000000000080073e        0x3 build/default/production/newmain.o
                 0x000000000080073e                RANDOM_MENU_UST_YAZI
 
 .data.COUNTER_MENU_UST_YAZI
-                0x0000000000800741        0x3 load address 0x00000000000038de
+                0x0000000000800741        0x3 load address 0x0000000000003ac8
  .data.COUNTER_MENU_UST_YAZI
                 0x0000000000800741        0x3 build/default/production/newmain.o
                 0x0000000000800741                COUNTER_MENU_UST_YAZI
 
 .data.ARM_MENU_UST_YAZI
-                0x0000000000800744        0x3 load address 0x00000000000038e1
+                0x0000000000800744        0x3 load address 0x0000000000003acb
  .data.ARM_MENU_UST_YAZI
                 0x0000000000800744        0x3 build/default/production/newmain.o
                 0x0000000000800744                ARM_MENU_UST_YAZI
 
 .data.RELAY_MENU_UST_YAZI
-                0x0000000000800747        0x3 load address 0x00000000000038e4
+                0x0000000000800747        0x3 load address 0x0000000000003ace
  .data.RELAY_MENU_UST_YAZI
                 0x0000000000800747        0x3 build/default/production/newmain.o
                 0x0000000000800747                RELAY_MENU_UST_YAZI
 
 .data.ANA_MENU_UST_YAZI
-                0x000000000080074a        0x3 load address 0x00000000000038e7
+                0x000000000080074a        0x3 load address 0x0000000000003ad1
  .data.ANA_MENU_UST_YAZI
                 0x000000000080074a        0x3 build/default/production/newmain.o
                 0x000000000080074a                ANA_MENU_UST_YAZI
 
 .data.COUNTER_ASK_ERASE
-                0x000000000080074d        0x3 load address 0x00000000000038ea
+                0x000000000080074d        0x3 load address 0x0000000000003ad4
  .data.COUNTER_ASK_ERASE
                 0x000000000080074d        0x3 build/default/production/newmain.o
                 0x000000000080074d                COUNTER_ASK_ERASE
 
 .data.COUNTER_CANT_ERASE
-                0x0000000000800750        0x3 load address 0x00000000000038ed
+                0x0000000000800750        0x3 load address 0x0000000000003ad7
  .data.COUNTER_CANT_ERASE
                 0x0000000000800750        0x3 build/default/production/newmain.o
                 0x0000000000800750                COUNTER_CANT_ERASE

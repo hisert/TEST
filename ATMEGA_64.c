@@ -190,6 +190,8 @@ void UART_0_INTERRUPT(byte openOrClose)
 
 void UART_0_INIT(unsigned long baudrate)
   {
+  baudrate = baudrate / 2;
+  UCSR0A |= (1 << U2X);
   UCSR0B |= (1 << RXEN0) | (1 << TXEN0) | (1 << RXCIE0) | (0 << TXCIE0);
   UCSR0C |= (1 << UCSZ00) | (1 << UCSZ01);
   baudrate = (((CRYSTAL_FREKANS / (baudrate * 16UL))) - 1);
@@ -246,11 +248,14 @@ void UART_1_INTERRUPT(byte openOrClose)
 
 void UART_1_INIT(unsigned long baudrate)
   {
+  baudrate = baudrate / 2;
+  UCSR1A |= (1 << U2X);
   UCSR1B |= (1 << RXEN1) | (1 << TXEN1) | (1 << RXCIE1) | (0 << TXCIE1);
   UCSR1C |= (1 << UCSZ00) | (1 << UCSZ01);
   baudrate = (((CRYSTAL_FREKANS / (baudrate * 16UL))) - 1);
   UBRR1L = baudrate;
   UBRR1H = (baudrate >> 8);
+
   }
 
 void UART_1_BYTE(char data)
@@ -324,10 +329,10 @@ word ADC_READ(byte channel)
 // <editor-fold defaultstate="collapsed" desc="I2C">
 #define I2C_DELAY 35
 
-void I2C_1_INIT()
+void I2C_1_INIT(dword freq)
   {
-#define BITRATE(TWSR)	((CRYSTAL_FREKANS/500000)-16)/(2*pow(4,(TWSR&((1<<TWPS0)|(1<<TWPS1)))))
-  TWBR = 3;
+#define BITRATE(TWSR)	((CRYSTAL_FREKANS/freq)-16)/(2*pow(4,(TWSR&((1<<TWPS0)|(1<<TWPS1)))))
+  TWBR = 6;
   }
 
 byte I2C_1_READ_ACK()
