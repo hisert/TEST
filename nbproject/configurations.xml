@@ -47,6 +47,8 @@
       <itemPath>ATMEGA_88.h</itemPath>
       <itemPath>ATMEGA_8.c</itemPath>
       <itemPath>ATMEGA_8.h</itemPath>
+      <itemPath>time_out.c</itemPath>
+      <itemPath>time_out.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
