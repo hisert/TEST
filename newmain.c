@@ -16,6 +16,62 @@
 #include "AS5600_MAS.h"
 #include "ws2812b.h"
 
+// <editor-fold defaultstate="collapsed" desc="VARIABLES ">
+char UART_1_MSG[20];
+char UART_0_MSG[20];
+// </editor-fold>
+// <editor-fold defaultstate="collapsed" desc="EEPROM FUNCT ">
+
+typedef enum
+  {
+  MAGIC_BYTES,
+  ROLE_A_MODE,
+  ROLE_B_MODE,
+  ROLE_BUSY_MODE,
+  ROLE_ALARM_MODE,
+  ROLE_A_TIME,
+  ROLE_B_TIME,
+  ROLE_BUSY_TIME,
+  ROLE_ALARM_TIME,
+  COUNTER_A_FIX,
+  COUNTER_B_FIX,
+  COUNTER_A_TEMP,
+  COUNTER_B_TEMP,
+  RANDOM_A_MODE,
+  RANDOM_B_MODE,
+  RANDOM_A_AMOUNT,
+  RANDOM_B_AMOUNT,
+  INPUT_MODE,
+  INPUT_TIME_OUT,
+  INPUT_BUFFER,
+  INPUT_EMG_MODE,
+  ARM_DROP_MODE,
+  ARM_MOTOR_MODE,
+  ARM_MOTOR_SPEED,
+  ARM_MOTOR_BREAK_SPEED,
+  SETTINGS_DONE,
+  } SETTINGS;
+
+word SETTING_VALUES[SETTINGS_DONE];
+
+void EEPROM_GET_ALL()
+  {
+  for (byte x = 0; x < SETTINGS_DONE; x++) SETTING_VALUES[x] = EEPROM_GET(x);
+  }
+
+void EEPROM_SET_ALL()
+  {
+  EEPROM_SET(MAGIC_BYTES, 0xAABB);
+  }
+
+void EEPROM_START()
+  {
+  EEPROM_INIT(EEPROM_B_WRITE, EEPROM_B_READ);
+  if (EEPROM_GET(MAGIC_BYTES != 0xAABB))EEPROM_SET_ALL();
+  EEPROM_GET_ALL();
+  }
+
+// </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="MENU ">
 // <editor-fold defaultstate="collapsed" desc="LIBRARY VARIABLES">
 void (*MENU_CLEAR)(void);
@@ -51,37 +107,6 @@ void MENU_ANA_INIT(Menu_One *MENU_ANA_MENU_ANA_t);
 void MENU_PROCESS();
 void MENU_BUTON_ADD(char process);
 // </editor-fold>
-
-typedef enum
-  {
-  ROLE_A_MODE,
-  ROLE_B_MODE,
-  ROLE_BUSY_MODE,
-  ROLE_ALARM_MODE,
-  ROLE_A_TIME,
-  ROLE_B_TIME,
-  ROLE_BUSY_TIME,
-  ROLE_ALARM_TIME,
-  COUNTER_A_FIX,
-  COUNTER_B_FIX,
-  COUNTER_A_TEMP,
-  COUNTER_B_TEMP,
-  RANDOM_A_MODE,
-  RANDOM_B_MODE,
-  RANDOM_A_AMOUNT,
-  RANDOM_B_AMOUNT,
-  INPUT_MODE,
-  INPUT_TIME_OUT,
-  INPUT_BUFFER,
-  INPUT_EMG_MODE,
-  ARM_DROP_MODE,
-  ARM_MOTOR_MODE,
-  ARM_MOTOR_SPEED,
-  ARM_MOTOR_BREAK_SPEED,
-  SETTINGS_DONE,
-  } SETTINGS;
-
-word SETTING_VALUES[SETTINGS_DONE];
 
 // <editor-fold defaultstate="collapsed" desc="RELAY SETTING FUNCT">
 const char *SELECT_LIST_RELAY_MODE[] = {"MODE N/O", "MODE N/C"};
@@ -795,7 +820,15 @@ void MENU_BUTON_READ()
     if (temp == BUTON_PRESSED) if (BUTON_GET_TIME(&MENU_DOWN) < 499) MENU_BUTON_ADD('D');
     }
   }
+
 // </editor-fold>
+// <editor-fold defaultstate="collapsed" desc="THREAD FUNCT">
+
+typedef enum
+  {
+  THREAD_LED_CANLI,
+  THREAD_DONE,
+  } THREADS_tt;
 
 void LED_THREAD(byte threadIndex)
   {
@@ -805,24 +838,84 @@ void LED_THREAD(byte threadIndex)
   //if (THREAD_TIME_WAIT(&timer, 5)) if (THREAD_GET_STATE() == THREAD_FUNCT_FIRST) PIN_SET_LAT_TOGGLE('D', 3);
   if (THREAD_TIME_DONE(&timer)) THREAD_DONE_CONTROL(threadIndex);
   MENU_BUTON_READ();
-
   }
+
+// </editor-fold>
+// <editor-fold defaultstate="collapsed" desc="TASK FUNCT">
+
+typedef enum
+  {
+  TASK_UART_0_RX,
+  TASK_UART_1_RX,
+  TASK_DONE,
+  } TASK_tt;
+
+void TASK_UART_1_RX_FUNCT(byte taskIndex)
+  {
+  PIN_SET_LAT('C', 6, 'H');
+  UART_1_STRING(UART_1_MSG);
+  PIN_SET_LAT('C', 6, 'L');
+  TASK_STOP(taskIndex);
+  }
+
+void TASK_UART_0_RX_FUNCT(byte taskIndex)
+  {
+  TASK_STOP(taskIndex);
+  }
+
+// </editor-fold>
+// <editor-fold defaultstate="collapsed" desc="UART INTERRUPT FUNCT">
+
+void UART_1_INTERRUPT_FUNCT(byte data)
+  {
+  static byte counter = 0;
+  byte x = data;
+  if (x == '<') counter = 0;
+  else if (x == '>')
+    {
+    UART_1_MSG[counter] = 0;
+    TASK_START(TASK_UART_1_RX);
+    }
+  if (counter < 20) UART_1_MSG[counter++] = x;
+  }
+
+void UART_0_INTERRUPT_FUNCT(byte data)
+  {
+  static byte counter = 0;
+  byte x = data;
+  if (x == '<') counter = 0;
+  else if (x == '>')
+    {
+    UART_0_MSG[counter] = 0;
+    TASK_START(TASK_UART_0_RX);
+    }
+  if (counter < 20) UART_0_MSG[counter++] = x;
+  }
+// </editor-fold>
+// <editor-fold defaultstate="collapsed" desc="PROJE FUNCT">
+
+
+// </editor-fold>
 
 int main(void)
   {
   PIN_SET_IO('D', 'I', 'B', 5, 'H');
   PIN_SET_IO('D', 'I', 'B', 6, 'H');
   PIN_SET_IO('D', 'I', 'B', 7, 'H');
-  THREAD_CREATE(0, THREAD_FLG_START | THREAD_FLG_LOOP, 1, LED_THREAD);
+  PIN_SET_IO('D', 'O', 'C', 6, 'L'); //RS485
+
   TIMER_1_INIT(1);
   INTERRUPT_ALL(1);
+  UART_1_INIT(19200);
   I2C_1_INIT();
   SSH1106_OLED_INIT(I2C_1_START, I2C_1_WRITE, I2C_1_STOP);
   MENU_INIT(SSH1106_OLED_ClearDisplay, SSH1106_OLED_Update, SSH1106_OLED_Write_Text, SSH1106_OLED_Write_Dec);
   MENU_ANA_INIT(ANA_MENU);
+  EEPROM_START();
 
-  //UART_0_STRING("HELLO");
-  // EEPROM_INIT(EEPROM_B_WRITE, EEPROM_B_READ);
+  THREAD_CREATE(THREAD_LED_CANLI, THREAD_FLG_START | THREAD_FLG_LOOP, 1, LED_THREAD);
+  TASK_CREATE(TASK_UART_0_RX, 0, TASK_UART_0_RX_FUNCT);
+  TASK_CREATE(TASK_UART_1_RX, 0, TASK_UART_1_RX_FUNCT);
   while (1)
     {
     THREAD_MAIN();
@@ -850,16 +943,12 @@ ISR(USART0_TX_vect)
 
 ISR(USART0_RX_vect)
   {
-  byte x = UDR0;
+  UART_0_INTERRUPT_FUNCT(UDR0);
   }
 
 ISR(USART1_RX_vect)
   {
-  byte x = UDR1;
-  if (x == '*') MENU_BUTON_ADD('O');
-  if (x == '-') MENU_BUTON_ADD('U');
-  if (x == '+') MENU_BUTON_ADD('D');
-  if (x == '/') MENU_BUTON_ADD('B');
+  UART_1_INTERRUPT_FUNCT(UDR1);
   }
 
 ISR(USART1_TX_vect)

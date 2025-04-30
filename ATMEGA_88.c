@@ -194,6 +194,8 @@ void UART_0_BYTE(char data)
   {
   while (!(UCSR0A & (1 << UDRE0))); /* Wait for empty transmit buffer*/
   UDR0 = data;
+  while (!(UCSR0A & (1 << TXC0))); // Tüm veri gönderildi mi?
+  UCSR0A |= (1 << TXC0); // TXC0 bayra??n? temizle
   }
 
 void UART_0_STRING(const char* text)

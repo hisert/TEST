@@ -201,6 +201,8 @@ void UART_0_BYTE(char data)
   {
   while (!(UCSR0A & (1 << UDRE0))); /* Wait for empty transmit buffer*/
   UDR0 = data;
+  while (!(UCSR0A & (1 << TXC0)));
+  UCSR0A |= (1 << TXC0);
   }
 
 void UART_0_STRING(const char* text)
@@ -253,8 +255,10 @@ void UART_1_INIT(unsigned long baudrate)
 
 void UART_1_BYTE(char data)
   {
-  while (!(UCSR1A & (1 << UDRE1))); /* Wait for empty transmit buffer*/
+  while (!(UCSR1A & (1 << UDRE1)));
   UDR1 = data;
+  while (!(UCSR1A & (1 << TXC1)));
+  UCSR1A |= (1 << TXC1);
   }
 
 void UART_1_STRING(const char* text)
