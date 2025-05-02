@@ -23,15 +23,17 @@ char UART_0_MSG[20];
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="SYSTEM FUNCT   ">
 
+byte WAIT_WHILE(word ms)
+  {
+  static TIME_OUT_t time_out;
+  SYSTEM_CONTROL_ALL();
+  return TIME_OUT_CHECK(&time_out, ms);
+  }
+
 void WAIT_INTERRUPT(word ms)
   {
-  TIME_OUT_t time_out;
-  TIME_OUT_CLEAR(&time_out);
-  while (1)
-    {
-    if (TIME_OUT_CHECK(&time_out, ms)) break;
-    else SYSTEM_CONTROL_ALL();
-    }
+  WAIT_WHILE(0);
+  while (WAIT_WHILE(ms) == 0);
   }
 
 // </editor-fold>
@@ -223,9 +225,6 @@ Menu_One RELAY_MENU[] = {
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="SYSTEM COUNTER FUNCT">
 
-const char *COUNTER_CANT_ERASE = "CANT ERASE";
-const char *COUNTER_ASK_ERASE = "ERASE DATA ?";
-
 word MENU_FUNCT_COUNTER_A_FIX(byte komut, word data)
   {
   if (komut)
@@ -235,7 +234,7 @@ word MENU_FUNCT_COUNTER_A_FIX(byte komut, word data)
     }
   else
     {
-    SHOW_DATA_TEXT = COUNTER_CANT_ERASE;
+    SHOW_DATA_TEXT = "CANT ERASE";
     return SETTING_VALUES[COUNTER_A_FIX];
     }
   }
@@ -249,7 +248,7 @@ word MENU_FUNCT_COUNTER_B_FIX(byte komut, word data)
     }
   else
     {
-    SHOW_DATA_TEXT = COUNTER_CANT_ERASE;
+    SHOW_DATA_TEXT = "CANT ERASE";
     return SETTING_VALUES[COUNTER_B_FIX];
     }
   }
@@ -263,7 +262,7 @@ word MENU_FUNCT_COUNTER_A_TEMP(byte komut, word data)
     }
   else
     {
-    SHOW_DATA_TEXT = COUNTER_ASK_ERASE;
+    SHOW_DATA_TEXT = "ERASE DATA ?";
     return SETTING_VALUES[COUNTER_A_TEMP];
     }
   }
@@ -277,7 +276,7 @@ word MENU_FUNCT_COUNTER_B_TEMP(byte komut, word data)
     }
   else
     {
-    SHOW_DATA_TEXT = COUNTER_ASK_ERASE;
+    SHOW_DATA_TEXT = "ERASE DATA ?";
     return SETTING_VALUES[COUNTER_B_TEMP];
     }
   }
@@ -477,12 +476,21 @@ word MENU_FUNCT_ARM_MOTOR_BREAK_SPEED(byte komut, word data)
     }
   }
 
+word MENU_FUNCT_ARM_MAS12(byte komut, word data)
+  {
+  if (komut == 0) MENU_BUTON_ADD('R');
+  static dword x = 0;
+  MENU_FUNCT_CLEAR();
+  MENU_FUNCT_WRITE_DEC(0, 0, x++);
+  MENU_FUNCT_UPDATE();
+  return 0;
+  }
 Menu_One ARM_SETTING_MENU[] = {
   {.text = "DROP ARM MODE", .flag = MENU_FLAG_SELECT, .Funct = MENU_FUNCT_ARM_DROP_MODE, .max = 3},
   {.text = "MOTOR MODE", .flag = MENU_FLAG_SELECT, .Funct = MENU_FUNCT_ARM_MOTOR_MODE, .max = 3},
   {.text = "MOTOR SPEED", .flag = MENU_FLAG_VALUE, .Funct = MENU_FUNCT_ARM_MOTOR_SPEED, .max = 100, .min = 0},
   {.text = "MOTOR BREAK SPEED", .flag = MENU_FLAG_VALUE, .Funct = MENU_FUNCT_ARM_MOTOR_BREAK_SPEED, .max = 100, .min = 0},
-  {.text = "MAS12 STATUS", .flag = MENU_FLAG_REFRESH_DATA, .Funct = 0, .max = 0, .min = 0},
+  {.text = "MAS12 STATUS", .flag = MENU_FLAG_REFRESH_DATA, .Funct = MENU_FUNCT_ARM_MAS12, .max = 0, .min = 0},
   };
 // </editor-fold>
 
@@ -525,23 +533,23 @@ void MENU_BUTON_READ()
   static Buton_t MENU_UP;
   byte temp = 0;
 
-  temp = BUTON_PROCESS(&MENU_UP, PIN_GET_PORT('B', 5), 10, 3);
+  temp = BUTON_PROCESS(&MENU_UP, PIN_GET_PORT('B', 5), 2, 1);
   if (temp)
     {
-    if (temp == BUTON_PRESSING)if (BUTON_GET_TIME(&MENU_UP) > 500) if ((BUTON_GET_TIME(&MENU_UP) % 5) == 0) MENU_BUTON_ADD('U');
-    if (temp == BUTON_PRESSED) if (BUTON_GET_TIME(&MENU_UP) < 499) MENU_BUTON_ADD('U');
+    if (temp == BUTON_PRESSING) if (BUTON_GET_TIME(&MENU_UP) > 25) if ((BUTON_GET_TIME(&MENU_UP) % 1) == 0) MENU_BUTON_ADD('U');
+    if (temp == BUTON_PRESSED) if (BUTON_GET_TIME(&MENU_UP) < 20) MENU_BUTON_ADD('U');
     }
-  temp = BUTON_PROCESS(&MENU_OK, PIN_GET_PORT('B', 6), 10, 3);
+  temp = BUTON_PROCESS(&MENU_OK, PIN_GET_PORT('B', 6), 2, 1);
   if (temp)
     {
-    if (temp == BUTON_PRESSING) if (BUTON_GET_TIME(&MENU_OK) == 500) MENU_BUTON_ADD('B');
-    if (temp == BUTON_PRESSED)if (BUTON_GET_TIME(&MENU_OK) < 499) MENU_BUTON_ADD('O');
+    if (temp == BUTON_PRESSING) if (BUTON_GET_TIME(&MENU_OK) == 25) MENU_BUTON_ADD('B');
+    if (temp == BUTON_PRESSED) if (BUTON_GET_TIME(&MENU_OK) < 20) MENU_BUTON_ADD('O');
     }
-  temp = BUTON_PROCESS(&MENU_DOWN, PIN_GET_PORT('B', 7), 10, 3);
+  temp = BUTON_PROCESS(&MENU_DOWN, PIN_GET_PORT('B', 7), 2, 1);
   if (temp)
     {
-    if (temp == BUTON_PRESSING)if (BUTON_GET_TIME(&MENU_DOWN) > 500) if ((BUTON_GET_TIME(&MENU_DOWN) % 5) == 0) MENU_BUTON_ADD('D');
-    if (temp == BUTON_PRESSED) if (BUTON_GET_TIME(&MENU_DOWN) < 499) MENU_BUTON_ADD('D');
+    if (temp == BUTON_PRESSING) if (BUTON_GET_TIME(&MENU_DOWN) > 25) if ((BUTON_GET_TIME(&MENU_DOWN) % 1) == 0) MENU_BUTON_ADD('D');
+    if (temp == BUTON_PRESSED) if (BUTON_GET_TIME(&MENU_DOWN) < 20) MENU_BUTON_ADD('D');
     }
   }
 
@@ -577,6 +585,7 @@ typedef enum
   {
   TASK_UART_0_RX,
   TASK_UART_1_RX,
+  TASK_MENU_PROCESS,
   TASK_DONE,
   } TASK_tt;
 
@@ -591,6 +600,11 @@ void TASK_UART_1_RX_FUNCT(byte taskIndex)
 void TASK_UART_0_RX_FUNCT(byte taskIndex)
   {
   TASK_STOP(taskIndex);
+  }
+
+void TASK_MENU_PROCESS_FUNCT(byte taskIndex)
+  {
+  MENU_PROCESS();
   }
 
 // </editor-fold>
@@ -636,17 +650,20 @@ void SYSTEM_CONTROL_ALL()
 
 // </editor-fold>
 
+byte PROGRAM_MODE_1(byte flag);
+byte PROGRAM_MODE_2(byte flag);
+
 int main(void)
   {
   PIN_SET_IO('D', 'I', 'B', 5, 'H');
   PIN_SET_IO('D', 'I', 'B', 6, 'H');
   PIN_SET_IO('D', 'I', 'B', 7, 'H');
-  PIN_SET_IO('D', 'O', 'C', 6, 'L'); //RS485
+  PIN_SET_IO('D', 'O', 'C', 6, 'H'); //RS485
   PIN_SET_IO('D', 'O', 'B', 4, 'L'); //CANLI
 
   EEPROM_START();
   TIMER_1_INIT(1);
-  UART_1_INIT(250000);
+  UART_1_INIT(19200);
 
   // SOFT_I2C_INIT(&DDRD, &PORTD, &PIND, 1, &DDRD, &PORTD, &PIND, 0);
   // SSH1106_OLED_INIT(SOFT_I2C_START, SOFT_I2C_WRITE, SOFT_I2C_STOP);
@@ -657,18 +674,58 @@ int main(void)
   MENU_INIT(SSH1106_OLED_ClearDisplay, SSH1106_OLED_Update, SSH1106_OLED_Write_Text, SSH1106_OLED_Write_Dec);
   MENU_ANA_INIT(ANA_MENU);
 
-  THREAD_CREATE(THREAD_LED_CANLI, THREAD_FLG_START | THREAD_FLG_LOOP, 10, LED_THREAD);
-  THREAD_CREATE(THREAD_INPUT, THREAD_FLG_START | THREAD_FLG_LOOP, 1, INPUT_THREAD);
+  THREAD_CREATE(THREAD_LED_CANLI, THREAD_FLG_START | THREAD_FLG_LOOP | THREAD_FLG_WORK_ON_BACK_PROCESS, 10, LED_THREAD);
+  THREAD_CREATE(THREAD_INPUT, THREAD_FLG_START | THREAD_FLG_LOOP | THREAD_FLG_WORK_ON_BACK_PROCESS, 20, INPUT_THREAD);
+
   TASK_CREATE(TASK_UART_0_RX, 0, TASK_UART_0_RX_FUNCT);
   TASK_CREATE(TASK_UART_1_RX, 0, TASK_UART_1_RX_FUNCT);
+  TASK_CREATE(TASK_MENU_PROCESS, THREAD_FLG_START, TASK_MENU_PROCESS_FUNCT);
   INTERRUPT_ALL(1);
+  WAIT_INTERRUPT(1000);
   while (1)
     {
     SYSTEM_CONTROL_ALL();
-    MENU_PROCESS();
+    TIME_OUT_FUNCT(1002, PROGRAM_MODE_1);
+    TIME_OUT_FUNCT(1002, PROGRAM_MODE_2);
     }
   }
 
+byte PROGRAM_MODE_1(byte flag)
+  {
+  static TIME_OUT_t time_out_1;
+  if (flag) TIME_OUT_CHECK(&time_out_1, 0);
+  if (TIME_OUT_CHECK(&time_out_1, 100))
+    {
+    UART_1_STRING("HELLO1");
+    }
+
+  static TIME_OUT_t time_out_2;
+  if (flag) TIME_OUT_CHECK(&time_out_2, 0);
+  if (TIME_OUT_CHECK(&time_out_2, 200))
+    {
+    UART_1_STRING("WORLD1");
+    return 1;
+    }
+  return 0;
+  }
+
+byte PROGRAM_MODE_2(byte flag)
+  {
+  static TIME_OUT_t time_out_1;
+  if (flag) TIME_OUT_CHECK(&time_out_1, 0);
+  if (TIME_OUT_CHECK(&time_out_1, 100))
+    {
+    UART_1_STRING("HELLO2");
+    }
+
+  static TIME_OUT_t time_out_2;
+  if (flag) TIME_OUT_CHECK(&time_out_2, 0);
+  if (TIME_OUT_CHECK(&time_out_2, 200))
+    {
+    UART_1_STRING("WORLD2");
+    }
+  return 0;
+  }
 // <editor-fold defaultstate="collapsed" desc="INTERRUPT FUNCT">
 
 #ifdef ATMEGA_64

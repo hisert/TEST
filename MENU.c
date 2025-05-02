@@ -26,6 +26,7 @@ void MENU_BUTON_ADD(char process)
   if (process == 'O') MENU_BUTON_STATUS = MENU_BUTON_STATUS | PRESSED_OK;
   if (process == 'D') MENU_BUTON_STATUS = MENU_BUTON_STATUS | PRESSED_DOWN;
   if (process == 'B') MENU_BUTON_STATUS = MENU_BUTON_STATUS | PRESSED_BACK;
+  if (process == 'R') MENU_BUTON_STATUS = MENU_BUTON_STATUS | PRESSED_REFRESH;
   }
 
 // <editor-fold defaultstate="collapsed" desc="LIBRARY FUNCT">
@@ -183,18 +184,15 @@ void MENU_WORK(char MENU_MOVEMENT)
       }
     if (MENU_MOVEMENT == 'B')
       {
-      if (MENU_MOVEMENT == 'B')
+      if (VAL_CHANGE_FLAG == 1) VAL_CHANGE_FLAG = 0;
+      else
         {
-        if (VAL_CHANGE_FLAG == 1) VAL_CHANGE_FLAG = 0;
-        else
+        if (MENU_MENU_COUNTER == 0)
           {
-          if (MENU_MENU_COUNTER == 0)
-            {
-            MENU_SHOW_FLAG = 0;
-            temp = 2;
-            }
-          else MENU_CIK();
+          MENU_SHOW_FLAG = 0;
+          temp = 2;
           }
+        else MENU_CIK();
         }
       }
     if (MENU_MOVEMENT == 'O')
@@ -217,7 +215,7 @@ void MENU_WORK(char MENU_MOVEMENT)
           VAL_CHANGE_FLAG = 0;
           }
         }
-      else if ((MENU_POINTER[MENU_INDEX_COUNTER].flag & MENU_FLAG_VALUE) || (MENU_POINTER[MENU_INDEX_COUNTER].flag & MENU_FLAG_SELECT))
+      else if ((MENU_POINTER[MENU_INDEX_COUNTER].flag & MENU_FLAG_VALUE) || (MENU_POINTER[MENU_INDEX_COUNTER].flag & MENU_FLAG_SELECT) || (MENU_POINTER[MENU_INDEX_COUNTER].flag & MENU_FLAG_REFRESH_DATA))
         {
         if (VAL_CHANGE_FLAG == 0)
           {
@@ -230,14 +228,21 @@ void MENU_WORK(char MENU_MOVEMENT)
           if (MENU_POINTER[MENU_INDEX_COUNTER].Funct != 0)
             {
             MENU_POINTER[MENU_INDEX_COUNTER].Funct(1, MENU_TEMP_VAL);
-            MENU_TEXT_SAVED();
+            if ((MENU_POINTER[MENU_INDEX_COUNTER].flag & MENU_FLAG_REFRESH_DATA) == 0) MENU_TEXT_SAVED();
             WAIT_INTERRUPT(500);
             }
           VAL_CHANGE_FLAG = 0;
           }
         }
       }
-
+    if (MENU_MOVEMENT == 'R')
+      {
+      if (VAL_CHANGE_FLAG)
+        {
+        MENU_TEMP_VAL = MENU_POINTER[MENU_INDEX_COUNTER].Funct(0, 9999);
+        return;
+        }
+      }
     }
   if (temp == 1) MENU_SHOW_FLAG = 1;
   if (temp == 2)
@@ -297,7 +302,32 @@ void MENU_PROCESS()
       MENU_BUTON_STATUS = MENU_BUTON_STATUS & ~PRESSED_BACK;
       MENU_WORK('B');
       }
+    if (MENU_BUTON_STATUS & PRESSED_REFRESH)
+      {
+      MENU_BUTON_STATUS = MENU_BUTON_STATUS & ~PRESSED_REFRESH;
+      MENU_WORK('R');
+      }
     }
+  }
+
+void MENU_FUNCT_CLEAR()
+  {
+  MENU_CLEAR();
+  }
+
+void MENU_FUNCT_UPDATE()
+  {
+  MENU_UPDATE();
+  }
+
+void(MENU_FUNCT_WRITE_DEC) (word x, word y, dword data)
+  {
+  MENU_WRITE_DEC(x, y, data);
+  }
+
+void(MENU_FUNCT_WRITE_TEXT) (word x, word y, const char *text)
+  {
+  MENU_WRITE_TEXT(x, y, text);
   }
 
 // </editor-fold>

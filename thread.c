@@ -17,7 +17,8 @@ void THREAD_INTERRUPT()
         if ((THREAD_LIST[threadIndex].duty_temp_time) > 1) (THREAD_LIST[threadIndex].duty_temp_time)--;
         else
           {
-          THREAD_LIST[threadIndex].flag = THREAD_LIST[threadIndex].flag | THREAD_FLG_READY;
+          if (THREAD_LIST[threadIndex].flag & THREAD_FLG_WORK_ON_BACK_PROCESS) THREAD_LIST[threadIndex].Funct(threadIndex);
+          else THREAD_LIST[threadIndex].flag = THREAD_LIST[threadIndex].flag | THREAD_FLG_READY;
           THREAD_LIST[threadIndex].duty_temp_time = THREAD_LIST[threadIndex].duty_time;
           }
         }

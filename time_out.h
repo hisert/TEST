@@ -8,14 +8,14 @@ extern "C" {
 #endif
 
     typedef struct {
-        volatile dword time_out_time;
+        word time_out_time;
     } TIME_OUT_t;
 
 
 
     void TIME_OUT_COUNT_INTERRUPT();
     byte TIME_OUT_CHECK(TIME_OUT_t *timeout, word outTime);
-    byte TIME_OUT_CLEAR(TIME_OUT_t *timeout);
+    byte TIME_OUT_FUNCT(word ms, byte(Funct) (byte flag));
 
 #ifdef	__cplusplus
 }

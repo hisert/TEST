@@ -27,6 +27,8 @@ extern "C" {
 #define PRESSED_UP 0x02
 #define PRESSED_DOWN 0x04
 #define PRESSED_BACK 0x08
+#define PRESSED_REFRESH 0x10
+
 
     // <editor-fold defaultstate="collapsed" desc="LIBRARY FUNCT DEFINE">
 
@@ -42,6 +44,11 @@ extern "C" {
     void MENU_PROCESS();
     void MENU_BUTON_ADD(char process);
     void MENU_TEXT_ORTALA(const char* input, char* output, byte maxLen);
+
+    void MENU_FUNCT_CLEAR();
+    void MENU_FUNCT_UPDATE();
+    void(MENU_FUNCT_WRITE_DEC) (word x, word y, dword data);
+    void(MENU_FUNCT_WRITE_TEXT) (word x, word y, const char *text);
     // </editor-fold>
 
 

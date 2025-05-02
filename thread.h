@@ -9,6 +9,7 @@ extern "C" {
 #define THREAD_FLG_START 0x01
 #define THREAD_FLG_READY 0x04
 #define THREAD_FLG_LOOP 0x08
+#define THREAD_FLG_WORK_ON_BACK_PROCESS 0x10
 
     typedef struct {
         byte flag;
