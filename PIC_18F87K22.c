@@ -232,15 +232,16 @@ void TIMER_5_INIT(byte ms)
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="UART 1">
 
-void UART_1_INTERRUPT(byte openOrClose)
+void UART_0_INTERRUPT(byte openOrClose)
 {
     //   PIE1bits.TXIE = 1; // Verici interrupt'?n? aç
     if (openOrClose) PIE1bits.RCIE = 1;
     else PIE1bits.RCIE = 0;
 }
 
-void UART_1_INIT(unsigned long baudrate)
+void UART_0_INIT(unsigned long baudrate)
 {
+    
     PIN_SET_IO('D', 'O', 'C', 6, 'H');
     PIN_SET_IO('D', 'I', 'C', 7, 'H');
     unsigned int spbrg_value = (CRYSTAL_FREKANS / (16 * baudrate)) - 1; // 16 ile bölme yaparak daha yüksek baud h?zlar?n? elde edebilirsiniz.
@@ -252,13 +253,76 @@ void UART_1_INIT(unsigned long baudrate)
     RCSTA1bits.CREN = 1; // RX aktif
     TXSTA1bits.BRGH = 1; // Yüksek baud rate kullan?m? (BRGH bitini 1 yap)
     SPBRG1 = spbrg_value;
-    UART_1_INTERRUPT(1);
+    UART_0_INTERRUPT(1);
+}
+
+void UART_0_BYTE(char data)
+{
+    while (!TXSTA1bits.TRMT); // E?er veri gönderecek yer yoksa bekle
+    TXREG1 = data; // Veriyi gönder
+}
+
+void UART_0_STRING(char* text)
+{
+    while (*text) {
+        UART_0_BYTE(*text); // Her karakteri gönder
+        text++;
+    }
+}
+
+void UART_0_DECIMAL(dword val)
+{
+
+    byte basamak[10] = {};
+    signed char i = 0;
+    do {
+        basamak[ i ] = (val % 10) + 0x30;
+        val /= 10;
+        i++;
+    } while (val != 0);
+    i--;
+    while (i >= 0) {
+        UART_0_BYTE(basamak[ i ]);
+        i--;
+    }
+}
+// </editor-fold> 
+// <editor-fold defaultstate="collapsed" desc="UART 2">
+
+void UART_1_INTERRUPT(byte openOrClose)
+{
+    // PIE3bits.TX2IE = 1; // Verici interrupt'?n? aç
+    if (openOrClose) PIE3bits.RC2IE = 1; // UART2 al?c? interrupt'?
+    else PIE3bits.RC2IE = 0; // UART2 al?c? interrupt'? kapal?
+}
+
+void UART_1_INIT(unsigned long baudrate)
+{
+    PIN_SET_IO('D', 'O', 'G', 1, 'H');
+    PIN_SET_IO('D', 'I', 'G', 2, 'H');
+    PIN_SET_ANSEL(18, 0);
+    unsigned int spbrg_value = (CRYSTAL_FREKANS / (16 * baudrate)) - 1; // 16 ile bölme yaparak daha yüksek baud h?zlar?n? elde edebilirsiniz.
+
+    TXSTA2bits.SYNC = 0; // Asenkron mod
+    TXSTA2bits.TX9 = 0; // 8-bit veri
+    RCSTA2bits.RX9 = 0; // 8-bit veri
+    RCSTA2bits.SPEN = 1; // Serbest Port
+    TXSTA2bits.TXEN = 1; // TX aktif
+    RCSTA2bits.CREN = 1; // RX aktif
+    TXSTA2bits.BRGH = 1; // Yüksek baud rate kullan?m? (BRGH bitini 1 yap)
+
+    // UART2 için baudrate hesaplama
+    SPBRG2 = spbrg_value;
+
+    // UART2 interruptlar?n? aktif et
+    UART_1_INTERRUPT(1); // Al?c? interrupt'?n? aç
+
 }
 
 void UART_1_BYTE(char data)
 {
-    while (!TXSTA1bits.TRMT); // E?er veri gönderecek yer yoksa bekle
-    TXREG1 = data; // Veriyi gönder
+    while (!TXSTA2bits.TRMT); // E?er veri gönderecek yer yoksa bekle
+    TXREG2 = data; // Veriyi UART2 üzerinden gönder
 }
 
 void UART_1_STRING(char* text)
@@ -286,69 +350,6 @@ void UART_1_DECIMAL(dword val)
     }
 }
 // </editor-fold> 
-// <editor-fold defaultstate="collapsed" desc="UART 2">
-
-void UART_2_INTERRUPT(byte openOrClose)
-{
-    // PIE3bits.TX2IE = 1; // Verici interrupt'?n? aç
-    if (openOrClose) PIE3bits.RC2IE = 1; // UART2 al?c? interrupt'?
-    else PIE3bits.RC2IE = 0; // UART2 al?c? interrupt'? kapal?
-}
-
-void UART_2_INIT(unsigned long baudrate)
-{
-    PIN_SET_IO('D', 'O', 'G', 1, 'H');
-    PIN_SET_IO('D', 'I', 'G', 2, 'H');
-    PIN_SET_ANSEL(18, 0);
-    unsigned int spbrg_value = (CRYSTAL_FREKANS / (16 * baudrate)) - 1; // 16 ile bölme yaparak daha yüksek baud h?zlar?n? elde edebilirsiniz.
-
-    TXSTA2bits.SYNC = 0; // Asenkron mod
-    TXSTA2bits.TX9 = 0; // 8-bit veri
-    RCSTA2bits.RX9 = 0; // 8-bit veri
-    RCSTA2bits.SPEN = 1; // Serbest Port
-    TXSTA2bits.TXEN = 1; // TX aktif
-    RCSTA2bits.CREN = 1; // RX aktif
-    TXSTA2bits.BRGH = 1; // Yüksek baud rate kullan?m? (BRGH bitini 1 yap)
-
-    // UART2 için baudrate hesaplama
-    SPBRG2 = spbrg_value;
-
-    // UART2 interruptlar?n? aktif et
-    UART_2_INTERRUPT(1); // Al?c? interrupt'?n? aç
-
-}
-
-void UART_2_BYTE(char data)
-{
-    while (!TXSTA2bits.TRMT); // E?er veri gönderecek yer yoksa bekle
-    TXREG2 = data; // Veriyi UART2 üzerinden gönder
-}
-
-void UART_2_STRING(char* text)
-{
-    while (*text) {
-        UART_2_BYTE(*text); // Her karakteri gönder
-        text++;
-    }
-}
-
-void UART_2_DECIMAL(dword val)
-{
-
-    byte basamak[10] = {};
-    signed char i = 0;
-    do {
-        basamak[ i ] = (val % 10) + 0x30;
-        val /= 10;
-        i++;
-    } while (val != 0);
-    i--;
-    while (i >= 0) {
-        UART_2_BYTE(basamak[ i ]);
-        i--;
-    }
-}
-// </editor-fold> 
 // <editor-fold defaultstate="collapsed" desc="SYSTEM">
 
 void SET_OSC(byte MHz)
@@ -372,6 +373,12 @@ void INTERRUPT_ALL(byte openOrClose)
     if (openOrClose) INTCONbits.GIE = 1;
     else INTCONbits.GIE = 0;
 }
+
+void MCU_INIT(byte MHz)
+{
+    SET_OSC(MHz);
+    PIN_SET_ANSEL(0xFF, 0xFF);
+}
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="ADC ">
 
@@ -385,7 +392,7 @@ void ADC_INIT()
     ADCON0bits.ADON = 1;
 }
 
-word ADC_READ(unsigned char channel)
+word ADC_READ(byte channel)
 {
     ADCON0bits.CHS = channel; // Kanal numaras?n? seç (0-13 aras?nda)
     ADCON0bits.GO_nDONE = 1;
@@ -629,7 +636,7 @@ void PWM_TIMER_PR_LOAD(byte timer, byte period)
 
 byte PWM_1_TIMER_SELECT = 0;
 
-void PWM_1_INIT(unsigned long freq, unsigned char timer)
+void PWM_1_INIT(unsigned long freq, byte timer)
 {
     PWM_1_TIMER_SELECT = timer;
     PWM_TIMER_CHOOSE(1, PWM_1_TIMER_SELECT);
@@ -662,7 +669,7 @@ void PWM_1_DUTY(unsigned int duty)
     CCP1CONbits.DC1B = dutyValue & 0x03; // Son 2 bit (DC1B1 ve DC1B0)
 }
 
-void PWM_1_SET(unsigned char enable)
+void PWM_1_SET(byte enable)
 {
     if (enable) {
         if (PWM_1_TIMER_SELECT == 2) T2CONbits.TMR2ON = 1;
@@ -682,7 +689,7 @@ void PWM_1_SET(unsigned char enable)
 
 byte PWM_2_TIMER_SELECT = 0;
 
-void PWM_2_INIT(unsigned long freq, unsigned char timer)
+void PWM_2_INIT(unsigned long freq, byte timer)
 {
     PWM_2_TIMER_SELECT = timer;
     PWM_TIMER_CHOOSE(2, PWM_2_TIMER_SELECT);
@@ -716,7 +723,7 @@ void PWM_2_DUTY(unsigned int duty)
     CCP2CONbits.DC2B = dutyValue & 0x03; // Son 2 bit (DC2B1 ve DC2B0)
 }
 
-void PWM_2_SET(unsigned char enable)
+void PWM_2_SET(byte enable)
 {
     if (enable) {
         if (PWM_2_TIMER_SELECT == 2) T2CONbits.TMR2ON = 1;
@@ -736,7 +743,7 @@ void PWM_2_SET(unsigned char enable)
 
 byte PWM_3_TIMER_SELECT = 0;
 
-void PWM_3_INIT(unsigned long freq, unsigned char timer)
+void PWM_3_INIT(unsigned long freq, byte timer)
 {
     PWM_3_TIMER_SELECT = timer;
     PWM_TIMER_CHOOSE(3, PWM_3_TIMER_SELECT);
@@ -770,7 +777,7 @@ void PWM_3_DUTY(unsigned int duty)
     CCP3CONbits.DC3B = dutyValue & 0x03; // Son 2 bit (DC3B1 ve DC3B0)
 }
 
-void PWM_3_SET(unsigned char enable)
+void PWM_3_SET(byte enable)
 {
     if (enable) {
         if (PWM_3_TIMER_SELECT == 2) T2CONbits.TMR2ON = 1;
@@ -790,7 +797,7 @@ void PWM_3_SET(unsigned char enable)
 
 byte PWM_4_TIMER_SELECT = 0;
 
-void PWM_4_INIT(unsigned long freq, unsigned char timer)
+void PWM_4_INIT(unsigned long freq, byte timer)
 {
     PWM_4_TIMER_SELECT = timer;
     PWM_TIMER_CHOOSE(4, PWM_4_TIMER_SELECT);
@@ -824,7 +831,7 @@ void PWM_4_DUTY(unsigned int duty)
     CCP4CONbits.DC4B = dutyValue & 0x03; // Son 2 bit (DC4B1 ve DC4B0)
 }
 
-void PWM_4_SET(unsigned char enable)
+void PWM_4_SET(byte enable)
 {
     if (enable) {
         if (PWM_4_TIMER_SELECT == 2) T2CONbits.TMR2ON = 1;
@@ -844,7 +851,7 @@ void PWM_4_SET(unsigned char enable)
 
 byte PWM_5_TIMER_SELECT = 0;
 
-void PWM_5_INIT(unsigned long freq, unsigned char timer)
+void PWM_5_INIT(unsigned long freq, byte timer)
 {
     PWM_5_TIMER_SELECT = timer;
     PWM_TIMER_CHOOSE(5, PWM_5_TIMER_SELECT);
@@ -878,7 +885,7 @@ void PWM_5_DUTY(unsigned int duty)
     CCP5CONbits.DC5B = dutyValue & 0x03; // Son 2 bit (DC5B1 ve DC5B0)
 }
 
-void PWM_5_SET(unsigned char enable)
+void PWM_5_SET(byte enable)
 {
     if (enable) {
         if (PWM_5_TIMER_SELECT == 2) T2CONbits.TMR2ON = 1;
@@ -898,7 +905,7 @@ void PWM_5_SET(unsigned char enable)
 
 byte PWM_6_TIMER_SELECT = 0;
 
-void PWM_6_INIT(unsigned long freq, unsigned char timer)
+void PWM_6_INIT(unsigned long freq, byte timer)
 {
     PWM_6_TIMER_SELECT = timer;
     PWM_TIMER_CHOOSE(6, PWM_6_TIMER_SELECT);
@@ -932,7 +939,7 @@ void PWM_6_DUTY(unsigned int duty)
     CCP6CONbits.DC6B = dutyValue & 0x03; // Son 2 bit (DC6B1 ve DC6B0)
 }
 
-void PWM_6_SET(unsigned char enable)
+void PWM_6_SET(byte enable)
 {
     if (enable) {
         if (PWM_6_TIMER_SELECT == 2) T2CONbits.TMR2ON = 1;
@@ -952,7 +959,7 @@ void PWM_6_SET(unsigned char enable)
 
 byte PWM_7_TIMER_SELECT = 0;
 
-void PWM_7_INIT(unsigned long freq, unsigned char timer)
+void PWM_7_INIT(unsigned long freq, byte timer)
 {
     PWM_7_TIMER_SELECT = timer;
     PWM_TIMER_CHOOSE(7, PWM_7_TIMER_SELECT);
@@ -986,7 +993,7 @@ void PWM_7_DUTY(unsigned int duty)
     CCP7CONbits.DC7B = dutyValue & 0x03; // Son 2 bit (DC7B1 ve DC7B0)
 }
 
-void PWM_7_SET(unsigned char enable)
+void PWM_7_SET(byte enable)
 {
     if (enable) {
         if (PWM_7_TIMER_SELECT == 2) T2CONbits.TMR2ON = 1;
@@ -1006,7 +1013,7 @@ void PWM_7_SET(unsigned char enable)
 
 byte PWM_8_TIMER_SELECT = 0;
 
-void PWM_8_INIT(unsigned long freq, unsigned char timer)
+void PWM_8_INIT(unsigned long freq, byte timer)
 {
     PWM_8_TIMER_SELECT = timer;
     PWM_TIMER_CHOOSE(8, PWM_8_TIMER_SELECT);
@@ -1040,7 +1047,7 @@ void PWM_8_DUTY(unsigned int duty)
     CCP8CONbits.DC8B = dutyValue & 0x03; // Son 2 bit (DC8B1 ve DC8B0)
 }
 
-void PWM_8_SET(unsigned char enable)
+void PWM_8_SET(byte enable)
 {
     if (enable) {
         if (PWM_8_TIMER_SELECT == 2) T2CONbits.TMR2ON = 1;
@@ -1058,4 +1065,39 @@ void PWM_8_SET(unsigned char enable)
 // </editor-fold>
 
 // </editor-fold>
+// <editor-fold defaultstate="collapsed" desc="EEPROM">
+
+void EEPROM_B_WRITE(word address, byte data)
+{
+    while (WR);
+    EEADR = address; // EEPROM adresi
+    EEDATA = data; // Yaz?lacak veri
+    EECON1bits.EEPGD = 0; // Data EEPROM seç
+    EECON1bits.CFGS = 0; // EEPROM eri?imi
+    EECON1bits.WREN = 1; // Yazma izni ver
+
+    INTCONbits.GIE = 0; // Global interrupt kapat (güvenlik için)
+    EECON2 = 0x55; // Yazma sekans?
+    EECON2 = 0xAA;
+    EECON1bits.WR = 1; // Yazmay? ba?lat
+    INTCONbits.GIE = 1; // Global interrupt aç
+
+    while (WR); // Yazma bitene kadar bekle
+    EECON1bits.WREN = 0; // Yazma iznini kapat
+}
+
+// EEPROM bir byte okuma
+
+byte EEPROM_B_READ(word address)
+{
+    // Yazma bitene kadar bekle
+    while (WR);
+
+    EEADR = address; // EEPROM adresi
+    EECON1bits.EEPGD = 0; // Data EEPROM seç
+    EECON1bits.CFGS = 0; // EEPROM eri?imi
+    EECON1bits.RD = 1; // Okumay? ba?lat
+    return EEDATA; // Okunan veriyi döndür
+}
+// </editor-fold> 
 #endif

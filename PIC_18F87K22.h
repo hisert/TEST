@@ -108,20 +108,21 @@ extern "C" {
     void TIMER_5_SET(byte startOrStop);
     void TIMER_5_INIT(byte ms);
 
+    void UART_0_INTERRUPT(byte openOrClose);
+    void UART_0_INIT(unsigned long baudrate);
+    void UART_0_BYTE(char data);
+    void UART_0_STRING(char* text);
+    void UART_0_DECIMAL(dword val);
+
     void UART_1_INTERRUPT(byte openOrClose);
     void UART_1_INIT(unsigned long baudrate);
     void UART_1_BYTE(char data);
     void UART_1_STRING(char* text);
     void UART_1_DECIMAL(dword val);
 
-    void UART_2_INTERRUPT(byte openOrClose);
-    void UART_2_INIT(unsigned long baudrate);
-    void UART_2_BYTE(char data);
-    void UART_2_STRING(char* text);
-    void UART_2_DECIMAL(dword val);
-
     void SET_OSC(byte MHz);
     void INTERRUPT_ALL(byte openOrClose);
+    void MCU_INIT(byte MHz);
 
     void ADC_INIT();
     word ADC_READ(unsigned char channel);
@@ -143,7 +144,10 @@ extern "C" {
     void I2C_2_START(void);
     byte I2C_2_STOP(void);
     byte I2C_2_READ(byte flag);
-    
+
+    void EEPROM_B_WRITE(word address, byte data);
+    byte EEPROM_B_READ(word address);
+
 #endif
 #ifdef	__cplusplus
 }
