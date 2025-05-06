@@ -1,5 +1,5 @@
-#define PIC_18F87K22
-#define PIC
+#define ATMEGA_64
+#define ATMEGA
 
 #include <xc.h>
 #include "config.h"
@@ -41,9 +41,9 @@ extern "C" {
 #define TOGGLE_BIT(reg,bit) (reg = reg ^ (1 << bit))
 #define CHECK_BIT(reg,bit) ((reg & (1 << bit)) / (1 << bit))
 
-#define _XTAL_FREQ 64000000
-#define F_CPU 64000000UL
-#define CRYSTAL_FREKANS 64000000UL
+#define _XTAL_FREQ 8000000
+#define F_CPU 8000000UL
+#define CRYSTAL_FREKANS 8000000UL
 
 #ifdef	__cplusplus
 }
