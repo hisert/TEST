@@ -24,6 +24,7 @@ extern "C" {
     void PIN_SET_TRIS(byte Port, byte Pin, byte InputOrOutput);
     void PIN_SET_LAT_TOGGLE(byte Port, byte Pin);
     void PIN_SET_IO(byte AnalogOrDijital, byte InputOrOutput, byte Port, byte Pin, byte HighOrLow);
+    void PIN_SET_IOC(byte index, byte state);
 
     void TIMER_0_INTERRUPT_FUNCT();
     void TIMER_0_INTERRUPT(byte openOrClose);
@@ -60,7 +61,28 @@ extern "C" {
 
     void EEPROM_B_WRITE(word address, byte data);
     byte EEPROM_B_READ(word address);
-#endif
+
+
+    void PWM_0_INIT(byte presecale, byte mode, byte resulation);
+    void PWM_1_INIT(byte presecale, byte mode, byte resulation);
+    void PWM_2_INIT(byte presecale, byte mode, byte resulation);
+
+    void PWM_0A_SET(byte openOrClose);
+    void PWM_0B_SET(byte openOrClose);
+    void PWM_0A_DUTY(byte duty);
+    void PWM_0B_DUTY(byte duty);
+
+    void PWM_1A_SET(byte openOrClose);
+    void PWM_1B_SET(byte openOrClose);
+    void PWM_1A_DUTY(byte duty);
+    void PWM_1B_DUTY(byte duty);
+
+    void PWM_2A_SET(byte openOrClose);
+    void PWM_2B_SET(byte openOrClose);
+    void PWM_2A_DUTY(byte duty);
+    void PWM_2B_DUTY(byte duty);
+
+#endif  
 #ifdef	__cplusplus
 }
 #endif

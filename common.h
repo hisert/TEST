@@ -1,10 +1,11 @@
-#define ATMEGA_64
+#define ATMEGA_328
 #define ATMEGA
 
 #include <xc.h>
 #include "config.h"
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h> 
 
 #ifdef PIC
 #include "pic18.h"

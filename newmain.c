@@ -18,6 +18,33 @@
 #include "time_out.h"
 #include "register.h"
 void REG_PROCESS(char *msg);
+void TASK_UART_1_RX_FUNCT(byte taskIndex);
+void TASK_UART_0_RX_FUNCT(byte taskIndex);
+void TASK_MENU_PROCESS_FUNCT(byte taskIndex);
+#define HU PINB & 2 
+#define HV PINB & 16 
+#define HW PINB & 32 
+#define RX_ENABLE UCSR0B = UCSR0B | (1 << RXEN0)
+#define RX_DISABLE UCSR0B = UCSR0B  & ~(1 << RXEN0)
+
+void RS_WRITE(const char *msg)
+  {
+  RX_DISABLE;
+  PIN_SET_IO('D', 'O', 'B', 0, 'H'); //RS485 
+  UART_0_STRING(msg);
+  PIN_SET_IO('D', 'O', 'B', 0, 'L'); //RS485 
+  RX_ENABLE;
+  }
+
+void RS_DEC(word data)
+  {
+  RX_DISABLE;
+  PIN_SET_IO('D', 'O', 'B', 0, 'H'); //RS485 
+  UART_0_DECIMAL(data);
+  PIN_SET_IO('D', 'O', 'B', 0, 'L'); //RS485 
+  RX_ENABLE;
+  }
+
 // <editor-fold defaultstate="collapsed" desc="VARIABLES      ">
 char UART_1_MSG[20];
 char UART_0_MSG[20];
@@ -566,6 +593,8 @@ void MENU_BUTON_READ()
 typedef enum
   {
   THREAD_LED_CANLI,
+  THREAD_DEBUG,
+  THREAD_MOTOR,
   THREAD_INPUT,
   THREAD_DONE,
   } THREADS_tt;
@@ -574,8 +603,8 @@ void LED_THREAD(byte threadIndex)
   {
   static THREAD_DELAY timer;
   THREAD_TIME_START(&timer);
-  if (THREAD_TIME_WAIT(&timer, 95)) if (THREAD_GET_STATE() == THREAD_FUNCT_FIRST) PIN_SET_LAT_TOGGLE('B', 4);
-  if (THREAD_TIME_WAIT(&timer, 5)) if (THREAD_GET_STATE() == THREAD_FUNCT_FIRST) PIN_SET_LAT_TOGGLE('B', 4);
+  if (THREAD_TIME_WAIT(&timer, 95)) if (THREAD_GET_STATE() == THREAD_FUNCT_FIRST) PIN_SET_LAT_TOGGLE('C', 0);
+  if (THREAD_TIME_WAIT(&timer, 5)) if (THREAD_GET_STATE() == THREAD_FUNCT_FIRST) PIN_SET_LAT_TOGGLE('C', 0);
   if (THREAD_TIME_DONE(&timer)) THREAD_DONE_CONTROL(threadIndex);
 
   }
@@ -583,6 +612,21 @@ void LED_THREAD(byte threadIndex)
 void INPUT_THREAD(byte threadIndex)
   {
   MENU_BUTON_READ();
+  }
+
+void DEBUG_THREAD(byte threadIndex)
+  {
+  // UART_0_DECIMAL(MOTOR_GET_INDEX());
+  }
+
+void MOTOR_THREAD(byte threadIndex)
+  {
+  byte state = MOTOR_PROCESS(0);
+  if (state == MOTOR_BASARILI_DURDU) RS_WRITE("MOTOR SUCCESS");
+  if (state == MOTOR_TIME_OUT_DURDU) RS_WRITE("MOTOR TIME OUT");
+  if (state == MOTOR_TORK_DURDU) RS_WRITE("MOTOR TORK");
+  if (state == MOTOR_MAS12_READ_ERROR) RS_WRITE("MAS12 ERROR");
+  if (state == MOTOR_KOL_TOPLAMA) RS_WRITE("MOTOR KOL TOPLUYOR");
   }
 
 // </editor-fold>
@@ -605,7 +649,8 @@ void TASK_UART_1_RX_FUNCT(byte taskIndex)
 
 void TASK_UART_0_RX_FUNCT(byte taskIndex)
   {
-  REG_PROCESS(UART_0_MSG);
+  //  REG_PROCESS(UART_0_MSG);
+  MOTOR_START(atoi(UART_0_MSG));
   TASK_STOP(taskIndex);
   }
 
@@ -635,13 +680,13 @@ void UART_0_INTERRUPT_FUNCT(byte data)
   {
   static byte counter = 0;
   byte x = data;
-  if (x == '<') counter = 0;
-  else if (x == '>')
+  if (x == '(') counter = 0;
+  else if (x == ')')
     {
     UART_0_MSG[counter] = 0;
     TASK_START(TASK_UART_0_RX);
     }
-  if (counter < 20) UART_0_MSG[counter++] = x;
+  else if (counter < 20) UART_0_MSG[counter++] = x;
   }
 // </editor-fold>
 
@@ -776,7 +821,7 @@ passed:
 
   PIN_SET_LAT('C', 6, 'H');
   if (REG_GET_FLAG(KOMUT) & RG_EN) UART_0_STRING(TX);
-  if (REG_GET_FLAG(KOMUT) & RG_EN) UART_1_STRING(TX);
+  //  if (REG_GET_FLAG(KOMUT) & RG_EN) UART_1_STRING(TX);
   PIN_SET_LAT('C', 6, 'L');
   }
 
@@ -806,35 +851,73 @@ void INIT_REG()
 int main(void)
   {
   //   MCU_INIT(64);
-  PIN_SET_IO('D', 'I', 'B', 5, 'H');
-  PIN_SET_IO('D', 'I', 'B', 6, 'H');
-  PIN_SET_IO('D', 'I', 'B', 7, 'H');
-  PIN_SET_IO('D', 'O', 'C', 6, 'L'); //RS485
-  PIN_SET_IO('D', 'O', 'B', 4, 'L'); //CANLI 
+  // PIN_SET_IO('D', 'I', 'B', 5, 'H');
+  // PIN_SET_IO('D', 'I', 'B', 6, 'H');
+  //  PIN_SET_IO('D', 'I', 'B', 7, 'H');
+  //  PIN_SET_IO('D', 'O', 'C', 6, 'L'); //RS485
+  //  PIN_SET_IO('D', 'O', 'B', 4, 'L'); //CANLI 
 
-  INIT_REG();
+  PIN_SET_IO('D', 'O', 'C', 0, 'L'); //CANLI 
+  PIN_SET_IO('D', 'O', 'B', 0, 'L'); //RS485 
+
+  //INIT_REG();
   TIMER_1_INIT(1);
-  UART_0_INIT(9600);
-  UART_1_INIT(9600);
+  UART_0_INIT(19200);
+  // UART_1_INIT(9600);
   // SOFT_I2C_INIT(&DDRD, &PORTD, &PIND, 1, &DDRD, &PORTD, &PIND, 0);
   // SSH1106_OLED_INIT(SOFT_I2C_START, SOFT_I2C_WRITE, SOFT_I2C_STOP);
 
   I2C_1_INIT(100);
-  SSH1106_OLED_INIT(I2C_1_START, I2C_1_WRITE, I2C_1_STOP);
-
-  MENU_INIT(SSH1106_OLED_ClearDisplay, SSH1106_OLED_Update, SSH1106_OLED_Write_Text, SSH1106_OLED_Write_Dec);
-  MENU_ANA_INIT(ANA_MENU);
+  MAS12_INIT(I2C_1_START, I2C_1_WRITE, I2C_1_READ_ACK, I2C_1_READ_NACK, I2C_1_STOP);
+  //  SSH1106_OLED_INIT(I2C_1_START, I2C_1_WRITE, I2C_1_STOP);
+  //  MENU_INIT(SSH1106_OLED_ClearDisplay, SSH1106_OLED_Update, SSH1106_OLED_Write_Text, SSH1106_OLED_Write_Dec);
+  //  MENU_ANA_INIT(ANA_MENU);
 
   THREAD_CREATE(THREAD_LED_CANLI, THREAD_FLG_START | THREAD_FLG_LOOP | THREAD_FLG_WORK_ON_BACK_PROCESS, 10, LED_THREAD);
-  THREAD_CREATE(THREAD_INPUT, THREAD_FLG_START | THREAD_FLG_LOOP | THREAD_FLG_WORK_ON_BACK_PROCESS, 20, INPUT_THREAD);
+  //THREAD_CREATE(THREAD_INPUT, THREAD_FLG_START | THREAD_FLG_LOOP | THREAD_FLG_WORK_ON_BACK_PROCESS, 20, INPUT_THREAD);
+  THREAD_CREATE(THREAD_DEBUG, THREAD_FLG_START | THREAD_FLG_LOOP, 100, DEBUG_THREAD);
+  THREAD_CREATE(THREAD_MOTOR, THREAD_FLG_START | THREAD_FLG_LOOP, 5, MOTOR_THREAD);
 
   TASK_CREATE(TASK_UART_0_RX, 0, TASK_UART_0_RX_FUNCT);
-  TASK_CREATE(TASK_UART_1_RX, 0, TASK_UART_1_RX_FUNCT);
+  // TASK_CREATE(TASK_UART_1_RX, 0, TASK_UART_1_RX_FUNCT);
   TASK_CREATE(TASK_REG_RANDCODE, THREAD_FLG_START, REG_CHANGE_RANDCODE);
-  TASK_CREATE(TASK_MENU_PROCESS, THREAD_FLG_START, TASK_MENU_PROCESS_FUNCT);
+  //TASK_CREATE(TASK_MENU_PROCESS, THREAD_FLG_START, TASK_MENU_PROCESS_FUNCT);
   INTERRUPT_ALL(1);
 
+  PIN_SET_IO('D', 'O', 'D', 6, 'L'); //PWM PWM W
+  PIN_SET_IO('D', 'O', 'D', 5, 'L'); //PWM PWM V
+  PIN_SET_IO('D', 'O', 'D', 3, 'L'); //PWM PWM U
+
+  PIN_SET_IO('D', 'O', 'D', 7, 'H'); //PWM ENALBE W
+  PIN_SET_IO('D', 'O', 'D', 4, 'H'); //PWM ENABLE V
+  PIN_SET_IO('D', 'O', 'D', 2, 'H'); //PWM ENABLE U
+
+  PIN_SET_IO('D', 'I', 'B', 4, 'H'); //SENSOR W READ
+  PIN_SET_IO('D', 'I', 'B', 5, 'H'); //SENSOR V READ
+  PIN_SET_IO('D', 'I', 'B', 1, 'H'); //SENSOR U READ
+
+  PWM_0_INIT(SYSTEM_PWM_PRESCALE_0, SYSTEM_PWM_DUTY_SLOW, 8);
+  PWM_2_INIT(SYSTEM_PWM_PRESCALE_0, SYSTEM_PWM_DUTY_SLOW, 8);
+
+  PWM_0_INIT(SYSTEM_PWM_PRESCALE_0, SYSTEM_PWM_DUTY_SLOW, 8);
+  PWM_2_INIT(SYSTEM_PWM_PRESCALE_0, SYSTEM_PWM_DUTY_SLOW, 8);
+  PWM_0A_SET(1);
+  PWM_0B_SET(1);
+  PWM_2B_SET(1);
+  PIN_SET_IOC(1, 1);
+  PIN_SET_IOC(4, 1);
+  PIN_SET_IOC(5, 1);
+
+  MOTOR_PWM_INIT(PWM_0A_DUTY, PWM_0B_DUTY, PWM_2B_DUTY);
+  MOTOR_SET_Z_POINT(MAS12_READ_HAL_DATA());
+  MOTOR_SET_KOL_TOPLAMA_TOLERANS(250);
+  MOTOR_PID_INIT(0.2, 0.1);
+  MOTOR_INIT_MAX_HIZ(16);
+  MOTOR_TIME_OUT_SET(3000);
+  MOTOR_FIRCASIZ_INIT(PWM_0A_SET, PWM_0B_SET, PWM_2B_SET);
+
   while (1) SYSTEM_CONTROL_ALL();
+
   }
 
 // <editor-fold defaultstate="collapsed" desc="INTERRUPT FUNCT">
@@ -873,19 +956,20 @@ ISR(USART1_RX_vect)
 
 ISR(TIMER1_OVF_vect)
   {
-
   TIMER_1_INTERRUPT_FUNCT();
   THREAD_INTERRUPT();
+  TIME_OUT_COUNT_INTERRUPT();
+  if (MOTOR_TIME_OUT_CHECK()) FIRCASIZ_READ(HU, HV, HW);
   }
 
 ISR(USART_RX_vect)
   {
-
+  UART_0_INTERRUPT_FUNCT(UDR0);
   }
 
 ISR(PCINT0_vect)
   {
-
+  FIRCASIZ_READ(HU, HV, HW);
   }
 
 #endif
@@ -947,6 +1031,5 @@ void __interrupt() _ISR(void)
     }
   }
 #endif
-
 
 // </editor-fold>

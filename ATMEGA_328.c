@@ -33,9 +33,7 @@ void PIN_SET_LAT(byte Port, byte Pin, byte HighOrLow)
 
 void PIN_SET_TRIS(byte Port, byte Pin, byte InputOrOutput)
   {
-  byte hex;
-  hex = 1;
-  for (byte i = 0; i < Pin; i++) hex *= 2;
+  byte hex = (byte) (1 << Pin);
   if (InputOrOutput == 'O')
     {
     if (Port == 'B') DDRB = DDRB | hex;
@@ -62,6 +60,37 @@ void PIN_SET_IO(byte AnalogOrDijital, byte InputOrOutput, byte Port, byte Pin, b
   {
   PIN_SET_LAT(Port, Pin, HighOrLow);
   PIN_SET_TRIS(Port, Pin, InputOrOutput);
+  }
+
+void PIN_SET_IOC(byte index, byte state)
+  {
+  byte registerchoose = 0;
+  byte hex = (byte) (1 << index);
+  if (index > 15)
+    {
+    registerchoose = 2;
+    index = index - 16;
+    PCICR |= (1 << PCIE2);
+    }
+  else if (index > 7)
+    {
+    registerchoose = 1;
+    index = index - 8;
+    PCICR |= (1 << PCIE1);
+    }
+  else PCICR |= (1 << PCIE0);
+  if (state == 0)
+    {
+    if (registerchoose == 2) PCMSK2 = PCMSK2 & ~hex;
+    else if (registerchoose == 1) PCMSK1 = PCMSK1 & ~hex;
+    else if (registerchoose == 0) PCMSK0 = PCMSK0 & ~hex;
+    }
+  else if (state == 1)
+    {
+    if (registerchoose == 2) PCMSK2 = PCMSK2 | hex;
+    else if (registerchoose == 1) PCMSK1 = PCMSK1 | hex;
+    else if (registerchoose == 0) PCMSK0 = PCMSK0 | hex;
+    }
   }
 
 // </editor-fold> 
@@ -203,7 +232,7 @@ void UART_0_INIT(unsigned long baudrate)
   {
   float calculater;
   byte temp;
-  UCSR0B |= (1 << RXEN0) | (1 << TXEN0) | (1 << RXCIE0) | (1 << TXCIE0);
+  UCSR0B |= (1 << RXEN0) | (1 << TXEN0) | (1 << RXCIE0) | (0 << TXCIE0);
   UCSR0C |= ((1 << UCSZ00) | 1 << UCSZ01);
   calculater = (((CRYSTAL_FREKANS / (baudrate * (16)))) - 1);
   temp = (word) (calculater) & 0xFF;
@@ -217,8 +246,6 @@ void UART_0_BYTE(char data)
   {
   while (!(UCSR0A & (1 << UDRE0))); /* Wait for empty transmit buffer*/
   UDR0 = data;
-  while (!(UCSR0A & (1 << TXC0))); // Tüm veri gönderildi mi?
-  UCSR0A |= (1 << TXC0); // TXC0 bayra??n? temizle
   }
 
 void UART_0_STRING(const char* text)
@@ -229,6 +256,8 @@ void UART_0_STRING(const char* text)
     UART_0_BYTE(text[j]);
     j++;
     }
+  while (!(UCSR0A & (1 << TXC0))); // ?letim tamam m??
+  UCSR0A |= (1 << TXC0); // TXC0 bayra??n? temizle
   }
 
 void UART_0_DECIMAL(dword val)
@@ -249,6 +278,8 @@ void UART_0_DECIMAL(dword val)
     UART_0_BYTE(basamak[ i ]);
     i--;
     }
+  while (!(UCSR0A & (1 << TXC0))); // ?letim tamam m??
+  UCSR0A |= (1 << TXC0); // TXC0 bayra??n? temizle
   }
 
 // </editor-fold> -OK
@@ -379,24 +410,16 @@ void PWM_0_INIT(byte presecale, byte mode, byte resulation)
 
 // <editor-fold defaultstate="collapsed" desc="PWM 0A">
 
-void PWM_0A_INIT()
+void PWM_0A_SET(byte openOrClose)
   {
-  SYSTEM_INIT_IO('D', 6, 'O', 'L');
+  if (openOrClose)
+    {
+    if ((PWM_0_MODE == SYSTEM_PWM_DUTY_FAST) || (PWM_0_MODE == SYSTEM_PWM_DUTY_SLOW)) TCCR0A = TCCR0A | (1 << COM0A1) | (0 << COM0A0); //CLEAR COMPARE
+    }
+  else TCCR0A &= ~((1 << COM0A1) | (1 << COM0A0));
   }
 
-void PWM_0A_START()
-  {
-  if ((PWM_0_MODE == SYSTEM_PWM_DUTY_FAST) || (PWM_0_MODE == SYSTEM_PWM_DUTY_SLOW)) TCCR0A = TCCR0A | (1 << COM0A1) | (0 << COM0A0); //CLEAR COMPARE
-  //if ((PWM_0_MODE == SYSTEM_PWM_DUTY_FAST) || (PWM_0_MODE == SYSTEM_PWM_DUTY_SLOW))   TCCR0A = TCCR0A | (1 << COM0A1) | (1 << COM0A0); //SET COMPARE
-
-  }
-
-void PWM_0A_STOP()
-  {
-  TCCR0A &= ~((1 << COM0A1) | (1 << COM0A0));
-  }
-
-void PWM_0A_DUTY(word duty)
+void PWM_0A_DUTY(byte duty)
   {
   word carp = 0;
   if (PWM_0_RESULATION == 8) carp = 1;
@@ -409,24 +432,16 @@ void PWM_0A_DUTY(word duty)
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="PWM 0B">
 
-void PWM_0B_INIT()
+void PWM_0B_SET(byte openOrClose)
   {
-  SYSTEM_INIT_IO('D', 5, 'O', 'L');
+  if (openOrClose)
+    {
+    if ((PWM_0_MODE == SYSTEM_PWM_DUTY_FAST) || (PWM_0_MODE == SYSTEM_PWM_DUTY_SLOW)) TCCR0A = TCCR0A | (1 << COM0B1) | (0 << COM0B0); //CLEAR COMPARE
+    }
+  else TCCR0A &= ~((1 << COM0B1) | (1 << COM0B0));
   }
 
-void PWM_0B_START()
-  {
-  if ((PWM_0_MODE == SYSTEM_PWM_DUTY_FAST) || (PWM_0_MODE == SYSTEM_PWM_DUTY_SLOW)) TCCR0A = TCCR0A | (1 << COM0B1) | (0 << COM0B0); //CLEAR COMPARE
-  //if ((PWM_0_MODE == SYSTEM_PWM_DUTY_FAST) || (PWM_0_MODE == SYSTEM_PWM_DUTY_SLOW))   TCCR0A = TCCR0A | (1 << COM0B1) | (1 << COM0B0); //SET COMPARE
-
-  }
-
-void PWM_0B_STOP()
-  {
-  TCCR0A &= ~((1 << COM0B1) | (1 << COM0B0));
-  }
-
-void PWM_0B_DUTY(word duty)
+void PWM_0B_DUTY(byte duty)
   {
   word carp = 0;
   if (PWM_0_RESULATION == 8) carp = 1;
@@ -459,24 +474,17 @@ void PWM_1_INIT(byte presecale, byte mode, byte resulation)
 
 // <editor-fold defaultstate="collapsed" desc="PWM 1A">
 
-void PWM_1A_INIT()
+void PWM_1A_SET(byte openOrClose)
   {
-  SYSTEM_INIT_IO('B', 1, 'O', 'L');
+  if (openOrClose)
+    {
+    if ((PWM_1_MODE == SYSTEM_PWM_DUTY_FAST) || (PWM_1_MODE == SYSTEM_PWM_DUTY_SLOW)) TCCR1A = TCCR1A | (1 << COM1A1) | (0 << COM1A0); //CLEAR COMPARE
+    }
+  else TCCR1A &= ~((1 << COM1A1) | (1 << COM1A0));
+
   }
 
-void PWM_1A_START()
-  {
-  if ((PWM_1_MODE == SYSTEM_PWM_DUTY_FAST) || (PWM_1_MODE == SYSTEM_PWM_DUTY_SLOW)) TCCR1A = TCCR1A | (1 << COM1A1) | (0 << COM1A0); //CLEAR COMPARE
-  //if ((PWM_1_MODE == SYSTEM_PWM_DUTY_FAST) || (PWM_1_MODE == SYSTEM_PWM_DUTY_SLOW))   TCCR1A = TCCR1A | (1 << COM1A1) | (1 << COM1A0); //SET COMPARE
-
-  }
-
-void PWM_1A_STOP()
-  {
-  TCCR1A &= ~((1 << COM1A1) | (1 << COM1A0));
-  }
-
-void PWM_1A_DUTY(word duty)
+void PWM_1A_DUTY(byte duty)
   {
   word carp = 0;
   if (PWM_1_RESULATION == 8) carp = 1;
@@ -489,24 +497,16 @@ void PWM_1A_DUTY(word duty)
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="PWM 1B">
 
-void PWM_1B_INIT()
+void PWM_1B_SET(byte openOrClose)
   {
-  SYSTEM_INIT_IO('B', 2, 'O', 'L');
+  if (openOrClose)
+    {
+    if ((PWM_1_MODE == SYSTEM_PWM_DUTY_FAST) || (PWM_1_MODE == SYSTEM_PWM_DUTY_SLOW)) TCCR1A = TCCR1A | (1 << COM1B1) | (0 << COM1B0); //CLEAR COMPARE
+    }
+  else TCCR1A &= ~((1 << COM1B1) | (1 << COM1B0));
   }
 
-void PWM_1B_START()
-  {
-  if ((PWM_1_MODE == SYSTEM_PWM_DUTY_FAST) || (PWM_1_MODE == SYSTEM_PWM_DUTY_SLOW)) TCCR1A = TCCR1A | (1 << COM1B1) | (0 << COM1B0); //CLEAR COMPARE
-  //if ((PWM_1_MODE == SYSTEM_PWM_DUTY_FAST) || (PWM_1_MODE == SYSTEM_PWM_DUTY_SLOW))   TCCR1A = TCCR1A | (1 << COM1B1) | (1 << COM1B0); //SET COMPARE
-
-  }
-
-void PWM_1B_STOP()
-  {
-  TCCR1A &= ~((1 << COM1B1) | (1 << COM1B0));
-  }
-
-void PWM_1B_DUTY(word duty)
+void PWM_1B_DUTY(byte duty)
   {
   word carp = 0;
   if (PWM_1_RESULATION == 8) carp = 1;
@@ -539,27 +539,16 @@ void PWM_2_INIT(byte presecale, byte mode, byte resulation)
 
 // <editor-fold defaultstate="collapsed" desc="PWM 2A">
 
-void PWM_2A_INIT()
+void PWM_2A_SET(byte openOrClose)
   {
-  PORTB = PORTB & ~8;
-  DDRB = DDRB | 8;
-  OCR2A = 0;
+  if (openOrClose)
+    {
+    if ((PWM_2_MODE == SYSTEM_PWM_DUTY_FAST) || (PWM_2_MODE == SYSTEM_PWM_DUTY_SLOW)) TCCR2A = TCCR2A | (1 << COM2A1) | (0 << COM2A0); //CLEAR COMPARE
+    }
+  else TCCR2A &= ~((1 << COM2A1) | (1 << COM2A0));
   }
 
-void PWM_2A_START()
-  {
-  if ((PWM_2_MODE == SYSTEM_PWM_DUTY_FAST) || (PWM_2_MODE == SYSTEM_PWM_DUTY_SLOW)) TCCR2A = TCCR2A | (1 << COM2A1) | (0 << COM2A0); //CLEAR COMPARE
-  //if ((PWM_2_MODE == SYSTEM_PWM_DUTY_FAST) || (PWM_2_MODE == SYSTEM_PWM_DUTY_SLOW))   TCCR2A = TCCR2A | (1 << COM2A1) | (1 << COM2A0); //SET COMPARE
-
-  }
-
-void PWM_2A_STOP()
-  {
-  TCCR2A &= ~((1 << COM2A1) | (1 << COM2A0));
-  PORTB = PORTB & ~8;
-  }
-
-void PWM_2A_DUTY(word duty)
+void PWM_2A_DUTY(byte duty)
   {
   word carp = 0;
   if (PWM_2_RESULATION == 8) carp = 1;
@@ -572,27 +561,16 @@ void PWM_2A_DUTY(word duty)
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="PWM 2B">
 
-void PWM_2B_INIT()
+void PWM_2B_SET(byte openOrClose)
   {
-  PORTD = PORTD & ~8;
-  DDRD = DDRD | 8;
-  OCR2B = 0;
+  if (openOrClose)
+    {
+    if ((PWM_2_MODE == SYSTEM_PWM_DUTY_FAST) || (PWM_2_MODE == SYSTEM_PWM_DUTY_SLOW)) TCCR2A = TCCR2A | (1 << COM2B1) | (0 << COM2B0); //CLEAR COMPARE
+    }
+  else TCCR2A &= ~((1 << COM2B1) | (1 << COM2B0));
   }
 
-void PWM_2B_START()
-  {
-  if ((PWM_2_MODE == SYSTEM_PWM_DUTY_FAST) || (PWM_2_MODE == SYSTEM_PWM_DUTY_SLOW)) TCCR2A = TCCR2A | (1 << COM2B1) | (0 << COM2B0); //CLEAR COMPARE
-  //if ((PWM_2_MODE == SYSTEM_PWM_DUTY_FAST) || (PWM_2_MODE == SYSTEM_PWM_DUTY_SLOW))   TCCR2A = TCCR2A | (1 << COM2B1) | (1 << COM2B0); //SET COMPARE
-
-  }
-
-void PWM_2B_STOP()
-  {
-  TCCR2A &= ~((1 << COM2B1) | (1 << COM2B0));
-  PORTD = PORTD & ~8;
-  }
-
-void PWM_2B_DUTY(word duty)
+void PWM_2B_DUTY(byte duty)
   {
   word carp = 0;
   if (PWM_2_RESULATION == 8) carp = 1;
