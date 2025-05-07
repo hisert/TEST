@@ -12,6 +12,9 @@ extern "C" {
     signed int MAS12_REMAP(word middpoint, word index);
     void MAS12_INIT(void (*mas_i2c_start_t)(void), byte(*mas_i2c_write_t)(byte data), byte(*mas_i2c_read_ack_t)(void), byte(*mas_i2c_read_nack_t)(void), void(*mas_i2c_stop_t)(void));
 
+#define MOTOR_MODE_FIRCASIZ 1
+#define MOTOR_MODE_FIRCALI 0
+
 #define MOTOR_DIRECTION_RIGHT 1
 #define MOTOR_DIRECTION_LEFT 0
 
@@ -23,7 +26,6 @@ extern "C" {
 #define MOTOR_TORK_DURDU 0x10
 #define MOTOR_KOL_TOPLAMA 0x20
 
-    void MOTOR_FIRCASIZ_INIT(void(*motor_pwm_w_kontrol_t)(byte openOrClose), void(*motor_pwm_v_kontrol_t)(byte openOrClose), void(*motor_pwm_u_kontrol_t)(byte openOrClose));
     void MOTOR_PWM_INIT(void(*motor_pwm_1_t)(byte), void(*motor_pwm_2_t)(byte), void(*motor_pwm_3_t)(byte));
     void MOTOR_PWM_LOAD(byte pwm_select, byte pwm_value);
     void MOTOR_PWM_LOAD_ALL(byte pwm_value);
@@ -47,6 +49,7 @@ extern "C" {
     word MOTOR_GET_LAST_SUCESS_INDEX();
     word MOTOR_GET_MAS12_HAM();
     word MOTOR_GET_MAS12_MAPPED();
+    void MOTOR_SET_MODE(byte mode);
 
 #ifdef	__cplusplus
 }

@@ -158,10 +158,6 @@ Discarded input sections
  .text.MENU_FUNCT_ARM_MAS12
                 0x0000000000000000       0x4e build/default/production/newmain.o
  .text.RS_DEC   0x0000000000000000       0x4e build/default/production/newmain.o
- .text.WAIT_WHILE
-                0x0000000000000000       0x1a build/default/production/newmain.o
- .text.WAIT_INTERRUPT
-                0x0000000000000000       0x1e build/default/production/newmain.o
  .text.EEPROM_GET_ALL
                 0x0000000000000000       0x28 build/default/production/newmain.o
  .text.EEPROM_SET_ALL
@@ -184,19 +180,17 @@ Discarded input sections
                 0x0000000000000000       0x16 build/default/production/newmain.o
  .text.INIT_REG
                 0x0000000000000000       0xb4 build/default/production/newmain.o
- .bss.UNLOCK.3175
+ .bss.UNLOCK.3170
                 0x0000000000000000        0x1 build/default/production/newmain.o
- .bss.counter.3157
+ .bss.counter.3152
                 0x0000000000000000        0x1 build/default/production/newmain.o
- .bss.MENU_DOWN.3114
+ .bss.MENU_DOWN.3109
                 0x0000000000000000        0x4 build/default/production/newmain.o
- .bss.MENU_OK.3113
+ .bss.MENU_OK.3108
                 0x0000000000000000        0x4 build/default/production/newmain.o
- .bss.MENU_UP.3115
+ .bss.MENU_UP.3110
                 0x0000000000000000        0x4 build/default/production/newmain.o
- .bss.x.3090    0x0000000000000000        0x4 build/default/production/newmain.o
- .bss.time_out.2925
-                0x0000000000000000        0x2 build/default/production/newmain.o
+ .bss.x.3085    0x0000000000000000        0x4 build/default/production/newmain.o
  .data.INPUT_MENU_UST_YAZI
                 0x0000000000000000        0x3 build/default/production/newmain.o
  .data.RANDOM_MENU_UST_YAZI
@@ -756,8 +750,6 @@ Discarded input sections
  .text          0x0000000000000000        0x0 build/default/production/time_out.o
  .data          0x0000000000000000        0x0 build/default/production/time_out.o
  .bss           0x0000000000000000        0x0 build/default/production/time_out.o
- .text.TIME_OUT_CHECK
-                0x0000000000000000       0x5a build/default/production/time_out.o
  .text.TIME_OUT_FUNCT
                 0x0000000000000000       0x4c build/default/production/time_out.o
  .bss.time_out.2297
@@ -1446,16 +1438,16 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0x7790
+.debug_info     0x0000000000000000     0x770b
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0x5f4 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega328.o
- .debug_info    0x00000000000005f4     0x311a build/default/production/newmain.o
- .debug_info    0x000000000000370e      0x668 build/default/production/thread.o
- .debug_info    0x0000000000003d76      0x3e1 build/default/production/task.o
- .debug_info    0x0000000000004157     0x123f build/default/production/ATMEGA_328.o
- .debug_info    0x0000000000005396     0x12b6 build/default/production/AS5600_MAS.o
- .debug_info    0x000000000000664c      0x3ff build/default/production/time_out.o
- .debug_info    0x0000000000006a4b      0xd45 build/default/production/register.o
+ .debug_info    0x00000000000005f4     0x318c build/default/production/newmain.o
+ .debug_info    0x0000000000003780      0x668 build/default/production/thread.o
+ .debug_info    0x0000000000003de8      0x3e1 build/default/production/task.o
+ .debug_info    0x00000000000041c9     0x123f build/default/production/ATMEGA_328.o
+ .debug_info    0x0000000000005408     0x11bf build/default/production/AS5600_MAS.o
+ .debug_info    0x00000000000065c7      0x3ff build/default/production/time_out.o
+ .debug_info    0x00000000000069c6      0xd45 build/default/production/register.o
 
 .debug_abbrev   0x0000000000000000     0x13d8
  *(.debug_abbrev)
@@ -1468,16 +1460,16 @@ END GROUP
  .debug_abbrev  0x000000000000106f      0x12b build/default/production/time_out.o
  .debug_abbrev  0x000000000000119a      0x23e build/default/production/register.o
 
-.debug_line     0x0000000000000000     0x317a
+.debug_line     0x0000000000000000     0x31a4
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000      0x137 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega328.o
- .debug_line    0x0000000000000137      0xe78 build/default/production/newmain.o
- .debug_line    0x0000000000000faf      0x23d build/default/production/thread.o
- .debug_line    0x00000000000011ec       0xd2 build/default/production/task.o
- .debug_line    0x00000000000012be      0xdff build/default/production/ATMEGA_328.o
- .debug_line    0x00000000000020bd      0x989 build/default/production/AS5600_MAS.o
- .debug_line    0x0000000000002a46       0xed build/default/production/time_out.o
- .debug_line    0x0000000000002b33      0x647 build/default/production/register.o
+ .debug_line    0x0000000000000137      0xe90 build/default/production/newmain.o
+ .debug_line    0x0000000000000fc7      0x23d build/default/production/thread.o
+ .debug_line    0x0000000000001204       0xd2 build/default/production/task.o
+ .debug_line    0x00000000000012d6      0xdff build/default/production/ATMEGA_328.o
+ .debug_line    0x00000000000020d5      0x99b build/default/production/AS5600_MAS.o
+ .debug_line    0x0000000000002a70       0xed build/default/production/time_out.o
+ .debug_line    0x0000000000002b5d      0x647 build/default/production/register.o
 
 .debug_frame    0x0000000000000000     0x117c
  *(.debug_frame)
@@ -1489,26 +1481,26 @@ END GROUP
  .debug_frame   0x0000000000000e48       0x58 build/default/production/time_out.o
  .debug_frame   0x0000000000000ea0      0x2dc build/default/production/register.o
 
-.debug_str      0x0000000000000000      0x7ba
+.debug_str      0x0000000000000000      0x7b5
  *(.debug_str)
  .debug_str     0x0000000000000000      0x208 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega328.o
- .debug_str     0x0000000000000208      0x488 build/default/production/newmain.o
- .debug_str     0x0000000000000690       0x28 build/default/production/thread.o
- .debug_str     0x00000000000006b8        0xa build/default/production/task.o
- .debug_str     0x00000000000006c2       0x7e build/default/production/ATMEGA_328.o
- .debug_str     0x0000000000000740       0x37 build/default/production/AS5600_MAS.o
- .debug_str     0x0000000000000777       0x13 build/default/production/time_out.o
- .debug_str     0x000000000000078a       0x30 build/default/production/register.o
+ .debug_str     0x0000000000000208      0x483 build/default/production/newmain.o
+ .debug_str     0x000000000000068b       0x28 build/default/production/thread.o
+ .debug_str     0x00000000000006b3        0xa build/default/production/task.o
+ .debug_str     0x00000000000006bd       0x7e build/default/production/ATMEGA_328.o
+ .debug_str     0x000000000000073b       0x37 build/default/production/AS5600_MAS.o
+ .debug_str     0x0000000000000772       0x13 build/default/production/time_out.o
+ .debug_str     0x0000000000000785       0x30 build/default/production/register.o
 
-.debug_loc      0x0000000000000000     0x3669
+.debug_loc      0x0000000000000000     0x3642
  *(.debug_loc)
  .debug_loc     0x0000000000000000      0xa51 build/default/production/newmain.o
  .debug_loc     0x0000000000000a51      0x1b0 build/default/production/thread.o
  .debug_loc     0x0000000000000c01       0xa3 build/default/production/task.o
  .debug_loc     0x0000000000000ca4     0x1623 build/default/production/ATMEGA_328.o
- .debug_loc     0x00000000000022c7      0x8bb build/default/production/AS5600_MAS.o
- .debug_loc     0x0000000000002b82       0xb4 build/default/production/time_out.o
- .debug_loc     0x0000000000002c36      0xa33 build/default/production/register.o
+ .debug_loc     0x00000000000022c7      0x894 build/default/production/AS5600_MAS.o
+ .debug_loc     0x0000000000002b5b       0xb4 build/default/production/time_out.o
+ .debug_loc     0x0000000000002c0f      0xa33 build/default/production/register.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1549,15 +1541,20 @@ LOAD data_init
  .note.gnu.avr.deviceinfo
                 0x0000000000000000       0x3c C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega328.o
 
-.bss.counter.3162
-                0x00000000008001c0        0x1
- .bss.counter.3162
-                0x00000000008001c0        0x1 build/default/production/newmain.o
+.bss.counter.3157
+                0x00000000008001bc        0x1
+ .bss.counter.3157
+                0x00000000008001bc        0x1 build/default/production/newmain.o
 
-.bss.timer.3127
+.bss.timer.3122
                 0x000000000080017a        0x4
- .bss.timer.3127
+ .bss.timer.3122
                 0x000000000080017a        0x4 build/default/production/newmain.o
+
+.bss.time_out.2920
+                0x000000000080018e        0x2
+ .bss.time_out.2920
+                0x000000000080018e        0x2 build/default/production/newmain.o
 
 .bss.UART_0_MSG
                 0x0000000000800166       0x14
@@ -1572,101 +1569,83 @@ LOAD data_init
                 0x0000000000800102                THREAD_LIST
 
 .bss.thread_return_temp
-                0x00000000008001c1        0x1
+                0x00000000008001bd        0x1
  .bss.thread_return_temp
-                0x00000000008001c1        0x1 build/default/production/thread.o
-                0x00000000008001c1                thread_return_temp
+                0x00000000008001bd        0x1 build/default/production/thread.o
+                0x00000000008001bd                thread_return_temp
 
 .bss.THREAD_NUM
-                0x00000000008001c2        0x1
+                0x00000000008001be        0x1
  .bss.THREAD_NUM
-                0x00000000008001c2        0x1 build/default/production/thread.o
-                0x00000000008001c2                THREAD_NUM
+                0x00000000008001be        0x1 build/default/production/thread.o
+                0x00000000008001be                THREAD_NUM
 
 .bss.TASK_LIST  0x0000000000800148       0x1e
  .bss.TASK_LIST
                 0x0000000000800148       0x1e build/default/production/task.o
                 0x0000000000800148                TASK_LIST
 
-.bss.TASK_NUM   0x00000000008001c3        0x1
- .bss.TASK_NUM  0x00000000008001c3        0x1 build/default/production/task.o
-                0x00000000008001c3                TASK_NUM
+.bss.TASK_NUM   0x00000000008001bf        0x1
+ .bss.TASK_NUM  0x00000000008001bf        0x1 build/default/production/task.o
+                0x00000000008001bf                TASK_NUM
 
 .bss.PWM_2_RESULATION
-                0x00000000008001c4        0x1
+                0x00000000008001c0        0x1
  .bss.PWM_2_RESULATION
-                0x00000000008001c4        0x1 build/default/production/ATMEGA_328.o
-                0x00000000008001c4                PWM_2_RESULATION
+                0x00000000008001c0        0x1 build/default/production/ATMEGA_328.o
+                0x00000000008001c0                PWM_2_RESULATION
 
 .bss.PWM_2_MODE
-                0x00000000008001c5        0x1
+                0x00000000008001c1        0x1
  .bss.PWM_2_MODE
-                0x00000000008001c5        0x1 build/default/production/ATMEGA_328.o
-                0x00000000008001c5                PWM_2_MODE
+                0x00000000008001c1        0x1 build/default/production/ATMEGA_328.o
+                0x00000000008001c1                PWM_2_MODE
 
 .bss.PWM_0_RESULATION
-                0x00000000008001c6        0x1
+                0x00000000008001c2        0x1
  .bss.PWM_0_RESULATION
-                0x00000000008001c6        0x1 build/default/production/ATMEGA_328.o
-                0x00000000008001c6                PWM_0_RESULATION
+                0x00000000008001c2        0x1 build/default/production/ATMEGA_328.o
+                0x00000000008001c2                PWM_0_RESULATION
 
 .bss.PWM_0_MODE
-                0x00000000008001c7        0x1
+                0x00000000008001c3        0x1
  .bss.PWM_0_MODE
-                0x00000000008001c7        0x1 build/default/production/ATMEGA_328.o
-                0x00000000008001c7                PWM_0_MODE
+                0x00000000008001c3        0x1 build/default/production/ATMEGA_328.o
+                0x00000000008001c3                PWM_0_MODE
 
 .bss.TIMER_1_TICKS
-                0x000000000080018e        0x2
- .bss.TIMER_1_TICKS
-                0x000000000080018e        0x2 build/default/production/ATMEGA_328.o
-                0x000000000080018e                TIMER_1_TICKS
-
-.bss.tekrar_kalkma_counter.2449
-                0x00000000008001c8        0x1
- .bss.tekrar_kalkma_counter.2449
-                0x00000000008001c8        0x1 build/default/production/AS5600_MAS.o
-
-.bss.MAPPED_OLD.2422
                 0x0000000000800190        0x2
- .bss.MAPPED_OLD.2422
-                0x0000000000800190        0x2 build/default/production/AS5600_MAS.o
+ .bss.TIMER_1_TICKS
+                0x0000000000800190        0x2 build/default/production/ATMEGA_328.o
+                0x0000000000800190                TIMER_1_TICKS
 
-.bss.motor_pwm_u_kontrol
+.bss.tekrar_kalkma_counter.2439
+                0x00000000008001c4        0x1
+ .bss.tekrar_kalkma_counter.2439
+                0x00000000008001c4        0x1 build/default/production/AS5600_MAS.o
+
+.bss.MAPPED_OLD.2412
                 0x0000000000800192        0x2
- .bss.motor_pwm_u_kontrol
+ .bss.MAPPED_OLD.2412
                 0x0000000000800192        0x2 build/default/production/AS5600_MAS.o
-                0x0000000000800192                motor_pwm_u_kontrol
-
-.bss.motor_pwm_v_kontrol
-                0x0000000000800194        0x2
- .bss.motor_pwm_v_kontrol
-                0x0000000000800194        0x2 build/default/production/AS5600_MAS.o
-                0x0000000000800194                motor_pwm_v_kontrol
-
-.bss.motor_pwm_w_kontrol
-                0x0000000000800196        0x2
- .bss.motor_pwm_w_kontrol
-                0x0000000000800196        0x2 build/default/production/AS5600_MAS.o
-                0x0000000000800196                motor_pwm_w_kontrol
 
 .bss.motor_pwm_u
-                0x0000000000800198        0x2
+                0x0000000000800194        0x2
  .bss.motor_pwm_u
-                0x0000000000800198        0x2 build/default/production/AS5600_MAS.o
-                0x0000000000800198                motor_pwm_u
+                0x0000000000800194        0x2 build/default/production/AS5600_MAS.o
+                0x0000000000800194                motor_pwm_u
 
 .bss.motor_pwm_v
-                0x000000000080019a        0x2
+                0x0000000000800196        0x2
  .bss.motor_pwm_v
-                0x000000000080019a        0x2 build/default/production/AS5600_MAS.o
-                0x000000000080019a                motor_pwm_v
+                0x0000000000800196        0x2 build/default/production/AS5600_MAS.o
+                0x0000000000800196                motor_pwm_v
 
 .bss.motor_pwm_w
-                0x000000000080019c        0x2
+                0x0000000000800198        0x2
  .bss.motor_pwm_w
-                0x000000000080019c        0x2 build/default/production/AS5600_MAS.o
-                0x000000000080019c                motor_pwm_w
+                0x0000000000800198        0x2 build/default/production/AS5600_MAS.o
+                0x0000000000800198                motor_pwm_w
 
 .bss.PID_Ki     0x000000000080017e        0x4
  .bss.PID_Ki    0x000000000080017e        0x4 build/default/production/AS5600_MAS.o
@@ -1683,150 +1662,156 @@ LOAD data_init
                 0x0000000000800186                PID_INTEGRATED
 
 .bss.PID_MIN_PWM
-                0x00000000008001ca        0x1
+                0x00000000008001c6        0x1
  .bss.PID_MIN_PWM
-                0x00000000008001ca        0x1 build/default/production/AS5600_MAS.o
-                0x00000000008001ca                PID_MIN_PWM
+                0x00000000008001c6        0x1 build/default/production/AS5600_MAS.o
+                0x00000000008001c6                PID_MIN_PWM
 
 .bss.MOTOR_HIZ_MAX
-                0x00000000008001cb        0x1
+                0x00000000008001c7        0x1
  .bss.MOTOR_HIZ_MAX
-                0x00000000008001cb        0x1 build/default/production/AS5600_MAS.o
-                0x00000000008001cb                MOTOR_HIZ_MAX
+                0x00000000008001c7        0x1 build/default/production/AS5600_MAS.o
+                0x00000000008001c7                MOTOR_HIZ_MAX
 
-.bss.MOTOR_HIZ  0x00000000008001cc        0x1
+.bss.MOTOR_HIZ  0x00000000008001c8        0x1
  .bss.MOTOR_HIZ
-                0x00000000008001cc        0x1 build/default/production/AS5600_MAS.o
-                0x00000000008001cc                MOTOR_HIZ
+                0x00000000008001c8        0x1 build/default/production/AS5600_MAS.o
+                0x00000000008001c8                MOTOR_HIZ
 
 .bss.MOTOR_TORK_SINIR
-                0x000000000080019e        0x2
+                0x000000000080019a        0x2
  .bss.MOTOR_TORK_SINIR
-                0x000000000080019e        0x2 build/default/production/AS5600_MAS.o
-                0x000000000080019e                MOTOR_TORK_SINIR
+                0x000000000080019a        0x2 build/default/production/AS5600_MAS.o
+                0x000000000080019a                MOTOR_TORK_SINIR
 
 .bss.MOTOR_TIME_OUT_TEMP
-                0x00000000008001a2        0x2
+                0x000000000080019e        0x2
  .bss.MOTOR_TIME_OUT_TEMP
-                0x00000000008001a2        0x2 build/default/production/AS5600_MAS.o
-                0x00000000008001a2                MOTOR_TIME_OUT_TEMP
+                0x000000000080019e        0x2 build/default/production/AS5600_MAS.o
+                0x000000000080019e                MOTOR_TIME_OUT_TEMP
 
 .bss.MOTOR_TIME_OUT
-                0x00000000008001a4        0x2
+                0x00000000008001a0        0x2
  .bss.MOTOR_TIME_OUT
-                0x00000000008001a4        0x2 build/default/production/AS5600_MAS.o
-                0x00000000008001a4                MOTOR_TIME_OUT
+                0x00000000008001a0        0x2 build/default/production/AS5600_MAS.o
+                0x00000000008001a0                MOTOR_TIME_OUT
 
 .bss.MOTOR_TEKRAR_HAREKET_BASLAMA_TOLERANS
-                0x00000000008001a6        0x2
+                0x00000000008001a2        0x2
  .bss.MOTOR_TEKRAR_HAREKET_BASLAMA_TOLERANS
-                0x00000000008001a6        0x2 build/default/production/AS5600_MAS.o
-                0x00000000008001a6                MOTOR_TEKRAR_HAREKET_BASLAMA_TOLERANS
+                0x00000000008001a2        0x2 build/default/production/AS5600_MAS.o
+                0x00000000008001a2                MOTOR_TEKRAR_HAREKET_BASLAMA_TOLERANS
 
 .bss.MOTOR_Z_POINT_INDEX
-                0x00000000008001a8        0x2
+                0x00000000008001a4        0x2
  .bss.MOTOR_Z_POINT_INDEX
-                0x00000000008001a8        0x2 build/default/production/AS5600_MAS.o
-                0x00000000008001a8                MOTOR_Z_POINT_INDEX
+                0x00000000008001a4        0x2 build/default/production/AS5600_MAS.o
+                0x00000000008001a4                MOTOR_Z_POINT_INDEX
 
 .bss.MAS12_NOW_MAPPED
-                0x00000000008001aa        0x2
+                0x00000000008001a6        0x2
  .bss.MAS12_NOW_MAPPED
-                0x00000000008001aa        0x2 build/default/production/AS5600_MAS.o
-                0x00000000008001aa                MAS12_NOW_MAPPED
+                0x00000000008001a6        0x2 build/default/production/AS5600_MAS.o
+                0x00000000008001a6                MAS12_NOW_MAPPED
 
-.bss.MAS12_NOW  0x00000000008001ac        0x2
+.bss.MAS12_NOW  0x00000000008001a8        0x2
  .bss.MAS12_NOW
-                0x00000000008001ac        0x2 build/default/production/AS5600_MAS.o
-                0x00000000008001ac                MAS12_NOW
+                0x00000000008001a8        0x2 build/default/production/AS5600_MAS.o
+                0x00000000008001a8                MAS12_NOW
 
 .bss.MOTOR_MODE
-                0x00000000008001cd        0x1
+                0x00000000008001c9        0x1
  .bss.MOTOR_MODE
-                0x00000000008001cd        0x1 build/default/production/AS5600_MAS.o
-                0x00000000008001cd                MOTOR_MODE
+                0x00000000008001c9        0x1 build/default/production/AS5600_MAS.o
+                0x00000000008001c9                MOTOR_MODE
 
 .bss.MOTOR_DIRECTION
-                0x00000000008001ce        0x1
+                0x00000000008001ca        0x1
  .bss.MOTOR_DIRECTION
-                0x00000000008001ce        0x1 build/default/production/AS5600_MAS.o
-                0x00000000008001ce                MOTOR_DIRECTION
+                0x00000000008001ca        0x1 build/default/production/AS5600_MAS.o
+                0x00000000008001ca                MOTOR_DIRECTION
+
+.bss.MOTOR_PWM_VAL
+                0x00000000008001cb        0x1
+ .bss.MOTOR_PWM_VAL
+                0x00000000008001cb        0x1 build/default/production/AS5600_MAS.o
+                0x00000000008001cb                MOTOR_PWM_VAL
 
 .bss.MOTOR_KACIRMA_KURTARMA
-                0x00000000008001cf        0x1
+                0x00000000008001cc        0x1
  .bss.MOTOR_KACIRMA_KURTARMA
-                0x00000000008001cf        0x1 build/default/production/AS5600_MAS.o
-                0x00000000008001cf                MOTOR_KACIRMA_KURTARMA
+                0x00000000008001cc        0x1 build/default/production/AS5600_MAS.o
+                0x00000000008001cc                MOTOR_KACIRMA_KURTARMA
 
 .bss.MOTOR_START_INDEX
-                0x00000000008001ae        0x2
+                0x00000000008001aa        0x2
  .bss.MOTOR_START_INDEX
-                0x00000000008001ae        0x2 build/default/production/AS5600_MAS.o
-                0x00000000008001ae                MOTOR_START_INDEX
+                0x00000000008001aa        0x2 build/default/production/AS5600_MAS.o
+                0x00000000008001aa                MOTOR_START_INDEX
 
 .bss.MOTOR_STOP_INDEX
-                0x00000000008001b0        0x2
+                0x00000000008001ac        0x2
  .bss.MOTOR_STOP_INDEX
-                0x00000000008001b0        0x2 build/default/production/AS5600_MAS.o
-                0x00000000008001b0                MOTOR_STOP_INDEX
+                0x00000000008001ac        0x2 build/default/production/AS5600_MAS.o
+                0x00000000008001ac                MOTOR_STOP_INDEX
 
 .bss.MOTOR_SUCCES
-                0x00000000008001d0        0x1
+                0x00000000008001cd        0x1
  .bss.MOTOR_SUCCES
-                0x00000000008001d0        0x1 build/default/production/AS5600_MAS.o
-                0x00000000008001d0                MOTOR_SUCCES
+                0x00000000008001cd        0x1 build/default/production/AS5600_MAS.o
+                0x00000000008001cd                MOTOR_SUCCES
 
 .bss.MOTOR_WORK
-                0x00000000008001d1        0x1
+                0x00000000008001ce        0x1
  .bss.MOTOR_WORK
-                0x00000000008001d1        0x1 build/default/production/AS5600_MAS.o
-                0x00000000008001d1                MOTOR_WORK
+                0x00000000008001ce        0x1 build/default/production/AS5600_MAS.o
+                0x00000000008001ce                MOTOR_WORK
 
 .bss.mas_i2c_stop
-                0x00000000008001b2        0x2
+                0x00000000008001ae        0x2
  .bss.mas_i2c_stop
-                0x00000000008001b2        0x2 build/default/production/AS5600_MAS.o
-                0x00000000008001b2                mas_i2c_stop
+                0x00000000008001ae        0x2 build/default/production/AS5600_MAS.o
+                0x00000000008001ae                mas_i2c_stop
 
 .bss.mas_i2c_read_nack
-                0x00000000008001b4        0x2
+                0x00000000008001b0        0x2
  .bss.mas_i2c_read_nack
-                0x00000000008001b4        0x2 build/default/production/AS5600_MAS.o
-                0x00000000008001b4                mas_i2c_read_nack
+                0x00000000008001b0        0x2 build/default/production/AS5600_MAS.o
+                0x00000000008001b0                mas_i2c_read_nack
 
 .bss.mas_i2c_read_ack
-                0x00000000008001b6        0x2
+                0x00000000008001b2        0x2
  .bss.mas_i2c_read_ack
-                0x00000000008001b6        0x2 build/default/production/AS5600_MAS.o
-                0x00000000008001b6                mas_i2c_read_ack
+                0x00000000008001b2        0x2 build/default/production/AS5600_MAS.o
+                0x00000000008001b2                mas_i2c_read_ack
 
 .bss.mas_i2c_write
-                0x00000000008001b8        0x2
+                0x00000000008001b4        0x2
  .bss.mas_i2c_write
-                0x00000000008001b8        0x2 build/default/production/AS5600_MAS.o
-                0x00000000008001b8                mas_i2c_write
+                0x00000000008001b4        0x2 build/default/production/AS5600_MAS.o
+                0x00000000008001b4                mas_i2c_write
 
 .bss.mas_i2c_start
-                0x00000000008001ba        0x2
+                0x00000000008001b6        0x2
  .bss.mas_i2c_start
-                0x00000000008001ba        0x2 build/default/production/AS5600_MAS.o
-                0x00000000008001ba                mas_i2c_start
+                0x00000000008001b6        0x2 build/default/production/AS5600_MAS.o
+                0x00000000008001b6                mas_i2c_start
 
 .bss.SYSTEM_TIME_OUT_COUNTER
-                0x00000000008001bc        0x2
+                0x00000000008001b8        0x2
  .bss.SYSTEM_TIME_OUT_COUNTER
-                0x00000000008001bc        0x2 build/default/production/time_out.o
-                0x00000000008001bc                SYSTEM_TIME_OUT_COUNTER
+                0x00000000008001b8        0x2 build/default/production/time_out.o
+                0x00000000008001b8                SYSTEM_TIME_OUT_COUNTER
 
 .bss.UNLOCK_STARTED
-                0x00000000008001d2        0x1
+                0x00000000008001cf        0x1
  .bss.UNLOCK_STARTED
-                0x00000000008001d2        0x1 build/default/production/register.o
-                0x00000000008001d2                UNLOCK_STARTED
+                0x00000000008001cf        0x1 build/default/production/register.o
+                0x00000000008001cf                UNLOCK_STARTED
 
-.bss.RANDCODE   0x00000000008001be        0x2
- .bss.RANDCODE  0x00000000008001be        0x2 build/default/production/register.o
-                0x00000000008001be                RANDCODE
+.bss.RANDCODE   0x00000000008001ba        0x2
+ .bss.RANDCODE  0x00000000008001ba        0x2 build/default/production/register.o
+                0x00000000008001ba                RANDCODE
 
 .progmemx.data  0x00000000000000e6      0x2da
  .progmemx.data
@@ -1842,675 +1827,693 @@ LOAD data_init
                 0x000000000000069c      0x272 build/default/production/AS5600_MAS.o
                 0x000000000000069c                MOTOR_PID_CONTROL
 
-.text.main      0x000000000000090e      0x1ae
- .text.main     0x000000000000090e      0x1ae build/default/production/newmain.o
+.text.main      0x000000000000090e      0x1c4
+ .text.main     0x000000000000090e      0x1c4 build/default/production/newmain.o
                 0x000000000000090e                main
 
 .text.FIRCASIZ_STEP
-                0x0000000000000abc      0x11e
+                0x0000000000000ad2      0x132
  .text.FIRCASIZ_STEP
-                0x0000000000000abc      0x11e build/default/production/AS5600_MAS.o
-                0x0000000000000abc                FIRCASIZ_STEP
+                0x0000000000000ad2      0x132 build/default/production/AS5600_MAS.o
+                0x0000000000000ad2                FIRCASIZ_STEP
 
 .text.TIMER_1_INIT
-                0x0000000000000bda       0xe8
+                0x0000000000000c04       0xe8
  .text.TIMER_1_INIT
-                0x0000000000000bda       0xe8 build/default/production/ATMEGA_328.o
-                0x0000000000000bda                TIMER_1_INIT
+                0x0000000000000c04       0xe8 build/default/production/ATMEGA_328.o
+                0x0000000000000c04                TIMER_1_INIT
 
 .text.THREAD_INTERRUPT
-                0x0000000000000cc2       0xde
+                0x0000000000000cec       0xde
  .text.THREAD_INTERRUPT
-                0x0000000000000cc2       0xde build/default/production/thread.o
-                0x0000000000000cc2                THREAD_INTERRUPT
-
-.text.avrlibc.fplib
-                0x0000000000000da0       0xdc
- .text.avrlibc.fplib
-                0x0000000000000da0       0xdc c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3x.o)
-                0x0000000000000dc0                __divsf3x
-                0x0000000000000dc6                __divsf3_pse
+                0x0000000000000cec       0xde build/default/production/thread.o
+                0x0000000000000cec                THREAD_INTERRUPT
 
 .text.MOTOR_PROCESS
-                0x0000000000000e7c       0xd4
+                0x0000000000000dca       0xde
  .text.MOTOR_PROCESS
-                0x0000000000000e7c       0xd4 build/default/production/AS5600_MAS.o
-                0x0000000000000e7c                MOTOR_PROCESS
+                0x0000000000000dca       0xde build/default/production/AS5600_MAS.o
+                0x0000000000000dca                MOTOR_PROCESS
 
 .text.avrlibc.fplib
-                0x0000000000000f50       0xd2
+                0x0000000000000ea8       0xdc
  .text.avrlibc.fplib
-                0x0000000000000f50       0xd2 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(mulsf3x.o)
-                0x0000000000000f6e                __mulsf3x
-                0x0000000000000f74                __mulsf3_pse
+                0x0000000000000ea8       0xdc c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3x.o)
+                0x0000000000000ec8                __divsf3x
+                0x0000000000000ece                __divsf3_pse
 
 .text.avrlibc.fplib
-                0x0000000000001022       0xcc
+                0x0000000000000f84       0xd2
  .text.avrlibc.fplib
-                0x0000000000001022       0xcc c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(addsf3x.o)
-                0x0000000000001044                __addsf3x
+                0x0000000000000f84       0xd2 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(mulsf3x.o)
+                0x0000000000000fa2                __mulsf3x
+                0x0000000000000fa8                __mulsf3_pse
 
-.text.avrlibc   0x00000000000010ee       0xb8
- .text.avrlibc  0x00000000000010ee       0xb8 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(rand.o)
-                0x0000000000001180                rand_r
-                0x0000000000001186                rand
-                0x0000000000001190                srand
+.text.avrlibc.fplib
+                0x0000000000001056       0xcc
+ .text.avrlibc.fplib
+                0x0000000000001056       0xcc c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(addsf3x.o)
+                0x0000000000001078                __addsf3x
+
+.text.avrlibc   0x0000000000001122       0xb8
+ .text.avrlibc  0x0000000000001122       0xb8 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(rand.o)
+                0x00000000000011b4                rand_r
+                0x00000000000011ba                rand
+                0x00000000000011c4                srand
 
 .text.PIN_SET_IOC
-                0x00000000000011a6       0xa8
+                0x00000000000011da       0xa8
  .text.PIN_SET_IOC
-                0x00000000000011a6       0xa8 build/default/production/ATMEGA_328.o
-                0x00000000000011a6                PIN_SET_IOC
+                0x00000000000011da       0xa8 build/default/production/ATMEGA_328.o
+                0x00000000000011da                PIN_SET_IOC
 
 .text.MOTOR_START
-                0x000000000000124e       0xa8
+                0x0000000000001282       0xa8
  .text.MOTOR_START
-                0x000000000000124e       0xa8 build/default/production/AS5600_MAS.o
-                0x000000000000124e                MOTOR_START
+                0x0000000000001282       0xa8 build/default/production/AS5600_MAS.o
+                0x0000000000001282                MOTOR_START
 
 .text.MAS12_READ_HAL_DATA
-                0x00000000000012f6       0x9c
+                0x000000000000132a       0x9c
  .text.MAS12_READ_HAL_DATA
-                0x00000000000012f6       0x9c build/default/production/AS5600_MAS.o
-                0x00000000000012f6                MAS12_READ_HAL_DATA
+                0x000000000000132a       0x9c build/default/production/AS5600_MAS.o
+                0x000000000000132a                MAS12_READ_HAL_DATA
 
 .text.PWM_2B_DUTY
-                0x0000000000001392       0x7a
+                0x00000000000013c6       0x7a
  .text.PWM_2B_DUTY
-                0x0000000000001392       0x7a build/default/production/ATMEGA_328.o
-                0x0000000000001392                PWM_2B_DUTY
+                0x00000000000013c6       0x7a build/default/production/ATMEGA_328.o
+                0x00000000000013c6                PWM_2B_DUTY
 
 .text.avrlibc.fplib
-                0x000000000000140c       0x7a
+                0x0000000000001440       0x7a
  .text.avrlibc.fplib
-                0x000000000000140c       0x7a c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(floatsisf.o)
-                0x000000000000140c                __floatunsisf
-                0x0000000000001410                __floatsisf
+                0x0000000000001440       0x7a c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(floatsisf.o)
+                0x0000000000001440                __floatunsisf
+                0x0000000000001444                __floatsisf
 
 .text.PWM_0A_DUTY
-                0x0000000000001486       0x78
+                0x00000000000014ba       0x78
  .text.PWM_0A_DUTY
-                0x0000000000001486       0x78 build/default/production/ATMEGA_328.o
-                0x0000000000001486                PWM_0A_DUTY
+                0x00000000000014ba       0x78 build/default/production/ATMEGA_328.o
+                0x00000000000014ba                PWM_0A_DUTY
 
 .text.PWM_0B_DUTY
-                0x00000000000014fe       0x78
+                0x0000000000001532       0x78
  .text.PWM_0B_DUTY
-                0x00000000000014fe       0x78 build/default/production/ATMEGA_328.o
-                0x00000000000014fe                PWM_0B_DUTY
+                0x0000000000001532       0x78 build/default/production/ATMEGA_328.o
+                0x0000000000001532                PWM_0B_DUTY
 
 .text.PWM_2_INIT
-                0x0000000000001576       0x6c
+                0x00000000000015aa       0x6c
  .text.PWM_2_INIT
-                0x0000000000001576       0x6c build/default/production/ATMEGA_328.o
-                0x0000000000001576                PWM_2_INIT
+                0x00000000000015aa       0x6c build/default/production/ATMEGA_328.o
+                0x00000000000015aa                PWM_2_INIT
 
 .text.__vector_13
-                0x00000000000015e2       0x68
+                0x0000000000001616       0x68
  .text.__vector_13
-                0x00000000000015e2       0x68 build/default/production/newmain.o
-                0x00000000000015e2                __vector_13
+                0x0000000000001616       0x68 build/default/production/newmain.o
+                0x0000000000001616                __vector_13
 
 .text.UART_0_INIT
-                0x000000000000164a       0x66
+                0x000000000000167e       0x66
  .text.UART_0_INIT
-                0x000000000000164a       0x66 build/default/production/ATMEGA_328.o
-                0x000000000000164a                UART_0_INIT
+                0x000000000000167e       0x66 build/default/production/ATMEGA_328.o
+                0x000000000000167e                UART_0_INIT
 
 .text.PIN_SET_LAT
-                0x00000000000016b0       0x64
+                0x00000000000016e4       0x64
  .text.PIN_SET_LAT
-                0x00000000000016b0       0x64 build/default/production/ATMEGA_328.o
-                0x00000000000016b0                PIN_SET_LAT
+                0x00000000000016e4       0x64 build/default/production/ATMEGA_328.o
+                0x00000000000016e4                PIN_SET_LAT
 
 .text.PIN_SET_TRIS
-                0x0000000000001714       0x64
+                0x0000000000001748       0x64
  .text.PIN_SET_TRIS
-                0x0000000000001714       0x64 build/default/production/ATMEGA_328.o
-                0x0000000000001714                PIN_SET_TRIS
+                0x0000000000001748       0x64 build/default/production/ATMEGA_328.o
+                0x0000000000001748                PIN_SET_TRIS
 
 .text.LED_THREAD
-                0x0000000000001778       0x62
+                0x00000000000017ac       0x62
  .text.LED_THREAD
-                0x0000000000001778       0x62 build/default/production/newmain.o
-                0x0000000000001778                LED_THREAD
-
-.text.FIRCASIZ_DON
-                0x00000000000017da       0x60
- .text.FIRCASIZ_DON
-                0x00000000000017da       0x60 build/default/production/AS5600_MAS.o
-                0x00000000000017da                FIRCASIZ_DON
-
-.text.MOTOR_THREAD
-                0x000000000000183a       0x5e
- .text.MOTOR_THREAD
-                0x000000000000183a       0x5e build/default/production/newmain.o
-                0x000000000000183a                MOTOR_THREAD
-
-.text.avrlibc.fplib
-                0x0000000000001898       0x5e
- .text.avrlibc.fplib
-                0x0000000000001898       0x5e c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fixunssfsi.o)
-                0x0000000000001898                __fixunssfsi
-
-.text.MAS12_UPDATE
-                0x00000000000018f6       0x56
- .text.MAS12_UPDATE
-                0x00000000000018f6       0x56 build/default/production/AS5600_MAS.o
-                0x00000000000018f6                MAS12_UPDATE
-
-.text.__vector_3
-                0x000000000000194c       0x54
- .text.__vector_3
-                0x000000000000194c       0x54 build/default/production/newmain.o
-                0x000000000000194c                __vector_3
-
-.text.THREAD_MAIN
-                0x00000000000019a0       0x54
- .text.THREAD_MAIN
-                0x00000000000019a0       0x54 build/default/production/thread.o
-                0x00000000000019a0                THREAD_MAIN
-
-.text.UART_0_STRING
-                0x00000000000019f4       0x54
- .text.UART_0_STRING
-                0x00000000000019f4       0x54 build/default/production/ATMEGA_328.o
-                0x00000000000019f4                UART_0_STRING
+                0x00000000000017ac       0x62 build/default/production/newmain.o
+                0x00000000000017ac                LED_THREAD
 
 .text.MOTOR_PWM_LOAD_ALL
-                0x0000000000001a48       0x54
+                0x000000000000180e       0x62
  .text.MOTOR_PWM_LOAD_ALL
-                0x0000000000001a48       0x54 build/default/production/AS5600_MAS.o
-                0x0000000000001a48                MOTOR_PWM_LOAD_ALL
+                0x000000000000180e       0x62 build/default/production/AS5600_MAS.o
+                0x000000000000180e                MOTOR_PWM_LOAD_ALL
 
-.text.RS_WRITE  0x0000000000001a9c       0x52
+.text.FIRCASIZ_DON
+                0x0000000000001870       0x60
+ .text.FIRCASIZ_DON
+                0x0000000000001870       0x60 build/default/production/AS5600_MAS.o
+                0x0000000000001870                FIRCASIZ_DON
+
+.text.MOTOR_THREAD
+                0x00000000000018d0       0x5e
+ .text.MOTOR_THREAD
+                0x00000000000018d0       0x5e build/default/production/newmain.o
+                0x00000000000018d0                MOTOR_THREAD
+
+.text.avrlibc.fplib
+                0x000000000000192e       0x5e
+ .text.avrlibc.fplib
+                0x000000000000192e       0x5e c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fixunssfsi.o)
+                0x000000000000192e                __fixunssfsi
+
+.text.TIME_OUT_CHECK
+                0x000000000000198c       0x5a
+ .text.TIME_OUT_CHECK
+                0x000000000000198c       0x5a build/default/production/time_out.o
+                0x000000000000198c                TIME_OUT_CHECK
+
+.text.MAS12_UPDATE
+                0x00000000000019e6       0x56
+ .text.MAS12_UPDATE
+                0x00000000000019e6       0x56 build/default/production/AS5600_MAS.o
+                0x00000000000019e6                MAS12_UPDATE
+
+.text.__vector_3
+                0x0000000000001a3c       0x54
+ .text.__vector_3
+                0x0000000000001a3c       0x54 build/default/production/newmain.o
+                0x0000000000001a3c                __vector_3
+
+.text.THREAD_MAIN
+                0x0000000000001a90       0x54
+ .text.THREAD_MAIN
+                0x0000000000001a90       0x54 build/default/production/thread.o
+                0x0000000000001a90                THREAD_MAIN
+
+.text.UART_0_STRING
+                0x0000000000001ae4       0x54
+ .text.UART_0_STRING
+                0x0000000000001ae4       0x54 build/default/production/ATMEGA_328.o
+                0x0000000000001ae4                UART_0_STRING
+
+.text.RS_WRITE  0x0000000000001b38       0x52
  .text.RS_WRITE
-                0x0000000000001a9c       0x52 build/default/production/newmain.o
-                0x0000000000001a9c                RS_WRITE
+                0x0000000000001b38       0x52 build/default/production/newmain.o
+                0x0000000000001b38                RS_WRITE
 
 .text.PWM_0_INIT
-                0x0000000000001aee       0x52
+                0x0000000000001b8a       0x52
  .text.PWM_0_INIT
-                0x0000000000001aee       0x52 build/default/production/ATMEGA_328.o
-                0x0000000000001aee                PWM_0_INIT
+                0x0000000000001b8a       0x52 build/default/production/ATMEGA_328.o
+                0x0000000000001b8a                PWM_0_INIT
 
 .text.THREAD_TIME_WAIT
-                0x0000000000001b40       0x50
+                0x0000000000001bdc       0x50
  .text.THREAD_TIME_WAIT
-                0x0000000000001b40       0x50 build/default/production/thread.o
-                0x0000000000001b40                THREAD_TIME_WAIT
+                0x0000000000001bdc       0x50 build/default/production/thread.o
+                0x0000000000001bdc                THREAD_TIME_WAIT
 
 .text.__vector_18
-                0x0000000000001b90       0x4c
+                0x0000000000001c2c       0x4c
  .text.__vector_18
-                0x0000000000001b90       0x4c build/default/production/newmain.o
-                0x0000000000001b90                __vector_18
+                0x0000000000001c2c       0x4c build/default/production/newmain.o
+                0x0000000000001c2c                __vector_18
 
 .text.TASK_MAIN
-                0x0000000000001bdc       0x4c
+                0x0000000000001c78       0x4c
  .text.TASK_MAIN
-                0x0000000000001bdc       0x4c build/default/production/task.o
-                0x0000000000001bdc                TASK_MAIN
+                0x0000000000001c78       0x4c build/default/production/task.o
+                0x0000000000001c78                TASK_MAIN
 
 .text.I2C_1_WRITE
-                0x0000000000001c28       0x48
+                0x0000000000001cc4       0x48
  .text.I2C_1_WRITE
-                0x0000000000001c28       0x48 build/default/production/ATMEGA_328.o
-                0x0000000000001c28                I2C_1_WRITE
+                0x0000000000001cc4       0x48 build/default/production/ATMEGA_328.o
+                0x0000000000001cc4                I2C_1_WRITE
 
 .text.MOTOR_PWM
-                0x0000000000001c70       0x48
+                0x0000000000001d0c       0x48
  .text.MOTOR_PWM
-                0x0000000000001c70       0x48 build/default/production/AS5600_MAS.o
-                0x0000000000001c70                MOTOR_PWM
+                0x0000000000001d0c       0x48 build/default/production/AS5600_MAS.o
+                0x0000000000001d0c                MOTOR_PWM
 
 .text.avrlibc.fplib
-                0x0000000000001cb8       0x48
+                0x0000000000001d54       0x48
  .text.avrlibc.fplib
-                0x0000000000001cb8       0x48 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_cmp.o)
-                0x0000000000001cb8                __fp_cmp
+                0x0000000000001d54       0x48 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_cmp.o)
+                0x0000000000001d54                __fp_cmp
 
 .text.MOTOR_LOOKING_STOP
-                0x0000000000001d00       0x46
+                0x0000000000001d9c       0x46
  .text.MOTOR_LOOKING_STOP
-                0x0000000000001d00       0x46 build/default/production/AS5600_MAS.o
-                0x0000000000001d00                MOTOR_LOOKING_STOP
+                0x0000000000001d9c       0x46 build/default/production/AS5600_MAS.o
+                0x0000000000001d9c                MOTOR_LOOKING_STOP
 
 .text.MOTOR_PWM_INIT
-                0x0000000000001d46       0x44
+                0x0000000000001de2       0x44
  .text.MOTOR_PWM_INIT
-                0x0000000000001d46       0x44 build/default/production/AS5600_MAS.o
-                0x0000000000001d46                MOTOR_PWM_INIT
+                0x0000000000001de2       0x44 build/default/production/AS5600_MAS.o
+                0x0000000000001de2                MOTOR_PWM_INIT
 
 .text.avrlibc.fplib
-                0x0000000000001d8a       0x44
+                0x0000000000001e26       0x44
  .text.avrlibc.fplib
-                0x0000000000001d8a       0x44 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_split3.o)
-                0x0000000000001d8a                __fp_split3
-                0x0000000000001d9a                __fp_splitA
+                0x0000000000001e26       0x44 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_split3.o)
+                0x0000000000001e26                __fp_split3
+                0x0000000000001e36                __fp_splitA
 
 .text.libgcc.div
-                0x0000000000001dce       0x44
+                0x0000000000001e6a       0x44
  .text.libgcc.div
-                0x0000000000001dce       0x44 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_udivmodsi4.o)
-                0x0000000000001dce                __udivmodsi4
+                0x0000000000001e6a       0x44 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_udivmodsi4.o)
+                0x0000000000001e6a                __udivmodsi4
 
 .text.MAS12_REMAP
-                0x0000000000001e12       0x42
+                0x0000000000001eae       0x42
  .text.MAS12_REMAP
-                0x0000000000001e12       0x42 build/default/production/AS5600_MAS.o
-                0x0000000000001e12                MAS12_REMAP
-
-.text.FIRCASIZ_READ
-                0x0000000000001e54       0x3e
- .text.FIRCASIZ_READ
-                0x0000000000001e54       0x3e build/default/production/AS5600_MAS.o
-                0x0000000000001e54                FIRCASIZ_READ
-
-.text.UART_0_INTERRUPT_FUNCT
-                0x0000000000001e92       0x3c
- .text.UART_0_INTERRUPT_FUNCT
-                0x0000000000001e92       0x3c build/default/production/newmain.o
-                0x0000000000001e92                UART_0_INTERRUPT_FUNCT
+                0x0000000000001eae       0x42 build/default/production/AS5600_MAS.o
+                0x0000000000001eae                MAS12_REMAP
 
 .text.MOTOR_TIME_OUT_CHECK
-                0x0000000000001ece       0x3c
+                0x0000000000001ef0       0x40
  .text.MOTOR_TIME_OUT_CHECK
-                0x0000000000001ece       0x3c build/default/production/AS5600_MAS.o
-                0x0000000000001ece                MOTOR_TIME_OUT_CHECK
+                0x0000000000001ef0       0x40 build/default/production/AS5600_MAS.o
+                0x0000000000001ef0                MOTOR_TIME_OUT_CHECK
+
+.text.FIRCASIZ_READ
+                0x0000000000001f30       0x3e
+ .text.FIRCASIZ_READ
+                0x0000000000001f30       0x3e build/default/production/AS5600_MAS.o
+                0x0000000000001f30                FIRCASIZ_READ
+
+.text.UART_0_INTERRUPT_FUNCT
+                0x0000000000001f6e       0x3c
+ .text.UART_0_INTERRUPT_FUNCT
+                0x0000000000001f6e       0x3c build/default/production/newmain.o
+                0x0000000000001f6e                UART_0_INTERRUPT_FUNCT
 
 .text.MOTOR_PWM_LOAD
-                0x0000000000001f0a       0x36
+                0x0000000000001faa       0x36
  .text.MOTOR_PWM_LOAD
-                0x0000000000001f0a       0x36 build/default/production/AS5600_MAS.o
-                0x0000000000001f0a                MOTOR_PWM_LOAD
+                0x0000000000001faa       0x36 build/default/production/AS5600_MAS.o
+                0x0000000000001faa                MOTOR_PWM_LOAD
 
 .text.TIME_OUT_COUNT_INTERRUPT
-                0x0000000000001f40       0x34
+                0x0000000000001fe0       0x34
  .text.TIME_OUT_COUNT_INTERRUPT
-                0x0000000000001f40       0x34 build/default/production/time_out.o
-                0x0000000000001f40                TIME_OUT_COUNT_INTERRUPT
+                0x0000000000001fe0       0x34 build/default/production/time_out.o
+                0x0000000000001fe0                TIME_OUT_COUNT_INTERRUPT
 
 .text.THREAD_DONE_CONTROL
-                0x0000000000001f74       0x32
+                0x0000000000002014       0x32
  .text.THREAD_DONE_CONTROL
-                0x0000000000001f74       0x32 build/default/production/thread.o
-                0x0000000000001f74                THREAD_DONE_CONTROL
+                0x0000000000002014       0x32 build/default/production/thread.o
+                0x0000000000002014                THREAD_DONE_CONTROL
 
 .text.PIN_SET_LAT_TOGGLE
-                0x0000000000001fa6       0x32
+                0x0000000000002046       0x32
  .text.PIN_SET_LAT_TOGGLE
-                0x0000000000001fa6       0x32 build/default/production/ATMEGA_328.o
-                0x0000000000001fa6                PIN_SET_LAT_TOGGLE
+                0x0000000000002046       0x32 build/default/production/ATMEGA_328.o
+                0x0000000000002046                PIN_SET_LAT_TOGGLE
 
 .text.MAS12_INIT
-                0x0000000000001fd8       0x32
+                0x0000000000002078       0x32
  .text.MAS12_INIT
-                0x0000000000001fd8       0x32 build/default/production/AS5600_MAS.o
-                0x0000000000001fd8                MAS12_INIT
+                0x0000000000002078       0x32 build/default/production/AS5600_MAS.o
+                0x0000000000002078                MAS12_INIT
 
 .text.libgcc.div
-                0x000000000000200a       0x2e
+                0x00000000000020aa       0x2e
  .text.libgcc.div
-                0x000000000000200a       0x2e c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_divmodsi4.o)
-                0x000000000000200a                __divmodsi4
+                0x00000000000020aa       0x2e c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_divmodsi4.o)
+                0x00000000000020aa                __divmodsi4
 
 .text.PIN_SET_IO
-                0x0000000000002038       0x2c
+                0x00000000000020d8       0x2c
  .text.PIN_SET_IO
-                0x0000000000002038       0x2c build/default/production/ATMEGA_328.o
-                0x0000000000002038                PIN_SET_IO
+                0x00000000000020d8       0x2c build/default/production/ATMEGA_328.o
+                0x00000000000020d8                PIN_SET_IO
 
 .text.I2C_1_READ_ACK
-                0x0000000000002064       0x2a
+                0x0000000000002104       0x2a
  .text.I2C_1_READ_ACK
-                0x0000000000002064       0x2a build/default/production/ATMEGA_328.o
-                0x0000000000002064                I2C_1_READ_ACK
+                0x0000000000002104       0x2a build/default/production/ATMEGA_328.o
+                0x0000000000002104                I2C_1_READ_ACK
 
 .text.I2C_1_READ_NACK
-                0x000000000000208e       0x2a
+                0x000000000000212e       0x2a
  .text.I2C_1_READ_NACK
-                0x000000000000208e       0x2a build/default/production/ATMEGA_328.o
-                0x000000000000208e                I2C_1_READ_NACK
+                0x000000000000212e       0x2a build/default/production/ATMEGA_328.o
+                0x000000000000212e                I2C_1_READ_NACK
 
 .text.libgcc.div
-                0x00000000000020b8       0x28
+                0x0000000000002158       0x28
  .text.libgcc.div
-                0x00000000000020b8       0x28 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_udivmodhi4.o)
-                0x00000000000020b8                __udivmodhi4
+                0x0000000000002158       0x28 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_udivmodhi4.o)
+                0x0000000000002158                __udivmodhi4
 
 .text.THREAD_CREATE
-                0x00000000000020e0       0x26
+                0x0000000000002180       0x26
  .text.THREAD_CREATE
-                0x00000000000020e0       0x26 build/default/production/thread.o
-                0x00000000000020e0                THREAD_CREATE
+                0x0000000000002180       0x26 build/default/production/thread.o
+                0x0000000000002180                THREAD_CREATE
 
 .text.I2C_1_START
-                0x0000000000002106       0x26
+                0x00000000000021a6       0x26
  .text.I2C_1_START
-                0x0000000000002106       0x26 build/default/production/ATMEGA_328.o
-                0x0000000000002106                I2C_1_START
+                0x00000000000021a6       0x26 build/default/production/ATMEGA_328.o
+                0x00000000000021a6                I2C_1_START
 
 .text.I2C_1_STOP
-                0x000000000000212c       0x26
+                0x00000000000021cc       0x26
  .text.I2C_1_STOP
-                0x000000000000212c       0x26 build/default/production/ATMEGA_328.o
-                0x000000000000212c                I2C_1_STOP
+                0x00000000000021cc       0x26 build/default/production/ATMEGA_328.o
+                0x00000000000021cc                I2C_1_STOP
 
 .text.PWM_2B_SET
-                0x0000000000002152       0x26
+                0x00000000000021f2       0x26
  .text.PWM_2B_SET
-                0x0000000000002152       0x26 build/default/production/ATMEGA_328.o
-                0x0000000000002152                PWM_2B_SET
+                0x00000000000021f2       0x26 build/default/production/ATMEGA_328.o
+                0x00000000000021f2                PWM_2B_SET
 
 .text.TASK_CREATE
-                0x0000000000002178       0x24
+                0x0000000000002218       0x24
  .text.TASK_CREATE
-                0x0000000000002178       0x24 build/default/production/task.o
-                0x0000000000002178                TASK_CREATE
+                0x0000000000002218       0x24 build/default/production/task.o
+                0x0000000000002218                TASK_CREATE
 
 .text.MOTOR_PID_INIT
-                0x000000000000219c       0x22
+                0x000000000000223c       0x22
  .text.MOTOR_PID_INIT
-                0x000000000000219c       0x22 build/default/production/AS5600_MAS.o
-                0x000000000000219c                MOTOR_PID_INIT
+                0x000000000000223c       0x22 build/default/production/AS5600_MAS.o
+                0x000000000000223c                MOTOR_PID_INIT
 
 .text.avrlibc.fplib
-                0x00000000000021be       0x22
+                0x000000000000225e       0x22
  .text.avrlibc.fplib
-                0x00000000000021be       0x22 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_round.o)
-                0x00000000000021be                __fp_round
-
-.text.MOTOR_FIRCASIZ_INIT
-                0x00000000000021e0       0x20
- .text.MOTOR_FIRCASIZ_INIT
-                0x00000000000021e0       0x20 build/default/production/AS5600_MAS.o
-                0x00000000000021e0                MOTOR_FIRCASIZ_INIT
+                0x000000000000225e       0x22 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_round.o)
+                0x000000000000225e                __fp_round
 
 .text.libgcc.mul
-                0x0000000000002200       0x20
+                0x0000000000002280       0x20
  .text.libgcc.mul
-                0x0000000000002200       0x20 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_mulsi3.o)
-                0x0000000000002200                __mulsi3
+                0x0000000000002280       0x20 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_mulsi3.o)
+                0x0000000000002280                __mulsi3
+
+.text.WAIT_INTERRUPT
+                0x00000000000022a0       0x1e
+ .text.WAIT_INTERRUPT
+                0x00000000000022a0       0x1e build/default/production/newmain.o
+                0x00000000000022a0                WAIT_INTERRUPT
 
 .text.PWM_0A_SET
-                0x0000000000002220       0x1e
+                0x00000000000022be       0x1e
  .text.PWM_0A_SET
-                0x0000000000002220       0x1e build/default/production/ATMEGA_328.o
-                0x0000000000002220                PWM_0A_SET
+                0x00000000000022be       0x1e build/default/production/ATMEGA_328.o
+                0x00000000000022be                PWM_0A_SET
 
 .text.PWM_0B_SET
-                0x000000000000223e       0x1e
+                0x00000000000022dc       0x1e
  .text.PWM_0B_SET
-                0x000000000000223e       0x1e build/default/production/ATMEGA_328.o
-                0x000000000000223e                PWM_0B_SET
+                0x00000000000022dc       0x1e build/default/production/ATMEGA_328.o
+                0x00000000000022dc                PWM_0B_SET
 
 .text.libgcc.mul
-                0x000000000000225c       0x1e
+                0x00000000000022fa       0x1e
  .text.libgcc.mul
-                0x000000000000225c       0x1e c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_umulhisi3.o)
-                0x000000000000225c                __umulhisi3
+                0x00000000000022fa       0x1e c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_umulhisi3.o)
+                0x00000000000022fa                __umulhisi3
 
 .text.TASK_UART_0_RX_FUNCT
-                0x000000000000227a       0x1c
+                0x0000000000002318       0x1c
  .text.TASK_UART_0_RX_FUNCT
-                0x000000000000227a       0x1c build/default/production/newmain.o
-                0x000000000000227a                TASK_UART_0_RX_FUNCT
+                0x0000000000002318       0x1c build/default/production/newmain.o
+                0x0000000000002318                TASK_UART_0_RX_FUNCT
 
 .text.TIMER_1_INTERRUPT
-                0x0000000000002296       0x1c
+                0x0000000000002334       0x1c
  .text.TIMER_1_INTERRUPT
-                0x0000000000002296       0x1c build/default/production/ATMEGA_328.o
-                0x0000000000002296                TIMER_1_INTERRUPT
+                0x0000000000002334       0x1c build/default/production/ATMEGA_328.o
+                0x0000000000002334                TIMER_1_INTERRUPT
+
+.text.WAIT_WHILE
+                0x0000000000002350       0x1a
+ .text.WAIT_WHILE
+                0x0000000000002350       0x1a build/default/production/newmain.o
+                0x0000000000002350                WAIT_WHILE
 
 .text.TASK_START
-                0x00000000000022b2       0x1a
+                0x000000000000236a       0x1a
  .text.TASK_START
-                0x00000000000022b2       0x1a build/default/production/task.o
-                0x00000000000022b2                TASK_START
+                0x000000000000236a       0x1a build/default/production/task.o
+                0x000000000000236a                TASK_START
 
 .text.TASK_STOP
-                0x00000000000022cc       0x1a
+                0x0000000000002384       0x1a
  .text.TASK_STOP
-                0x00000000000022cc       0x1a build/default/production/task.o
-                0x00000000000022cc                TASK_STOP
+                0x0000000000002384       0x1a build/default/production/task.o
+                0x0000000000002384                TASK_STOP
 
 .text.REG_CHANGE_RANDCODE
-                0x00000000000022e6       0x1a
+                0x000000000000239e       0x1a
  .text.REG_CHANGE_RANDCODE
-                0x00000000000022e6       0x1a build/default/production/register.o
-                0x00000000000022e6                REG_CHANGE_RANDCODE
+                0x000000000000239e       0x1a build/default/production/register.o
+                0x000000000000239e                REG_CHANGE_RANDCODE
 
 .text.libgcc.mul
-                0x0000000000002300       0x16
+                0x00000000000023b8       0x16
  .text.libgcc.mul
-                0x0000000000002300       0x16 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_muluhisi3.o)
-                0x0000000000002300                __muluhisi3
+                0x00000000000023b8       0x16 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_muluhisi3.o)
+                0x00000000000023b8                __muluhisi3
 
 .text.I2C_1_INIT
-                0x0000000000002316       0x14
+                0x00000000000023ce       0x14
  .text.I2C_1_INIT
-                0x0000000000002316       0x14 build/default/production/ATMEGA_328.o
-                0x0000000000002316                I2C_1_INIT
+                0x00000000000023ce       0x14 build/default/production/ATMEGA_328.o
+                0x00000000000023ce                I2C_1_INIT
 
 .text.TIMER_1_INTERRUPT_FUNCT
-                0x000000000000232a       0x12
+                0x00000000000023e2       0x12
  .text.TIMER_1_INTERRUPT_FUNCT
-                0x000000000000232a       0x12 build/default/production/ATMEGA_328.o
-                0x000000000000232a                TIMER_1_INTERRUPT_FUNCT
+                0x00000000000023e2       0x12 build/default/production/ATMEGA_328.o
+                0x00000000000023e2                TIMER_1_INTERRUPT_FUNCT
 
 .text.MOTOR_PID_RESET
-                0x000000000000233c       0x12
+                0x00000000000023f4       0x12
  .text.MOTOR_PID_RESET
-                0x000000000000233c       0x12 build/default/production/AS5600_MAS.o
-                0x000000000000233c                MOTOR_PID_RESET
+                0x00000000000023f4       0x12 build/default/production/AS5600_MAS.o
+                0x00000000000023f4                MOTOR_PID_RESET
 
-.text.avrlibc   0x000000000000234e       0x12
- .text.avrlibc  0x000000000000234e       0x12 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(isspace.o)
-                0x000000000000234e                isspace
+.text.avrlibc   0x0000000000002406       0x12
+ .text.avrlibc  0x0000000000002406       0x12 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(isspace.o)
+                0x0000000000002406                isspace
 
 .text.UART_0_BYTE
-                0x0000000000002360       0x10
+                0x0000000000002418       0x10
  .text.UART_0_BYTE
-                0x0000000000002360       0x10 build/default/production/ATMEGA_328.o
-                0x0000000000002360                UART_0_BYTE
+                0x0000000000002418       0x10 build/default/production/ATMEGA_328.o
+                0x0000000000002418                UART_0_BYTE
 
 .text.libgcc.div
-                0x0000000000002370       0x10
+                0x0000000000002428       0x10
  .text.libgcc.div
-                0x0000000000002370       0x10 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_negsi2.o)
-                0x0000000000002370                __negsi2
+                0x0000000000002428       0x10 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_negsi2.o)
+                0x0000000000002428                __negsi2
 
 .text.libgcc.mul
-                0x0000000000002380       0x10
+                0x0000000000002438       0x10
  .text.libgcc.mul
-                0x0000000000002380       0x10 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_mulshisi3.o)
-                0x0000000000002380                __mulshisi3
-                0x0000000000002386                __mulohisi3
+                0x0000000000002438       0x10 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_mulshisi3.o)
+                0x0000000000002438                __mulshisi3
+                0x000000000000243e                __mulohisi3
 
 .text.avrlibc.fplib
-                0x0000000000002390        0xe
+                0x0000000000002448        0xe
  .text.avrlibc.fplib
-                0x0000000000002390        0xe c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(addsf3.o)
-                0x0000000000002390                __subsf3
-                0x0000000000002392                __addsf3
+                0x0000000000002448        0xe c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(addsf3.o)
+                0x0000000000002448                __subsf3
+                0x000000000000244a                __addsf3
 
 .text.avrlibc.fplib
-                0x000000000000239e        0xe
+                0x0000000000002456        0xe
  .text.avrlibc.fplib
-                0x000000000000239e        0xe c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscA.o)
-                0x000000000000239e                __fp_pscA
+                0x0000000000002456        0xe c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscA.o)
+                0x0000000000002456                __fp_pscA
 
 .text.avrlibc.fplib
-                0x00000000000023ac        0xe
+                0x0000000000002464        0xe
  .text.avrlibc.fplib
-                0x00000000000023ac        0xe c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscB.o)
-                0x00000000000023ac                __fp_pscB
+                0x0000000000002464        0xe c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscB.o)
+                0x0000000000002464                __fp_pscB
 
 .text.avrlibc.fplib
-                0x00000000000023ba        0xe
+                0x0000000000002472        0xe
  .text.avrlibc.fplib
-                0x00000000000023ba        0xe c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_zero.o)
-                0x00000000000023ba                __fp_zero
-                0x00000000000023bc                __fp_szero
+                0x0000000000002472        0xe c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_zero.o)
+                0x0000000000002472                __fp_zero
+                0x0000000000002474                __fp_szero
 
-.text.avrlibc   0x00000000000023c8        0xe
- .text.avrlibc  0x00000000000023c8        0xe c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(atol_M.o)
-                0x00000000000023c8                atol
+.text.avrlibc   0x0000000000002480        0xe
+ .text.avrlibc  0x0000000000002480        0xe c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(atol_M.o)
+                0x0000000000002480                atol
 
 .text.THREAD_TIME_DONE
-                0x00000000000023d6        0xc
+                0x000000000000248e        0xc
  .text.THREAD_TIME_DONE
-                0x00000000000023d6        0xc build/default/production/thread.o
-                0x00000000000023d6                THREAD_TIME_DONE
+                0x000000000000248e        0xc build/default/production/thread.o
+                0x000000000000248e                THREAD_TIME_DONE
 
 .text.INTERRUPT_ALL
-                0x00000000000023e2        0xc
+                0x000000000000249a        0xc
  .text.INTERRUPT_ALL
-                0x00000000000023e2        0xc build/default/production/ATMEGA_328.o
-                0x00000000000023e2                INTERRUPT_ALL
+                0x000000000000249a        0xc build/default/production/ATMEGA_328.o
+                0x000000000000249a                INTERRUPT_ALL
 
 .text.MOTOR_STOP
-                0x00000000000023ee        0xc
+                0x00000000000024a6        0xc
  .text.MOTOR_STOP
-                0x00000000000023ee        0xc build/default/production/AS5600_MAS.o
-                0x00000000000023ee                MOTOR_STOP
+                0x00000000000024a6        0xc build/default/production/AS5600_MAS.o
+                0x00000000000024a6                MOTOR_STOP
 
 .text.avrlibc.fplib
-                0x00000000000023fa        0xc
+                0x00000000000024b2        0xc
  .text.avrlibc.fplib
-                0x00000000000023fa        0xc c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_inf.o)
-                0x00000000000023fa                __fp_inf
+                0x00000000000024b2        0xc c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_inf.o)
+                0x00000000000024b2                __fp_inf
 
 .text.SYSTEM_CONTROL_ALL
-                0x0000000000002406        0xa
+                0x00000000000024be        0xa
  .text.SYSTEM_CONTROL_ALL
-                0x0000000000002406        0xa build/default/production/newmain.o
-                0x0000000000002406                SYSTEM_CONTROL_ALL
+                0x00000000000024be        0xa build/default/production/newmain.o
+                0x00000000000024be                SYSTEM_CONTROL_ALL
 
 .text.MOTOR_TIME_OUT_SET
-                0x0000000000002410        0xa
+                0x00000000000024c8        0xa
  .text.MOTOR_TIME_OUT_SET
-                0x0000000000002410        0xa build/default/production/AS5600_MAS.o
-                0x0000000000002410                MOTOR_TIME_OUT_SET
+                0x00000000000024c8        0xa build/default/production/AS5600_MAS.o
+                0x00000000000024c8                MOTOR_TIME_OUT_SET
 
 .text.MOTOR_SET_KOL_TOPLAMA_TOLERANS
-                0x000000000000241a        0xa
+                0x00000000000024d2        0xa
  .text.MOTOR_SET_KOL_TOPLAMA_TOLERANS
-                0x000000000000241a        0xa build/default/production/AS5600_MAS.o
-                0x000000000000241a                MOTOR_SET_KOL_TOPLAMA_TOLERANS
+                0x00000000000024d2        0xa build/default/production/AS5600_MAS.o
+                0x00000000000024d2                MOTOR_SET_KOL_TOPLAMA_TOLERANS
 
 .text.MOTOR_SET_Z_POINT
-                0x0000000000002424        0xa
+                0x00000000000024dc        0xa
  .text.MOTOR_SET_Z_POINT
-                0x0000000000002424        0xa build/default/production/AS5600_MAS.o
-                0x0000000000002424                MOTOR_SET_Z_POINT
+                0x00000000000024dc        0xa build/default/production/AS5600_MAS.o
+                0x00000000000024dc                MOTOR_SET_Z_POINT
 
 .text.avrlibc.fplib
-                0x000000000000242e        0xa
+                0x00000000000024e6        0xa
  .text.avrlibc.fplib
-                0x000000000000242e        0xa c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(cmpsf2.o)
-                0x000000000000242e                __nesf2
-                0x000000000000242e                __eqsf2
-                0x000000000000242e                __cmpsf2
-                0x000000000000242e                __ltsf2
-                0x000000000000242e                __lesf2
+                0x00000000000024e6        0xa c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(cmpsf2.o)
+                0x00000000000024e6                __nesf2
+                0x00000000000024e6                __eqsf2
+                0x00000000000024e6                __cmpsf2
+                0x00000000000024e6                __ltsf2
+                0x00000000000024e6                __lesf2
 
 .text.avrlibc.fplib
-                0x0000000000002438        0xa
+                0x00000000000024f0        0xa
  .text.avrlibc.fplib
-                0x0000000000002438        0xa c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(gesf2.o)
-                0x0000000000002438                __gesf2
-                0x0000000000002438                __gtsf2
+                0x00000000000024f0        0xa c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(gesf2.o)
+                0x00000000000024f0                __gesf2
+                0x00000000000024f0                __gtsf2
 
 .text.THREAD_TIME_START
-                0x0000000000002442        0x8
+                0x00000000000024fa        0x8
  .text.THREAD_TIME_START
-                0x0000000000002442        0x8 build/default/production/thread.o
-                0x0000000000002442                THREAD_TIME_START
+                0x00000000000024fa        0x8 build/default/production/thread.o
+                0x00000000000024fa                THREAD_TIME_START
 
 .text.avrlibc.fplib
-                0x000000000000244a        0x8
+                0x0000000000002502        0x8
  .text.avrlibc.fplib
-                0x000000000000244a        0x8 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3.o)
-                0x000000000000244a                __divsf3
+                0x0000000000002502        0x8 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3.o)
+                0x0000000000002502                __divsf3
 
 .text.avrlibc.fplib
-                0x0000000000002452        0x8
+                0x000000000000250a        0x8
  .text.avrlibc.fplib
-                0x0000000000002452        0x8 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(mulsf3.o)
-                0x0000000000002452                __mulsf3
+                0x000000000000250a        0x8 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(mulsf3.o)
+                0x000000000000250a                __mulsf3
 
-.text.avrlibc   0x000000000000245a        0x8
- .text.avrlibc  0x000000000000245a        0x8 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(atoi_M.o)
-                0x000000000000245a                atoi
+.text.avrlibc   0x0000000000002512        0x8
+ .text.avrlibc  0x0000000000002512        0x8 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(atoi_M.o)
+                0x0000000000002512                atoi
 
 .text.THREAD_GET_STATE
-                0x0000000000002462        0x6
+                0x000000000000251a        0x6
  .text.THREAD_GET_STATE
-                0x0000000000002462        0x6 build/default/production/thread.o
-                0x0000000000002462                THREAD_GET_STATE
+                0x000000000000251a        0x6 build/default/production/thread.o
+                0x000000000000251a                THREAD_GET_STATE
 
 .text.MOTOR_INIT_MAX_HIZ
-                0x0000000000002468        0x6
+                0x0000000000002520        0x6
  .text.MOTOR_INIT_MAX_HIZ
-                0x0000000000002468        0x6 build/default/production/AS5600_MAS.o
-                0x0000000000002468                MOTOR_INIT_MAX_HIZ
+                0x0000000000002520        0x6 build/default/production/AS5600_MAS.o
+                0x0000000000002520                MOTOR_INIT_MAX_HIZ
+
+.text.MOTOR_SET_MODE
+                0x0000000000002526        0x6
+ .text.MOTOR_SET_MODE
+                0x0000000000002526        0x6 build/default/production/AS5600_MAS.o
+                0x0000000000002526                MOTOR_SET_MODE
 
 .text.avrlibc.fplib
-                0x000000000000246e        0x6
+                0x000000000000252c        0x6
  .text.avrlibc.fplib
-                0x000000000000246e        0x6 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_nan.o)
-                0x000000000000246e                __fp_nan
+                0x000000000000252c        0x6 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_nan.o)
+                0x000000000000252c                __fp_nan
 
-.text.avrlibc   0x0000000000002474        0x6
- .text.avrlibc  0x0000000000002474        0x6 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(cty_isfalse.o)
-                0x0000000000002474                __ctype_isfalse
-                0x0000000000002478                __ctype_istrue
+.text.avrlibc   0x0000000000002532        0x6
+ .text.avrlibc  0x0000000000002532        0x6 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(cty_isfalse.o)
+                0x0000000000002532                __ctype_isfalse
+                0x0000000000002536                __ctype_istrue
 
-.text           0x000000000000247a        0x4
- .text          0x000000000000247a        0x4 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega328.o
-                0x000000000000247a                __vector_22
-                0x000000000000247a                __vector_1
-                0x000000000000247a                __vector_24
-                0x000000000000247a                __vector_12
-                0x000000000000247a                __bad_interrupt
-                0x000000000000247a                __vector_6
-                0x000000000000247a                __vector_23
-                0x000000000000247a                __vector_25
-                0x000000000000247a                __vector_11
-                0x000000000000247a                __vector_17
-                0x000000000000247a                __vector_19
-                0x000000000000247a                __vector_7
-                0x000000000000247a                __vector_5
-                0x000000000000247a                __vector_4
-                0x000000000000247a                __vector_9
-                0x000000000000247a                __vector_2
-                0x000000000000247a                __vector_21
-                0x000000000000247a                __vector_15
-                0x000000000000247a                __vector_8
-                0x000000000000247a                __vector_14
-                0x000000000000247a                __vector_10
-                0x000000000000247a                __vector_16
-                0x000000000000247a                __vector_20
+.text           0x0000000000002538        0x4
+ .text          0x0000000000002538        0x4 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega328.o
+                0x0000000000002538                __vector_22
+                0x0000000000002538                __vector_1
+                0x0000000000002538                __vector_24
+                0x0000000000002538                __vector_12
+                0x0000000000002538                __bad_interrupt
+                0x0000000000002538                __vector_6
+                0x0000000000002538                __vector_23
+                0x0000000000002538                __vector_25
+                0x0000000000002538                __vector_11
+                0x0000000000002538                __vector_17
+                0x0000000000002538                __vector_19
+                0x0000000000002538                __vector_7
+                0x0000000000002538                __vector_5
+                0x0000000000002538                __vector_4
+                0x0000000000002538                __vector_9
+                0x0000000000002538                __vector_2
+                0x0000000000002538                __vector_21
+                0x0000000000002538                __vector_15
+                0x0000000000002538                __vector_8
+                0x0000000000002538                __vector_14
+                0x0000000000002538                __vector_10
+                0x0000000000002538                __vector_16
+                0x0000000000002538                __vector_20
 
 .text.DEBUG_THREAD
-                0x000000000000247e        0x2
+                0x000000000000253c        0x2
  .text.DEBUG_THREAD
-                0x000000000000247e        0x2 build/default/production/newmain.o
-                0x000000000000247e                DEBUG_THREAD
+                0x000000000000253c        0x2 build/default/production/newmain.o
+                0x000000000000253c                DEBUG_THREAD
 
-.data           0x000000000080018a        0x4 load address 0x0000000000002480
+.data           0x000000000080018a        0x4 load address 0x000000000000253e
  .data          0x000000000080018a        0x4 c:/program files/microchip/xc8/v2.20/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(rand.o)
 
 .data.MOTOR_LAST_SUCCESS_INDEX
-                0x00000000008001a0        0x2 load address 0x0000000000002484
+                0x000000000080019c        0x2 load address 0x0000000000002542
  .data.MOTOR_LAST_SUCCESS_INDEX
-                0x00000000008001a0        0x2 build/default/production/AS5600_MAS.o
-                0x00000000008001a0                MOTOR_LAST_SUCCESS_INDEX
+                0x000000000080019c        0x2 build/default/production/AS5600_MAS.o
+                0x000000000080019c                MOTOR_LAST_SUCCESS_INDEX
 
 .data.PID_MAX_PWM
-                0x00000000008001c9        0x1 load address 0x0000000000002486
+                0x00000000008001c5        0x1 load address 0x0000000000002544
  .data.PID_MAX_PWM
-                0x00000000008001c9        0x1 build/default/production/AS5600_MAS.o
-                0x00000000008001c9                PID_MAX_PWM
+                0x00000000008001c5        0x1 build/default/production/AS5600_MAS.o
+                0x00000000008001c5                PID_MAX_PWM

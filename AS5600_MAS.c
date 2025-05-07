@@ -73,14 +73,14 @@ signed int MAS12_REMAP(word middpoint, word index)
   return data;
   }
 
-#define MOTOR_MODE_FIRCASIZ 1
-#define MOTOR_MODE_FIRCALI 0
 #define MOTOR_KACIRMA_KURTARMA_TIME_MS 10
+
 byte MOTOR_WORK = 0;
 byte MOTOR_SUCCES = 0;
 word MOTOR_STOP_INDEX = 0;
 word MOTOR_START_INDEX = 0;
 byte MOTOR_KACIRMA_KURTARMA = 0;
+byte MOTOR_PWM_VAL = 0;
 
 byte MOTOR_DIRECTION = 0;
 byte MOTOR_MODE = 0;
@@ -105,10 +105,6 @@ float PID_Ki = 0;
 void(*motor_pwm_w)(byte pwm);
 void(*motor_pwm_v)(byte pwm);
 void(*motor_pwm_u)(byte pwm);
-
-void(*motor_pwm_w_kontrol)(byte openOrClose);
-void(*motor_pwm_v_kontrol)(byte openOrClose);
-void(*motor_pwm_u_kontrol)(byte openOrClose);
 
 void MAS12_INIT(void (*mas_i2c_start_t)(void), byte(*mas_i2c_write_t)(byte data), byte(*mas_i2c_read_ack_t)(void), byte(*mas_i2c_read_nack_t)(void), void(*mas_i2c_stop_t)(void))
   {
@@ -162,9 +158,13 @@ void MOTOR_PWM_LOAD_ALL(byte pwm_value)
     }
   if (MOTOR_MODE == MOTOR_MODE_FIRCASIZ)
     {
-    motor_pwm_v(pwm_value);
-    motor_pwm_u(pwm_value);
-    motor_pwm_w(pwm_value);
+    if (MOTOR_WORK) MOTOR_PWM_VAL = pwm_value;
+    else
+      {
+      motor_pwm_v(pwm_value);
+      motor_pwm_u(pwm_value);
+      motor_pwm_w(pwm_value);
+      }
     }
   }
 
@@ -289,7 +289,7 @@ byte MOTOR_PROCESS(word torkVal)
       rtrnval = MOTOR_BASARILI_DURDU;
       MOTOR_LAST_SUCCESS_INDEX = MOTOR_STOP_INDEX;
       }
-    else if (MOTOR_TIME_OUT_TEMP == 0)
+    else if (MOTOR_TIME_OUT_TEMP > MOTOR_TIME_OUT)
       {
       MOTOR_SUCCES = 0;
       stopFlag = 1;
@@ -346,7 +346,7 @@ byte MOTOR_TIME_OUT_CHECK()
   {
   if (MOTOR_WORK)
     {
-    if (MOTOR_TIME_OUT_TEMP) MOTOR_TIME_OUT_TEMP--;
+    if (MOTOR_TIME_OUT_TEMP < 0xFFFF) MOTOR_TIME_OUT_TEMP++;
     if (MOTOR_MODE == MOTOR_MODE_FIRCASIZ)
       {
       if (MOTOR_KACIRMA_KURTARMA) MOTOR_KACIRMA_KURTARMA--;
@@ -362,69 +362,64 @@ void MOTOR_START_LAST_SUCCESS_INDEX()
   }
 //--------------------
 
-void MOTOR_FIRCASIZ_INIT(void(*motor_pwm_w_kontrol_t)(byte openOrClose), void(*motor_pwm_v_kontrol_t)(byte openOrClose), void(*motor_pwm_u_kontrol_t)(byte openOrClose))
-  {
-  motor_pwm_w_kontrol = motor_pwm_w_kontrol_t;
-  motor_pwm_v_kontrol = motor_pwm_v_kontrol_t;
-  motor_pwm_u_kontrol = motor_pwm_u_kontrol_t;
-  MOTOR_MODE = MOTOR_MODE_FIRCASIZ;
-  }
-
 void FIRCASIZ_STEP(byte Hall)
   {
+  W_DISABLE;
+  W_DISABLE;
+  W_DISABLE;
   if (Hall == 0)
     {
     U_ENABLE;
     V_ENABLE;
     W_DISABLE;
-    motor_pwm_u_kontrol(1);
-    motor_pwm_v_kontrol(0);
-    motor_pwm_w_kontrol(0);
+    motor_pwm_u(MOTOR_PWM_VAL);
+    motor_pwm_v(0);
+    motor_pwm_w(0);
     }
   else if (Hall == 1)
     {
     U_ENABLE;
     V_DISABLE;
     W_ENABLE;
-    motor_pwm_u_kontrol(1);
-    motor_pwm_v_kontrol(0);
-    motor_pwm_w_kontrol(0);
+    motor_pwm_u(MOTOR_PWM_VAL);
+    motor_pwm_v(0);
+    motor_pwm_w(0);
     }
   else if (Hall == 2)
     {
     U_DISABLE;
     V_ENABLE;
     W_ENABLE;
-    motor_pwm_u_kontrol(0);
-    motor_pwm_v_kontrol(1);
-    motor_pwm_w_kontrol(0);
+    motor_pwm_u(0);
+    motor_pwm_v(MOTOR_PWM_VAL);
+    motor_pwm_w(0);
     }
   else if (Hall == 3)
     {
     U_ENABLE;
     V_ENABLE;
     W_DISABLE;
-    motor_pwm_u_kontrol(0);
-    motor_pwm_v_kontrol(1);
-    motor_pwm_w_kontrol(0);
+    motor_pwm_u(0);
+    motor_pwm_v(MOTOR_PWM_VAL);
+    motor_pwm_w(0);
     }
   else if (Hall == 4)
     {
     U_ENABLE;
     V_DISABLE;
     W_ENABLE;
-    motor_pwm_u_kontrol(0);
-    motor_pwm_v_kontrol(0);
-    motor_pwm_w_kontrol(1);
+    motor_pwm_u(0);
+    motor_pwm_v(0);
+    motor_pwm_w(MOTOR_PWM_VAL);
     }
   else if (Hall == 5)
     {
     U_DISABLE;
     V_ENABLE;
     W_ENABLE;
-    motor_pwm_u_kontrol(0);
-    motor_pwm_v_kontrol(0);
-    motor_pwm_w_kontrol(1);
+    motor_pwm_u(0);
+    motor_pwm_v(0);
+    motor_pwm_w(MOTOR_PWM_VAL);
     }
   }
 
@@ -505,4 +500,9 @@ word MOTOR_GET_MAS12_HAM()
 word MOTOR_GET_MAS12_MAPPED()
   {
   return MAS12_NOW_MAPPED;
+  }
+
+void MOTOR_SET_MODE(byte mode)
+  {
+  MOTOR_MODE = mode;
   }
