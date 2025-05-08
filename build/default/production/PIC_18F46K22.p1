@@ -316,10 +316,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "11210
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k22.h: 11210: extern volatile unsigned char TXREG1 __attribute__((address(0xFAD)));
 [v _TXREG1 `Vuc ~T0 @X0 0 e@4013 ]
-"332 PIC_18F46K22.c
-[; ;PIC_18F46K22.c: 332:     UART_0_BYTE(*text);
-[v _UART_0_BYTE `(i ~T0 @X0 0 e? ]
-"9909 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k22.h
+"9909
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k22.h: 9909:     struct {
 [s S459 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S459 . TMR1GIE TMR3GIE TMR5GIE CTMUIE TX2IE RC2IE BCL2IE SSP2IE ]
@@ -2852,8 +2849,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;PIC_18F46K22.c: 331:     {
 {
 "332
-[; ;PIC_18F46K22.c: 332:     UART_0_BYTE(*text);
-[e ( _UART_0_BYTE -> *U _text `i ]
+[; ;PIC_18F46K22.c: 332:     UART_1_BYTE(*text);
+[e ( _UART_1_BYTE (1 -> *U _text `uc ]
 "333
 [; ;PIC_18F46K22.c: 333:     text++;
 [e ++ _text * -> -> 1 `i `x -> -> # *U _text `i `x ]
@@ -2882,15 +2879,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "338
 [; ;PIC_18F46K22.c: 338:   {
 [f ]
-[v F6656 `uc ~T0 @X0 -> 10 `i s ]
-[i F6656
+[v F6654 `uc ~T0 @X0 -> 10 `i s ]
+[i F6654
 :U ..
 ..
 ]
 "340
 [; ;PIC_18F46K22.c: 340:   unsigned char basamak[10] = {};
 [v _basamak `uc ~T0 @X0 -> 10 `i a ]
-[e = _basamak F6656 ]
+[e = _basamak F6654 ]
 "341
 [; ;PIC_18F46K22.c: 341:   signed char i = 0;
 [v _i `c ~T0 @X0 1 a ]
@@ -3092,15 +3089,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "393
 [; ;PIC_18F46K22.c: 393:   {
 [f ]
-[v F6670 `uc ~T0 @X0 -> 10 `i s ]
-[i F6670
+[v F6668 `uc ~T0 @X0 -> 10 `i s ]
+[i F6668
 :U ..
 ..
 ]
 "395
 [; ;PIC_18F46K22.c: 395:   unsigned char basamak[10] = {};
 [v _basamak `uc ~T0 @X0 -> 10 `i a ]
-[e = _basamak F6670 ]
+[e = _basamak F6668 ]
 "396
 [; ;PIC_18F46K22.c: 396:   signed char i = 0;
 [v _i `c ~T0 @X0 1 a ]
@@ -3241,8 +3238,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;PIC_18F46K22.c: 437:   unsigned long Fcy = Fosc / 4;
 [v _Fcy `ul ~T0 @X0 1 a ]
 [e = _Fcy / _Fosc -> -> -> 4 `i `l `ul ]
-[v F6683 `uc ~T0 @X0 -> 4 `i s ]
-[i F6683
+[v F6681 `uc ~T0 @X0 -> 4 `i s ]
+[i F6681
 :U ..
 "438
 [; ;PIC_18F46K22.c: 438:   unsigned char Prescalers[] = {1, 2, 4, 8};
@@ -3253,7 +3250,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _Prescalers `uc ~T0 @X0 -> 4 `i a ]
-[e = _Prescalers F6683 ]
+[e = _Prescalers F6681 ]
 "439
 [; ;PIC_18F46K22.c: 439:   unsigned int TMR1_Tick = 0;
 [v _TMR1_Tick `ui ~T0 @X0 1 a ]
@@ -3407,8 +3404,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;PIC_18F46K22.c: 485:   unsigned long Fcy = Fosc / 4;
 [v _Fcy `ul ~T0 @X0 1 a ]
 [e = _Fcy / _Fosc -> -> -> 4 `i `l `ul ]
-[v F6699 `uc ~T0 @X0 -> 4 `i s ]
-[i F6699
+[v F6697 `uc ~T0 @X0 -> 4 `i s ]
+[i F6697
 :U ..
 "486
 [; ;PIC_18F46K22.c: 486:   unsigned char Prescalers[] = {1, 2, 4, 8};
@@ -3419,7 +3416,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _Prescalers `uc ~T0 @X0 -> 4 `i a ]
-[e = _Prescalers F6699 ]
+[e = _Prescalers F6697 ]
 "487
 [; ;PIC_18F46K22.c: 487:   unsigned int TMR3_Tick = 0;
 [v _TMR3_Tick `ui ~T0 @X0 1 a ]
@@ -3573,8 +3570,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;PIC_18F46K22.c: 533:   unsigned long Fcy = Fosc / 4;
 [v _Fcy `ul ~T0 @X0 1 a ]
 [e = _Fcy / _Fosc -> -> -> 4 `i `l `ul ]
-[v F6715 `uc ~T0 @X0 -> 4 `i s ]
-[i F6715
+[v F6713 `uc ~T0 @X0 -> 4 `i s ]
+[i F6713
 :U ..
 "534
 [; ;PIC_18F46K22.c: 534:   unsigned char Prescalers[] = {1, 2, 4, 8};
@@ -3585,7 +3582,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _Prescalers `uc ~T0 @X0 -> 4 `i a ]
-[e = _Prescalers F6715 ]
+[e = _Prescalers F6713 ]
 "535
 [; ;PIC_18F46K22.c: 535:   unsigned int TMR5_Tick = 0;
 [v _TMR5_Tick `ui ~T0 @X0 1 a ]

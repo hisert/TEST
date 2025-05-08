@@ -15,7 +15,7 @@ extern "C" {
 
     void TIME_OUT_COUNT_INTERRUPT();
     byte TIME_OUT_CHECK(TIME_OUT_t *timeout, word outTime);
-    byte TIME_OUT_FUNCT(word ms, byte(Funct) (byte flag));
+    byte TIME_OUT_FUNCT(word ana_ms, byte(*Funct_t)(void), word second_ms);
 
 #ifdef	__cplusplus
 }

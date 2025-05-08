@@ -329,7 +329,7 @@ void UART_1_STRING(char* text)
   {
   while (*text)
     {
-    UART_0_BYTE(*text); // Her karakteri gönder
+    UART_1_BYTE(*text); // Her karakteri gönder
     text++;
     }
   }

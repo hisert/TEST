@@ -28,8 +28,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _EEPROM_GET `(ul ~T0 @X0 0 ef1`uc ]
 "71 newmain.c
 [; ;newmain.c: 71:   if (EEPROM_GET(MAGIC_BYTES != 0xAABB))
-[c E7167 0 1 .. ]
-[n E7167 . MAGIC_BYTES SETTINGS_DONE  ]
+[c E7166 0 1 .. ]
+[n E7166 . MAGIC_BYTES SETTINGS_DONE  ]
 "11 ./eeprom.h
 [; ;./eeprom.h: 11:     void EEPROM_SET(unsigned char index, unsigned long value);
 [v _EEPROM_SET `(v ~T0 @X0 0 ef2`uc`ul ]
@@ -38,8 +38,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _REG_GET `(ul ~T0 @X0 0 ef1`uc ]
 "103 newmain.c
 [; ;newmain.c: 103:   unsigned int MY_ADRESS = REG_GET(REGx_ADDR);
-[c E7185 0 1 2 3 4 5 6 .. ]
-[n E7185 REG_NAMES_t REGx_ADDR REGx_RAND_CODE REGx_SERI_NO REGx_VERSION REGx_SLAVE_ADRESS REGx_RAND_CODE_2 REGx_NAMES_NUM  ]
+[c E7184 0 1 2 3 4 5 6 .. ]
+[n E7184 REG_NAMES_t REGx_ADDR REGx_RAND_CODE REGx_SERI_NO REGx_VERSION REGx_SLAVE_ADRESS REGx_RAND_CODE_2 REGx_NAMES_NUM  ]
 "49 ./register.h
 [; ;./register.h: 49:     void REG_PARSE_INDEX(const char* src, char* out, unsigned char start, unsigned char stop);
 [v _REG_PARSE_INDEX `(v ~T0 @X0 0 ef4`*Cuc`*uc`uc`uc ]
@@ -91,20 +91,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "46
 [; ;./register.h: 46:     void REG_TX_ADD(char* input, const char* data);
 [v _REG_TX_ADD `(v ~T0 @X0 0 ef2`*uc`*Cuc ]
-[v F7110 `(v ~T0 @X0 0 tf2`uc`uc ]
+[v F7109 `(v ~T0 @X0 0 tf2`uc`uc ]
 "45
 [; ;./register.h: 45:     void REG_CREATE(unsigned char regId, void (*funct_t)(unsigned char, unsigned char), unsigned int flag_t, unsigned long val_t, unsigned long max_t, unsigned long min_t);
-[v _REG_CREATE `(v ~T0 @X0 0 ef6`uc`*F7110`ui`ul`ul`ul ]
-[v F7213 `(v ~T0 @X0 0 tf2`uc`uc ]
-[v F7216 `(v ~T0 @X0 0 tf2`uc`uc ]
-[v F7219 `(v ~T0 @X0 0 tf2`uc`uc ]
-[v F7222 `(v ~T0 @X0 0 tf2`uc`uc ]
-[v F7225 `(v ~T0 @X0 0 tf2`uc`uc ]
-[v F7083 `(v ~T0 @X0 0 tf2`ui`uc ]
-[v F7086 `(uc ~T0 @X0 0 tf1`ui ]
+[v _REG_CREATE `(v ~T0 @X0 0 ef6`uc`*F7109`ui`ul`ul`ul ]
+[v F7212 `(v ~T0 @X0 0 tf2`uc`uc ]
+[v F7215 `(v ~T0 @X0 0 tf2`uc`uc ]
+[v F7218 `(v ~T0 @X0 0 tf2`uc`uc ]
+[v F7221 `(v ~T0 @X0 0 tf2`uc`uc ]
+[v F7224 `(v ~T0 @X0 0 tf2`uc`uc ]
+[v F7082 `(v ~T0 @X0 0 tf2`ui`uc ]
+[v F7085 `(uc ~T0 @X0 0 tf1`ui ]
 "37
 [; ;./register.h: 37:     void REGISTER_INIT(void (*eeprom_byte_write_t)(unsigned int adress, unsigned char data), unsigned char(*eeprom_byte_read_t)(unsigned int adress));
-[v _REGISTER_INIT `(v ~T0 @X0 0 ef2`*F7083`*F7086 ]
+[v _REGISTER_INIT `(v ~T0 @X0 0 ef2`*F7082`*F7085 ]
 "21 ./task.h
 [; ;./task.h: 21:     void TASK_STOP(unsigned char taskIndex);
 [v _TASK_STOP `(v ~T0 @X0 0 ef1`uc ]
@@ -135,8 +135,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _TASK_START `(v ~T0 @X0 0 ef1`uc ]
 "294 newmain.c
 [; ;newmain.c: 294:     TASK_START(TASK_UART_1_RX);
-[c E7233 0 1 2 .. ]
-[n E7233 . TASK_UART_0_RX TASK_UART_1_RX TASK_DONE  ]
+[c E7232 0 1 2 .. ]
+[n E7232 . TASK_UART_0_RX TASK_UART_1_RX TASK_DONE  ]
 [p mainexit ]
 "65 ./PIC_18F46K22.h
 [; ;./PIC_18F46K22.h: 65:  void MCU_INIT(unsigned char inorEx, unsigned char mhz);
@@ -153,9 +153,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _THREAD_CREATE `(v ~T0 @X0 0 ef4`uc`uc`uc`*F6620 ]
 "318 newmain.c
 [; ;newmain.c: 318:   THREAD_CREATE(THREAD_LED_CANLI, 0x01 | 0x08, 10, LED_THREAD);
-[c E7242 0 1 2 3 4 .. ]
-[n E7242 . THREAD_LED_CANLI THREAD_DEBUG THREAD_MOTOR THREAD_INPUT THREAD_DONE  ]
-"66 ./PIC_18F46K22.h
+[c E7241 0 1 2 3 4 .. ]
+[n E7241 . THREAD_LED_CANLI THREAD_DEBUG THREAD_MOTOR THREAD_INPUT THREAD_DONE  ]
+"98 ./PIC_18F46K22.h
+[; ;./PIC_18F46K22.h: 98:     void UART_1_INIT(unsigned long baudRate);
+[v _UART_1_INIT `(v ~T0 @X0 0 ef1`ul ]
+"66
 [; ;./PIC_18F46K22.h: 66:     void INTERRUPT_ALL(unsigned char OpenOrClose);
 [v _INTERRUPT_ALL `(v ~T0 @X0 0 ef1`uc ]
 [t ~ __interrupt . k ]
@@ -1115,13 +1118,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "36
 [; ;newmain.c: 36:   static TIME_OUT_t time_out;
-[v F7164 `S865 ~T0 @X0 1 s time_out ]
+[v F7163 `S865 ~T0 @X0 1 s time_out ]
 "37
 [; ;newmain.c: 37:   SYSTEM_CONTROL_ALL();
 [e ( _SYSTEM_CONTROL_ALL ..  ]
 "38
 [; ;newmain.c: 38:   return TIME_OUT_CHECK(&time_out, ms);
-[e ) ( _TIME_OUT_CHECK (2 , &U F7164 _ms ]
+[e ) ( _TIME_OUT_CHECK (2 , &U F7163 _ms ]
 [e $UE 868  ]
 "39
 [; ;newmain.c: 39:   }
@@ -1212,7 +1215,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _EEPROM_INIT (2 , &U _EEPROM_B_WRITE &U _EEPROM_B_READ ]
 "71
 [; ;newmain.c: 71:   if (EEPROM_GET(MAGIC_BYTES != 0xAABB))
-[e $ ! != ( _EEPROM_GET (1 -> -> != -> . `E7167 0 `ui -> 43707 `ui `i `uc -> -> -> 0 `i `l `ul 876  ]
+[e $ ! != ( _EEPROM_GET (1 -> -> != -> . `E7166 0 `ui -> 43707 `ui `i `uc -> -> -> 0 `i `l `ul 876  ]
 "72
 [; ;newmain.c: 72:     {
 {
@@ -1221,17 +1224,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _x `uc ~T0 @X0 1 a ]
 [e = _x -> -> 0 `i `uc ]
-[e $ < -> _x `i -> . `E7167 1 `i 877  ]
+[e $ < -> _x `i -> . `E7166 1 `i 877  ]
 [e $U 878  ]
 [e :U 877 ]
 [e ( _EEPROM_SET (2 , _x -> -> -> 0 `i `l `ul ]
 [e ++ _x -> -> 1 `i `uc ]
-[e $ < -> _x `i -> . `E7167 1 `i 877  ]
+[e $ < -> _x `i -> . `E7166 1 `i 877  ]
 [e :U 878 ]
 }
 "74
 [; ;newmain.c: 74:     EEPROM_SET(MAGIC_BYTES, 0xAABB);
-[e ( _EEPROM_SET (2 , -> . `E7167 0 `uc -> -> 43707 `ui `ul ]
+[e ( _EEPROM_SET (2 , -> . `E7166 0 `uc -> -> 43707 `ui `ul ]
 "75
 [; ;newmain.c: 75:     }
 }
@@ -1241,12 +1244,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _x `uc ~T0 @X0 1 a ]
 [e = _x -> -> 0 `i `uc ]
-[e $ < -> _x `i -> . `E7167 1 `i 880  ]
+[e $ < -> _x `i -> . `E7166 1 `i 880  ]
 [e $U 881  ]
 [e :U 880 ]
 [e = *U + &U _SETTING_VALUES * -> _x `ux -> -> # *U &U _SETTING_VALUES `ui `ux -> ( _EEPROM_GET (1 _x `ui ]
 [e ++ _x -> -> 1 `i `uc ]
-[e $ < -> _x `i -> . `E7167 1 `i 880  ]
+[e $ < -> _x `i -> . `E7166 1 `i 880  ]
 [e :U 881 ]
 }
 "77
@@ -1268,14 +1271,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "96
 [; ;newmain.c: 96:   static unsigned char UNLOCK = 0;
-[v F7195 `uc ~T0 @X0 1 s UNLOCK ]
-[i F7195
+[v F7194 `uc ~T0 @X0 1 s UNLOCK ]
+[i F7194
 -> -> 0 `i `uc
 ]
 "97
 [; ;newmain.c: 97:   static unsigned int SECURE_CODE = 1111;
-[v F7196 `ui ~T0 @X0 1 s SECURE_CODE ]
-[i F7196
+[v F7195 `ui ~T0 @X0 1 s SECURE_CODE ]
+[i F7195
 -> -> 1111 `i `ui
 ]
 "98
@@ -1297,11 +1300,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "103
 [; ;newmain.c: 103:   unsigned int MY_ADRESS = REG_GET(REGx_ADDR);
 [v _MY_ADRESS `ui ~T0 @X0 1 a ]
-[e = _MY_ADRESS -> ( _REG_GET (1 -> . `E7185 0 `uc `ui ]
+[e = _MY_ADRESS -> ( _REG_GET (1 -> . `E7184 0 `uc `ui ]
 "104
 [; ;newmain.c: 104:   unsigned char MY_SECOND_ADRESS = REG_GET(REGx_SLAVE_ADRESS);
 [v _MY_SECOND_ADRESS `uc ~T0 @X0 1 a ]
-[e = _MY_SECOND_ADRESS -> ( _REG_GET (1 -> . `E7185 4 `uc `uc ]
+[e = _MY_SECOND_ADRESS -> ( _REG_GET (1 -> . `E7184 4 `uc `uc ]
 "105
 [; ;newmain.c: 105:   char TX[20];
 [v _TX `uc ~T0 @X0 -> 20 `i a ]
@@ -1369,12 +1372,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "130
 [; ;newmain.c: 130:     if (KOMUT == REGx_RAND_CODE) goto passed;
-[e $ ! == -> _KOMUT `i -> . `E7185 1 `i 886  ]
+[e $ ! == -> _KOMUT `i -> . `E7184 1 `i 886  ]
 [e $U 887  ]
 [e :U 886 ]
 "131
 [; ;newmain.c: 131:     if (UNLOCK) goto passed;
-[e $ ! != -> F7195 `i -> 0 `i 888  ]
+[e $ ! != -> F7194 `i -> 0 `i 888  ]
 [e $U 887  ]
 [e :U 888 ]
 "132
@@ -1386,8 +1389,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 885 ]
 "134
 [; ;newmain.c: 134:   if ((KOMUT == REGx_ADDR) || (KOMUT == REGx_SLAVE_ADRESS)) if (UNLOCK) goto passed;
-[e $ ! || == -> _KOMUT `i -> . `E7185 0 `i == -> _KOMUT `i -> . `E7185 4 `i 889  ]
-[e $ ! != -> F7195 `i -> 0 `i 890  ]
+[e $ ! || == -> _KOMUT `i -> . `E7184 0 `i == -> _KOMUT `i -> . `E7184 4 `i 889  ]
+[e $ ! != -> F7194 `i -> 0 `i 890  ]
 [e $U 887  ]
 [e :U 890 ]
 [e :U 889 ]
@@ -1423,7 +1426,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "142
 [; ;newmain.c: 142:     if ((REG_GET_FLAG(KOMUT) & 0x0800) & (UNLOCK == 0)) return;
-[e $ ! != & & ( _REG_GET_FLAG (1 _KOMUT -> -> 2048 `i `ui -> -> == -> F7195 `i -> 0 `i `i `ui -> -> 0 `i `ui 896  ]
+[e $ ! != & & ( _REG_GET_FLAG (1 _KOMUT -> -> 2048 `i `ui -> -> == -> F7194 `i -> 0 `i `i `ui -> -> 0 `i `ui 896  ]
 [e $UE 883  ]
 [e :U 896 ]
 "143
@@ -1434,7 +1437,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "145
 [; ;newmain.c: 145:       if (KOMUT == REGx_RAND_CODE)
-[e $ ! == -> _KOMUT `i -> . `E7185 1 `i 898  ]
+[e $ ! == -> _KOMUT `i -> . `E7184 1 `i 898  ]
 "146
 [; ;newmain.c: 146:         {
 {
@@ -1446,7 +1449,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "149
 [; ;newmain.c: 149:           UNLOCK = 0;
-[e = F7195 -> -> 0 `i `uc ]
+[e = F7194 -> -> 0 `i `uc ]
 "150
 [; ;newmain.c: 150:           REG_SET_UNLOCK_START();
 [e ( _REG_SET_UNLOCK_START ..  ]
@@ -1460,13 +1463,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "154
 [; ;newmain.c: 154:         else if ((DATA ^SECURE_CODE) == REG_GET(KOMUT))
 [e :U 899 ]
-[e $ ! == ^ _DATA -> F7196 `ul ( _REG_GET (1 _KOMUT 901  ]
+[e $ ! == ^ _DATA -> F7195 `ul ( _REG_GET (1 _KOMUT 901  ]
 "155
 [; ;newmain.c: 155:           {
 {
 "156
 [; ;newmain.c: 156:           UNLOCK = 0xFF;
-[e = F7195 -> -> 255 `i `uc ]
+[e = F7194 -> -> 255 `i `uc ]
 "157
 [; ;newmain.c: 157:           REG_SET(KOMUT, DATA);
 [e ( _REG_SET (2 , _KOMUT _DATA ]
@@ -1485,7 +1488,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "162
 [; ;newmain.c: 162:           UNLOCK = 0;
-[e = F7195 -> -> 0 `i `uc ]
+[e = F7194 -> -> 0 `i `uc ]
 "163
 [; ;newmain.c: 163:           REG_SET(KOMUT, 0);
 [e ( _REG_SET (2 , _KOMUT -> -> -> 0 `i `l `ul ]
@@ -1538,7 +1541,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "176
 [; ;newmain.c: 176:       if (KOMUT == REGx_RAND_CODE)
-[e $ ! == -> _KOMUT `i -> . `E7185 1 `i 908  ]
+[e $ ! == -> _KOMUT `i -> . `E7184 1 `i 908  ]
 "177
 [; ;newmain.c: 177:         {
 {
@@ -1598,10 +1601,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _REG_PROCESS_GET_DATA_STR (2 , _KOMUT &U _temp ]
 "193
 [; ;newmain.c: 193:   REG_CONVERT_DWORD_TO_STR_HEX(REG_GET(REGx_ADDR), ADRESS_S, 4);
-[e ( _REG_CONVERT_DWORD_TO_STR_HEX (3 , , ( _REG_GET (1 -> . `E7185 0 `uc &U _ADRESS_S -> -> 4 `i `uc ]
+[e ( _REG_CONVERT_DWORD_TO_STR_HEX (3 , , ( _REG_GET (1 -> . `E7184 0 `uc &U _ADRESS_S -> -> 4 `i `uc ]
 "194
 [; ;newmain.c: 194:   REG_CONVERT_DWORD_TO_STR_HEX(REG_GET(REGx_SLAVE_ADRESS), SECOND_ADRESS_S, 2);
-[e ( _REG_CONVERT_DWORD_TO_STR_HEX (3 , , ( _REG_GET (1 -> . `E7185 4 `uc &U _SECOND_ADRESS_S -> -> 2 `i `uc ]
+[e ( _REG_CONVERT_DWORD_TO_STR_HEX (3 , , ( _REG_GET (1 -> . `E7184 4 `uc &U _SECOND_ADRESS_S -> -> 2 `i `uc ]
 "195
 [; ;newmain.c: 195:   if (REG_GET_FLAG(KOMUT) & 0x4000) REG_TX_ADD(TX, "MAIN1");
 [e $ ! != & ( _REG_GET_FLAG (1 _KOMUT -> -> 16384 `i `ui -> -> 0 `i `ui 914  ]
@@ -1652,19 +1655,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "212
 [; ;newmain.c: 212:   REG_CREATE(REGx_ADDR, 0, 0x2000 | 0x0001 | 0x0008 | 0x0200 | 0x0400 | 0x0800, 0, 0xFFFF, 0);
-[e ( _REG_CREATE (4 , , , , , -> . `E7185 0 `uc -> -> 0 `i `*F7213 -> | | | | | -> 8192 `i -> 1 `i -> 8 `i -> 512 `i -> 1024 `i -> 2048 `i `ui -> -> -> 0 `i `l `ul -> -> 65535 `ui `ul -> -> -> 0 `i `l `ul ]
+[e ( _REG_CREATE (4 , , , , , -> . `E7184 0 `uc -> -> 0 `i `*F7212 -> | | | | | -> 8192 `i -> 1 `i -> 8 `i -> 512 `i -> 1024 `i -> 2048 `i `ui -> -> -> 0 `i `l `ul -> -> 65535 `ui `ul -> -> -> 0 `i `l `ul ]
 "213
 [; ;newmain.c: 213:   REG_CREATE(REGx_RAND_CODE, 0, 0x2000 | 0x0001 | 0x0008 | 0x0200 | 0x0400, 0, 0xFFFF, 0);
-[e ( _REG_CREATE (4 , , , , , -> . `E7185 1 `uc -> -> 0 `i `*F7216 -> | | | | -> 8192 `i -> 1 `i -> 8 `i -> 512 `i -> 1024 `i `ui -> -> -> 0 `i `l `ul -> -> 65535 `ui `ul -> -> -> 0 `i `l `ul ]
+[e ( _REG_CREATE (4 , , , , , -> . `E7184 1 `uc -> -> 0 `i `*F7215 -> | | | | -> 8192 `i -> 1 `i -> 8 `i -> 512 `i -> 1024 `i `ui -> -> -> 0 `i `l `ul -> -> 65535 `ui `ul -> -> -> 0 `i `l `ul ]
 "214
 [; ;newmain.c: 214:   REG_CREATE(REGx_SERI_NO, 0, 0x2000 | 0x0001 | 0x0008 | 0x0200 | 0x0400 | 0x0800, 0, 0xFFFF, 0);
-[e ( _REG_CREATE (4 , , , , , -> . `E7185 2 `uc -> -> 0 `i `*F7219 -> | | | | | -> 8192 `i -> 1 `i -> 8 `i -> 512 `i -> 1024 `i -> 2048 `i `ui -> -> -> 0 `i `l `ul -> -> 65535 `ui `ul -> -> -> 0 `i `l `ul ]
+[e ( _REG_CREATE (4 , , , , , -> . `E7184 2 `uc -> -> 0 `i `*F7218 -> | | | | | -> 8192 `i -> 1 `i -> 8 `i -> 512 `i -> 1024 `i -> 2048 `i `ui -> -> -> 0 `i `l `ul -> -> 65535 `ui `ul -> -> -> 0 `i `l `ul ]
 "215
 [; ;newmain.c: 215:   REG_CREATE(REGx_VERSION, 0, 0x2000 | 0x0001 | 0x0008 | 0x0400, 0x10, 0xFFFF, 0);
-[e ( _REG_CREATE (4 , , , , , -> . `E7185 3 `uc -> -> 0 `i `*F7222 -> | | | -> 8192 `i -> 1 `i -> 8 `i -> 1024 `i `ui -> -> -> 16 `i `l `ul -> -> 65535 `ui `ul -> -> -> 0 `i `l `ul ]
+[e ( _REG_CREATE (4 , , , , , -> . `E7184 3 `uc -> -> 0 `i `*F7221 -> | | | -> 8192 `i -> 1 `i -> 8 `i -> 1024 `i `ui -> -> -> 16 `i `l `ul -> -> 65535 `ui `ul -> -> -> 0 `i `l `ul ]
 "216
 [; ;newmain.c: 216:   REG_CREATE(REGx_SLAVE_ADRESS, 0, 0x2000 | 0x0001 | 0x0004 | 0x0200 | 0x0400 | 0x0800, 0, 0xFF, 0);
-[e ( _REG_CREATE (4 , , , , , -> . `E7185 4 `uc -> -> 0 `i `*F7225 -> | | | | | -> 8192 `i -> 1 `i -> 4 `i -> 512 `i -> 1024 `i -> 2048 `i `ui -> -> -> 0 `i `l `ul -> -> -> 255 `i `l `ul -> -> -> 0 `i `l `ul ]
+[e ( _REG_CREATE (4 , , , , , -> . `E7184 4 `uc -> -> 0 `i `*F7224 -> | | | | | -> 8192 `i -> 1 `i -> 4 `i -> 512 `i -> 1024 `i -> 2048 `i `ui -> -> -> 0 `i `l `ul -> -> -> 255 `i `l `ul -> -> -> 0 `i `l `ul ]
 "217
 [; ;newmain.c: 217:   REGISTER_INIT(EEPROM_B_WRITE, EEPROM_B_READ);
 [e ( _REGISTER_INIT (2 , &U _EEPROM_B_WRITE &U _EEPROM_B_READ ]
@@ -1727,27 +1730,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "263
 [; ;newmain.c: 263:   static THREAD_DELAY timer;
-[v F7251 `S860 ~T0 @X0 1 s timer ]
+[v F7250 `S860 ~T0 @X0 1 s timer ]
 "264
 [; ;newmain.c: 264:   THREAD_TIME_START(&timer);
-[e ( _THREAD_TIME_START (1 &U F7251 ]
+[e ( _THREAD_TIME_START (1 &U F7250 ]
 "265
 [; ;newmain.c: 265:   if (THREAD_TIME_WAIT(&timer, 95)) if (THREAD_GET_STATE() == 0x01) PIN_SET_LAT_TOGGLE('B', 6);
-[e $ ! != -> ( _THREAD_TIME_WAIT (2 , &U F7251 -> -> 95 `i `ui `i -> 0 `i 920  ]
+[e $ ! != -> ( _THREAD_TIME_WAIT (2 , &U F7250 -> -> 95 `i `ui `i -> 0 `i 920  ]
 [e $ ! == -> ( _THREAD_GET_STATE ..  `i -> 1 `i 921  ]
 [e ( _PIN_SET_LAT_TOGGLE (2 , -> -> 66 `ui `uc -> -> 6 `i `uc ]
 [e :U 921 ]
 [e :U 920 ]
 "266
 [; ;newmain.c: 266:   if (THREAD_TIME_WAIT(&timer, 5)) if (THREAD_GET_STATE() == 0x01) PIN_SET_LAT_TOGGLE('B', 6);
-[e $ ! != -> ( _THREAD_TIME_WAIT (2 , &U F7251 -> -> 5 `i `ui `i -> 0 `i 922  ]
+[e $ ! != -> ( _THREAD_TIME_WAIT (2 , &U F7250 -> -> 5 `i `ui `i -> 0 `i 922  ]
 [e $ ! == -> ( _THREAD_GET_STATE ..  `i -> 1 `i 923  ]
 [e ( _PIN_SET_LAT_TOGGLE (2 , -> -> 66 `ui `uc -> -> 6 `i `uc ]
 [e :U 923 ]
 [e :U 922 ]
 "267
 [; ;newmain.c: 267:   if (THREAD_TIME_DONE(&timer)) THREAD_DONE_CONTROL(threadIndex);
-[e $ ! != -> ( _THREAD_TIME_DONE (1 &U F7251 `i -> 0 `i 924  ]
+[e $ ! != -> ( _THREAD_TIME_DONE (1 &U F7250 `i -> 0 `i 924  ]
 [e ( _THREAD_DONE_CONTROL (1 _threadIndex ]
 [e :U 924 ]
 "269
@@ -1820,8 +1823,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "288
 [; ;newmain.c: 288:   static unsigned char counter = 0;
-[v F7260 `uc ~T0 @X0 1 s counter ]
-[i F7260
+[v F7259 `uc ~T0 @X0 1 s counter ]
+[i F7259
 -> -> 0 `i `uc
 ]
 "289
@@ -1831,7 +1834,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "290
 [; ;newmain.c: 290:   if (x == '<') counter = 0;
 [e $ ! == -> _x `ui -> 60 `ui 929  ]
-[e = F7260 -> -> 0 `i `uc ]
+[e = F7259 -> -> 0 `i `uc ]
 [e $U 930  ]
 "291
 [; ;newmain.c: 291:   else if (x == '>')
@@ -1842,10 +1845,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "293
 [; ;newmain.c: 293:     UART_1_MSG[counter] = 0;
-[e = *U + &U _UART_1_MSG * -> F7260 `ux -> -> # *U &U _UART_1_MSG `ui `ux -> -> 0 `i `uc ]
+[e = *U + &U _UART_1_MSG * -> F7259 `ux -> -> # *U &U _UART_1_MSG `ui `ux -> -> 0 `i `uc ]
 "294
 [; ;newmain.c: 294:     TASK_START(TASK_UART_1_RX);
-[e ( _TASK_START (1 -> . `E7233 1 `uc ]
+[e ( _TASK_START (1 -> . `E7232 1 `uc ]
 "295
 [; ;newmain.c: 295:     }
 }
@@ -1853,8 +1856,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 930 ]
 "296
 [; ;newmain.c: 296:   if (counter < 20) UART_1_MSG[counter++] = x;
-[e $ ! < -> F7260 `i -> 20 `i 932  ]
-[e = *U + &U _UART_1_MSG * -> ++ F7260 -> -> 1 `i `uc `ux -> -> # *U &U _UART_1_MSG `ui `ux -> _x `uc ]
+[e $ ! < -> F7259 `i -> 20 `i 932  ]
+[e = *U + &U _UART_1_MSG * -> ++ F7259 -> -> 1 `i `uc `ux -> -> # *U &U _UART_1_MSG `ui `ux -> _x `uc ]
 [e :U 932 ]
 "297
 [; ;newmain.c: 297:   }
@@ -1875,8 +1878,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "301
 [; ;newmain.c: 301:   static unsigned char counter = 0;
-[v F7264 `uc ~T0 @X0 1 s counter ]
-[i F7264
+[v F7263 `uc ~T0 @X0 1 s counter ]
+[i F7263
 -> -> 0 `i `uc
 ]
 "302
@@ -1886,7 +1889,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "303
 [; ;newmain.c: 303:   if (x == '(') counter = 0;
 [e $ ! == -> _x `ui -> 40 `ui 934  ]
-[e = F7264 -> -> 0 `i `uc ]
+[e = F7263 -> -> 0 `i `uc ]
 [e $U 935  ]
 "304
 [; ;newmain.c: 304:   else if (x == ')')
@@ -1897,10 +1900,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "306
 [; ;newmain.c: 306:     UART_0_MSG[counter] = 0;
-[e = *U + &U _UART_0_MSG * -> F7264 `ux -> -> # *U &U _UART_0_MSG `ui `ux -> -> 0 `i `uc ]
+[e = *U + &U _UART_0_MSG * -> F7263 `ux -> -> # *U &U _UART_0_MSG `ui `ux -> -> 0 `i `uc ]
 "307
 [; ;newmain.c: 307:     TASK_START(TASK_UART_0_RX);
-[e ( _TASK_START (1 -> . `E7233 0 `uc ]
+[e ( _TASK_START (1 -> . `E7232 0 `uc ]
 "308
 [; ;newmain.c: 308:     }
 }
@@ -1908,8 +1911,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "309
 [; ;newmain.c: 309:   else if (counter < 20) UART_0_MSG[counter++] = x;
 [e :U 936 ]
-[e $ ! < -> F7264 `i -> 20 `i 938  ]
-[e = *U + &U _UART_0_MSG * -> ++ F7264 -> -> 1 `i `uc `ux -> -> # *U &U _UART_0_MSG `ui `ux -> _x `uc ]
+[e $ ! < -> F7263 `i -> 20 `i 938  ]
+[e = *U + &U _UART_0_MSG * -> ++ F7263 -> -> 1 `i `uc `ux -> -> # *U &U _UART_0_MSG `ui `ux -> _x `uc ]
 [e :U 938 ]
 [e :U 937 ]
 [e :U 935 ]
@@ -1937,117 +1940,120 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _TIMER_1_INIT (1 -> -> 1 `i `uc ]
 "318
 [; ;newmain.c: 318:   THREAD_CREATE(THREAD_LED_CANLI, 0x01 | 0x08, 10, LED_THREAD);
-[e ( _THREAD_CREATE (4 , , , -> . `E7242 0 `uc -> | -> 1 `i -> 8 `i `uc -> -> 10 `i `uc &U _LED_THREAD ]
-"323
-[; ;newmain.c: 323:   INTERRUPT_ALL(1);
-[e ( _INTERRUPT_ALL (1 -> -> 1 `i `uc ]
+[e ( _THREAD_CREATE (4 , , , -> . `E7241 0 `uc -> | -> 1 `i -> 8 `i `uc -> -> 10 `i `uc &U _LED_THREAD ]
+"320
+[; ;newmain.c: 320:   UART_1_INIT(9600);
+[e ( _UART_1_INIT (1 -> -> -> 9600 `i `l `ul ]
 "324
-[; ;newmain.c: 324:   while (1) SYSTEM_CONTROL_ALL();
+[; ;newmain.c: 324:   INTERRUPT_ALL(1);
+[e ( _INTERRUPT_ALL (1 -> -> 1 `i `uc ]
+"325
+[; ;newmain.c: 325:   while (1) SYSTEM_CONTROL_ALL();
 [e :U 941 ]
 [e ( _SYSTEM_CONTROL_ALL ..  ]
 [e :U 940 ]
 [e $U 941  ]
 [e :U 942 ]
-"326
-[; ;newmain.c: 326:   }
+"327
+[; ;newmain.c: 327:   }
 [e :UE 939 ]
 }
 [v $root$__ISR `(v ~T0 @X0 0 e ]
-"526
-[; ;newmain.c: 526: void __attribute__((picinterrupt(("high_priority")))) _ISR(void)
+"528
+[; ;newmain.c: 528: void __attribute__((picinterrupt(("high_priority")))) _ISR(void)
 [v __ISR `(v ~T1 @X0 1 ef ]
-"527
-[; ;newmain.c: 527:   {
+"529
+[; ;newmain.c: 529:   {
 {
 [e :U __ISR ]
 [f ]
-"528
-[; ;newmain.c: 528:   if (PIR1bits.TMR1IF)
-[e $ ! != -> . . _PIR1bits 0 0 `i -> 0 `i 944  ]
-"529
-[; ;newmain.c: 529:     {
-{
 "530
-[; ;newmain.c: 530:     TIMER_1_INTERRUPT_FUNCT();
-[e ( _TIMER_1_INTERRUPT_FUNCT ..  ]
+[; ;newmain.c: 530:   if (PIR1bits.TMR1IF)
+[e $ ! != -> . . _PIR1bits 0 0 `i -> 0 `i 944  ]
 "531
-[; ;newmain.c: 531:     THREAD_INTERRUPT();
-[e ( _THREAD_INTERRUPT ..  ]
+[; ;newmain.c: 531:     {
+{
 "532
-[; ;newmain.c: 532:     TIME_OUT_COUNT_INTERRUPT();
-[e ( _TIME_OUT_COUNT_INTERRUPT ..  ]
+[; ;newmain.c: 532:     TIMER_1_INTERRUPT_FUNCT();
+[e ( _TIMER_1_INTERRUPT_FUNCT ..  ]
 "533
-[; ;newmain.c: 533:     }
+[; ;newmain.c: 533:     THREAD_INTERRUPT();
+[e ( _THREAD_INTERRUPT ..  ]
+"534
+[; ;newmain.c: 534:     TIME_OUT_COUNT_INTERRUPT();
+[e ( _TIME_OUT_COUNT_INTERRUPT ..  ]
+"535
+[; ;newmain.c: 535:     }
 }
 [e $U 945  ]
-"534
-[; ;newmain.c: 534:   else if (PIR2bits.TMR3IF)
+"536
+[; ;newmain.c: 536:   else if (PIR2bits.TMR3IF)
 [e :U 944 ]
 [e $ ! != -> . . _PIR2bits 0 1 `i -> 0 `i 946  ]
-"535
-[; ;newmain.c: 535:     {
-{
-"536
-[; ;newmain.c: 536:     TIMER_3_INTERRUPT_FUNCT();
-[e ( _TIMER_3_INTERRUPT_FUNCT ..  ]
 "537
-[; ;newmain.c: 537:     }
+[; ;newmain.c: 537:     {
+{
+"538
+[; ;newmain.c: 538:     TIMER_3_INTERRUPT_FUNCT();
+[e ( _TIMER_3_INTERRUPT_FUNCT ..  ]
+"539
+[; ;newmain.c: 539:     }
 }
 [e $U 947  ]
-"538
-[; ;newmain.c: 538:   else if (PIR5bits.TMR5IF)
+"540
+[; ;newmain.c: 540:   else if (PIR5bits.TMR5IF)
 [e :U 946 ]
 [e $ ! != -> . . _PIR5bits 0 1 `i -> 0 `i 948  ]
-"539
-[; ;newmain.c: 539:     {
-{
-"540
-[; ;newmain.c: 540:     TIMER_5_INTERRUPT_FUNCT();
-[e ( _TIMER_5_INTERRUPT_FUNCT ..  ]
 "541
-[; ;newmain.c: 541:     }
+[; ;newmain.c: 541:     {
+{
+"542
+[; ;newmain.c: 542:     TIMER_5_INTERRUPT_FUNCT();
+[e ( _TIMER_5_INTERRUPT_FUNCT ..  ]
+"543
+[; ;newmain.c: 543:     }
 }
 [e $U 949  ]
-"542
-[; ;newmain.c: 542:   else if (PIR1bits.RC1IF)
+"544
+[; ;newmain.c: 544:   else if (PIR1bits.RC1IF)
 [e :U 948 ]
 [e $ ! != -> . . _PIR1bits 0 5 `i -> 0 `i 950  ]
-"543
-[; ;newmain.c: 543:     {
-{
-"544
-[; ;newmain.c: 544:     PIR1bits.RC1IF = 0;
-[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
 "545
-[; ;newmain.c: 545:     UART_1_INTERRUPT_FUNCT(RCREG1);
-[e ( _UART_1_INTERRUPT_FUNCT (1 _RCREG1 ]
+[; ;newmain.c: 545:     {
+{
 "546
-[; ;newmain.c: 546:     }
+[; ;newmain.c: 546:     PIR1bits.RC1IF = 0;
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"547
+[; ;newmain.c: 547:     UART_1_INTERRUPT_FUNCT(RCREG1);
+[e ( _UART_1_INTERRUPT_FUNCT (1 _RCREG1 ]
+"548
+[; ;newmain.c: 548:     }
 }
 [e $U 951  ]
-"547
-[; ;newmain.c: 547:   else if (PIR3bits.RC2IF)
+"549
+[; ;newmain.c: 549:   else if (PIR3bits.RC2IF)
 [e :U 950 ]
 [e $ ! != -> . . _PIR3bits 0 5 `i -> 0 `i 952  ]
-"548
-[; ;newmain.c: 548:     {
-{
-"549
-[; ;newmain.c: 549:     PIR3bits.RC2IF = 0;
-[e = . . _PIR3bits 0 5 -> -> 0 `i `uc ]
 "550
-[; ;newmain.c: 550:     UART_2_INTERRUPT_FUNCT(RCREG2);
-[e ( _UART_2_INTERRUPT_FUNCT (1 _RCREG2 ]
+[; ;newmain.c: 550:     {
+{
 "551
-[; ;newmain.c: 551:     }
+[; ;newmain.c: 551:     PIR3bits.RC2IF = 0;
+[e = . . _PIR3bits 0 5 -> -> 0 `i `uc ]
+"552
+[; ;newmain.c: 552:     UART_2_INTERRUPT_FUNCT(RCREG2);
+[e ( _UART_2_INTERRUPT_FUNCT (1 _RCREG2 ]
+"553
+[; ;newmain.c: 553:     }
 }
 [e :U 952 ]
 [e :U 951 ]
 [e :U 949 ]
 [e :U 947 ]
 [e :U 945 ]
-"552
-[; ;newmain.c: 552:   }
+"554
+[; ;newmain.c: 554:   }
 [e :UE 943 ]
 }
 [a 7C 82 0 ]

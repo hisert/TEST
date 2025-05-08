@@ -3,8 +3,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./time_out.h: 10:     typedef struct {
 [s S857 `ui 1 ]
 [n S857 . time_out_time ]
-[v F6470 `(uc ~T0 @X0 0 tf1`uc ]
-[v F6474 `(uc ~T0 @X0 0 tf1`uc ]
+[v F6469 `(uc ~T0 @X0 0 tf ]
+[v F6472 `(uc ~T0 @X0 0 tf ]
 "4 time_out.c
 [; ;time_out.c: 4: extern void SYSTEM_CONTROL_ALL();
 [v _SYSTEM_CONTROL_ALL `(v ~T0 @X0 0 e? ]
@@ -777,27 +777,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;time_out.c: 6: void TIME_OUT_COUNT_INTERRUPT()
 [v _TIME_OUT_COUNT_INTERRUPT `(v ~T0 @X0 1 ef ]
 "7
-[; ;time_out.c: 7: {
+[; ;time_out.c: 7:   {
 {
 [e :U _TIME_OUT_COUNT_INTERRUPT ]
 [f ]
 "8
-[; ;time_out.c: 8:     SYSTEM_TIME_OUT_COUNTER++;
+[; ;time_out.c: 8:   SYSTEM_TIME_OUT_COUNTER++;
 [e ++ _SYSTEM_TIME_OUT_COUNTER -> -> 1 `i `Vui ]
 "9
-[; ;time_out.c: 9:     if (SYSTEM_TIME_OUT_COUNTER > 0xF000) SYSTEM_TIME_OUT_COUNTER = SYSTEM_TIME_OUT_COUNTER - 0x7000;
+[; ;time_out.c: 9:   if (SYSTEM_TIME_OUT_COUNTER > 0xF000) SYSTEM_TIME_OUT_COUNTER = SYSTEM_TIME_OUT_COUNTER - 0x7000;
 [e $ ! > _SYSTEM_TIME_OUT_COUNTER -> 61440 `ui 859  ]
 [e = _SYSTEM_TIME_OUT_COUNTER - _SYSTEM_TIME_OUT_COUNTER -> -> 28672 `i `ui ]
 [e :U 859 ]
 "10
-[; ;time_out.c: 10: }
+[; ;time_out.c: 10:   }
 [e :UE 858 ]
 }
 "12
 [; ;time_out.c: 12: unsigned char TIME_OUT_CHECK(TIME_OUT_t *timeout, unsigned int outTime)
 [v _TIME_OUT_CHECK `(uc ~T0 @X0 1 ef2`*S857`ui ]
 "13
-[; ;time_out.c: 13: {
+[; ;time_out.c: 13:   {
 {
 [e :U _TIME_OUT_CHECK ]
 "12
@@ -805,105 +805,126 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _timeout `*S857 ~T0 @X0 1 r1 ]
 [v _outTime `ui ~T0 @X0 1 r2 ]
 "13
-[; ;time_out.c: 13: {
+[; ;time_out.c: 13:   {
 [f ]
 "14
-[; ;time_out.c: 14:     if (outTime == 0) {
+[; ;time_out.c: 14:   if (outTime == 0)
 [e $ ! == _outTime -> -> 0 `i `ui 861  ]
-{
 "15
-[; ;time_out.c: 15:         (timeout->time_out_time) = SYSTEM_TIME_OUT_COUNTER;
-[e = . *U _timeout 0 _SYSTEM_TIME_OUT_COUNTER ]
+[; ;time_out.c: 15:     {
+{
 "16
-[; ;time_out.c: 16:         return 0;
+[; ;time_out.c: 16:     (timeout->time_out_time) = SYSTEM_TIME_OUT_COUNTER;
+[e = . *U _timeout 0 _SYSTEM_TIME_OUT_COUNTER ]
+"17
+[; ;time_out.c: 17:     return 0;
 [e ) -> -> 0 `i `uc ]
 [e $UE 860  ]
-"17
-[; ;time_out.c: 17:     }
+"18
+[; ;time_out.c: 18:     }
 }
 [e :U 861 ]
-"18
-[; ;time_out.c: 18:     if (SYSTEM_TIME_OUT_COUNTER >= (timeout->time_out_time));
+"19
+[; ;time_out.c: 19:   if (SYSTEM_TIME_OUT_COUNTER >= (timeout->time_out_time));
 [e $ ! >= _SYSTEM_TIME_OUT_COUNTER . *U _timeout 0 862  ]
 [e $U 863  ]
-"19
-[; ;time_out.c: 19:     else (timeout->time_out_time) = (timeout->time_out_time) - 0x7000;
+"20
+[; ;time_out.c: 20:   else (timeout->time_out_time) = (timeout->time_out_time) - 0x7000;
 [e :U 862 ]
 [e = . *U _timeout 0 - . *U _timeout 0 -> -> 28672 `i `ui ]
 [e :U 863 ]
-"20
-[; ;time_out.c: 20:     if ((SYSTEM_TIME_OUT_COUNTER - (timeout->time_out_time)) >= outTime) {
-[e $ ! >= - _SYSTEM_TIME_OUT_COUNTER . *U _timeout 0 _outTime 864  ]
-{
 "21
-[; ;time_out.c: 21:         (timeout->time_out_time) = SYSTEM_TIME_OUT_COUNTER;
-[e = . *U _timeout 0 _SYSTEM_TIME_OUT_COUNTER ]
+[; ;time_out.c: 21:   if ((SYSTEM_TIME_OUT_COUNTER - (timeout->time_out_time)) >= outTime)
+[e $ ! >= - _SYSTEM_TIME_OUT_COUNTER . *U _timeout 0 _outTime 864  ]
 "22
-[; ;time_out.c: 22:         return 1;
+[; ;time_out.c: 22:     {
+{
+"23
+[; ;time_out.c: 23:     (timeout->time_out_time) = SYSTEM_TIME_OUT_COUNTER;
+[e = . *U _timeout 0 _SYSTEM_TIME_OUT_COUNTER ]
+"24
+[; ;time_out.c: 24:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 860  ]
-"23
-[; ;time_out.c: 23:     }
+"25
+[; ;time_out.c: 25:     }
 }
 [e :U 864 ]
-"24
-[; ;time_out.c: 24:     return 0;
+"26
+[; ;time_out.c: 26:   return 0;
 [e ) -> -> 0 `i `uc ]
 [e $UE 860  ]
-"25
-[; ;time_out.c: 25: }
+"27
+[; ;time_out.c: 27:   }
 [e :UE 860 ]
 }
-"27
-[; ;time_out.c: 27: unsigned char TIME_OUT_FUNCT(unsigned int ms, unsigned char(Funct) (unsigned char flag))
-[v _TIME_OUT_FUNCT `(uc ~T0 @X0 1 ef2`ui`*F6470 ]
-"28
-[; ;time_out.c: 28: {
+"29
+[; ;time_out.c: 29: unsigned char TIME_OUT_FUNCT(unsigned int ana_ms, unsigned char(*Funct_t)(void), unsigned int second_ms)
+[v _TIME_OUT_FUNCT `(uc ~T0 @X0 1 ef3`ui`*F6469`ui ]
+"30
+[; ;time_out.c: 30:   {
 {
 [e :U _TIME_OUT_FUNCT ]
-"27
-[; ;time_out.c: 27: unsigned char TIME_OUT_FUNCT(unsigned int ms, unsigned char(Funct) (unsigned char flag))
-[v _ms `ui ~T0 @X0 1 r1 ]
-[v _Funct `*F6474 ~T0 @X0 1 r2 ]
-"28
-[; ;time_out.c: 28: {
-[f ]
 "29
-[; ;time_out.c: 29:     static TIME_OUT_t time_out;
-[v F6476 `S857 ~T0 @X0 1 s time_out ]
+[; ;time_out.c: 29: unsigned char TIME_OUT_FUNCT(unsigned int ana_ms, unsigned char(*Funct_t)(void), unsigned int second_ms)
+[v _ana_ms `ui ~T0 @X0 1 r1 ]
+[v _Funct_t `*F6472 ~T0 @X0 1 r2 ]
+[v _second_ms `ui ~T0 @X0 1 r3 ]
 "30
-[; ;time_out.c: 30:     TIME_OUT_CHECK(&time_out, 0);
-[e ( _TIME_OUT_CHECK (2 , &U F6476 -> -> 0 `i `ui ]
+[; ;time_out.c: 30:   {
+[f ]
 "31
-[; ;time_out.c: 31:     Funct(1);
-[e ( *U _Funct (1 -> -> 1 `i `uc ]
+[; ;time_out.c: 31:   unsigned char flag = 0;
+[v _flag `uc ~T0 @X0 1 a ]
+[e = _flag -> -> 0 `i `uc ]
 "32
-[; ;time_out.c: 32:     while (TIME_OUT_CHECK(&time_out, ms) == 0) {
-[e $U 866  ]
-[e :U 867 ]
-{
+[; ;time_out.c: 32:   static TIME_OUT_t ana_time_out;
+[v F6475 `S857 ~T0 @X0 1 s ana_time_out ]
 "33
-[; ;time_out.c: 33:         SYSTEM_CONTROL_ALL();
-[e ( _SYSTEM_CONTROL_ALL ..  ]
+[; ;time_out.c: 33:   static TIME_OUT_t second_time_out;
+[v F6476 `S857 ~T0 @X0 1 s second_time_out ]
 "34
-[; ;time_out.c: 34:         if (Funct(0)) return 1;
-[e $ ! != -> ( *U _Funct (1 -> -> 0 `i `uc `i -> 0 `i 869  ]
+[; ;time_out.c: 34:   TIME_OUT_CHECK(&ana_time_out, 0);
+[e ( _TIME_OUT_CHECK (2 , &U F6475 -> -> 0 `i `ui ]
+"35
+[; ;time_out.c: 35:   TIME_OUT_CHECK(&second_time_out, 0);
+[e ( _TIME_OUT_CHECK (2 , &U F6476 -> -> 0 `i `ui ]
+"36
+[; ;time_out.c: 36:   flag = Funct_t();
+[e = _flag ( *U _Funct_t ..  ]
+"37
+[; ;time_out.c: 37:   while (1)
+[e :U 867 ]
+"38
+[; ;time_out.c: 38:     {
+{
+"39
+[; ;time_out.c: 39:     if (flag) return 1;
+[e $ ! != -> _flag `i -> 0 `i 869  ]
 [e ) -> -> 1 `i `uc ]
 [e $UE 865  ]
 [e :U 869 ]
-"35
-[; ;time_out.c: 35:     }
-}
-[e :U 866 ]
-"32
-[; ;time_out.c: 32:     while (TIME_OUT_CHECK(&time_out, ms) == 0) {
-[e $ == -> ( _TIME_OUT_CHECK (2 , &U F6476 _ms `i -> 0 `i 867  ]
-[e :U 868 ]
-"36
-[; ;time_out.c: 36:     return 0;
+"40
+[; ;time_out.c: 40:     SYSTEM_CONTROL_ALL();
+[e ( _SYSTEM_CONTROL_ALL ..  ]
+"41
+[; ;time_out.c: 41:     if (TIME_OUT_CHECK(&ana_time_out, ana_ms)) return 0;
+[e $ ! != -> ( _TIME_OUT_CHECK (2 , &U F6475 _ana_ms `i -> 0 `i 870  ]
 [e ) -> -> 0 `i `uc ]
 [e $UE 865  ]
-"37
-[; ;time_out.c: 37: }
+[e :U 870 ]
+"42
+[; ;time_out.c: 42:     if (TIME_OUT_CHECK(&second_time_out, second_ms)) flag = Funct_t();
+[e $ ! != -> ( _TIME_OUT_CHECK (2 , &U F6476 _second_ms `i -> 0 `i 871  ]
+[e = _flag ( *U _Funct_t ..  ]
+[e :U 871 ]
+"43
+[; ;time_out.c: 43:     }
+}
+[e :U 866 ]
+[e $U 867  ]
+[e :U 868 ]
+"44
+[; ;time_out.c: 44:   }
 [e :UE 865 ]
 }

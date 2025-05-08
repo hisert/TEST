@@ -10251,7 +10251,7 @@ char *tempnam(const char *, const char *);
 
     void TIME_OUT_COUNT_INTERRUPT();
     unsigned char TIME_OUT_CHECK(TIME_OUT_t *timeout, unsigned int outTime);
-    unsigned char TIME_OUT_FUNCT(unsigned int ms, unsigned char(Funct) (unsigned char flag));
+    unsigned char TIME_OUT_FUNCT(unsigned int ana_ms, unsigned char(*Funct_t)(void), unsigned int second_ms);
 # 19 "newmain.c" 2
 
 # 1 "./register.h" 1
@@ -10595,6 +10595,7 @@ int main(void)
   TIMER_1_INIT(1);
   THREAD_CREATE(THREAD_LED_CANLI, 0x01 | 0x08, 10, LED_THREAD);
 
+  UART_1_INIT(9600);
 
 
 
@@ -10602,7 +10603,7 @@ int main(void)
   while (1) SYSTEM_CONTROL_ALL();
 
   }
-# 526 "newmain.c"
+# 528 "newmain.c"
 void __attribute__((picinterrupt(("high_priority")))) _ISR(void)
   {
   if (PIR1bits.TMR1IF)
