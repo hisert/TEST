@@ -1,7 +1,9 @@
 #include "AS5600_MAS.h"
-#include "input_debounce.h"
 
 #define bit_set(register_value, bit_position) ((register_value) |= (1 << (bit_position)))
+
+#ifdef USE_AS5600
+
 
 #define U_ENABLE     PORTD = PORTD | 4
 #define U_DISABLE    PORTD = PORTD & ~(4)
@@ -243,7 +245,7 @@ void MOTOR_INIT(byte c)
 
 byte MOTOR_START(word stop_index)
   {
-  if (MAS12_UPDATE()) return;
+  if (MAS12_UPDATE()) return 0;
   if (MOTOR_WORK == 0) if (abs(MAS12_NOW_MAPPED - stop_index) < MOTOR_TEKRAR_HAREKET_BASLAMA_TOLERANS) return 0;
   MOTOR_PID_RESET();
   MOTOR_START_INDEX = MAS12_NOW_MAPPED;
@@ -506,3 +508,5 @@ void MOTOR_SET_MODE(byte mode)
   {
   MOTOR_MODE = mode;
   }
+
+#endif

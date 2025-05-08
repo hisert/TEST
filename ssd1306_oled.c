@@ -1,7 +1,7 @@
 #include "ssd1306_oled.h"
-#include <string.h>
-#include <stdio.h>
-#include <xc.h>
+
+#ifdef USE_SSD1306
+
 // <editor-fold defaultstate="collapsed" desc="LIBRARY DEFINE    ">
 #define LEFT                  0
 #define RIGHT                 254
@@ -563,3 +563,5 @@ void SSH1306_OLED_Update(void)
   }
 
 // </editor-fold> 
+
+#endif

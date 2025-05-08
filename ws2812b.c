@@ -1,5 +1,8 @@
 #include "ws2812b.h"
 
+#ifdef USE_WS2812B
+
+
 // <editor-fold defaultstate="collapsed" desc="RGB DEFINE ">
 #define HELPER_FUNCTS_ARRAY_LEN 10
 #define LED_PORT PORTD
@@ -203,3 +206,5 @@ void LED_DATA_CLEAN(void)
 
 // </editor-fold> 
 
+
+#endif

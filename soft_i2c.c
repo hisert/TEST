@@ -1,4 +1,7 @@
 #include "soft_i2c.h"
+
+#ifdef USE_SOFT_I2C
+
 i2c_t SOFT_I2C_1;
 #define PORT_SDA 0
 #define PORT_SCK 1
@@ -146,3 +149,5 @@ byte SOFT_I2C_READ()
   }
 
 // </editor-fold>
+
+#endif

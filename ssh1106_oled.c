@@ -1,5 +1,8 @@
 #include "ssh1106_oled.h"
 
+#ifdef USE_SSH1106
+
+
 // <editor-fold defaultstate="collapsed" desc="LIBRARY DEFINE    ">
 #define LEFT                  0
 #define RIGHT                 254
@@ -917,3 +920,5 @@ void SSH1106_OLED_Update(void)
   }
 
 // </editor-fold> 
+
+#endif
