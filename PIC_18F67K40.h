@@ -181,16 +181,22 @@ extern "C" {
     void ADC_INIT();
     word ADC_READ(byte channel);
 
-    void PWM_1_INIT(dword Hz);
+    void PWM_TIMER_2_INIT(dword Hz);
+    void PWM_TIMER_4_INIT(dword Hz);
+    void PWM_TIMER_6_INIT(dword Hz);
+    void PWM_TIMER_8_INIT(dword Hz);
+    void PWM_1_INIT();
     void PWM_1_DUTY(byte duty);
-    void PWM_2_INIT(dword Hz);
+    void PWM_2_INIT();
     void PWM_2_DUTY(byte duty);
-    void PWM_3_INIT(dword Hz);
+    void PWM_3_INIT();
     void PWM_3_DUTY(byte duty);
-    void PWM_4_INIT(dword Hz);
+    void PWM_4_INIT();
     void PWM_4_DUTY(byte duty);
-    void PWM_5_INIT(dword Hz);
+    void PWM_5_INIT();
     void PWM_5_DUTY(byte duty);
+    void PWM_6_INIT();
+    void PWM_6_DUTY(byte duty);
 
     void UART_1_INTERRUPT(byte OpenOrClose);
     void UART_1_INIT(word baudRate);

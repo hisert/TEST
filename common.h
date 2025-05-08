@@ -1,8 +1,6 @@
 #define PIC_18F67K40
 #define PIC
 
-
-
 #include <xc.h>
 #include "config.h"
 #include <string.h>
@@ -12,6 +10,7 @@
 #ifdef PIC
 #include "pic18.h"
 #endif
+#define USE_REGISTER
 
 #ifdef ATMEGA
 #include <avr/io.h>
