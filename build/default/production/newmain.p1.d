@@ -7,6 +7,8 @@ ATMEGA_328.h  \
 ATMEGA_88.h  \
 ATMEGA_8.h  \
 PIC_18F87K22.h  \
+PIC_18F67K40.h  \
+PIC_18F46K22.h  \
 input_debounce.h  \
 buton_debounce.h  \
 thread.h  \
@@ -19,5 +21,4 @@ ssh1106_oled.h  \
 AS5600_MAS.h  \
 ws2812b.h  \
 time_out.h  \
-register.h  \
-PIC_18F67K40.h 
+register.h 

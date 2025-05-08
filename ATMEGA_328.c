@@ -1,5 +1,5 @@
 #include "ATMEGA_328.h"
-#ifdef ATMEGA_328
+#ifdef __AVR_ATmega328__
 
 // <editor-fold defaultstate="collapsed" desc="PIN IO">
 

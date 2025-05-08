@@ -1,18 +1,15 @@
-#define PIC_18F67K40
-#define PIC
-
 #include <xc.h>
 #include "config.h"
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h> 
 
-#ifdef PIC
+#if defined(__18F67K40) || (__18F65K40) || (__18F46K22) || (__18F87K22)
 #include "pic18.h"
 #endif
 #define USE_REGISTER
 
-#ifdef ATMEGA
+#if defined(__AVR_ATmega64__) || defined(__AVR_ATmega32__) || defined(__AVR_ATmega328__) || defined(__AVR_ATmega16__) || defined(__AVR_ATmega8__) || defined(__AVR_ATmega88__)
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>

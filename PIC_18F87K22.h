@@ -6,7 +6,7 @@
 extern "C" {
 #endif
 
-#ifdef PIC_18F87K22
+#ifdef __18F87K22
 
     // <editor-fold defaultstate="collapsed" desc="CONFIG">
 

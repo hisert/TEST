@@ -7,7 +7,7 @@
 extern "C" {
 #endif
 
-#ifdef ATMEGA_328
+#ifdef __AVR_ATmega328__
     // <editor-fold defaultstate="collapsed" desc="PWM DEFINE    ">
 #define SYSTEM_PWM_PRESCALE_0 1
 #define SYSTEM_PWM_PRESCALE_8 2

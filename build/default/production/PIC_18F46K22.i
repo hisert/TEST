@@ -1,4 +1,4 @@
-# 1 "AS5600_MAS.c"
+# 1 "PIC_18F46K22.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "AS5600_MAS.c" 2
-# 1 "./AS5600_MAS.h" 1
+# 1 "PIC_18F46K22.c" 2
+# 1 "./PIC_18F46K22.h" 1
 # 1 "./common.h" 1
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 3
@@ -9750,36 +9750,1000 @@ char *ctermid(char *);
 
 char *tempnam(const char *, const char *);
 # 4 "./common.h" 2
-# 1 "./AS5600_MAS.h" 2
-# 10 "./AS5600_MAS.h"
-    unsigned int MAS12_READ_HAL_DATA();
-    unsigned int MAS12_READ_MAG_DATA();
-    signed int MAS12_REMAP(unsigned int middpoint, unsigned int index);
-    void MAS12_INIT(void (*mas_i2c_start_t)(void), unsigned char(*mas_i2c_write_t)(unsigned char data), unsigned char(*mas_i2c_read_ack_t)(void), unsigned char(*mas_i2c_read_nack_t)(void), void(*mas_i2c_stop_t)(void));
-# 29 "./AS5600_MAS.h"
-    void MOTOR_PWM_INIT(void(*motor_pwm_1_t)(unsigned char), void(*motor_pwm_2_t)(unsigned char), void(*motor_pwm_3_t)(unsigned char));
-    void MOTOR_PWM_LOAD(unsigned char pwm_select, unsigned char pwm_value);
-    void MOTOR_PWM_LOAD_ALL(unsigned char pwm_value);
-    void MOTOR_PWM_LOAD(unsigned char MOTOR_DIRECTION, unsigned char pwm_value);
+# 1 "./PIC_18F46K22.h" 2
+# 11 "./PIC_18F46K22.h"
+#pragma config FOSC = INTIO67
+#pragma config PLLCFG = ON
+#pragma config PRICLKEN = OFF
+#pragma config FCMEN = OFF
+#pragma config IESO = OFF
+#pragma config PWRTEN = OFF
+#pragma config BOREN = SBORDIS
+#pragma config BORV = 190
+#pragma config WDTEN = OFF
+#pragma config WDTPS = 32768
+#pragma config CCP2MX = PORTB3
+#pragma config PBADEN = OFF
+#pragma config CCP3MX = PORTB5
+#pragma config HFOFST = OFF
+#pragma config T3CMX = PORTC0
+#pragma config P2BMX = PORTD2
+#pragma config MCLRE = INTMCLR
+#pragma config STVREN = OFF
+#pragma config LVP = OFF
+#pragma config XINST = OFF
+#pragma config CP0 = OFF
+#pragma config CP1 = OFF
+#pragma config CP2 = OFF
+#pragma config CP3 = OFF
+#pragma config CPB = ON
+#pragma config CPD = ON
+#pragma config WRT0 = OFF
+#pragma config WRT1 = OFF
+#pragma config WRT2 = OFF
+#pragma config WRT3 = OFF
+#pragma config WRTC = OFF
+#pragma config WRTB = OFF
+#pragma config WRTD = OFF
+#pragma config EBTR0 = OFF
+#pragma config EBTR1 = OFF
+#pragma config EBTR2 = OFF
+#pragma config EBTR3 = OFF
+#pragma config EBTRB = OFF
+# 65 "./PIC_18F46K22.h"
+ void MCU_INIT(unsigned char inorEx, unsigned char mhz);
+    void INTERRUPT_ALL(unsigned char OpenOrClose);
 
-    unsigned char MOTOR_START(unsigned int stop_index);
-    void MOTOR_STOP();
-    unsigned char MOTOR_PROCESS(unsigned int torkVal);
+    void EEPROM_B_WRITE(unsigned int address, unsigned char data);
+    unsigned char EEPROM_B_READ(unsigned int address);
 
-    void MOTOR_START_LAST_SUCCESS_INDEX();
-    void MOTOR_PID_INIT(float Ki, float Kp);
-    void MOTOR_INIT_MAX_HIZ(unsigned char max);
-    void MOTOR_TIME_OUT_SET(unsigned int outTime);
-    unsigned char MOTOR_TIME_OUT_CHECK();
-    void FIRCASIZ_READ(unsigned char HU, unsigned char HV, unsigned char HW);
+    unsigned char PIN_GET_PORT(unsigned char Port, unsigned char Pin);
+    void PIN_SET_LAT(unsigned char Port, unsigned char Pin, unsigned char HighOrLow);
+    void PIN_SET_TRIS(unsigned char Port, unsigned char Pin, unsigned char InputOrOutput);
+    void PIN_SET_LAT_TOGGLE(unsigned char Port, unsigned char Pin);
+    void PIN_SET_ANSEL(unsigned char Port, unsigned char Pin, unsigned char AnalogOrDijital);
+    void PIN_SET_IO(unsigned char AnalogOrDijital, unsigned char InputOrOutput, unsigned char Port, unsigned char Pin, unsigned char HighOrLow);
+    void PIN_INIT_WPU(char Port, unsigned char Pin, unsigned char openOrClose);
+    void INT_0_INTERRUPT_SET(unsigned char OpenOrClose);
+    void INT_1_INTERRUPT_SET(unsigned char OpenOrClose);
+    void INT_2_INTERRUPT_SET(unsigned char OpenOrClose);
 
-    void MOTOR_SET_KOL_TOPLAMA_TOLERANS(unsigned int val);
-    unsigned int MOTOR_GET_KOL_TOPLAMA_TOLERANS();
-    void MOTOR_SET_Z_POINT(unsigned int val);
-    unsigned int MOTOR_GET_Z_POINT();
-    unsigned int MOTOR_GET_LAST_SUCESS_INDEX();
-    unsigned int MOTOR_GET_MAS12_HAM();
-    unsigned int MOTOR_GET_MAS12_MAPPED();
-    void MOTOR_SET_MODE(unsigned char mode);
-# 1 "AS5600_MAS.c" 2
+    void TIMER_1_INTERRUPT_FUNCT();
+    void TIMER_1_INTERRUPT(unsigned char openOrClose);
+    void TIMER_1_SET(unsigned char startOrStop);
+    void TIMER_1_INIT(unsigned char ms);
 
+    void TIMER_3_INTERRUPT_FUNCT();
+    void TIMER_3_INTERRUPT(unsigned char openOrClose);
+    void TIMER_3_SET(unsigned char startOrStop);
+    void TIMER_3_INIT(unsigned char ms);
+
+    void TIMER_5_INTERRUPT_FUNCT();
+    void TIMER_5_INTERRUPT(unsigned char openOrClose);
+    void TIMER_5_SET(unsigned char startOrStop);
+    void TIMER_5_INIT(unsigned char ms);
+
+    void UART_1_INTERRUPT(unsigned char OpenOrClose);
+    void UART_1_INIT(unsigned long baudRate);
+    void UART_1_BYTE(unsigned char out);
+    void UART_1_STRING(char* text);
+    void UART_1_DECIMAL(unsigned long val);
+
+    void UART_2_INTERRUPT(unsigned char OpenOrClose);
+    void UART_2_INIT(unsigned long baudRate);
+    void UART_2_BYTE(unsigned char out);
+    void UART_2_STRING(char* text);
+    void UART_2_DECIMAL(unsigned long val);
+
+    void ADC_INIT();
+    unsigned int ADC_READ(unsigned char channel);
+
+    void PWM_TIMER_2_INIT(unsigned long Hz);
+    void PWM_TIMER_4_INIT(unsigned long Hz);
+    void PWM_TIMER_6_INIT(unsigned long Hz);
+    void PWM_1_INIT();
+    void PWM_1_DUTY(unsigned char duty);
+    void PWM_2_INIT();
+    void PWM_2_DUTY(unsigned char duty);
+    void PWM_3_INIT();
+    void PWM_3_DUTY(unsigned char duty);
+    void PWM_4_INIT();
+    void PWM_4_DUTY(unsigned char duty);
+    void PWM_5_INIT();
+    void PWM_5_DUTY(unsigned char duty);
+
+    void I2C_1_ACK(void);
+    void I2C_1_NACK(void);
+    void I2C_1_READY(void);
+    void I2C_1_INIT(unsigned long baudrate);
+    unsigned char I2C_1_WRITE(unsigned char data);
+    void I2C_1_START(void);
+    void I2C_1_STOP(void);
+    unsigned char I2C_1_READ_ACK();
+    unsigned char I2C_1_READ_NACK();
+
+    void I2C_2_ACK(void);
+    void I2C_2_NACK(void);
+    void I2C_2_READY(void);
+    void I2C_2_INIT(unsigned long baudrate);
+    unsigned char I2C_2_WRITE(unsigned char data);
+    void I2C_2_START(void);
+    void I2C_2_STOP(void);
+    unsigned char I2C_2_READ_ACK();
+    unsigned char I2C_2_READ_NACK();
+# 1 "PIC_18F46K22.c" 2
+
+
+
+float calculator;
+
+
+
+
+unsigned char PWM_1_TIMER_SELECT = 0;
+unsigned char PWM_2_TIMER_SELECT = 0;
+unsigned char PWM_3_TIMER_SELECT = 0;
+unsigned char PWM_4_TIMER_SELECT = 0;
+unsigned char PWM_5_TIMER_SELECT = 0;
+
+unsigned int PWM_DUTY_CALCULATER(unsigned int timerVal, unsigned char duty)
+  {
+  if (duty == 100) duty = 99;
+  calculator = duty;
+  calculator = calculator * 4 * (timerVal + 1);
+  calculator /= 100;
+  return (unsigned int) calculator;
+  }
+
+void PWM_TIMER_CHOOSE(unsigned char Channel, unsigned char timer)
+  {
+  if (Channel == 1)
+    {
+    if (timer == 2) CCPTMRS0bits.C1TSEL = 0b00;
+    if (timer == 4) CCPTMRS0bits.C1TSEL = 0b01;
+    if (timer == 6) CCPTMRS0bits.C1TSEL = 0b10;
+    if (timer == 8) CCPTMRS0bits.C1TSEL = 0b11;
+    PWM_1_TIMER_SELECT = timer;
+    }
+  if (Channel == 2)
+    {
+    if (timer == 2) CCPTMRS0bits.C2TSEL = 0b000;
+    if (timer == 4) CCPTMRS0bits.C2TSEL = 0b001;
+    if (timer == 6) CCPTMRS0bits.C2TSEL = 0b010;
+    if (timer == 8) CCPTMRS0bits.C2TSEL = 0b011;
+    PWM_2_TIMER_SELECT = timer;
+    }
+  if (Channel == 3)
+    {
+    if (timer == 2) CCPTMRS0bits.C3TSEL = 0b00;
+    if (timer == 4) CCPTMRS0bits.C3TSEL = 0b01;
+    if (timer == 6) CCPTMRS0bits.C3TSEL = 0b10;
+    if (timer == 8) CCPTMRS0bits.C3TSEL = 0b11;
+    PWM_3_TIMER_SELECT = timer;
+    }
+  if (Channel == 4)
+    {
+    if (timer == 2) CCPTMRS1bits.C4TSEL = 0b00;
+    if (timer == 4) CCPTMRS1bits.C4TSEL = 0b01;
+    if (timer == 6) CCPTMRS1bits.C4TSEL = 0b10;
+    if (timer == 8) CCPTMRS1bits.C4TSEL = 0b11;
+    PWM_4_TIMER_SELECT = timer;
+    }
+  if (Channel == 5)
+    {
+    if (timer == 2) CCPTMRS1bits.C5TSEL0 = 0;
+    if (timer == 4) CCPTMRS1bits.C5TSEL0 = 1;
+    PWM_5_TIMER_SELECT = timer;
+    }
+  }
+
+unsigned int PWM_TIMER_GET(unsigned char Channel)
+  {
+  unsigned char timer = 0;
+  if (Channel == 1) timer = PWM_1_TIMER_SELECT;
+  if (Channel == 2) timer = PWM_2_TIMER_SELECT;
+  if (Channel == 3) timer = PWM_3_TIMER_SELECT;
+  if (Channel == 4) timer = PWM_4_TIMER_SELECT;
+  if (Channel == 5) timer = PWM_5_TIMER_SELECT;
+  if (Channel == 6) timer = PWM_5_TIMER_SELECT;
+  if (Channel == 7) timer = PWM_5_TIMER_SELECT;
+
+  if (timer == 2) return PR2;
+  if (timer == 4) return PR4;
+  if (timer == 6) return PR6;
+  }
+
+
+
+void PWM_TIMER_2_SET(unsigned char openOrClose)
+  {
+  if (openOrClose) T2CONbits.TMR2ON = 1;
+  else T2CONbits.TMR2ON = 0;
+  }
+
+void PWM_TIMER_2_INIT(unsigned long Hz)
+  {
+  unsigned char prescale;
+  T2CON = 0b00000000;
+  prescale = 1;
+  for (unsigned char x = 0; x < 8; x++)
+    {
+    calculator = 64000000UL / (prescale * Hz);
+    if ((unsigned int) (calculator) <= 256) break;
+    else
+      {
+      prescale *= 2;
+      T2CON += 0x10;
+      }
+    }
+  PR2 = (unsigned char) (calculator - 1);
+  PWM_TIMER_2_SET(1);
+  }
+
+
+
+void PWM_TIMER_4_SET(unsigned char openOrClose)
+  {
+  if (openOrClose) T4CONbits.TMR4ON = 1;
+  else T4CONbits.TMR4ON = 0;
+  }
+
+void PWM_TIMER_4_INIT(unsigned long Hz)
+  {
+  unsigned char prescale;
+  unsigned long calculator;
+  T4CON = 0b00000000;
+  prescale = 1;
+
+  for (unsigned char x = 0; x < 8; x++)
+    {
+    calculator = 64000000UL / (prescale * Hz);
+    if ((unsigned int) (calculator) <= 256) break;
+    else
+      {
+      prescale *= 2;
+      T4CON += 0x10;
+      }
+    }
+
+  PR4 = (unsigned char) (calculator - 1);
+  PWM_TIMER_4_SET(1);
+  }
+
+
+
+
+void PWM_TIMER_6_SET(unsigned char openOrClose)
+  {
+  if (openOrClose) T6CONbits.TMR6ON = 1;
+  else T6CONbits.TMR6ON = 0;
+  }
+
+void PWM_TIMER_6_INIT(unsigned long Hz)
+  {
+  unsigned char prescale;
+  unsigned long calculator;
+  T6CON = 0b00000000;
+  prescale = 1;
+
+  for (unsigned char x = 0; x < 8; x++)
+    {
+    calculator = 64000000UL / (prescale * Hz);
+    if ((unsigned int) (calculator) <= 256) break;
+    else
+      {
+      prescale *= 2;
+      T6CON += 0x10;
+      }
+    }
+
+  PR6 = (unsigned char) (calculator - 1);
+  PWM_TIMER_6_SET(1);
+  }
+
+
+
+
+void PWM_1_INIT()
+  {
+  PIN_SET_IO('D', 'O', 'C', 2, 'L');
+  CCP1CONbits.CCP1M = 0b1100;
+  PWM_TIMER_CHOOSE(1, 2);
+  }
+
+void PWM_1_DUTY(unsigned char duty)
+  {
+  unsigned int temp = PWM_DUTY_CALCULATER(PWM_TIMER_GET(1), duty);
+  CCPR1L = (unsigned char) (temp >> 2 & 0xFF);
+  CCP1CONbits.DC1B0 = ((temp >> 8) & 0x01);
+  CCP1CONbits.DC1B1 = ((temp >> 9) & 0x01);
+
+  }
+
+
+
+void PWM_2_INIT()
+  {
+  PIN_SET_IO('D', 'O', 'B', 3, 'L');
+  CCP2CONbits.CCP2M = 0b1100;
+  PWM_TIMER_CHOOSE(2, 2);
+  }
+
+void PWM_2_DUTY(unsigned char duty)
+  {
+  unsigned int temp = PWM_DUTY_CALCULATER(PWM_TIMER_GET(2), duty);
+  CCPR2L = (unsigned char) (temp >> 2 & 0xFF);
+  CCP2CONbits.DC2B0 = ((temp >> 8) & 0x01);
+  CCP2CONbits.DC2B1 = ((temp >> 9) & 0x01);
+  }
+
+
+
+
+void PWM_3_INIT()
+  {
+  PIN_SET_IO('D', 'O', 'B', 5, 'L');
+  CCP3CONbits.CCP3M = 0b1100;
+  PWM_TIMER_CHOOSE(3, 2);
+  }
+
+void PWM_3_DUTY(unsigned char duty)
+  {
+  unsigned int temp = PWM_DUTY_CALCULATER(PWM_TIMER_GET(3), duty);
+  CCPR3L = (unsigned char) (temp >> 2 & 0xFF);
+  CCP3CONbits.DC3B0 = ((temp >> 8) & 0x01);
+  CCP3CONbits.DC3B1 = ((temp >> 9) & 0x01);
+  }
+
+
+
+
+void PWM_4_INIT()
+  {
+  PIN_SET_IO('D', 'O', 'D', 1, 'L');
+  CCP4CONbits.CCP4M = 0b1100;
+  PWM_TIMER_CHOOSE(4, 2);
+  }
+
+void PWM_4_DUTY(unsigned char duty)
+  {
+  unsigned int temp = PWM_DUTY_CALCULATER(PWM_TIMER_GET(4), duty);
+  CCPR4L = (unsigned char) (temp >> 2 & 0xFF);
+  CCP4CONbits.DC4B0 = ((temp >> 8) & 0x01);
+  CCP4CONbits.DC4B1 = ((temp >> 9) & 0x01);
+  }
+
+
+
+
+void PWM_5_INIT()
+  {
+  PIN_SET_IO('D', 'O', 'E', 2, 'L');
+  CCP5CONbits.CCP5M = 0b1100;
+  PWM_TIMER_CHOOSE(5, 2);
+  }
+
+void PWM_5_DUTY(unsigned char duty)
+  {
+  unsigned int temp = PWM_DUTY_CALCULATER(PWM_TIMER_GET(5), duty);
+  CCPR5L = (unsigned char) (temp >> 2 & 0xFF);
+  CCP5CONbits.DC5B0 = ((temp >> 8) & 0x01);
+  CCP5CONbits.DC5B1 = ((temp >> 9) & 0x01);
+  }
+
+
+
+
+
+void ADC_INIT()
+  {
+  ADCON1 = 0x00;
+  ADCON2 = 0xBE;
+  ADRESH = 0;
+  ADRESL = 0;
+  }
+
+unsigned int ADC_READ(unsigned char channel)
+  {
+  unsigned int digital;
+
+
+  ADCON0 = (ADCON0 & 0b10000011) | ((channel << 2) & 0b00111100);
+  ADCON0 |= ((1 << ADON) | (1 << GO));
+
+  while (ADCON0bits.GO_nDONE == 1);
+  _delay((unsigned long)((10)*(64000000/4000.0)));
+  digital = (ADRESH * 256) | (ADRESL);
+  return (digital);
+  }
+
+void ADC_FVR_INIT(unsigned char openOrClose)
+  {
+  if (openOrClose == 1) ADCON1 |= 0b00001000;
+  else if (openOrClose == 0) ADCON1 &= 0b11110011;
+  }
+
+void FVR_INIT(unsigned char fixedVoltageName)
+  {
+  VREFCON0 = 0;
+  VREFCON0 += fixedVoltageName << 4;
+  VREFCON0bits.FVREN = 1;
+  while (!VREFCON0bits.FVRST);
+  }
+
+
+
+
+void UART_1_INTERRUPT(unsigned char OpenOrClose)
+  {
+  if (OpenOrClose == 1) PIE1bits.RC1IE = 1;
+  else if (OpenOrClose == 0) PIE1bits.RC1IE = 0;
+  }
+
+void UART_1_INIT(unsigned long baudRate)
+  {
+  unsigned long long calculater;
+  PIN_SET_IO('D', 'O', 'C', 6, 'H ');
+  PIN_SET_IO('D', 'I', 'C', 7, 'H ');
+  calculater = (64000000UL) / ((64) *(baudRate));
+  SPBRG1 = (unsigned char) (calculater - 1);
+  TXSTA1 = 0x20;
+  RCSTA1 = 0x90;
+  TXSTA1bits.BRGH = 0;
+  UART_1_INTERRUPT(1);
+  }
+
+void UART_1_BYTE(unsigned char out)
+  {
+  while (TX1IF == 0) continue;
+  TXREG1 = out;
+  }
+
+void UART_1_STRING(char* text)
+  {
+  while (*text)
+    {
+    UART_0_BYTE(*text);
+    text++;
+    }
+  }
+
+void UART_1_DECIMAL(unsigned long val)
+  {
+
+  unsigned char basamak[10] = {};
+  signed char i = 0;
+  do
+    {
+    basamak[ i ] = (val % 10) + 0x30;
+    val /= 10;
+    i++;
+    }
+  while (val != 0);
+  i--;
+  while (i >= 0)
+    {
+    UART_1_BYTE(basamak[ i ]);
+    i--;
+    }
+  }
+
+
+
+void UART_2_INTERRUPT(unsigned char OpenOrClose)
+  {
+  if (OpenOrClose == 1) PIE3bits.RC2IE = 1;
+  else if (OpenOrClose == 0) PIE3bits.RC2IE = 0;
+  }
+
+void UART_2_INIT(unsigned long baudRate)
+  {
+  unsigned long calculater;
+  PIN_SET_IO('D', 'O', 'D', 6, 'H ');
+  PIN_SET_IO('D', 'I', 'D', 7, 'H ');
+  calculater = (64000000UL) / ((64) *(baudRate));
+  SPBRG2 = (unsigned char) (calculater - 1);
+  TXSTA2 = 0x20;
+  RCSTA2 = 0x90;
+  UART_2_INTERRUPT(1);
+  }
+
+void UART_2_BYTE(unsigned char out)
+  {
+  while (TX2IF == 0) continue;
+  TXREG2 = out;
+  }
+
+void UART_2_STRING(char* text)
+  {
+  while (*text)
+    {
+    UART_2_BYTE(*text);
+    text++;
+    }
+  }
+
+void UART_2_DECIMAL(unsigned long val)
+  {
+
+  unsigned char basamak[10] = {};
+  signed char i = 0;
+  do
+    {
+    basamak[ i ] = (val % 10) + 0x30;
+    val /= 10;
+    i++;
+    }
+  while (val != 0);
+  i--;
+  while (i >= 0)
+    {
+    UART_2_BYTE(basamak[ i ]);
+    i--;
+    }
+  }
+
+
+
+
+unsigned int TIMER_1_TICK = 0;
+
+void TIMER_1_INTERRUPT_FUNCT()
+  {
+  PIR1bits.TMR1IF = 0;
+  TMR1 = TIMER_1_TICK;
+  }
+
+void TIMER_1_INTERRUPT(unsigned char openOrClose)
+  {
+  PIR1bits.TMR1IF = 0;
+  PIE1bits.TMR1IE = openOrClose ? 1 : 0;
+  }
+
+void TIMER_1_SET(unsigned char startOrStop)
+  {
+  T1CONbits.TMR1ON = startOrStop ? 1 : 0;
+  }
+
+void TIMER_1_INIT(unsigned char ms)
+  {
+  unsigned long Fosc = 64000000UL;
+  unsigned long Fcy = Fosc / 4;
+  unsigned char Prescalers[] = {1, 2, 4, 8};
+  unsigned int TMR1_Tick = 0;
+
+  for (int i = 0; i < 4; i++)
+    {
+    unsigned long TimerFreq = Fcy / Prescalers[i];
+    unsigned long TickValue = (TimerFreq / 1000) * ms;
+
+    if (TickValue <= 65536)
+      {
+      T1CONbits.T1CKPS = i;
+      TMR1_Tick = 65536 - TickValue;
+      break;
+      }
+    }
+
+  TIMER_1_TICK = TMR1_Tick;
+  TMR1 = TIMER_1_TICK;
+  TIMER_1_INTERRUPT(1);
+  TIMER_1_SET(1);
+  }
+
+
+
+
+unsigned int TIMER_3_TICK = 0;
+
+void TIMER_3_INTERRUPT_FUNCT()
+  {
+  PIR2bits.TMR3IF = 0;
+  TMR3 = TIMER_3_TICK;
+  }
+
+void TIMER_3_INTERRUPT(unsigned char openOrClose)
+  {
+  PIR2bits.TMR3IF = 0;
+  PIE2bits.TMR3IE = openOrClose ? 1 : 0;
+  }
+
+void TIMER_3_SET(unsigned char startOrStop)
+  {
+  T3CONbits.TMR3ON = startOrStop ? 1 : 0;
+  }
+
+void TIMER_3_INIT(unsigned char ms)
+  {
+  unsigned long Fosc = 64000000UL;
+  unsigned long Fcy = Fosc / 4;
+  unsigned char Prescalers[] = {1, 2, 4, 8};
+  unsigned int TMR3_Tick = 0;
+
+  for (int i = 0; i < 4; i++)
+    {
+    unsigned long TimerFreq = Fcy / Prescalers[i];
+    unsigned long TickValue = (TimerFreq / 1000) * ms;
+
+    if (TickValue <= 65536)
+      {
+      T3CONbits.T3CKPS = i;
+      TMR3_Tick = 65536 - TickValue;
+      break;
+      }
+    }
+
+  TIMER_3_TICK = TMR3_Tick;
+  TMR3 = TIMER_3_TICK;
+  TIMER_3_INTERRUPT(1);
+  TIMER_3_SET(1);
+  }
+
+
+
+
+unsigned int TIMER_5_TICK = 0;
+
+void TIMER_5_INTERRUPT_FUNCT()
+  {
+  PIR5bits.TMR5IF = 0;
+  TMR5 = TIMER_5_TICK;
+  }
+
+void TIMER_5_INTERRUPT(unsigned char openOrClose)
+  {
+  PIR5bits.TMR5IF = 0;
+  PIE5bits.TMR5IE = openOrClose ? 1 : 0;
+  }
+
+void TIMER_5_SET(unsigned char startOrStop)
+  {
+  T5CONbits.TMR5ON = startOrStop ? 1 : 0;
+  }
+
+void TIMER_5_INIT(unsigned char ms)
+  {
+  unsigned long Fosc = 64000000UL;
+  unsigned long Fcy = Fosc / 4;
+  unsigned char Prescalers[] = {1, 2, 4, 8};
+  unsigned int TMR5_Tick = 0;
+
+  for (int i = 0; i < 4; i++)
+    {
+    unsigned long TimerFreq = Fcy / Prescalers[i];
+    unsigned long TickValue = (TimerFreq / 1000) * ms;
+
+    if (TickValue <= 65536)
+      {
+      T5CONbits.T5CKPS = i;
+      TMR5_Tick = 65536 - TickValue;
+      break;
+      }
+    }
+
+  TIMER_5_TICK = TMR5_Tick;
+  TMR5 = TIMER_5_TICK;
+  TIMER_5_INTERRUPT(1);
+  TIMER_5_SET(1);
+  }
+
+
+
+
+unsigned char PIN_GET_PORT(unsigned char Port, unsigned char Pin)
+  {
+  unsigned char hex = (unsigned char) (1 << Pin);
+  volatile unsigned char *work_adress;
+  work_adress = (&PORTA) + (Port - 'A');
+  if ((*work_adress) & hex) return 1;
+  else return 0;
+  }
+
+void PIN_SET_LAT(unsigned char Port, unsigned char Pin, unsigned char HighOrLow)
+  {
+  unsigned char hex = (unsigned char) (1 << Pin);
+  volatile unsigned char *work_adress;
+  work_adress = (&LATA) + (Port - 'A');
+  if ((HighOrLow == 'L') || (HighOrLow == 'l') || (HighOrLow == 0)) *work_adress = *work_adress & ~hex;
+  else if ((HighOrLow == 'H') || (HighOrLow == 'h') || (HighOrLow == 1)) *work_adress = *work_adress | hex;
+  }
+
+void PIN_SET_TRIS(unsigned char Port, unsigned char Pin, unsigned char InputOrOutput)
+  {
+  unsigned char hex = (unsigned char) (1 << Pin);
+  volatile unsigned char *work_adress;
+  work_adress = (&TRISA) + (Port - 'A');
+  if ((InputOrOutput == 'O') || (InputOrOutput == 'o') || (InputOrOutput == 0)) *work_adress = *work_adress & ~hex;
+  else if ((InputOrOutput == 'I') || (InputOrOutput == 'i') || (InputOrOutput == 1)) *work_adress = *work_adress | hex;
+
+  }
+
+void PIN_SET_LAT_TOGGLE(unsigned char Port, unsigned char Pin)
+  {
+  unsigned char hex = (unsigned char) (1 << Pin);
+  volatile unsigned char *work_adress;
+  work_adress = (&LATA) + (Port - 'A');
+  *work_adress = *work_adress ^ hex;
+  }
+
+void PIN_SET_ANSEL(unsigned char Port, unsigned char Pin, unsigned char AnalogOrDijital)
+  {
+  unsigned char hex = (unsigned char) (1 << Pin);
+  volatile unsigned char *work_adress;
+  work_adress = (&ANSELA) + (Port - 'A');
+  if ((AnalogOrDijital == 'D') || (AnalogOrDijital == 'd') || (AnalogOrDijital == 0)) *work_adress = *work_adress & ~hex;
+  else if ((AnalogOrDijital == 'A') || (AnalogOrDijital == 'a') || (AnalogOrDijital == 1)) *work_adress = *work_adress | hex;
+
+  }
+
+void PIN_SET_IO(unsigned char AnalogOrDijital, unsigned char InputOrOutput, unsigned char Port, unsigned char Pin, unsigned char HighOrLow)
+  {
+  PIN_SET_LAT(Port, Pin, HighOrLow);
+  PIN_SET_TRIS(Port, Pin, InputOrOutput);
+  PIN_SET_ANSEL(Port, Pin, AnalogOrDijital);
+  }
+
+void PIN_INIT_WPU(char Port, unsigned char Pin, unsigned char openOrClose)
+  {
+  unsigned char hex;
+  hex = 1;
+  for (unsigned char i = 0; i < Pin; i++) hex *= 2;
+  if (Port == 'B')
+    {
+    if (openOrClose == 1) WPUB = WPUB | hex;
+    else if (openOrClose == 0) WPUB = WPUB & ~hex;
+    }
+  }
+
+void INT_0_INTERRUPT_SET(unsigned char OpenOrClose)
+  {
+  if (OpenOrClose == 1) INTCONbits.INT0IE = 1;
+  else if (OpenOrClose == 0) INTCONbits.INT0IE = 0;
+  }
+
+void INT_1_INTERRUPT_SET(unsigned char OpenOrClose)
+  {
+  if (OpenOrClose == 1) INTCON3bits.INT1IE = 1;
+  else if (OpenOrClose == 0) INTCON3bits.INT1IE = 0;
+  }
+
+void INT_2_INTERRUPT_SET(unsigned char OpenOrClose)
+  {
+  if (OpenOrClose == 1) INTCON3bits.INT2IE = 1;
+  else if (OpenOrClose == 0) INTCON3bits.INT2IE = 0;
+  }
+
+
+
+void MCU_INIT(unsigned char inorEx, unsigned char mhz)
+  {
+  if (inorEx == 0)
+    {
+    if (mhz == 64)
+      {
+      OSCCON = 0x30;
+      OSCCON2 = 0x84;
+      OSCTUNE = 0x40;
+      }
+    }
+  else if (inorEx == 1)
+    {
+    if (mhz & 0x02)
+      {
+      OSCCON2bits.PLLRDY = 1;
+      OSCTUNEbits.PLLEN = 1;
+      }
+    OSCCON = mhz;
+    }
+  while (!OSCCONbits.IOFS) continue;
+  }
+
+void INTERRUPT_ALL(unsigned char OpenOrClose)
+  {
+  INTCONbits.PEIE = 1;
+  if (OpenOrClose == 1) INTCONbits.GIE = 1;
+  else if (OpenOrClose == 0) INTCONbits.GIE = 0;
+  }
+
+
+
+
+void EEPROM_B_WRITE(unsigned int address, unsigned char data)
+  {
+  unsigned char hold;
+  hold = INTCONbits.GIE;
+
+  EEADR = (unsigned char) address;
+  EEDATA = data;
+  EECON1bits.EEPGD = 0;
+  EECON1bits.CFGS = 0;
+  EECON1bits.WREN = 1;
+  INTCONbits.GIE = 0;
+
+
+
+  EECON2 = 0x55;
+  EECON2 = 0xaa;
+
+  EECON1bits.WR = 1;
+  INTCONbits.GIE = hold;
+  while (PIR2bits.EEIF == 0);
+  PIR2bits.EEIF = 0;
+
+  }
+
+unsigned char EEPROM_B_READ(unsigned int address)
+  {
+
+  EEADR = (unsigned char) address;
+  EECON1bits.WREN = 0;
+  EECON1bits.EEPGD = 0;
+  EECON1bits.RD = 1;
+  _delay((unsigned long)((1)*(64000000/4000.0)));
+  return (EEDATA);
+  }
+
+
+
+
+
+void I2C_1_ACK(void)
+  {
+  SSP1CON2bits.ACKDT1 = 0;
+  SSP1CON2bits.ACKEN1 = 1;
+  while (SSP1CON2bits.ACKEN1);
+  }
+
+void I2C_1_NACK(void)
+  {
+  SSP1CON2bits.ACKDT1 = 1;
+  SSP1CON2bits.ACKEN1 = 1;
+  while (SSP1CON2bits.ACKEN1);
+  }
+
+void I2C_1_READY(void)
+  {
+  while (PIR2bits.BCL1IF);
+
+
+  while (SSP1STATbits.BF || (SSP1STATbits.R_nW));
+  PIR1bits.SSP1IF = 0;
+  }
+
+void I2C_1_INIT(unsigned long baudrate)
+  {
+  PIN_SET_IO('D', 'I', 'C', 3, 'L');
+  PIN_SET_IO('D', 'I', 'C', 4, 'L');
+  SSP1STAT = 0x88;
+  SSP1CON1 = 0x28;
+  SSP1CON2 = 0;
+  calculator = (64000000UL) / (baudrate);
+  SSP1ADD = (unsigned char) (calculator - 1);
+
+  PIR1bits.SSP1IF = 0;
+  }
+
+unsigned char I2C_1_WRITE(unsigned char data)
+  {
+  SSP1BUF = data;
+  I2C_1_READY();
+  if (SSP1CON2bits.ACKSTAT1)
+    return 1;
+  else
+    return 2;
+  }
+
+void I2C_1_START(void)
+  {
+  SSP1CON2bits.SEN = 1;
+  while (SSP1CON2bits.SEN);
+  PIR1bits.SSP1IF = 0;
+  }
+
+void I2C_1_STOP(void)
+  {
+  I2C_1_READY();
+  SSP1CON2bits.PEN1 = 1;
+  while (SSP1CON2bits.PEN1);
+  PIR1bits.SSP1IF = 0;
+  }
+
+unsigned char I2C_1_READ_ACK()
+  {
+  unsigned char buffer = 0;
+  SSP1CON2bits.RCEN1 = 1;
+  while (!SSP1STATbits.BF1);
+  buffer = SSP1BUF;
+  I2C_1_ACK();
+  return buffer;
+  }
+
+unsigned char I2C_1_READ_NACK()
+  {
+  unsigned char buffer = 0;
+  SSP1CON2bits.RCEN1 = 1;
+  while (!SSP1STATbits.BF1);
+  buffer = SSP1BUF;
+  I2C_1_ACK();
+  return buffer;
+  }
+
+
+
+void I2C_2_ACK(void)
+{
+    SSP2CON2bits.ACKDT = 0;
+    SSP2CON2bits.ACKEN = 1;
+    while (SSP2CON2bits.ACKEN);
+}
+
+void I2C_2_NACK(void)
+{
+    SSP2CON2bits.ACKDT = 1;
+    SSP2CON2bits.ACKEN = 1;
+    while (SSP2CON2bits.ACKEN);
+}
+
+void I2C_2_READY(void)
+{
+    while (PIR3bits.BCL2IF);
+    while (SSP2STATbits.BF || SSP2STATbits.R_nW);
+    PIR3bits.SSP2IF = 0;
+}
+
+void I2C_2_INIT(unsigned long baudrate)
+{
+    PIN_SET_IO('D', 'I', 'D', 0, 'L');
+    PIN_SET_IO('D', 'I', 'D', 1, 'L');
+
+    SSP2STAT = 0x80;
+    SSP2CON1 = 0x28;
+    SSP2CON2 = 0x00;
+
+    SSP2ADD = (64000000UL / (4 * baudrate)) - 1;
+
+    PIR3bits.SSP2IF = 0;
+}
+
+unsigned char I2C_2_WRITE(unsigned char data)
+{
+    SSP2BUF = data;
+    I2C_2_READY();
+    if (SSP2CON2bits.ACKSTAT) return 1;
+    return 0;
+}
+
+void I2C_2_START(void)
+{
+    SSP2CON2bits.SEN = 1;
+    while (SSP2CON2bits.SEN);
+    PIR3bits.SSP2IF = 0;
+}
+
+void I2C_2_STOP(void)
+{
+    I2C_2_READY();
+    SSP2CON2bits.PEN = 1;
+    while (SSP2CON2bits.PEN);
+    PIR3bits.SSP2IF = 0;
+}
+
+unsigned char I2C_2_READ_ACK(void)
+{
+    unsigned char buffer;
+    SSP2CON2bits.RCEN = 1;
+    while (!SSP2STATbits.BF);
+    buffer = SSP2BUF;
+    I2C_2_ACK();
+    return buffer;
+}
+
+unsigned char I2C_2_READ_NACK(void)
+{
+    unsigned char buffer;
+    SSP2CON2bits.RCEN = 1;
+    while (!SSP2STATbits.BF);
+    buffer = SSP2BUF;
+    I2C_2_NACK();
+    return buffer;
+}

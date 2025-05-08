@@ -1,5 +1,5 @@
 #include "PIC_18F87K22.h"
-#ifdef PIC_18F87K22
+#ifdef __18F87K22
 // <editor-fold defaultstate="collapsed" desc="PIN IO">
 
 byte PIN_GET_PORT(byte Port, byte Pin)

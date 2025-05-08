@@ -1,5 +1,5 @@
 #include "ATMEGA_8.h"
-#ifdef ATMEGA_8
+#ifdef __AVR_ATmega8__
 
 // <editor-fold defaultstate="collapsed" desc="PIN IO">
 

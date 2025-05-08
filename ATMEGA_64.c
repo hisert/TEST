@@ -1,7 +1,7 @@
 #include "ATMEGA_64.h"
 #include <xc.h>
 
-#ifdef ATMEGA_64
+#ifdef __AVR_ATmega64__
 
 // <editor-fold defaultstate="collapsed" desc="PIN IO">
 

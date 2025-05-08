@@ -7,7 +7,7 @@
 extern "C" {
 #endif
 
-#ifdef ATMEGA_64
+#ifdef __AVR_ATmega64__
 
     // <editor-fold defaultstate="collapsed" desc="GPIO DEFINE">
 #define SYSTEM_IO_OUTPUT 'O'

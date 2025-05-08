@@ -1,6 +1,6 @@
 #include "PIC_18F67K40.h"
 
-#ifdef PIC_18F67K40
+#ifdef __18F67K40
 float calculator;
 
 // <editor-fold defaultstate="collapsed" desc="PIN IO         ">
