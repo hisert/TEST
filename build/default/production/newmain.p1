@@ -1,22 +1,27 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"22 ./thread.h
-[; ;./thread.h: 22:     void THREAD_MAIN();
-[v _THREAD_MAIN `(v ~T0 @X0 0 e? ]
-"19 ./task.h
-[; ;./task.h: 19:     void TASK_MAIN();
-[v _TASK_MAIN `(v ~T0 @X0 0 e? ]
-"10 ./time_out.h
-[; ;./time_out.h: 10:     typedef struct {
-[s S865 `ui 1 ]
-[n S865 . time_out_time ]
+"12 ./thread.h
+[; ;./thread.h: 12:     typedef struct {
+[s S859 `ui 1 ]
+[n S859 . time_out_time ]
+[v F6642 `(v ~T0 @X0 0 t? ]
+"26
+[; ;./thread.h: 26:     typedef struct {
+[s S860 `uc 1 `ui 1 `S859 1 `*F6642 1 ]
+[n S860 . flag duty_time temp Funct ]
+"41
+[; ;./thread.h: 41:     void THREAD_ARRAY_CHECK(THREAD_t *array, size_t length);
+[v _THREAD_ARRAY_CHECK `(v ~T0 @X0 0 ef2`*S860`ui ]
 "17
-[; ;./time_out.h: 17:     unsigned char TIME_OUT_CHECK(TIME_OUT_t *timeout, unsigned int outTime);
-[v _TIME_OUT_CHECK `(uc ~T0 @X0 0 ef2`*S865`ui ]
-[v F6691 `(v ~T0 @X0 0 tf2`ui`uc ]
-[v F6694 `(uc ~T0 @X0 0 tf1`ui ]
+[; ;./thread.h: 17:     unsigned char TIME_OUT_RESET(TIME_OUT_t *timeout);
+[v _TIME_OUT_RESET `(uc ~T0 @X0 0 ef1`*S859 ]
+"18
+[; ;./thread.h: 18:     unsigned char TIME_OUT_CHECK(TIME_OUT_t *timeout, unsigned int outTime);
+[v _TIME_OUT_CHECK `(uc ~T0 @X0 0 ef2`*S859`ui ]
+[v F6708 `(v ~T0 @X0 0 tf2`ui`uc ]
+[v F6711 `(uc ~T0 @X0 0 tf1`ui ]
 "10 ./eeprom.h
 [; ;./eeprom.h: 10:     void EEPROM_INIT(void (*eeprom_byte_write_t)(unsigned int adress, unsigned char data), unsigned char(*eeprom_byte_read_t)(unsigned int adress));
-[v _EEPROM_INIT `(v ~T0 @X0 0 ef2`*F6691`*F6694 ]
+[v _EEPROM_INIT `(v ~T0 @X0 0 ef2`*F6708`*F6711 ]
 "68 ./PIC_18F46K22.h
 [; ;./PIC_18F46K22.h: 68:     void EEPROM_B_WRITE(unsigned int address, unsigned char data);
 [v _EEPROM_B_WRITE `(v ~T0 @X0 0 ef2`ui`uc ]
@@ -26,20 +31,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12 ./eeprom.h
 [; ;./eeprom.h: 12:     unsigned long EEPROM_GET(unsigned char index);
 [v _EEPROM_GET `(ul ~T0 @X0 0 ef1`uc ]
-"71 newmain.c
-[; ;newmain.c: 71:   if (EEPROM_GET(MAGIC_BYTES != 0xAABB))
-[c E7166 0 1 .. ]
-[n E7166 . MAGIC_BYTES SETTINGS_DONE  ]
+"74 newmain.c
+[; ;newmain.c: 74:     if (EEPROM_GET(MAGIC_BYTES != 0xAABB)) {
+[c E7175 0 1 .. ]
+[n E7175 . MAGIC_BYTES SETTINGS_DONE  ]
 "11 ./eeprom.h
 [; ;./eeprom.h: 11:     void EEPROM_SET(unsigned char index, unsigned long value);
 [v _EEPROM_SET `(v ~T0 @X0 0 ef2`uc`ul ]
 "38 ./register.h
 [; ;./register.h: 38:     unsigned long REG_GET(unsigned char regId);
 [v _REG_GET `(ul ~T0 @X0 0 ef1`uc ]
-"103 newmain.c
-[; ;newmain.c: 103:   unsigned int MY_ADRESS = REG_GET(REGx_ADDR);
-[c E7184 0 1 2 3 4 5 6 .. ]
-[n E7184 REG_NAMES_t REGx_ADDR REGx_RAND_CODE REGx_SERI_NO REGx_VERSION REGx_SLAVE_ADRESS REGx_RAND_CODE_2 REGx_NAMES_NUM  ]
+"104 newmain.c
+[; ;newmain.c: 104:     unsigned int MY_ADRESS = REG_GET(REGx_ADDR);
+[c E7193 0 1 2 3 4 5 6 .. ]
+[n E7193 REG_NAMES_t REGx_ADDR REGx_RAND_CODE REGx_SERI_NO REGx_VERSION REGx_SLAVE_ADRESS REGx_RAND_CODE_2 REGx_NAMES_NUM  ]
 "49 ./register.h
 [; ;./register.h: 49:     void REG_PARSE_INDEX(const char* src, char* out, unsigned char start, unsigned char stop);
 [v _REG_PARSE_INDEX `(v ~T0 @X0 0 ef4`*Cuc`*uc`uc`uc ]
@@ -91,52 +96,49 @@ Version 4.0 HI-TECH Software Intermediate Code
 "46
 [; ;./register.h: 46:     void REG_TX_ADD(char* input, const char* data);
 [v _REG_TX_ADD `(v ~T0 @X0 0 ef2`*uc`*Cuc ]
-[v F7109 `(v ~T0 @X0 0 tf2`uc`uc ]
+[v F7113 `(v ~T0 @X0 0 tf2`uc`uc ]
 "45
 [; ;./register.h: 45:     void REG_CREATE(unsigned char regId, void (*funct_t)(unsigned char, unsigned char), unsigned int flag_t, unsigned long val_t, unsigned long max_t, unsigned long min_t);
-[v _REG_CREATE `(v ~T0 @X0 0 ef6`uc`*F7109`ui`ul`ul`ul ]
-[v F7212 `(v ~T0 @X0 0 tf2`uc`uc ]
-[v F7215 `(v ~T0 @X0 0 tf2`uc`uc ]
-[v F7218 `(v ~T0 @X0 0 tf2`uc`uc ]
+[v _REG_CREATE `(v ~T0 @X0 0 ef6`uc`*F7113`ui`ul`ul`ul ]
 [v F7221 `(v ~T0 @X0 0 tf2`uc`uc ]
 [v F7224 `(v ~T0 @X0 0 tf2`uc`uc ]
-[v F7082 `(v ~T0 @X0 0 tf2`ui`uc ]
-[v F7085 `(uc ~T0 @X0 0 tf1`ui ]
+[v F7227 `(v ~T0 @X0 0 tf2`uc`uc ]
+[v F7230 `(v ~T0 @X0 0 tf2`uc`uc ]
+[v F7233 `(v ~T0 @X0 0 tf2`uc`uc ]
+[v F7086 `(v ~T0 @X0 0 tf2`ui`uc ]
+[v F7089 `(uc ~T0 @X0 0 tf1`ui ]
 "37
 [; ;./register.h: 37:     void REGISTER_INIT(void (*eeprom_byte_write_t)(unsigned int adress, unsigned char data), unsigned char(*eeprom_byte_read_t)(unsigned int adress));
-[v _REGISTER_INIT `(v ~T0 @X0 0 ef2`*F7082`*F7085 ]
-"21 ./task.h
-[; ;./task.h: 21:     void TASK_STOP(unsigned char taskIndex);
-[v _TASK_STOP `(v ~T0 @X0 0 ef1`uc ]
-"34 ./thread.h
-[; ;./thread.h: 34:     typedef struct {
-[s S860 `uc 1 `ui 1 `uc 1 ]
-[n S860 . flag duty_time sleep_state_counter ]
-"40
-[; ;./thread.h: 40:     void THREAD_TIME_START(THREAD_DELAY *thread);
-[v _THREAD_TIME_START `(v ~T0 @X0 0 ef1`*S860 ]
-"41
-[; ;./thread.h: 41:     unsigned char THREAD_TIME_WAIT(THREAD_DELAY *thread, unsigned int threadTime);
-[v _THREAD_TIME_WAIT `(uc ~T0 @X0 0 ef2`*S860`ui ]
-"44
-[; ;./thread.h: 44:     unsigned char THREAD_GET_STATE();
+[v _REGISTER_INIT `(v ~T0 @X0 0 ef2`*F7086`*F7089 ]
+"100 ./PIC_18F46K22.h
+[; ;./PIC_18F46K22.h: 100:     void UART_1_STRING(char* text);
+[v _UART_1_STRING `(v ~T0 @X0 0 ef1`*uc ]
+"106
+[; ;./PIC_18F46K22.h: 106:     void UART_2_STRING(char* text);
+[v _UART_2_STRING `(v ~T0 @X0 0 ef1`*uc ]
+"48 ./thread.h
+[; ;./thread.h: 48:     typedef struct {
+[s S861 `uc 1 `ui 1 `uc 1 ]
+[n S861 . flag duty_time sleep_state_counter ]
+"54
+[; ;./thread.h: 54:     void THREAD_TIME_START(THREAD_DELAY *thread);
+[v _THREAD_TIME_START `(v ~T0 @X0 0 ef1`*S861 ]
+"55
+[; ;./thread.h: 55:     unsigned char THREAD_TIME_WAIT(THREAD_DELAY *thread, unsigned int threadTime);
+[v _THREAD_TIME_WAIT `(uc ~T0 @X0 0 ef2`*S861`ui ]
+"58
+[; ;./thread.h: 58:     unsigned char THREAD_GET_STATE();
 [v _THREAD_GET_STATE `(uc ~T0 @X0 0 e? ]
 "74 ./PIC_18F46K22.h
 [; ;./PIC_18F46K22.h: 74:     void PIN_SET_LAT_TOGGLE(unsigned char Port, unsigned char Pin);
 [v _PIN_SET_LAT_TOGGLE `(v ~T0 @X0 0 ef2`uc`uc ]
-"42 ./thread.h
-[; ;./thread.h: 42:     unsigned char THREAD_TIME_DONE(THREAD_DELAY *thread);
-[v _THREAD_TIME_DONE `(uc ~T0 @X0 0 ef1`*S860 ]
-"25
-[; ;./thread.h: 25:     void THREAD_DONE_CONTROL(unsigned char threadIndex);
-[v _THREAD_DONE_CONTROL `(v ~T0 @X0 0 ef1`uc ]
-"20 ./task.h
-[; ;./task.h: 20:     void TASK_START(unsigned char taskIndex);
-[v _TASK_START `(v ~T0 @X0 0 ef1`uc ]
-"294 newmain.c
-[; ;newmain.c: 294:     TASK_START(TASK_UART_1_RX);
-[c E7232 0 1 2 .. ]
-[n E7232 . TASK_UART_0_RX TASK_UART_1_RX TASK_DONE  ]
+"35 ./thread.h
+[; ;./thread.h: 35:     void THREAD_START(THREAD_t *thread_t);
+[v _THREAD_START `(v ~T0 @X0 0 ef1`*S860 ]
+"257 newmain.c
+[; ;newmain.c: 257:         THREAD_START(&THREADS[THREAD_UART_2_RX]);
+[c E7162 0 1 2 3 .. ]
+[n E7162 . THREAD_LED THREAD_UART_1_RX THREAD_UART_2_RX THREAD_DONE  ]
 [p mainexit ]
 "65 ./PIC_18F46K22.h
 [; ;./PIC_18F46K22.h: 65:  void MCU_INIT(unsigned char inorEx, unsigned char mhz);
@@ -147,20 +149,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "85
 [; ;./PIC_18F46K22.h: 85:     void TIMER_1_INIT(unsigned char ms);
 [v _TIMER_1_INIT `(v ~T0 @X0 0 ef1`uc ]
-[v F6620 `(v ~T0 @X0 0 tf1`uc ]
-"27 ./thread.h
-[; ;./thread.h: 27:     void THREAD_CREATE(unsigned char threadIndex, unsigned char flag, unsigned char duty_time, void (*Funct_t)(unsigned char threadIndex));
-[v _THREAD_CREATE `(v ~T0 @X0 0 ef4`uc`uc`uc`*F6620 ]
-"318 newmain.c
-[; ;newmain.c: 318:   THREAD_CREATE(THREAD_LED_CANLI, 0x01 | 0x08, 10, LED_THREAD);
-[c E7241 0 1 2 3 4 .. ]
-[n E7241 . THREAD_LED_CANLI THREAD_DEBUG THREAD_MOTOR THREAD_INPUT THREAD_DONE  ]
-"98 ./PIC_18F46K22.h
+"98
 [; ;./PIC_18F46K22.h: 98:     void UART_1_INIT(unsigned long baudRate);
 [v _UART_1_INIT `(v ~T0 @X0 0 ef1`ul ]
 "66
 [; ;./PIC_18F46K22.h: 66:     void INTERRUPT_ALL(unsigned char OpenOrClose);
 [v _INTERRUPT_ALL `(v ~T0 @X0 0 ef1`uc ]
+[v F6645 `(v ~T0 @X0 0 tf ]
+"34 ./thread.h
+[; ;./thread.h: 34:     void THREAD_INIT(THREAD_t *thread_t, unsigned char flag, unsigned int duty_time, void (*Funct_t)(void));
+[v _THREAD_INIT `(v ~T0 @X0 0 ef4`*S860`uc`ui`*F6645 ]
+[v F7260 `(v ~T0 @X0 0 tf ]
+[v F7262 `(v ~T0 @X0 0 tf ]
+[v F7264 `(v ~T0 @X0 0 tf ]
 [t ~ __interrupt . k ]
 [t T1 __interrupt high_priority ]
 "9497 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k22.h
@@ -181,11 +182,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "82 ./PIC_18F46K22.h
 [; ;./PIC_18F46K22.h: 82:     void TIMER_1_INTERRUPT_FUNCT();
 [v _TIMER_1_INTERRUPT_FUNCT `(v ~T0 @X0 0 e? ]
-"21 ./thread.h
-[; ;./thread.h: 21:     void THREAD_INTERRUPT();
-[v _THREAD_INTERRUPT `(v ~T0 @X0 0 e? ]
-"16 ./time_out.h
-[; ;./time_out.h: 16:     void TIME_OUT_COUNT_INTERRUPT();
+"16 ./thread.h
+[; ;./thread.h: 16:     void TIME_OUT_COUNT_INTERRUPT();
 [v _TIME_OUT_COUNT_INTERRUPT `(v ~T0 @X0 0 e? ]
 "9737 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k22.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k22.h: 9737:     struct {
@@ -1004,1057 +1002,976 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k22.h: 17406: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "11 ./PIC_18F46K22.h
-[p x FOSC = INTIO67 ]
+[p x FOSC  =  HSMP       ]
 "12
-[p x PLLCFG = ON ]
+[p x PLLCFG  =  ON       ]
 "13
-[p x PRICLKEN = OFF ]
+[p x PRICLKEN  =  OFF     ]
 "14
-[p x FCMEN = OFF ]
+[p x FCMEN  =  OFF       ]
 "15
-[p x IESO = OFF ]
+[p x IESO  =  OFF        ]
 "16
-[p x PWRTEN = OFF ]
+[p x PWRTEN  =  OFF      ]
 "17
-[p x BOREN = SBORDIS ]
+[p x BOREN  =  SBORDIS   ]
 "18
-[p x BORV = 190 ]
+[p x BORV  =  190        ]
 "19
-[p x WDTEN = OFF ]
+[p x WDTEN  =  OFF       ]
 "20
-[p x WDTPS = 32768 ]
+[p x WDTPS  =  32768     ]
 "21
-[p x CCP2MX = PORTB3 ]
+[p x CCP2MX  =  PORTB3   ]
 "22
-[p x PBADEN = OFF ]
+[p x PBADEN  =  OFF      ]
 "23
-[p x CCP3MX = PORTB5 ]
+[p x CCP3MX  =  PORTB5   ]
 "24
-[p x HFOFST = OFF ]
+[p x HFOFST  =  OFF       ]
 "25
-[p x T3CMX = PORTC0 ]
+[p x T3CMX  =  PORTC0    ]
 "26
-[p x P2BMX = PORTD2 ]
+[p x P2BMX  =  PORTD2    ]
 "27
-[p x MCLRE = INTMCLR ]
+[p x MCLRE  =  INTMCLR   ]
 "28
-[p x STVREN = OFF ]
+[p x STVREN  =  OFF       ]
 "29
-[p x LVP = OFF ]
+[p x LVP  =  OFF          ]
 "30
-[p x XINST = OFF ]
+[p x XINST  =  OFF       ]
 "31
-[p x CP0 = OFF ]
+[p x CP0  =  OFF         ]
 "32
-[p x CP1 = OFF ]
+[p x CP1  =  OFF         ]
 "33
-[p x CP2 = OFF ]
+[p x CP2  =  OFF         ]
 "34
-[p x CP3 = OFF ]
+[p x CP3  =  OFF         ]
 "35
-[p x CPB = ON ]
+[p x CPB  =  ON         ]
 "36
-[p x CPD = ON ]
+[p x CPD  =  ON         ]
 "37
-[p x WRT0 = OFF ]
+[p x WRT0  =  OFF        ]
 "38
-[p x WRT1 = OFF ]
+[p x WRT1  =  OFF        ]
 "39
-[p x WRT2 = OFF ]
+[p x WRT2  =  OFF        ]
 "40
-[p x WRT3 = OFF ]
+[p x WRT3  =  OFF        ]
 "41
-[p x WRTC = OFF ]
+[p x WRTC  =  OFF        ]
 "42
-[p x WRTB = OFF ]
+[p x WRTB  =  OFF        ]
 "43
-[p x WRTD = OFF ]
+[p x WRTD  =  OFF        ]
 "44
-[p x EBTR0 = OFF ]
+[p x EBTR0  =  OFF       ]
 "45
-[p x EBTR1 = OFF ]
+[p x EBTR1  =  OFF       ]
 "46
-[p x EBTR2 = OFF ]
+[p x EBTR2  =  OFF       ]
 "47
-[p x EBTR3 = OFF ]
+[p x EBTR3  =  OFF       ]
 "48
-[p x EBTRB = OFF ]
-"23 newmain.c
-[; ;newmain.c: 23: char UART_1_MSG[20];
+[p x EBTRB  =  OFF       ]
+"29 newmain.c
+[; ;newmain.c: 29: THREAD_t THREADS[THREAD_DONE];
+[v _THREADS `S860 ~T0 @X0 -> 3 `i e ]
+"31
+[; ;newmain.c: 31: char UART_2_MSG[20];
+[v _UART_2_MSG `uc ~T0 @X0 -> 20 `i e ]
+"32
+[; ;newmain.c: 32: char UART_1_MSG[20];
 [v _UART_1_MSG `uc ~T0 @X0 -> 20 `i e ]
-"24
-[; ;newmain.c: 24: char UART_0_MSG[20];
-[v _UART_0_MSG `uc ~T0 @X0 -> 20 `i e ]
-"28
-[; ;newmain.c: 28: void SYSTEM_CONTROL_ALL()
+"36
+[; ;newmain.c: 36: void SYSTEM_CONTROL_ALL()
 [v _SYSTEM_CONTROL_ALL `(v ~T0 @X0 1 ef ]
-"29
-[; ;newmain.c: 29:   {
+"37
+[; ;newmain.c: 37: {
 {
 [e :U _SYSTEM_CONTROL_ALL ]
 [f ]
-"30
-[; ;newmain.c: 30:   THREAD_MAIN();
-[e ( _THREAD_MAIN ..  ]
-"31
-[; ;newmain.c: 31:   TASK_MAIN();
-[e ( _TASK_MAIN ..  ]
-"32
-[; ;newmain.c: 32:   }
-[e :UE 867 ]
-}
-"34
-[; ;newmain.c: 34: unsigned char WAIT_WHILE(unsigned int ms)
-[v _WAIT_WHILE `(uc ~T0 @X0 1 ef1`ui ]
-"35
-[; ;newmain.c: 35:   {
-{
-[e :U _WAIT_WHILE ]
-"34
-[; ;newmain.c: 34: unsigned char WAIT_WHILE(unsigned int ms)
-[v _ms `ui ~T0 @X0 1 r1 ]
-"35
-[; ;newmain.c: 35:   {
-[f ]
-"36
-[; ;newmain.c: 36:   static TIME_OUT_t time_out;
-[v F7163 `S865 ~T0 @X0 1 s time_out ]
-"37
-[; ;newmain.c: 37:   SYSTEM_CONTROL_ALL();
-[e ( _SYSTEM_CONTROL_ALL ..  ]
 "38
-[; ;newmain.c: 38:   return TIME_OUT_CHECK(&time_out, ms);
-[e ) ( _TIME_OUT_CHECK (2 , &U F7163 _ms ]
-[e $UE 868  ]
+[; ;newmain.c: 38:     THREAD_ARRAY_CHECK(THREADS, (sizeof(THREADS) / sizeof((THREADS)[0])));
+[e ( _THREAD_ARRAY_CHECK (2 , &U _THREADS / -> # _THREADS `ui -> # *U + &U _THREADS * -> -> -> 0 `i `ui `ux -> -> # *U &U _THREADS `ui `ux `ui ]
 "39
-[; ;newmain.c: 39:   }
-[e :UE 868 ]
+[; ;newmain.c: 39: }
+[e :UE 866 ]
 }
 "41
 [; ;newmain.c: 41: void WAIT_INTERRUPT(unsigned int ms)
 [v _WAIT_INTERRUPT `(v ~T0 @X0 1 ef1`ui ]
 "42
-[; ;newmain.c: 42:   {
+[; ;newmain.c: 42: {
 {
 [e :U _WAIT_INTERRUPT ]
 "41
 [; ;newmain.c: 41: void WAIT_INTERRUPT(unsigned int ms)
 [v _ms `ui ~T0 @X0 1 r1 ]
 "42
-[; ;newmain.c: 42:   {
+[; ;newmain.c: 42: {
 [f ]
 "43
-[; ;newmain.c: 43:   WAIT_WHILE(0);
-[e ( _WAIT_WHILE (1 -> -> 0 `i `ui ]
+[; ;newmain.c: 43:     static TIME_OUT_t time_out;
+[v F7174 `S859 ~T0 @X0 1 s time_out ]
 "44
-[; ;newmain.c: 44:   while (WAIT_WHILE(ms) == 0);
+[; ;newmain.c: 44:     TIME_OUT_RESET(&time_out);
+[e ( _TIME_OUT_RESET (1 &U F7174 ]
+"45
+[; ;newmain.c: 45:     while (1) {
+[e :U 869 ]
+{
+"46
+[; ;newmain.c: 46:         SYSTEM_CONTROL_ALL();
+[e ( _SYSTEM_CONTROL_ALL ..  ]
+"47
+[; ;newmain.c: 47:         if (TIME_OUT_CHECK(&time_out, ms)) break;
+[e $ ! != -> ( _TIME_OUT_CHECK (2 , &U F7174 _ms `i -> 0 `i 871  ]
 [e $U 870  ]
 [e :U 871 ]
-[e :U 870 ]
-[e $ == -> ( _WAIT_WHILE (1 _ms `i -> 0 `i 871  ]
-[e :U 872 ]
-"45
-[; ;newmain.c: 45:   }
-[e :UE 869 ]
+"48
+[; ;newmain.c: 48:     }
 }
-"56
-[; ;newmain.c: 56: unsigned int SETTING_VALUES[SETTINGS_DONE];
-[v _SETTING_VALUES `ui ~T0 @X0 -> -> 1 `i `ux e ]
-"58
-[; ;newmain.c: 58: void CONFIG_SET(unsigned char index, unsigned int data)
-[v _CONFIG_SET `(v ~T0 @X0 1 ef2`uc`ui ]
+[e :U 868 ]
+[e $U 869  ]
+[e :U 870 ]
+"49
+[; ;newmain.c: 49: }
+[e :UE 867 ]
+}
 "59
-[; ;newmain.c: 59:   {
+[; ;newmain.c: 59: unsigned int SETTING_VALUES[SETTINGS_DONE];
+[v _SETTING_VALUES `ui ~T0 @X0 -> -> 1 `i `ux e ]
+"61
+[; ;newmain.c: 61: void CONFIG_SET(unsigned char index, unsigned int data)
+[v _CONFIG_SET `(v ~T0 @X0 1 ef2`uc`ui ]
+"62
+[; ;newmain.c: 62: {
 {
 [e :U _CONFIG_SET ]
-"58
-[; ;newmain.c: 58: void CONFIG_SET(unsigned char index, unsigned int data)
+"61
+[; ;newmain.c: 61: void CONFIG_SET(unsigned char index, unsigned int data)
 [v _index `uc ~T0 @X0 1 r1 ]
 [v _data `ui ~T0 @X0 1 r2 ]
-"59
-[; ;newmain.c: 59:   {
+"62
+[; ;newmain.c: 62: {
 [f ]
-"60
-[; ;newmain.c: 60:   SETTING_VALUES[index] = data;
-[e = *U + &U _SETTING_VALUES * -> _index `ux -> -> # *U &U _SETTING_VALUES `ui `ux _data ]
-"61
-[; ;newmain.c: 61:   }
-[e :UE 873 ]
-}
 "63
-[; ;newmain.c: 63: unsigned int CONFIG_GET(unsigned char index)
-[v _CONFIG_GET `(ui ~T0 @X0 1 ef1`uc ]
+[; ;newmain.c: 63:     SETTING_VALUES[index] = data;
+[e = *U + &U _SETTING_VALUES * -> _index `ux -> -> # *U &U _SETTING_VALUES `ui `ux _data ]
 "64
-[; ;newmain.c: 64:   {
+[; ;newmain.c: 64: }
+[e :UE 872 ]
+}
+"66
+[; ;newmain.c: 66: unsigned int CONFIG_GET(unsigned char index)
+[v _CONFIG_GET `(ui ~T0 @X0 1 ef1`uc ]
+"67
+[; ;newmain.c: 67: {
 {
 [e :U _CONFIG_GET ]
-"63
-[; ;newmain.c: 63: unsigned int CONFIG_GET(unsigned char index)
-[v _index `uc ~T0 @X0 1 r1 ]
-"64
-[; ;newmain.c: 64:   {
-[f ]
-"65
-[; ;newmain.c: 65:   return SETTING_VALUES[index];
-[e ) *U + &U _SETTING_VALUES * -> _index `ux -> -> # *U &U _SETTING_VALUES `ui `ux ]
-[e $UE 874  ]
 "66
-[; ;newmain.c: 66:   }
-[e :UE 874 ]
-}
+[; ;newmain.c: 66: unsigned int CONFIG_GET(unsigned char index)
+[v _index `uc ~T0 @X0 1 r1 ]
+"67
+[; ;newmain.c: 67: {
+[f ]
 "68
-[; ;newmain.c: 68: void EEPROM_START()
-[v _EEPROM_START `(v ~T0 @X0 1 ef ]
+[; ;newmain.c: 68:     return SETTING_VALUES[index];
+[e ) *U + &U _SETTING_VALUES * -> _index `ux -> -> # *U &U _SETTING_VALUES `ui `ux ]
+[e $UE 873  ]
 "69
-[; ;newmain.c: 69:   {
+[; ;newmain.c: 69: }
+[e :UE 873 ]
+}
+"71
+[; ;newmain.c: 71: void EEPROM_START()
+[v _EEPROM_START `(v ~T0 @X0 1 ef ]
+"72
+[; ;newmain.c: 72: {
 {
 [e :U _EEPROM_START ]
 [f ]
-"70
-[; ;newmain.c: 70:   EEPROM_INIT(EEPROM_B_WRITE, EEPROM_B_READ);
-[e ( _EEPROM_INIT (2 , &U _EEPROM_B_WRITE &U _EEPROM_B_READ ]
-"71
-[; ;newmain.c: 71:   if (EEPROM_GET(MAGIC_BYTES != 0xAABB))
-[e $ ! != ( _EEPROM_GET (1 -> -> != -> . `E7166 0 `ui -> 43707 `ui `i `uc -> -> -> 0 `i `l `ul 876  ]
-"72
-[; ;newmain.c: 72:     {
-{
 "73
-[; ;newmain.c: 73:     for (unsigned char x = 0; x < SETTINGS_DONE; x++) EEPROM_SET(x, 0);
+[; ;newmain.c: 73:     EEPROM_INIT(EEPROM_B_WRITE, EEPROM_B_READ);
+[e ( _EEPROM_INIT (2 , &U _EEPROM_B_WRITE &U _EEPROM_B_READ ]
+"74
+[; ;newmain.c: 74:     if (EEPROM_GET(MAGIC_BYTES != 0xAABB)) {
+[e $ ! != ( _EEPROM_GET (1 -> -> != -> . `E7175 0 `ui -> 43707 `ui `i `uc -> -> -> 0 `i `l `ul 875  ]
+{
+"75
+[; ;newmain.c: 75:         for (unsigned char x = 0; x < SETTINGS_DONE; x++) EEPROM_SET(x, 0);
 {
 [v _x `uc ~T0 @X0 1 a ]
 [e = _x -> -> 0 `i `uc ]
-[e $ < -> _x `i -> . `E7166 1 `i 877  ]
-[e $U 878  ]
-[e :U 877 ]
+[e $ < -> _x `i -> . `E7175 1 `i 876  ]
+[e $U 877  ]
+[e :U 876 ]
 [e ( _EEPROM_SET (2 , _x -> -> -> 0 `i `l `ul ]
 [e ++ _x -> -> 1 `i `uc ]
-[e $ < -> _x `i -> . `E7166 1 `i 877  ]
-[e :U 878 ]
+[e $ < -> _x `i -> . `E7175 1 `i 876  ]
+[e :U 877 ]
 }
-"74
-[; ;newmain.c: 74:     EEPROM_SET(MAGIC_BYTES, 0xAABB);
-[e ( _EEPROM_SET (2 , -> . `E7166 0 `uc -> -> 43707 `ui `ul ]
-"75
-[; ;newmain.c: 75:     }
-}
-[e :U 876 ]
 "76
-[; ;newmain.c: 76:   for (unsigned char x = 0; x < SETTINGS_DONE; x++) SETTING_VALUES[x] = EEPROM_GET(x);
+[; ;newmain.c: 76:         EEPROM_SET(MAGIC_BYTES, 0xAABB);
+[e ( _EEPROM_SET (2 , -> . `E7175 0 `uc -> -> 43707 `ui `ul ]
+"77
+[; ;newmain.c: 77:     }
+}
+[e :U 875 ]
+"78
+[; ;newmain.c: 78:     for (unsigned char x = 0; x < SETTINGS_DONE; x++) SETTING_VALUES[x] = EEPROM_GET(x);
 {
 [v _x `uc ~T0 @X0 1 a ]
 [e = _x -> -> 0 `i `uc ]
-[e $ < -> _x `i -> . `E7166 1 `i 880  ]
-[e $U 881  ]
-[e :U 880 ]
+[e $ < -> _x `i -> . `E7175 1 `i 879  ]
+[e $U 880  ]
+[e :U 879 ]
 [e = *U + &U _SETTING_VALUES * -> _x `ux -> -> # *U &U _SETTING_VALUES `ui `ux -> ( _EEPROM_GET (1 _x `ui ]
 [e ++ _x -> -> 1 `i `uc ]
-[e $ < -> _x `i -> . `E7166 1 `i 880  ]
-[e :U 881 ]
+[e $ < -> _x `i -> . `E7175 1 `i 879  ]
+[e :U 880 ]
 }
-"77
-[; ;newmain.c: 77:   }
-[e :UE 875 ]
+"79
+[; ;newmain.c: 79: }
+[e :UE 874 ]
 }
-"93
-[; ;newmain.c: 93: void REG_PROCESS(char *msg)
-[v _REG_PROCESS `(v ~T0 @X0 1 ef1`*uc ]
 "94
-[; ;newmain.c: 94:   {
+[; ;newmain.c: 94: void REG_PROCESS(char *msg)
+[v _REG_PROCESS `(v ~T0 @X0 1 ef1`*uc ]
+"95
+[; ;newmain.c: 95: {
 {
 [e :U _REG_PROCESS ]
-"93
-[; ;newmain.c: 93: void REG_PROCESS(char *msg)
-[v _msg `*uc ~T0 @X0 1 r1 ]
 "94
-[; ;newmain.c: 94:   {
+[; ;newmain.c: 94: void REG_PROCESS(char *msg)
+[v _msg `*uc ~T0 @X0 1 r1 ]
+"95
+[; ;newmain.c: 95: {
 [f ]
-"96
-[; ;newmain.c: 96:   static unsigned char UNLOCK = 0;
-[v F7194 `uc ~T0 @X0 1 s UNLOCK ]
-[i F7194
+"97
+[; ;newmain.c: 97:     static unsigned char UNLOCK = 0;
+[v F7203 `uc ~T0 @X0 1 s UNLOCK ]
+[i F7203
 -> -> 0 `i `uc
 ]
-"97
-[; ;newmain.c: 97:   static unsigned int SECURE_CODE = 1111;
-[v F7195 `ui ~T0 @X0 1 s SECURE_CODE ]
-[i F7195
+"98
+[; ;newmain.c: 98:     static unsigned int SECURE_CODE = 1111;
+[v F7204 `ui ~T0 @X0 1 s SECURE_CODE ]
+[i F7204
 -> -> 1111 `i `ui
 ]
-"98
-[; ;newmain.c: 98:   unsigned long DATA = 0;
+"99
+[; ;newmain.c: 99:     unsigned long DATA = 0;
 [v _DATA `ul ~T0 @X0 1 a ]
 [e = _DATA -> -> -> 0 `i `l `ul ]
-"99
-[; ;newmain.c: 99:   unsigned int ADRESS = 0;
+"100
+[; ;newmain.c: 100:     unsigned int ADRESS = 0;
 [v _ADRESS `ui ~T0 @X0 1 a ]
 [e = _ADRESS -> -> 0 `i `ui ]
-"100
-[; ;newmain.c: 100:   unsigned char SECOND_ADRESS = 0;
+"101
+[; ;newmain.c: 101:     unsigned char SECOND_ADRESS = 0;
 [v _SECOND_ADRESS `uc ~T0 @X0 1 a ]
 [e = _SECOND_ADRESS -> -> 0 `i `uc ]
-"101
-[; ;newmain.c: 101:   unsigned char KOMUT = 0;
+"102
+[; ;newmain.c: 102:     unsigned char KOMUT = 0;
 [v _KOMUT `uc ~T0 @X0 1 a ]
 [e = _KOMUT -> -> 0 `i `uc ]
-"103
-[; ;newmain.c: 103:   unsigned int MY_ADRESS = REG_GET(REGx_ADDR);
-[v _MY_ADRESS `ui ~T0 @X0 1 a ]
-[e = _MY_ADRESS -> ( _REG_GET (1 -> . `E7184 0 `uc `ui ]
 "104
-[; ;newmain.c: 104:   unsigned char MY_SECOND_ADRESS = REG_GET(REGx_SLAVE_ADRESS);
-[v _MY_SECOND_ADRESS `uc ~T0 @X0 1 a ]
-[e = _MY_SECOND_ADRESS -> ( _REG_GET (1 -> . `E7184 4 `uc `uc ]
+[; ;newmain.c: 104:     unsigned int MY_ADRESS = REG_GET(REGx_ADDR);
+[v _MY_ADRESS `ui ~T0 @X0 1 a ]
+[e = _MY_ADRESS -> ( _REG_GET (1 -> . `E7193 0 `uc `ui ]
 "105
-[; ;newmain.c: 105:   char TX[20];
-[v _TX `uc ~T0 @X0 -> 20 `i a ]
+[; ;newmain.c: 105:     unsigned char MY_SECOND_ADRESS = REG_GET(REGx_SLAVE_ADRESS);
+[v _MY_SECOND_ADRESS `uc ~T0 @X0 1 a ]
+[e = _MY_SECOND_ADRESS -> ( _REG_GET (1 -> . `E7193 4 `uc `uc ]
 "106
-[; ;newmain.c: 106:   char DATA_S[10];
-[v _DATA_S `uc ~T0 @X0 -> 10 `i a ]
+[; ;newmain.c: 106:     char TX[20];
+[v _TX `uc ~T0 @X0 -> 20 `i a ]
 "107
-[; ;newmain.c: 107:   char SYMBOL_S[3];
-[v _SYMBOL_S `uc ~T0 @X0 -> 3 `i a ]
+[; ;newmain.c: 107:     char DATA_S[10];
+[v _DATA_S `uc ~T0 @X0 -> 10 `i a ]
 "108
-[; ;newmain.c: 108:   char ADRESS_S[6];
-[v _ADRESS_S `uc ~T0 @X0 -> 6 `i a ]
+[; ;newmain.c: 108:     char SYMBOL_S[3];
+[v _SYMBOL_S `uc ~T0 @X0 -> 3 `i a ]
 "109
-[; ;newmain.c: 109:   char SECOND_ADRESS_S[3];
-[v _SECOND_ADRESS_S `uc ~T0 @X0 -> 3 `i a ]
+[; ;newmain.c: 109:     char ADRESS_S[6];
+[v _ADRESS_S `uc ~T0 @X0 -> 6 `i a ]
 "110
-[; ;newmain.c: 110:   char KOMUT_S[3];
-[v _KOMUT_S `uc ~T0 @X0 -> 3 `i a ]
+[; ;newmain.c: 110:     char SECOND_ADRESS_S[3];
+[v _SECOND_ADRESS_S `uc ~T0 @X0 -> 3 `i a ]
 "111
-[; ;newmain.c: 111:   char READ_WRITE[2];
-[v _READ_WRITE `uc ~T0 @X0 -> 2 `i a ]
+[; ;newmain.c: 111:     char KOMUT_S[3];
+[v _KOMUT_S `uc ~T0 @X0 -> 3 `i a ]
 "112
-[; ;newmain.c: 112:   char temp[10];
+[; ;newmain.c: 112:     char READ_WRITE[2];
+[v _READ_WRITE `uc ~T0 @X0 -> 2 `i a ]
+"113
+[; ;newmain.c: 113:     char temp[10];
 [v _temp `uc ~T0 @X0 -> 10 `i a ]
-"114
-[; ;newmain.c: 114:   REG_PARSE_INDEX(msg, SYMBOL_S, 1, 1);
-[e ( _REG_PARSE_INDEX (4 , , , -> _msg `*Cuc &U _SYMBOL_S -> -> 1 `i `uc -> -> 1 `i `uc ]
 "115
-[; ;newmain.c: 115:   REG_PARSE_INDEX(msg, ADRESS_S, 2, 5);
-[e ( _REG_PARSE_INDEX (4 , , , -> _msg `*Cuc &U _ADRESS_S -> -> 2 `i `uc -> -> 5 `i `uc ]
+[; ;newmain.c: 115:     REG_PARSE_INDEX(msg, SYMBOL_S, 1, 1);
+[e ( _REG_PARSE_INDEX (4 , , , -> _msg `*Cuc &U _SYMBOL_S -> -> 1 `i `uc -> -> 1 `i `uc ]
 "116
-[; ;newmain.c: 116:   REG_PARSE_INDEX(msg, SECOND_ADRESS_S, 6, 7);
-[e ( _REG_PARSE_INDEX (4 , , , -> _msg `*Cuc &U _SECOND_ADRESS_S -> -> 6 `i `uc -> -> 7 `i `uc ]
+[; ;newmain.c: 116:     REG_PARSE_INDEX(msg, ADRESS_S, 2, 5);
+[e ( _REG_PARSE_INDEX (4 , , , -> _msg `*Cuc &U _ADRESS_S -> -> 2 `i `uc -> -> 5 `i `uc ]
 "117
-[; ;newmain.c: 117:   REG_PARSE_INDEX(msg, KOMUT_S, 8, 9);
-[e ( _REG_PARSE_INDEX (4 , , , -> _msg `*Cuc &U _KOMUT_S -> -> 8 `i `uc -> -> 9 `i `uc ]
+[; ;newmain.c: 117:     REG_PARSE_INDEX(msg, SECOND_ADRESS_S, 6, 7);
+[e ( _REG_PARSE_INDEX (4 , , , -> _msg `*Cuc &U _SECOND_ADRESS_S -> -> 6 `i `uc -> -> 7 `i `uc ]
 "118
-[; ;newmain.c: 118:   REG_PARSE_INDEX(msg, READ_WRITE, 10, 10);
-[e ( _REG_PARSE_INDEX (4 , , , -> _msg `*Cuc &U _READ_WRITE -> -> 10 `i `uc -> -> 10 `i `uc ]
+[; ;newmain.c: 118:     REG_PARSE_INDEX(msg, KOMUT_S, 8, 9);
+[e ( _REG_PARSE_INDEX (4 , , , -> _msg `*Cuc &U _KOMUT_S -> -> 8 `i `uc -> -> 9 `i `uc ]
 "119
-[; ;newmain.c: 119:   REG_PARSE_DATA(msg, DATA_S);
+[; ;newmain.c: 119:     REG_PARSE_INDEX(msg, READ_WRITE, 10, 10);
+[e ( _REG_PARSE_INDEX (4 , , , -> _msg `*Cuc &U _READ_WRITE -> -> 10 `i `uc -> -> 10 `i `uc ]
+"120
+[; ;newmain.c: 120:     REG_PARSE_DATA(msg, DATA_S);
 [e ( _REG_PARSE_DATA (2 , -> _msg `*Cuc &U _DATA_S ]
-"121
-[; ;newmain.c: 121:   ADRESS = (unsigned int) REG_CONVERT_STR_HEX_TO_DWORD(ADRESS_S);
-[e = _ADRESS -> ( _REG_CONVERT_STR_HEX_TO_DWORD (1 -> &U _ADRESS_S `*Cuc `ui ]
 "122
-[; ;newmain.c: 122:   SECOND_ADRESS = (unsigned char) REG_CONVERT_STR_HEX_TO_DWORD(SECOND_ADRESS_S);
-[e = _SECOND_ADRESS -> ( _REG_CONVERT_STR_HEX_TO_DWORD (1 -> &U _SECOND_ADRESS_S `*Cuc `uc ]
+[; ;newmain.c: 122:     ADRESS = (unsigned int) REG_CONVERT_STR_HEX_TO_DWORD(ADRESS_S);
+[e = _ADRESS -> ( _REG_CONVERT_STR_HEX_TO_DWORD (1 -> &U _ADRESS_S `*Cuc `ui ]
 "123
-[; ;newmain.c: 123:   KOMUT = (unsigned char) REG_CONVERT_STR_HEX_TO_DWORD(KOMUT_S);
+[; ;newmain.c: 123:     SECOND_ADRESS = (unsigned char) REG_CONVERT_STR_HEX_TO_DWORD(SECOND_ADRESS_S);
+[e = _SECOND_ADRESS -> ( _REG_CONVERT_STR_HEX_TO_DWORD (1 -> &U _SECOND_ADRESS_S `*Cuc `uc ]
+"124
+[; ;newmain.c: 124:     KOMUT = (unsigned char) REG_CONVERT_STR_HEX_TO_DWORD(KOMUT_S);
 [e = _KOMUT -> ( _REG_CONVERT_STR_HEX_TO_DWORD (1 -> &U _KOMUT_S `*Cuc `uc ]
-"125
-[; ;newmain.c: 125:   DATA = REG_PROCESS_GET_DATA_DEC(KOMUT, DATA_S);
+"126
+[; ;newmain.c: 126:     DATA = REG_PROCESS_GET_DATA_DEC(KOMUT, DATA_S);
 [e = _DATA ( _REG_PROCESS_GET_DATA_DEC (2 , _KOMUT -> &U _DATA_S `*Cuc ]
-"127
-[; ;newmain.c: 127:   if (REG_PARSE_COMPARE(SYMBOL_S, "Q")) return;
-[e $ ! != -> ( _REG_PARSE_COMPARE (2 , -> &U _SYMBOL_S `*Cuc :s 2C `i -> 0 `i 884  ]
-[e $UE 883  ]
-[e :U 884 ]
 "128
-[; ;newmain.c: 128:   if (ADRESS == 0)
-[e $ ! == _ADRESS -> -> 0 `i `ui 885  ]
+[; ;newmain.c: 128:     if (REG_PARSE_COMPARE(SYMBOL_S, "Q")) return;
+[e $ ! != -> ( _REG_PARSE_COMPARE (2 , -> &U _SYMBOL_S `*Cuc :s 2C `i -> 0 `i 883  ]
+[e $UE 882  ]
+[e :U 883 ]
 "129
-[; ;newmain.c: 129:     {
+[; ;newmain.c: 129:     if (ADRESS == 0) {
+[e $ ! == _ADRESS -> -> 0 `i `ui 884  ]
 {
 "130
-[; ;newmain.c: 130:     if (KOMUT == REGx_RAND_CODE) goto passed;
-[e $ ! == -> _KOMUT `i -> . `E7184 1 `i 886  ]
-[e $U 887  ]
-[e :U 886 ]
+[; ;newmain.c: 130:         if (KOMUT == REGx_RAND_CODE) goto passed;
+[e $ ! == -> _KOMUT `i -> . `E7193 1 `i 885  ]
+[e $U 886  ]
+[e :U 885 ]
 "131
-[; ;newmain.c: 131:     if (UNLOCK) goto passed;
-[e $ ! != -> F7194 `i -> 0 `i 888  ]
-[e $U 887  ]
-[e :U 888 ]
+[; ;newmain.c: 131:         if (UNLOCK) goto passed;
+[e $ ! != -> F7203 `i -> 0 `i 887  ]
+[e $U 886  ]
+[e :U 887 ]
 "132
-[; ;newmain.c: 132:     return;
-[e $UE 883  ]
+[; ;newmain.c: 132:         return;
+[e $UE 882  ]
 "133
 [; ;newmain.c: 133:     }
 }
-[e :U 885 ]
+[e :U 884 ]
 "134
-[; ;newmain.c: 134:   if ((KOMUT == REGx_ADDR) || (KOMUT == REGx_SLAVE_ADRESS)) if (UNLOCK) goto passed;
-[e $ ! || == -> _KOMUT `i -> . `E7184 0 `i == -> _KOMUT `i -> . `E7184 4 `i 889  ]
-[e $ ! != -> F7194 `i -> 0 `i 890  ]
-[e $U 887  ]
-[e :U 890 ]
+[; ;newmain.c: 134:     if ((KOMUT == REGx_ADDR) || (KOMUT == REGx_SLAVE_ADRESS)) if (UNLOCK) goto passed;
+[e $ ! || == -> _KOMUT `i -> . `E7193 0 `i == -> _KOMUT `i -> . `E7193 4 `i 888  ]
+[e $ ! != -> F7203 `i -> 0 `i 889  ]
+[e $U 886  ]
 [e :U 889 ]
+[e :U 888 ]
 "135
-[; ;newmain.c: 135:   if ((ADRESS == MY_ADRESS) && (SECOND_ADRESS == MY_SECOND_ADRESS)) goto passed;
-[e $ ! && == _ADRESS _MY_ADRESS == -> _SECOND_ADRESS `i -> _MY_SECOND_ADRESS `i 891  ]
-[e $U 887  ]
-[e :U 891 ]
+[; ;newmain.c: 135:     if ((ADRESS == MY_ADRESS) && (SECOND_ADRESS == MY_SECOND_ADRESS)) goto passed;
+[e $ ! && == _ADRESS _MY_ADRESS == -> _SECOND_ADRESS `i -> _MY_SECOND_ADRESS `i 890  ]
+[e $U 886  ]
+[e :U 890 ]
 "136
-[; ;newmain.c: 136:   return;
-[e $UE 883  ]
+[; ;newmain.c: 136:     return;
+[e $UE 882  ]
 "138
 [; ;newmain.c: 138: passed:
-[e :U 887 ]
+[e :U 886 ]
 "139
-[; ;newmain.c: 139:   for (unsigned char x = 0; x < 20; x++) TX[x] = 0x00;
+[; ;newmain.c: 139:     for (unsigned char x = 0; x < 20; x++) TX[x] = 0x00;
 {
 [v _x `uc ~T0 @X0 1 a ]
 [e = _x -> -> 0 `i `uc ]
-[e $ < -> _x `i -> 20 `i 892  ]
-[e $U 893  ]
-[e :U 892 ]
+[e $ < -> _x `i -> 20 `i 891  ]
+[e $U 892  ]
+[e :U 891 ]
 [e = *U + &U _TX * -> _x `ux -> -> # *U &U _TX `ui `ux -> -> 0 `i `uc ]
 [e ++ _x -> -> 1 `i `uc ]
-[e $ < -> _x `i -> 20 `i 892  ]
-[e :U 893 ]
+[e $ < -> _x `i -> 20 `i 891  ]
+[e :U 892 ]
 }
 "140
-[; ;newmain.c: 140:   if (REG_PARSE_COMPARE(READ_WRITE, ":") == 0)
-[e $ ! == -> ( _REG_PARSE_COMPARE (2 , -> &U _READ_WRITE `*Cuc :s 3C `i -> 0 `i 895  ]
-"141
-[; ;newmain.c: 141:     {
+[; ;newmain.c: 140:     if (REG_PARSE_COMPARE(READ_WRITE, ":") == 0) {
+[e $ ! == -> ( _REG_PARSE_COMPARE (2 , -> &U _READ_WRITE `*Cuc :s 3C `i -> 0 `i 894  ]
 {
+"141
+[; ;newmain.c: 141:         if ((REG_GET_FLAG(KOMUT) & 0x0800) & (UNLOCK == 0)) return;
+[e $ ! != & & ( _REG_GET_FLAG (1 _KOMUT -> -> 2048 `i `ui -> -> == -> F7203 `i -> 0 `i `i `ui -> -> 0 `i `ui 895  ]
+[e $UE 882  ]
+[e :U 895 ]
 "142
-[; ;newmain.c: 142:     if ((REG_GET_FLAG(KOMUT) & 0x0800) & (UNLOCK == 0)) return;
-[e $ ! != & & ( _REG_GET_FLAG (1 _KOMUT -> -> 2048 `i `ui -> -> == -> F7194 `i -> 0 `i `i `ui -> -> 0 `i `ui 896  ]
-[e $UE 883  ]
-[e :U 896 ]
+[; ;newmain.c: 142:         if (REG_GET_FLAG(KOMUT) & 0x0200) {
+[e $ ! != & ( _REG_GET_FLAG (1 _KOMUT -> -> 512 `i `ui -> -> 0 `i `ui 896  ]
+{
 "143
-[; ;newmain.c: 143:     if (REG_GET_FLAG(KOMUT) & 0x0200)
-[e $ ! != & ( _REG_GET_FLAG (1 _KOMUT -> -> 512 `i `ui -> -> 0 `i `ui 897  ]
+[; ;newmain.c: 143:             if (KOMUT == REGx_RAND_CODE) {
+[e $ ! == -> _KOMUT `i -> . `E7193 1 `i 897  ]
+{
 "144
-[; ;newmain.c: 144:       {
+[; ;newmain.c: 144:                 if (DATA == 0x0000) {
+[e $ ! == _DATA -> -> -> 0 `i `l `ul 898  ]
 {
 "145
-[; ;newmain.c: 145:       if (KOMUT == REGx_RAND_CODE)
-[e $ ! == -> _KOMUT `i -> . `E7184 1 `i 898  ]
+[; ;newmain.c: 145:                     UNLOCK = 0;
+[e = F7203 -> -> 0 `i `uc ]
 "146
-[; ;newmain.c: 146:         {
-{
-"147
-[; ;newmain.c: 147:         if (DATA == 0x0000)
-[e $ ! == _DATA -> -> -> 0 `i `l `ul 899  ]
-"148
-[; ;newmain.c: 148:           {
-{
-"149
-[; ;newmain.c: 149:           UNLOCK = 0;
-[e = F7194 -> -> 0 `i `uc ]
-"150
-[; ;newmain.c: 150:           REG_SET_UNLOCK_START();
+[; ;newmain.c: 146:                     REG_SET_UNLOCK_START();
 [e ( _REG_SET_UNLOCK_START ..  ]
-"151
-[; ;newmain.c: 151:           REG_SET(KOMUT, 0);
+"147
+[; ;newmain.c: 147:                     REG_SET(KOMUT, 0);
 [e ( _REG_SET (2 , _KOMUT -> -> -> 0 `i `l `ul ]
-"153
-[; ;newmain.c: 153:           }
+"149
+[; ;newmain.c: 149:                 } else if ((DATA ^SECURE_CODE) == REG_GET(KOMUT)) {
 }
-[e $U 900  ]
-"154
-[; ;newmain.c: 154:         else if ((DATA ^SECURE_CODE) == REG_GET(KOMUT))
-[e :U 899 ]
-[e $ ! == ^ _DATA -> F7195 `ul ( _REG_GET (1 _KOMUT 901  ]
-"155
-[; ;newmain.c: 155:           {
+[e $U 899  ]
+[e :U 898 ]
+[e $ ! == ^ _DATA -> F7204 `ul ( _REG_GET (1 _KOMUT 900  ]
 {
-"156
-[; ;newmain.c: 156:           UNLOCK = 0xFF;
-[e = F7194 -> -> 255 `i `uc ]
-"157
-[; ;newmain.c: 157:           REG_SET(KOMUT, DATA);
+"150
+[; ;newmain.c: 150:                     UNLOCK = 0xFF;
+[e = F7203 -> -> 255 `i `uc ]
+"151
+[; ;newmain.c: 151:                     REG_SET(KOMUT, DATA);
 [e ( _REG_SET (2 , _KOMUT _DATA ]
-"158
-[; ;newmain.c: 158:           REG_SET_UNLOCK_STOP();
+"152
+[; ;newmain.c: 152:                     REG_SET_UNLOCK_STOP();
 [e ( _REG_SET_UNLOCK_STOP ..  ]
-"159
-[; ;newmain.c: 159:           }
+"153
+[; ;newmain.c: 153:                 } else {
+}
+[e $U 901  ]
+[e :U 900 ]
+{
+"154
+[; ;newmain.c: 154:                     UNLOCK = 0;
+[e = F7203 -> -> 0 `i `uc ]
+"155
+[; ;newmain.c: 155:                     REG_SET(KOMUT, 0);
+[e ( _REG_SET (2 , _KOMUT -> -> -> 0 `i `l `ul ]
+"156
+[; ;newmain.c: 156:                     REG_SET_UNLOCK_STOP();
+[e ( _REG_SET_UNLOCK_STOP ..  ]
+"157
+[; ;newmain.c: 157:                 }
+}
+[e :U 901 ]
+[e :U 899 ]
+"158
+[; ;newmain.c: 158:             } else REG_SET(KOMUT, DATA);
 }
 [e $U 902  ]
-"160
-[; ;newmain.c: 160:         else
-[e :U 901 ]
-"161
-[; ;newmain.c: 161:           {
-{
-"162
-[; ;newmain.c: 162:           UNLOCK = 0;
-[e = F7194 -> -> 0 `i `uc ]
-"163
-[; ;newmain.c: 163:           REG_SET(KOMUT, 0);
-[e ( _REG_SET (2 , _KOMUT -> -> -> 0 `i `l `ul ]
-"164
-[; ;newmain.c: 164:           REG_SET_UNLOCK_STOP();
-[e ( _REG_SET_UNLOCK_STOP ..  ]
-"165
-[; ;newmain.c: 165:           }
-}
-[e :U 902 ]
-[e :U 900 ]
-"166
-[; ;newmain.c: 166:         }
-}
-[e $U 903  ]
-"167
-[; ;newmain.c: 167:       else REG_SET(KOMUT, DATA);
-[e :U 898 ]
-[e ( _REG_SET (2 , _KOMUT _DATA ]
-[e :U 903 ]
-"168
-[; ;newmain.c: 168:       if (REG_GET_FLAG(KOMUT) & 0x1000) REG_FUNC(KOMUT, ':');
-[e $ ! != & ( _REG_GET_FLAG (1 _KOMUT -> -> 4096 `i `ui -> -> 0 `i `ui 904  ]
-[e ( _REG_FUNC (2 , _KOMUT -> -> 58 `ui `uc ]
-[e :U 904 ]
-"169
-[; ;newmain.c: 169:       }
-}
-[e $U 905  ]
-"170
-[; ;newmain.c: 170:     else return;
 [e :U 897 ]
-[e $UE 883  ]
-[e :U 905 ]
-"171
-[; ;newmain.c: 171:     }
+[e ( _REG_SET (2 , _KOMUT _DATA ]
+[e :U 902 ]
+"159
+[; ;newmain.c: 159:             if (REG_GET_FLAG(KOMUT) & 0x1000) REG_FUNC(KOMUT, ':');
+[e $ ! != & ( _REG_GET_FLAG (1 _KOMUT -> -> 4096 `i `ui -> -> 0 `i `ui 903  ]
+[e ( _REG_FUNC (2 , _KOMUT -> -> 58 `ui `uc ]
+[e :U 903 ]
+"160
+[; ;newmain.c: 160:         } else return;
 }
-[e :U 895 ]
-"172
-[; ;newmain.c: 172:   if (REG_PARSE_COMPARE(READ_WRITE, "?") == 0)
-[e $ ! == -> ( _REG_PARSE_COMPARE (2 , -> &U _READ_WRITE `*Cuc :s 4C `i -> 0 `i 906  ]
-"173
-[; ;newmain.c: 173:     {
+[e $U 904  ]
+[e :U 896 ]
+[e $UE 882  ]
+[e :U 904 ]
+"161
+[; ;newmain.c: 161:     }
+}
+[e :U 894 ]
+"162
+[; ;newmain.c: 162:     if (REG_PARSE_COMPARE(READ_WRITE, "?") == 0) {
+[e $ ! == -> ( _REG_PARSE_COMPARE (2 , -> &U _READ_WRITE `*Cuc :s 4C `i -> 0 `i 905  ]
 {
-"174
-[; ;newmain.c: 174:     if (REG_GET_FLAG(KOMUT) & 0x0400)
-[e $ ! != & ( _REG_GET_FLAG (1 _KOMUT -> -> 1024 `i `ui -> -> 0 `i `ui 907  ]
-"175
-[; ;newmain.c: 175:       {
+"163
+[; ;newmain.c: 163:         if (REG_GET_FLAG(KOMUT) & 0x0400) {
+[e $ ! != & ( _REG_GET_FLAG (1 _KOMUT -> -> 1024 `i `ui -> -> 0 `i `ui 906  ]
 {
-"176
-[; ;newmain.c: 176:       if (KOMUT == REGx_RAND_CODE)
-[e $ ! == -> _KOMUT `i -> . `E7184 1 `i 908  ]
-"177
-[; ;newmain.c: 177:         {
+"164
+[; ;newmain.c: 164:             if (KOMUT == REGx_RAND_CODE) {
+[e $ ! == -> _KOMUT `i -> . `E7193 1 `i 907  ]
 {
-"178
-[; ;newmain.c: 178:         if (REG_GET_UNLOCK())
-[e $ ! != -> ( _REG_GET_UNLOCK ..  `i -> 0 `i 909  ]
-"179
-[; ;newmain.c: 179:           {
+"165
+[; ;newmain.c: 165:                 if (REG_GET_UNLOCK()) {
+[e $ ! != -> ( _REG_GET_UNLOCK ..  `i -> 0 `i 908  ]
 {
-"180
-[; ;newmain.c: 180:           REG_CHANGE_RANDCODE();
+"166
+[; ;newmain.c: 166:                     REG_CHANGE_RANDCODE();
 [e ( _REG_CHANGE_RANDCODE ..  ]
-"181
-[; ;newmain.c: 181:           REG_SET(KOMUT, REG_GET_RANDCODE());
+"167
+[; ;newmain.c: 167:                     REG_SET(KOMUT, REG_GET_RANDCODE());
 [e ( _REG_SET (2 , _KOMUT -> ( _REG_GET_RANDCODE ..  `ul ]
-"182
-[; ;newmain.c: 182:           REG_SET_UNLOCK_STOP();
+"168
+[; ;newmain.c: 168:                     REG_SET_UNLOCK_STOP();
 [e ( _REG_SET_UNLOCK_STOP ..  ]
-"183
-[; ;newmain.c: 183:           }
+"169
+[; ;newmain.c: 169:                 } else return;
 }
-[e $U 910  ]
-"184
-[; ;newmain.c: 184:         else return;
-[e :U 909 ]
-[e $UE 883  ]
-[e :U 910 ]
-"185
-[; ;newmain.c: 185:         }
-}
+[e $U 909  ]
 [e :U 908 ]
-"186
-[; ;newmain.c: 186:       if (REG_GET_FLAG(KOMUT) & 0x1000) REG_FUNC(KOMUT, '?');
-[e $ ! != & ( _REG_GET_FLAG (1 _KOMUT -> -> 4096 `i `ui -> -> 0 `i `ui 911  ]
-[e ( _REG_FUNC (2 , _KOMUT -> -> 63 `ui `uc ]
-[e :U 911 ]
-"187
-[; ;newmain.c: 187:       }
+[e $UE 882  ]
+[e :U 909 ]
+"170
+[; ;newmain.c: 170:             }
 }
-[e $U 912  ]
-"188
-[; ;newmain.c: 188:     else return;
 [e :U 907 ]
-[e $UE 883  ]
-[e :U 912 ]
-"189
-[; ;newmain.c: 189:     }
+"171
+[; ;newmain.c: 171:             if (REG_GET_FLAG(KOMUT) & 0x1000) REG_FUNC(KOMUT, '?');
+[e $ ! != & ( _REG_GET_FLAG (1 _KOMUT -> -> 4096 `i `ui -> -> 0 `i `ui 910  ]
+[e ( _REG_FUNC (2 , _KOMUT -> -> 63 `ui `uc ]
+[e :U 910 ]
+"172
+[; ;newmain.c: 172:         } else return;
 }
+[e $U 911  ]
 [e :U 906 ]
-"190
-[; ;newmain.c: 190:   if (REG_GET_FLAG(KOMUT) & 0x0800) REG_EEPROM_SET(KOMUT);
-[e $ ! != & ( _REG_GET_FLAG (1 _KOMUT -> -> 2048 `i `ui -> -> 0 `i `ui 913  ]
-[e ( _REG_EEPROM_SET (1 _KOMUT ]
-[e :U 913 ]
-"192
-[; ;newmain.c: 192:   REG_PROCESS_GET_DATA_STR(KOMUT, temp);
-[e ( _REG_PROCESS_GET_DATA_STR (2 , _KOMUT &U _temp ]
-"193
-[; ;newmain.c: 193:   REG_CONVERT_DWORD_TO_STR_HEX(REG_GET(REGx_ADDR), ADRESS_S, 4);
-[e ( _REG_CONVERT_DWORD_TO_STR_HEX (3 , , ( _REG_GET (1 -> . `E7184 0 `uc &U _ADRESS_S -> -> 4 `i `uc ]
-"194
-[; ;newmain.c: 194:   REG_CONVERT_DWORD_TO_STR_HEX(REG_GET(REGx_SLAVE_ADRESS), SECOND_ADRESS_S, 2);
-[e ( _REG_CONVERT_DWORD_TO_STR_HEX (3 , , ( _REG_GET (1 -> . `E7184 4 `uc &U _SECOND_ADRESS_S -> -> 2 `i `uc ]
-"195
-[; ;newmain.c: 195:   if (REG_GET_FLAG(KOMUT) & 0x4000) REG_TX_ADD(TX, "MAIN1");
-[e $ ! != & ( _REG_GET_FLAG (1 _KOMUT -> -> 16384 `i `ui -> -> 0 `i `ui 914  ]
-[e ( _REG_TX_ADD (2 , &U _TX :s 5C ]
-[e :U 914 ]
-"196
-[; ;newmain.c: 196:   REG_TX_ADD(TX, "<");
-[e ( _REG_TX_ADD (2 , &U _TX :s 6C ]
-"198
-[; ;newmain.c: 198:   REG_TX_ADD(TX, SYMBOL_S);
-[e ( _REG_TX_ADD (2 , &U _TX -> &U _SYMBOL_S `*Cuc ]
-"199
-[; ;newmain.c: 199:   REG_TX_ADD(TX, "R");
-[e ( _REG_TX_ADD (2 , &U _TX :s 7C ]
-"200
-[; ;newmain.c: 200:   REG_TX_ADD(TX, ADRESS_S);
-[e ( _REG_TX_ADD (2 , &U _TX -> &U _ADRESS_S `*Cuc ]
-"201
-[; ;newmain.c: 201:   REG_TX_ADD(TX, SECOND_ADRESS_S);
-[e ( _REG_TX_ADD (2 , &U _TX -> &U _SECOND_ADRESS_S `*Cuc ]
-"202
-[; ;newmain.c: 202:   REG_TX_ADD(TX, KOMUT_S);
-[e ( _REG_TX_ADD (2 , &U _TX -> &U _KOMUT_S `*Cuc ]
-"203
-[; ;newmain.c: 203:   REG_TX_ADD(TX, ":");
-[e ( _REG_TX_ADD (2 , &U _TX :s 8C ]
-"204
-[; ;newmain.c: 204:   REG_TX_ADD(TX, temp);
-[e ( _REG_TX_ADD (2 , &U _TX -> &U _temp `*Cuc ]
-"205
-[; ;newmain.c: 205:   REG_TX_ADD(TX, ">");
-[e ( _REG_TX_ADD (2 , &U _TX :s 9C ]
-"207
-[; ;newmain.c: 207:   if (REG_GET_FLAG(KOMUT) & 0x2000);
-[e $ ! != & ( _REG_GET_FLAG (1 _KOMUT -> -> 8192 `i `ui -> -> 0 `i `ui 915  ]
-[e :U 915 ]
-"208
-[; ;newmain.c: 208:   }
-[e :UE 883 ]
+[e $UE 882  ]
+[e :U 911 ]
+"173
+[; ;newmain.c: 173:     }
 }
-"210
-[; ;newmain.c: 210: void INIT_REG()
+[e :U 905 ]
+"174
+[; ;newmain.c: 174:     if (REG_GET_FLAG(KOMUT) & 0x0800) REG_EEPROM_SET(KOMUT);
+[e $ ! != & ( _REG_GET_FLAG (1 _KOMUT -> -> 2048 `i `ui -> -> 0 `i `ui 912  ]
+[e ( _REG_EEPROM_SET (1 _KOMUT ]
+[e :U 912 ]
+"176
+[; ;newmain.c: 176:     REG_PROCESS_GET_DATA_STR(KOMUT, temp);
+[e ( _REG_PROCESS_GET_DATA_STR (2 , _KOMUT &U _temp ]
+"177
+[; ;newmain.c: 177:     REG_CONVERT_DWORD_TO_STR_HEX(REG_GET(REGx_ADDR), ADRESS_S, 4);
+[e ( _REG_CONVERT_DWORD_TO_STR_HEX (3 , , ( _REG_GET (1 -> . `E7193 0 `uc &U _ADRESS_S -> -> 4 `i `uc ]
+"178
+[; ;newmain.c: 178:     REG_CONVERT_DWORD_TO_STR_HEX(REG_GET(REGx_SLAVE_ADRESS), SECOND_ADRESS_S, 2);
+[e ( _REG_CONVERT_DWORD_TO_STR_HEX (3 , , ( _REG_GET (1 -> . `E7193 4 `uc &U _SECOND_ADRESS_S -> -> 2 `i `uc ]
+"179
+[; ;newmain.c: 179:     if (REG_GET_FLAG(KOMUT) & 0x4000) REG_TX_ADD(TX, "MAIN1");
+[e $ ! != & ( _REG_GET_FLAG (1 _KOMUT -> -> 16384 `i `ui -> -> 0 `i `ui 913  ]
+[e ( _REG_TX_ADD (2 , &U _TX :s 5C ]
+[e :U 913 ]
+"180
+[; ;newmain.c: 180:     REG_TX_ADD(TX, "<");
+[e ( _REG_TX_ADD (2 , &U _TX :s 6C ]
+"182
+[; ;newmain.c: 182:     REG_TX_ADD(TX, SYMBOL_S);
+[e ( _REG_TX_ADD (2 , &U _TX -> &U _SYMBOL_S `*Cuc ]
+"183
+[; ;newmain.c: 183:     REG_TX_ADD(TX, "R");
+[e ( _REG_TX_ADD (2 , &U _TX :s 7C ]
+"184
+[; ;newmain.c: 184:     REG_TX_ADD(TX, ADRESS_S);
+[e ( _REG_TX_ADD (2 , &U _TX -> &U _ADRESS_S `*Cuc ]
+"185
+[; ;newmain.c: 185:     REG_TX_ADD(TX, SECOND_ADRESS_S);
+[e ( _REG_TX_ADD (2 , &U _TX -> &U _SECOND_ADRESS_S `*Cuc ]
+"186
+[; ;newmain.c: 186:     REG_TX_ADD(TX, KOMUT_S);
+[e ( _REG_TX_ADD (2 , &U _TX -> &U _KOMUT_S `*Cuc ]
+"187
+[; ;newmain.c: 187:     REG_TX_ADD(TX, ":");
+[e ( _REG_TX_ADD (2 , &U _TX :s 8C ]
+"188
+[; ;newmain.c: 188:     REG_TX_ADD(TX, temp);
+[e ( _REG_TX_ADD (2 , &U _TX -> &U _temp `*Cuc ]
+"189
+[; ;newmain.c: 189:     REG_TX_ADD(TX, ">");
+[e ( _REG_TX_ADD (2 , &U _TX :s 9C ]
+"191
+[; ;newmain.c: 191:     if (REG_GET_FLAG(KOMUT) & 0x2000);
+[e $ ! != & ( _REG_GET_FLAG (1 _KOMUT -> -> 8192 `i `ui -> -> 0 `i `ui 914  ]
+[e :U 914 ]
+"192
+[; ;newmain.c: 192: }
+[e :UE 882 ]
+}
+"194
+[; ;newmain.c: 194: void INIT_REG()
 [v _INIT_REG `(v ~T0 @X0 1 ef ]
-"211
-[; ;newmain.c: 211:   {
+"195
+[; ;newmain.c: 195: {
 {
 [e :U _INIT_REG ]
 [f ]
-"212
-[; ;newmain.c: 212:   REG_CREATE(REGx_ADDR, 0, 0x2000 | 0x0001 | 0x0008 | 0x0200 | 0x0400 | 0x0800, 0, 0xFFFF, 0);
-[e ( _REG_CREATE (4 , , , , , -> . `E7184 0 `uc -> -> 0 `i `*F7212 -> | | | | | -> 8192 `i -> 1 `i -> 8 `i -> 512 `i -> 1024 `i -> 2048 `i `ui -> -> -> 0 `i `l `ul -> -> 65535 `ui `ul -> -> -> 0 `i `l `ul ]
-"213
-[; ;newmain.c: 213:   REG_CREATE(REGx_RAND_CODE, 0, 0x2000 | 0x0001 | 0x0008 | 0x0200 | 0x0400, 0, 0xFFFF, 0);
-[e ( _REG_CREATE (4 , , , , , -> . `E7184 1 `uc -> -> 0 `i `*F7215 -> | | | | -> 8192 `i -> 1 `i -> 8 `i -> 512 `i -> 1024 `i `ui -> -> -> 0 `i `l `ul -> -> 65535 `ui `ul -> -> -> 0 `i `l `ul ]
-"214
-[; ;newmain.c: 214:   REG_CREATE(REGx_SERI_NO, 0, 0x2000 | 0x0001 | 0x0008 | 0x0200 | 0x0400 | 0x0800, 0, 0xFFFF, 0);
-[e ( _REG_CREATE (4 , , , , , -> . `E7184 2 `uc -> -> 0 `i `*F7218 -> | | | | | -> 8192 `i -> 1 `i -> 8 `i -> 512 `i -> 1024 `i -> 2048 `i `ui -> -> -> 0 `i `l `ul -> -> 65535 `ui `ul -> -> -> 0 `i `l `ul ]
-"215
-[; ;newmain.c: 215:   REG_CREATE(REGx_VERSION, 0, 0x2000 | 0x0001 | 0x0008 | 0x0400, 0x10, 0xFFFF, 0);
-[e ( _REG_CREATE (4 , , , , , -> . `E7184 3 `uc -> -> 0 `i `*F7221 -> | | | -> 8192 `i -> 1 `i -> 8 `i -> 1024 `i `ui -> -> -> 16 `i `l `ul -> -> 65535 `ui `ul -> -> -> 0 `i `l `ul ]
-"216
-[; ;newmain.c: 216:   REG_CREATE(REGx_SLAVE_ADRESS, 0, 0x2000 | 0x0001 | 0x0004 | 0x0200 | 0x0400 | 0x0800, 0, 0xFF, 0);
-[e ( _REG_CREATE (4 , , , , , -> . `E7184 4 `uc -> -> 0 `i `*F7224 -> | | | | | -> 8192 `i -> 1 `i -> 4 `i -> 512 `i -> 1024 `i -> 2048 `i `ui -> -> -> 0 `i `l `ul -> -> -> 255 `i `l `ul -> -> -> 0 `i `l `ul ]
-"217
-[; ;newmain.c: 217:   REGISTER_INIT(EEPROM_B_WRITE, EEPROM_B_READ);
+"196
+[; ;newmain.c: 196:     REG_CREATE(REGx_ADDR, 0, 0x2000 | 0x0001 | 0x0008 | 0x0200 | 0x0400 | 0x0800, 0, 0xFFFF, 0);
+[e ( _REG_CREATE (4 , , , , , -> . `E7193 0 `uc -> -> 0 `i `*F7221 -> | | | | | -> 8192 `i -> 1 `i -> 8 `i -> 512 `i -> 1024 `i -> 2048 `i `ui -> -> -> 0 `i `l `ul -> -> 65535 `ui `ul -> -> -> 0 `i `l `ul ]
+"197
+[; ;newmain.c: 197:     REG_CREATE(REGx_RAND_CODE, 0, 0x2000 | 0x0001 | 0x0008 | 0x0200 | 0x0400, 0, 0xFFFF, 0);
+[e ( _REG_CREATE (4 , , , , , -> . `E7193 1 `uc -> -> 0 `i `*F7224 -> | | | | -> 8192 `i -> 1 `i -> 8 `i -> 512 `i -> 1024 `i `ui -> -> -> 0 `i `l `ul -> -> 65535 `ui `ul -> -> -> 0 `i `l `ul ]
+"198
+[; ;newmain.c: 198:     REG_CREATE(REGx_SERI_NO, 0, 0x2000 | 0x0001 | 0x0008 | 0x0200 | 0x0400 | 0x0800, 0, 0xFFFF, 0);
+[e ( _REG_CREATE (4 , , , , , -> . `E7193 2 `uc -> -> 0 `i `*F7227 -> | | | | | -> 8192 `i -> 1 `i -> 8 `i -> 512 `i -> 1024 `i -> 2048 `i `ui -> -> -> 0 `i `l `ul -> -> 65535 `ui `ul -> -> -> 0 `i `l `ul ]
+"199
+[; ;newmain.c: 199:     REG_CREATE(REGx_VERSION, 0, 0x2000 | 0x0001 | 0x0008 | 0x0400, 0x10, 0xFFFF, 0);
+[e ( _REG_CREATE (4 , , , , , -> . `E7193 3 `uc -> -> 0 `i `*F7230 -> | | | -> 8192 `i -> 1 `i -> 8 `i -> 1024 `i `ui -> -> -> 16 `i `l `ul -> -> 65535 `ui `ul -> -> -> 0 `i `l `ul ]
+"200
+[; ;newmain.c: 200:     REG_CREATE(REGx_SLAVE_ADRESS, 0, 0x2000 | 0x0001 | 0x0004 | 0x0200 | 0x0400 | 0x0800, 0, 0xFF, 0);
+[e ( _REG_CREATE (4 , , , , , -> . `E7193 4 `uc -> -> 0 `i `*F7233 -> | | | | | -> 8192 `i -> 1 `i -> 4 `i -> 512 `i -> 1024 `i -> 2048 `i `ui -> -> -> 0 `i `l `ul -> -> -> 255 `i `l `ul -> -> -> 0 `i `l `ul ]
+"201
+[; ;newmain.c: 201:     REGISTER_INIT(EEPROM_B_WRITE, EEPROM_B_READ);
 [e ( _REGISTER_INIT (2 , &U _EEPROM_B_WRITE &U _EEPROM_B_READ ]
+"202
+[; ;newmain.c: 202: }
+[e :UE 915 ]
+}
+"216
+[; ;newmain.c: 216: void THREAD_UART_1_RX_FUNCT()
+[v _THREAD_UART_1_RX_FUNCT `(v ~T0 @X0 1 ef ]
+"217
+[; ;newmain.c: 217: {
+{
+[e :U _THREAD_UART_1_RX_FUNCT ]
+[f ]
 "218
-[; ;newmain.c: 218:   }
+[; ;newmain.c: 218:     UART_1_STRING(UART_1_MSG);
+[e ( _UART_1_STRING (1 &U _UART_1_MSG ]
+"219
+[; ;newmain.c: 219: }
 [e :UE 916 ]
 }
-"239
-[; ;newmain.c: 239: void TASK_UART_1_RX_FUNCT(unsigned char taskIndex)
-[v _TASK_UART_1_RX_FUNCT `(v ~T0 @X0 1 ef1`uc ]
-"240
-[; ;newmain.c: 240:   {
+"221
+[; ;newmain.c: 221: void THREAD_UART_2_RX_FUNCT()
+[v _THREAD_UART_2_RX_FUNCT `(v ~T0 @X0 1 ef ]
+"222
+[; ;newmain.c: 222: {
 {
-[e :U _TASK_UART_1_RX_FUNCT ]
-"239
-[; ;newmain.c: 239: void TASK_UART_1_RX_FUNCT(unsigned char taskIndex)
-[v _taskIndex `uc ~T0 @X0 1 r1 ]
-"240
-[; ;newmain.c: 240:   {
+[e :U _THREAD_UART_2_RX_FUNCT ]
 [f ]
-"241
-[; ;newmain.c: 241:   TASK_STOP(taskIndex);
-[e ( _TASK_STOP (1 _taskIndex ]
-"242
-[; ;newmain.c: 242:   }
+"223
+[; ;newmain.c: 223:     UART_2_STRING(UART_2_MSG);
+[e ( _UART_2_STRING (1 &U _UART_2_MSG ]
+"224
+[; ;newmain.c: 224: }
 [e :UE 917 ]
 }
-"244
-[; ;newmain.c: 244: void TASK_UART_0_RX_FUNCT(unsigned char taskIndex)
-[v _TASK_UART_0_RX_FUNCT `(v ~T0 @X0 1 ef1`uc ]
-"245
-[; ;newmain.c: 245:   {
+"226
+[; ;newmain.c: 226: void THREAD_LED_FUNCT()
+[v _THREAD_LED_FUNCT `(v ~T0 @X0 1 ef ]
+"227
+[; ;newmain.c: 227: {
 {
-[e :U _TASK_UART_0_RX_FUNCT ]
-"244
-[; ;newmain.c: 244: void TASK_UART_0_RX_FUNCT(unsigned char taskIndex)
-[v _taskIndex `uc ~T0 @X0 1 r1 ]
-"245
-[; ;newmain.c: 245:   {
+[e :U _THREAD_LED_FUNCT ]
 [f ]
-"246
-[; ;newmain.c: 246:   TASK_STOP(taskIndex);
-[e ( _TASK_STOP (1 _taskIndex ]
-"247
-[; ;newmain.c: 247:   }
+"228
+[; ;newmain.c: 228:     static THREAD_DELAY timer;
+[v F7244 `S861 ~T0 @X0 1 s timer ]
+"229
+[; ;newmain.c: 229:     THREAD_TIME_START(&timer);
+[e ( _THREAD_TIME_START (1 &U F7244 ]
+"230
+[; ;newmain.c: 230:     if (THREAD_TIME_WAIT(&timer, 10)) if (THREAD_GET_STATE() == 0x01) PIN_SET_LAT_TOGGLE('B', 0);
+[e $ ! != -> ( _THREAD_TIME_WAIT (2 , &U F7244 -> -> 10 `i `ui `i -> 0 `i 919  ]
+[e $ ! == -> ( _THREAD_GET_STATE ..  `i -> 1 `i 920  ]
+[e ( _PIN_SET_LAT_TOGGLE (2 , -> -> 66 `ui `uc -> -> 0 `i `uc ]
+[e :U 920 ]
+[e :U 919 ]
+"231
+[; ;newmain.c: 231:     if (THREAD_TIME_WAIT(&timer, 90)) if (THREAD_GET_STATE() == 0x01) PIN_SET_LAT_TOGGLE('B', 0);
+[e $ ! != -> ( _THREAD_TIME_WAIT (2 , &U F7244 -> -> 90 `i `ui `i -> 0 `i 921  ]
+[e $ ! == -> ( _THREAD_GET_STATE ..  `i -> 1 `i 922  ]
+[e ( _PIN_SET_LAT_TOGGLE (2 , -> -> 66 `ui `uc -> -> 0 `i `uc ]
+[e :U 922 ]
+[e :U 921 ]
+"232
+[; ;newmain.c: 232: }
 [e :UE 918 ]
 }
-"261
-[; ;newmain.c: 261: void LED_THREAD(unsigned char threadIndex)
-[v _LED_THREAD `(v ~T0 @X0 1 ef1`uc ]
-"262
-[; ;newmain.c: 262:   {
-{
-[e :U _LED_THREAD ]
-"261
-[; ;newmain.c: 261: void LED_THREAD(unsigned char threadIndex)
-[v _threadIndex `uc ~T0 @X0 1 r1 ]
-"262
-[; ;newmain.c: 262:   {
-[f ]
-"263
-[; ;newmain.c: 263:   static THREAD_DELAY timer;
-[v F7250 `S860 ~T0 @X0 1 s timer ]
-"264
-[; ;newmain.c: 264:   THREAD_TIME_START(&timer);
-[e ( _THREAD_TIME_START (1 &U F7250 ]
-"265
-[; ;newmain.c: 265:   if (THREAD_TIME_WAIT(&timer, 95)) if (THREAD_GET_STATE() == 0x01) PIN_SET_LAT_TOGGLE('B', 6);
-[e $ ! != -> ( _THREAD_TIME_WAIT (2 , &U F7250 -> -> 95 `i `ui `i -> 0 `i 920  ]
-[e $ ! == -> ( _THREAD_GET_STATE ..  `i -> 1 `i 921  ]
-[e ( _PIN_SET_LAT_TOGGLE (2 , -> -> 66 `ui `uc -> -> 6 `i `uc ]
-[e :U 921 ]
-[e :U 920 ]
-"266
-[; ;newmain.c: 266:   if (THREAD_TIME_WAIT(&timer, 5)) if (THREAD_GET_STATE() == 0x01) PIN_SET_LAT_TOGGLE('B', 6);
-[e $ ! != -> ( _THREAD_TIME_WAIT (2 , &U F7250 -> -> 5 `i `ui `i -> 0 `i 922  ]
-[e $ ! == -> ( _THREAD_GET_STATE ..  `i -> 1 `i 923  ]
-[e ( _PIN_SET_LAT_TOGGLE (2 , -> -> 66 `ui `uc -> -> 6 `i `uc ]
-[e :U 923 ]
-[e :U 922 ]
-"267
-[; ;newmain.c: 267:   if (THREAD_TIME_DONE(&timer)) THREAD_DONE_CONTROL(threadIndex);
-[e $ ! != -> ( _THREAD_TIME_DONE (1 &U F7250 `i -> 0 `i 924  ]
-[e ( _THREAD_DONE_CONTROL (1 _threadIndex ]
-[e :U 924 ]
-"269
-[; ;newmain.c: 269:   }
-[e :UE 919 ]
-}
-"274
-[; ;newmain.c: 274: void UART_5_INTERRUPT_FUNCT(unsigned char data)
+"238
+[; ;newmain.c: 238: void UART_5_INTERRUPT_FUNCT(unsigned char data)
 [v _UART_5_INTERRUPT_FUNCT `(v ~T0 @X0 1 ef1`uc ]
-"275
-[; ;newmain.c: 275:   {
+"239
+[; ;newmain.c: 239: {
 {
 [e :U _UART_5_INTERRUPT_FUNCT ]
-"274
-[; ;newmain.c: 274: void UART_5_INTERRUPT_FUNCT(unsigned char data)
+"238
+[; ;newmain.c: 238: void UART_5_INTERRUPT_FUNCT(unsigned char data)
 [v _data `uc ~T0 @X0 1 r1 ]
-"275
-[; ;newmain.c: 275:   {
+"239
+[; ;newmain.c: 239: {
 [f ]
-"276
-[; ;newmain.c: 276:   }
-[e :UE 925 ]
+"240
+[; ;newmain.c: 240: }
+[e :UE 923 ]
 }
-"278
-[; ;newmain.c: 278: void UART_4_INTERRUPT_FUNCT(unsigned char data)
+"242
+[; ;newmain.c: 242: void UART_4_INTERRUPT_FUNCT(unsigned char data)
 [v _UART_4_INTERRUPT_FUNCT `(v ~T0 @X0 1 ef1`uc ]
-"279
-[; ;newmain.c: 279:   {
+"243
+[; ;newmain.c: 243: {
 {
 [e :U _UART_4_INTERRUPT_FUNCT ]
-"278
-[; ;newmain.c: 278: void UART_4_INTERRUPT_FUNCT(unsigned char data)
+"242
+[; ;newmain.c: 242: void UART_4_INTERRUPT_FUNCT(unsigned char data)
 [v _data `uc ~T0 @X0 1 r1 ]
-"279
-[; ;newmain.c: 279:   {
+"243
+[; ;newmain.c: 243: {
 [f ]
-"280
-[; ;newmain.c: 280:   }
-[e :UE 926 ]
+"244
+[; ;newmain.c: 244: }
+[e :UE 924 ]
 }
-"282
-[; ;newmain.c: 282: void UART_3_INTERRUPT_FUNCT(unsigned char data)
+"246
+[; ;newmain.c: 246: void UART_3_INTERRUPT_FUNCT(unsigned char data)
 [v _UART_3_INTERRUPT_FUNCT `(v ~T0 @X0 1 ef1`uc ]
-"283
-[; ;newmain.c: 283:   {
+"247
+[; ;newmain.c: 247: {
 {
 [e :U _UART_3_INTERRUPT_FUNCT ]
-"282
-[; ;newmain.c: 282: void UART_3_INTERRUPT_FUNCT(unsigned char data)
+"246
+[; ;newmain.c: 246: void UART_3_INTERRUPT_FUNCT(unsigned char data)
 [v _data `uc ~T0 @X0 1 r1 ]
-"283
-[; ;newmain.c: 283:   {
+"247
+[; ;newmain.c: 247: {
 [f ]
-"284
-[; ;newmain.c: 284:   }
-[e :UE 927 ]
+"248
+[; ;newmain.c: 248: }
+[e :UE 925 ]
 }
-"286
-[; ;newmain.c: 286: void UART_2_INTERRUPT_FUNCT(unsigned char data)
+"250
+[; ;newmain.c: 250: void UART_2_INTERRUPT_FUNCT(unsigned char data)
 [v _UART_2_INTERRUPT_FUNCT `(v ~T0 @X0 1 ef1`uc ]
-"287
-[; ;newmain.c: 287:   {
+"251
+[; ;newmain.c: 251: {
 {
 [e :U _UART_2_INTERRUPT_FUNCT ]
-"286
-[; ;newmain.c: 286: void UART_2_INTERRUPT_FUNCT(unsigned char data)
+"250
+[; ;newmain.c: 250: void UART_2_INTERRUPT_FUNCT(unsigned char data)
 [v _data `uc ~T0 @X0 1 r1 ]
-"287
-[; ;newmain.c: 287:   {
+"251
+[; ;newmain.c: 251: {
 [f ]
-"288
-[; ;newmain.c: 288:   static unsigned char counter = 0;
-[v F7259 `uc ~T0 @X0 1 s counter ]
-[i F7259
+"252
+[; ;newmain.c: 252:     static unsigned char counter = 0;
+[v F7253 `uc ~T0 @X0 1 s counter ]
+[i F7253
 -> -> 0 `i `uc
 ]
-"289
-[; ;newmain.c: 289:   unsigned char x = data;
+"253
+[; ;newmain.c: 253:     unsigned char x = data;
 [v _x `uc ~T0 @X0 1 a ]
 [e = _x _data ]
-"290
-[; ;newmain.c: 290:   if (x == '<') counter = 0;
-[e $ ! == -> _x `ui -> 60 `ui 929  ]
-[e = F7259 -> -> 0 `i `uc ]
-[e $U 930  ]
-"291
-[; ;newmain.c: 291:   else if (x == '>')
-[e :U 929 ]
-[e $ ! == -> _x `ui -> 62 `ui 931  ]
-"292
-[; ;newmain.c: 292:     {
+"254
+[; ;newmain.c: 254:     if (x == '<') counter = 0;
+[e $ ! == -> _x `ui -> 60 `ui 927  ]
+[e = F7253 -> -> 0 `i `uc ]
+[e $U 928  ]
+"255
+[; ;newmain.c: 255:     else if (x == '>') {
+[e :U 927 ]
+[e $ ! == -> _x `ui -> 62 `ui 929  ]
 {
-"293
-[; ;newmain.c: 293:     UART_1_MSG[counter] = 0;
-[e = *U + &U _UART_1_MSG * -> F7259 `ux -> -> # *U &U _UART_1_MSG `ui `ux -> -> 0 `i `uc ]
-"294
-[; ;newmain.c: 294:     TASK_START(TASK_UART_1_RX);
-[e ( _TASK_START (1 -> . `E7232 1 `uc ]
-"295
-[; ;newmain.c: 295:     }
+"256
+[; ;newmain.c: 256:         UART_2_MSG[counter] = 0;
+[e = *U + &U _UART_2_MSG * -> F7253 `ux -> -> # *U &U _UART_2_MSG `ui `ux -> -> 0 `i `uc ]
+"257
+[; ;newmain.c: 257:         THREAD_START(&THREADS[THREAD_UART_2_RX]);
+[e ( _THREAD_START (1 &U *U + &U _THREADS * -> . `E7162 2 `ux -> -> # *U &U _THREADS `ui `ux ]
+"258
+[; ;newmain.c: 258:     }
 }
-[e :U 931 ]
+[e :U 929 ]
+[e :U 928 ]
+"259
+[; ;newmain.c: 259:     if (counter < 20) UART_2_MSG[counter++] = x;
+[e $ ! < -> F7253 `i -> 20 `i 930  ]
+[e = *U + &U _UART_2_MSG * -> ++ F7253 -> -> 1 `i `uc `ux -> -> # *U &U _UART_2_MSG `ui `ux -> _x `uc ]
 [e :U 930 ]
-"296
-[; ;newmain.c: 296:   if (counter < 20) UART_1_MSG[counter++] = x;
-[e $ ! < -> F7259 `i -> 20 `i 932  ]
-[e = *U + &U _UART_1_MSG * -> ++ F7259 -> -> 1 `i `uc `ux -> -> # *U &U _UART_1_MSG `ui `ux -> _x `uc ]
-[e :U 932 ]
-"297
-[; ;newmain.c: 297:   }
-[e :UE 928 ]
+"260
+[; ;newmain.c: 260: }
+[e :UE 926 ]
 }
-"299
-[; ;newmain.c: 299: void UART_1_INTERRUPT_FUNCT(unsigned char data)
+"262
+[; ;newmain.c: 262: void UART_1_INTERRUPT_FUNCT(unsigned char data)
 [v _UART_1_INTERRUPT_FUNCT `(v ~T0 @X0 1 ef1`uc ]
-"300
-[; ;newmain.c: 300:   {
+"263
+[; ;newmain.c: 263: {
 {
 [e :U _UART_1_INTERRUPT_FUNCT ]
-"299
-[; ;newmain.c: 299: void UART_1_INTERRUPT_FUNCT(unsigned char data)
+"262
+[; ;newmain.c: 262: void UART_1_INTERRUPT_FUNCT(unsigned char data)
 [v _data `uc ~T0 @X0 1 r1 ]
-"300
-[; ;newmain.c: 300:   {
+"263
+[; ;newmain.c: 263: {
 [f ]
-"301
-[; ;newmain.c: 301:   static unsigned char counter = 0;
-[v F7263 `uc ~T0 @X0 1 s counter ]
-[i F7263
+"264
+[; ;newmain.c: 264:     static unsigned char counter = 0;
+[v F7257 `uc ~T0 @X0 1 s counter ]
+[i F7257
 -> -> 0 `i `uc
 ]
-"302
-[; ;newmain.c: 302:   unsigned char x = data;
+"265
+[; ;newmain.c: 265:     unsigned char x = data;
 [v _x `uc ~T0 @X0 1 a ]
 [e = _x _data ]
-"303
-[; ;newmain.c: 303:   if (x == '(') counter = 0;
-[e $ ! == -> _x `ui -> 40 `ui 934  ]
-[e = F7263 -> -> 0 `i `uc ]
-[e $U 935  ]
-"304
-[; ;newmain.c: 304:   else if (x == ')')
-[e :U 934 ]
-[e $ ! == -> _x `ui -> 41 `ui 936  ]
-"305
-[; ;newmain.c: 305:     {
+"266
+[; ;newmain.c: 266:     if (x == '(') counter = 0;
+[e $ ! == -> _x `ui -> 40 `ui 932  ]
+[e = F7257 -> -> 0 `i `uc ]
+[e $U 933  ]
+"267
+[; ;newmain.c: 267:     else if (x == ')') {
+[e :U 932 ]
+[e $ ! == -> _x `ui -> 41 `ui 934  ]
 {
-"306
-[; ;newmain.c: 306:     UART_0_MSG[counter] = 0;
-[e = *U + &U _UART_0_MSG * -> F7263 `ux -> -> # *U &U _UART_0_MSG `ui `ux -> -> 0 `i `uc ]
-"307
-[; ;newmain.c: 307:     TASK_START(TASK_UART_0_RX);
-[e ( _TASK_START (1 -> . `E7232 0 `uc ]
-"308
-[; ;newmain.c: 308:     }
+"268
+[; ;newmain.c: 268:         UART_1_MSG[counter] = 0;
+[e = *U + &U _UART_1_MSG * -> F7257 `ux -> -> # *U &U _UART_1_MSG `ui `ux -> -> 0 `i `uc ]
+"269
+[; ;newmain.c: 269:         THREAD_START(&THREADS[THREAD_UART_1_RX]);
+[e ( _THREAD_START (1 &U *U + &U _THREADS * -> . `E7162 1 `ux -> -> # *U &U _THREADS `ui `ux ]
+"270
+[; ;newmain.c: 270:     } else if (counter < 20) UART_1_MSG[counter++] = x;
 }
-[e $U 937  ]
-"309
-[; ;newmain.c: 309:   else if (counter < 20) UART_0_MSG[counter++] = x;
+[e $U 935  ]
+[e :U 934 ]
+[e $ ! < -> F7257 `i -> 20 `i 936  ]
+[e = *U + &U _UART_1_MSG * -> ++ F7257 -> -> 1 `i `uc `ux -> -> # *U &U _UART_1_MSG `ui `ux -> _x `uc ]
 [e :U 936 ]
-[e $ ! < -> F7263 `i -> 20 `i 938  ]
-[e = *U + &U _UART_0_MSG * -> ++ F7263 -> -> 1 `i `uc `ux -> -> # *U &U _UART_0_MSG `ui `ux -> _x `uc ]
-[e :U 938 ]
-[e :U 937 ]
 [e :U 935 ]
-"310
-[; ;newmain.c: 310:   }
-[e :UE 933 ]
+[e :U 933 ]
+"271
+[; ;newmain.c: 271: }
+[e :UE 931 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"313
-[; ;newmain.c: 313: int main(void)
+"274
+[; ;newmain.c: 274: int main(void)
 [v _main `(i ~T0 @X0 1 ef ]
-"314
-[; ;newmain.c: 314:   {
+"275
+[; ;newmain.c: 275: {
 {
 [e :U _main ]
 [f ]
-"315
-[; ;newmain.c: 315:   MCU_INIT(1, 0x72);
-[e ( _MCU_INIT (2 , -> -> 1 `i `uc -> -> 114 `i `uc ]
-"316
-[; ;newmain.c: 316:   PIN_SET_IO('D', 'O', 'B', 6, 'H ');
-[e ( _PIN_SET_IO (4 , , , , -> -> 68 `ui `uc -> -> 79 `ui `uc -> -> 66 `ui `uc -> -> 6 `i `uc -> -> 18464 `ui `uc ]
-"317
-[; ;newmain.c: 317:   TIMER_1_INIT(1);
+"276
+[; ;newmain.c: 276:     MCU_INIT(0, 0x72);
+[e ( _MCU_INIT (2 , -> -> 0 `i `uc -> -> 114 `i `uc ]
+"277
+[; ;newmain.c: 277:     PIN_SET_IO('D', 'O', 'B', 0, 'H ');
+[e ( _PIN_SET_IO (4 , , , , -> -> 68 `ui `uc -> -> 79 `ui `uc -> -> 66 `ui `uc -> -> 0 `i `uc -> -> 18464 `ui `uc ]
+"278
+[; ;newmain.c: 278:     PIN_SET_IO('D', 'O', 'B', 1, 'H ');
+[e ( _PIN_SET_IO (4 , , , , -> -> 68 `ui `uc -> -> 79 `ui `uc -> -> 66 `ui `uc -> -> 1 `i `uc -> -> 18464 `ui `uc ]
+"279
+[; ;newmain.c: 279:     TIMER_1_INIT(1);
 [e ( _TIMER_1_INIT (1 -> -> 1 `i `uc ]
-"318
-[; ;newmain.c: 318:   THREAD_CREATE(THREAD_LED_CANLI, 0x01 | 0x08, 10, LED_THREAD);
-[e ( _THREAD_CREATE (4 , , , -> . `E7241 0 `uc -> | -> 1 `i -> 8 `i `uc -> -> 10 `i `uc &U _LED_THREAD ]
-"320
-[; ;newmain.c: 320:   UART_1_INIT(9600);
-[e ( _UART_1_INIT (1 -> -> -> 9600 `i `l `ul ]
-"324
-[; ;newmain.c: 324:   INTERRUPT_ALL(1);
+"280
+[; ;newmain.c: 280:     UART_1_INIT(1000000);
+[e ( _UART_1_INIT (1 -> -> 1000000 `l `ul ]
+"284
+[; ;newmain.c: 284:     INTERRUPT_ALL(1);
 [e ( _INTERRUPT_ALL (1 -> -> 1 `i `uc ]
-"325
-[; ;newmain.c: 325:   while (1) SYSTEM_CONTROL_ALL();
-[e :U 941 ]
+"285
+[; ;newmain.c: 285:     THREAD_INIT(&THREADS[THREAD_LED], 0x01 | 0x08, 10, THREAD_LED_FUNCT);
+[e ( _THREAD_INIT (4 , , , &U *U + &U _THREADS * -> . `E7162 0 `ux -> -> # *U &U _THREADS `ui `ux -> | -> 1 `i -> 8 `i `uc -> -> 10 `i `ui -> &U _THREAD_LED_FUNCT `*F7260 ]
+"286
+[; ;newmain.c: 286:     THREAD_INIT(&THREADS[THREAD_UART_1_RX], 0, 0, THREAD_UART_1_RX_FUNCT);
+[e ( _THREAD_INIT (4 , , , &U *U + &U _THREADS * -> . `E7162 1 `ux -> -> # *U &U _THREADS `ui `ux -> -> 0 `i `uc -> -> 0 `i `ui -> &U _THREAD_UART_1_RX_FUNCT `*F7262 ]
+"287
+[; ;newmain.c: 287:     THREAD_INIT(&THREADS[THREAD_UART_2_RX], 0, 0, THREAD_UART_2_RX_FUNCT);
+[e ( _THREAD_INIT (4 , , , &U *U + &U _THREADS * -> . `E7162 2 `ux -> -> # *U &U _THREADS `ui `ux -> -> 0 `i `uc -> -> 0 `i `ui -> &U _THREAD_UART_2_RX_FUNCT `*F7264 ]
+"288
+[; ;newmain.c: 288:     while (1) SYSTEM_CONTROL_ALL();
+[e :U 939 ]
 [e ( _SYSTEM_CONTROL_ALL ..  ]
+[e :U 938 ]
+[e $U 939  ]
 [e :U 940 ]
-[e $U 941  ]
-[e :U 942 ]
-"327
-[; ;newmain.c: 327:   }
-[e :UE 939 ]
+"290
+[; ;newmain.c: 290: }
+[e :UE 937 ]
 }
 [v $root$__ISR `(v ~T0 @X0 0 e ]
-"528
-[; ;newmain.c: 528: void __attribute__((picinterrupt(("high_priority")))) _ISR(void)
+"469
+[; ;newmain.c: 469: void __attribute__((picinterrupt(("high_priority")))) _ISR(void)
 [v __ISR `(v ~T1 @X0 1 ef ]
-"529
-[; ;newmain.c: 529:   {
+"470
+[; ;newmain.c: 470: {
 {
 [e :U __ISR ]
 [f ]
-"530
-[; ;newmain.c: 530:   if (PIR1bits.TMR1IF)
-[e $ ! != -> . . _PIR1bits 0 0 `i -> 0 `i 944  ]
-"531
-[; ;newmain.c: 531:     {
+"471
+[; ;newmain.c: 471:     if (PIR1bits.TMR1IF)
+[e $ ! != -> . . _PIR1bits 0 0 `i -> 0 `i 942  ]
+"472
+[; ;newmain.c: 472:     {
 {
-"532
-[; ;newmain.c: 532:     TIMER_1_INTERRUPT_FUNCT();
+"473
+[; ;newmain.c: 473:         TIMER_1_INTERRUPT_FUNCT();
 [e ( _TIMER_1_INTERRUPT_FUNCT ..  ]
-"533
-[; ;newmain.c: 533:     THREAD_INTERRUPT();
-[e ( _THREAD_INTERRUPT ..  ]
-"534
-[; ;newmain.c: 534:     TIME_OUT_COUNT_INTERRUPT();
+"474
+[; ;newmain.c: 474:         TIME_OUT_COUNT_INTERRUPT();
 [e ( _TIME_OUT_COUNT_INTERRUPT ..  ]
-"535
-[; ;newmain.c: 535:     }
+"475
+[; ;newmain.c: 475:     } else if (PIR2bits.TMR3IF)
+}
+[e $U 943  ]
+[e :U 942 ]
+[e $ ! != -> . . _PIR2bits 0 1 `i -> 0 `i 944  ]
+"476
+[; ;newmain.c: 476:     {
+{
+"477
+[; ;newmain.c: 477:         TIMER_3_INTERRUPT_FUNCT();
+[e ( _TIMER_3_INTERRUPT_FUNCT ..  ]
+"478
+[; ;newmain.c: 478:     } else if (PIR5bits.TMR5IF)
 }
 [e $U 945  ]
-"536
-[; ;newmain.c: 536:   else if (PIR2bits.TMR3IF)
 [e :U 944 ]
-[e $ ! != -> . . _PIR2bits 0 1 `i -> 0 `i 946  ]
-"537
-[; ;newmain.c: 537:     {
+[e $ ! != -> . . _PIR5bits 0 1 `i -> 0 `i 946  ]
+"479
+[; ;newmain.c: 479:     {
 {
-"538
-[; ;newmain.c: 538:     TIMER_3_INTERRUPT_FUNCT();
-[e ( _TIMER_3_INTERRUPT_FUNCT ..  ]
-"539
-[; ;newmain.c: 539:     }
+"480
+[; ;newmain.c: 480:         TIMER_5_INTERRUPT_FUNCT();
+[e ( _TIMER_5_INTERRUPT_FUNCT ..  ]
+"481
+[; ;newmain.c: 481:     } else if (PIR1bits.RC1IF) {
 }
 [e $U 947  ]
-"540
-[; ;newmain.c: 540:   else if (PIR5bits.TMR5IF)
 [e :U 946 ]
-[e $ ! != -> . . _PIR5bits 0 1 `i -> 0 `i 948  ]
-"541
-[; ;newmain.c: 541:     {
+[e $ ! != -> . . _PIR1bits 0 5 `i -> 0 `i 948  ]
 {
-"542
-[; ;newmain.c: 542:     TIMER_5_INTERRUPT_FUNCT();
-[e ( _TIMER_5_INTERRUPT_FUNCT ..  ]
-"543
-[; ;newmain.c: 543:     }
+"482
+[; ;newmain.c: 482:         PIR1bits.RC1IF = 0;
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"483
+[; ;newmain.c: 483:         UART_1_INTERRUPT_FUNCT(RCREG1);
+[e ( _UART_1_INTERRUPT_FUNCT (1 _RCREG1 ]
+"484
+[; ;newmain.c: 484:     } else if (PIR3bits.RC2IF) {
 }
 [e $U 949  ]
-"544
-[; ;newmain.c: 544:   else if (PIR1bits.RC1IF)
 [e :U 948 ]
-[e $ ! != -> . . _PIR1bits 0 5 `i -> 0 `i 950  ]
-"545
-[; ;newmain.c: 545:     {
+[e $ ! != -> . . _PIR3bits 0 5 `i -> 0 `i 950  ]
 {
-"546
-[; ;newmain.c: 546:     PIR1bits.RC1IF = 0;
-[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
-"547
-[; ;newmain.c: 547:     UART_1_INTERRUPT_FUNCT(RCREG1);
-[e ( _UART_1_INTERRUPT_FUNCT (1 _RCREG1 ]
-"548
-[; ;newmain.c: 548:     }
-}
-[e $U 951  ]
-"549
-[; ;newmain.c: 549:   else if (PIR3bits.RC2IF)
-[e :U 950 ]
-[e $ ! != -> . . _PIR3bits 0 5 `i -> 0 `i 952  ]
-"550
-[; ;newmain.c: 550:     {
-{
-"551
-[; ;newmain.c: 551:     PIR3bits.RC2IF = 0;
+"485
+[; ;newmain.c: 485:         PIR3bits.RC2IF = 0;
 [e = . . _PIR3bits 0 5 -> -> 0 `i `uc ]
-"552
-[; ;newmain.c: 552:     UART_2_INTERRUPT_FUNCT(RCREG2);
+"486
+[; ;newmain.c: 486:         UART_2_INTERRUPT_FUNCT(RCREG2);
 [e ( _UART_2_INTERRUPT_FUNCT (1 _RCREG2 ]
-"553
-[; ;newmain.c: 553:     }
+"487
+[; ;newmain.c: 487:     }
 }
-[e :U 952 ]
-[e :U 951 ]
+[e :U 950 ]
 [e :U 949 ]
 [e :U 947 ]
 [e :U 945 ]
-"554
-[; ;newmain.c: 554:   }
-[e :UE 943 ]
+[e :U 943 ]
+"488
+[; ;newmain.c: 488: }
+[e :UE 941 ]
 }
 [a 7C 82 0 ]
 [a 1C 81 0 ]

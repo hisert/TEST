@@ -245,9 +245,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13656
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k22.h: 13656: extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0xFC2)));
 [v _ADCON0bits `VS647 ~T0 @X0 0 e@4034 ]
-[v F5956 `(v ~T0 @X0 1 tf1`ul ]
+[v F5975 `(v ~T0 @X0 1 tf1`ul ]
 "203 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\pic18.h
-[v __delay `JF5956 ~T0 @X0 0 e ]
+[v __delay `JF5975 ~T0 @X0 0 e ]
 [p i __delay ]
 "694 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k22.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k22.h: 694: extern volatile unsigned char VREFCON0 __attribute__((address(0xF42)));
@@ -1643,81 +1643,81 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k22.h: 17406: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "11 ./PIC_18F46K22.h
-[p x FOSC = INTIO67 ]
+[p x FOSC  =  HSMP       ]
 "12
-[p x PLLCFG = ON ]
+[p x PLLCFG  =  ON       ]
 "13
-[p x PRICLKEN = OFF ]
+[p x PRICLKEN  =  OFF     ]
 "14
-[p x FCMEN = OFF ]
+[p x FCMEN  =  OFF       ]
 "15
-[p x IESO = OFF ]
+[p x IESO  =  OFF        ]
 "16
-[p x PWRTEN = OFF ]
+[p x PWRTEN  =  OFF      ]
 "17
-[p x BOREN = SBORDIS ]
+[p x BOREN  =  SBORDIS   ]
 "18
-[p x BORV = 190 ]
+[p x BORV  =  190        ]
 "19
-[p x WDTEN = OFF ]
+[p x WDTEN  =  OFF       ]
 "20
-[p x WDTPS = 32768 ]
+[p x WDTPS  =  32768     ]
 "21
-[p x CCP2MX = PORTB3 ]
+[p x CCP2MX  =  PORTB3   ]
 "22
-[p x PBADEN = OFF ]
+[p x PBADEN  =  OFF      ]
 "23
-[p x CCP3MX = PORTB5 ]
+[p x CCP3MX  =  PORTB5   ]
 "24
-[p x HFOFST = OFF ]
+[p x HFOFST  =  OFF       ]
 "25
-[p x T3CMX = PORTC0 ]
+[p x T3CMX  =  PORTC0    ]
 "26
-[p x P2BMX = PORTD2 ]
+[p x P2BMX  =  PORTD2    ]
 "27
-[p x MCLRE = INTMCLR ]
+[p x MCLRE  =  INTMCLR   ]
 "28
-[p x STVREN = OFF ]
+[p x STVREN  =  OFF       ]
 "29
-[p x LVP = OFF ]
+[p x LVP  =  OFF          ]
 "30
-[p x XINST = OFF ]
+[p x XINST  =  OFF       ]
 "31
-[p x CP0 = OFF ]
+[p x CP0  =  OFF         ]
 "32
-[p x CP1 = OFF ]
+[p x CP1  =  OFF         ]
 "33
-[p x CP2 = OFF ]
+[p x CP2  =  OFF         ]
 "34
-[p x CP3 = OFF ]
+[p x CP3  =  OFF         ]
 "35
-[p x CPB = ON ]
+[p x CPB  =  ON         ]
 "36
-[p x CPD = ON ]
+[p x CPD  =  ON         ]
 "37
-[p x WRT0 = OFF ]
+[p x WRT0  =  OFF        ]
 "38
-[p x WRT1 = OFF ]
+[p x WRT1  =  OFF        ]
 "39
-[p x WRT2 = OFF ]
+[p x WRT2  =  OFF        ]
 "40
-[p x WRT3 = OFF ]
+[p x WRT3  =  OFF        ]
 "41
-[p x WRTC = OFF ]
+[p x WRTC  =  OFF        ]
 "42
-[p x WRTB = OFF ]
+[p x WRTB  =  OFF        ]
 "43
-[p x WRTD = OFF ]
+[p x WRTD  =  OFF        ]
 "44
-[p x EBTR0 = OFF ]
+[p x EBTR0  =  OFF       ]
 "45
-[p x EBTR1 = OFF ]
+[p x EBTR1  =  OFF       ]
 "46
-[p x EBTR2 = OFF ]
+[p x EBTR2  =  OFF       ]
 "47
-[p x EBTR3 = OFF ]
+[p x EBTR3  =  OFF       ]
 "48
-[p x EBTRB = OFF ]
+[p x EBTRB  =  OFF       ]
 "4 PIC_18F46K22.c
 [; ;PIC_18F46K22.c: 4: float calculator;
 [v _calculator `f ~T0 @X0 1 e ]
@@ -2879,15 +2879,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "338
 [; ;PIC_18F46K22.c: 338:   {
 [f ]
-[v F6654 `uc ~T0 @X0 -> 10 `i s ]
-[i F6654
+[v F6676 `uc ~T0 @X0 -> 10 `i s ]
+[i F6676
 :U ..
 ..
 ]
 "340
 [; ;PIC_18F46K22.c: 340:   unsigned char basamak[10] = {};
 [v _basamak `uc ~T0 @X0 -> 10 `i a ]
-[e = _basamak F6654 ]
+[e = _basamak F6676 ]
 "341
 [; ;PIC_18F46K22.c: 341:   signed char i = 0;
 [v _i `c ~T0 @X0 1 a ]
@@ -3089,15 +3089,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "393
 [; ;PIC_18F46K22.c: 393:   {
 [f ]
-[v F6668 `uc ~T0 @X0 -> 10 `i s ]
-[i F6668
+[v F6690 `uc ~T0 @X0 -> 10 `i s ]
+[i F6690
 :U ..
 ..
 ]
 "395
 [; ;PIC_18F46K22.c: 395:   unsigned char basamak[10] = {};
 [v _basamak `uc ~T0 @X0 -> 10 `i a ]
-[e = _basamak F6668 ]
+[e = _basamak F6690 ]
 "396
 [; ;PIC_18F46K22.c: 396:   signed char i = 0;
 [v _i `c ~T0 @X0 1 a ]
@@ -3238,8 +3238,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;PIC_18F46K22.c: 437:   unsigned long Fcy = Fosc / 4;
 [v _Fcy `ul ~T0 @X0 1 a ]
 [e = _Fcy / _Fosc -> -> -> 4 `i `l `ul ]
-[v F6681 `uc ~T0 @X0 -> 4 `i s ]
-[i F6681
+[v F6703 `uc ~T0 @X0 -> 4 `i s ]
+[i F6703
 :U ..
 "438
 [; ;PIC_18F46K22.c: 438:   unsigned char Prescalers[] = {1, 2, 4, 8};
@@ -3250,7 +3250,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _Prescalers `uc ~T0 @X0 -> 4 `i a ]
-[e = _Prescalers F6681 ]
+[e = _Prescalers F6703 ]
 "439
 [; ;PIC_18F46K22.c: 439:   unsigned int TMR1_Tick = 0;
 [v _TMR1_Tick `ui ~T0 @X0 1 a ]
@@ -3404,8 +3404,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;PIC_18F46K22.c: 485:   unsigned long Fcy = Fosc / 4;
 [v _Fcy `ul ~T0 @X0 1 a ]
 [e = _Fcy / _Fosc -> -> -> 4 `i `l `ul ]
-[v F6697 `uc ~T0 @X0 -> 4 `i s ]
-[i F6697
+[v F6719 `uc ~T0 @X0 -> 4 `i s ]
+[i F6719
 :U ..
 "486
 [; ;PIC_18F46K22.c: 486:   unsigned char Prescalers[] = {1, 2, 4, 8};
@@ -3416,7 +3416,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _Prescalers `uc ~T0 @X0 -> 4 `i a ]
-[e = _Prescalers F6697 ]
+[e = _Prescalers F6719 ]
 "487
 [; ;PIC_18F46K22.c: 487:   unsigned int TMR3_Tick = 0;
 [v _TMR3_Tick `ui ~T0 @X0 1 a ]
@@ -3570,8 +3570,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;PIC_18F46K22.c: 533:   unsigned long Fcy = Fosc / 4;
 [v _Fcy `ul ~T0 @X0 1 a ]
 [e = _Fcy / _Fosc -> -> -> 4 `i `l `ul ]
-[v F6713 `uc ~T0 @X0 -> 4 `i s ]
-[i F6713
+[v F6735 `uc ~T0 @X0 -> 4 `i s ]
+[i F6735
 :U ..
 "534
 [; ;PIC_18F46K22.c: 534:   unsigned char Prescalers[] = {1, 2, 4, 8};
@@ -3582,7 +3582,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _Prescalers `uc ~T0 @X0 -> 4 `i a ]
-[e = _Prescalers F6713 ]
+[e = _Prescalers F6735 ]
 "535
 [; ;PIC_18F46K22.c: 535:   unsigned int TMR5_Tick = 0;
 [v _TMR5_Tick `ui ~T0 @X0 1 a ]
@@ -4089,708 +4089,708 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;PIC_18F46K22.c: 662:     OSCCON = mhz;
 [e = _OSCCON _mhz ]
 "663
-[; ;PIC_18F46K22.c: 663:     }
-}
-[e :U 1050 ]
-[e :U 1049 ]
-"664
-[; ;PIC_18F46K22.c: 664:   while (!OSCCONbits.IOFS) continue;
+[; ;PIC_18F46K22.c: 663:     while (!OSCCONbits.IOFS) continue;
 [e $U 1052  ]
 [e :U 1053 ]
 [e $U 1052  ]
 [e :U 1052 ]
 [e $ ! != -> . . _OSCCONbits 1 2 `i -> 0 `i 1053  ]
 [e :U 1054 ]
-"665
-[; ;PIC_18F46K22.c: 665:   }
+"664
+[; ;PIC_18F46K22.c: 664:     }
+}
+[e :U 1050 ]
+[e :U 1049 ]
+"666
+[; ;PIC_18F46K22.c: 666:   }
 [e :UE 1046 ]
 }
-"667
-[; ;PIC_18F46K22.c: 667: void INTERRUPT_ALL(unsigned char OpenOrClose)
-[v _INTERRUPT_ALL `(v ~T0 @X0 1 ef1`uc ]
 "668
-[; ;PIC_18F46K22.c: 668:   {
+[; ;PIC_18F46K22.c: 668: void INTERRUPT_ALL(unsigned char OpenOrClose)
+[v _INTERRUPT_ALL `(v ~T0 @X0 1 ef1`uc ]
+"669
+[; ;PIC_18F46K22.c: 669:   {
 {
 [e :U _INTERRUPT_ALL ]
-"667
-[; ;PIC_18F46K22.c: 667: void INTERRUPT_ALL(unsigned char OpenOrClose)
-[v _OpenOrClose `uc ~T0 @X0 1 r1 ]
 "668
-[; ;PIC_18F46K22.c: 668:   {
-[f ]
+[; ;PIC_18F46K22.c: 668: void INTERRUPT_ALL(unsigned char OpenOrClose)
+[v _OpenOrClose `uc ~T0 @X0 1 r1 ]
 "669
-[; ;PIC_18F46K22.c: 669:   INTCONbits.PEIE = 1;
-[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+[; ;PIC_18F46K22.c: 669:   {
+[f ]
 "670
-[; ;PIC_18F46K22.c: 670:   if (OpenOrClose == 1) INTCONbits.GIE = 1;
+[; ;PIC_18F46K22.c: 670:   INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+"671
+[; ;PIC_18F46K22.c: 671:   if (OpenOrClose == 1) INTCONbits.GIE = 1;
 [e $ ! == -> _OpenOrClose `i -> 1 `i 1056  ]
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 [e $U 1057  ]
-"671
-[; ;PIC_18F46K22.c: 671:   else if (OpenOrClose == 0) INTCONbits.GIE = 0;
+"672
+[; ;PIC_18F46K22.c: 672:   else if (OpenOrClose == 0) INTCONbits.GIE = 0;
 [e :U 1056 ]
 [e $ ! == -> _OpenOrClose `i -> 0 `i 1058  ]
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
 [e :U 1058 ]
 [e :U 1057 ]
-"672
-[; ;PIC_18F46K22.c: 672:   }
+"673
+[; ;PIC_18F46K22.c: 673:   }
 [e :UE 1055 ]
 }
-"677
-[; ;PIC_18F46K22.c: 677: void EEPROM_B_WRITE(unsigned int address, unsigned char data)
-[v _EEPROM_B_WRITE `(v ~T0 @X0 1 ef2`ui`uc ]
 "678
-[; ;PIC_18F46K22.c: 678:   {
+[; ;PIC_18F46K22.c: 678: void EEPROM_B_WRITE(unsigned int address, unsigned char data)
+[v _EEPROM_B_WRITE `(v ~T0 @X0 1 ef2`ui`uc ]
+"679
+[; ;PIC_18F46K22.c: 679:   {
 {
 [e :U _EEPROM_B_WRITE ]
-"677
-[; ;PIC_18F46K22.c: 677: void EEPROM_B_WRITE(unsigned int address, unsigned char data)
+"678
+[; ;PIC_18F46K22.c: 678: void EEPROM_B_WRITE(unsigned int address, unsigned char data)
 [v _address `ui ~T0 @X0 1 r1 ]
 [v _data `uc ~T0 @X0 1 r2 ]
-"678
-[; ;PIC_18F46K22.c: 678:   {
-[f ]
 "679
-[; ;PIC_18F46K22.c: 679:   unsigned char hold;
-[v _hold `uc ~T0 @X0 1 a ]
+[; ;PIC_18F46K22.c: 679:   {
+[f ]
 "680
-[; ;PIC_18F46K22.c: 680:   hold = INTCONbits.GIE;
+[; ;PIC_18F46K22.c: 680:   unsigned char hold;
+[v _hold `uc ~T0 @X0 1 a ]
+"681
+[; ;PIC_18F46K22.c: 681:   hold = INTCONbits.GIE;
 [e = _hold . . _INTCONbits 1 7 ]
-"682
-[; ;PIC_18F46K22.c: 682:   EEADR = (unsigned char) address;
-[e = _EEADR -> _address `uc ]
 "683
-[; ;PIC_18F46K22.c: 683:   EEDATA = data;
-[e = _EEDATA _data ]
+[; ;PIC_18F46K22.c: 683:   EEADR = (unsigned char) address;
+[e = _EEADR -> _address `uc ]
 "684
-[; ;PIC_18F46K22.c: 684:   EECON1bits.EEPGD = 0;
-[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
+[; ;PIC_18F46K22.c: 684:   EEDATA = data;
+[e = _EEDATA _data ]
 "685
-[; ;PIC_18F46K22.c: 685:   EECON1bits.CFGS = 0;
-[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
+[; ;PIC_18F46K22.c: 685:   EECON1bits.EEPGD = 0;
+[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
 "686
-[; ;PIC_18F46K22.c: 686:   EECON1bits.WREN = 1;
-[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+[; ;PIC_18F46K22.c: 686:   EECON1bits.CFGS = 0;
+[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
 "687
-[; ;PIC_18F46K22.c: 687:   INTCONbits.GIE = 0;
+[; ;PIC_18F46K22.c: 687:   EECON1bits.WREN = 1;
+[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+"688
+[; ;PIC_18F46K22.c: 688:   INTCONbits.GIE = 0;
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-"691
-[; ;PIC_18F46K22.c: 691:   EECON2 = 0x55;
-[e = _EECON2 -> -> 85 `i `uc ]
 "692
-[; ;PIC_18F46K22.c: 692:   EECON2 = 0xaa;
+[; ;PIC_18F46K22.c: 692:   EECON2 = 0x55;
+[e = _EECON2 -> -> 85 `i `uc ]
+"693
+[; ;PIC_18F46K22.c: 693:   EECON2 = 0xaa;
 [e = _EECON2 -> -> 170 `i `uc ]
-"694
-[; ;PIC_18F46K22.c: 694:   EECON1bits.WR = 1;
-[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
 "695
-[; ;PIC_18F46K22.c: 695:   INTCONbits.GIE = hold;
-[e = . . _INTCONbits 1 7 _hold ]
+[; ;PIC_18F46K22.c: 695:   EECON1bits.WR = 1;
+[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
 "696
-[; ;PIC_18F46K22.c: 696:   while (PIR2bits.EEIF == 0);
+[; ;PIC_18F46K22.c: 696:   INTCONbits.GIE = hold;
+[e = . . _INTCONbits 1 7 _hold ]
+"697
+[; ;PIC_18F46K22.c: 697:   while (PIR2bits.EEIF == 0);
 [e $U 1060  ]
 [e :U 1061 ]
 [e :U 1060 ]
 [e $ == -> . . _PIR2bits 0 4 `i -> 0 `i 1061  ]
 [e :U 1062 ]
-"697
-[; ;PIC_18F46K22.c: 697:   PIR2bits.EEIF = 0;
+"698
+[; ;PIC_18F46K22.c: 698:   PIR2bits.EEIF = 0;
 [e = . . _PIR2bits 0 4 -> -> 0 `i `uc ]
-"699
-[; ;PIC_18F46K22.c: 699:   }
+"700
+[; ;PIC_18F46K22.c: 700:   }
 [e :UE 1059 ]
 }
-"701
-[; ;PIC_18F46K22.c: 701: unsigned char EEPROM_B_READ(unsigned int address)
-[v _EEPROM_B_READ `(uc ~T0 @X0 1 ef1`ui ]
 "702
-[; ;PIC_18F46K22.c: 702:   {
+[; ;PIC_18F46K22.c: 702: unsigned char EEPROM_B_READ(unsigned int address)
+[v _EEPROM_B_READ `(uc ~T0 @X0 1 ef1`ui ]
+"703
+[; ;PIC_18F46K22.c: 703:   {
 {
 [e :U _EEPROM_B_READ ]
-"701
-[; ;PIC_18F46K22.c: 701: unsigned char EEPROM_B_READ(unsigned int address)
-[v _address `ui ~T0 @X0 1 r1 ]
 "702
-[; ;PIC_18F46K22.c: 702:   {
+[; ;PIC_18F46K22.c: 702: unsigned char EEPROM_B_READ(unsigned int address)
+[v _address `ui ~T0 @X0 1 r1 ]
+"703
+[; ;PIC_18F46K22.c: 703:   {
 [f ]
-"704
-[; ;PIC_18F46K22.c: 704:   EEADR = (unsigned char) address;
-[e = _EEADR -> _address `uc ]
 "705
-[; ;PIC_18F46K22.c: 705:   EECON1bits.WREN = 0;
-[e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
+[; ;PIC_18F46K22.c: 705:   EEADR = (unsigned char) address;
+[e = _EEADR -> _address `uc ]
 "706
-[; ;PIC_18F46K22.c: 706:   EECON1bits.EEPGD = 0;
-[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
+[; ;PIC_18F46K22.c: 706:   EECON1bits.WREN = 0;
+[e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
 "707
-[; ;PIC_18F46K22.c: 707:   EECON1bits.RD = 1;
-[e = . . _EECON1bits 0 0 -> -> 1 `i `uc ]
+[; ;PIC_18F46K22.c: 707:   EECON1bits.EEPGD = 0;
+[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
 "708
-[; ;PIC_18F46K22.c: 708:   _delay((unsigned long)((1)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;PIC_18F46K22.c: 708:   EECON1bits.RD = 1;
+[e = . . _EECON1bits 0 0 -> -> 1 `i `uc ]
 "709
-[; ;PIC_18F46K22.c: 709:   return (EEDATA);
+[; ;PIC_18F46K22.c: 709:   _delay((unsigned long)((1)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"710
+[; ;PIC_18F46K22.c: 710:   return (EEDATA);
 [e ) _EEDATA ]
 [e $UE 1063  ]
-"710
-[; ;PIC_18F46K22.c: 710:   }
+"711
+[; ;PIC_18F46K22.c: 711:   }
 [e :UE 1063 ]
 }
-"716
-[; ;PIC_18F46K22.c: 716: void I2C_1_ACK(void)
-[v _I2C_1_ACK `(v ~T0 @X0 1 ef ]
 "717
-[; ;PIC_18F46K22.c: 717:   {
+[; ;PIC_18F46K22.c: 717: void I2C_1_ACK(void)
+[v _I2C_1_ACK `(v ~T0 @X0 1 ef ]
+"718
+[; ;PIC_18F46K22.c: 718:   {
 {
 [e :U _I2C_1_ACK ]
 [f ]
-"718
-[; ;PIC_18F46K22.c: 718:   SSP1CON2bits.ACKDT1 = 0;
-[e = . . _SSP1CON2bits 1 5 -> -> 0 `i `uc ]
 "719
-[; ;PIC_18F46K22.c: 719:   SSP1CON2bits.ACKEN1 = 1;
-[e = . . _SSP1CON2bits 1 4 -> -> 1 `i `uc ]
+[; ;PIC_18F46K22.c: 719:   SSP1CON2bits.ACKDT1 = 0;
+[e = . . _SSP1CON2bits 1 5 -> -> 0 `i `uc ]
 "720
-[; ;PIC_18F46K22.c: 720:   while (SSP1CON2bits.ACKEN1);
+[; ;PIC_18F46K22.c: 720:   SSP1CON2bits.ACKEN1 = 1;
+[e = . . _SSP1CON2bits 1 4 -> -> 1 `i `uc ]
+"721
+[; ;PIC_18F46K22.c: 721:   while (SSP1CON2bits.ACKEN1);
 [e $U 1065  ]
 [e :U 1066 ]
 [e :U 1065 ]
 [e $ != -> . . _SSP1CON2bits 1 4 `i -> 0 `i 1066  ]
 [e :U 1067 ]
-"721
-[; ;PIC_18F46K22.c: 721:   }
+"722
+[; ;PIC_18F46K22.c: 722:   }
 [e :UE 1064 ]
 }
-"723
-[; ;PIC_18F46K22.c: 723: void I2C_1_NACK(void)
-[v _I2C_1_NACK `(v ~T0 @X0 1 ef ]
 "724
-[; ;PIC_18F46K22.c: 724:   {
+[; ;PIC_18F46K22.c: 724: void I2C_1_NACK(void)
+[v _I2C_1_NACK `(v ~T0 @X0 1 ef ]
+"725
+[; ;PIC_18F46K22.c: 725:   {
 {
 [e :U _I2C_1_NACK ]
 [f ]
-"725
-[; ;PIC_18F46K22.c: 725:   SSP1CON2bits.ACKDT1 = 1;
-[e = . . _SSP1CON2bits 1 5 -> -> 1 `i `uc ]
 "726
-[; ;PIC_18F46K22.c: 726:   SSP1CON2bits.ACKEN1 = 1;
-[e = . . _SSP1CON2bits 1 4 -> -> 1 `i `uc ]
+[; ;PIC_18F46K22.c: 726:   SSP1CON2bits.ACKDT1 = 1;
+[e = . . _SSP1CON2bits 1 5 -> -> 1 `i `uc ]
 "727
-[; ;PIC_18F46K22.c: 727:   while (SSP1CON2bits.ACKEN1);
+[; ;PIC_18F46K22.c: 727:   SSP1CON2bits.ACKEN1 = 1;
+[e = . . _SSP1CON2bits 1 4 -> -> 1 `i `uc ]
+"728
+[; ;PIC_18F46K22.c: 728:   while (SSP1CON2bits.ACKEN1);
 [e $U 1069  ]
 [e :U 1070 ]
 [e :U 1069 ]
 [e $ != -> . . _SSP1CON2bits 1 4 `i -> 0 `i 1070  ]
 [e :U 1071 ]
-"728
-[; ;PIC_18F46K22.c: 728:   }
+"729
+[; ;PIC_18F46K22.c: 729:   }
 [e :UE 1068 ]
 }
-"730
-[; ;PIC_18F46K22.c: 730: void I2C_1_READY(void)
-[v _I2C_1_READY `(v ~T0 @X0 1 ef ]
 "731
-[; ;PIC_18F46K22.c: 731:   {
+[; ;PIC_18F46K22.c: 731: void I2C_1_READY(void)
+[v _I2C_1_READY `(v ~T0 @X0 1 ef ]
+"732
+[; ;PIC_18F46K22.c: 732:   {
 {
 [e :U _I2C_1_READY ]
 [f ]
-"732
-[; ;PIC_18F46K22.c: 732:   while (PIR2bits.BCL1IF);
+"733
+[; ;PIC_18F46K22.c: 733:   while (PIR2bits.BCL1IF);
 [e $U 1073  ]
 [e :U 1074 ]
 [e :U 1073 ]
 [e $ != -> . . _PIR2bits 0 3 `i -> 0 `i 1074  ]
 [e :U 1075 ]
-"735
-[; ;PIC_18F46K22.c: 735:   while (SSP1STATbits.BF || (SSP1STATbits.R_nW));
+"736
+[; ;PIC_18F46K22.c: 736:   while (SSP1STATbits.BF || (SSP1STATbits.R_nW));
 [e $U 1076  ]
 [e :U 1077 ]
 [e :U 1076 ]
 [e $ || != -> . . _SSP1STATbits 2 0 `i -> 0 `i != -> . . _SSP1STATbits 2 2 `i -> 0 `i 1077  ]
 [e :U 1078 ]
-"736
-[; ;PIC_18F46K22.c: 736:   PIR1bits.SSP1IF = 0;
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
 "737
-[; ;PIC_18F46K22.c: 737:   }
+[; ;PIC_18F46K22.c: 737:   PIR1bits.SSP1IF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"738
+[; ;PIC_18F46K22.c: 738:   }
 [e :UE 1072 ]
 }
-"739
-[; ;PIC_18F46K22.c: 739: void I2C_1_INIT(unsigned long baudrate)
-[v _I2C_1_INIT `(v ~T0 @X0 1 ef1`ul ]
 "740
-[; ;PIC_18F46K22.c: 740:   {
+[; ;PIC_18F46K22.c: 740: void I2C_1_INIT(unsigned long baudrate)
+[v _I2C_1_INIT `(v ~T0 @X0 1 ef1`ul ]
+"741
+[; ;PIC_18F46K22.c: 741:   {
 {
 [e :U _I2C_1_INIT ]
-"739
-[; ;PIC_18F46K22.c: 739: void I2C_1_INIT(unsigned long baudrate)
-[v _baudrate `ul ~T0 @X0 1 r1 ]
 "740
-[; ;PIC_18F46K22.c: 740:   {
-[f ]
+[; ;PIC_18F46K22.c: 740: void I2C_1_INIT(unsigned long baudrate)
+[v _baudrate `ul ~T0 @X0 1 r1 ]
 "741
-[; ;PIC_18F46K22.c: 741:   PIN_SET_IO('D', 'I', 'C', 3, 'L');
-[e ( _PIN_SET_IO (4 , , , , -> -> 68 `ui `uc -> -> 73 `ui `uc -> -> 67 `ui `uc -> -> 3 `i `uc -> -> 76 `ui `uc ]
+[; ;PIC_18F46K22.c: 741:   {
+[f ]
 "742
-[; ;PIC_18F46K22.c: 742:   PIN_SET_IO('D', 'I', 'C', 4, 'L');
-[e ( _PIN_SET_IO (4 , , , , -> -> 68 `ui `uc -> -> 73 `ui `uc -> -> 67 `ui `uc -> -> 4 `i `uc -> -> 76 `ui `uc ]
+[; ;PIC_18F46K22.c: 742:   PIN_SET_IO('D', 'I', 'C', 3, 'L');
+[e ( _PIN_SET_IO (4 , , , , -> -> 68 `ui `uc -> -> 73 `ui `uc -> -> 67 `ui `uc -> -> 3 `i `uc -> -> 76 `ui `uc ]
 "743
-[; ;PIC_18F46K22.c: 743:   SSP1STAT = 0x88;
-[e = _SSP1STAT -> -> 136 `i `uc ]
+[; ;PIC_18F46K22.c: 743:   PIN_SET_IO('D', 'I', 'C', 4, 'L');
+[e ( _PIN_SET_IO (4 , , , , -> -> 68 `ui `uc -> -> 73 `ui `uc -> -> 67 `ui `uc -> -> 4 `i `uc -> -> 76 `ui `uc ]
 "744
-[; ;PIC_18F46K22.c: 744:   SSP1CON1 = 0x28;
-[e = _SSP1CON1 -> -> 40 `i `uc ]
+[; ;PIC_18F46K22.c: 744:   SSP1STAT = 0x88;
+[e = _SSP1STAT -> -> 136 `i `uc ]
 "745
-[; ;PIC_18F46K22.c: 745:   SSP1CON2 = 0;
-[e = _SSP1CON2 -> -> 0 `i `uc ]
+[; ;PIC_18F46K22.c: 745:   SSP1CON1 = 0x28;
+[e = _SSP1CON1 -> -> 40 `i `uc ]
 "746
-[; ;PIC_18F46K22.c: 746:   calculator = (64000000UL) / (baudrate);
-[e = _calculator -> / -> 64000000 `ul _baudrate `f ]
+[; ;PIC_18F46K22.c: 746:   SSP1CON2 = 0;
+[e = _SSP1CON2 -> -> 0 `i `uc ]
 "747
-[; ;PIC_18F46K22.c: 747:   SSP1ADD = (unsigned char) (calculator - 1);
+[; ;PIC_18F46K22.c: 747:   calculator = (64000000UL) / (baudrate);
+[e = _calculator -> / -> 64000000 `ul _baudrate `f ]
+"748
+[; ;PIC_18F46K22.c: 748:   SSP1ADD = (unsigned char) (calculator - 1);
 [e = _SSP1ADD -> - _calculator -> -> 1 `i `f `uc ]
-"749
-[; ;PIC_18F46K22.c: 749:   PIR1bits.SSP1IF = 0;
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
 "750
-[; ;PIC_18F46K22.c: 750:   }
+[; ;PIC_18F46K22.c: 750:   PIR1bits.SSP1IF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"751
+[; ;PIC_18F46K22.c: 751:   }
 [e :UE 1079 ]
 }
-"752
-[; ;PIC_18F46K22.c: 752: unsigned char I2C_1_WRITE(unsigned char data)
-[v _I2C_1_WRITE `(uc ~T0 @X0 1 ef1`uc ]
 "753
-[; ;PIC_18F46K22.c: 753:   {
+[; ;PIC_18F46K22.c: 753: unsigned char I2C_1_WRITE(unsigned char data)
+[v _I2C_1_WRITE `(uc ~T0 @X0 1 ef1`uc ]
+"754
+[; ;PIC_18F46K22.c: 754:   {
 {
 [e :U _I2C_1_WRITE ]
-"752
-[; ;PIC_18F46K22.c: 752: unsigned char I2C_1_WRITE(unsigned char data)
-[v _data `uc ~T0 @X0 1 r1 ]
 "753
-[; ;PIC_18F46K22.c: 753:   {
-[f ]
+[; ;PIC_18F46K22.c: 753: unsigned char I2C_1_WRITE(unsigned char data)
+[v _data `uc ~T0 @X0 1 r1 ]
 "754
-[; ;PIC_18F46K22.c: 754:   SSP1BUF = data;
-[e = _SSP1BUF _data ]
+[; ;PIC_18F46K22.c: 754:   {
+[f ]
 "755
-[; ;PIC_18F46K22.c: 755:   I2C_1_READY();
-[e ( _I2C_1_READY ..  ]
+[; ;PIC_18F46K22.c: 755:   SSP1BUF = data;
+[e = _SSP1BUF _data ]
 "756
-[; ;PIC_18F46K22.c: 756:   if (SSP1CON2bits.ACKSTAT1)
-[e $ ! != -> . . _SSP1CON2bits 1 6 `i -> 0 `i 1081  ]
+[; ;PIC_18F46K22.c: 756:   I2C_1_READY();
+[e ( _I2C_1_READY ..  ]
 "757
-[; ;PIC_18F46K22.c: 757:     return 1;
+[; ;PIC_18F46K22.c: 757:   if (SSP1CON2bits.ACKSTAT1)
+[e $ ! != -> . . _SSP1CON2bits 1 6 `i -> 0 `i 1081  ]
+"758
+[; ;PIC_18F46K22.c: 758:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 1080  ]
 [e $U 1082  ]
-"758
-[; ;PIC_18F46K22.c: 758:   else
-[e :U 1081 ]
 "759
-[; ;PIC_18F46K22.c: 759:     return 2;
+[; ;PIC_18F46K22.c: 759:   else
+[e :U 1081 ]
+"760
+[; ;PIC_18F46K22.c: 760:     return 2;
 [e ) -> -> 2 `i `uc ]
 [e $UE 1080  ]
 [e :U 1082 ]
-"760
-[; ;PIC_18F46K22.c: 760:   }
+"761
+[; ;PIC_18F46K22.c: 761:   }
 [e :UE 1080 ]
 }
-"762
-[; ;PIC_18F46K22.c: 762: void I2C_1_START(void)
-[v _I2C_1_START `(v ~T0 @X0 1 ef ]
 "763
-[; ;PIC_18F46K22.c: 763:   {
+[; ;PIC_18F46K22.c: 763: void I2C_1_START(void)
+[v _I2C_1_START `(v ~T0 @X0 1 ef ]
+"764
+[; ;PIC_18F46K22.c: 764:   {
 {
 [e :U _I2C_1_START ]
 [f ]
-"764
-[; ;PIC_18F46K22.c: 764:   SSP1CON2bits.SEN = 1;
-[e = . . _SSP1CON2bits 0 0 -> -> 1 `i `uc ]
 "765
-[; ;PIC_18F46K22.c: 765:   while (SSP1CON2bits.SEN);
+[; ;PIC_18F46K22.c: 765:   SSP1CON2bits.SEN = 1;
+[e = . . _SSP1CON2bits 0 0 -> -> 1 `i `uc ]
+"766
+[; ;PIC_18F46K22.c: 766:   while (SSP1CON2bits.SEN);
 [e $U 1084  ]
 [e :U 1085 ]
 [e :U 1084 ]
 [e $ != -> . . _SSP1CON2bits 0 0 `i -> 0 `i 1085  ]
 [e :U 1086 ]
-"766
-[; ;PIC_18F46K22.c: 766:   PIR1bits.SSP1IF = 0;
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
 "767
-[; ;PIC_18F46K22.c: 767:   }
+[; ;PIC_18F46K22.c: 767:   PIR1bits.SSP1IF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"768
+[; ;PIC_18F46K22.c: 768:   }
 [e :UE 1083 ]
 }
-"769
-[; ;PIC_18F46K22.c: 769: void I2C_1_STOP(void)
-[v _I2C_1_STOP `(v ~T0 @X0 1 ef ]
 "770
-[; ;PIC_18F46K22.c: 770:   {
+[; ;PIC_18F46K22.c: 770: void I2C_1_STOP(void)
+[v _I2C_1_STOP `(v ~T0 @X0 1 ef ]
+"771
+[; ;PIC_18F46K22.c: 771:   {
 {
 [e :U _I2C_1_STOP ]
 [f ]
-"771
-[; ;PIC_18F46K22.c: 771:   I2C_1_READY();
-[e ( _I2C_1_READY ..  ]
 "772
-[; ;PIC_18F46K22.c: 772:   SSP1CON2bits.PEN1 = 1;
-[e = . . _SSP1CON2bits 3 2 -> -> 1 `i `uc ]
+[; ;PIC_18F46K22.c: 772:   I2C_1_READY();
+[e ( _I2C_1_READY ..  ]
 "773
-[; ;PIC_18F46K22.c: 773:   while (SSP1CON2bits.PEN1);
+[; ;PIC_18F46K22.c: 773:   SSP1CON2bits.PEN1 = 1;
+[e = . . _SSP1CON2bits 3 2 -> -> 1 `i `uc ]
+"774
+[; ;PIC_18F46K22.c: 774:   while (SSP1CON2bits.PEN1);
 [e $U 1088  ]
 [e :U 1089 ]
 [e :U 1088 ]
 [e $ != -> . . _SSP1CON2bits 3 2 `i -> 0 `i 1089  ]
 [e :U 1090 ]
-"774
-[; ;PIC_18F46K22.c: 774:   PIR1bits.SSP1IF = 0;
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
 "775
-[; ;PIC_18F46K22.c: 775:   }
+[; ;PIC_18F46K22.c: 775:   PIR1bits.SSP1IF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"776
+[; ;PIC_18F46K22.c: 776:   }
 [e :UE 1087 ]
 }
-"777
-[; ;PIC_18F46K22.c: 777: unsigned char I2C_1_READ_ACK()
-[v _I2C_1_READ_ACK `(uc ~T0 @X0 1 ef ]
 "778
-[; ;PIC_18F46K22.c: 778:   {
+[; ;PIC_18F46K22.c: 778: unsigned char I2C_1_READ_ACK()
+[v _I2C_1_READ_ACK `(uc ~T0 @X0 1 ef ]
+"779
+[; ;PIC_18F46K22.c: 779:   {
 {
 [e :U _I2C_1_READ_ACK ]
 [f ]
-"779
-[; ;PIC_18F46K22.c: 779:   unsigned char buffer = 0;
+"780
+[; ;PIC_18F46K22.c: 780:   unsigned char buffer = 0;
 [v _buffer `uc ~T0 @X0 1 a ]
 [e = _buffer -> -> 0 `i `uc ]
-"780
-[; ;PIC_18F46K22.c: 780:   SSP1CON2bits.RCEN1 = 1;
-[e = . . _SSP1CON2bits 3 3 -> -> 1 `i `uc ]
 "781
-[; ;PIC_18F46K22.c: 781:   while (!SSP1STATbits.BF1);
+[; ;PIC_18F46K22.c: 781:   SSP1CON2bits.RCEN1 = 1;
+[e = . . _SSP1CON2bits 3 3 -> -> 1 `i `uc ]
+"782
+[; ;PIC_18F46K22.c: 782:   while (!SSP1STATbits.BF1);
 [e $U 1092  ]
 [e :U 1093 ]
 [e :U 1092 ]
 [e $ ! != -> . . _SSP1STATbits 10 0 `i -> 0 `i 1093  ]
 [e :U 1094 ]
-"782
-[; ;PIC_18F46K22.c: 782:   buffer = SSP1BUF;
-[e = _buffer _SSP1BUF ]
 "783
-[; ;PIC_18F46K22.c: 783:   I2C_1_ACK();
-[e ( _I2C_1_ACK ..  ]
+[; ;PIC_18F46K22.c: 783:   buffer = SSP1BUF;
+[e = _buffer _SSP1BUF ]
 "784
-[; ;PIC_18F46K22.c: 784:   return buffer;
+[; ;PIC_18F46K22.c: 784:   I2C_1_ACK();
+[e ( _I2C_1_ACK ..  ]
+"785
+[; ;PIC_18F46K22.c: 785:   return buffer;
 [e ) _buffer ]
 [e $UE 1091  ]
-"785
-[; ;PIC_18F46K22.c: 785:   }
+"786
+[; ;PIC_18F46K22.c: 786:   }
 [e :UE 1091 ]
 }
-"787
-[; ;PIC_18F46K22.c: 787: unsigned char I2C_1_READ_NACK()
-[v _I2C_1_READ_NACK `(uc ~T0 @X0 1 ef ]
 "788
-[; ;PIC_18F46K22.c: 788:   {
+[; ;PIC_18F46K22.c: 788: unsigned char I2C_1_READ_NACK()
+[v _I2C_1_READ_NACK `(uc ~T0 @X0 1 ef ]
+"789
+[; ;PIC_18F46K22.c: 789:   {
 {
 [e :U _I2C_1_READ_NACK ]
 [f ]
-"789
-[; ;PIC_18F46K22.c: 789:   unsigned char buffer = 0;
+"790
+[; ;PIC_18F46K22.c: 790:   unsigned char buffer = 0;
 [v _buffer `uc ~T0 @X0 1 a ]
 [e = _buffer -> -> 0 `i `uc ]
-"790
-[; ;PIC_18F46K22.c: 790:   SSP1CON2bits.RCEN1 = 1;
-[e = . . _SSP1CON2bits 3 3 -> -> 1 `i `uc ]
 "791
-[; ;PIC_18F46K22.c: 791:   while (!SSP1STATbits.BF1);
+[; ;PIC_18F46K22.c: 791:   SSP1CON2bits.RCEN1 = 1;
+[e = . . _SSP1CON2bits 3 3 -> -> 1 `i `uc ]
+"792
+[; ;PIC_18F46K22.c: 792:   while (!SSP1STATbits.BF1);
 [e $U 1096  ]
 [e :U 1097 ]
 [e :U 1096 ]
 [e $ ! != -> . . _SSP1STATbits 10 0 `i -> 0 `i 1097  ]
 [e :U 1098 ]
-"792
-[; ;PIC_18F46K22.c: 792:   buffer = SSP1BUF;
-[e = _buffer _SSP1BUF ]
 "793
-[; ;PIC_18F46K22.c: 793:   I2C_1_ACK();
-[e ( _I2C_1_ACK ..  ]
+[; ;PIC_18F46K22.c: 793:   buffer = SSP1BUF;
+[e = _buffer _SSP1BUF ]
 "794
-[; ;PIC_18F46K22.c: 794:   return buffer;
+[; ;PIC_18F46K22.c: 794:   I2C_1_ACK();
+[e ( _I2C_1_ACK ..  ]
+"795
+[; ;PIC_18F46K22.c: 795:   return buffer;
 [e ) _buffer ]
 [e $UE 1095  ]
-"795
-[; ;PIC_18F46K22.c: 795:   }
+"796
+[; ;PIC_18F46K22.c: 796:   }
 [e :UE 1095 ]
 }
-"799
-[; ;PIC_18F46K22.c: 799: void I2C_2_ACK(void)
-[v _I2C_2_ACK `(v ~T0 @X0 1 ef ]
 "800
-[; ;PIC_18F46K22.c: 800: {
+[; ;PIC_18F46K22.c: 800: void I2C_2_ACK(void)
+[v _I2C_2_ACK `(v ~T0 @X0 1 ef ]
+"801
+[; ;PIC_18F46K22.c: 801: {
 {
 [e :U _I2C_2_ACK ]
 [f ]
-"801
-[; ;PIC_18F46K22.c: 801:     SSP2CON2bits.ACKDT = 0;
-[e = . . _SSP2CON2bits 0 5 -> -> 0 `i `uc ]
 "802
-[; ;PIC_18F46K22.c: 802:     SSP2CON2bits.ACKEN = 1;
-[e = . . _SSP2CON2bits 0 4 -> -> 1 `i `uc ]
+[; ;PIC_18F46K22.c: 802:     SSP2CON2bits.ACKDT = 0;
+[e = . . _SSP2CON2bits 0 5 -> -> 0 `i `uc ]
 "803
-[; ;PIC_18F46K22.c: 803:     while (SSP2CON2bits.ACKEN);
+[; ;PIC_18F46K22.c: 803:     SSP2CON2bits.ACKEN = 1;
+[e = . . _SSP2CON2bits 0 4 -> -> 1 `i `uc ]
+"804
+[; ;PIC_18F46K22.c: 804:     while (SSP2CON2bits.ACKEN);
 [e $U 1100  ]
 [e :U 1101 ]
 [e :U 1100 ]
 [e $ != -> . . _SSP2CON2bits 0 4 `i -> 0 `i 1101  ]
 [e :U 1102 ]
-"804
-[; ;PIC_18F46K22.c: 804: }
+"805
+[; ;PIC_18F46K22.c: 805: }
 [e :UE 1099 ]
 }
-"806
-[; ;PIC_18F46K22.c: 806: void I2C_2_NACK(void)
-[v _I2C_2_NACK `(v ~T0 @X0 1 ef ]
 "807
-[; ;PIC_18F46K22.c: 807: {
+[; ;PIC_18F46K22.c: 807: void I2C_2_NACK(void)
+[v _I2C_2_NACK `(v ~T0 @X0 1 ef ]
+"808
+[; ;PIC_18F46K22.c: 808: {
 {
 [e :U _I2C_2_NACK ]
 [f ]
-"808
-[; ;PIC_18F46K22.c: 808:     SSP2CON2bits.ACKDT = 1;
-[e = . . _SSP2CON2bits 0 5 -> -> 1 `i `uc ]
 "809
-[; ;PIC_18F46K22.c: 809:     SSP2CON2bits.ACKEN = 1;
-[e = . . _SSP2CON2bits 0 4 -> -> 1 `i `uc ]
+[; ;PIC_18F46K22.c: 809:     SSP2CON2bits.ACKDT = 1;
+[e = . . _SSP2CON2bits 0 5 -> -> 1 `i `uc ]
 "810
-[; ;PIC_18F46K22.c: 810:     while (SSP2CON2bits.ACKEN);
+[; ;PIC_18F46K22.c: 810:     SSP2CON2bits.ACKEN = 1;
+[e = . . _SSP2CON2bits 0 4 -> -> 1 `i `uc ]
+"811
+[; ;PIC_18F46K22.c: 811:     while (SSP2CON2bits.ACKEN);
 [e $U 1104  ]
 [e :U 1105 ]
 [e :U 1104 ]
 [e $ != -> . . _SSP2CON2bits 0 4 `i -> 0 `i 1105  ]
 [e :U 1106 ]
-"811
-[; ;PIC_18F46K22.c: 811: }
+"812
+[; ;PIC_18F46K22.c: 812: }
 [e :UE 1103 ]
 }
-"813
-[; ;PIC_18F46K22.c: 813: void I2C_2_READY(void)
-[v _I2C_2_READY `(v ~T0 @X0 1 ef ]
 "814
-[; ;PIC_18F46K22.c: 814: {
+[; ;PIC_18F46K22.c: 814: void I2C_2_READY(void)
+[v _I2C_2_READY `(v ~T0 @X0 1 ef ]
+"815
+[; ;PIC_18F46K22.c: 815: {
 {
 [e :U _I2C_2_READY ]
 [f ]
-"815
-[; ;PIC_18F46K22.c: 815:     while (PIR3bits.BCL2IF);
+"816
+[; ;PIC_18F46K22.c: 816:     while (PIR3bits.BCL2IF);
 [e $U 1108  ]
 [e :U 1109 ]
 [e :U 1108 ]
 [e $ != -> . . _PIR3bits 0 6 `i -> 0 `i 1109  ]
 [e :U 1110 ]
-"816
-[; ;PIC_18F46K22.c: 816:     while (SSP2STATbits.BF || SSP2STATbits.R_nW);
+"817
+[; ;PIC_18F46K22.c: 817:     while (SSP2STATbits.BF || SSP2STATbits.R_nW);
 [e $U 1111  ]
 [e :U 1112 ]
 [e :U 1111 ]
 [e $ || != -> . . _SSP2STATbits 2 0 `i -> 0 `i != -> . . _SSP2STATbits 2 2 `i -> 0 `i 1112  ]
 [e :U 1113 ]
-"817
-[; ;PIC_18F46K22.c: 817:     PIR3bits.SSP2IF = 0;
-[e = . . _PIR3bits 0 7 -> -> 0 `i `uc ]
 "818
-[; ;PIC_18F46K22.c: 818: }
+[; ;PIC_18F46K22.c: 818:     PIR3bits.SSP2IF = 0;
+[e = . . _PIR3bits 0 7 -> -> 0 `i `uc ]
+"819
+[; ;PIC_18F46K22.c: 819: }
 [e :UE 1107 ]
 }
-"820
-[; ;PIC_18F46K22.c: 820: void I2C_2_INIT(unsigned long baudrate)
-[v _I2C_2_INIT `(v ~T0 @X0 1 ef1`ul ]
 "821
-[; ;PIC_18F46K22.c: 821: {
+[; ;PIC_18F46K22.c: 821: void I2C_2_INIT(unsigned long baudrate)
+[v _I2C_2_INIT `(v ~T0 @X0 1 ef1`ul ]
+"822
+[; ;PIC_18F46K22.c: 822: {
 {
 [e :U _I2C_2_INIT ]
-"820
-[; ;PIC_18F46K22.c: 820: void I2C_2_INIT(unsigned long baudrate)
-[v _baudrate `ul ~T0 @X0 1 r1 ]
 "821
-[; ;PIC_18F46K22.c: 821: {
-[f ]
+[; ;PIC_18F46K22.c: 821: void I2C_2_INIT(unsigned long baudrate)
+[v _baudrate `ul ~T0 @X0 1 r1 ]
 "822
-[; ;PIC_18F46K22.c: 822:     PIN_SET_IO('D', 'I', 'D', 0, 'L');
-[e ( _PIN_SET_IO (4 , , , , -> -> 68 `ui `uc -> -> 73 `ui `uc -> -> 68 `ui `uc -> -> 0 `i `uc -> -> 76 `ui `uc ]
+[; ;PIC_18F46K22.c: 822: {
+[f ]
 "823
-[; ;PIC_18F46K22.c: 823:     PIN_SET_IO('D', 'I', 'D', 1, 'L');
+[; ;PIC_18F46K22.c: 823:     PIN_SET_IO('D', 'I', 'D', 0, 'L');
+[e ( _PIN_SET_IO (4 , , , , -> -> 68 `ui `uc -> -> 73 `ui `uc -> -> 68 `ui `uc -> -> 0 `i `uc -> -> 76 `ui `uc ]
+"824
+[; ;PIC_18F46K22.c: 824:     PIN_SET_IO('D', 'I', 'D', 1, 'L');
 [e ( _PIN_SET_IO (4 , , , , -> -> 68 `ui `uc -> -> 73 `ui `uc -> -> 68 `ui `uc -> -> 1 `i `uc -> -> 76 `ui `uc ]
-"825
-[; ;PIC_18F46K22.c: 825:     SSP2STAT = 0x80;
-[e = _SSP2STAT -> -> 128 `i `uc ]
 "826
-[; ;PIC_18F46K22.c: 826:     SSP2CON1 = 0x28;
-[e = _SSP2CON1 -> -> 40 `i `uc ]
+[; ;PIC_18F46K22.c: 826:     SSP2STAT = 0x80;
+[e = _SSP2STAT -> -> 128 `i `uc ]
 "827
-[; ;PIC_18F46K22.c: 827:     SSP2CON2 = 0x00;
+[; ;PIC_18F46K22.c: 827:     SSP2CON1 = 0x28;
+[e = _SSP2CON1 -> -> 40 `i `uc ]
+"828
+[; ;PIC_18F46K22.c: 828:     SSP2CON2 = 0x00;
 [e = _SSP2CON2 -> -> 0 `i `uc ]
-"829
-[; ;PIC_18F46K22.c: 829:     SSP2ADD = (64000000UL / (4 * baudrate)) - 1;
+"830
+[; ;PIC_18F46K22.c: 830:     SSP2ADD = (64000000UL / (4 * baudrate)) - 1;
 [e = _SSP2ADD -> - / -> 64000000 `ul * -> -> -> 4 `i `l `ul _baudrate -> -> -> 1 `i `l `ul `uc ]
-"831
-[; ;PIC_18F46K22.c: 831:     PIR3bits.SSP2IF = 0;
-[e = . . _PIR3bits 0 7 -> -> 0 `i `uc ]
 "832
-[; ;PIC_18F46K22.c: 832: }
+[; ;PIC_18F46K22.c: 832:     PIR3bits.SSP2IF = 0;
+[e = . . _PIR3bits 0 7 -> -> 0 `i `uc ]
+"833
+[; ;PIC_18F46K22.c: 833: }
 [e :UE 1114 ]
 }
-"834
-[; ;PIC_18F46K22.c: 834: unsigned char I2C_2_WRITE(unsigned char data)
-[v _I2C_2_WRITE `(uc ~T0 @X0 1 ef1`uc ]
 "835
-[; ;PIC_18F46K22.c: 835: {
+[; ;PIC_18F46K22.c: 835: unsigned char I2C_2_WRITE(unsigned char data)
+[v _I2C_2_WRITE `(uc ~T0 @X0 1 ef1`uc ]
+"836
+[; ;PIC_18F46K22.c: 836: {
 {
 [e :U _I2C_2_WRITE ]
-"834
-[; ;PIC_18F46K22.c: 834: unsigned char I2C_2_WRITE(unsigned char data)
-[v _data `uc ~T0 @X0 1 r1 ]
 "835
-[; ;PIC_18F46K22.c: 835: {
-[f ]
+[; ;PIC_18F46K22.c: 835: unsigned char I2C_2_WRITE(unsigned char data)
+[v _data `uc ~T0 @X0 1 r1 ]
 "836
-[; ;PIC_18F46K22.c: 836:     SSP2BUF = data;
-[e = _SSP2BUF _data ]
+[; ;PIC_18F46K22.c: 836: {
+[f ]
 "837
-[; ;PIC_18F46K22.c: 837:     I2C_2_READY();
-[e ( _I2C_2_READY ..  ]
+[; ;PIC_18F46K22.c: 837:     SSP2BUF = data;
+[e = _SSP2BUF _data ]
 "838
-[; ;PIC_18F46K22.c: 838:     if (SSP2CON2bits.ACKSTAT) return 1;
+[; ;PIC_18F46K22.c: 838:     I2C_2_READY();
+[e ( _I2C_2_READY ..  ]
+"839
+[; ;PIC_18F46K22.c: 839:     if (SSP2CON2bits.ACKSTAT) return 1;
 [e $ ! != -> . . _SSP2CON2bits 0 6 `i -> 0 `i 1116  ]
 [e ) -> -> 1 `i `uc ]
 [e $UE 1115  ]
 [e :U 1116 ]
-"839
-[; ;PIC_18F46K22.c: 839:     return 0;
+"840
+[; ;PIC_18F46K22.c: 840:     return 0;
 [e ) -> -> 0 `i `uc ]
 [e $UE 1115  ]
-"840
-[; ;PIC_18F46K22.c: 840: }
+"841
+[; ;PIC_18F46K22.c: 841: }
 [e :UE 1115 ]
 }
-"842
-[; ;PIC_18F46K22.c: 842: void I2C_2_START(void)
-[v _I2C_2_START `(v ~T0 @X0 1 ef ]
 "843
-[; ;PIC_18F46K22.c: 843: {
+[; ;PIC_18F46K22.c: 843: void I2C_2_START(void)
+[v _I2C_2_START `(v ~T0 @X0 1 ef ]
+"844
+[; ;PIC_18F46K22.c: 844: {
 {
 [e :U _I2C_2_START ]
 [f ]
-"844
-[; ;PIC_18F46K22.c: 844:     SSP2CON2bits.SEN = 1;
-[e = . . _SSP2CON2bits 0 0 -> -> 1 `i `uc ]
 "845
-[; ;PIC_18F46K22.c: 845:     while (SSP2CON2bits.SEN);
+[; ;PIC_18F46K22.c: 845:     SSP2CON2bits.SEN = 1;
+[e = . . _SSP2CON2bits 0 0 -> -> 1 `i `uc ]
+"846
+[; ;PIC_18F46K22.c: 846:     while (SSP2CON2bits.SEN);
 [e $U 1118  ]
 [e :U 1119 ]
 [e :U 1118 ]
 [e $ != -> . . _SSP2CON2bits 0 0 `i -> 0 `i 1119  ]
 [e :U 1120 ]
-"846
-[; ;PIC_18F46K22.c: 846:     PIR3bits.SSP2IF = 0;
-[e = . . _PIR3bits 0 7 -> -> 0 `i `uc ]
 "847
-[; ;PIC_18F46K22.c: 847: }
+[; ;PIC_18F46K22.c: 847:     PIR3bits.SSP2IF = 0;
+[e = . . _PIR3bits 0 7 -> -> 0 `i `uc ]
+"848
+[; ;PIC_18F46K22.c: 848: }
 [e :UE 1117 ]
 }
-"849
-[; ;PIC_18F46K22.c: 849: void I2C_2_STOP(void)
-[v _I2C_2_STOP `(v ~T0 @X0 1 ef ]
 "850
-[; ;PIC_18F46K22.c: 850: {
+[; ;PIC_18F46K22.c: 850: void I2C_2_STOP(void)
+[v _I2C_2_STOP `(v ~T0 @X0 1 ef ]
+"851
+[; ;PIC_18F46K22.c: 851: {
 {
 [e :U _I2C_2_STOP ]
 [f ]
-"851
-[; ;PIC_18F46K22.c: 851:     I2C_2_READY();
-[e ( _I2C_2_READY ..  ]
 "852
-[; ;PIC_18F46K22.c: 852:     SSP2CON2bits.PEN = 1;
-[e = . . _SSP2CON2bits 0 2 -> -> 1 `i `uc ]
+[; ;PIC_18F46K22.c: 852:     I2C_2_READY();
+[e ( _I2C_2_READY ..  ]
 "853
-[; ;PIC_18F46K22.c: 853:     while (SSP2CON2bits.PEN);
+[; ;PIC_18F46K22.c: 853:     SSP2CON2bits.PEN = 1;
+[e = . . _SSP2CON2bits 0 2 -> -> 1 `i `uc ]
+"854
+[; ;PIC_18F46K22.c: 854:     while (SSP2CON2bits.PEN);
 [e $U 1122  ]
 [e :U 1123 ]
 [e :U 1122 ]
 [e $ != -> . . _SSP2CON2bits 0 2 `i -> 0 `i 1123  ]
 [e :U 1124 ]
-"854
-[; ;PIC_18F46K22.c: 854:     PIR3bits.SSP2IF = 0;
-[e = . . _PIR3bits 0 7 -> -> 0 `i `uc ]
 "855
-[; ;PIC_18F46K22.c: 855: }
+[; ;PIC_18F46K22.c: 855:     PIR3bits.SSP2IF = 0;
+[e = . . _PIR3bits 0 7 -> -> 0 `i `uc ]
+"856
+[; ;PIC_18F46K22.c: 856: }
 [e :UE 1121 ]
 }
-"857
-[; ;PIC_18F46K22.c: 857: unsigned char I2C_2_READ_ACK(void)
-[v _I2C_2_READ_ACK `(uc ~T0 @X0 1 ef ]
 "858
-[; ;PIC_18F46K22.c: 858: {
+[; ;PIC_18F46K22.c: 858: unsigned char I2C_2_READ_ACK(void)
+[v _I2C_2_READ_ACK `(uc ~T0 @X0 1 ef ]
+"859
+[; ;PIC_18F46K22.c: 859: {
 {
 [e :U _I2C_2_READ_ACK ]
 [f ]
-"859
-[; ;PIC_18F46K22.c: 859:     unsigned char buffer;
-[v _buffer `uc ~T0 @X0 1 a ]
 "860
-[; ;PIC_18F46K22.c: 860:     SSP2CON2bits.RCEN = 1;
-[e = . . _SSP2CON2bits 0 3 -> -> 1 `i `uc ]
+[; ;PIC_18F46K22.c: 860:     unsigned char buffer;
+[v _buffer `uc ~T0 @X0 1 a ]
 "861
-[; ;PIC_18F46K22.c: 861:     while (!SSP2STATbits.BF);
+[; ;PIC_18F46K22.c: 861:     SSP2CON2bits.RCEN = 1;
+[e = . . _SSP2CON2bits 0 3 -> -> 1 `i `uc ]
+"862
+[; ;PIC_18F46K22.c: 862:     while (!SSP2STATbits.BF);
 [e $U 1126  ]
 [e :U 1127 ]
 [e :U 1126 ]
 [e $ ! != -> . . _SSP2STATbits 2 0 `i -> 0 `i 1127  ]
 [e :U 1128 ]
-"862
-[; ;PIC_18F46K22.c: 862:     buffer = SSP2BUF;
-[e = _buffer _SSP2BUF ]
 "863
-[; ;PIC_18F46K22.c: 863:     I2C_2_ACK();
-[e ( _I2C_2_ACK ..  ]
+[; ;PIC_18F46K22.c: 863:     buffer = SSP2BUF;
+[e = _buffer _SSP2BUF ]
 "864
-[; ;PIC_18F46K22.c: 864:     return buffer;
+[; ;PIC_18F46K22.c: 864:     I2C_2_ACK();
+[e ( _I2C_2_ACK ..  ]
+"865
+[; ;PIC_18F46K22.c: 865:     return buffer;
 [e ) _buffer ]
 [e $UE 1125  ]
-"865
-[; ;PIC_18F46K22.c: 865: }
+"866
+[; ;PIC_18F46K22.c: 866: }
 [e :UE 1125 ]
 }
-"867
-[; ;PIC_18F46K22.c: 867: unsigned char I2C_2_READ_NACK(void)
-[v _I2C_2_READ_NACK `(uc ~T0 @X0 1 ef ]
 "868
-[; ;PIC_18F46K22.c: 868: {
+[; ;PIC_18F46K22.c: 868: unsigned char I2C_2_READ_NACK(void)
+[v _I2C_2_READ_NACK `(uc ~T0 @X0 1 ef ]
+"869
+[; ;PIC_18F46K22.c: 869: {
 {
 [e :U _I2C_2_READ_NACK ]
 [f ]
-"869
-[; ;PIC_18F46K22.c: 869:     unsigned char buffer;
-[v _buffer `uc ~T0 @X0 1 a ]
 "870
-[; ;PIC_18F46K22.c: 870:     SSP2CON2bits.RCEN = 1;
-[e = . . _SSP2CON2bits 0 3 -> -> 1 `i `uc ]
+[; ;PIC_18F46K22.c: 870:     unsigned char buffer;
+[v _buffer `uc ~T0 @X0 1 a ]
 "871
-[; ;PIC_18F46K22.c: 871:     while (!SSP2STATbits.BF);
+[; ;PIC_18F46K22.c: 871:     SSP2CON2bits.RCEN = 1;
+[e = . . _SSP2CON2bits 0 3 -> -> 1 `i `uc ]
+"872
+[; ;PIC_18F46K22.c: 872:     while (!SSP2STATbits.BF);
 [e $U 1130  ]
 [e :U 1131 ]
 [e :U 1130 ]
 [e $ ! != -> . . _SSP2STATbits 2 0 `i -> 0 `i 1131  ]
 [e :U 1132 ]
-"872
-[; ;PIC_18F46K22.c: 872:     buffer = SSP2BUF;
-[e = _buffer _SSP2BUF ]
 "873
-[; ;PIC_18F46K22.c: 873:     I2C_2_NACK();
-[e ( _I2C_2_NACK ..  ]
+[; ;PIC_18F46K22.c: 873:     buffer = SSP2BUF;
+[e = _buffer _SSP2BUF ]
 "874
-[; ;PIC_18F46K22.c: 874:     return buffer;
+[; ;PIC_18F46K22.c: 874:     I2C_2_NACK();
+[e ( _I2C_2_NACK ..  ]
+"875
+[; ;PIC_18F46K22.c: 875:     return buffer;
 [e ) _buffer ]
 [e $UE 1129  ]
-"875
-[; ;PIC_18F46K22.c: 875: }
+"876
+[; ;PIC_18F46K22.c: 876: }
 [e :UE 1129 ]
 }

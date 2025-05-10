@@ -1,18 +1,18 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F6473 `(v ~T0 @X0 0 tf2`uc`uc ]
+[v F6495 `(v ~T0 @X0 0 tf2`uc`uc ]
 "27 ./register.h
 [; ;./register.h: 27:     typedef struct {
-[s S857 `ui 1 `ul 1 `ul 1 `ul 1 `*F6473 1 ]
+[s S857 `ui 1 `ul 1 `ul 1 `ul 1 `*F6495 1 ]
 [n S857 . flag val max min funct ]
-[v F6558 `(v ~T0 @X0 0 tf2`ui`uc ]
-[v F6561 `(uc ~T0 @X0 0 tf1`ui ]
-[v F6564 `(v ~T0 @X0 0 tf2`ui`uc ]
-[v F6568 `(uc ~T0 @X0 0 tf1`ui ]
-[v F6450 `(v ~T0 @X0 0 tf2`ui`uc ]
-[v F6453 `(uc ~T0 @X0 0 tf1`ui ]
+[v F6580 `(v ~T0 @X0 0 tf2`ui`uc ]
+[v F6583 `(uc ~T0 @X0 0 tf1`ui ]
+[v F6586 `(v ~T0 @X0 0 tf2`ui`uc ]
+[v F6590 `(uc ~T0 @X0 0 tf1`ui ]
+[v F6472 `(v ~T0 @X0 0 tf2`ui`uc ]
+[v F6475 `(uc ~T0 @X0 0 tf1`ui ]
 "10 ./eeprom.h
 [; ;./eeprom.h: 10:     void EEPROM_INIT(void (*eeprom_byte_write_t)(unsigned int adress, unsigned char data), unsigned char(*eeprom_byte_read_t)(unsigned int adress));
-[v _EEPROM_INIT `(v ~T0 @X0 0 ef2`*F6450`*F6453 ]
+[v _EEPROM_INIT `(v ~T0 @X0 0 ef2`*F6472`*F6475 ]
 "12
 [; ;./eeprom.h: 12:     unsigned long EEPROM_GET(unsigned char index);
 [v _EEPROM_GET `(ul ~T0 @X0 0 ef1`uc ]
@@ -25,16 +25,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "41 ./register.h
 [; ;./register.h: 41:     void REG_EEPROM_GET(unsigned char regId);
 [v _REG_EEPROM_GET `(v ~T0 @X0 0 ef1`uc ]
-[v F6589 `(v ~T0 @X0 0 tf2`uc`uc ]
-[v F6596 `(v ~T0 @X0 0 tf2`uc`uc ]
-[v F6601 `(v ~T0 @X0 0 tf2`uc`uc ]
-"45 C:\Program Files\Microchip\xc8\v2.20\pic\include\c99\string.h
-[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\c99\string.h: 45: char *strchr (const char *, int);
+[v F6611 `(v ~T0 @X0 0 tf2`uc`uc ]
+[v F6618 `(v ~T0 @X0 0 tf2`uc`uc ]
+[v F6623 `(v ~T0 @X0 0 tf2`uc`uc ]
+"45 C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\string.h
+[; ;C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\string.h: 45: char *strchr (const char *, int);
 [v _strchr `(*uc ~T0 @X0 0 ef2`*Cuc`i ]
-"39 C:\Program Files\Microchip\xc8\v2.20\pic\include\c99\stdlib.h
-[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\c99\stdlib.h: 39: int rand (void);
+"55 C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\stdlib.h
+[; ;C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\stdlib.h: 55: int rand (void);
 [v _rand `(i ~T0 @X0 0 ef ]
-"113 C:\Program Files\Microchip\xc8\v2.20\pic\include\c99\stdio.h
+"121 C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\stdio.h
+[; ;C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\stdio.h: 121: int sprintf(char *restrict, const char *restrict, ...);
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 "54 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k22.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k22.h: 54: __asm("ANSELA equ 0F38h");
@@ -812,15 +813,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _REGS `S857 ~T0 @X0 -> 10 `i e ]
 "12
 [; ;register.c: 12: void REGISTER_INIT(void (*eeprom_byte_write_t)(unsigned int adress, unsigned char data), unsigned char(*eeprom_byte_read_t)(unsigned int adress))
-[v _REGISTER_INIT `(v ~T0 @X0 1 ef2`*F6558`*F6561 ]
+[v _REGISTER_INIT `(v ~T0 @X0 1 ef2`*F6580`*F6583 ]
 "13
 [; ;register.c: 13: {
 {
 [e :U _REGISTER_INIT ]
 "12
 [; ;register.c: 12: void REGISTER_INIT(void (*eeprom_byte_write_t)(unsigned int adress, unsigned char data), unsigned char(*eeprom_byte_read_t)(unsigned int adress))
-[v _eeprom_byte_write_t `*F6564 ~T0 @X0 1 r1 ]
-[v _eeprom_byte_read_t `*F6568 ~T0 @X0 1 r2 ]
+[v _eeprom_byte_write_t `*F6586 ~T0 @X0 1 r1 ]
+[v _eeprom_byte_read_t `*F6590 ~T0 @X0 1 r2 ]
 "13
 [; ;register.c: 13: {
 [f ]
@@ -1003,7 +1004,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "51
 [; ;register.c: 51:     if (REGS[regId].funct != 0) REGS[regId].funct(regId, komut);
-[e $ ! != . *U + &U _REGS * -> _regId `ux -> -> # *U &U _REGS `ui `ux 4 -> -> 0 `i `*F6589 877  ]
+[e $ ! != . *U + &U _REGS * -> _regId `ux -> -> # *U &U _REGS `ui `ux 4 -> -> 0 `i `*F6611 877  ]
 [e ( *U . *U + &U _REGS * -> _regId `ux -> -> # *U &U _REGS `ui `ux 4 (2 , _regId _komut ]
 [e :U 877 ]
 "52
@@ -1012,7 +1013,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "54
 [; ;register.c: 54: void REG_CREATE(unsigned char regId, void (*funct_t)(unsigned char, unsigned char), unsigned int flag_t, unsigned long val_t, unsigned long max_t, unsigned long min_t)
-[v _REG_CREATE `(v ~T0 @X0 1 ef6`uc`*F6596`ui`ul`ul`ul ]
+[v _REG_CREATE `(v ~T0 @X0 1 ef6`uc`*F6618`ui`ul`ul`ul ]
 "55
 [; ;register.c: 55: {
 {
@@ -1020,7 +1021,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "54
 [; ;register.c: 54: void REG_CREATE(unsigned char regId, void (*funct_t)(unsigned char, unsigned char), unsigned int flag_t, unsigned long val_t, unsigned long max_t, unsigned long min_t)
 [v _regId `uc ~T0 @X0 1 r1 ]
-[v _funct_t `*F6601 ~T0 @X0 1 r2 ]
+[v _funct_t `*F6623 ~T0 @X0 1 r2 ]
 [v _flag_t `ui ~T0 @X0 1 r3 ]
 [v _val_t `ul ~T0 @X0 1 r4 ]
 [v _max_t `ul ~T0 @X0 1 r5 ]

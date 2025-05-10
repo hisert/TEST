@@ -39,6 +39,7 @@ extern "C" {
 #define CLR_BIT(reg,bit) (reg = reg & ~(1 << bit))
 #define TOGGLE_BIT(reg,bit) (reg = reg ^ (1 << bit))
 #define CHECK_BIT(reg,bit) ((reg & (1 << bit)) / (1 << bit))
+#define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
 
 #define _XTAL_FREQ 64000000
 #define F_CPU 8000000UL

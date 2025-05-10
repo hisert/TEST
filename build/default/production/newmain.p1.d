@@ -13,12 +13,10 @@ input_debounce.h  \
 buton_debounce.h  \
 thread.h  \
 soft_i2c.h  \
-task.h  \
 eeprom.h  \
 MENU.h  \
 ssd1306_oled.h  \
 ssh1106_oled.h  \
 AS5600_MAS.h  \
 ws2812b.h  \
-time_out.h  \
 register.h 

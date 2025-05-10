@@ -1,10 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F6468 `(v ~T0 @X0 0 tf2`ui`uc ]
-[v F6472 `(uc ~T0 @X0 0 tf1`ui ]
-[v F6475 `(v ~T0 @X0 0 tf2`ui`uc ]
-[v F6478 `(uc ~T0 @X0 0 tf1`ui ]
-[v F6481 `(v ~T0 @X0 0 tf2`ui`uc ]
-[v F6485 `(uc ~T0 @X0 0 tf1`ui ]
+[v F6490 `(v ~T0 @X0 0 tf2`ui`uc ]
+[v F6494 `(uc ~T0 @X0 0 tf1`ui ]
+[v F6497 `(v ~T0 @X0 0 tf2`ui`uc ]
+[v F6500 `(uc ~T0 @X0 0 tf1`ui ]
+[v F6503 `(v ~T0 @X0 0 tf2`ui`uc ]
+[v F6507 `(uc ~T0 @X0 0 tf1`ui ]
 "54 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k22.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k22.h: 54: __asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
@@ -766,21 +766,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 0FFFh ;# ">
 "3 eeprom.c
 [; ;eeprom.c: 3: void (*eeprom_byte_write)(unsigned int adress, unsigned char data);
-[v _eeprom_byte_write `*F6468 ~T0 @X0 1 e ]
+[v _eeprom_byte_write `*F6490 ~T0 @X0 1 e ]
 "4
 [; ;eeprom.c: 4: unsigned char(*eeprom_byte_read)(unsigned int adress);
-[v _eeprom_byte_read `*F6472 ~T0 @X0 1 e ]
+[v _eeprom_byte_read `*F6494 ~T0 @X0 1 e ]
 "6
 [; ;eeprom.c: 6: void EEPROM_INIT(void (*eeprom_byte_write_t)(unsigned int adress, unsigned char data), unsigned char(*eeprom_byte_read_t)(unsigned int adress))
-[v _EEPROM_INIT `(v ~T0 @X0 1 ef2`*F6475`*F6478 ]
+[v _EEPROM_INIT `(v ~T0 @X0 1 ef2`*F6497`*F6500 ]
 "7
 [; ;eeprom.c: 7: {
 {
 [e :U _EEPROM_INIT ]
 "6
 [; ;eeprom.c: 6: void EEPROM_INIT(void (*eeprom_byte_write_t)(unsigned int adress, unsigned char data), unsigned char(*eeprom_byte_read_t)(unsigned int adress))
-[v _eeprom_byte_write_t `*F6481 ~T0 @X0 1 r1 ]
-[v _eeprom_byte_read_t `*F6485 ~T0 @X0 1 r2 ]
+[v _eeprom_byte_write_t `*F6503 ~T0 @X0 1 r1 ]
+[v _eeprom_byte_read_t `*F6507 ~T0 @X0 1 r2 ]
 "7
 [; ;eeprom.c: 7: {
 [f ]

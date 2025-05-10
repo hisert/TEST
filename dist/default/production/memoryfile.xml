@@ -3,15 +3,15 @@
   <executable name="dist/default/production\TEST.production.hex">
     <memory name="program">
       <units>bytes</units>
-      <length>131072</length>
-      <used>4638</used>
-      <free>126434</free>
+      <length>65536</length>
+      <used>2748</used>
+      <free>62788</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
-      <length>3562</length>
-      <used>372</used>
-      <free>3190</free>
+      <length>3896</length>
+      <used>357</used>
+      <free>3539</free>
     </memory>
   </executable>
 </project>

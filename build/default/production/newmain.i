@@ -17,41 +17,42 @@ extern double __fpnormalize(double);
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\xc8debug.h" 1 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\xc8debug.h" 1 3
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\stdlib.h" 1 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 1 3
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\musl_xc8.h" 1 3
-# 4 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\stdlib.h" 2 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\musl_xc8.h" 1 3
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 2 3
 
 
 
 
 
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\features.h" 1 3
-# 10 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\stdlib.h" 2 3
-# 21 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\stdlib.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 18 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\features.h" 1 3
+# 11 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 2 3
+# 21 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long int wchar_t;
-# 122 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 3
+# 128 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef unsigned size_t;
-# 168 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 3
+# 174 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef __int24 int24_t;
-# 204 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 3
+# 210 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef __uint24 uint24_t;
-# 21 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\stdlib.h" 2 3
-
+# 22 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 2 3
 
 int atoi (const char *);
 long atol (const char *);
+
 long long atoll (const char *);
+
 double atof (const char *);
+
 
 float strtof (const char *restrict, char **restrict);
 double strtod (const char *restrict, char **restrict);
@@ -61,11 +62,22 @@ long double strtold (const char *restrict, char **restrict);
 
 long strtol (const char *restrict, char **restrict, int);
 unsigned long strtoul (const char *restrict, char **restrict, int);
+
 long long strtoll (const char *restrict, char **restrict, int);
 unsigned long long strtoull (const char *restrict, char **restrict, int);
 
+
+unsigned long __strtoxl(const char * s, char ** endptr, int base, char is_signed);
+
+unsigned long long __strtoxll(const char * s, char ** endptr, int base, char is_signed);
+# 55 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 3
 int rand (void);
 void srand (unsigned);
+
+void *malloc (size_t);
+void *calloc (size_t, size_t);
+void *realloc (void *, size_t);
+void free (void *);
 
           void abort (void);
 int atexit (void (*) (void));
@@ -74,32 +86,37 @@ int atexit (void (*) (void));
 
 void *bsearch (const void *, const void *, size_t, size_t, int (*)(const void *, const void *));
 
+
+
+
+
+
+
 __attribute__((nonreentrant)) void qsort (void *, size_t, size_t, int (*)(const void *, const void *));
 
 int abs (int);
 long labs (long);
+
 long long llabs (long long);
+
 
 typedef struct { int quot, rem; } div_t;
 typedef struct { long quot, rem; } ldiv_t;
+
 typedef struct { long long quot, rem; } lldiv_t;
+
 
 div_t div (int, int);
 ldiv_t ldiv (long, long);
+
 lldiv_t lldiv (long long, long long);
+
 
 typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-
-
-
-
-
-size_t __ctype_get_mb_cur_max(void);
-# 4 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\xc8debug.h" 2 3
-
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\xc8debug.h" 2 3
 
 
 
@@ -9554,13 +9571,12 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 1 "./config.h" 1
 # 2 "./common.h" 2
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\string.h" 1 3
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\string.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 411 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 1 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 421 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef struct __locale_struct * locale_t;
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\string.h" 2 3
-
+# 26 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 2 3
 
 void *memcpy (void *restrict, const void *restrict, size_t);
 void *memmove (void *, const void *, size_t);
@@ -9592,7 +9608,10 @@ char *strtok (char *restrict, const char *restrict);
 size_t strlen (const char *);
 
 char *strerror (int);
-# 65 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\string.h" 3
+
+
+
+
 char *strtok_r (char *restrict, const char *restrict, char **restrict);
 int strerror_r (int, char *, size_t);
 char *stpcpy(char *restrict, const char *restrict);
@@ -9611,28 +9630,24 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 3 "./common.h" 2
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\stdio.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 1 3
-
-
-
-
-
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 1 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 12 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef void * va_list[1];
 
 
 
 
 typedef void * __isoc_va_list[1];
-# 137 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long ssize_t;
-# 246 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 3
+# 143 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef __int24 ssize_t;
+# 255 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long long off_t;
-# 399 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 3
+# 409 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef struct _IO_FILE FILE;
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\stdio.h" 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 2 3
+# 52 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 3
 typedef union _G_fpos64_t {
  char __opaque[16];
  double __align;
@@ -9671,11 +9686,23 @@ size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
 int fgetc(FILE *);
 int getc(FILE *);
 int getchar(void);
+
+
+
+
+
 int ungetc(int, FILE *);
+int getch(void);
 
 int fputc(int, FILE *);
 int putc(int, FILE *);
 int putchar(int);
+
+
+
+
+
+void putch(char);
 
 char *fgets(char *restrict, int, FILE *restrict);
 
@@ -9685,28 +9712,34 @@ char *gets(char *);
 int fputs(const char *restrict, FILE *restrict);
 int puts(const char *);
 
-#pragma printf_check(printf) const
-#pragma printf_check(vprintf) const
-#pragma printf_check(sprintf) const
-#pragma printf_check(snprintf) const
-#pragma printf_check(vsprintf) const
-#pragma printf_check(vsnprintf) const
-
+__attribute__((__format__(__printf__, 1, 2)))
 int printf(const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
 int fprintf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
 int sprintf(char *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 3, 4)))
 int snprintf(char *restrict, size_t, const char *restrict, ...);
 
+__attribute__((__format__(__printf__, 1, 0)))
 int vprintf(const char *restrict, __isoc_va_list);
 int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 2, 0)))
 int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 3, 0)))
 int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
 
+__attribute__((__format__(__scanf__, 1, 2)))
 int scanf(const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
 int fscanf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
 int sscanf(const char *restrict, const char *restrict, ...);
+
+__attribute__((__format__(__scanf__, 1, 0)))
 int vscanf(const char *restrict, __isoc_va_list);
 int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__scanf__, 2, 0)))
 int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
 
 void perror(const char *);
@@ -9800,7 +9833,7 @@ char *tempnam(const char *, const char *);
 # 2 "./common.h" 2
 # 1 "./PIC_18F46K22.h" 2
 # 11 "./PIC_18F46K22.h"
-#pragma config FOSC = INTIO67
+#pragma config FOSC = HSMP
 #pragma config PLLCFG = ON
 #pragma config PRICLKEN = OFF
 #pragma config FCMEN = OFF
@@ -9974,21 +10007,37 @@ char *tempnam(const char *, const char *);
 # 1 "./config.h" 1
 # 2 "./common.h" 2
 # 1 "./thread.h" 2
-# 14 "./thread.h"
+# 12 "./thread.h"
+    typedef struct {
+        unsigned int time_out_time;
+    } TIME_OUT_t;
+
+    void TIME_OUT_COUNT_INTERRUPT();
+    unsigned char TIME_OUT_RESET(TIME_OUT_t *timeout);
+    unsigned char TIME_OUT_CHECK(TIME_OUT_t *timeout, unsigned int outTime);
+    unsigned char TIME_OUT_FUNCT(unsigned int ana_ms, unsigned char(*Funct_t)(void), unsigned int second_ms);
+
+
+
+
+
+
     typedef struct {
         unsigned char flag;
         unsigned int duty_time;
-        unsigned int duty_temp_time;
-        void (*Funct)(unsigned char threadIndex);
+        TIME_OUT_t temp;
+        void (*Funct)();
     } THREAD_t;
 
-    void THREAD_INTERRUPT();
-    void THREAD_MAIN();
-    void THREAD_START(unsigned char threadIndex);
-    void THREAD_STOP(unsigned char threadIndex);
-    void THREAD_DONE_CONTROL(unsigned char threadIndex);
-    void THREAD_TIME(unsigned char threadIndex, unsigned int threadTime);
-    void THREAD_CREATE(unsigned char threadIndex, unsigned char flag, unsigned char duty_time, void (*Funct_t)(unsigned char threadIndex));
+
+    void THREAD_INIT(THREAD_t *thread_t, unsigned char flag, unsigned int duty_time, void (*Funct_t)(void));
+    void THREAD_START(THREAD_t *thread_t);
+    void THREAD_STOP(THREAD_t *thread_t);
+    void THREAD_CHECK(THREAD_t *thread_t);
+    unsigned char THREAD_is_START(THREAD_t *thread_t);
+    void THREAD_CHECK(THREAD_t *thread_t);
+    void THREAD_TIME_RESET(THREAD_t *thread_t);
+    void THREAD_ARRAY_CHECK(THREAD_t *array, size_t length);
 
 
 
@@ -10044,26 +10093,6 @@ char *tempnam(const char *, const char *);
     unsigned char SOFT_I2C_READ();
 # 11 "newmain.c" 2
 
-# 1 "./task.h" 1
-# 1 "./common.h" 1
-
-# 1 "./config.h" 1
-# 2 "./common.h" 2
-# 1 "./task.h" 2
-# 13 "./task.h"
-    typedef struct {
-        unsigned char flag;
-        void (*Funct)(unsigned char taskIndex);
-    } TASK_t;
-
-
-    void TASK_MAIN();
-    void TASK_START(unsigned char taskIndex);
-    void TASK_STOP(unsigned char taskIndex);
-    unsigned char TASK_is_START(unsigned char taskIndex);
-    void TASK_CREATE(unsigned char taskIndex, unsigned char flag, void (*Funct)(unsigned char taskIndex));
-# 12 "newmain.c" 2
-
 # 1 "./eeprom.h" 1
 # 1 "./common.h" 1
 
@@ -10074,7 +10103,7 @@ char *tempnam(const char *, const char *);
     void EEPROM_INIT(void (*eeprom_byte_write_t)(unsigned int adress, unsigned char data), unsigned char(*eeprom_byte_read_t)(unsigned int adress));
     void EEPROM_SET(unsigned char index, unsigned long value);
     unsigned long EEPROM_GET(unsigned char index);
-# 13 "newmain.c" 2
+# 12 "newmain.c" 2
 
 # 1 "./MENU.h" 1
 # 1 "./common.h" 1
@@ -10108,7 +10137,7 @@ char *tempnam(const char *, const char *);
     void MENU_FUNCT_UPDATE();
     void(MENU_FUNCT_WRITE_DEC) (unsigned int x, unsigned int y, unsigned long data);
     void(MENU_FUNCT_WRITE_TEXT) (unsigned int x, unsigned int y, const char *text);
-# 14 "newmain.c" 2
+# 13 "newmain.c" 2
 
 # 1 "./ssd1306_oled.h" 1
 # 1 "./common.h" 1
@@ -10144,7 +10173,7 @@ char *tempnam(const char *, const char *);
     void SSH1306_OLED_Write_Dec(unsigned int x, unsigned int y, unsigned long data);
     void SSH1306_OLED_Init(void (*startFunc)(void), unsigned char(*writeFunc)(unsigned char), unsigned char(*stopFunc)(void));
     void SSH1306_OLED_Update(void);
-# 15 "newmain.c" 2
+# 14 "newmain.c" 2
 
 # 1 "./ssh1106_oled.h" 1
 # 1 "./common.h" 1
@@ -10176,7 +10205,7 @@ char *tempnam(const char *, const char *);
     void SSH1106_OLED_Write_Dec(unsigned int x, unsigned int y, unsigned long data);
     void SSH1106_OLED_INIT(void (*startFunc)(void), unsigned char(*writeFunc)(unsigned char), unsigned char(*stopFunc)(void));
     void SSH1106_OLED_Update(void);
-# 16 "newmain.c" 2
+# 15 "newmain.c" 2
 
 # 1 "./AS5600_MAS.h" 1
 # 1 "./common.h" 1
@@ -10214,7 +10243,7 @@ char *tempnam(const char *, const char *);
     unsigned int MOTOR_GET_MAS12_HAM();
     unsigned int MOTOR_GET_MAS12_MAPPED();
     void MOTOR_SET_MODE(unsigned char mode);
-# 17 "newmain.c" 2
+# 16 "newmain.c" 2
 
 # 1 "./ws2812b.h" 1
 # 1 "./common.h" 1
@@ -10234,25 +10263,7 @@ char *tempnam(const char *, const char *);
     void LED_SONSUZ_TUR(unsigned char index, unsigned int dataLen, unsigned char fast);
     void LED_DATA_METEOR_EKLE(unsigned int ledsayisi, unsigned long data);
     void LED_DATA_CLEAN(void);
-# 18 "newmain.c" 2
-
-# 1 "./time_out.h" 1
-# 1 "./common.h" 1
-
-# 1 "./config.h" 1
-# 2 "./common.h" 2
-# 1 "./time_out.h" 2
-# 10 "./time_out.h"
-    typedef struct {
-        unsigned int time_out_time;
-    } TIME_OUT_t;
-
-
-
-    void TIME_OUT_COUNT_INTERRUPT();
-    unsigned char TIME_OUT_CHECK(TIME_OUT_t *timeout, unsigned int outTime);
-    unsigned char TIME_OUT_FUNCT(unsigned int ana_ms, unsigned char(*Funct_t)(void), unsigned int second_ms);
-# 19 "newmain.c" 2
+# 17 "newmain.c" 2
 
 # 1 "./register.h" 1
 # 1 "./common.h" 1
@@ -10306,328 +10317,286 @@ char *tempnam(const char *, const char *);
     void REG_CONVERT_DWORD_TO_STR_HEX(unsigned long value, char* out_str, unsigned char length);
     void REG_PROCESS_GET_DATA_STR(unsigned char regId, char* out_str);
     unsigned long REG_PROCESS_GET_DATA_DEC(unsigned char regId, const char* str);
-# 20 "newmain.c" 2
+# 18 "newmain.c" 2
 
 
 
+
+typedef enum {
+    THREAD_LED,
+    THREAD_UART_1_RX,
+    THREAD_UART_2_RX,
+    THREAD_DONE,
+} THREAD_LIST;
+
+THREAD_t THREADS[THREAD_DONE];
+
+char UART_2_MSG[20];
 char UART_1_MSG[20];
-char UART_0_MSG[20];
 
 
 
 void SYSTEM_CONTROL_ALL()
-  {
-  THREAD_MAIN();
-  TASK_MAIN();
-  }
-
-unsigned char WAIT_WHILE(unsigned int ms)
-  {
-  static TIME_OUT_t time_out;
-  SYSTEM_CONTROL_ALL();
-  return TIME_OUT_CHECK(&time_out, ms);
-  }
+{
+    THREAD_ARRAY_CHECK(THREADS, (sizeof(THREADS) / sizeof((THREADS)[0])));
+}
 
 void WAIT_INTERRUPT(unsigned int ms)
-  {
-  WAIT_WHILE(0);
-  while (WAIT_WHILE(ms) == 0);
-  }
+{
+    static TIME_OUT_t time_out;
+    TIME_OUT_RESET(&time_out);
+    while (1) {
+        SYSTEM_CONTROL_ALL();
+        if (TIME_OUT_CHECK(&time_out, ms)) break;
+    }
+}
 
 
 
 
-typedef enum
-  {
-  MAGIC_BYTES,
-  SETTINGS_DONE,
-  } SETTINGS;
+typedef enum {
+    MAGIC_BYTES,
+    SETTINGS_DONE,
+} SETTINGS;
 
 unsigned int SETTING_VALUES[SETTINGS_DONE];
 
 void CONFIG_SET(unsigned char index, unsigned int data)
-  {
-  SETTING_VALUES[index] = data;
-  }
+{
+    SETTING_VALUES[index] = data;
+}
 
 unsigned int CONFIG_GET(unsigned char index)
-  {
-  return SETTING_VALUES[index];
-  }
+{
+    return SETTING_VALUES[index];
+}
 
 void EEPROM_START()
-  {
-  EEPROM_INIT(EEPROM_B_WRITE, EEPROM_B_READ);
-  if (EEPROM_GET(MAGIC_BYTES != 0xAABB))
-    {
-    for (unsigned char x = 0; x < SETTINGS_DONE; x++) EEPROM_SET(x, 0);
-    EEPROM_SET(MAGIC_BYTES, 0xAABB);
+{
+    EEPROM_INIT(EEPROM_B_WRITE, EEPROM_B_READ);
+    if (EEPROM_GET(MAGIC_BYTES != 0xAABB)) {
+        for (unsigned char x = 0; x < SETTINGS_DONE; x++) EEPROM_SET(x, 0);
+        EEPROM_SET(MAGIC_BYTES, 0xAABB);
     }
-  for (unsigned char x = 0; x < SETTINGS_DONE; x++) SETTING_VALUES[x] = EEPROM_GET(x);
-  }
+    for (unsigned char x = 0; x < SETTINGS_DONE; x++) SETTING_VALUES[x] = EEPROM_GET(x);
+}
 
 
 
 
-enum REG_NAMES_t
-  {
-  REGx_ADDR = 0,
-  REGx_RAND_CODE,
-  REGx_SERI_NO,
-  REGx_VERSION,
-  REGx_SLAVE_ADRESS,
-  REGx_RAND_CODE_2,
-  REGx_NAMES_NUM,
-  };
+enum REG_NAMES_t {
+    REGx_ADDR = 0,
+    REGx_RAND_CODE,
+    REGx_SERI_NO,
+    REGx_VERSION,
+    REGx_SLAVE_ADRESS,
+    REGx_RAND_CODE_2,
+    REGx_NAMES_NUM,
+};
 
 void REG_PROCESS(char *msg)
-  {
+{
 
-  static unsigned char UNLOCK = 0;
-  static unsigned int SECURE_CODE = 1111;
-  unsigned long DATA = 0;
-  unsigned int ADRESS = 0;
-  unsigned char SECOND_ADRESS = 0;
-  unsigned char KOMUT = 0;
+    static unsigned char UNLOCK = 0;
+    static unsigned int SECURE_CODE = 1111;
+    unsigned long DATA = 0;
+    unsigned int ADRESS = 0;
+    unsigned char SECOND_ADRESS = 0;
+    unsigned char KOMUT = 0;
 
-  unsigned int MY_ADRESS = REG_GET(REGx_ADDR);
-  unsigned char MY_SECOND_ADRESS = REG_GET(REGx_SLAVE_ADRESS);
-  char TX[20];
-  char DATA_S[10];
-  char SYMBOL_S[3];
-  char ADRESS_S[6];
-  char SECOND_ADRESS_S[3];
-  char KOMUT_S[3];
-  char READ_WRITE[2];
-  char temp[10];
+    unsigned int MY_ADRESS = REG_GET(REGx_ADDR);
+    unsigned char MY_SECOND_ADRESS = REG_GET(REGx_SLAVE_ADRESS);
+    char TX[20];
+    char DATA_S[10];
+    char SYMBOL_S[3];
+    char ADRESS_S[6];
+    char SECOND_ADRESS_S[3];
+    char KOMUT_S[3];
+    char READ_WRITE[2];
+    char temp[10];
 
-  REG_PARSE_INDEX(msg, SYMBOL_S, 1, 1);
-  REG_PARSE_INDEX(msg, ADRESS_S, 2, 5);
-  REG_PARSE_INDEX(msg, SECOND_ADRESS_S, 6, 7);
-  REG_PARSE_INDEX(msg, KOMUT_S, 8, 9);
-  REG_PARSE_INDEX(msg, READ_WRITE, 10, 10);
-  REG_PARSE_DATA(msg, DATA_S);
+    REG_PARSE_INDEX(msg, SYMBOL_S, 1, 1);
+    REG_PARSE_INDEX(msg, ADRESS_S, 2, 5);
+    REG_PARSE_INDEX(msg, SECOND_ADRESS_S, 6, 7);
+    REG_PARSE_INDEX(msg, KOMUT_S, 8, 9);
+    REG_PARSE_INDEX(msg, READ_WRITE, 10, 10);
+    REG_PARSE_DATA(msg, DATA_S);
 
-  ADRESS = (unsigned int) REG_CONVERT_STR_HEX_TO_DWORD(ADRESS_S);
-  SECOND_ADRESS = (unsigned char) REG_CONVERT_STR_HEX_TO_DWORD(SECOND_ADRESS_S);
-  KOMUT = (unsigned char) REG_CONVERT_STR_HEX_TO_DWORD(KOMUT_S);
+    ADRESS = (unsigned int) REG_CONVERT_STR_HEX_TO_DWORD(ADRESS_S);
+    SECOND_ADRESS = (unsigned char) REG_CONVERT_STR_HEX_TO_DWORD(SECOND_ADRESS_S);
+    KOMUT = (unsigned char) REG_CONVERT_STR_HEX_TO_DWORD(KOMUT_S);
 
-  DATA = REG_PROCESS_GET_DATA_DEC(KOMUT, DATA_S);
+    DATA = REG_PROCESS_GET_DATA_DEC(KOMUT, DATA_S);
 
-  if (REG_PARSE_COMPARE(SYMBOL_S, "Q")) return;
-  if (ADRESS == 0)
-    {
-    if (KOMUT == REGx_RAND_CODE) goto passed;
-    if (UNLOCK) goto passed;
-    return;
+    if (REG_PARSE_COMPARE(SYMBOL_S, "Q")) return;
+    if (ADRESS == 0) {
+        if (KOMUT == REGx_RAND_CODE) goto passed;
+        if (UNLOCK) goto passed;
+        return;
     }
-  if ((KOMUT == REGx_ADDR) || (KOMUT == REGx_SLAVE_ADRESS)) if (UNLOCK) goto passed;
-  if ((ADRESS == MY_ADRESS) && (SECOND_ADRESS == MY_SECOND_ADRESS)) goto passed;
-  return;
+    if ((KOMUT == REGx_ADDR) || (KOMUT == REGx_SLAVE_ADRESS)) if (UNLOCK) goto passed;
+    if ((ADRESS == MY_ADRESS) && (SECOND_ADRESS == MY_SECOND_ADRESS)) goto passed;
+    return;
 
 passed:
-  for (unsigned char x = 0; x < 20; x++) TX[x] = 0x00;
-  if (REG_PARSE_COMPARE(READ_WRITE, ":") == 0)
-    {
-    if ((REG_GET_FLAG(KOMUT) & 0x0800) & (UNLOCK == 0)) return;
-    if (REG_GET_FLAG(KOMUT) & 0x0200)
-      {
-      if (KOMUT == REGx_RAND_CODE)
-        {
-        if (DATA == 0x0000)
-          {
-          UNLOCK = 0;
-          REG_SET_UNLOCK_START();
-          REG_SET(KOMUT, 0);
+    for (unsigned char x = 0; x < 20; x++) TX[x] = 0x00;
+    if (REG_PARSE_COMPARE(READ_WRITE, ":") == 0) {
+        if ((REG_GET_FLAG(KOMUT) & 0x0800) & (UNLOCK == 0)) return;
+        if (REG_GET_FLAG(KOMUT) & 0x0200) {
+            if (KOMUT == REGx_RAND_CODE) {
+                if (DATA == 0x0000) {
+                    UNLOCK = 0;
+                    REG_SET_UNLOCK_START();
+                    REG_SET(KOMUT, 0);
 
-          }
-        else if ((DATA ^SECURE_CODE) == REG_GET(KOMUT))
-          {
-          UNLOCK = 0xFF;
-          REG_SET(KOMUT, DATA);
-          REG_SET_UNLOCK_STOP();
-          }
-        else
-          {
-          UNLOCK = 0;
-          REG_SET(KOMUT, 0);
-          REG_SET_UNLOCK_STOP();
-          }
-        }
-      else REG_SET(KOMUT, DATA);
-      if (REG_GET_FLAG(KOMUT) & 0x1000) REG_FUNC(KOMUT, ':');
-      }
-    else return;
+                } else if ((DATA ^SECURE_CODE) == REG_GET(KOMUT)) {
+                    UNLOCK = 0xFF;
+                    REG_SET(KOMUT, DATA);
+                    REG_SET_UNLOCK_STOP();
+                } else {
+                    UNLOCK = 0;
+                    REG_SET(KOMUT, 0);
+                    REG_SET_UNLOCK_STOP();
+                }
+            } else REG_SET(KOMUT, DATA);
+            if (REG_GET_FLAG(KOMUT) & 0x1000) REG_FUNC(KOMUT, ':');
+        } else return;
     }
-  if (REG_PARSE_COMPARE(READ_WRITE, "?") == 0)
-    {
-    if (REG_GET_FLAG(KOMUT) & 0x0400)
-      {
-      if (KOMUT == REGx_RAND_CODE)
-        {
-        if (REG_GET_UNLOCK())
-          {
-          REG_CHANGE_RANDCODE();
-          REG_SET(KOMUT, REG_GET_RANDCODE());
-          REG_SET_UNLOCK_STOP();
-          }
-        else return;
-        }
-      if (REG_GET_FLAG(KOMUT) & 0x1000) REG_FUNC(KOMUT, '?');
-      }
-    else return;
+    if (REG_PARSE_COMPARE(READ_WRITE, "?") == 0) {
+        if (REG_GET_FLAG(KOMUT) & 0x0400) {
+            if (KOMUT == REGx_RAND_CODE) {
+                if (REG_GET_UNLOCK()) {
+                    REG_CHANGE_RANDCODE();
+                    REG_SET(KOMUT, REG_GET_RANDCODE());
+                    REG_SET_UNLOCK_STOP();
+                } else return;
+            }
+            if (REG_GET_FLAG(KOMUT) & 0x1000) REG_FUNC(KOMUT, '?');
+        } else return;
     }
-  if (REG_GET_FLAG(KOMUT) & 0x0800) REG_EEPROM_SET(KOMUT);
+    if (REG_GET_FLAG(KOMUT) & 0x0800) REG_EEPROM_SET(KOMUT);
 
-  REG_PROCESS_GET_DATA_STR(KOMUT, temp);
-  REG_CONVERT_DWORD_TO_STR_HEX(REG_GET(REGx_ADDR), ADRESS_S, 4);
-  REG_CONVERT_DWORD_TO_STR_HEX(REG_GET(REGx_SLAVE_ADRESS), SECOND_ADRESS_S, 2);
-  if (REG_GET_FLAG(KOMUT) & 0x4000) REG_TX_ADD(TX, "MAIN1");
-  REG_TX_ADD(TX, "<");
+    REG_PROCESS_GET_DATA_STR(KOMUT, temp);
+    REG_CONVERT_DWORD_TO_STR_HEX(REG_GET(REGx_ADDR), ADRESS_S, 4);
+    REG_CONVERT_DWORD_TO_STR_HEX(REG_GET(REGx_SLAVE_ADRESS), SECOND_ADRESS_S, 2);
+    if (REG_GET_FLAG(KOMUT) & 0x4000) REG_TX_ADD(TX, "MAIN1");
+    REG_TX_ADD(TX, "<");
 
-  REG_TX_ADD(TX, SYMBOL_S);
-  REG_TX_ADD(TX, "R");
-  REG_TX_ADD(TX, ADRESS_S);
-  REG_TX_ADD(TX, SECOND_ADRESS_S);
-  REG_TX_ADD(TX, KOMUT_S);
-  REG_TX_ADD(TX, ":");
-  REG_TX_ADD(TX, temp);
-  REG_TX_ADD(TX, ">");
+    REG_TX_ADD(TX, SYMBOL_S);
+    REG_TX_ADD(TX, "R");
+    REG_TX_ADD(TX, ADRESS_S);
+    REG_TX_ADD(TX, SECOND_ADRESS_S);
+    REG_TX_ADD(TX, KOMUT_S);
+    REG_TX_ADD(TX, ":");
+    REG_TX_ADD(TX, temp);
+    REG_TX_ADD(TX, ">");
 
-  if (REG_GET_FLAG(KOMUT) & 0x2000);
-  }
+    if (REG_GET_FLAG(KOMUT) & 0x2000);
+}
 
 void INIT_REG()
-  {
-  REG_CREATE(REGx_ADDR, 0, 0x2000 | 0x0001 | 0x0008 | 0x0200 | 0x0400 | 0x0800, 0, 0xFFFF, 0);
-  REG_CREATE(REGx_RAND_CODE, 0, 0x2000 | 0x0001 | 0x0008 | 0x0200 | 0x0400, 0, 0xFFFF, 0);
-  REG_CREATE(REGx_SERI_NO, 0, 0x2000 | 0x0001 | 0x0008 | 0x0200 | 0x0400 | 0x0800, 0, 0xFFFF, 0);
-  REG_CREATE(REGx_VERSION, 0, 0x2000 | 0x0001 | 0x0008 | 0x0400, 0x10, 0xFFFF, 0);
-  REG_CREATE(REGx_SLAVE_ADRESS, 0, 0x2000 | 0x0001 | 0x0004 | 0x0200 | 0x0400 | 0x0800, 0, 0xFF, 0);
-  REGISTER_INIT(EEPROM_B_WRITE, EEPROM_B_READ);
-  }
-# 232 "newmain.c"
-typedef enum
-  {
-  TASK_UART_0_RX,
-  TASK_UART_1_RX,
-  TASK_DONE,
-  } TASK_tt;
+{
+    REG_CREATE(REGx_ADDR, 0, 0x2000 | 0x0001 | 0x0008 | 0x0200 | 0x0400 | 0x0800, 0, 0xFFFF, 0);
+    REG_CREATE(REGx_RAND_CODE, 0, 0x2000 | 0x0001 | 0x0008 | 0x0200 | 0x0400, 0, 0xFFFF, 0);
+    REG_CREATE(REGx_SERI_NO, 0, 0x2000 | 0x0001 | 0x0008 | 0x0200 | 0x0400 | 0x0800, 0, 0xFFFF, 0);
+    REG_CREATE(REGx_VERSION, 0, 0x2000 | 0x0001 | 0x0008 | 0x0400, 0x10, 0xFFFF, 0);
+    REG_CREATE(REGx_SLAVE_ADRESS, 0, 0x2000 | 0x0001 | 0x0004 | 0x0200 | 0x0400 | 0x0800, 0, 0xFF, 0);
+    REGISTER_INIT(EEPROM_B_WRITE, EEPROM_B_READ);
+}
+# 216 "newmain.c"
+void THREAD_UART_1_RX_FUNCT()
+{
+    UART_1_STRING(UART_1_MSG);
+}
 
-void TASK_UART_1_RX_FUNCT(unsigned char taskIndex)
-  {
-  TASK_STOP(taskIndex);
-  }
+void THREAD_UART_2_RX_FUNCT()
+{
+    UART_2_STRING(UART_2_MSG);
+}
 
-void TASK_UART_0_RX_FUNCT(unsigned char taskIndex)
-  {
-  TASK_STOP(taskIndex);
-  }
+void THREAD_LED_FUNCT()
+{
+    static THREAD_DELAY timer;
+    THREAD_TIME_START(&timer);
+    if (THREAD_TIME_WAIT(&timer, 10)) if (THREAD_GET_STATE() == 0x01) PIN_SET_LAT_TOGGLE('B', 0);
+    if (THREAD_TIME_WAIT(&timer, 90)) if (THREAD_GET_STATE() == 0x01) PIN_SET_LAT_TOGGLE('B', 0);
+}
 
-
-
-
-typedef enum
-  {
-  THREAD_LED_CANLI,
-  THREAD_DEBUG,
-  THREAD_MOTOR,
-  THREAD_INPUT,
-  THREAD_DONE,
-  } THREADS_tt;
-
-void LED_THREAD(unsigned char threadIndex)
-  {
-  static THREAD_DELAY timer;
-  THREAD_TIME_START(&timer);
-  if (THREAD_TIME_WAIT(&timer, 95)) if (THREAD_GET_STATE() == 0x01) PIN_SET_LAT_TOGGLE('B', 6);
-  if (THREAD_TIME_WAIT(&timer, 5)) if (THREAD_GET_STATE() == 0x01) PIN_SET_LAT_TOGGLE('B', 6);
-  if (THREAD_TIME_DONE(&timer)) THREAD_DONE_CONTROL(threadIndex);
-
-  }
 
 
 
 
 void UART_5_INTERRUPT_FUNCT(unsigned char data)
-  {
-  }
+{
+}
 
 void UART_4_INTERRUPT_FUNCT(unsigned char data)
-  {
-  }
+{
+}
 
 void UART_3_INTERRUPT_FUNCT(unsigned char data)
-  {
-  }
+{
+}
 
 void UART_2_INTERRUPT_FUNCT(unsigned char data)
-  {
-  static unsigned char counter = 0;
-  unsigned char x = data;
-  if (x == '<') counter = 0;
-  else if (x == '>')
-    {
-    UART_1_MSG[counter] = 0;
-    TASK_START(TASK_UART_1_RX);
+{
+    static unsigned char counter = 0;
+    unsigned char x = data;
+    if (x == '<') counter = 0;
+    else if (x == '>') {
+        UART_2_MSG[counter] = 0;
+        THREAD_START(&THREADS[THREAD_UART_2_RX]);
     }
-  if (counter < 20) UART_1_MSG[counter++] = x;
-  }
+    if (counter < 20) UART_2_MSG[counter++] = x;
+}
 
 void UART_1_INTERRUPT_FUNCT(unsigned char data)
-  {
-  static unsigned char counter = 0;
-  unsigned char x = data;
-  if (x == '(') counter = 0;
-  else if (x == ')')
-    {
-    UART_0_MSG[counter] = 0;
-    TASK_START(TASK_UART_0_RX);
-    }
-  else if (counter < 20) UART_0_MSG[counter++] = x;
-  }
+{
+    static unsigned char counter = 0;
+    unsigned char x = data;
+    if (x == '(') counter = 0;
+    else if (x == ')') {
+        UART_1_MSG[counter] = 0;
+        THREAD_START(&THREADS[THREAD_UART_1_RX]);
+    } else if (counter < 20) UART_1_MSG[counter++] = x;
+}
 
 
 int main(void)
-  {
-  MCU_INIT(1, 0x72);
-  PIN_SET_IO('D', 'O', 'B', 6, 'H ');
-  TIMER_1_INIT(1);
-  THREAD_CREATE(THREAD_LED_CANLI, 0x01 | 0x08, 10, LED_THREAD);
-
-  UART_1_INIT(9600);
-
+{
+    MCU_INIT(0, 0x72);
+    PIN_SET_IO('D', 'O', 'B', 0, 'H ');
+    PIN_SET_IO('D', 'O', 'B', 1, 'H ');
+    TIMER_1_INIT(1);
+    UART_1_INIT(1000000);
 
 
-  INTERRUPT_ALL(1);
-  while (1) SYSTEM_CONTROL_ALL();
 
-  }
-# 528 "newmain.c"
+    INTERRUPT_ALL(1);
+    THREAD_INIT(&THREADS[THREAD_LED], 0x01 | 0x08, 10, THREAD_LED_FUNCT);
+    THREAD_INIT(&THREADS[THREAD_UART_1_RX], 0, 0, THREAD_UART_1_RX_FUNCT);
+    THREAD_INIT(&THREADS[THREAD_UART_2_RX], 0, 0, THREAD_UART_2_RX_FUNCT);
+    while (1) SYSTEM_CONTROL_ALL();
+
+}
+# 469 "newmain.c"
 void __attribute__((picinterrupt(("high_priority")))) _ISR(void)
-  {
-  if (PIR1bits.TMR1IF)
+{
+    if (PIR1bits.TMR1IF)
     {
-    TIMER_1_INTERRUPT_FUNCT();
-    THREAD_INTERRUPT();
-    TIME_OUT_COUNT_INTERRUPT();
-    }
-  else if (PIR2bits.TMR3IF)
+        TIMER_1_INTERRUPT_FUNCT();
+        TIME_OUT_COUNT_INTERRUPT();
+    } else if (PIR2bits.TMR3IF)
     {
-    TIMER_3_INTERRUPT_FUNCT();
-    }
-  else if (PIR5bits.TMR5IF)
+        TIMER_3_INTERRUPT_FUNCT();
+    } else if (PIR5bits.TMR5IF)
     {
-    TIMER_5_INTERRUPT_FUNCT();
+        TIMER_5_INTERRUPT_FUNCT();
+    } else if (PIR1bits.RC1IF) {
+        PIR1bits.RC1IF = 0;
+        UART_1_INTERRUPT_FUNCT(RCREG1);
+    } else if (PIR3bits.RC2IF) {
+        PIR3bits.RC2IF = 0;
+        UART_2_INTERRUPT_FUNCT(RCREG2);
     }
-  else if (PIR1bits.RC1IF)
-    {
-    PIR1bits.RC1IF = 0;
-    UART_1_INTERRUPT_FUNCT(RCREG1);
-    }
-  else if (PIR3bits.RC2IF)
-    {
-    PIR3bits.RC2IF = 0;
-    UART_2_INTERRUPT_FUNCT(RCREG2);
-    }
-  }
+}

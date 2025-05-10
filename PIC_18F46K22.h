@@ -8,7 +8,7 @@ extern "C" {
 
     // <editor-fold defaultstate="collapsed" desc="CONFIG           ">
 
-#pragma config FOSC = INTIO67      //INTIO7//HSMP   // Oscillator Selection bits (Internal oscillator block)
+#pragma config FOSC = HSMP      //INTIO7//HSMP   // Oscillator Selection bits (Internal oscillator block)
 #pragma config PLLCFG = ON      // 4X PLL Enable (Oscillator used directly)
 #pragma config PRICLKEN = OFF    // Primary clock enable bit (Primary clock is always enabled)
 #pragma config FCMEN = OFF      // Fail-Safe Clock Monitor Enable bit (Fail-Safe Clock Monitor disabled)

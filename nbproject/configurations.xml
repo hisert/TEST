@@ -26,8 +26,6 @@
       <itemPath>soft_i2c.h</itemPath>
       <itemPath>PIC_18F87K22.c</itemPath>
       <itemPath>PIC_18F87K22.h</itemPath>
-      <itemPath>task.c</itemPath>
-      <itemPath>task.h</itemPath>
       <itemPath>MENU.c</itemPath>
       <itemPath>MENU.h</itemPath>
       <itemPath>ATMEGA_64.c</itemPath>
@@ -47,8 +45,6 @@
       <itemPath>ATMEGA_88.h</itemPath>
       <itemPath>ATMEGA_8.c</itemPath>
       <itemPath>ATMEGA_8.h</itemPath>
-      <itemPath>time_out.c</itemPath>
-      <itemPath>time_out.h</itemPath>
       <itemPath>register.h</itemPath>
       <itemPath>register.c</itemPath>
       <itemPath>PIC_18F67K40.c</itemPath>
@@ -72,7 +68,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>pk4hybrid</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>2.20</languageToolchainVersion>
+        <languageToolchainVersion>2.46</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
@@ -297,6 +293,8 @@
         <property key="memories.programmemory.ranges" value="0-1ffff"/>
         <property key="memories.rww" value="true"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Users/SERT/MPLABXProjects/TEST/debug/default/default_ptg"/>
         <property key="programmerToGoImageName" value="default_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>

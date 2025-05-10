@@ -3,13 +3,13 @@
 [d edition pro ]
 [d chip 18F46K22 ]
 [d frameptr 4065 ]
-"71 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\newmain.c
-[e E7166 . `uc
+"74 C:\Users\SERT\MPLABXProjects\TEST\newmain.c
+[e E7175 . `uc
 MAGIC_BYTES 0
 SETTINGS_DONE 1
 ]
-"103
-[e E7184 REG_NAMES_t `uc
+"104
+[e E7193 REG_NAMES_t `uc
 REGx_ADDR 0
 REGx_RAND_CODE 1
 REGx_SERI_NO 2
@@ -18,59 +18,52 @@ REGx_SLAVE_ADRESS 4
 REGx_RAND_CODE_2 5
 REGx_NAMES_NUM 6
 ]
-"294
-[e E7232 . `uc
-TASK_UART_0_RX 0
-TASK_UART_1_RX 1
-TASK_DONE 2
+"257
+[e E7162 . `uc
+THREAD_LED 0
+THREAD_UART_1_RX 1
+THREAD_UART_2_RX 2
+THREAD_DONE 3
 ]
-"318
-[e E7241 . `uc
-THREAD_LED_CANLI 0
-THREAD_DEBUG 1
-THREAD_MOTOR 2
-THREAD_INPUT 3
-THREAD_DONE 4
-]
-"7 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\__lldiv.c
+"7 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
-"4 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\fleq.c
+"4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
-"62 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\float.c
+"62 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\float.c
 [v ___ftpack __ftpack `(f  1 e 4 0 ]
-"43 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\fltol.c
+"43 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fltol.c
 [v ___fltol __fltol `(l  1 e 4 0 ]
-"86 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\ftadd.c
+"86 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 4 0 ]
-"54 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\ftdiv.c
+"54 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\ftdiv.c
 [v ___ftdiv __ftdiv `(f  1 e 4 0 ]
-"62 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\ftmul.c
+"62 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\ftmul.c
 [v ___ftmul __ftmul `(f  1 e 4 0 ]
-"19 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\ftsub.c
+"19 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 4 0 ]
-"7 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\llmod.c
+"7 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\llmod.c
 [v ___llmod __llmod `(ul  1 e 4 0 ]
-"9 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\nf_sprintf.c
+"9 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
-"15 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\rand.c
+"11 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\rand.c
 [v _rand rand `(i  1 e 2 0 ]
-"10 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\sprcadd.c
+"10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "245
 [v ___flsub __flsub `(d  1 e 4 0 ]
-"11 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\sprcdiv.c
+"11 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcdiv.c
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
-"8 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\sprcmul.c
+"8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
-"3 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\strchr.c
-[v _strchr strchr `(*.2uc  1 e 2 0 ]
-"15 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\Umul32.c
+"3 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\strchr.c
+[v _strchr strchr `(*.39uc  1 e 2 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"91 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\Umul64.c
+"91 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"10 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\xxtofl.c
+"10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-"6 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\eeprom.c
+"6 C:\Users\SERT\MPLABXProjects\TEST\eeprom.c
 [v _EEPROM_INIT EEPROM_INIT `(v  1 e 1 0 ]
 "12
 [v _EEPROM_WRITE_DWORD EEPROM_WRITE_DWORD `(v  1 e 1 0 ]
@@ -80,22 +73,23 @@ THREAD_DONE 4
 [v _EEPROM_SET EEPROM_SET `(v  1 e 1 0 ]
 "35
 [v _EEPROM_GET EEPROM_GET `(ul  1 e 4 0 ]
-"28 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\newmain.c
+"36 C:\Users\SERT\MPLABXProjects\TEST\newmain.c
 [v _SYSTEM_CONTROL_ALL SYSTEM_CONTROL_ALL `(v  1 e 1 0 ]
-"34
-[v _WAIT_WHILE WAIT_WHILE `(uc  1 e 1 0 ]
-"261
-[v _LED_THREAD LED_THREAD `(v  1 e 1 0 ]
-[v i2_LED_THREAD LED_THREAD `(v  1 e 1 0 ]
-"286
+"216
+[v _THREAD_UART_1_RX_FUNCT THREAD_UART_1_RX_FUNCT `(v  1 e 1 0 ]
+"221
+[v _THREAD_UART_2_RX_FUNCT THREAD_UART_2_RX_FUNCT `(v  1 e 1 0 ]
+"226
+[v _THREAD_LED_FUNCT THREAD_LED_FUNCT `(v  1 e 1 0 ]
+"250
 [v _UART_2_INTERRUPT_FUNCT UART_2_INTERRUPT_FUNCT `(v  1 e 1 0 ]
-"299
+"262
 [v _UART_1_INTERRUPT_FUNCT UART_1_INTERRUPT_FUNCT `(v  1 e 1 0 ]
-"313
+"274
 [v _main main `(i  1 e 2 0 ]
-"528
+"469
 [v __ISR _ISR `IIH(v  1 e 1 0 ]
-"15 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\PIC_18F46K22.c
+"15 C:\Users\SERT\MPLABXProjects\TEST\PIC_18F46K22.c
 [v _PWM_DUTY_CALCULATER PWM_DUTY_CALCULATER `(ui  1 e 2 0 ]
 "24
 [v _PWM_TIMER_CHOOSE PWM_TIMER_CHOOSE `(v  1 e 1 0 ]
@@ -113,10 +107,14 @@ THREAD_DONE 4
 [v _UART_1_INIT UART_1_INIT `(v  1 e 1 0 ]
 "322
 [v _UART_1_BYTE UART_1_BYTE `(v  1 e 1 0 ]
+"328
+[v _UART_1_STRING UART_1_STRING `(v  1 e 1 0 ]
 "359
 [v _UART_2_INTERRUPT UART_2_INTERRUPT `(v  1 e 1 0 ]
 "377
 [v _UART_2_BYTE UART_2_BYTE `(v  1 e 1 0 ]
+"383
+[v _UART_2_STRING UART_2_STRING `(v  1 e 1 0 ]
 "417
 [v _TIMER_1_INTERRUPT_FUNCT TIMER_1_INTERRUPT_FUNCT `(v  1 e 1 0 ]
 "423
@@ -143,30 +141,29 @@ THREAD_DONE 4
 [v _PIN_SET_TRIS PIN_SET_TRIS `(v  1 e 1 0 ]
 "587
 [v _PIN_SET_LAT_TOGGLE PIN_SET_LAT_TOGGLE `(v  1 e 1 0 ]
-[v i2_PIN_SET_LAT_TOGGLE PIN_SET_LAT_TOGGLE `(v  1 e 1 0 ]
 "595
 [v _PIN_SET_ANSEL PIN_SET_ANSEL `(v  1 e 1 0 ]
 "605
 [v _PIN_SET_IO PIN_SET_IO `(v  1 e 1 0 ]
 "644
 [v _MCU_INIT MCU_INIT `(v  1 e 1 0 ]
-"667
+"668
 [v _INTERRUPT_ALL INTERRUPT_ALL `(v  1 e 1 0 ]
-"677
+"678
 [v _EEPROM_B_WRITE EEPROM_B_WRITE `(v  1 e 1 0 ]
-"701
+"702
 [v _EEPROM_B_READ EEPROM_B_READ `(uc  1 e 1 0 ]
-"716
+"717
 [v _I2C_1_ACK I2C_1_ACK `(v  1 e 1 0 ]
-"730
+"731
 [v _I2C_1_READY I2C_1_READY `(v  1 e 1 0 ]
-"799
+"800
 [v _I2C_2_ACK I2C_2_ACK `(v  1 e 1 0 ]
-"806
+"807
 [v _I2C_2_NACK I2C_2_NACK `(v  1 e 1 0 ]
-"813
+"814
 [v _I2C_2_READY I2C_2_READY `(v  1 e 1 0 ]
-"12 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\register.c
+"12 C:\Users\SERT\MPLABXProjects\TEST\register.c
 [v _REGISTER_INIT REGISTER_INIT `(v  1 e 1 0 ]
 "22
 [v _REG_GET REG_GET `(ul  1 e 4 0 ]
@@ -212,72 +209,61 @@ THREAD_DONE 4
 [v _REG_PROCESS_GET_DATA_STR REG_PROCESS_GET_DATA_STR `(v  1 e 1 0 ]
 "212
 [v _REG_PROCESS_GET_DATA_DEC REG_PROCESS_GET_DATA_DEC `(ul  1 e 4 0 ]
-"7 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\task.c
-[v _TASK_MAIN TASK_MAIN `(v  1 e 1 0 ]
-"15
-[v _TASK_START TASK_START `(v  1 e 1 0 ]
-"20
-[v _TASK_STOP TASK_STOP `(v  1 e 1 0 ]
-"9 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\thread.c
-[v _THREAD_INTERRUPT THREAD_INTERRUPT `(v  1 e 1 0 ]
-"29
-[v _THREAD_MAIN THREAD_MAIN `(v  1 e 1 0 ]
-"54
-[v _THREAD_DONE_CONTROL THREAD_DONE_CONTROL `(v  1 e 1 0 ]
-[v i2_THREAD_DONE_CONTROL THREAD_DONE_CONTROL `(v  1 e 1 0 ]
-"65
-[v _THREAD_CREATE THREAD_CREATE `(v  1 e 1 0 ]
-"77
-[v _THREAD_TIME_START THREAD_TIME_START `(v  1 e 1 0 ]
-[v i2_THREAD_TIME_START THREAD_TIME_START `(v  1 e 1 0 ]
-"82
-[v _THREAD_TIME_WAIT THREAD_TIME_WAIT `(uc  1 e 1 0 ]
-[v i2_THREAD_TIME_WAIT THREAD_TIME_WAIT `(uc  1 e 1 0 ]
-"113
-[v _THREAD_TIME_DONE THREAD_TIME_DONE `(uc  1 e 1 0 ]
-[v i2_THREAD_TIME_DONE THREAD_TIME_DONE `(uc  1 e 1 0 ]
-"124
-[v _THREAD_GET_STATE THREAD_GET_STATE `(uc  1 e 1 0 ]
-[v i2_THREAD_GET_STATE THREAD_GET_STATE `(uc  1 e 1 0 ]
-"6 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\time_out.c
+"8 C:\Users\SERT\MPLABXProjects\TEST\thread.c
 [v _TIME_OUT_COUNT_INTERRUPT TIME_OUT_COUNT_INTERRUPT `(v  1 e 1 0 ]
-"12
+"14
+[v _TIME_OUT_RESET TIME_OUT_RESET `(uc  1 e 1 0 ]
+"19
 [v _TIME_OUT_CHECK TIME_OUT_CHECK `(uc  1 e 1 0 ]
+"48
+[v _THREAD_CHECK THREAD_CHECK `(v  1 e 1 0 ]
+"60
+[v _THREAD_INIT THREAD_INIT `(v  1 e 1 0 ]
+"67
+[v _THREAD_START THREAD_START `(v  1 e 1 0 ]
+"88
+[v _THREAD_ARRAY_CHECK THREAD_ARRAY_CHECK `(v  1 e 1 0 ]
+"98
+[v _THREAD_TIME_START THREAD_TIME_START `(v  1 e 1 0 ]
+"104
+[v _THREAD_TIME_WAIT THREAD_TIME_WAIT `(uc  1 e 1 0 ]
+"143
+[v _THREAD_GET_STATE THREAD_GET_STATE `(uc  1 e 1 0 ]
 "52 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f46k22.h
 [v _ANSELA ANSELA `VEuc  1 e 1 @3896 ]
 "694
 [v _VREFCON0 VREFCON0 `VEuc  1 e 1 @3906 ]
-[s S1261 . 1 `uc 1 . 1 0 :4:0 
+[s S1242 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 FVRS 1 0 :2:4 
 `uc 1 FVRST 1 0 :1:6 
 `uc 1 FVREN 1 0 :1:7 
 ]
 "717
-[s S1266 . 1 `uc 1 . 1 0 :4:0 
+[s S1247 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 FVRS0 1 0 :1:4 
 `uc 1 FVRS1 1 0 :1:5 
 ]
-[u S1270 . 1 `S1261 1 . 1 0 `S1266 1 . 1 0 ]
-[v _VREFCON0bits VREFCON0bits `VES1270  1 e 1 @3906 ]
-[s S923 . 1 `uc 1 C4TSEL 1 0 :2:0 
+[u S1251 . 1 `S1242 1 . 1 0 `S1247 1 . 1 0 ]
+[v _VREFCON0bits VREFCON0bits `VES1251  1 e 1 @3906 ]
+[s S904 . 1 `uc 1 C4TSEL 1 0 :2:0 
 `uc 1 C5TSEL 1 0 :2:2 
 ]
 "1354
-[s S926 . 1 `uc 1 C4TSEL0 1 0 :1:0 
+[s S907 . 1 `uc 1 C4TSEL0 1 0 :1:0 
 `uc 1 C4TSEL1 1 0 :1:1 
 `uc 1 C5TSEL0 1 0 :1:2 
 `uc 1 C5TSEL1 1 0 :1:3 
 ]
-[u S931 . 1 `S923 1 . 1 0 `S926 1 . 1 0 ]
-[v _CCPTMRS1bits CCPTMRS1bits `VES931  1 e 1 @3912 ]
-[s S889 . 1 `uc 1 C1TSEL 1 0 :2:0 
+[u S912 . 1 `S904 1 . 1 0 `S907 1 . 1 0 ]
+[v _CCPTMRS1bits CCPTMRS1bits `VES912  1 e 1 @3912 ]
+[s S870 . 1 `uc 1 C1TSEL 1 0 :2:0 
 `uc 1 . 1 0 :1:2 
 `uc 1 C2TSEL 1 0 :2:3 
 `uc 1 . 1 0 :1:5 
 `uc 1 C3TSEL 1 0 :2:6 
 ]
 "1413
-[s S895 . 1 `uc 1 C1TSEL0 1 0 :1:0 
+[s S876 . 1 `uc 1 C1TSEL0 1 0 :1:0 
 `uc 1 C1TSEL1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 C2TSEL0 1 0 :1:3 
@@ -286,16 +272,16 @@ THREAD_DONE 4
 `uc 1 C3TSEL0 1 0 :1:6 
 `uc 1 C3TSEL1 1 0 :1:7 
 ]
-[u S904 . 1 `S889 1 . 1 0 `S895 1 . 1 0 ]
-[v _CCPTMRS0bits CCPTMRS0bits `VES904  1 e 1 @3913 ]
+[u S885 . 1 `S870 1 . 1 0 `S876 1 . 1 0 ]
+[v _CCPTMRS0bits CCPTMRS0bits `VES885  1 e 1 @3913 ]
 "1463
 [v _T6CON T6CON `VEuc  1 e 1 @3914 ]
-[s S1004 . 1 `uc 1 T6CKPS 1 0 :2:0 
+[s S985 . 1 `uc 1 T6CKPS 1 0 :2:0 
 `uc 1 TMR6ON 1 0 :1:2 
 `uc 1 T6OUTPS 1 0 :4:3 
 ]
 "1484
-[s S1008 . 1 `uc 1 T6CKPS0 1 0 :1:0 
+[s S989 . 1 `uc 1 T6CKPS0 1 0 :1:0 
 `uc 1 T6CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T6OUTPS0 1 0 :1:3 
@@ -303,22 +289,22 @@ THREAD_DONE 4
 `uc 1 T6OUTPS2 1 0 :1:5 
 `uc 1 T6OUTPS3 1 0 :1:6 
 ]
-[u S1016 . 1 `S1004 1 . 1 0 `S1008 1 . 1 0 ]
-[v _T6CONbits T6CONbits `VES1016  1 e 1 @3914 ]
+[u S997 . 1 `S985 1 . 1 0 `S989 1 . 1 0 ]
+[v _T6CONbits T6CONbits `VES997  1 e 1 @3914 ]
 "1534
 [v _PR6 PR6 `VEuc  1 e 1 @3915 ]
-[s S1613 . 1 `uc 1 . 1 0 :2:0 
+[s S1594 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T5SYNC 1 0 :1:2 
 ]
 "1703
-[s S1616 . 1 `uc 1 TMR5ON 1 0 :1:0 
+[s S1597 . 1 `uc 1 TMR5ON 1 0 :1:0 
 `uc 1 T5RD16 1 0 :1:1 
 `uc 1 nT5SYNC 1 0 :1:2 
 `uc 1 T5SOSCEN 1 0 :1:3 
 `uc 1 T5CKPS 1 0 :2:4 
 `uc 1 TMR5CS 1 0 :2:6 
 ]
-[s S1623 . 1 `uc 1 . 1 0 :2:0 
+[s S1604 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T5SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T5CKPS0 1 0 :1:4 
@@ -326,23 +312,23 @@ THREAD_DONE 4
 `uc 1 TMR5CS0 1 0 :1:6 
 `uc 1 TMR5CS1 1 0 :1:7 
 ]
-[s S1631 . 1 `uc 1 . 1 0 :1:0 
+[s S1612 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RD165 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 SOSCEN5 1 0 :1:3 
 ]
-[u S1636 . 1 `S1613 1 . 1 0 `S1616 1 . 1 0 `S1623 1 . 1 0 `S1631 1 . 1 0 ]
-[v _T5CONbits T5CONbits `VES1636  1 e 1 @3918 ]
+[u S1617 . 1 `S1594 1 . 1 0 `S1597 1 . 1 0 `S1604 1 . 1 0 `S1612 1 . 1 0 ]
+[v _T5CONbits T5CONbits `VES1617  1 e 1 @3918 ]
 "1778
 [v _TMR5 TMR5 `VEus  1 e 2 @3919 ]
 "1825
 [v _T4CON T4CON `VEuc  1 e 1 @3921 ]
-[s S975 . 1 `uc 1 T4CKPS 1 0 :2:0 
+[s S956 . 1 `uc 1 T4CKPS 1 0 :2:0 
 `uc 1 TMR4ON 1 0 :1:2 
 `uc 1 T4OUTPS 1 0 :4:3 
 ]
 "1846
-[s S979 . 1 `uc 1 T4CKPS0 1 0 :1:0 
+[s S960 . 1 `uc 1 T4CKPS0 1 0 :1:0 
 `uc 1 T4CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T4OUTPS0 1 0 :1:3 
@@ -350,46 +336,46 @@ THREAD_DONE 4
 `uc 1 T4OUTPS2 1 0 :1:5 
 `uc 1 T4OUTPS3 1 0 :1:6 
 ]
-[u S987 . 1 `S975 1 . 1 0 `S979 1 . 1 0 ]
-[v _T4CONbits T4CONbits `VES987  1 e 1 @3921 ]
+[u S968 . 1 `S956 1 . 1 0 `S960 1 . 1 0 ]
+[v _T4CONbits T4CONbits `VES968  1 e 1 @3921 ]
 "1896
 [v _PR4 PR4 `VEuc  1 e 1 @3922 ]
-[s S1152 . 1 `uc 1 CCP5M 1 0 :4:0 
+[s S1133 . 1 `uc 1 CCP5M 1 0 :4:0 
 `uc 1 DC5B 1 0 :2:4 
 ]
 "1955
-[s S1155 . 1 `uc 1 CCP5M0 1 0 :1:0 
+[s S1136 . 1 `uc 1 CCP5M0 1 0 :1:0 
 `uc 1 CCP5M1 1 0 :1:1 
 `uc 1 CCP5M2 1 0 :1:2 
 `uc 1 CCP5M3 1 0 :1:3 
 `uc 1 DC5B0 1 0 :1:4 
 `uc 1 DC5B1 1 0 :1:5 
 ]
-[u S1162 . 1 `S1152 1 . 1 0 `S1155 1 . 1 0 ]
-[v _CCP5CONbits CCP5CONbits `VES1162  1 e 1 @3924 ]
+[u S1143 . 1 `S1133 1 . 1 0 `S1136 1 . 1 0 ]
+[v _CCP5CONbits CCP5CONbits `VES1143  1 e 1 @3924 ]
 "2007
 [v _CCPR5L CCPR5L `VEuc  1 e 1 @3925 ]
-[s S1127 . 1 `uc 1 CCP4M 1 0 :4:0 
+[s S1108 . 1 `uc 1 CCP4M 1 0 :4:0 
 `uc 1 DC4B 1 0 :2:4 
 ]
 "2066
-[s S1130 . 1 `uc 1 CCP4M0 1 0 :1:0 
+[s S1111 . 1 `uc 1 CCP4M0 1 0 :1:0 
 `uc 1 CCP4M1 1 0 :1:1 
 `uc 1 CCP4M2 1 0 :1:2 
 `uc 1 CCP4M3 1 0 :1:3 
 `uc 1 DC4B0 1 0 :1:4 
 `uc 1 DC4B1 1 0 :1:5 
 ]
-[u S1137 . 1 `S1127 1 . 1 0 `S1130 1 . 1 0 ]
-[v _CCP4CONbits CCP4CONbits `VES1137  1 e 1 @3927 ]
+[u S1118 . 1 `S1108 1 . 1 0 `S1111 1 . 1 0 ]
+[v _CCP4CONbits CCP4CONbits `VES1118  1 e 1 @3927 ]
 "2118
 [v _CCPR4L CCPR4L `VEuc  1 e 1 @3928 ]
-[s S1096 . 1 `uc 1 CCP3M 1 0 :4:0 
+[s S1077 . 1 `uc 1 CCP3M 1 0 :4:0 
 `uc 1 DC3B 1 0 :2:4 
 `uc 1 P3M 1 0 :2:6 
 ]
 "2568
-[s S1100 . 1 `uc 1 CCP3M0 1 0 :1:0 
+[s S1081 . 1 `uc 1 CCP3M0 1 0 :1:0 
 `uc 1 CCP3M1 1 0 :1:1 
 `uc 1 CCP3M2 1 0 :1:2 
 `uc 1 CCP3M3 1 0 :1:3 
@@ -398,18 +384,18 @@ THREAD_DONE 4
 `uc 1 P3M0 1 0 :1:6 
 `uc 1 P3M1 1 0 :1:7 
 ]
-[u S1109 . 1 `S1096 1 . 1 0 `S1100 1 . 1 0 ]
-[v _CCP3CONbits CCP3CONbits `VES1109  1 e 1 @3933 ]
+[u S1090 . 1 `S1077 1 . 1 0 `S1081 1 . 1 0 ]
+[v _CCP3CONbits CCP3CONbits `VES1090  1 e 1 @3933 ]
 "2635
 [v _CCPR3L CCPR3L `VEuc  1 e 1 @3934 ]
 "2719
 [v _WPUB WPUB `VEuc  1 e 1 @3937 ]
-[s S1065 . 1 `uc 1 CCP2M 1 0 :4:0 
+[s S1046 . 1 `uc 1 CCP2M 1 0 :4:0 
 `uc 1 DC2B 1 0 :2:4 
 `uc 1 P2M 1 0 :2:6 
 ]
 "3294
-[s S1069 . 1 `uc 1 CCP2M0 1 0 :1:0 
+[s S1050 . 1 `uc 1 CCP2M0 1 0 :1:0 
 `uc 1 CCP2M1 1 0 :1:1 
 `uc 1 CCP2M2 1 0 :1:2 
 `uc 1 CCP2M3 1 0 :1:3 
@@ -418,13 +404,13 @@ THREAD_DONE 4
 `uc 1 P2M0 1 0 :1:6 
 `uc 1 P2M1 1 0 :1:7 
 ]
-[u S1078 . 1 `S1065 1 . 1 0 `S1069 1 . 1 0 ]
-[v _CCP2CONbits CCP2CONbits `VES1078  1 e 1 @3942 ]
+[u S1059 . 1 `S1046 1 . 1 0 `S1050 1 . 1 0 ]
+[v _CCP2CONbits CCP2CONbits `VES1059  1 e 1 @3942 ]
 "3361
 [v _CCPR2L CCPR2L `VEuc  1 e 1 @3943 ]
 "3533
 [v _SSP2CON2 SSP2CON2 `VEuc  1 e 1 @3947 ]
-[s S1872 . 1 `uc 1 SEN 1 0 :1:0 
+[s S1853 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -434,7 +420,7 @@ THREAD_DONE 4
 `uc 1 GCEN 1 0 :1:7 
 ]
 "3568
-[s S2130 . 1 `uc 1 SEN2 1 0 :1:0 
+[s S2111 . 1 `uc 1 SEN2 1 0 :1:0 
 `uc 1 ADMSK12 1 0 :1:1 
 `uc 1 ADMSK22 1 0 :1:2 
 `uc 1 ADMSK32 1 0 :1:3 
@@ -443,27 +429,27 @@ THREAD_DONE 4
 `uc 1 ACKSTAT2 1 0 :1:6 
 `uc 1 GCEN2 1 0 :1:7 
 ]
-[s S2139 . 1 `uc 1 . 1 0 :1:0 
+[s S2120 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RSEN2 1 0 :1:1 
 `uc 1 PEN2 1 0 :1:2 
 `uc 1 RCEN2 1 0 :1:3 
 `uc 1 ADMSK42 1 0 :1:4 
 `uc 1 ADMSK52 1 0 :1:5 
 ]
-[u S2146 . 1 `S1872 1 . 1 0 `S2130 1 . 1 0 `S2139 1 . 1 0 ]
-[v _SSP2CON2bits SSP2CON2bits `VES2146  1 e 1 @3947 ]
+[u S2127 . 1 `S1853 1 . 1 0 `S2111 1 . 1 0 `S2120 1 . 1 0 ]
+[v _SSP2CON2bits SSP2CON2bits `VES2127  1 e 1 @3947 ]
 "3678
 [v _SSP2CON1 SSP2CON1 `VEuc  1 e 1 @3948 ]
 "3798
 [v _SSP2STAT SSP2STAT `VEuc  1 e 1 @3949 ]
-[s S1942 . 1 `uc 1 . 1 0 :2:0 
+[s S1923 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_NOT_W 1 0 :1:2 
 ]
 "3933
-[s S1945 . 1 `uc 1 . 1 0 :5:0 
+[s S1926 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 D_NOT_A 1 0 :1:5 
 ]
-[s S1948 . 1 `uc 1 BF 1 0 :1:0 
+[s S1929 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -472,38 +458,38 @@ THREAD_DONE 4
 `uc 1 CKE 1 0 :1:6 
 `uc 1 SMP 1 0 :1:7 
 ]
-[s S1957 . 1 `uc 1 . 1 0 :2:0 
+[s S1938 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D 1 0 :1:5 
 ]
-[s S1962 . 1 `uc 1 . 1 0 :2:0 
+[s S1943 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 A 1 0 :1:5 
 ]
-[s S1967 . 1 `uc 1 . 1 0 :2:0 
+[s S1948 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S1972 . 1 `uc 1 . 1 0 :2:0 
+[s S1953 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S1977 . 1 `uc 1 . 1 0 :2:0 
+[s S1958 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_WRITE 1 0 :1:2 
 ]
-[s S1980 . 1 `uc 1 . 1 0 :5:0 
+[s S1961 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_ADDRESS 1 0 :1:5 
 ]
-[s S1983 . 1 `uc 1 . 1 0 :2:0 
+[s S1964 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S2240 . 1 `uc 1 BF2 1 0 :1:0 
+[s S2221 . 1 `uc 1 BF2 1 0 :1:0 
 `uc 1 UA2 1 0 :1:1 
 `uc 1 I2C_READ2 1 0 :1:2 
 `uc 1 I2C_START2 1 0 :1:3 
@@ -512,58 +498,58 @@ THREAD_DONE 4
 `uc 1 CKE2 1 0 :1:6 
 `uc 1 SMP2 1 0 :1:7 
 ]
-[s S2249 . 1 `uc 1 . 1 0 :2:0 
+[s S2230 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE2 1 0 :1:2 
 `uc 1 S2 1 0 :1:3 
 `uc 1 P2 1 0 :1:4 
 `uc 1 DATA_ADDRESS2 1 0 :1:5 
 ]
-[s S2255 . 1 `uc 1 . 1 0 :2:0 
+[s S2236 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW2 1 0 :1:2 
 `uc 1 START2 1 0 :1:3 
 `uc 1 STOP2 1 0 :1:4 
 `uc 1 D_A2 1 0 :1:5 
 ]
-[s S2261 . 1 `uc 1 . 1 0 :5:0 
+[s S2242 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 D_NOT_A2 1 0 :1:5 
 ]
-[s S2264 . 1 `uc 1 . 1 0 :2:0 
+[s S2245 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_nA2 1 0 :1:5 
 ]
-[s S2269 . 1 `uc 1 . 1 0 :2:0 
+[s S2250 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_NOT_W2 1 0 :1:2 
 ]
-[s S2272 . 1 `uc 1 . 1 0 :2:0 
+[s S2253 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_nW2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 I2C_DAT2 1 0 :1:5 
 ]
-[s S2277 . 1 `uc 1 . 1 0 :2:0 
+[s S2258 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_W2 1 0 :1:2 
 ]
-[s S2280 . 1 `uc 1 . 1 0 :5:0 
+[s S2261 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_A2 1 0 :1:5 
 ]
-[s S2283 . 1 `uc 1 . 1 0 :2:0 
+[s S2264 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA2 1 0 :1:5 
 ]
-[s S2288 . 1 `uc 1 . 1 0 :2:0 
+[s S2269 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_WRITE2 1 0 :1:2 
 ]
-[s S2291 . 1 `uc 1 . 1 0 :5:0 
+[s S2272 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_ADDRESS2 1 0 :1:5 
 ]
-[s S2294 . 1 `uc 1 . 1 0 :2:0 
+[s S2275 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS2 1 0 :1:5 
 ]
-[u S2299 . 1 `S1942 1 . 1 0 `S1945 1 . 1 0 `S1948 1 . 1 0 `S1957 1 . 1 0 `S1962 1 . 1 0 `S1967 1 . 1 0 `S1972 1 . 1 0 `S1977 1 . 1 0 `S1980 1 . 1 0 `S1983 1 . 1 0 `S2240 1 . 1 0 `S2249 1 . 1 0 `S2255 1 . 1 0 `S2261 1 . 1 0 `S2264 1 . 1 0 `S2269 1 . 1 0 `S2272 1 . 1 0 `S2277 1 . 1 0 `S2280 1 . 1 0 `S2283 1 . 1 0 `S2288 1 . 1 0 `S2291 1 . 1 0 `S2294 1 . 1 0 ]
-[v _SSP2STATbits SSP2STATbits `VES2299  1 e 1 @3949 ]
+[u S2280 . 1 `S1923 1 . 1 0 `S1926 1 . 1 0 `S1929 1 . 1 0 `S1938 1 . 1 0 `S1943 1 . 1 0 `S1948 1 . 1 0 `S1953 1 . 1 0 `S1958 1 . 1 0 `S1961 1 . 1 0 `S1964 1 . 1 0 `S2221 1 . 1 0 `S2230 1 . 1 0 `S2236 1 . 1 0 `S2242 1 . 1 0 `S2245 1 . 1 0 `S2250 1 . 1 0 `S2253 1 . 1 0 `S2258 1 . 1 0 `S2261 1 . 1 0 `S2264 1 . 1 0 `S2269 1 . 1 0 `S2272 1 . 1 0 `S2275 1 . 1 0 ]
+[v _SSP2STATbits SSP2STATbits `VES2280  1 e 1 @3949 ]
 "4198
 [v _SSP2ADD SSP2ADD `VEuc  1 e 1 @3950 ]
 "4268
@@ -578,20 +564,20 @@ THREAD_DONE 4
 [v _RCREG2 RCREG2 `VEuc  1 e 1 @3956 ]
 "5166
 [v _SPBRG2 SPBRG2 `VEuc  1 e 1 @3957 ]
-[s S1602 . 1 `uc 1 TMR4IE 1 0 :1:0 
+[s S1583 . 1 `uc 1 TMR4IE 1 0 :1:0 
 `uc 1 TMR5IE 1 0 :1:1 
 `uc 1 TMR6IE 1 0 :1:2 
 ]
 "6182
-[u S1606 . 1 `S1602 1 . 1 0 ]
-[v _PIE5bits PIE5bits `VES1606  1 e 1 @3965 ]
-[s S379 . 1 `uc 1 TMR4IF 1 0 :1:0 
+[u S1587 . 1 `S1583 1 . 1 0 ]
+[v _PIE5bits PIE5bits `VES1587  1 e 1 @3965 ]
+[s S377 . 1 `uc 1 TMR4IF 1 0 :1:0 
 `uc 1 TMR5IF 1 0 :1:1 
 `uc 1 TMR6IF 1 0 :1:2 
 ]
 "6214
-[u S383 . 1 `S379 1 . 1 0 ]
-[v _PIR5bits PIR5bits `VES383  1 e 1 @3966 ]
+[u S381 . 1 `S377 1 . 1 0 ]
+[v _PIR5bits PIR5bits `VES381  1 e 1 @3966 ]
 "6280
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
 "7560
@@ -600,21 +586,21 @@ THREAD_DONE 4
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
 "9064
 [v _OSCTUNE OSCTUNE `VEuc  1 e 1 @3995 ]
-[s S1783 . 1 `uc 1 TUN 1 0 :6:0 
+[s S1764 . 1 `uc 1 TUN 1 0 :6:0 
 `uc 1 PLLEN 1 0 :1:6 
 `uc 1 INTSRC 1 0 :1:7 
 ]
 "9084
-[s S1787 . 1 `uc 1 TUN0 1 0 :1:0 
+[s S1768 . 1 `uc 1 TUN0 1 0 :1:0 
 `uc 1 TUN1 1 0 :1:1 
 `uc 1 TUN2 1 0 :1:2 
 `uc 1 TUN3 1 0 :1:3 
 `uc 1 TUN4 1 0 :1:4 
 `uc 1 TUN5 1 0 :1:5 
 ]
-[u S1794 . 1 `S1783 1 . 1 0 `S1787 1 . 1 0 ]
-[v _OSCTUNEbits OSCTUNEbits `VES1794  1 e 1 @3995 ]
-[s S1283 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[u S1775 . 1 `S1764 1 . 1 0 `S1768 1 . 1 0 ]
+[v _OSCTUNEbits OSCTUNEbits `VES1775  1 e 1 @3995 ]
+[s S1264 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSP1IE 1 0 :1:3 
@@ -623,14 +609,14 @@ THREAD_DONE 4
 `uc 1 ADIE 1 0 :1:6 
 ]
 "9436
-[s S1291 . 1 `uc 1 . 1 0 :3:0 
+[s S1272 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPIE 1 0 :1:3 
 `uc 1 TXIE 1 0 :1:4 
 `uc 1 RCIE 1 0 :1:5 
 ]
-[u S1296 . 1 `S1283 1 . 1 0 `S1291 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES1296  1 e 1 @3997 ]
-[s S296 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S1277 . 1 `S1264 1 . 1 0 `S1272 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES1277  1 e 1 @3997 ]
+[s S298 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSP1IF 1 0 :1:3 
@@ -639,14 +625,14 @@ THREAD_DONE 4
 `uc 1 ADIF 1 0 :1:6 
 ]
 "9513
-[s S304 . 1 `uc 1 . 1 0 :3:0 
+[s S306 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPIF 1 0 :1:3 
 `uc 1 TXIF 1 0 :1:4 
 `uc 1 RCIF 1 0 :1:5 
 ]
-[u S309 . 1 `S296 1 . 1 0 `S304 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES309  1 e 1 @3998 ]
-[s S1507 . 1 `uc 1 CCP2IE 1 0 :1:0 
+[u S311 . 1 `S298 1 . 1 0 `S306 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES311  1 e 1 @3998 ]
+[s S1488 . 1 `uc 1 CCP2IE 1 0 :1:0 
 `uc 1 TMR3IE 1 0 :1:1 
 `uc 1 HLVDIE 1 0 :1:2 
 `uc 1 BCL1IE 1 0 :1:3 
@@ -656,16 +642,16 @@ THREAD_DONE 4
 `uc 1 OSCFIE 1 0 :1:7 
 ]
 "9671
-[s S1516 . 1 `uc 1 . 1 0 :2:0 
+[s S1497 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIE 1 0 :1:2 
 `uc 1 BCLIE 1 0 :1:3 
 ]
-[s S1520 . 1 `uc 1 . 1 0 :6:0 
+[s S1501 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 CMIE 1 0 :1:6 
 ]
-[u S1523 . 1 `S1507 1 . 1 0 `S1516 1 . 1 0 `S1520 1 . 1 0 ]
-[v _PIE2bits PIE2bits `VES1523  1 e 1 @4000 ]
-[s S338 . 1 `uc 1 CCP2IF 1 0 :1:0 
+[u S1504 . 1 `S1488 1 . 1 0 `S1497 1 . 1 0 `S1501 1 . 1 0 ]
+[v _PIE2bits PIE2bits `VES1504  1 e 1 @4000 ]
+[s S336 . 1 `uc 1 CCP2IF 1 0 :1:0 
 `uc 1 TMR3IF 1 0 :1:1 
 `uc 1 HLVDIF 1 0 :1:2 
 `uc 1 BCL1IF 1 0 :1:3 
@@ -675,16 +661,16 @@ THREAD_DONE 4
 `uc 1 OSCFIF 1 0 :1:7 
 ]
 "9757
-[s S347 . 1 `uc 1 . 1 0 :2:0 
+[s S345 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIF 1 0 :1:2 
 `uc 1 BCLIF 1 0 :1:3 
 ]
-[s S351 . 1 `uc 1 . 1 0 :6:0 
+[s S349 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 CMIF 1 0 :1:6 
 ]
-[u S354 . 1 `S338 1 . 1 0 `S347 1 . 1 0 `S351 1 . 1 0 ]
-[v _PIR2bits PIR2bits `VES354  1 e 1 @4001 ]
-[s S1367 . 1 `uc 1 TMR1GIE 1 0 :1:0 
+[u S352 . 1 `S336 1 . 1 0 `S345 1 . 1 0 `S349 1 . 1 0 ]
+[v _PIR2bits PIR2bits `VES352  1 e 1 @4001 ]
+[s S1348 . 1 `uc 1 TMR1GIE 1 0 :1:0 
 `uc 1 TMR3GIE 1 0 :1:1 
 `uc 1 TMR5GIE 1 0 :1:2 
 `uc 1 CTMUIE 1 0 :1:3 
@@ -694,20 +680,20 @@ THREAD_DONE 4
 `uc 1 SSP2IE 1 0 :1:7 
 ]
 "9933
-[s S1376 . 1 `uc 1 RXB0IE 1 0 :1:0 
+[s S1357 . 1 `uc 1 RXB0IE 1 0 :1:0 
 `uc 1 RXB1IE 1 0 :1:1 
 `uc 1 TXB0IE 1 0 :1:2 
 `uc 1 TXB1IE 1 0 :1:3 
 `uc 1 TXB2IE 1 0 :1:4 
 ]
-[s S1382 . 1 `uc 1 . 1 0 :1:0 
+[s S1363 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RXBNIE 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXBNIE 1 0 :1:4 
 ]
-[u S1387 . 1 `S1367 1 . 1 0 `S1376 1 . 1 0 `S1382 1 . 1 0 ]
-[v _PIE3bits PIE3bits `VES1387  1 e 1 @4003 ]
-[s S395 . 1 `uc 1 TMR1GIF 1 0 :1:0 
+[u S1368 . 1 `S1348 1 . 1 0 `S1357 1 . 1 0 `S1363 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES1368  1 e 1 @4003 ]
+[s S393 . 1 `uc 1 TMR1GIF 1 0 :1:0 
 `uc 1 TMR3GIF 1 0 :1:1 
 `uc 1 TMR5GIF 1 0 :1:2 
 `uc 1 CTMUIF 1 0 :1:3 
@@ -717,14 +703,14 @@ THREAD_DONE 4
 `uc 1 SSP2IF 1 0 :1:7 
 ]
 "10036
-[s S404 . 1 `uc 1 . 1 0 :1:0 
+[s S402 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RXBNIF 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXBNIF 1 0 :1:4 
 ]
-[u S409 . 1 `S395 1 . 1 0 `S404 1 . 1 0 ]
-[v _PIR3bits PIR3bits `VES409  1 e 1 @4004 ]
-[s S1843 . 1 `uc 1 RD 1 0 :1:0 
+[u S407 . 1 `S393 1 . 1 0 `S402 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES407  1 e 1 @4004 ]
+[s S1824 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
 `uc 1 WRERR 1 0 :1:3 
@@ -734,11 +720,11 @@ THREAD_DONE 4
 `uc 1 EEPGD 1 0 :1:7 
 ]
 "10190
-[s S1852 . 1 `uc 1 . 1 0 :6:0 
+[s S1833 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 EEFS 1 0 :1:6 
 ]
-[u S1855 . 1 `S1843 1 . 1 0 `S1852 1 . 1 0 ]
-[v _EECON1bits EECON1bits `VES1855  1 e 1 @4006 ]
+[u S1836 . 1 `S1824 1 . 1 0 `S1833 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES1836  1 e 1 @4006 ]
 "10235
 [v _EECON2 EECON2 `VEuc  1 e 1 @4007 ]
 "10255
@@ -749,7 +735,7 @@ THREAD_DONE 4
 [v _RCSTA1 RCSTA1 `VEuc  1 e 1 @4011 ]
 "10835
 [v _TXSTA1 TXSTA1 `VEuc  1 e 1 @4012 ]
-[s S1316 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S1297 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -759,7 +745,7 @@ THREAD_DONE 4
 `uc 1 CSRC 1 0 :1:7 
 ]
 "10876
-[s S1325 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S1306 . 1 `uc 1 TX9D1 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 `uc 1 BRGH1 1 0 :1:2 
 `uc 1 SENDB1 1 0 :1:3 
@@ -768,53 +754,53 @@ THREAD_DONE 4
 `uc 1 TX91 1 0 :1:6 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[s S1334 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S1315 . 1 `uc 1 TXD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[u S1338 . 1 `S1316 1 . 1 0 `S1325 1 . 1 0 `S1334 1 . 1 0 ]
-[v _TXSTA1bits TXSTA1bits `VES1338  1 e 1 @4012 ]
+[u S1319 . 1 `S1297 1 . 1 0 `S1306 1 . 1 0 `S1315 1 . 1 0 ]
+[v _TXSTA1bits TXSTA1bits `VES1319  1 e 1 @4012 ]
 "11210
 [v _TXREG1 TXREG1 `VEuc  1 e 1 @4013 ]
 "11288
 [v _RCREG1 RCREG1 `VEuc  1 e 1 @4014 ]
 "11366
 [v _SPBRG1 SPBRG1 `VEuc  1 e 1 @4015 ]
-[s S1544 . 1 `uc 1 . 1 0 :2:0 
+[s S1525 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T3SYNC 1 0 :1:2 
 ]
 "11555
-[s S1547 . 1 `uc 1 TMR3ON 1 0 :1:0 
+[s S1528 . 1 `uc 1 TMR3ON 1 0 :1:0 
 `uc 1 T3RD16 1 0 :1:1 
 `uc 1 nT3SYNC 1 0 :1:2 
 `uc 1 T3SOSCEN 1 0 :1:3 
 `uc 1 T3CKPS 1 0 :2:4 
 `uc 1 TMR3CS 1 0 :2:6 
 ]
-[s S1554 . 1 `uc 1 . 1 0 :3:0 
+[s S1535 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 T3OSCEN 1 0 :1:3 
 `uc 1 T3CKPS0 1 0 :1:4 
 `uc 1 T3CKPS1 1 0 :1:5 
 `uc 1 TMR3CS0 1 0 :1:6 
 `uc 1 TMR3CS1 1 0 :1:7 
 ]
-[s S1561 . 1 `uc 1 . 1 0 :3:0 
+[s S1542 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN3 1 0 :1:3 
 `uc 1 . 1 0 :3:4 
 `uc 1 RD163 1 0 :1:7 
 ]
-[u S1566 . 1 `S1544 1 . 1 0 `S1547 1 . 1 0 `S1554 1 . 1 0 `S1561 1 . 1 0 ]
-[v _T3CONbits T3CONbits `VES1566  1 e 1 @4017 ]
+[u S1547 . 1 `S1525 1 . 1 0 `S1528 1 . 1 0 `S1535 1 . 1 0 `S1542 1 . 1 0 ]
+[v _T3CONbits T3CONbits `VES1547  1 e 1 @4017 ]
 "11630
 [v _TMR3 TMR3 `VEus  1 e 2 @4018 ]
 "13232
 [v _T2CON T2CON `VEuc  1 e 1 @4026 ]
-[s S946 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S927 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 T2OUTPS 1 0 :4:3 
 ]
 "13253
-[s S950 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S931 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -822,16 +808,16 @@ THREAD_DONE 4
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S958 . 1 `S946 1 . 1 0 `S950 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES958  1 e 1 @4026 ]
+[u S939 . 1 `S927 1 . 1 0 `S931 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES939  1 e 1 @4026 ]
 "13303
 [v _PR2 PR2 `VEuc  1 e 1 @4027 ]
-[s S1034 . 1 `uc 1 CCP1M 1 0 :4:0 
+[s S1015 . 1 `uc 1 CCP1M 1 0 :4:0 
 `uc 1 DC1B 1 0 :2:4 
 `uc 1 P1M 1 0 :2:6 
 ]
 "13365
-[s S1038 . 1 `uc 1 CCP1M0 1 0 :1:0 
+[s S1019 . 1 `uc 1 CCP1M0 1 0 :1:0 
 `uc 1 CCP1M1 1 0 :1:1 
 `uc 1 CCP1M2 1 0 :1:2 
 `uc 1 CCP1M3 1 0 :1:3 
@@ -840,8 +826,8 @@ THREAD_DONE 4
 `uc 1 P1M0 1 0 :1:6 
 `uc 1 P1M1 1 0 :1:7 
 ]
-[u S1047 . 1 `S1034 1 . 1 0 `S1038 1 . 1 0 ]
-[v _CCP1CONbits CCP1CONbits `VES1047  1 e 1 @4029 ]
+[u S1028 . 1 `S1015 1 . 1 0 `S1019 1 . 1 0 ]
+[v _CCP1CONbits CCP1CONbits `VES1028  1 e 1 @4029 ]
 "13432
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @4030 ]
 "13472
@@ -850,15 +836,15 @@ THREAD_DONE 4
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
 "13611
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
-[s S1184 . 1 `uc 1 . 1 0 :1:0 
+[s S1165 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "13656
-[s S1187 . 1 `uc 1 ADON 1 0 :1:0 
+[s S1168 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :5:2 
 ]
-[s S1191 . 1 `uc 1 . 1 0 :1:0 
+[s S1172 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -866,23 +852,23 @@ THREAD_DONE 4
 `uc 1 CHS3 1 0 :1:5 
 `uc 1 CHS4 1 0 :1:6 
 ]
-[s S1199 . 1 `uc 1 . 1 0 :1:0 
+[s S1180 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 ]
-[s S1202 . 1 `uc 1 . 1 0 :1:0 
+[s S1183 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S1205 . 1 `uc 1 . 1 0 :1:0 
+[s S1186 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S1208 . 1 `uc 1 . 1 0 :1:0 
+[s S1189 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 ]
-[s S1211 . 1 `uc 1 . 1 0 :1:0 
+[s S1192 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 ]
-[u S1214 . 1 `S1184 1 . 1 0 `S1187 1 . 1 0 `S1191 1 . 1 0 `S1199 1 . 1 0 `S1202 1 . 1 0 `S1205 1 . 1 0 `S1208 1 . 1 0 `S1211 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES1214  1 e 1 @4034 ]
+[u S1195 . 1 `S1165 1 . 1 0 `S1168 1 . 1 0 `S1172 1 . 1 0 `S1180 1 . 1 0 `S1183 1 . 1 0 `S1186 1 . 1 0 `S1189 1 . 1 0 `S1192 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES1195  1 e 1 @4034 ]
 "13743
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "13763
@@ -890,7 +876,7 @@ THREAD_DONE 4
 "13783
 [v _SSP1CON2 SSP1CON2 `VEuc  1 e 1 @4037 ]
 "13831
-[s S1881 . 1 `uc 1 SEN1 1 0 :1:0 
+[s S1862 . 1 `uc 1 SEN1 1 0 :1:0 
 `uc 1 ADMSK1 1 0 :1:1 
 `uc 1 ADMSK2 1 0 :1:2 
 `uc 1 ADMSK3 1 0 :1:3 
@@ -899,28 +885,28 @@ THREAD_DONE 4
 `uc 1 ACKSTAT1 1 0 :1:6 
 `uc 1 GCEN1 1 0 :1:7 
 ]
-[s S1890 . 1 `uc 1 . 1 0 :1:0 
+[s S1871 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK11 1 0 :1:1 
 `uc 1 ADMSK21 1 0 :1:2 
 `uc 1 ADMSK31 1 0 :1:3 
 `uc 1 ADMSK4 1 0 :1:4 
 `uc 1 ADMSK5 1 0 :1:5 
 ]
-[s S1897 . 1 `uc 1 . 1 0 :1:0 
+[s S1878 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RSEN1 1 0 :1:1 
 `uc 1 PEN1 1 0 :1:2 
 `uc 1 RCEN1 1 0 :1:3 
 `uc 1 ADMSK41 1 0 :1:4 
 `uc 1 ADMSK51 1 0 :1:5 
 ]
-[u S1904 . 1 `S1872 1 . 1 0 `S1881 1 . 1 0 `S1890 1 . 1 0 `S1897 1 . 1 0 ]
-[v _SSP1CON2bits SSP1CON2bits `VES1904  1 e 1 @4037 ]
+[u S1885 . 1 `S1853 1 . 1 0 `S1862 1 . 1 0 `S1871 1 . 1 0 `S1878 1 . 1 0 ]
+[v _SSP1CON2bits SSP1CON2bits `VES1885  1 e 1 @4037 ]
 "14137
 [v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @4038 ]
 "14375
 [v _SSP1STAT SSP1STAT `VEuc  1 e 1 @4039 ]
 "14481
-[s S1988 . 1 `uc 1 BF1 1 0 :1:0 
+[s S1969 . 1 `uc 1 BF1 1 0 :1:0 
 `uc 1 UA1 1 0 :1:1 
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
@@ -929,47 +915,47 @@ THREAD_DONE 4
 `uc 1 CKE1 1 0 :1:6 
 `uc 1 SMP1 1 0 :1:7 
 ]
-[s S1997 . 1 `uc 1 . 1 0 :2:0 
+[s S1978 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 START 1 0 :1:3 
 `uc 1 STOP 1 0 :1:4 
 `uc 1 DA1 1 0 :1:5 
 ]
-[s S2003 . 1 `uc 1 . 1 0 :2:0 
+[s S1984 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW 1 0 :1:2 
 `uc 1 START1 1 0 :1:3 
 `uc 1 STOP1 1 0 :1:4 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
-[s S2009 . 1 `uc 1 . 1 0 :2:0 
+[s S1990 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW1 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 I2C_DAT 1 0 :1:5 
 ]
-[s S2014 . 1 `uc 1 . 1 0 :2:0 
+[s S1995 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_W 1 0 :1:2 
 ]
-[s S2017 . 1 `uc 1 . 1 0 :5:0 
+[s S1998 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_A 1 0 :1:5 
 ]
-[u S2020 . 1 `S1942 1 . 1 0 `S1945 1 . 1 0 `S1948 1 . 1 0 `S1957 1 . 1 0 `S1962 1 . 1 0 `S1967 1 . 1 0 `S1972 1 . 1 0 `S1977 1 . 1 0 `S1980 1 . 1 0 `S1983 1 . 1 0 `S1988 1 . 1 0 `S1997 1 . 1 0 `S2003 1 . 1 0 `S2009 1 . 1 0 `S2014 1 . 1 0 `S2017 1 . 1 0 ]
-[v _SSP1STATbits SSP1STATbits `VES2020  1 e 1 @4039 ]
+[u S2001 . 1 `S1923 1 . 1 0 `S1926 1 . 1 0 `S1929 1 . 1 0 `S1938 1 . 1 0 `S1943 1 . 1 0 `S1948 1 . 1 0 `S1953 1 . 1 0 `S1958 1 . 1 0 `S1961 1 . 1 0 `S1964 1 . 1 0 `S1969 1 . 1 0 `S1978 1 . 1 0 `S1984 1 . 1 0 `S1990 1 . 1 0 `S1995 1 . 1 0 `S1998 1 . 1 0 ]
+[v _SSP1STATbits SSP1STATbits `VES2001  1 e 1 @4039 ]
 "15005
 [v _SSP1ADD SSP1ADD `VEuc  1 e 1 @4040 ]
 "15259
 [v _SSP1BUF SSP1BUF `VEuc  1 e 1 @4041 ]
-[s S1435 . 1 `uc 1 . 1 0 :2:0 
+[s S1416 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T1SYNC 1 0 :1:2 
 ]
 "15701
-[s S1438 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S1419 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 T1RD16 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 T1SOSCEN 1 0 :1:3 
 `uc 1 T1CKPS 1 0 :2:4 
 `uc 1 TMR1CS 1 0 :2:6 
 ]
-[s S1445 . 1 `uc 1 . 1 0 :1:0 
+[s S1426 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RD16 1 0 :1:1 
 `uc 1 T1SYNC 1 0 :1:2 
 `uc 1 T1OSCEN 1 0 :1:3 
@@ -978,16 +964,16 @@ THREAD_DONE 4
 `uc 1 TMR1CS0 1 0 :1:6 
 `uc 1 TMR1CS1 1 0 :1:7 
 ]
-[s S1454 . 1 `uc 1 . 1 0 :3:0 
+[s S1435 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN 1 0 :1:3 
 ]
-[u S1457 . 1 `S1435 1 . 1 0 `S1438 1 . 1 0 `S1445 1 . 1 0 `S1454 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES1457  1 e 1 @4045 ]
+[u S1438 . 1 `S1416 1 . 1 0 `S1419 1 . 1 0 `S1426 1 . 1 0 `S1435 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES1438  1 e 1 @4045 ]
 "15781
 [v _TMR1 TMR1 `VEus  1 e 2 @4046 ]
 "15989
 [v _OSCCON2 OSCCON2 `VEuc  1 e 1 @4050 ]
-[s S1762 . 1 `uc 1 LFIOFS 1 0 :1:0 
+[s S1743 . 1 `uc 1 LFIOFS 1 0 :1:0 
 `uc 1 MFIOFS 1 0 :1:1 
 `uc 1 PRISD 1 0 :1:2 
 `uc 1 SOSCGO 1 0 :1:3 
@@ -997,18 +983,18 @@ THREAD_DONE 4
 `uc 1 PLLRDY 1 0 :1:7 
 ]
 "16006
-[u S1771 . 1 `S1762 1 . 1 0 ]
-[v _OSCCON2bits OSCCON2bits `VES1771  1 e 1 @4050 ]
+[u S1752 . 1 `S1743 1 . 1 0 ]
+[v _OSCCON2bits OSCCON2bits `VES1752  1 e 1 @4050 ]
 "16046
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
-[s S1809 . 1 `uc 1 SCS 1 0 :2:0 
+[s S1790 . 1 `uc 1 SCS 1 0 :2:0 
 `uc 1 HFIOFS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 `uc 1 IDLEN 1 0 :1:7 
 ]
 "16069
-[s S1815 . 1 `uc 1 SCS0 1 0 :1:0 
+[s S1796 . 1 `uc 1 SCS0 1 0 :1:0 
 `uc 1 SCS1 1 0 :1:1 
 `uc 1 IOFS 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -1016,9 +1002,9 @@ THREAD_DONE 4
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S1823 . 1 `S1809 1 . 1 0 `S1815 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES1823  1 e 1 @4051 ]
-[s S1719 . 1 `uc 1 INT1IF 1 0 :1:0 
+[u S1804 . 1 `S1790 1 . 1 0 `S1796 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES1804  1 e 1 @4051 ]
+[s S1700 . 1 `uc 1 INT1IF 1 0 :1:0 
 `uc 1 INT2IF 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 INT1IE 1 0 :1:3 
@@ -1028,7 +1014,7 @@ THREAD_DONE 4
 `uc 1 INT2IP 1 0 :1:7 
 ]
 "16791
-[s S1728 . 1 `uc 1 INT1F 1 0 :1:0 
+[s S1709 . 1 `uc 1 INT1F 1 0 :1:0 
 `uc 1 INT2F 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 INT1E 1 0 :1:3 
@@ -1037,9 +1023,9 @@ THREAD_DONE 4
 `uc 1 INT1P 1 0 :1:6 
 `uc 1 INT2P 1 0 :1:7 
 ]
-[u S1737 . 1 `S1719 1 . 1 0 `S1728 1 . 1 0 ]
-[v _INTCON3bits INTCON3bits `VES1737  1 e 1 @4080 ]
-[s S1670 . 1 `uc 1 RBIF 1 0 :1:0 
+[u S1718 . 1 `S1700 1 . 1 0 `S1709 1 . 1 0 ]
+[v _INTCON3bits INTCON3bits `VES1718  1 e 1 @4080 ]
+[s S1651 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -1049,7 +1035,7 @@ THREAD_DONE 4
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "16958
-[s S1679 . 1 `uc 1 . 1 0 :1:0 
+[s S1660 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -1058,12 +1044,12 @@ THREAD_DONE 4
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S1688 . 1 `uc 1 . 1 0 :6:0 
+[s S1669 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S1692 . 1 `S1670 1 . 1 0 `S1679 1 . 1 0 `S1688 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES1692  1 e 1 @4082 ]
+[u S1673 . 1 `S1651 1 . 1 0 `S1660 1 . 1 0 `S1669 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES1673  1 e 1 @4082 ]
 "17534
 [v _ADON ADON `VEb  1 e 0 @32272 ]
 "18503
@@ -1072,17 +1058,21 @@ THREAD_DONE 4
 [v _TX1IF TX1IF `VEb  1 e 0 @31988 ]
 "20597
 [v _TX2IF TX2IF `VEb  1 e 0 @32036 ]
-"3 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\eeprom.c
+"3 C:\Users\SERT\MPLABXProjects\TEST\eeprom.c
 [v _eeprom_byte_write eeprom_byte_write `*.37(v  1 e 2 0 ]
 "4
 [v _eeprom_byte_read eeprom_byte_read `*.37(uc  1 e 2 0 ]
-"23 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\newmain.c
+[s S24 . 2 `ui 1 time_out_time 2 0 ]
+"29 C:\Users\SERT\MPLABXProjects\TEST\newmain.c
+[s S27 . 7 `uc 1 flag 1 0 `ui 1 duty_time 2 1 `S24 1 temp 2 3 `*.37(v 1 Funct 2 5 ]
+[v _THREADS THREADS `[3]S27  1 e 21 0 ]
+"31
+[v _UART_2_MSG UART_2_MSG `[20]uc  1 e 20 0 ]
+"32
 [v _UART_1_MSG UART_1_MSG `[20]uc  1 e 20 0 ]
-"24
-[v _UART_0_MSG UART_0_MSG `[20]uc  1 e 20 0 ]
-"56
+"59
 [v _SETTING_VALUES SETTING_VALUES `[1]ui  1 e 2 0 ]
-"4 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\PIC_18F46K22.c
+"4 C:\Users\SERT\MPLABXProjects\TEST\PIC_18F46K22.c
 [v _calculator calculator `f  1 e 4 0 ]
 "9
 [v _PWM_1_TIMER_SELECT PWM_1_TIMER_SELECT `uc  1 e 1 0 ]
@@ -1100,39 +1090,29 @@ THREAD_DONE 4
 [v _TIMER_3_TICK TIMER_3_TICK `ui  1 e 2 0 ]
 "511
 [v _TIMER_5_TICK TIMER_5_TICK `ui  1 e 2 0 ]
-"8 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\register.c
+"8 C:\Users\SERT\MPLABXProjects\TEST\register.c
 [v _RANDCODE RANDCODE `ui  1 e 2 0 ]
 "9
 [v _UNLOCK_STARTED UNLOCK_STARTED `uc  1 e 1 0 ]
-[s S738 . 16 `ui 1 flag 2 0 `ul 1 val 4 2 `ul 1 max 4 6 `ul 1 min 4 10 `*.37(v 1 funct 2 14 ]
+[s S719 . 16 `ui 1 flag 2 0 `ul 1 val 4 2 `ul 1 max 4 6 `ul 1 min 4 10 `*.37(v 1 funct 2 14 ]
 "10
-[v _REGS REGS `[10]S738  1 e 160 0 ]
-"2 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\task.c
-[v _TASK_NUM TASK_NUM `uc  1 e 1 0 ]
-[s S641 . 3 `uc 1 flag 1 0 `*.37(v 1 Funct 2 1 ]
-"3
-[v _TASK_LIST TASK_LIST `[10]S641  1 e 30 0 ]
-"3 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\thread.c
-[v _THREAD_NUM THREAD_NUM `uc  1 e 1 0 ]
-"4
+[v _REGS REGS `[10]S719  1 e 160 0 ]
+"5 C:\Users\SERT\MPLABXProjects\TEST\thread.c
+[v _SYSTEM_TIME_OUT_COUNTER SYSTEM_TIME_OUT_COUNTER `ui  1 e 2 0 ]
+"96
 [v _thread_return_temp thread_return_temp `uc  1 e 1 0 ]
-[s S572 . 7 `uc 1 flag 1 0 `ui 1 duty_time 2 1 `ui 1 duty_temp_time 2 3 `*.37(v 1 Funct 2 5 ]
-"5
-[v _THREAD_LIST THREAD_LIST `[10]S572  1 e 70 0 ]
-"3 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\time_out.c
-[v _SYSTEM_TIME_OUT_COUNTER SYSTEM_TIME_OUT_COUNTER `VEui  1 e 2 0 ]
-"313 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\newmain.c
+"274 C:\Users\SERT\MPLABXProjects\TEST\newmain.c
 [v _main main `(i  1 e 2 0 ]
 {
-"327
+"290
 } 0
-"309 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\PIC_18F46K22.c
+"309 C:\Users\SERT\MPLABXProjects\TEST\PIC_18F46K22.c
 [v _UART_1_INIT UART_1_INIT `(v  1 e 1 0 ]
 {
 "311
-[v UART_1_INIT@calculater calculater `uo  1 a 8 13 ]
+[v UART_1_INIT@calculater calculater `uo  1 a 8 28 ]
 "309
-[v UART_1_INIT@baudRate baudRate `ul  1 p 4 5 ]
+[v UART_1_INIT@baudRate baudRate `ul  1 p 4 20 ]
 "320
 } 0
 "303
@@ -1141,7 +1121,7 @@ THREAD_DONE 4
 [v UART_1_INTERRUPT@OpenOrClose OpenOrClose `uc  1 a 1 wreg ]
 [v UART_1_INTERRUPT@OpenOrClose OpenOrClose `uc  1 a 1 wreg ]
 "305
-[v UART_1_INTERRUPT@OpenOrClose OpenOrClose `uc  1 a 1 22 ]
+[v UART_1_INTERRUPT@OpenOrClose OpenOrClose `uc  1 a 1 7 ]
 "307
 } 0
 "605
@@ -1149,12 +1129,12 @@ THREAD_DONE 4
 {
 [v PIN_SET_IO@AnalogOrDijital AnalogOrDijital `uc  1 a 1 wreg ]
 [v PIN_SET_IO@AnalogOrDijital AnalogOrDijital `uc  1 a 1 wreg ]
-[v PIN_SET_IO@InputOrOutput InputOrOutput `uc  1 p 1 0 ]
-[v PIN_SET_IO@Port Port `uc  1 p 1 1 ]
-[v PIN_SET_IO@Pin Pin `uc  1 p 1 2 ]
-[v PIN_SET_IO@HighOrLow HighOrLow `uc  1 p 1 3 ]
+[v PIN_SET_IO@InputOrOutput InputOrOutput `uc  1 p 1 15 ]
+[v PIN_SET_IO@Port Port `uc  1 p 1 16 ]
+[v PIN_SET_IO@Pin Pin `uc  1 p 1 17 ]
+[v PIN_SET_IO@HighOrLow HighOrLow `uc  1 p 1 18 ]
 "607
-[v PIN_SET_IO@AnalogOrDijital AnalogOrDijital `uc  1 a 1 4 ]
+[v PIN_SET_IO@AnalogOrDijital AnalogOrDijital `uc  1 a 1 19 ]
 "610
 } 0
 "577
@@ -1162,15 +1142,15 @@ THREAD_DONE 4
 {
 [v PIN_SET_TRIS@Port Port `uc  1 a 1 wreg ]
 "580
-[v PIN_SET_TRIS@work_adress work_adress `*.39VEuc  1 a 2 28 ]
+[v PIN_SET_TRIS@work_adress work_adress `*.39VEuc  1 a 2 13 ]
 "579
-[v PIN_SET_TRIS@hex hex `uc  1 a 1 27 ]
+[v PIN_SET_TRIS@hex hex `uc  1 a 1 12 ]
 "577
 [v PIN_SET_TRIS@Port Port `uc  1 a 1 wreg ]
-[v PIN_SET_TRIS@Pin Pin `uc  1 p 1 22 ]
-[v PIN_SET_TRIS@InputOrOutput InputOrOutput `uc  1 p 1 23 ]
+[v PIN_SET_TRIS@Pin Pin `uc  1 p 1 7 ]
+[v PIN_SET_TRIS@InputOrOutput InputOrOutput `uc  1 p 1 8 ]
 "579
-[v PIN_SET_TRIS@Port Port `uc  1 a 1 26 ]
+[v PIN_SET_TRIS@Port Port `uc  1 a 1 11 ]
 "585
 } 0
 "568
@@ -1178,15 +1158,15 @@ THREAD_DONE 4
 {
 [v PIN_SET_LAT@Port Port `uc  1 a 1 wreg ]
 "571
-[v PIN_SET_LAT@work_adress work_adress `*.39VEuc  1 a 2 28 ]
+[v PIN_SET_LAT@work_adress work_adress `*.39VEuc  1 a 2 13 ]
 "570
-[v PIN_SET_LAT@hex hex `uc  1 a 1 27 ]
+[v PIN_SET_LAT@hex hex `uc  1 a 1 12 ]
 "568
 [v PIN_SET_LAT@Port Port `uc  1 a 1 wreg ]
-[v PIN_SET_LAT@Pin Pin `uc  1 p 1 22 ]
-[v PIN_SET_LAT@HighOrLow HighOrLow `uc  1 p 1 23 ]
+[v PIN_SET_LAT@Pin Pin `uc  1 p 1 7 ]
+[v PIN_SET_LAT@HighOrLow HighOrLow `uc  1 p 1 8 ]
 "570
-[v PIN_SET_LAT@Port Port `uc  1 a 1 26 ]
+[v PIN_SET_LAT@Port Port `uc  1 a 1 11 ]
 "575
 } 0
 "595
@@ -1194,15 +1174,15 @@ THREAD_DONE 4
 {
 [v PIN_SET_ANSEL@Port Port `uc  1 a 1 wreg ]
 "598
-[v PIN_SET_ANSEL@work_adress work_adress `*.39VEuc  1 a 2 28 ]
+[v PIN_SET_ANSEL@work_adress work_adress `*.39VEuc  1 a 2 13 ]
 "597
-[v PIN_SET_ANSEL@hex hex `uc  1 a 1 27 ]
+[v PIN_SET_ANSEL@hex hex `uc  1 a 1 12 ]
 "595
 [v PIN_SET_ANSEL@Port Port `uc  1 a 1 wreg ]
-[v PIN_SET_ANSEL@Pin Pin `uc  1 p 1 22 ]
-[v PIN_SET_ANSEL@AnalogOrDijital AnalogOrDijital `uc  1 p 1 23 ]
+[v PIN_SET_ANSEL@Pin Pin `uc  1 p 1 7 ]
+[v PIN_SET_ANSEL@AnalogOrDijital AnalogOrDijital `uc  1 p 1 8 ]
 "597
-[v PIN_SET_ANSEL@Port Port `uc  1 a 1 26 ]
+[v PIN_SET_ANSEL@Port Port `uc  1 a 1 11 ]
 "603
 } 0
 "434
@@ -1210,54 +1190,54 @@ THREAD_DONE 4
 {
 [v TIMER_1_INIT@ms ms `uc  1 a 1 wreg ]
 "444
-[v TIMER_1_INIT@TickValue TickValue `ul  1 a 4 19 ]
+[v TIMER_1_INIT@TickValue TickValue `ul  1 a 4 15 ]
 "443
-[v TIMER_1_INIT@TimerFreq TimerFreq `ul  1 a 4 12 ]
+[v TIMER_1_INIT@TimerFreq TimerFreq `ul  1 a 4 8 ]
 "441
-[v TIMER_1_INIT@i i `i  1 a 2 23 ]
+[v TIMER_1_INIT@i i `i  1 a 2 19 ]
 "438
 [v TIMER_1_INIT@Prescalers Prescalers `[4]uc  1 a 4 0 ]
 "437
-[v TIMER_1_INIT@Fcy Fcy `ul  1 a 4 8 ]
+[v TIMER_1_INIT@Fcy Fcy `ul  1 a 4 4 ]
 "439
-[v TIMER_1_INIT@TMR1_Tick TMR1_Tick `ui  1 a 2 17 ]
+[v TIMER_1_INIT@TMR1_Tick TMR1_Tick `ui  1 a 2 13 ]
 "434
 [v TIMER_1_INIT@ms ms `uc  1 a 1 wreg ]
 "437
-[v TIMER_1_INIT@F6681 F6681 `[4]uc  1 s 4 F6681 ]
+[v TIMER_1_INIT@F6703 F6703 `[4]uc  1 s 4 F6703 ]
 "434
-[v TIMER_1_INIT@ms ms `uc  1 a 1 16 ]
+[v TIMER_1_INIT@ms ms `uc  1 a 1 12 ]
 "458
 } 0
-"15 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\Umul32.c
+"15 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 {
 "17
-[v ___lmul@product product `ul  1 a 4 13 ]
+[v ___lmul@product product `ul  1 a 4 28 ]
 "15
-[v ___lmul@multiplier multiplier `ul  1 p 4 5 ]
-[v ___lmul@multiplicand multiplicand `ul  1 p 4 9 ]
+[v ___lmul@multiplier multiplier `ul  1 p 4 20 ]
+[v ___lmul@multiplicand multiplicand `ul  1 p 4 24 ]
 "129
 } 0
-"7 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\__lldiv.c
+"7 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
 {
 "10
-[v ___lldiv@quotient quotient `ul  1 a 4 0 ]
+[v ___lldiv@quotient quotient `ul  1 a 4 15 ]
 "11
-[v ___lldiv@counter counter `uc  1 a 1 4 ]
+[v ___lldiv@counter counter `uc  1 a 1 19 ]
 "7
-[v ___lldiv@dividend dividend `ul  1 p 4 22 ]
-[v ___lldiv@divisor divisor `ul  1 p 4 26 ]
+[v ___lldiv@dividend dividend `ul  1 p 4 7 ]
+[v ___lldiv@divisor divisor `ul  1 p 4 11 ]
 "30
 } 0
-"429 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\PIC_18F46K22.c
+"429 C:\Users\SERT\MPLABXProjects\TEST\PIC_18F46K22.c
 [v _TIMER_1_SET TIMER_1_SET `(v  1 e 1 0 ]
 {
 [v TIMER_1_SET@startOrStop startOrStop `uc  1 a 1 wreg ]
 [v TIMER_1_SET@startOrStop startOrStop `uc  1 a 1 wreg ]
 "431
-[v TIMER_1_SET@startOrStop startOrStop `uc  1 a 1 23 ]
+[v TIMER_1_SET@startOrStop startOrStop `uc  1 a 1 8 ]
 "432
 } 0
 "423
@@ -1266,172 +1246,203 @@ THREAD_DONE 4
 [v TIMER_1_INTERRUPT@openOrClose openOrClose `uc  1 a 1 wreg ]
 [v TIMER_1_INTERRUPT@openOrClose openOrClose `uc  1 a 1 wreg ]
 "425
-[v TIMER_1_INTERRUPT@openOrClose openOrClose `uc  1 a 1 23 ]
+[v TIMER_1_INTERRUPT@openOrClose openOrClose `uc  1 a 1 8 ]
 "427
 } 0
-"65 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\thread.c
-[v _THREAD_CREATE THREAD_CREATE `(v  1 e 1 0 ]
+"60 C:\Users\SERT\MPLABXProjects\TEST\thread.c
+[v _THREAD_INIT THREAD_INIT `(v  1 e 1 0 ]
 {
-[v THREAD_CREATE@threadIndex threadIndex `uc  1 a 1 wreg ]
-[v THREAD_CREATE@threadIndex threadIndex `uc  1 a 1 wreg ]
-[v THREAD_CREATE@flag flag `uc  1 p 1 22 ]
-[v THREAD_CREATE@duty_time duty_time `uc  1 p 1 23 ]
-[v THREAD_CREATE@Funct_t Funct_t `*.37(v  1 p 2 24 ]
-"67
-[v THREAD_CREATE@threadIndex threadIndex `uc  1 a 1 28 ]
-"71
+[s S24 . 2 `ui 1 time_out_time 2 0 ]
+[s S27 . 7 `uc 1 flag 1 0 `ui 1 duty_time 2 1 `S24 1 temp 2 3 `*.37(v 1 Funct 2 5 ]
+[v THREAD_INIT@thread_t thread_t `*.30S27  1 p 1 7 ]
+[v THREAD_INIT@flag flag `uc  1 p 1 8 ]
+[v THREAD_INIT@duty_time duty_time `ui  1 p 2 9 ]
+[v THREAD_INIT@Funct_t Funct_t `*.37(v  1 p 2 11 ]
+"65
 } 0
-"28 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\newmain.c
+"36 C:\Users\SERT\MPLABXProjects\TEST\newmain.c
 [v _SYSTEM_CONTROL_ALL SYSTEM_CONTROL_ALL `(v  1 e 1 0 ]
 {
-"32
-} 0
-"29 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\thread.c
-[v _THREAD_MAIN THREAD_MAIN `(v  1 e 1 0 ]
-{
-"31
-[v THREAD_MAIN@threadIndex threadIndex `uc  1 a 1 5 ]
 "39
 } 0
-"261 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\newmain.c
-[v _LED_THREAD LED_THREAD `(v  1 e 1 0 ]
+"88 C:\Users\SERT\MPLABXProjects\TEST\thread.c
+[v _THREAD_ARRAY_CHECK THREAD_ARRAY_CHECK `(v  1 e 1 0 ]
 {
-[v LED_THREAD@threadIndex threadIndex `uc  1 a 1 wreg ]
-[v LED_THREAD@threadIndex threadIndex `uc  1 a 1 wreg ]
-[s S207 . 4 `uc 1 flag 1 0 `ui 1 duty_time 2 1 `uc 1 sleep_state_counter 1 3 ]
-"263
-[v LED_THREAD@timer timer `S207  1 s 4 timer ]
-[v LED_THREAD@threadIndex threadIndex `uc  1 a 1 2 ]
-"269
+"90
+[v THREAD_ARRAY_CHECK@i i `ui  1 a 2 20 ]
+[s S24 . 2 `ui 1 time_out_time 2 0 ]
+"88
+[s S27 . 7 `uc 1 flag 1 0 `ui 1 duty_time 2 1 `S24 1 temp 2 3 `*.37(v 1 Funct 2 5 ]
+[v THREAD_ARRAY_CHECK@array array `*.30S27  1 p 1 17 ]
+[v THREAD_ARRAY_CHECK@length length `ui  1 p 2 18 ]
+"91
 } 0
-"82 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\thread.c
+"48
+[v _THREAD_CHECK THREAD_CHECK `(v  1 e 1 0 ]
+{
+[s S24 . 2 `ui 1 time_out_time 2 0 ]
+[s S27 . 7 `uc 1 flag 1 0 `ui 1 duty_time 2 1 `S24 1 temp 2 3 `*.37(v 1 Funct 2 5 ]
+[v THREAD_CHECK@thread_t thread_t `*.30S27  1 p 1 14 ]
+"58
+} 0
+"19
+[v _TIME_OUT_CHECK TIME_OUT_CHECK `(uc  1 e 1 0 ]
+{
+[s S24 . 2 `ui 1 time_out_time 2 0 ]
+[v TIME_OUT_CHECK@timeout timeout `*.30S24  1 p 1 7 ]
+[v TIME_OUT_CHECK@outTime outTime `ui  1 p 2 8 ]
+"26
+} 0
+"226 C:\Users\SERT\MPLABXProjects\TEST\newmain.c
+[v _THREAD_LED_FUNCT THREAD_LED_FUNCT `(v  1 e 1 0 ]
+{
+[s S221 . 4 `uc 1 flag 1 0 `ui 1 duty_time 2 1 `uc 1 sleep_state_counter 1 3 ]
+"228
+[v THREAD_LED_FUNCT@timer timer `S221  1 s 4 timer ]
+"232
+} 0
+"216
+[v _THREAD_UART_1_RX_FUNCT THREAD_UART_1_RX_FUNCT `(v  1 e 1 0 ]
+{
+"219
+} 0
+"221
+[v _THREAD_UART_2_RX_FUNCT THREAD_UART_2_RX_FUNCT `(v  1 e 1 0 ]
+{
+"224
+} 0
+"383 C:\Users\SERT\MPLABXProjects\TEST\PIC_18F46K22.c
+[v _UART_2_STRING UART_2_STRING `(v  1 e 1 0 ]
+{
+[v UART_2_STRING@text text `*.30uc  1 p 1 8 ]
+"390
+} 0
+"377
+[v _UART_2_BYTE UART_2_BYTE `(v  1 e 1 0 ]
+{
+[v UART_2_BYTE@out out `uc  1 a 1 wreg ]
+[v UART_2_BYTE@out out `uc  1 a 1 wreg ]
+[v UART_2_BYTE@out out `uc  1 a 1 7 ]
+"381
+} 0
+"328
+[v _UART_1_STRING UART_1_STRING `(v  1 e 1 0 ]
+{
+[v UART_1_STRING@text text `*.30uc  1 p 1 8 ]
+"335
+} 0
+"322
+[v _UART_1_BYTE UART_1_BYTE `(v  1 e 1 0 ]
+{
+[v UART_1_BYTE@out out `uc  1 a 1 wreg ]
+[v UART_1_BYTE@out out `uc  1 a 1 wreg ]
+[v UART_1_BYTE@out out `uc  1 a 1 7 ]
+"326
+} 0
+"104 C:\Users\SERT\MPLABXProjects\TEST\thread.c
 [v _THREAD_TIME_WAIT THREAD_TIME_WAIT `(uc  1 e 1 0 ]
 {
-"85
-[v THREAD_TIME_WAIT@sleepNum sleepNum `uc  1 a 1 1 ]
-"84
-[v THREAD_TIME_WAIT@activeSleepNum activeSleepNum `uc  1 a 1 0 ]
-[s S207 . 4 `uc 1 flag 1 0 `ui 1 duty_time 2 1 `uc 1 sleep_state_counter 1 3 ]
-"82
-[v THREAD_TIME_WAIT@thread thread `*.39S207  1 p 2 22 ]
-[v THREAD_TIME_WAIT@threadTime threadTime `ui  1 p 2 24 ]
-"111
+"107
+[v THREAD_TIME_WAIT@sleepNum sleepNum `uc  1 a 1 13 ]
+"106
+[v THREAD_TIME_WAIT@activeSleepNum activeSleepNum `uc  1 a 1 12 ]
+[s S221 . 4 `uc 1 flag 1 0 `ui 1 duty_time 2 1 `uc 1 sleep_state_counter 1 3 ]
+"104
+[v THREAD_TIME_WAIT@thread thread `*.30S221  1 p 1 7 ]
+[v THREAD_TIME_WAIT@threadTime threadTime `ui  1 p 2 8 ]
+"128
 } 0
-"77
+"98
 [v _THREAD_TIME_START THREAD_TIME_START `(v  1 e 1 0 ]
 {
-[s S207 . 4 `uc 1 flag 1 0 `ui 1 duty_time 2 1 `uc 1 sleep_state_counter 1 3 ]
-[v THREAD_TIME_START@thread thread `*.39S207  1 p 2 22 ]
-"80
+[s S221 . 4 `uc 1 flag 1 0 `ui 1 duty_time 2 1 `uc 1 sleep_state_counter 1 3 ]
+[v THREAD_TIME_START@thread thread `*.30S221  1 p 1 7 ]
+"102
 } 0
-"113
-[v _THREAD_TIME_DONE THREAD_TIME_DONE `(uc  1 e 1 0 ]
-{
-[s S207 . 4 `uc 1 flag 1 0 `ui 1 duty_time 2 1 `uc 1 sleep_state_counter 1 3 ]
-[v THREAD_TIME_DONE@thread thread `*.39S207  1 p 2 22 ]
-"117
-} 0
-"124
+"143
 [v _THREAD_GET_STATE THREAD_GET_STATE `(uc  1 e 1 0 ]
 {
-"127
+"146
 } 0
-"54
-[v _THREAD_DONE_CONTROL THREAD_DONE_CONTROL `(v  1 e 1 0 ]
-{
-[v THREAD_DONE_CONTROL@threadIndex threadIndex `uc  1 a 1 wreg ]
-[v THREAD_DONE_CONTROL@threadIndex threadIndex `uc  1 a 1 wreg ]
-"56
-[v THREAD_DONE_CONTROL@threadIndex threadIndex `uc  1 a 1 22 ]
-"57
-} 0
-"587 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\PIC_18F46K22.c
+"587 C:\Users\SERT\MPLABXProjects\TEST\PIC_18F46K22.c
 [v _PIN_SET_LAT_TOGGLE PIN_SET_LAT_TOGGLE `(v  1 e 1 0 ]
 {
 [v PIN_SET_LAT_TOGGLE@Port Port `uc  1 a 1 wreg ]
 "590
-[v PIN_SET_LAT_TOGGLE@work_adress work_adress `*.39VEuc  1 a 2 27 ]
+[v PIN_SET_LAT_TOGGLE@work_adress work_adress `*.39VEuc  1 a 2 12 ]
 "589
-[v PIN_SET_LAT_TOGGLE@hex hex `uc  1 a 1 26 ]
+[v PIN_SET_LAT_TOGGLE@hex hex `uc  1 a 1 11 ]
 "587
 [v PIN_SET_LAT_TOGGLE@Port Port `uc  1 a 1 wreg ]
-[v PIN_SET_LAT_TOGGLE@Pin Pin `uc  1 p 1 22 ]
+[v PIN_SET_LAT_TOGGLE@Pin Pin `uc  1 p 1 7 ]
 "589
-[v PIN_SET_LAT_TOGGLE@Port Port `uc  1 a 1 25 ]
+[v PIN_SET_LAT_TOGGLE@Port Port `uc  1 a 1 10 ]
 "593
 } 0
-"7 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\task.c
-[v _TASK_MAIN TASK_MAIN `(v  1 e 1 0 ]
-{
-"9
-[v TASK_MAIN@taskIndex taskIndex `uc  1 a 1 22 ]
-"10
-} 0
-"644 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\PIC_18F46K22.c
+"644
 [v _MCU_INIT MCU_INIT `(v  1 e 1 0 ]
 {
 [v MCU_INIT@inorEx inorEx `uc  1 a 1 wreg ]
 [v MCU_INIT@inorEx inorEx `uc  1 a 1 wreg ]
-[v MCU_INIT@mhz mhz `uc  1 p 1 22 ]
+[v MCU_INIT@mhz mhz `uc  1 p 1 7 ]
 "646
-[v MCU_INIT@inorEx inorEx `uc  1 a 1 23 ]
-"665
+[v MCU_INIT@inorEx inorEx `uc  1 a 1 8 ]
+"666
 } 0
-"667
+"668
 [v _INTERRUPT_ALL INTERRUPT_ALL `(v  1 e 1 0 ]
 {
 [v INTERRUPT_ALL@OpenOrClose OpenOrClose `uc  1 a 1 wreg ]
 [v INTERRUPT_ALL@OpenOrClose OpenOrClose `uc  1 a 1 wreg ]
-"669
-[v INTERRUPT_ALL@OpenOrClose OpenOrClose `uc  1 a 1 22 ]
-"672
+"670
+[v INTERRUPT_ALL@OpenOrClose OpenOrClose `uc  1 a 1 7 ]
+"673
 } 0
-"528 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\newmain.c
+"469 C:\Users\SERT\MPLABXProjects\TEST\newmain.c
 [v __ISR _ISR `IIH(v  1 e 1 0 ]
 {
-"554
+"488
 } 0
-"286
+"250
 [v _UART_2_INTERRUPT_FUNCT UART_2_INTERRUPT_FUNCT `(v  1 e 1 0 ]
 {
 [v UART_2_INTERRUPT_FUNCT@data data `uc  1 a 1 wreg ]
-"289
+"253
 [v UART_2_INTERRUPT_FUNCT@x x `uc  1 a 1 2 ]
-"286
+"250
 [v UART_2_INTERRUPT_FUNCT@data data `uc  1 a 1 wreg ]
-"288
+"252
 [v UART_2_INTERRUPT_FUNCT@counter counter `uc  1 s 1 counter ]
 [v UART_2_INTERRUPT_FUNCT@data data `uc  1 a 1 1 ]
-"297
+"260
 } 0
-"299
+"262
 [v _UART_1_INTERRUPT_FUNCT UART_1_INTERRUPT_FUNCT `(v  1 e 1 0 ]
 {
 [v UART_1_INTERRUPT_FUNCT@data data `uc  1 a 1 wreg ]
-"302
+"265
 [v UART_1_INTERRUPT_FUNCT@x x `uc  1 a 1 2 ]
-"299
+"262
 [v UART_1_INTERRUPT_FUNCT@data data `uc  1 a 1 wreg ]
-"301
+"264
 [v UART_1_INTERRUPT_FUNCT@counter counter `uc  1 s 1 counter ]
 [v UART_1_INTERRUPT_FUNCT@data data `uc  1 a 1 1 ]
-"310
+"271
 } 0
-"15 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\task.c
-[v _TASK_START TASK_START `(v  1 e 1 0 ]
+"67 C:\Users\SERT\MPLABXProjects\TEST\thread.c
+[v _THREAD_START THREAD_START `(v  1 e 1 0 ]
 {
-[v TASK_START@taskIndex taskIndex `uc  1 a 1 wreg ]
-[v TASK_START@taskIndex taskIndex `uc  1 a 1 wreg ]
-"17
-[v TASK_START@taskIndex taskIndex `uc  1 a 1 0 ]
-"18
+[s S24 . 2 `ui 1 time_out_time 2 0 ]
+[s S27 . 7 `uc 1 flag 1 0 `ui 1 duty_time 2 1 `S24 1 temp 2 3 `*.37(v 1 Funct 2 5 ]
+[v THREAD_START@thread_t thread_t `*.30S27  1 p 1 0 ]
+"70
 } 0
-"6 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\time_out.c
+"8
 [v _TIME_OUT_COUNT_INTERRUPT TIME_OUT_COUNT_INTERRUPT `(v  1 e 1 0 ]
 {
-"10
+"12
 } 0
-"513 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\PIC_18F46K22.c
+"513 C:\Users\SERT\MPLABXProjects\TEST\PIC_18F46K22.c
 [v _TIMER_5_INTERRUPT_FUNCT TIMER_5_INTERRUPT_FUNCT `(v  1 e 1 0 ]
 {
 "517
@@ -1445,76 +1456,4 @@ THREAD_DONE 4
 [v _TIMER_1_INTERRUPT_FUNCT TIMER_1_INTERRUPT_FUNCT `(v  1 e 1 0 ]
 {
 "421
-} 0
-"9 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\thread.c
-[v _THREAD_INTERRUPT THREAD_INTERRUPT `(v  1 e 1 0 ]
-{
-"11
-[v THREAD_INTERRUPT@threadIndex threadIndex `uc  1 a 1 13 ]
-"27
-} 0
-"261 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\newmain.c
-[v i2_LED_THREAD LED_THREAD `(v  1 e 1 0 ]
-{
-[v i2LED_THREAD@threadIndex threadIndex `uc  1 a 1 wreg ]
-[v i2LED_THREAD@threadIndex threadIndex `uc  1 a 1 wreg ]
-"264
-[v i2LED_THREAD@threadIndex threadIndex `uc  1 a 1 10 ]
-"269
-} 0
-"82 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\thread.c
-[v i2_THREAD_TIME_WAIT THREAD_TIME_WAIT `(uc  1 e 1 0 ]
-{
-"85
-[v i2THREAD_TIME_WAIT@sleepNum sleepNum `uc  1 a 1 9 ]
-"84
-[v i2THREAD_TIME_WAIT@activeSleepNum activeSleepNum `uc  1 a 1 8 ]
-[s S207 . 4 `uc 1 flag 1 0 `ui 1 duty_time 2 1 `uc 1 sleep_state_counter 1 3 ]
-"82
-[v i2THREAD_TIME_WAIT@thread thread `*.39S207  1 p 2 0 ]
-[v i2THREAD_TIME_WAIT@threadTime threadTime `ui  1 p 2 2 ]
-"111
-} 0
-"77
-[v i2_THREAD_TIME_START THREAD_TIME_START `(v  1 e 1 0 ]
-{
-[s S207 . 4 `uc 1 flag 1 0 `ui 1 duty_time 2 1 `uc 1 sleep_state_counter 1 3 ]
-[v i2THREAD_TIME_START@thread thread `*.39S207  1 p 2 0 ]
-"80
-} 0
-"113
-[v i2_THREAD_TIME_DONE THREAD_TIME_DONE `(uc  1 e 1 0 ]
-{
-[s S207 . 4 `uc 1 flag 1 0 `ui 1 duty_time 2 1 `uc 1 sleep_state_counter 1 3 ]
-[v i2THREAD_TIME_DONE@thread thread `*.39S207  1 p 2 0 ]
-"117
-} 0
-"124
-[v i2_THREAD_GET_STATE THREAD_GET_STATE `(uc  1 e 1 0 ]
-{
-"127
-} 0
-"54
-[v i2_THREAD_DONE_CONTROL THREAD_DONE_CONTROL `(v  1 e 1 0 ]
-{
-[v i2THREAD_DONE_CONTROL@threadIndex threadIndex `uc  1 a 1 wreg ]
-[v i2THREAD_DONE_CONTROL@threadIndex threadIndex `uc  1 a 1 wreg ]
-"56
-[v i2THREAD_DONE_CONTROL@threadIndex threadIndex `uc  1 a 1 0 ]
-"57
-} 0
-"587 C:\Users\halilibrahim.sert\MPLABXProjects\TEST\PIC_18F46K22.c
-[v i2_PIN_SET_LAT_TOGGLE PIN_SET_LAT_TOGGLE `(v  1 e 1 0 ]
-{
-[v i2PIN_SET_LAT_TOGGLE@Port Port `uc  1 a 1 wreg ]
-"590
-[v i2PIN_SET_LAT_TOGGLE@work_adress work_adress `*.39VEuc  1 a 2 5 ]
-"589
-[v i2PIN_SET_LAT_TOGGLE@hex hex `uc  1 a 1 4 ]
-"587
-[v i2PIN_SET_LAT_TOGGLE@Port Port `uc  1 a 1 wreg ]
-[v i2PIN_SET_LAT_TOGGLE@Pin Pin `uc  1 p 1 0 ]
-"589
-[v i2PIN_SET_LAT_TOGGLE@Port Port `uc  1 a 1 3 ]
-"593
 } 0

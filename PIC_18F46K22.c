@@ -660,8 +660,9 @@ void MCU_INIT(byte inorEx, byte mhz)
       OSCTUNEbits.PLLEN = 1;
       }
     OSCCON = mhz;
+    while (!OSCCONbits.IOFS) continue;
     }
-  while (!OSCCONbits.IOFS) continue;
+  
   }
 
 void INTERRUPT_ALL(byte OpenOrClose)
