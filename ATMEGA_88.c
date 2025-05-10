@@ -176,11 +176,11 @@ void TIMER_2_SET(byte startOrStop)
 // </editor-fold> -OK
 // <editor-fold defaultstate="collapsed" desc="UART 0     ">
 
-void UART_0_INIT(unsigned long baudrate)
+void UART_1_INIT(unsigned long baudrate)
   {
   float calculater;
   byte temp;
-  UCSR0B |= (1 << RXEN0) | (1 << TXEN0) | (1 << RXCIE0) | (1 << TXCIE0);
+  UCSR0B |= (1 << RXEN0) | (1 << TXEN0) | (1 << RXCIE0) | (0 << TXCIE0);
   UCSR0C |= ((1 << UCSZ00) | 1 << UCSZ01);
   calculater = (((CRYSTAL_FREKANS / (baudrate * (16)))) - 1);
   temp = (word) (calculater) & 0xFF;
@@ -190,7 +190,7 @@ void UART_0_INIT(unsigned long baudrate)
   UBRR0H = temp;
   }
 
-void UART_0_BYTE(char data)
+void UART_1_BYTE(char data)
   {
   while (!(UCSR0A & (1 << UDRE0))); /* Wait for empty transmit buffer*/
   UDR0 = data;
@@ -198,17 +198,17 @@ void UART_0_BYTE(char data)
   UCSR0A |= (1 << TXC0); // TXC0 bayra??n? temizle
   }
 
-void UART_0_STRING(const char* text)
+void UART_1_STRING(const char* text)
   {
   unsigned char j = 0;
   while (text[j] != 0) /* Send string till null */
     {
-    UART_0_BYTE(text[j]);
+    UART_1_BYTE(text[j]);
     j++;
     }
   }
 
-void UART_0_DECIMAL(dword val)
+void UART_1_DECIMAL(dword val)
   {
 
   byte basamak[10] = {};
@@ -223,7 +223,7 @@ void UART_0_DECIMAL(dword val)
   i--;
   while (i >= 0)
     {
-    UART_0_BYTE(basamak[ i ]);
+    UART_1_BYTE(basamak[ i ]);
     i--;
     }
   }
@@ -358,7 +358,7 @@ void PWM_0_INIT(byte presecale, byte mode, byte resulation)
 
 void PWM_0A_INIT()
   {
-  SYSTEM_INIT_IO('D', 6, 'O', 'L');
+//  SYSTEM_INIT_IO('D', 6, 'O', 'L');
   }
 
 void PWM_0A_START()
@@ -388,7 +388,7 @@ void PWM_0A_DUTY(word duty)
 
 void PWM_0B_INIT()
   {
-  SYSTEM_INIT_IO('D', 5, 'O', 'L');
+ // SYSTEM_INIT_IO('D', 5, 'O', 'L');
   }
 
 void PWM_0B_START()
@@ -438,7 +438,7 @@ void PWM_1_INIT(byte presecale, byte mode, byte resulation)
 
 void PWM_1A_INIT()
   {
-  SYSTEM_INIT_IO('B', 1, 'O', 'L');
+ // SYSTEM_INIT_IO('B', 1, 'O', 'L');
   }
 
 void PWM_1A_START()
@@ -468,7 +468,7 @@ void PWM_1A_DUTY(word duty)
 
 void PWM_1B_INIT()
   {
-  SYSTEM_INIT_IO('B', 2, 'O', 'L');
+ // SYSTEM_INIT_IO('B', 2, 'O', 'L');
   }
 
 void PWM_1B_START()
@@ -578,4 +578,54 @@ byte EEPROM_B_READ(word address)
   return EEDR; // Okunan veriyi döndür
   }
 // </editor-fold>
+
+void(*UART_1_INTERRUPT_FUNCT_POINTER)(byte);
+void(*TIMER_0_INTERRUPT_FUNCT_POINTER)(void);
+void(*TIMER_1_INTERRUPT_FUNCT_POINTER)(void);
+void(*TIMER_2_INTERRUPT_FUNCT_POINTER)(void);
+
+void UART_1_INTERRUPT_FUNCT_CONNECT(void(*UART_1_INTERRUPT_FUNCT_POINTER_t)(byte))
+{
+    UART_1_INTERRUPT_FUNCT_POINTER = UART_1_INTERRUPT_FUNCT_POINTER_t;
+}
+
+void TIMER_0_INTERRUPT_CONNECT(void(*TIMER_0_INTERRUPT_FUNCT_POINTER_t)(void))
+{
+    TIMER_0_INTERRUPT_FUNCT_POINTER = TIMER_0_INTERRUPT_FUNCT_POINTER_t;
+}
+
+void TIMER_1_INTERRUPT_CONNECT(void(*TIMER_1_INTERRUPT_FUNCT_POINTER_t)(void))
+{
+    TIMER_1_INTERRUPT_FUNCT_POINTER = TIMER_1_INTERRUPT_FUNCT_POINTER_t;
+}
+
+void TIMER_2_INTERRUPT_CONNECT(void(*TIMER_2_INTERRUPT_FUNCT_POINTER_t)(void))
+{
+    TIMER_2_INTERRUPT_FUNCT_POINTER = TIMER_2_INTERRUPT_FUNCT_POINTER_t;
+}
+
+ISR(TIMER0_OVF_vect)
+{
+    TIMER_0_INTERRUPT_FUNCT();
+    TIMER_0_INTERRUPT_FUNCT_POINTER();
+}
+
+ISR(TIMER1_OVF_vect)
+{
+    TIMER_1_INTERRUPT_FUNCT();
+    TIMER_1_INTERRUPT_FUNCT_POINTER();
+}
+
+ISR(TIMER2_OVF_vect)
+{
+    TIMER_2_INTERRUPT_FUNCT();
+    TIMER_2_INTERRUPT_FUNCT_POINTER();
+}
+
+ISR(USART_RX_vect)
+{
+    UART_1_INTERRUPT_FUNCT_POINTER(UDR0);
+}
+
+
 #endif

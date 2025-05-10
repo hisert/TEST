@@ -220,7 +220,7 @@ void THREAD_UART_1_RX_FUNCT()
 
 void THREAD_UART_2_RX_FUNCT()
 {
-    UART_2_STRING(UART_2_MSG);
+    //    UART_2_STRING(UART_2_MSG);
 }
 
 void THREAD_LED_FUNCT()
@@ -234,18 +234,6 @@ void THREAD_LED_FUNCT()
 
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="INTERRUPT FUNCT">
-
-void UART_5_INTERRUPT_FUNCT(byte data)
-{
-}
-
-void UART_4_INTERRUPT_FUNCT(byte data)
-{
-}
-
-void UART_3_INTERRUPT_FUNCT(byte data)
-{
-}
 
 void UART_2_INTERRUPT_FUNCT(byte data)
 {
@@ -273,125 +261,26 @@ void UART_1_INTERRUPT_FUNCT(byte data)
 
 int main(void)
 {
-    MCU_INIT(SYSTEM_FREQ_EXTERNAL, SYSTEM_FREQ_INTERNAL_64);
+    //  MCU_INIT(SYSTEM_FREQ_EXTERNAL, SYSTEM_FREQ_INTERNAL_64);
+    //  MCU_INIT(0, 16);
     PIN_SET_IO('D', 'O', 'B', 0, 'H '); //CANLI 
     PIN_SET_IO('D', 'O', 'B', 1, 'H '); //CANLI 
     TIMER_1_INIT(1);
-    UART_1_INIT(1000000);
-    // TASK_CREATE(TASK_UART_0_RX, 0, TASK_UART_0_RX_FUNCT);
-    // TASK_CREATE(TASK_UART_1_RX, 0, TASK_UART_1_RX_FUNCT);
-    // TASK_CREATE(TASK_REG_RANDCODE, THREAD_FLG_START, REG_CHANGE_RANDCODE);
-    INTERRUPT_ALL(1);
+    UART_1_INIT(19200);
+    //  UART_2_INIT(9600);
+    TIMER_1_INTERRUPT_CONNECT(TIME_OUT_COUNT_INTERRUPT);
+    UART_1_INTERRUPT_FUNCT_CONNECT(UART_1_INTERRUPT_FUNCT);
+    // UART_2_INTERRUPT_FUNCT_CONNECT(UART_2_INTERRUPT_FUNCT);
+
     THREAD_INIT(&THREADS[THREAD_LED], THREAD_FLG_START | THREAD_FLG_LOOP, 10, THREAD_LED_FUNCT);
     THREAD_INIT(&THREADS[THREAD_UART_1_RX], 0, 0, THREAD_UART_1_RX_FUNCT);
     THREAD_INIT(&THREADS[THREAD_UART_2_RX], 0, 0, THREAD_UART_2_RX_FUNCT);
+
+    INTERRUPT_ALL(1);
     while (1) SYSTEM_CONTROL_ALL();
 }
 
 // <editor-fold defaultstate="collapsed" desc="INTERRUPT FUNCT">
-
-#ifdef __AVR_ATmega64__
-
-ISR(TIMER1_OVF_vect)
-{
-
-    TIMER_1_INTERRUPT_FUNCT();
-    THREAD_INTERRUPT();
-    TIME_OUT_COUNT_INTERRUPT();
-}
-
-ISR(TIMER3_OVF_vect)
-{
-
-    TIMER_3_INTERRUPT_FUNCT();
-}
-
-ISR(USART0_RX_vect)
-{
-
-    UART_1_INTERRUPT_FUNCT(UDR0);
-}
-
-ISR(USART1_RX_vect)
-{
-
-    UART_2_INTERRUPT_FUNCT(UDR1);
-}
-
-#endif
-
-#ifdef __AVR_ATmega328__
-
-ISR(TIMER1_OVF_vect)
-{
-    TIMER_1_INTERRUPT_FUNCT();
-    THREAD_INTERRUPT();
-    TIME_OUT_COUNT_INTERRUPT();
-    if (MOTOR_TIME_OUT_CHECK()) FIRCASIZ_READ(HU, HV, HW);
-}
-
-ISR(USART_RX_vect)
-{
-    UART_1_INTERRUPT_FUNCT(UDR0);
-}
-
-ISR(PCINT0_vect)
-{
-    FIRCASIZ_READ(HU, HV, HW);
-}
-
-#endif
-
-#ifdef __AVR_ATmega88__
-
-ISR(TIMER1_OVF_vect)
-{
-
-    TIMER_1_INTERRUPT_FUNCT();
-    THREAD_INTERRUPT();
-}
-
-#endif
-
-#ifdef __AVR_ATmega8__
-
-ISR(TIMER1_OVF_vect)
-{
-
-    TIMER_1_INTERRUPT_FUNCT();
-    THREAD_INTERRUPT();
-}
-
-#endif
-
-#ifdef __18F87K22
-
-void __interrupt() _ISR(void)
-{
-    if (INTCONbits.RBIF) {
-        byte x = PORTB;
-        INTCONbits.RBIF = 0;
-    } else if (PIR1bits.TMR1IF) // Timer1 kesmesi olu?tu mu?
-    {
-        TIMER_1_INTERRUPT_FUNCT();
-        THREAD_INTERRUPT();
-        TIME_OUT_COUNT_INTERRUPT();
-    } else if (PIR2bits.TMR3IF) // Timer1 kesmesi olu?tu mu?
-    {
-        TIMER_3_INTERRUPT_FUNCT();
-    } else if (PIR5bits.TMR5IF) // Timer1 kesmesi olu?tu mu?
-    {
-        TIMER_5_INTERRUPT_FUNCT();
-    } else if (PIR1bits.RC1IF) { // UART1 al?c? interrupt'?
-        PIR1bits.RC1IF = 0;
-        UART_1_INTERRUPT_FUNCT(RCREG1);
-    } else if (PIR3bits.RC2IF) { // UART1 al?c? interrupt'?
-        PIR3bits.RC2IF = 0;
-        UART_2_INTERRUPT_FUNCT(RCREG2);
-    }
-}
-
-#endif
 
 #ifdef __18F67K40
 
@@ -461,31 +350,6 @@ void __interrupt(high_priority) _ISR(void)
     }
 
 }
-#endif
-
-#ifdef __18F46K22
-
-void __interrupt(high_priority) _ISR(void)
-{
-    if (PIR1bits.TMR1IF) // Timer1 kesmesi olu?tu mu?
-    {
-        TIMER_1_INTERRUPT_FUNCT();
-        TIME_OUT_COUNT_INTERRUPT();
-    } else if (PIR2bits.TMR3IF) // Timer1 kesmesi olu?tu mu?
-    {
-        TIMER_3_INTERRUPT_FUNCT();
-    } else if (PIR5bits.TMR5IF) // Timer1 kesmesi olu?tu mu?
-    {
-        TIMER_5_INTERRUPT_FUNCT();
-    } else if (PIR1bits.RC1IF) {
-        PIR1bits.RC1IF = 0;
-        UART_1_INTERRUPT_FUNCT(RCREG1);
-    } else if (PIR3bits.RC2IF) {
-        PIR3bits.RC2IF = 0;
-        UART_2_INTERRUPT_FUNCT(RCREG2);
-    }
-}
-
 #endif
 
 // </editor-fold>

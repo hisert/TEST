@@ -5,6 +5,8 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
+#ifdef __18F46K22
+
 
     // <editor-fold defaultstate="collapsed" desc="CONFIG           ">
 
@@ -143,6 +145,13 @@ extern "C" {
     byte I2C_2_READ_ACK();
     byte I2C_2_READ_NACK();
 
+    void UART_1_INTERRUPT_FUNCT_CONNECT(void(*UART_1_INTERRUPT_FUNCT_POINTER_t)(byte));
+    void UART_2_INTERRUPT_FUNCT_CONNECT(void(*UART_2_INTERRUPT_FUNCT_POINTER_t)(byte));
+    void TIMER_1_INTERRUPT_CONNECT(void(*TIMER_1_INTERRUPT_FUNCT_POINTER_t)(void));
+    void TIMER_5_INTERRUPT_CONNECT(void(*TIMER_5_INTERRUPT_FUNCT_POINTER_t)(void));
+    void TIMER_3_INTERRUPT_CONNECT(void(*TIMER_3_INTERRUPT_FUNCT_POINTER_t)(void));
+
+#endif
 
 #ifdef	__cplusplus
 }

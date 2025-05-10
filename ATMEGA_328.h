@@ -41,11 +41,11 @@ extern "C" {
     void TIMER_2_SET(byte startOrStop);
     void TIMER_2_INIT(byte ms);
 
-    void UART_0_INTERRUPT(byte openOrClose);
-    void UART_0_INIT(unsigned long baudrate);
-    void UART_0_BYTE(char data);
-    void UART_0_STRING(const char* text);
-    void UART_0_DECIMAL(dword val);
+    void UART_1_INTERRUPT(byte openOrClose);
+    void UART_1_INIT(unsigned long baudrate);
+    void UART_1_BYTE(char data);
+    void UART_1_STRING(const char* text);
+    void UART_1_DECIMAL(dword val);
 
     void ADC_INIT();
     word ADC_READ(unsigned char channel);
@@ -81,6 +81,11 @@ extern "C" {
     void PWM_2B_SET(byte openOrClose);
     void PWM_2A_DUTY(byte duty);
     void PWM_2B_DUTY(byte duty);
+
+    void UART_1_INTERRUPT_FUNCT_CONNECT(void(*UART_1_INTERRUPT_FUNCT_POINTER_t)(byte));
+    void TIMER_0_INTERRUPT_CONNECT(void(*TIMER_0_INTERRUPT_FUNCT_POINTER_t)(void));
+    void TIMER_1_INTERRUPT_CONNECT(void(*TIMER_1_INTERRUPT_FUNCT_POINTER_t)(void));
+    void TIMER_2_INTERRUPT_CONNECT(void(*TIMER_2_INTERRUPT_FUNCT_POINTER_t)(void));
 
 #endif  
 #ifdef	__cplusplus

@@ -54,17 +54,17 @@ extern "C" {
     void TIMER_3_SET(byte startOrStop);
     void TIMER_3_INIT(byte ms);
 
-    void UART_0_INTERRUPT(byte openOrClose);
-    void UART_0_INIT(unsigned long baudrate);
-    void UART_0_BYTE(char data);
-    void UART_0_STRING(const char* text);
-    void UART_0_DECIMAL(dword val);
-
     void UART_1_INTERRUPT(byte openOrClose);
     void UART_1_INIT(unsigned long baudrate);
     void UART_1_BYTE(char data);
     void UART_1_STRING(const char* text);
     void UART_1_DECIMAL(dword val);
+
+    void UART_2_INTERRUPT(byte openOrClose);
+    void UART_2_INIT(unsigned long baudrate);
+    void UART_2_BYTE(char data);
+    void UART_2_STRING(const char* text);
+    void UART_2_DECIMAL(dword val);
 
     void ADC_INIT();
     word ADC_READ(unsigned char channel);
@@ -80,6 +80,12 @@ extern "C" {
 
     void EEPROM_B_WRITE(word address, byte data);
     byte EEPROM_B_READ(word address);
+
+
+    void UART_1_INTERRUPT_FUNCT_CONNECT(void(*UART_1_INTERRUPT_FUNCT_POINTER_t)(byte));
+    void UART_2_INTERRUPT_FUNCT_CONNECT(void(*UART_2_INTERRUPT_FUNCT_POINTER_t)(byte));
+    void TIMER_1_INTERRUPT_CONNECT(void(*TIMER_1_INTERRUPT_FUNCT_POINTER_t)(void));
+    void TIMER_3_INTERRUPT_CONNECT(void(*TIMER_3_INTERRUPT_FUNCT_POINTER_t)(void));
 
 #endif
 

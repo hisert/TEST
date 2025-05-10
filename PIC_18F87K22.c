@@ -232,16 +232,16 @@ void TIMER_5_INIT(byte ms)
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="UART 1">
 
-void UART_0_INTERRUPT(byte openOrClose)
+void UART_1_INTERRUPT(byte openOrClose)
 {
     //   PIE1bits.TXIE = 1; // Verici interrupt'?n? aç
     if (openOrClose) PIE1bits.RCIE = 1;
     else PIE1bits.RCIE = 0;
 }
 
-void UART_0_INIT(unsigned long baudrate)
+void UART_1_INIT(unsigned long baudrate)
 {
-    
+
     PIN_SET_IO('D', 'O', 'C', 6, 'H');
     PIN_SET_IO('D', 'I', 'C', 7, 'H');
     unsigned int spbrg_value = (CRYSTAL_FREKANS / (16 * baudrate)) - 1; // 16 ile bölme yaparak daha yüksek baud h?zlar?n? elde edebilirsiniz.
@@ -253,76 +253,13 @@ void UART_0_INIT(unsigned long baudrate)
     RCSTA1bits.CREN = 1; // RX aktif
     TXSTA1bits.BRGH = 1; // Yüksek baud rate kullan?m? (BRGH bitini 1 yap)
     SPBRG1 = spbrg_value;
-    UART_0_INTERRUPT(1);
-}
-
-void UART_0_BYTE(char data)
-{
-    while (!TXSTA1bits.TRMT); // E?er veri gönderecek yer yoksa bekle
-    TXREG1 = data; // Veriyi gönder
-}
-
-void UART_0_STRING(char* text)
-{
-    while (*text) {
-        UART_0_BYTE(*text); // Her karakteri gönder
-        text++;
-    }
-}
-
-void UART_0_DECIMAL(dword val)
-{
-
-    byte basamak[10] = {};
-    signed char i = 0;
-    do {
-        basamak[ i ] = (val % 10) + 0x30;
-        val /= 10;
-        i++;
-    } while (val != 0);
-    i--;
-    while (i >= 0) {
-        UART_0_BYTE(basamak[ i ]);
-        i--;
-    }
-}
-// </editor-fold> 
-// <editor-fold defaultstate="collapsed" desc="UART 2">
-
-void UART_1_INTERRUPT(byte openOrClose)
-{
-    // PIE3bits.TX2IE = 1; // Verici interrupt'?n? aç
-    if (openOrClose) PIE3bits.RC2IE = 1; // UART2 al?c? interrupt'?
-    else PIE3bits.RC2IE = 0; // UART2 al?c? interrupt'? kapal?
-}
-
-void UART_1_INIT(unsigned long baudrate)
-{
-    PIN_SET_IO('D', 'O', 'G', 1, 'H');
-    PIN_SET_IO('D', 'I', 'G', 2, 'H');
-    PIN_SET_ANSEL(18, 0);
-    unsigned int spbrg_value = (CRYSTAL_FREKANS / (16 * baudrate)) - 1; // 16 ile bölme yaparak daha yüksek baud h?zlar?n? elde edebilirsiniz.
-
-    TXSTA2bits.SYNC = 0; // Asenkron mod
-    TXSTA2bits.TX9 = 0; // 8-bit veri
-    RCSTA2bits.RX9 = 0; // 8-bit veri
-    RCSTA2bits.SPEN = 1; // Serbest Port
-    TXSTA2bits.TXEN = 1; // TX aktif
-    RCSTA2bits.CREN = 1; // RX aktif
-    TXSTA2bits.BRGH = 1; // Yüksek baud rate kullan?m? (BRGH bitini 1 yap)
-
-    // UART2 için baudrate hesaplama
-    SPBRG2 = spbrg_value;
-
-    // UART2 interruptlar?n? aktif et
-    UART_1_INTERRUPT(1); // Al?c? interrupt'?n? aç
-
+    UART_1_INTERRUPT(1);
 }
 
 void UART_1_BYTE(char data)
 {
-    while (!TXSTA2bits.TRMT); // E?er veri gönderecek yer yoksa bekle
-    TXREG2 = data; // Veriyi UART2 üzerinden gönder
+    while (!TXSTA1bits.TRMT); // E?er veri gönderecek yer yoksa bekle
+    TXREG1 = data; // Veriyi gönder
 }
 
 void UART_1_STRING(char* text)
@@ -346,6 +283,69 @@ void UART_1_DECIMAL(dword val)
     i--;
     while (i >= 0) {
         UART_1_BYTE(basamak[ i ]);
+        i--;
+    }
+}
+// </editor-fold> 
+// <editor-fold defaultstate="collapsed" desc="UART 2">
+
+void UART_2_INTERRUPT(byte openOrClose)
+{
+    // PIE3bits.TX2IE = 1; // Verici interrupt'?n? aç
+    if (openOrClose) PIE3bits.RC2IE = 1; // UART2 al?c? interrupt'?
+    else PIE3bits.RC2IE = 0; // UART2 al?c? interrupt'? kapal?
+}
+
+void UART_2_INIT(unsigned long baudrate)
+{
+    PIN_SET_IO('D', 'O', 'G', 1, 'H');
+    PIN_SET_IO('D', 'I', 'G', 2, 'H');
+    PIN_SET_ANSEL(18, 0);
+    unsigned int spbrg_value = (CRYSTAL_FREKANS / (16 * baudrate)) - 1; // 16 ile bölme yaparak daha yüksek baud h?zlar?n? elde edebilirsiniz.
+
+    TXSTA2bits.SYNC = 0; // Asenkron mod
+    TXSTA2bits.TX9 = 0; // 8-bit veri
+    RCSTA2bits.RX9 = 0; // 8-bit veri
+    RCSTA2bits.SPEN = 1; // Serbest Port
+    TXSTA2bits.TXEN = 1; // TX aktif
+    RCSTA2bits.CREN = 1; // RX aktif
+    TXSTA2bits.BRGH = 1; // Yüksek baud rate kullan?m? (BRGH bitini 1 yap)
+
+    // UART2 için baudrate hesaplama
+    SPBRG2 = spbrg_value;
+
+    // UART2 interruptlar?n? aktif et
+    UART_2_INTERRUPT(1); // Al?c? interrupt'?n? aç
+
+}
+
+void UART_2_BYTE(char data)
+{
+    while (!TXSTA2bits.TRMT); // E?er veri gönderecek yer yoksa bekle
+    TXREG2 = data; // Veriyi UART2 üzerinden gönder
+}
+
+void UART_2_STRING(char* text)
+{
+    while (*text) {
+        UART_2_BYTE(*text); // Her karakteri gönder
+        text++;
+    }
+}
+
+void UART_2_DECIMAL(dword val)
+{
+
+    byte basamak[10] = {};
+    signed char i = 0;
+    do {
+        basamak[ i ] = (val % 10) + 0x30;
+        val /= 10;
+        i++;
+    } while (val != 0);
+    i--;
+    while (i >= 0) {
+        UART_2_BYTE(basamak[ i ]);
         i--;
     }
 }
@@ -374,9 +374,9 @@ void INTERRUPT_ALL(byte openOrClose)
     else INTCONbits.GIE = 0;
 }
 
-void MCU_INIT(byte MHz)
+void MCU_INIT(byte inorEx, byte mhz)
 {
-    SET_OSC(MHz);
+    SET_OSC(mhz);
     PIN_SET_ANSEL(0xFF, 0xFF);
 }
 // </editor-fold>
@@ -1100,4 +1100,62 @@ byte EEPROM_B_READ(word address)
     return EEDATA; // Okunan veriyi döndür
 }
 // </editor-fold> 
+
+void(*UART_1_INTERRUPT_FUNCT_POINTER)(byte);
+void(*UART_2_INTERRUPT_FUNCT_POINTER)(byte);
+void(*TIMER_1_INTERRUPT_FUNCT_POINTER)(void);
+void(*TIMER_5_INTERRUPT_FUNCT_POINTER)(void);
+void(*TIMER_3_INTERRUPT_FUNCT_POINTER)(void);
+
+void UART_1_INTERRUPT_FUNCT_CONNECT(void(*UART_1_INTERRUPT_FUNCT_POINTER_t)(byte))
+{
+    UART_1_INTERRUPT_FUNCT_POINTER = UART_1_INTERRUPT_FUNCT_POINTER_t;
+}
+
+void UART_2_INTERRUPT_FUNCT_CONNECT(void(*UART_2_INTERRUPT_FUNCT_POINTER_t)(byte))
+{
+    UART_2_INTERRUPT_FUNCT_POINTER = UART_2_INTERRUPT_FUNCT_POINTER_t;
+}
+
+void TIMER_1_INTERRUPT_CONNECT(void(*TIMER_1_INTERRUPT_FUNCT_POINTER_t)(void))
+{
+    TIMER_1_INTERRUPT_FUNCT_POINTER = TIMER_1_INTERRUPT_FUNCT_POINTER_t;
+}
+
+void TIMER_5_INTERRUPT_CONNECT(void(*TIMER_5_INTERRUPT_FUNCT_POINTER_t)(void))
+{
+    TIMER_5_INTERRUPT_FUNCT_POINTER = TIMER_5_INTERRUPT_FUNCT_POINTER_t;
+}
+
+void TIMER_3_INTERRUPT_CONNECT(void(*TIMER_3_INTERRUPT_FUNCT_POINTER_t)(void))
+{
+    TIMER_3_INTERRUPT_FUNCT_POINTER = TIMER_3_INTERRUPT_FUNCT_POINTER_t;
+}
+
+void __interrupt() _ISR(void)
+{
+    if (INTCONbits.RBIF) {
+        byte x = PORTB;
+        INTCONbits.RBIF = 0;
+    } else if (PIR1bits.TMR1IF) // Timer1 kesmesi olu?tu mu?
+    {
+        TIMER_1_INTERRUPT_FUNCT();
+        TIMER_1_INTERRUPT_FUNCT_POINTER();
+    } else if (PIR2bits.TMR3IF) // Timer1 kesmesi olu?tu mu?
+    {
+        TIMER_3_INTERRUPT_FUNCT();
+        TIMER_3_INTERRUPT_FUNCT_POINTER();
+    } else if (PIR5bits.TMR5IF) // Timer1 kesmesi olu?tu mu?
+    {
+        TIMER_5_INTERRUPT_FUNCT();
+        TIMER_5_INTERRUPT_FUNCT_POINTER();
+    } else if (PIR1bits.RC1IF) { // UART1 al?c? interrupt'?
+        PIR1bits.RC1IF = 0;
+        UART_1_INTERRUPT_FUNCT_POINTER(RCREG1);
+    } else if (PIR3bits.RC2IF) { // UART1 al?c? interrupt'?
+        PIR3bits.RC2IF = 0;
+        UART_2_INTERRUPT_FUNCT_POINTER(RCREG2);
+    }
+}
+
 #endif

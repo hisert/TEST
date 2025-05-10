@@ -151,7 +151,7 @@ void TIMER_1_SET(byte startOrStop)
 // </editor-fold> -OK
 // <editor-fold defaultstate="collapsed" desc="UART 0     ">
 
-void UART_0_INIT(unsigned long baudrate)
+void UART_1_INIT(unsigned long baudrate)
   {
   float calculater;
   word ubrr_val;
@@ -162,7 +162,7 @@ void UART_0_INIT(unsigned long baudrate)
   UBRRL = ubrr_val & 0xFF;
   }
 
-void UART_0_BYTE(char data)
+void UART_1_BYTE(char data)
   {
   while (!(UCSRA & (1 << UDRE))); /* Wait for empty transmit buffer*/
   UDR = data;
@@ -170,17 +170,17 @@ void UART_0_BYTE(char data)
   UCSRA |= (1 << TXC); // TXC bayra??n? temizle
   }
 
-void UART_0_STRING(const char* text)
+void UART_1_STRING(const char* text)
   {
   byte j = 0;
   while (text[j] != 0) /* Send string till null */
     {
-    UART_0_BYTE(text[j]);
+    UART_1_BYTE(text[j]);
     j++;
     }
   }
 
-void UART_0_DECIMAL(dword val)
+void UART_1_DECIMAL(dword val)
   {
   byte basamak[10] = {};
   signed char i = 0;
@@ -194,7 +194,7 @@ void UART_0_DECIMAL(dword val)
   i--;
   while (i >= 0)
     {
-    UART_0_BYTE(basamak[ i ]);
+    UART_1_BYTE(basamak[ i ]);
     i--;
     }
   }
@@ -308,4 +308,41 @@ byte EEPROM_B_READ(word address)
 
   return EEDR; // Okunan veriyi döndür
   }
+
+void(*UART_1_INTERRUPT_FUNCT_POINTER)(byte);
+void(*TIMER_0_INTERRUPT_FUNCT_POINTER)(void);
+void(*TIMER_1_INTERRUPT_FUNCT_POINTER)(void);
+
+void UART_1_INTERRUPT_FUNCT_CONNECT(void(*UART_1_INTERRUPT_FUNCT_POINTER_t)(byte))
+{
+    UART_1_INTERRUPT_FUNCT_POINTER = UART_1_INTERRUPT_FUNCT_POINTER_t;
+}
+
+void TIMER_0_INTERRUPT_CONNECT(void(*TIMER_0_INTERRUPT_FUNCT_POINTER_t)(void))
+{
+    TIMER_0_INTERRUPT_FUNCT_POINTER = TIMER_0_INTERRUPT_FUNCT_POINTER_t;
+}
+
+void TIMER_1_INTERRUPT_CONNECT(void(*TIMER_1_INTERRUPT_FUNCT_POINTER_t)(void))
+{
+    TIMER_1_INTERRUPT_FUNCT_POINTER = TIMER_1_INTERRUPT_FUNCT_POINTER_t;
+}
+
+ISR(TIMER0_OVF_vect)
+{
+    TIMER_0_INTERRUPT_FUNCT();
+    TIMER_0_INTERRUPT_FUNCT_POINTER();
+}
+
+ISR(TIMER1_OVF_vect)
+{
+    TIMER_1_INTERRUPT_FUNCT();
+    TIMER_1_INTERRUPT_FUNCT_POINTER();
+}
+
+ISR(USART_RXC_vect)
+{
+    UART_1_INTERRUPT_FUNCT_POINTER(UDR);
+}
+
 #endif
