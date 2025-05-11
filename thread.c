@@ -53,8 +53,8 @@ byte THREAD_CHECK(THREAD_t *thread_t)
         if ((thread_t->flag) & THREAD_FLG_READY) {
             thread_t->flag = thread_t->flag & ~THREAD_FLG_READY;
             temp = thread_t->Funct();
-            if (temp)(thread_t->flag) = (thread_t->flag) & ~THREAD_FLG_START;
-            if (((thread_t->flag) & THREAD_FLG_LOOP) == 0) (thread_t->flag) = (thread_t->flag) & ~THREAD_FLG_START;
+            if (((thread_t->flag) & THREAD_FLG_LOOP));
+            else if (temp)(thread_t->flag) = (thread_t->flag) & ~THREAD_FLG_START;
         }
     }
     return temp;

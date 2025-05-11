@@ -302,6 +302,7 @@ int main(void)
     INTERRUPT_ALL(1);
     UART_1_STRING("UART1\n\r");
     UART_2_STRING("UART2\n\r");
+    TEST();
     while (1) SYSTEM_CONTROL_ALL();
 }
 
@@ -321,8 +322,8 @@ void TEST()
 {
     static THREAD_t kapi_kapat_order;
     static THREAD_t sensor_want_order;
-    THREAD_INIT(&sensor_want_order, THREAD_FLG_START | THREAD_FLG_LOOP, 5000, THREAD_SENSOR_ASK);
-    THREAD_INIT(&kapi_kapat_order, THREAD_FLG_START | THREAD_FLG_LOOP | THREAD_FLG_READY, 4000, THREAD_KAPI_KAPAT);
+    THREAD_INIT(&sensor_want_order, THREAD_FLG_START , 0, THREAD_SENSOR_ASK);
+    THREAD_INIT(&kapi_kapat_order, THREAD_FLG_START  | THREAD_FLG_READY, 0, THREAD_KAPI_KAPAT);
     WAIT_WHILE_RESET();
     while (WAIT_WHILE()) {
         if (THREAD_CHECK(&sensor_want_order)) UART_1_STRING("SENSOR TAMAMLANDI \n\r");
