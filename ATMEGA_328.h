@@ -82,10 +82,10 @@ extern "C" {
     void PWM_2A_DUTY(byte duty);
     void PWM_2B_DUTY(byte duty);
 
-    void UART_1_INTERRUPT_FUNCT_CONNECT(void(*UART_1_INTERRUPT_FUNCT_POINTER_t)(byte));
-    void TIMER_0_INTERRUPT_CONNECT(void(*TIMER_0_INTERRUPT_FUNCT_POINTER_t)(void));
-    void TIMER_1_INTERRUPT_CONNECT(void(*TIMER_1_INTERRUPT_FUNCT_POINTER_t)(void));
-    void TIMER_2_INTERRUPT_CONNECT(void(*TIMER_2_INTERRUPT_FUNCT_POINTER_t)(void));
+    void UART_1_INTERRUPT_FUNCT_CONNECT(unsigned long baudrate, void(*UART_1_INTERRUPT_FUNCT_POINTER_t)(byte));
+    void TIMER_0_INTERRUPT_CONNECT(word ms, void(*TIMER_0_INTERRUPT_FUNCT_POINTER_t)(void));
+    void TIMER_1_INTERRUPT_CONNECT(word ms, void(*TIMER_1_INTERRUPT_FUNCT_POINTER_t)(void));
+    void TIMER_2_INTERRUPT_CONNECT(word ms, void(*TIMER_2_INTERRUPT_FUNCT_POINTER_t)(void));
 
 #endif  
 #ifdef	__cplusplus

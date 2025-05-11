@@ -24,7 +24,7 @@ void SOFT_I2C_BIT_WRITE(byte *REG_, byte index, byte onOrOff)
 
 void SOFT_I2C_TRIS_WRITE(byte SdaOrSck, byte onOroff)
   {
-#ifdef ATMEGA
+#if defined(__AVR_ATmega64__) || defined(__AVR_ATmega32__) || defined(__AVR_ATmega328__) || defined(__AVR_ATmega16__) || defined(__AVR_ATmega8__) || defined(__AVR_ATmega88__)
   if (onOroff) onOroff = 0;
   else onOroff = 1;
 #endif

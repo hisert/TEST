@@ -32,6 +32,7 @@ char UART_2_MSG[20];
 char UART_1_MSG[20];
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="SYSTEM FUNCT   ">
+byte WAIT_WHILE_FLAG = 0;
 
 void SYSTEM_CONTROL_ALL()
 {
@@ -46,6 +47,22 @@ void WAIT_INTERRUPT(word ms)
         SYSTEM_CONTROL_ALL();
         if (TIME_OUT_CHECK(&time_out, ms)) break;
     }
+}
+
+void WAIT_WHILE_RESET()
+{
+    WAIT_WHILE_FLAG = 1;
+}
+
+void WAIT_WHILE_BREAK()
+{
+    WAIT_WHILE_FLAG = 0;
+}
+
+byte WAIT_WHILE()
+{
+    SYSTEM_CONTROL_ALL();
+    return WAIT_WHILE_FLAG;
 }
 
 // </editor-fold>
@@ -213,22 +230,25 @@ void INIT_REG()
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="THREAD FUNCT   ">
 
-void THREAD_UART_1_RX_FUNCT()
+byte THREAD_UART_1_RX_FUNCT()
 {
     UART_1_STRING(UART_1_MSG);
+    return 1;
 }
 
-void THREAD_UART_2_RX_FUNCT()
+byte THREAD_UART_2_RX_FUNCT()
 {
-    //    UART_2_STRING(UART_2_MSG);
+    UART_2_STRING(UART_2_MSG);
+    return 1;
 }
 
-void THREAD_LED_FUNCT()
+byte THREAD_LED_FUNCT()
 {
     static THREAD_DELAY timer;
     THREAD_TIME_START(&timer);
     if (THREAD_TIME_WAIT(&timer, 10)) if (THREAD_GET_STATE() == THREAD_FUNCT_FIRST) PIN_SET_LAT_TOGGLE('B', 0);
     if (THREAD_TIME_WAIT(&timer, 90)) if (THREAD_GET_STATE() == THREAD_FUNCT_FIRST) PIN_SET_LAT_TOGGLE('B', 0);
+    return 0;
 }
 
 
@@ -243,8 +263,7 @@ void UART_2_INTERRUPT_FUNCT(byte data)
     else if (x == '>') {
         UART_2_MSG[counter] = 0;
         THREAD_START(&THREADS[THREAD_UART_2_RX]);
-    }
-    if (counter < 20) UART_2_MSG[counter++] = x;
+    } else if (counter < 20) UART_2_MSG[counter++] = x;
 }
 
 void UART_1_INTERRUPT_FUNCT(byte data)
@@ -259,25 +278,58 @@ void UART_1_INTERRUPT_FUNCT(byte data)
 }
 // </editor-fold>
 
+void FREQ()
+{
+    PIN_SET_LAT_TOGGLE('B', 1);
+}
+void TEST();
+
 int main(void)
 {
     //  MCU_INIT(SYSTEM_FREQ_EXTERNAL, SYSTEM_FREQ_INTERNAL_64);
     //  MCU_INIT(0, 16);
     PIN_SET_IO('D', 'O', 'B', 0, 'H '); //CANLI 
     PIN_SET_IO('D', 'O', 'B', 1, 'H '); //CANLI 
-    TIMER_1_INIT(1);
-    UART_1_INIT(19200);
-    //  UART_2_INIT(9600);
-    TIMER_1_INTERRUPT_CONNECT(TIME_OUT_COUNT_INTERRUPT);
-    UART_1_INTERRUPT_FUNCT_CONNECT(UART_1_INTERRUPT_FUNCT);
-    // UART_2_INTERRUPT_FUNCT_CONNECT(UART_2_INTERRUPT_FUNCT);
+    TIMER_1_INTERRUPT_CONNECT(1, TIME_OUT_COUNT_INTERRUPT);
+    TIMER_3_INTERRUPT_CONNECT(1, FREQ);
+    UART_2_INTERRUPT_FUNCT_CONNECT(9600, UART_2_INTERRUPT_FUNCT);
+    UART_1_INTERRUPT_FUNCT_CONNECT(19200, UART_1_INTERRUPT_FUNCT);
 
     THREAD_INIT(&THREADS[THREAD_LED], THREAD_FLG_START | THREAD_FLG_LOOP, 10, THREAD_LED_FUNCT);
     THREAD_INIT(&THREADS[THREAD_UART_1_RX], 0, 0, THREAD_UART_1_RX_FUNCT);
     THREAD_INIT(&THREADS[THREAD_UART_2_RX], 0, 0, THREAD_UART_2_RX_FUNCT);
 
     INTERRUPT_ALL(1);
+    UART_1_STRING("UART1\n\r");
+    UART_2_STRING("UART2\n\r");
     while (1) SYSTEM_CONTROL_ALL();
+}
+
+byte THREAD_SENSOR_ASK()
+{
+    UART_1_STRING("GIVE SENSOR \n\r");
+    return 1;
+}
+
+byte THREAD_KAPI_KAPAT()
+{
+    UART_1_STRING("KAPI KAPAT \n\r");
+    return 1;
+}
+
+void TEST()
+{
+    static THREAD_t kapi_kapat_order;
+    static THREAD_t sensor_want_order;
+    THREAD_INIT(&sensor_want_order, THREAD_FLG_START | THREAD_FLG_LOOP, 5000, THREAD_SENSOR_ASK);
+    THREAD_INIT(&kapi_kapat_order, THREAD_FLG_START | THREAD_FLG_LOOP | THREAD_FLG_READY, 4000, THREAD_KAPI_KAPAT);
+    WAIT_WHILE_RESET();
+    while (WAIT_WHILE()) {
+        if (THREAD_CHECK(&sensor_want_order)) UART_1_STRING("SENSOR TAMAMLANDI \n\r");
+        if (THREAD_CHECK(&kapi_kapat_order)) UART_1_STRING("KAPI KAPAT TAMAMLANDI \n\r");
+        if (THREAD_is_START(&kapi_kapat_order) == 0) if (THREAD_is_START(&sensor_want_order) == 0) WAIT_WHILE_BREAK();
+    }
+    UART_1_STRING("WHILE BREAKED \n\r");
 }
 
 // <editor-fold defaultstate="collapsed" desc="INTERRUPT FUNCT">

@@ -45,19 +45,22 @@ byte TIME_OUT_FUNCT(word ana_ms, byte(*Funct_t)(void), word second_ms)
 
 // <editor-fold defaultstate="collapsed" desc="THREAD     ">
 
-void THREAD_CHECK(THREAD_t *thread_t)
+byte THREAD_CHECK(THREAD_t *thread_t)
 {
+    byte temp = 0;
     if ((thread_t->flag) & THREAD_FLG_START) {
         if (TIME_OUT_CHECK(&(thread_t->temp), thread_t->duty_time)) thread_t->flag = thread_t->flag | THREAD_FLG_READY;
         if ((thread_t->flag) & THREAD_FLG_READY) {
             thread_t->flag = thread_t->flag & ~THREAD_FLG_READY;
-            thread_t->Funct();
+            temp = thread_t->Funct();
+            if (temp)(thread_t->flag) = (thread_t->flag) & ~THREAD_FLG_START;
             if (((thread_t->flag) & THREAD_FLG_LOOP) == 0) (thread_t->flag) = (thread_t->flag) & ~THREAD_FLG_START;
         }
     }
+    return temp;
 }
 
-void THREAD_INIT(THREAD_t *thread_t, byte flag, word duty_time, void (*Funct_t)(void))
+void THREAD_INIT(THREAD_t *thread_t, byte flag, word duty_time, byte(*Funct_t)(void))
 {
     thread_t->Funct = Funct_t;
     thread_t->flag = flag;

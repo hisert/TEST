@@ -27,16 +27,15 @@ extern "C" {
         byte flag;
         word duty_time;
         TIME_OUT_t temp;
-        void (*Funct)();
+        byte (*Funct)();
     } THREAD_t;
 
 
-    void THREAD_INIT(THREAD_t *thread_t, byte flag, word duty_time, void (*Funct_t)(void));
+    void THREAD_INIT(THREAD_t *thread_t, byte flag, word duty_time, byte (*Funct_t)(void));
     void THREAD_START(THREAD_t *thread_t);
     void THREAD_STOP(THREAD_t *thread_t);
-    void THREAD_CHECK(THREAD_t *thread_t);
     byte THREAD_is_START(THREAD_t *thread_t);
-    void THREAD_CHECK(THREAD_t *thread_t);
+    byte THREAD_CHECK(THREAD_t *thread_t);
     void THREAD_TIME_RESET(THREAD_t *thread_t);
     void THREAD_ARRAY_CHECK(THREAD_t *array, size_t length);
     // </editor-fold> 

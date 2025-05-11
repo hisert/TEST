@@ -11,7 +11,7 @@ build/default/production/ssd1306_oled.o.d \
  c:\program\ files\microchip\xc8\v3.00\avr\avr\include\stdint.h \
  c:\program\ files\microchip\xc8\v3.00\avr\avr\include\bits\alltypes.h \
  c:\program\ files\microchip\xc8\v3.00\avr\avr\include\bits\stdint.h \
- C:/Program\ Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/include/avr/iom8.h \
+ C:/Program\ Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/include/avr/iom64.h \
  c:\program\ files\microchip\xc8\v3.00\avr\avr\include\avr\portpins.h \
  c:\program\ files\microchip\xc8\v3.00\avr\avr\include\avr\common.h \
  c:\program\ files\microchip\xc8\v3.00\avr\avr\include\avr\fuse.h \
@@ -51,7 +51,7 @@ c:\program\ files\microchip\xc8\v3.00\avr\avr\include\bits\alltypes.h:
 
 c:\program\ files\microchip\xc8\v3.00\avr\avr\include\bits\stdint.h:
 
-C:/Program\ Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/include/avr/iom8.h:
+C:/Program\ Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/include/avr/iom64.h:
 
 c:\program\ files\microchip\xc8\v3.00\avr\avr\include\avr\portpins.h:
 

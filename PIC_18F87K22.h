@@ -148,11 +148,11 @@ extern "C" {
     void EEPROM_B_WRITE(word address, byte data);
     byte EEPROM_B_READ(word address);
 
-    void UART_1_INTERRUPT_FUNCT_CONNECT(void(*UART_1_INTERRUPT_FUNCT_POINTER_t)(byte));
-    void UART_2_INTERRUPT_FUNCT_CONNECT(void(*UART_2_INTERRUPT_FUNCT_POINTER_t)(byte));
-    void TIMER_1_INTERRUPT_CONNECT(void(*TIMER_1_INTERRUPT_FUNCT_POINTER_t)(void));
-    void TIMER_5_INTERRUPT_CONNECT(void(*TIMER_5_INTERRUPT_FUNCT_POINTER_t)(void));
-    void TIMER_3_INTERRUPT_CONNECT(void(*TIMER_3_INTERRUPT_FUNCT_POINTER_t)(void));
+    void UART_1_INTERRUPT_FUNCT_CONNECT(unsigned long baudrate, void(*UART_1_INTERRUPT_FUNCT_POINTER_t)(byte));
+    void UART_2_INTERRUPT_FUNCT_CONNECT(unsigned long baudrate, void(*UART_2_INTERRUPT_FUNCT_POINTER_t)(byte));
+    void TIMER_1_INTERRUPT_CONNECT(word ms, void(*TIMER_1_INTERRUPT_FUNCT_POINTER_t)(void));
+    void TIMER_3_INTERRUPT_CONNECT(word ms, void(*TIMER_3_INTERRUPT_FUNCT_POINTER_t)(void));
+    void TIMER_5_INTERRUPT_CONNECT(word ms, void(*TIMER_5_INTERRUPT_FUNCT_POINTER_t)(void));
 
 #endif
 #ifdef	__cplusplus

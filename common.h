@@ -8,6 +8,8 @@
 #include "pic18.h"
 #endif
 #define USE_REGISTER
+#define USE_SOFT_I2C
+#define USE_LCD_12C
 
 #if defined(__AVR_ATmega64__) || defined(__AVR_ATmega32__) || defined(__AVR_ATmega328__) || defined(__AVR_ATmega16__) || defined(__AVR_ATmega8__) || defined(__AVR_ATmega88__)
 #include <avr/io.h>
