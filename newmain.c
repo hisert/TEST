@@ -16,6 +16,78 @@
 #include "AS5600_MAS.h"
 #include "ws2812b.h"
 #include "register.h"
+#define MOTOR_SYSTEM_FLAG_MAS12_DISCONNECT 0x0001
+#define MOTOR_SYSTEM_FLAG_MOTOR_WORKING 0x0002
+#define MOTOR_SYSTEM_FLAG_MOTOR_HAS_TORK 0x0004
+#define MOTOR_SYSTEM_FLAG_MOTOR_HAS_ZORLANMA 0x0008
+#define SYSTEM_FLAG_MOTOR_HAS_TIME_OUT 0x1000
+#define MOTOR_SYSTEM_FLAG_MOTOR_HAS_WIRE_CHECK 0x0010
+#define MOTOR_SYSTEM_FLAG_MOTOR_HAS_WIRE_CONNEC_ERROR 0x0020
+#define MOTOR_SYSTEM_FLAG_MAS12_NOT_SET 0x0040
+#define MOTOR_SYSTEM_FLAG_MOTOR_FIRCALI 0x0080
+#define MOTOR_SYSTEM_FLAG_KAPI_KONUM_A 0x0100
+#define MOTOR_SYSTEM_FLAG_KAPI_KONUM_B 0x0200
+#define MOTOR_SYSTEM_FLAG_KAPI_KONUM_0 0x0400
+#define SYSTEM_FLAG_KAPI_KONUM_E 0x2000
+#define MOTOR_SYSTEM_FLAG_MOTOR_SUCCESS 0x0800
+
+typedef enum
+  {
+  LED_KAPALI,
+  LED_AB_INPUT,
+  LED_A_GECIS_START,
+  LED_B_GECIS_START,
+  LED_KIRMIZI_ALARM,
+  LED_A_INPUT_B_SERBEST,
+  LED_B_INPUT_A_SERBEST,
+  LED_A_INBUT_B_INHIBIT,
+  LED_B_INPUT_A_IHHIBIT,
+  LED_B_SERBEST_A_INHIBIT,
+  LED_A_SERBEST_B_INHIBIT,
+  LED_AB_SERBEST,
+  LED_AB_INHIBIT,
+  LED_A_GECIS_STOP,
+  LED_B_GECIS_STOP,
+  LED_YESIL_ALARM,
+  LED_DIAGNOSTIC_START,
+  LED_A_GECIS_START_SARI,
+  LED_B_GECIS_START_SARI,
+  LED_LAST,
+  } LED_PATTERN_TYPES;
+
+typedef enum
+  {
+  TURNIKE_TYPE_HG04 = 0,
+  TURNIKE_TYPE_PG04,
+  TURNIKE_TYPE_PG03,
+  TURNIKE_TYPE_HG01,
+  TURNIKE_TYPE_HG02_DP,
+  TURNIKE_TYPE_SG,
+  TURNIKE_TYPE_REZ1,
+  TURNIKE_TYPE_REZ2,
+  TURNIKE_TYPE_REZ3,
+  TURNIKE_TYPE_LAST,
+  } TURNIKE_TYPES;
+
+typedef enum
+  {
+  SOUND_START = 1,
+  SOUND_INPUT,
+  SOUND_ALARM,
+  SOUND_EMERGY,
+  SOUND_LOW_BATTERY,
+  SOUND_COM_ERROR,
+  SOUND_GECIS_STAND_WAIT,
+  SOUND_HURRA_COUNTER,
+  SOUND_LAST,
+  } SOUND_TYPES;
+
+byte TURNIKE_MODE = TURNIKE_TYPE_HG04;
+byte MP3_SOUND_SELECTED = 0;
+byte LED_PATTERN_SELECTED = 0;
+word PANEL_MASTER_STATUS = 0;
+word PANEL_SLAVE_STATUS = 0;
+
 //// <editor-fold defaultstate="collapsed" desc="PIN DEFINE ISLEMLERI                                                           ">
 
 #define RS485_ENABLE SET_BIT(PORTC,6)
@@ -57,7 +129,9 @@ typedef enum
 THREAD_t THREADS[THREAD_DONE];
 THREAD_t THREAD_MCU_ROLE_UPDATE;
 THREAD_t THREAD_SI_SENSOR_GET;
+THREAD_t THREAD_MOTOR_STATUS_GET;
 THREAD_t THREAD_SI_LED_UPDATE;
+THREAD_t THREAD_MP3_CHECK;
 char UART_2_MSG[20];
 char UART_1_MSG[20];
 
@@ -338,6 +412,7 @@ byte SI_LED_KOMUT(byte val)
   {
   char senddata[20];
   sprintf(senddata, "<SIS00W%d>", val);
+  RS485_SEND_MESSAGE(senddata);
   return UART_2_CONTROL();
   }
 
@@ -358,12 +433,138 @@ byte SI_TARAMA_KOMUT(byte val)
   }
 
 //// </editor-fold>
+//// <editor-fold defaultstate="collapsed" desc="MP3 FONKSIYONLARI                                                              ">
+
+void SES_PLAY(byte val)
+  {
+  if (val == SOUND_START); //if (SETTING_VALUES[MP3_SETTING_START_ENABLE] == 0) return;
+  if (val == SOUND_INPUT); //if (SETTING_VALUES[MP3_SETTING_INPUT_ENABLE] == 0) return;
+  if (val == SOUND_ALARM); //if (SETTING_VALUES[MP3_SETTING_ALARM_ENABLE] == 0) return;
+  UART_2_INIT(9600);
+  RS485_ENABLE;
+  SOUND_ENABLE;
+  UART_2_BYTE(0x7E);
+  UART_2_BYTE(0x04);
+  UART_2_BYTE(0x03);
+  UART_2_BYTE(0x00);
+  UART_2_BYTE(val);
+  UART_2_BYTE(0xEF);
+  WAIT_INTERRUPT(8);
+  SOUND_DISABLE;
+  RS485_DISABLE;
+  UART_2_INIT(19200);
+  WAIT_INTERRUPT(50);
+  }
+
+void SES_SET_VOLUME(byte val)
+  {
+  UART_2_INIT(9600);
+  RS485_ENABLE;
+  SOUND_ENABLE;
+  UART_2_BYTE(0x7E);
+  UART_2_BYTE(0x03);
+  UART_2_BYTE(0x06);
+  UART_2_BYTE(val);
+  UART_2_BYTE(0xEF);
+  WAIT_INTERRUPT(40);
+  SOUND_DISABLE;
+  RS485_DISABLE;
+  UART_2_INIT(19200);
+  }
+
+//// </editor-fold>
+
+char GENERAL_PANEL_KONUM_FIND()
+  {
+  char KONUM_NOW = 0;
+  if ((FLAG_CONTROL(PANEL_MASTER_STATUS, MOTOR_SYSTEM_FLAG_KAPI_KONUM_A))&&(FLAG_CONTROL(PANEL_SLAVE_STATUS, MOTOR_SYSTEM_FLAG_KAPI_KONUM_A))) KONUM_NOW = 'A';
+  if ((FLAG_CONTROL(PANEL_MASTER_STATUS, MOTOR_SYSTEM_FLAG_KAPI_KONUM_0))&&(FLAG_CONTROL(PANEL_SLAVE_STATUS, MOTOR_SYSTEM_FLAG_KAPI_KONUM_0))) KONUM_NOW = 'O';
+  if ((FLAG_CONTROL(PANEL_MASTER_STATUS, MOTOR_SYSTEM_FLAG_KAPI_KONUM_B))&&(FLAG_CONTROL(PANEL_SLAVE_STATUS, MOTOR_SYSTEM_FLAG_KAPI_KONUM_B))) KONUM_NOW = 'B';
+  return KONUM_NOW;
+  }
+
+char GENERAL_PANEL_SUCCESS_FIND()
+  {
+  char KONUM_NOW = 0;
+  if ((FLAG_CONTROL(PANEL_MASTER_STATUS, MOTOR_SYSTEM_FLAG_MOTOR_SUCCESS)) && (FLAG_CONTROL(PANEL_SLAVE_STATUS, MOTOR_SYSTEM_FLAG_MOTOR_SUCCESS)))
+    {
+    if ((FLAG_CONTROL(PANEL_MASTER_STATUS, MOTOR_SYSTEM_FLAG_KAPI_KONUM_A))&&(FLAG_CONTROL(PANEL_SLAVE_STATUS, MOTOR_SYSTEM_FLAG_KAPI_KONUM_A))) KONUM_NOW = 'A';
+    if ((FLAG_CONTROL(PANEL_MASTER_STATUS, MOTOR_SYSTEM_FLAG_KAPI_KONUM_0))&&(FLAG_CONTROL(PANEL_SLAVE_STATUS, MOTOR_SYSTEM_FLAG_KAPI_KONUM_0))) KONUM_NOW = 'O';
+    if ((FLAG_CONTROL(PANEL_MASTER_STATUS, MOTOR_SYSTEM_FLAG_KAPI_KONUM_B))&&(FLAG_CONTROL(PANEL_SLAVE_STATUS, MOTOR_SYSTEM_FLAG_KAPI_KONUM_B))) KONUM_NOW = 'B';
+    }
+  return KONUM_NOW;
+  }
+
+byte GENERAL_PANEL_WORKING_FIND()
+  {
+  if (FLAG_CONTROL(PANEL_MASTER_STATUS, MOTOR_SYSTEM_FLAG_MOTOR_WORKING)) return 1;
+  if (FLAG_CONTROL(PANEL_SLAVE_STATUS, MOTOR_SYSTEM_FLAG_MOTOR_WORKING)) return 1;
+  return 0;
+  }
+
+byte GENERAL_PANEL_TORK_FIND()
+  {
+  if (FLAG_CONTROL(PANEL_MASTER_STATUS, MOTOR_SYSTEM_FLAG_MOTOR_HAS_TORK)) return 1;
+  if (FLAG_CONTROL(PANEL_SLAVE_STATUS, MOTOR_SYSTEM_FLAG_MOTOR_HAS_TORK)) return 1;
+  return 0;
+  }
+
+byte MOTOR_KAPI_STATE(char MasterSlave)
+  {
+
+  char senddata[20];
+  sprintf(senddata, "<MT%c20R>", MasterSlave);
+  RS485_SEND_MESSAGE(senddata);
+  return UART_2_CONTROL();
+  }
+
+byte MOTOR_KAPI_KOMUT(char MasterSlave, char Direction)
+  {
+  if (Direction == 'S') Direction = '0';
+  else if (Direction == 'A') Direction = '1';
+  else if (Direction == 'B') Direction = '2';
+  else if (Direction == 'O') Direction = '3';
+  else if (Direction == 'W') Direction = '4';
+
+  else return;
+  char senddata[20];
+  sprintf(senddata, "<MT%c00W%c>", MasterSlave, Direction);
+  RS485_SEND_MESSAGE(senddata);
+  return UART_2_CONTROL();
+  }
+
+byte MOTOR_HIZ_AYARLA(char MasterSlave, byte val)
+  {
+
+  char senddata[20];
+  sprintf(senddata, "<MT%c10W%d>", MasterSlave, val);
+  RS485_SEND_MESSAGE(senddata);
+  return UART_2_CONTROL();
+  }
+
+void PANEL_HAREKET(char direction, byte hiz)
+  {
+  byte master_hiz = 20;
+  byte slave_hiz = 20;
+  if (hiz != 20)
+    {
+    master_hiz = hiz;
+    slave_hiz = hiz;
+    }
+  if (MOTOR_HIZ_AYARLA('S', slave_hiz)) WAIT_INTERRUPT(0);
+  if (MOTOR_HIZ_AYARLA('M', master_hiz)) WAIT_INTERRUPT(0);
+  if (MOTOR_KAPI_KOMUT('S', direction)) WAIT_INTERRUPT(0);
+
+  if (MOTOR_KAPI_KOMUT('M', direction)) WAIT_INTERRUPT(0);
+
+  }
 
 unsigned int myAtoiUnsigned(const char *str)
   {
   unsigned int result = 0; // Sonuç de?i?keni (i?aretsiz tamsay?)
   while (*str >= '0' && *str <= '9')
     {
+
     result = result * 10 + (*str - '0');
     str++;
     }
@@ -396,6 +597,14 @@ void PROCESS_MESSAGE_MASTER(char *msg)
       //  if (regIndex == 4) SI_SENSOR_ERR_A_STATUS = regdata;
       //  if (regIndex == 5) SI_SENSOR_ERR_B_STATUS = regdata;
       }
+    if ((buffer[0] == 'M') && (buffer[1] == 'T') && (buffer[2] == 'M'))
+      {
+      if (regIndex == 20) PANEL_MASTER_STATUS = regdata;
+      }
+    if ((buffer[0] == 'M') && (buffer[1] == 'T') && (buffer[2] == 'S'))
+      {
+      if (regIndex == 20) PANEL_SLAVE_STATUS = regdata;
+      }
     //    if ((buffer[0] == 'M') && (buffer[1] == 'T') && (buffer[2] == 'M'))
     //      {
     //      if (regIndex == 20) PANEL_MASTER_STATUS = regdata;
@@ -417,21 +626,25 @@ void PROCESS_MESSAGE_MASTER(char *msg)
     //      }
 
     }
+
   else return;
   } //RS485 DATALARIN ISLENDIGI FONKSIYON. MASTER ICIN
 // </editor-fold>
-
+void PANEL_ORDER_READY();
+void PANEL_ORDER(char NIHAI_HEDEF, byte hiz, byte while_flag, byte ats_use_flag);
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="THREAD FUNCT   ">
 
 byte THREAD_UART_1_RX_FUNCT()
   {
   // UART_1_STRING(UART_1_MSG);
+
   return 1;
   }
 
 byte THREAD_UART_2_RX_FUNCT()
   {
+
   UART_2_RX_ARRVIED_FLAG = 1;
   PROCESS_MESSAGE_MASTER(UART_2_MSG);
   return 1;
@@ -442,7 +655,9 @@ byte THREAD_LED_FUNCT()
   static THREAD_DELAY timer;
   THREAD_TIME_START(&timer);
   if (THREAD_TIME_WAIT(&timer, 10)) if (THREAD_GET_STATE() == THREAD_FUNCT_FIRST) PIN_SET_LAT('B', 4, 'L');
-  if (THREAD_TIME_WAIT(&timer, 90)) if (THREAD_GET_STATE() == THREAD_FUNCT_FIRST) PIN_SET_LAT('B', 4, 'H');
+  if (THREAD_TIME_WAIT(&timer, 90))
+
+    if (THREAD_GET_STATE() == THREAD_FUNCT_FIRST) PIN_SET_LAT('B', 4, 'H');
   return 0;
   }
 
@@ -452,6 +667,7 @@ byte THREAD_RELAY_FUNCT()
   ROLE_TIME_KONTROL();
   if (ROLE_STATE_OLD != ROLE_STATE)
     {
+
     THREAD_START(&THREAD_MCU_ROLE_UPDATE);
     ROLE_STATE_OLD = ROLE_STATE;
     }
@@ -520,8 +736,48 @@ byte THREAD_INPUT_FUNCT()
 
   temp = INPUT_DEBOUNCE(&EXTERNAL_INPUT_3_x, PIN_GET_PORT('E', 5), DEBOUNCE_X);
   if (temp == INPUT_FALL_EDGE);
-  else if (temp == INPUT_RAISE_EDGE);
+  else
 
+    if (temp == INPUT_RAISE_EDGE);
+
+  return 0;
+  }
+
+byte THREAD_ALARM_CHECK_FUNCT()
+  {
+  static TIME_OUT_t time_out;
+  if (MP3_SOUND_SELECTED)
+    {
+    if (TIME_OUT_CHECK(&time_out, 200))
+      {
+      if (SOUND_CHECK)
+        {
+        TIME_OUT_RESET(&time_out);
+        SES_PLAY(MP3_SOUND_SELECTED);
+
+        if (MP3_SOUND_SELECTED != SOUND_ALARM) MP3_SOUND_SELECTED = 0;
+        }
+      }
+    }
+  return 0;
+  }
+
+byte THREAD_SI_LED_UPDATE_FUNCT()
+  {
+  static byte Led_Old = 0;
+  if (Led_Old != LED_PATTERN_SELECTED)
+    {
+
+    Led_Old = LED_PATTERN_SELECTED;
+    SI_LED_KOMUT(LED_PATTERN_SELECTED);
+    }
+  return 0;
+  }
+
+byte THREAD_MOTOR_STATUS_GET_FUNCT()
+  {
+  MOTOR_KAPI_STATE('M');
+  MOTOR_KAPI_STATE('S');
   return 0;
   }
 
@@ -538,7 +794,9 @@ void UART_2_INTERRUPT_FUNCT(byte data)
     UART_2_MSG[counter] = 0;
     THREAD_START(&THREADS[THREAD_UART_2_RX]);
     }
-  else if (counter < 20) UART_2_MSG[counter++] = x;
+  else
+
+    if (counter < 20) UART_2_MSG[counter++] = x;
   }
 
 void UART_1_INTERRUPT_FUNCT(byte data)
@@ -551,15 +809,21 @@ void UART_1_INTERRUPT_FUNCT(byte data)
     UART_1_MSG[counter] = 0;
     THREAD_START(&THREADS[THREAD_UART_1_RX]);
     }
-  else if (counter < 20) UART_1_MSG[counter++] = x;
+  else
+
+    if (counter < 20) UART_1_MSG[counter++] = x;
   }
 
 // </editor-fold>
+
+byte HG04_STANDBY_ALARM_KONTROL();
 
 int main(void)
   {
   PIN_SET_IO('D', 'O', 'B', 4, 'H'); //RUN LED 
   PIN_SET_IO('D', 'O', 'C', 6, 'L'); //RS485 
+  PIN_SET_IO('D', 'O', 'F', 7, 'L'); //MP3 ENABLE
+
   PIN_SET_IO('D', 'I', 'D', 4, 'H'); //INPUT A 
   PIN_SET_IO('D', 'I', 'D', 5, 'H'); //INPUT B
   PIN_SET_IO('D', 'I', 'C', 0, 'H'); //INHIBIT A
@@ -583,67 +847,187 @@ int main(void)
   TIMER_1_INTERRUPT_CONNECT(1, TIME_OUT_COUNT_INTERRUPT);
   UART_1_INTERRUPT_FUNCT_CONNECT(9600, UART_1_INTERRUPT_FUNCT);
   UART_2_INTERRUPT_FUNCT_CONNECT(19200, UART_2_INTERRUPT_FUNCT);
+  ADC_INIT();
 
   THREAD_INIT(&THREADS[THREAD_LED], THREAD_FLG_START | THREAD_FLG_LOOP, 10, THREAD_LED_FUNCT);
   THREAD_INIT(&THREADS[THREAD_INPUT], THREAD_FLG_START | THREAD_FLG_LOOP, 10, THREAD_INPUT_FUNCT);
   THREAD_INIT(&THREADS[THREAD_RELAY], THREAD_FLG_START | THREAD_FLG_LOOP, 100, THREAD_RELAY_FUNCT);
   THREAD_INIT(&THREADS[THREAD_UART_1_RX], 0, 0, THREAD_UART_1_RX_FUNCT);
   THREAD_INIT(&THREADS[THREAD_UART_2_RX], 0, 0, THREAD_UART_2_RX_FUNCT);
+
   INTERRUPT_ALL(1);
 
   THREAD_INIT(&THREAD_MCU_ROLE_UPDATE, 0, 0, SLAVE_MCU_KOMUT_OUTPUT);
   THREAD_INIT(&THREAD_SI_SENSOR_GET, THREAD_FLG_START | THREAD_FLG_LOOP, 0, SI_INPUT_KOMUT_AB);
+  THREAD_INIT(&THREAD_MP3_CHECK, THREAD_FLG_START | THREAD_FLG_LOOP, 0, THREAD_ALARM_CHECK_FUNCT);
+  THREAD_INIT(&THREAD_SI_LED_UPDATE, THREAD_FLG_START | THREAD_FLG_LOOP, 0, THREAD_SI_LED_UPDATE_FUNCT);
+  THREAD_INIT(&THREAD_MOTOR_STATUS_GET, THREAD_FLG_START | THREAD_FLG_LOOP, 0, THREAD_MOTOR_STATUS_GET_FUNCT);
 
+  MP3_SOUND_SELECTED = SOUND_START;
+  LED_PATTERN_SELECTED = LED_AB_INPUT;
+  WAIT_INTERRUPT(2000);
+  PANEL_ORDER_READY();
+  PANEL_ORDER('A', 80, 1, 0);
+  PANEL_ORDER_READY();
+  PANEL_ORDER('O', 80, 1, 0);
   while (1)
     {
     SYSTEM_CONTROL_ALL();
     THREAD_CHECK(&THREAD_MCU_ROLE_UPDATE);
     THREAD_CHECK(&THREAD_SI_SENSOR_GET);
-    if(SI_SENSOR_STATUS) THREAD_STOP(&THREAD_SI_SENSOR_GET);
+    THREAD_CHECK(&THREAD_MP3_CHECK);
+    THREAD_CHECK(&THREAD_SI_LED_UPDATE);
+    STANDTBY_KONTROL();
     }
   }
 
-byte THREAD_SENSOR_ASK()
+byte HG04_STANDBY_ALARM_KONTROL()
   {
-  UART_1_STRING("GIVE SENSOR \n\r");
-  return 1;
+  if (CHECK_BIT(SI_SENSOR_STATUS, 0) > 0) return 1;
+  if (CHECK_BIT(SI_SENSOR_STATUS, 1) > 0) return 2;
+  if (CHECK_BIT(SI_SENSOR_STATUS, 2) > 0) return 2;
+  if (CHECK_BIT(SI_SENSOR_STATUS, 3) > 0) return 2;
+  if (CHECK_BIT(SI_SENSOR_STATUS, 4) > 0) return 1;
+  return 0;
   }
 
-byte THREAD_KAPI_KAPAT()
+void STANDTBY_KONTROL()
   {
-  UART_1_STRING("KAPI KAPAT \n\r");
-  return 1;
+  static TIME_OUT_t INPUT_WAITING;
+  byte state = 0;
+  if (TURNIKE_MODE == TURNIKE_TYPE_HG04) state = HG04_STANDBY_ALARM_KONTROL();
+  if (state)
+    {
+    byte alarm_temp = 0;
+    if (state == 2) alarm_temp = 1;
+    if (TIME_OUT_CHECK(&INPUT_WAITING, 3000)) alarm_temp = 1;
+    if (alarm_temp)
+      {
+      MP3_SOUND_SELECTED = SOUND_ALARM;
+      LED_PATTERN_SELECTED = LED_KIRMIZI_ALARM;
+      }
+    }
+  else
+    {
+    TIME_OUT_RESET(&INPUT_WAITING);
+    if (MP3_SOUND_SELECTED == SOUND_ALARM)
+      {
+      MP3_SOUND_SELECTED = 0;
+      LED_PATTERN_SELECTED = LED_AB_INPUT;
+      }
+    }
   }
 
-void WHILE_STANDYBY()
+byte ATS_KONTROL()
   {
- // if (SI_SENSOR_STATUS == 0) break;
-  WAIT_WHILE_RESET();
+  if (TURNIKE_MODE == TURNIKE_TYPE_HG04) if (CHECK_BIT(SI_SENSOR_STATUS, 2) > 0) return 1;
+  return 0;
+  }
+
+void PANEL_ORDER_READY()
+  {
+  PANEL_ORDER(0, 0xFF, 0xFF, 0xFF);
+  }
+
+void PANEL_ORDER(char NIHAI_HEDEF, byte hiz, byte while_flag, byte ats_use_flag)
+  {
+  static byte LED_OLD = 0;
+  static byte TORK_COUNTER = 0;
+  static byte PANEL_SUCCESS = 'O';
+  static byte TORK_HAVE_FLAG = 0;
+  static byte TORK_SEKANS_COUNTER = 0;
+  static byte PANEL_WORK_STARTED = 0;
+  if ((hiz == 0xFF) &&(while_flag == 0xFF) &&(while_flag == 0xFF))
+    {
+    TORK_COUNTER = 0;
+    PANEL_SUCCESS = 'O';
+    TORK_HAVE_FLAG = 0;
+    TORK_SEKANS_COUNTER = 0;
+    PANEL_WORK_STARTED = 0;
+    return;
+    }
+  if (PANEL_WORK_STARTED == 0) WAIT_WHILE_RESET();
   while (WAIT_WHILE())
     {
-    THREAD_CHECK(&THREAD_MCU_ROLE_UPDATE);
+    THREAD_CHECK(&THREAD_MP3_CHECK);
+    THREAD_CHECK(&THREAD_SI_LED_UPDATE);
     THREAD_CHECK(&THREAD_SI_SENSOR_GET);
-    if (SI_SENSOR_STATUS == 0) WAIT_WHILE_BREAK();
+    THREAD_CHECK(&THREAD_MOTOR_STATUS_GET);
+    if (PANEL_WORK_STARTED == 0)
+      {
+      PANEL_WORK_STARTED = 1;
+      LED_OLD = LED_PATTERN_SELECTED;
+      if (GENERAL_PANEL_KONUM_FIND()) PANEL_SUCCESS = GENERAL_PANEL_KONUM_FIND();
+      }
+    if (GENERAL_PANEL_TORK_FIND())
+      {
+      MP3_SOUND_SELECTED = SOUND_ALARM;
+      LED_PATTERN_SELECTED = LED_KIRMIZI_ALARM;
+      PANEL_HAREKET('S', 20);
+      WAIT_INTERRUPT(200);
+      TORK_HAVE_FLAG = 1;
+      TORK_COUNTER++;
+      if (TORK_COUNTER >= 3)
+        {
+        TORK_COUNTER = 0;
+        TORK_SEKANS_COUNTER++;
+        MP3_SOUND_SELECTED = SOUND_ALARM;
+        LED_PATTERN_SELECTED = LED_DIAGNOSTIC_START;
+        if (TORK_SEKANS_COUNTER >= 3)
+          {
+          asm volatile ("  jmp 0x00");
+          }
+        else
+          {
+          for (byte x = 0; x < 200; x++)
+            {
+            THREAD_CHECK(&THREAD_MP3_CHECK);
+            THREAD_CHECK(&THREAD_SI_LED_UPDATE);
+            WAIT_INTERRUPT(30);
+            }
+          }
+        }
+      }
+    else
+      {
+      if ((ats_use_flag) && (ATS_KONTROL()))
+        {
+        if (GENERAL_PANEL_WORKING_FIND())
+          {
+          PANEL_HAREKET('W', 20);
+          MP3_SOUND_SELECTED = SOUND_ALARM;
+          LED_PATTERN_SELECTED = LED_KIRMIZI_ALARM;
+          }
+        }
+      else
+        {
+        if (TORK_HAVE_FLAG == 0)
+          {
+          if (MP3_SOUND_SELECTED == SOUND_ALARM)
+            {
+            MP3_SOUND_SELECTED = 0;
+            LED_PATTERN_SELECTED = LED_OLD;
+            }
+          if (GENERAL_PANEL_SUCCESS_FIND() == NIHAI_HEDEF) break;
+          else if (GENERAL_PANEL_WORKING_FIND() == 0) PANEL_HAREKET(NIHAI_HEDEF, hiz);
+          }
+        else
+          {
+          if (GENERAL_PANEL_SUCCESS_FIND() == PANEL_SUCCESS)
+            {
+            TORK_HAVE_FLAG = 0;
+            if (MP3_SOUND_SELECTED == SOUND_ALARM)
+              {
+              MP3_SOUND_SELECTED = 0;
+              LED_PATTERN_SELECTED = LED_OLD;
+              }
+            }
+          if (GENERAL_PANEL_WORKING_FIND() == 0) PANEL_HAREKET(PANEL_SUCCESS, 20);
+          }
+        }
+      }
+    if (while_flag == 0) WAIT_WHILE_BREAK();
     }
-
-  THREAD_CHECK(&THREAD_MCU_ROLE_UPDATE);
-  THREAD_CHECK(&THREAD_SI_SENSOR_GET);
-  }
-
-void TEST()
-  {
-  static THREAD_t kapi_kapat_order;
-  static THREAD_t sensor_want_order;
-  THREAD_INIT(&sensor_want_order, THREAD_FLG_START, 0, THREAD_SENSOR_ASK);
-  THREAD_INIT(&kapi_kapat_order, THREAD_FLG_START | THREAD_FLG_READY, 0, THREAD_KAPI_KAPAT);
-  WAIT_WHILE_RESET();
-  while (WAIT_WHILE())
-    {
-    if (THREAD_CHECK(&sensor_want_order)) UART_1_STRING("SENSOR TAMAMLANDI \n\r");
-    if (THREAD_CHECK(&kapi_kapat_order)) UART_1_STRING("KAPI KAPAT TAMAMLANDI \n\r");
-    if (THREAD_is_START(&kapi_kapat_order) == 0) if (THREAD_is_START(&sensor_want_order) == 0) WAIT_WHILE_BREAK();
-    }
-  UART_1_STRING("WHILE BREAKED \n\r");
   }
 
 // <editor-fold defaultstate="collapsed" desc="INTERRUPT FUNCT">
