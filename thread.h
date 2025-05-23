@@ -22,16 +22,17 @@ extern "C" {
 #define THREAD_FLG_START 0x01
 #define THREAD_FLG_READY 0x04
 #define THREAD_FLG_LOOP 0x08
+#define THREAD_FLG_IN_FUNCT 0x10
 
     typedef struct {
         byte flag;
         word duty_time;
         TIME_OUT_t temp;
-        byte (*Funct)();
+        byte(*Funct)();
     } THREAD_t;
 
 
-    void THREAD_INIT(THREAD_t *thread_t, byte flag, word duty_time, byte (*Funct_t)(void));
+    void THREAD_INIT(THREAD_t *thread_t, byte flag, word duty_time, byte(*Funct_t)(void));
     void THREAD_START(THREAD_t *thread_t);
     void THREAD_STOP(THREAD_t *thread_t);
     byte THREAD_is_START(THREAD_t *thread_t);

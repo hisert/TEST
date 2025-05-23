@@ -18,7 +18,7 @@ extern "C" {
 
 #define NO_CHANGEE 0x00
 #define INPUT_RAISE_EDGE 0x01
-#define IINPUT_FALL_EDGE 0x02
+#define INPUT_FALL_EDGE 0x02
 
     byte INPUT_DEBOUNCE(Input_t *Input, byte Input_Val, byte Debounce);
 
