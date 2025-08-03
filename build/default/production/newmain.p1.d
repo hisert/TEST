@@ -1,0 +1,22 @@
+build/default/production/newmain.p1:  \
+newmain.c  \
+ATMEGA_64.h  \
+common.h  \
+config.h  \
+ATMEGA_328.h  \
+ATMEGA_88.h  \
+ATMEGA_8.h  \
+PIC_18F87K22.h  \
+PIC_18F67K40.h  \
+PIC_18F46K22.h  \
+input_debounce.h  \
+buton_debounce.h  \
+thread.h  \
+soft_i2c.h  \
+eeprom.h  \
+MENU.h  \
+ssd1306_oled.h  \
+ssh1106_oled.h  \
+AS5600_MAS.h  \
+ws2812b.h  \
+register.h 

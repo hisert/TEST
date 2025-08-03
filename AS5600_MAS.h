@@ -11,6 +11,7 @@ extern "C" {
     word MAS12_READ_MAG_DATA();
     signed int MAS12_REMAP(word middpoint, word index);
     void MAS12_INIT(void (*mas_i2c_start_t)(void), byte(*mas_i2c_write_t)(byte data), byte(*mas_i2c_read_ack_t)(void), byte(*mas_i2c_read_nack_t)(void), void(*mas_i2c_stop_t)(void));
+    byte MAS12_UPDATE();
 
 #define MOTOR_MODE_FIRCASIZ 1
 #define MOTOR_MODE_FIRCALI 0
@@ -34,12 +35,13 @@ extern "C" {
     byte MOTOR_START(word stop_index);
     void MOTOR_STOP();
     byte MOTOR_PROCESS(word torkVal);
+    void MOTOR_TORK_SET(word tork);
 
     void MOTOR_START_LAST_SUCCESS_INDEX();
     void MOTOR_PID_INIT(float Ki, float Kp);
     void MOTOR_INIT_MAX_HIZ(byte max);
     void MOTOR_TIME_OUT_SET(word outTime);
-    byte MOTOR_TIME_OUT_CHECK();
+    void MOTOR_TIME_OUT_CHECK();
     void FIRCASIZ_READ(byte HU, byte HV, byte HW);
 
     void MOTOR_SET_KOL_TOPLAMA_TOLERANS(word val);

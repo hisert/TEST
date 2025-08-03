@@ -4,7 +4,7 @@
 #ifdef USE_REGISTER
 
 
-#define MAX_REG 10
+#define MAX_REG 25
 word RANDCODE = 0;
 byte UNLOCK_STARTED = 0;
 REG_t REGS[MAX_REG];

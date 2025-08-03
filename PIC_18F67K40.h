@@ -161,19 +161,19 @@ extern "C" {
     void TIMER_1_INTERRUPT_FUNCT();
     void TIMER_1_INTERRUPT(byte OpenOrClose);
     void TIMER_1_SET(byte startOrStop);
-    void TIMER_1_INIT(byte ms);
+    void TIMER_1_INIT(word ms);
     void TIMER_3_INTERRUPT_FUNCT();
     void TIMER_3_INTERRUPT(byte OpenOrClose);
     void TIMER_3_SET(byte startOrStop);
-    void TIMER_3_INIT(byte ms);
+    void TIMER_3_INIT(word ms);
     void TIMER_5_INTERRUPT_FUNCT();
     void TIMER_5_INTERRUPT(byte OpenOrClose);
     void TIMER_5_SET(byte startOrStop);
-    void TIMER_5_INIT(byte ms);
+    void TIMER_5_INIT(word ms);
     void TIMER_7_INTERRUPT_FUNCT();
     void TIMER_7_INTERRUPT(byte OpenOrClose);
     void TIMER_7_SET(byte startOrStop);
-    void TIMER_7_INIT(byte ms);
+    void TIMER_7_INIT(word ms);
 
     void EEPROM_B_WRITE(word address, byte data);
     byte EEPROM_B_READ(word address);
@@ -223,6 +223,15 @@ extern "C" {
     void UART_5_BYTE(byte out);
     void UART_5_STRING(char* text);
     void UART_5_DECIMAL(dword val);
+
+    void UART_1_INTERRUPT_FUNCT_CONNECT(unsigned long baudrate, void(*UART_1_INTERRUPT_FUNCT_POINTER_t)(byte));
+    void UART_2_INTERRUPT_FUNCT_CONNECT(unsigned long baudrate, void(*UART_2_INTERRUPT_FUNCT_POINTER_t)(byte));
+    void UART_3_INTERRUPT_FUNCT_CONNECT(unsigned long baudrate, void(*UART_3_INTERRUPT_FUNCT_POINTER_t)(byte));
+    void UART_4_INTERRUPT_FUNCT_CONNECT(unsigned long baudrate, void(*UART_4_INTERRUPT_FUNCT_POINTER_t)(byte));
+    void UART_5_INTERRUPT_FUNCT_CONNECT(unsigned long baudrate, void(*UART_5_INTERRUPT_FUNCT_POINTER_t)(byte));
+    void TIMER_1_INTERRUPT_CONNECT(word ms, void(*TIMER_1_INTERRUPT_FUNCT_POINTER_t)(void));
+    void TIMER_3_INTERRUPT_CONNECT(word ms, void(*TIMER_3_INTERRUPT_FUNCT_POINTER_t)(void));
+    void TIMER_5_INTERRUPT_CONNECT(word ms, void(*TIMER_5_INTERRUPT_FUNCT_POINTER_t)(void));
 
 #endif
 
