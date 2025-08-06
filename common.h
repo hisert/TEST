@@ -10,7 +10,7 @@
 #define USE_REGISTER
 #define USE_SOFT_I2C
 //#define USE_LCD_12C
-#define USE_AS5600
+//#define USE_AS5600
 
 #if defined(__AVR_ATmega64__) || defined(__AVR_ATmega32__) || defined(__AVR_ATmega328__) || defined(__AVR_ATmega16__) || defined(__AVR_ATmega8__) || defined(__AVR_ATmega88__)
 #include <avr/io.h>
@@ -44,9 +44,9 @@ extern "C" {
 #define CHECK_BIT(reg,bit) ((reg & (1 << bit)) / (1 << bit))
 #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
 
-#define _XTAL_FREQ 64000000
+#define _XTAL_FREQ 16000000
 #define F_CPU 8000000UL
-#define CRYSTAL_FREKANS 64000000UL
+#define CRYSTAL_FREKANS 16000000UL
 
 #ifdef	__cplusplus
 }

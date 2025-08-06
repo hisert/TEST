@@ -18,6 +18,7 @@
 #include "register.h"
 void REG_PROCESS(char *msg);
 void INIT_REG();
+
 //// <editor-fold defaultstate="collapsed" desc="PIN DEFINE ISLEMLERI                                                           ">
 //// </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="VARIABLES      ">
@@ -31,42 +32,27 @@ typedef enum {
 } THREAD_LIST;
 
 THREAD_t THREADS[THREAD_DONE];
-THREAD_t THREAD_MCU_ROLE_UPDATE;
 char UART_2_MSG[20];
 char UART_1_MSG[20];
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="SYSTEM FUNCT   ">
-byte WAIT_WHILE_FLAG = 0;
 
 void SYSTEM_CONTROL_ALL()
 {
     THREAD_ARRAY_CHECK(THREADS, ARRAY_SIZE(THREADS));
 }
 
+byte WAIT_WHILE()
+{
+    SYSTEM_CONTROL_ALL();
+    return 1;
+}
+
 void WAIT_INTERRUPT(word ms)
 {
     static TIME_OUT_t time_out;
     TIME_OUT_RESET(&time_out);
-    while (1) {
-        SYSTEM_CONTROL_ALL();
-        if (TIME_OUT_CHECK(&time_out, ms)) break;
-    }
-}
-
-void WAIT_WHILE_RESET()
-{
-    WAIT_WHILE_FLAG = 1;
-}
-
-void WAIT_WHILE_BREAK()
-{
-    WAIT_WHILE_FLAG = 0;
-}
-
-byte WAIT_WHILE()
-{
-    SYSTEM_CONTROL_ALL();
-    return WAIT_WHILE_FLAG;
+    while (WAIT_WHILE()) if (TIME_OUT_CHECK(&time_out, ms)) break;
 }
 
 // </editor-fold>
@@ -81,11 +67,13 @@ word SETTING_VALUES[SETTINGS_DONE];
 
 void CONFIG_SET(byte index, word data)
 {
+
     SETTING_VALUES[index] = data;
 }
 
 word CONFIG_GET(byte index)
 {
+
     return SETTING_VALUES[index];
 }
 
@@ -96,6 +84,7 @@ void EEPROM_START()
         for (byte x = 0; x < SETTINGS_DONE; x++) EEPROM_SET(x, 0);
         EEPROM_SET(MAGIC_BYTES, 0xAABB);
     }
+
     for (byte x = 0; x < SETTINGS_DONE; x++) SETTING_VALUES[x] = EEPROM_GET(x);
 }
 
@@ -107,8 +96,9 @@ void EEPROM_START()
 
 void RS485_SEND(char *msg)
 {
+
     PIN_SET_LAT('E', 5, 'H');
-    UART_3_STRING(msg);
+    //    UART_3_STRING(msg);
     PIN_SET_LAT('E', 5, 'L');
 }
 
@@ -176,6 +166,7 @@ byte BUZZER_PLAYING = 0;
 
 void DIGITAL_BUZZER_PLAY(Tone_t *tone)
 {
+
     PLAY_TONE = tone;
     BUZZER_PLAYING = 1;
 }
@@ -195,6 +186,7 @@ void DIGITAL_BUZZER_PROCESS()
             temp_flag = 0;
             PLAY_TONE++;
             if (((PLAY_TONE->State) == 0) && ((PLAY_TONE->Time) == 0)) {
+
                 PIN_SET_LAT('F', 1, 'L');
                 BUZZER_PLAYING = 0;
             }
@@ -209,27 +201,27 @@ byte THREAD_UART_1_RX_FUNCT()
 {
     REG_PROCESS(UART_1_MSG);
     //RS485_SEND(UART_1_MSG);
-    return 1;
+    return THREAD_RETURN_STOP;
 }
 
 byte THREAD_UART_2_RX_FUNCT()
 {
-    return 1;
+    return THREAD_RETURN_STOP;
 }
 
 byte THREAD_LED_FUNCT()
 {
-    static THREAD_DELAY timer;
-    THREAD_TIME_START(&timer);
-    if (THREAD_TIME_WAIT(&timer, 1)) if (THREAD_GET_STATE() == THREAD_FUNCT_FIRST) PIN_SET_LAT('B', 6, 'H');
-    if (THREAD_TIME_WAIT(&timer, 9)) if (THREAD_GET_STATE() == THREAD_FUNCT_FIRST) PIN_SET_LAT('B', 6, 'L');
-    return 0;
+    static SIRALI_TIME_OUT_t timer;
+    SYSTEM_FUNCT(&timer, 0, SYSTEM_FUNCT_KOMUT_CLEAN);
+    if (SYSTEM_FUNCT(&timer, 100, SYSTEM_FUNCT_KOMUT_WORK)) if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) PIN_SET_LAT('D', 1, 'H');
+    if (SYSTEM_FUNCT(&timer, 900, SYSTEM_FUNCT_KOMUT_WORK)) if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) PIN_SET_LAT('D', 1, 'L');
+    return THREAD_RETURN_CONTINUE;
 }
 
 byte THREAD_BUZZER_FUNCT()
 {
     DIGITAL_BUZZER_PROCESS();
-    return 0;
+    return THREAD_RETURN_CONTINUE;
 }
 
 // </editor-fold>
@@ -243,7 +235,9 @@ void UART_2_INTERRUPT_FUNCT(byte data)
     else if (x == '>') {
         UART_2_MSG[counter] = 0;
         THREAD_START(&THREADS[THREAD_UART_2_RX]);
-    } else   if (counter < 20) UART_2_MSG[counter++] = x;
+    } else
+
+        if (counter < 20) UART_2_MSG[counter++] = x;
 }
 
 void UART_1_INTERRUPT_FUNCT(byte data)
@@ -256,6 +250,7 @@ void UART_1_INTERRUPT_FUNCT(byte data)
         UART_1_MSG[counter] = 0;
         THREAD_START(&THREADS[THREAD_UART_1_RX]);
     }
+
     if (counter < 20) UART_1_MSG[counter++] = x;
 }
 
@@ -375,51 +370,91 @@ passed:
 
 void REG_FUNCT_MAS_HAM(byte regId, byte komut)
 {
-    if (komut == '?') REG_SET(regId, MOTOR_GET_MAS12_HAM());
+
+    if (komut == '?');
 }
 
 void INIT_REG()
 {
+
     REG_CREATE(REGx_ADDR, 0, RG_EN | RG_IN_HEX | RG_OUT_HEX_4 | RG_WR | RG_RD | RG_NV, 0, 0xFFFF, 0);
     REG_CREATE(REGx_RAND_CODE, 0, RG_EN | RG_IN_HEX | RG_OUT_HEX_4 | RG_WR | RG_RD, 0, 0xFFFF, 0);
     REG_CREATE(REGx_SERI_NO, 0, RG_EN | RG_IN_HEX | RG_OUT_HEX_4 | RG_WR | RG_RD | RG_NV, 0, 0xFFFF, 0);
     REG_CREATE(REGx_VERSION, 0, RG_EN | RG_IN_HEX | RG_OUT_HEX_4 | RG_RD, 0x01, 0xFFFF, 0);
     REG_CREATE(REGx_SLAVE_ADRESS, 0, RG_EN | RG_IN_HEX | RG_OUT_HEX_2 | RG_WR | RG_RD | RG_NV, 0, 0xFF, 0);
-    
+
     REG_CREATE(REGx_MAS_HAM, REG_FUNCT_MAS_HAM, RG_EN | RG_IN_DEC | RG_OUT_DEC_4 | RG_RD | RG_FNC, 0, 0xFFFF, 0);
     REGISTER_INIT(EEPROM_B_WRITE, EEPROM_B_READ);
 }
 
 // </editor-fold>
 
+void PROGRAM_1()
+{
+    static SIRALI_TIME_OUT_t timer;
+    static TIME_OUT_t timer_temp;
+    SYSTEM_FUNCT(&timer, 0, SYSTEM_FUNCT_KOMUT_CLEAN);
+    if (SYSTEM_FUNCT(&timer, 2000, SYSTEM_FUNCT_KOMUT_WORK)) {
+        if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_LAST);
+        else if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) TIME_OUT_RESET(&timer_temp);
+        else if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_ALWAYS) if (TIME_OUT_CHECK(&timer_temp, 1)) PIN_SET_LAT_TOGGLE('D', 3);
+    }
+
+    if (SYSTEM_FUNCT(&timer, 2000, SYSTEM_FUNCT_KOMUT_WORK)) {
+        if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_LAST);
+        else if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) TIME_OUT_RESET(&timer_temp);
+        else if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_ALWAYS) if (TIME_OUT_CHECK(&timer_temp, 2)) PIN_SET_LAT_TOGGLE('D', 3);
+    }
+
+    if (SYSTEM_FUNCT(&timer, 2000, SYSTEM_FUNCT_KOMUT_WORK)) {
+        if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_LAST);
+        else if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) TIME_OUT_RESET(&timer_temp);
+        else if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_ALWAYS) if (TIME_OUT_CHECK(&timer_temp, 4)) PIN_SET_LAT_TOGGLE('D', 3);
+    }
+
+    if (SYSTEM_FUNCT(&timer, 2000, SYSTEM_FUNCT_KOMUT_WORK)) {
+        if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_LAST);
+        else if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) TIME_OUT_RESET(&timer_temp);
+        else if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_ALWAYS) if (TIME_OUT_CHECK(&timer_temp, 8)) PIN_SET_LAT_TOGGLE('D', 3);
+    }
+
+    if (SYSTEM_FUNCT(&timer, 2000, SYSTEM_FUNCT_KOMUT_WORK)) {
+        if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_LAST);
+        else if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) TIME_OUT_RESET(&timer_temp);
+        else if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_ALWAYS) if (TIME_OUT_CHECK(&timer_temp, 16)) PIN_SET_LAT_TOGGLE('D', 3);
+    }
+
+    if (SYSTEM_FUNCT(&timer, 2000, SYSTEM_FUNCT_KOMUT_WORK)) {
+        if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_LAST);
+        else if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) TIME_OUT_RESET(&timer_temp);
+        else if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_ALWAYS) if (TIME_OUT_CHECK(&timer_temp, 32)) PIN_SET_LAT_TOGGLE('D', 3);
+    }
+
+    if (SYSTEM_FUNCT(&timer, 2000, SYSTEM_FUNCT_KOMUT_WORK)) {
+        if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_LAST);
+        else if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) TIME_OUT_RESET(&timer_temp);
+        else if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_ALWAYS) if (TIME_OUT_CHECK(&timer_temp, 64)) PIN_SET_LAT_TOGGLE('D', 3);
+    }
+}
+
 int main(void)
 {
-    MCU_INIT(64);
-    PIN_SET_IO('D', 'O', 'B', 6, 'H'); //RUN1 LED 
-    PIN_SET_IO('D', 'O', 'B', 7, 'L'); //RUN2 LED 
-    PIN_SET_IO('D', 'O', 'F', 1, 'L'); //BUZZER
-
-    PIN_SET_IO('D', 'I', 'D', 0, 'L'); //SOFT I2C SDA
-    PIN_SET_IO('D', 'I', 'H', 2, 'L'); //SOFT I2C SCL
-
-    PIN_SET_IO('D', 'O', 'E', 5, 'L'); //RS485 
+    MCU_INIT(1, 16);
     INIT_REG();
-    SOFT_I2C_INIT(&TRISD, &LATD, &PORTD, 0, &TRISH, &LATH, &PORTH, 2);
-    PIN_INIT_WPU('D', 0, open);
-    PIN_INIT_WPU('H', 2, open);
-
     TIMER_1_INTERRUPT_CONNECT(1, TIME_OUT_COUNT_INTERRUPT);
-    TIMER_3_INTERRUPT_CONNECT(1, MOTOR_TIME_OUT_CHECK);
-    UART_3_INTERRUPT_FUNCT_CONNECT(9600, UART_1_INTERRUPT_FUNCT);
+    //   UART_3_INTERRUPT_FUNCT_CONNECT(9600, UART_1_INTERRUPT_FUNCT);
+    for (byte x = 0; x < 4; x++) PIN_SET_IO('D', 'O', 'D', x + 1, 'L'); //RUN2 LED 
 
     THREAD_INIT(&THREADS[THREAD_LED], THREAD_FLG_START | THREAD_FLG_LOOP, 100, THREAD_LED_FUNCT);
     THREAD_INIT(&THREADS[THREAD_UART_1_RX], 0, 0, THREAD_UART_1_RX_FUNCT);
     THREAD_INIT(&THREADS[THREAD_UART_2_RX], 0, 0, THREAD_UART_2_RX_FUNCT);
-    THREAD_INIT(&THREADS[THREAD_BUZZER], THREAD_FLG_START | THREAD_FLG_LOOP, 0, THREAD_BUZZER_FUNCT);
-    DIGITAL_BUZZER_PLAY(TONE_START);
+    //THREAD_INIT(&THREADS[THREAD_BUZZER], THREAD_FLG_START | THREAD_FLG_LOOP, 0, THREAD_BUZZER_FUNCT);
+    //DIGITAL_BUZZER_PLAY(TONE_START);
 
     INTERRUPT_ALL(1);
     while (1) {
         SYSTEM_CONTROL_ALL();
+        PROGRAM_1();
+        //    PROGRAM_2();
     }
 }

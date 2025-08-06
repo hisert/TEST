@@ -1,8 +1,8 @@
 
-18F67K40 Memory Summary:
-    Program space        used  30CCh ( 12492) of 20000h bytes   (  9.5%)
-    Data space           used   42Ah (  1066) of   DEAh bytes   ( 29.9%)
-    Configuration bits   used     6h (     6) of     6h words   (100.0%)
+18F87K22 Memory Summary:
+    Program space        used  2590h (  9616) of 20000h bytes   (  7.3%)
+    Data space           used   3ADh (   941) of   F16h bytes   ( 24.4%)
+    Configuration bits   used     7h (     7) of     7h words   (100.0%)
     EEPROM space         used     0h (     0) of   400h bytes   (  0.0%)
-    ID Location space    used    10h (    16) of    10h bytes   (100.0%)
+    ID Location space    used     8h (     8) of     8h bytes   (100.0%)
 

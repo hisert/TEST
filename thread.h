@@ -17,12 +17,32 @@ extern "C" {
     byte TIME_OUT_RESET(TIME_OUT_t *timeout);
     byte TIME_OUT_CHECK(TIME_OUT_t *timeout, word outTime);
     byte TIME_OUT_FUNCT(word ana_ms, byte(*Funct_t)(void), word second_ms);
+    // </editor-fold>  
+    // <editor-fold defaultstate="collapsed" desc="SIRALI TIME OUT        ">
+
+    typedef struct {
+        TIME_OUT_t time_out;
+        byte flag;
+        byte temp;
+    } SIRALI_TIME_OUT_t;
+#define SYSTEM_FUNCT_ALWAYS 1
+#define SYSTEM_FUNCT_LAST 2
+#define SYSTEM_FUNCT_FIRST 3
+#define SYSTEM_FUNCT_KOMUT_WORK 1
+#define SYSTEM_FUNCT_KOMUT_CLEAN 2
+#define SYSTEM_FUNCT_NEXT 3
+    byte SYSTEM_FUNCT(SIRALI_TIME_OUT_t *SIRALI_TIME, word TIME_TUTUCU_MS, byte komut);
+    byte SYSTEM_FUNCT_GET_STATE();
+
     // </editor-fold> 
     // <editor-fold defaultstate="collapsed" desc="THREAD         ">
 #define THREAD_FLG_START 0x01
 #define THREAD_FLG_READY 0x04
 #define THREAD_FLG_LOOP 0x08
 #define THREAD_FLG_IN_FUNCT 0x10
+    
+#define THREAD_RETURN_STOP 0x01
+#define THREAD_RETURN_CONTINUE 0x00
 
     typedef struct {
         byte flag;
@@ -40,23 +60,7 @@ extern "C" {
     void THREAD_TIME_RESET(THREAD_t *thread_t);
     void THREAD_ARRAY_CHECK(THREAD_t *array, size_t length);
     // </editor-fold> 
-    // <editor-fold defaultstate="collapsed" desc="THREAD TIME         ">
-#define THREAD_FUNCT_FIRST 0x01
-#define THREAD_FUNCT_ALWAYS 0x02
-#define THREAD_FUNCT_LAST 0x03
 
-    typedef struct {
-        byte flag;
-        word duty_time;
-        byte sleep_state_counter;
-    } THREAD_DELAY;
-
-    void THREAD_TIME_START(THREAD_DELAY *thread);
-    byte THREAD_TIME_WAIT(THREAD_DELAY *thread, word threadTime);
-    byte THREAD_TIME_DONE(THREAD_DELAY *thread);
-    void THREAD_CLEAR(THREAD_DELAY *thread);
-    byte THREAD_GET_STATE();
-    // </editor-fold> 
 
 #ifdef	__cplusplus
 }
