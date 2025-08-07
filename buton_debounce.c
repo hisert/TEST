@@ -42,3 +42,10 @@ word BUTON_GET_TIME(Buton_t *Buton)
   return Buton->PressTime;
   }
 
+
+byte BUTON_IS_PRESSED(Buton_t *Buton)
+  {
+  if (Buton->Flag & BUTON_PRESSED) return 1;
+  return 0;
+  }
+

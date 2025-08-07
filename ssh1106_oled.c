@@ -803,7 +803,7 @@ void SSH1106_OLED_Write_Dec(word x, word y, dword data)
   for (cnt = 0; cnt < length; cnt++) SSH1106_OLED_Write(x + (cnt * (cfont.x_size)), y, text[cnt]);
   }
 
-void SSH1106_OLED_INIT(void (*startFunc)(void), byte(*writeFunc)(byte), byte(*stopFunc)(void))
+void SSH1106_OLED_Init(void (*startFunc)(void), byte(*writeFunc)(byte), void(*stopFunc)(void))
   {
   ssh1106_oled_i2c_start = startFunc;
   ssh1106_oled_i2c_write = writeFunc;
@@ -922,3 +922,6 @@ void SSH1106_OLED_Update(void)
 // </editor-fold> 
 
 #endif
+
+//KULLANIM ORNEGI
+//SSH1106_OLED_Init(&SOFT_I2C_START, &SOFT_I2C_WRITE, &SOFT_I2C_STOP);

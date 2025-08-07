@@ -28,7 +28,7 @@ extern "C" {
     void SSH1106_OLED_Write(word x, word y, char value);
     void SSH1106_OLED_Write_Text(word x, word y, const char *text);
     void SSH1106_OLED_Write_Dec(word x, word y, dword data);
-    void SSH1106_OLED_INIT(void (*startFunc)(void), byte(*writeFunc)(byte), byte(*stopFunc)(void));
+    void SSH1106_OLED_Init(void (*startFunc)(void), byte(*writeFunc)(byte), void(*stopFunc)(void));
     void SSH1106_OLED_Update(void);
 
 #ifdef	__cplusplus

@@ -11,6 +11,8 @@
 #define USE_SOFT_I2C
 //#define USE_LCD_12C
 //#define USE_AS5600
+#define USE_SSH1106
+//#define USE_MENU
 
 #if defined(__AVR_ATmega64__) || defined(__AVR_ATmega32__) || defined(__AVR_ATmega328__) || defined(__AVR_ATmega16__) || defined(__AVR_ATmega8__) || defined(__AVR_ATmega88__)
 #include <avr/io.h>
@@ -46,7 +48,7 @@ extern "C" {
 
 #define _XTAL_FREQ 16000000
 #define F_CPU 8000000UL
-#define CRYSTAL_FREKANS 16000000UL
+#define CRYSTAL_FREKANS 8000000UL
 
 #ifdef	__cplusplus
 }

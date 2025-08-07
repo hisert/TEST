@@ -333,7 +333,7 @@ word ADC_READ(byte channel)
 void I2C_1_INIT(dword freq)
   {
 #define BITRATE(TWSR)	((CRYSTAL_FREKANS/freq)-16)/(2*pow(4,(TWSR&((1<<TWPS0)|(1<<TWPS1)))))
-  TWBR = 6;
+  TWBR = 8;
   }
 
 byte I2C_1_READ_ACK()

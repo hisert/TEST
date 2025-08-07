@@ -15,8 +15,6 @@ extern "C" {
         word min;
     } Menu_One;
 
-
-
 #define MENU_FLAG_NEW_MENU 0x01
 #define MENU_FLAG_VALUE 0x02
 #define MENU_FLAG_SELECT 0x04
@@ -34,7 +32,7 @@ extern "C" {
 
     void MENU_GIR(Menu_One *Menu, byte komut);
     void MENU_CIK();
-    void MENU_TEXT_PRINT(const char *text, byte index);
+    void MENU_PRINT_MSG(const char *datas);
     void MENU_SHOW_DATA_PRINT(const char *text, word data);
     void MENU_USE_SELECT(const char *ust_yazi, const char *data[], byte index);
     void MENU_USE_VAL(const char *ust_yazi, word data_max, word data_min, word data);
@@ -44,7 +42,10 @@ extern "C" {
     void MENU_PROCESS();
     void MENU_BUTON_ADD(char process);
     void MENU_TEXT_ORTALA(const char* input, char* output, byte maxLen);
-
+    Menu_One* MENU_POINTER_GET();
+    void MENU_MAX_SET(byte val);
+    void MENU_UST_YAZI_SET(const char *msg);
+    void MENU_SELECT_LIST_SET(char **list);
     void MENU_FUNCT_CLEAR();
     void MENU_FUNCT_UPDATE();
     void(MENU_FUNCT_WRITE_DEC) (word x, word y, dword data);

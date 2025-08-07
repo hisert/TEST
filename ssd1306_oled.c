@@ -179,7 +179,7 @@ static Current_Font_s cfont;
 byte ssd1306_buffer[SSD1306_LCDHEIGHT * SSD1306_LCDWIDTH / 8];
 void (*ssd1306_oled_i2c_start)(void);
 byte(*ssd1306_oled_i2c_write)(byte data);
-byte(*ssd1306_oled_i2c_stop)(void);
+void(*ssd1306_oled_i2c_stop)(void);
 
 // </editor-fold> 
 // <editor-fold defaultstate="collapsed" desc="LIBRARY FUNCT     ">
@@ -501,7 +501,7 @@ void SSH1306_OLED_Write_Dec(word x, word y, dword data)
   for (cnt = 0; cnt < length; cnt++) SSH1306_OLED_Write(x + (cnt * (cfont.x_size)), y, text[cnt]);
   }
 
-void SSH1306_OLED_Init(void (*startFunc)(void), byte(*writeFunc)(byte), byte(*stopFunc)(void))
+void SSH1306_OLED_Init(void (*startFunc)(void), byte(*writeFunc)(byte), void(*stopFunc)(void))
   {
   ssd1306_oled_i2c_start = startFunc;
   ssd1306_oled_i2c_write = writeFunc;
