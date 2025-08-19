@@ -445,7 +445,7 @@ byte ssh1106_buffer[SSD1306_LCDHEIGHT * SSD1306_LCDWIDTH / 8];
 
 void (*ssh1106_oled_i2c_start)(void);
 byte(*ssh1106_oled_i2c_write)(byte data);
-byte(*ssh1106_oled_i2c_stop)(void);
+void(*ssh1106_oled_i2c_stop)(void);
 
 // </editor-fold> 
 // <editor-fold defaultstate="collapsed" desc="LIBRARY FUNCT     ">
