@@ -1,5 +1,5 @@
-build/default/production/newmain.o.d build/default/production/newmain.o: \
- newmain.c ATMEGA_64.h common.h \
+build/default/production/ds1307.o.d build/default/production/ds1307.o: \
+ ds1307.c ds1307.h common.h \
  c:\program\ files\microchip\xc8\v3.00\avr\lib\gcc\avr\5.4.0\include\xc.h \
  c:\program\ files\microchip\xc8\v3.00\avr\lib\gcc\avr\5.4.0\include\cci.h \
  c:\program\ files\microchip\xc8\v3.00\avr\avr\include\avr\io.h \
@@ -24,13 +24,9 @@ build/default/production/newmain.o.d build/default/production/newmain.o: \
  c:\program\ files\microchip\xc8\v3.00\avr\avr\include\math.h \
  c:\program\ files\microchip\xc8\v3.00\avr\avr\include\avr\interrupt.h \
  c:\program\ files\microchip\xc8\v3.00\avr\avr\include\avr\eeprom.h \
- c:\program\ files\microchip\xc8\v3.00\avr\lib\gcc\avr\5.4.0\include\stddef.h \
- ATMEGA_328.h ATMEGA_88.h ATMEGA_8.h PIC_18F87K22.h PIC_18F67K40.h \
- PIC_18F46K22.h input_debounce.h buton_debounce.h thread.h soft_i2c.h \
- eeprom.h MENU.h ssd1306_oled.h ssh1106_oled.h AS5600_MAS.h ws2812b.h \
- register.h lcd_16x2.h ds1307.h
+ c:\program\ files\microchip\xc8\v3.00\avr\lib\gcc\avr\5.4.0\include\stddef.h
 
-ATMEGA_64.h:
+ds1307.h:
 
 common.h:
 
@@ -85,41 +81,3 @@ c:\program\ files\microchip\xc8\v3.00\avr\avr\include\avr\interrupt.h:
 c:\program\ files\microchip\xc8\v3.00\avr\avr\include\avr\eeprom.h:
 
 c:\program\ files\microchip\xc8\v3.00\avr\lib\gcc\avr\5.4.0\include\stddef.h:
-
-ATMEGA_328.h:
-
-ATMEGA_88.h:
-
-ATMEGA_8.h:
-
-PIC_18F87K22.h:
-
-PIC_18F67K40.h:
-
-PIC_18F46K22.h:
-
-input_debounce.h:
-
-buton_debounce.h:
-
-thread.h:
-
-soft_i2c.h:
-
-eeprom.h:
-
-MENU.h:
-
-ssd1306_oled.h:
-
-ssh1106_oled.h:
-
-AS5600_MAS.h:
-
-ws2812b.h:
-
-register.h:
-
-lcd_16x2.h:
-
-ds1307.h:

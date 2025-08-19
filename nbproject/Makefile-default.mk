@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=newmain.c ssd1306_oled.c input_debounce.c buton_debounce.c thread.c soft_i2c.c PIC_18F87K22.c MENU.c ATMEGA_64.c ssh1106_oled.c ATMEGA_328.c AS5600_MAS.c ws2812b.c eeprom.c ATMEGA_88.c ATMEGA_8.c register.c PIC_18F67K40.c PIC_18F46K22.c lcd_16x2.c
+SOURCEFILES_QUOTED_IF_SPACED=newmain.c ssd1306_oled.c input_debounce.c buton_debounce.c thread.c soft_i2c.c PIC_18F87K22.c MENU.c ATMEGA_64.c ssh1106_oled.c ATMEGA_328.c AS5600_MAS.c ws2812b.c eeprom.c ATMEGA_88.c ATMEGA_8.c register.c PIC_18F67K40.c PIC_18F46K22.c lcd_16x2.c ds1307.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/newmain.o ${OBJECTDIR}/ssd1306_oled.o ${OBJECTDIR}/input_debounce.o ${OBJECTDIR}/buton_debounce.o ${OBJECTDIR}/thread.o ${OBJECTDIR}/soft_i2c.o ${OBJECTDIR}/PIC_18F87K22.o ${OBJECTDIR}/MENU.o ${OBJECTDIR}/ATMEGA_64.o ${OBJECTDIR}/ssh1106_oled.o ${OBJECTDIR}/ATMEGA_328.o ${OBJECTDIR}/AS5600_MAS.o ${OBJECTDIR}/ws2812b.o ${OBJECTDIR}/eeprom.o ${OBJECTDIR}/ATMEGA_88.o ${OBJECTDIR}/ATMEGA_8.o ${OBJECTDIR}/register.o ${OBJECTDIR}/PIC_18F67K40.o ${OBJECTDIR}/PIC_18F46K22.o ${OBJECTDIR}/lcd_16x2.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/newmain.o.d ${OBJECTDIR}/ssd1306_oled.o.d ${OBJECTDIR}/input_debounce.o.d ${OBJECTDIR}/buton_debounce.o.d ${OBJECTDIR}/thread.o.d ${OBJECTDIR}/soft_i2c.o.d ${OBJECTDIR}/PIC_18F87K22.o.d ${OBJECTDIR}/MENU.o.d ${OBJECTDIR}/ATMEGA_64.o.d ${OBJECTDIR}/ssh1106_oled.o.d ${OBJECTDIR}/ATMEGA_328.o.d ${OBJECTDIR}/AS5600_MAS.o.d ${OBJECTDIR}/ws2812b.o.d ${OBJECTDIR}/eeprom.o.d ${OBJECTDIR}/ATMEGA_88.o.d ${OBJECTDIR}/ATMEGA_8.o.d ${OBJECTDIR}/register.o.d ${OBJECTDIR}/PIC_18F67K40.o.d ${OBJECTDIR}/PIC_18F46K22.o.d ${OBJECTDIR}/lcd_16x2.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/newmain.o ${OBJECTDIR}/ssd1306_oled.o ${OBJECTDIR}/input_debounce.o ${OBJECTDIR}/buton_debounce.o ${OBJECTDIR}/thread.o ${OBJECTDIR}/soft_i2c.o ${OBJECTDIR}/PIC_18F87K22.o ${OBJECTDIR}/MENU.o ${OBJECTDIR}/ATMEGA_64.o ${OBJECTDIR}/ssh1106_oled.o ${OBJECTDIR}/ATMEGA_328.o ${OBJECTDIR}/AS5600_MAS.o ${OBJECTDIR}/ws2812b.o ${OBJECTDIR}/eeprom.o ${OBJECTDIR}/ATMEGA_88.o ${OBJECTDIR}/ATMEGA_8.o ${OBJECTDIR}/register.o ${OBJECTDIR}/PIC_18F67K40.o ${OBJECTDIR}/PIC_18F46K22.o ${OBJECTDIR}/lcd_16x2.o ${OBJECTDIR}/ds1307.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/newmain.o.d ${OBJECTDIR}/ssd1306_oled.o.d ${OBJECTDIR}/input_debounce.o.d ${OBJECTDIR}/buton_debounce.o.d ${OBJECTDIR}/thread.o.d ${OBJECTDIR}/soft_i2c.o.d ${OBJECTDIR}/PIC_18F87K22.o.d ${OBJECTDIR}/MENU.o.d ${OBJECTDIR}/ATMEGA_64.o.d ${OBJECTDIR}/ssh1106_oled.o.d ${OBJECTDIR}/ATMEGA_328.o.d ${OBJECTDIR}/AS5600_MAS.o.d ${OBJECTDIR}/ws2812b.o.d ${OBJECTDIR}/eeprom.o.d ${OBJECTDIR}/ATMEGA_88.o.d ${OBJECTDIR}/ATMEGA_8.o.d ${OBJECTDIR}/register.o.d ${OBJECTDIR}/PIC_18F67K40.o.d ${OBJECTDIR}/PIC_18F46K22.o.d ${OBJECTDIR}/lcd_16x2.o.d ${OBJECTDIR}/ds1307.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/newmain.o ${OBJECTDIR}/ssd1306_oled.o ${OBJECTDIR}/input_debounce.o ${OBJECTDIR}/buton_debounce.o ${OBJECTDIR}/thread.o ${OBJECTDIR}/soft_i2c.o ${OBJECTDIR}/PIC_18F87K22.o ${OBJECTDIR}/MENU.o ${OBJECTDIR}/ATMEGA_64.o ${OBJECTDIR}/ssh1106_oled.o ${OBJECTDIR}/ATMEGA_328.o ${OBJECTDIR}/AS5600_MAS.o ${OBJECTDIR}/ws2812b.o ${OBJECTDIR}/eeprom.o ${OBJECTDIR}/ATMEGA_88.o ${OBJECTDIR}/ATMEGA_8.o ${OBJECTDIR}/register.o ${OBJECTDIR}/PIC_18F67K40.o ${OBJECTDIR}/PIC_18F46K22.o ${OBJECTDIR}/lcd_16x2.o
+OBJECTFILES=${OBJECTDIR}/newmain.o ${OBJECTDIR}/ssd1306_oled.o ${OBJECTDIR}/input_debounce.o ${OBJECTDIR}/buton_debounce.o ${OBJECTDIR}/thread.o ${OBJECTDIR}/soft_i2c.o ${OBJECTDIR}/PIC_18F87K22.o ${OBJECTDIR}/MENU.o ${OBJECTDIR}/ATMEGA_64.o ${OBJECTDIR}/ssh1106_oled.o ${OBJECTDIR}/ATMEGA_328.o ${OBJECTDIR}/AS5600_MAS.o ${OBJECTDIR}/ws2812b.o ${OBJECTDIR}/eeprom.o ${OBJECTDIR}/ATMEGA_88.o ${OBJECTDIR}/ATMEGA_8.o ${OBJECTDIR}/register.o ${OBJECTDIR}/PIC_18F67K40.o ${OBJECTDIR}/PIC_18F46K22.o ${OBJECTDIR}/lcd_16x2.o ${OBJECTDIR}/ds1307.o
 
 # Source Files
-SOURCEFILES=newmain.c ssd1306_oled.c input_debounce.c buton_debounce.c thread.c soft_i2c.c PIC_18F87K22.c MENU.c ATMEGA_64.c ssh1106_oled.c ATMEGA_328.c AS5600_MAS.c ws2812b.c eeprom.c ATMEGA_88.c ATMEGA_8.c register.c PIC_18F67K40.c PIC_18F46K22.c lcd_16x2.c
+SOURCEFILES=newmain.c ssd1306_oled.c input_debounce.c buton_debounce.c thread.c soft_i2c.c PIC_18F87K22.c MENU.c ATMEGA_64.c ssh1106_oled.c ATMEGA_328.c AS5600_MAS.c ws2812b.c eeprom.c ATMEGA_88.c ATMEGA_8.c register.c PIC_18F67K40.c PIC_18F46K22.c lcd_16x2.c ds1307.c
 
 
 
@@ -214,6 +214,12 @@ ${OBJECTDIR}/lcd_16x2.o: lcd_16x2.c  .generated_files/flags/default/dfebb58ee561
 	@${RM} ${OBJECTDIR}/lcd_16x2.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/lcd_16x2.o.d" -MT "${OBJECTDIR}/lcd_16x2.o.d" -MT ${OBJECTDIR}/lcd_16x2.o -o ${OBJECTDIR}/lcd_16x2.o lcd_16x2.c 
 	
+${OBJECTDIR}/ds1307.o: ds1307.c  .generated_files/flags/default/d16adbd2bc17c9a8d92852108ca109974ae572c5 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ds1307.o.d 
+	@${RM} ${OBJECTDIR}/ds1307.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ds1307.o.d" -MT "${OBJECTDIR}/ds1307.o.d" -MT ${OBJECTDIR}/ds1307.o -o ${OBJECTDIR}/ds1307.o ds1307.c 
+	
 else
 ${OBJECTDIR}/newmain.o: newmain.c  .generated_files/flags/default/80decefe8d475710d007fc3b0b7c13becfecb3c4 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
 	@${MKDIR} "${OBJECTDIR}" 
@@ -334,6 +340,12 @@ ${OBJECTDIR}/lcd_16x2.o: lcd_16x2.c  .generated_files/flags/default/b9986bd710a4
 	@${RM} ${OBJECTDIR}/lcd_16x2.o.d 
 	@${RM} ${OBJECTDIR}/lcd_16x2.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/lcd_16x2.o.d" -MT "${OBJECTDIR}/lcd_16x2.o.d" -MT ${OBJECTDIR}/lcd_16x2.o -o ${OBJECTDIR}/lcd_16x2.o lcd_16x2.c 
+	
+${OBJECTDIR}/ds1307.o: ds1307.c  .generated_files/flags/default/b80c8e5bcdaa604a0c57478282236d27c72d3e24 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ds1307.o.d 
+	@${RM} ${OBJECTDIR}/ds1307.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ds1307.o.d" -MT "${OBJECTDIR}/ds1307.o.d" -MT ${OBJECTDIR}/ds1307.o -o ${OBJECTDIR}/ds1307.o ds1307.c 
 	
 endif
 

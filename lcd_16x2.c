@@ -1,4 +1,3 @@
-#include "common.h"
 #include "lcd_16x2.h"
 
 #ifdef USE_LCD_16x2
@@ -18,7 +17,14 @@ word Index_1_Offset = 0; // 2. sat?r offset
 
 void LCD_16x2_WAIT_MS(byte wait)
 {
-    for (byte x = 0; x < wait; x++) _delay_ms(1);
+    for (byte x = 0; x < wait; x++) {
+#ifdef USE_ATMEL
+        _delay_ms(1);
+#endif
+#ifdef USE_PIC
+        __delay_ms(1);
+#endif
+    }
 }
 
 void LCD_16x2_WAIT_US(byte wait)
@@ -79,17 +85,13 @@ void LCD_16x2_String(byte row, byte col, const char *str)
     if (row == 0) Index_0_Msg = str;
     if (row == 1) Index_1_Msg = str;
     LCD_16x2_SetCursor(row, col);
-    while (*str) {
-        LCD_16x2_Char(*str++);
-    }
+    while (*str) LCD_16x2_Char(*str++);
 }
 
 void LCD_16x2_JustString(byte row, byte col, const char *str)
 {
     LCD_16x2_SetCursor(row, col);
-    while (*str) {
-        LCD_16x2_Char(*str++);
-    }
+    while (*str) LCD_16x2_Char(*str++);
 }
 
 void LCD_16x2_Clear(void)

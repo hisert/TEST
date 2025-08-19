@@ -17,6 +17,8 @@
 #include "ws2812b.h"
 #include "register.h"
 #include "lcd_16x2.h"
+#include "ds1307.h"
+
 void REG_PROCESS(char *msg);
 void INIT_REG();
 
@@ -392,9 +394,9 @@ void INIT_REG()
 int main(void)
 {
     // MCU_INIT(1, 16);
-    //  INIT_REG();
+    // INIT_REG();
     TIMER_1_INTERRUPT_CONNECT(1, TIME_OUT_COUNT_INTERRUPT);
-    //   UART_3_INTERRUPT_FUNCT_CONNECT(9600, UART_1_INTERRUPT_FUNCT);
+    // UART_3_INTERRUPT_FUNCT_CONNECT(9600, UART_1_INTERRUPT_FUNCT);
     PIN_SET_IO('D', 'O', 'B', 4, 'L'); //RUN2 LED 
     PIN_SET_IO('D', 'O', 'B', 0, 'L'); //B0
     PIN_SET_IO('D', 'O', 'B', 1, 'L'); //B1
@@ -403,15 +405,17 @@ int main(void)
     PIN_SET_IO('D', 'O', 'B', 6, 'L'); //B2
     PIN_SET_IO('D', 'O', 'B', 7, 'L'); //B3
 
+    SOFT_I2C_INIT(&DDRD, &PORTD, &PIND, 1, &DDRD, &PORTD, &PIND, 0);
     THREAD_INIT(&THREADS[THREAD_LED], THREAD_FLG_START | THREAD_FLG_LOOP, 100, THREAD_LED_FUNCT);
     THREAD_INIT(&THREADS[THREAD_UART_1_RX], 0, 0, THREAD_UART_1_RX_FUNCT);
     THREAD_INIT(&THREADS[THREAD_UART_2_RX], 0, 0, THREAD_UART_2_RX_FUNCT);
+
     //THREAD_INIT(&THREADS[THREAD_BUZZER], THREAD_FLG_START | THREAD_FLG_LOOP, 0, THREAD_BUZZER_FUNCT);
     //DIGITAL_BUZZER_PLAY(TONE_START);
-
-    INTERRUPT_ALL(1);
     LCD_16x2_Init(&PORTB, 0, &PORTB, 1, &PORTB, 2, &PORTB, 3, &PORTB, 6, &PORTB, 7);
-    LCD_16x2_ShiftEnable(3);
+    LCD_16x2_ShiftEnable(0);
+    INTERRUPT_ALL(1);
+
     while (1) {
         SYSTEM_CONTROL_ALL();
     }

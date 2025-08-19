@@ -7,11 +7,14 @@
 #if defined(__18F67K40) || (__18F65K40) || (__18F46K22) || (__18F87K22)
 #include "pic18.h"
 #endif
+#define USE_ATMEL
+//#define USE_PIC
 #define USE_REGISTER
 #define USE_SOFT_I2C
 //#define USE_LCD_12C
 //#define USE_AS5600
-#define USE_SSH1106
+//#define USE_SSH1106
+#define USE_DS1307
 //#define USE_MENU
 #define USE_LCD_16x2
 #if defined(__AVR_ATmega64__) || defined(__AVR_ATmega32__) || defined(__AVR_ATmega328__) || defined(__AVR_ATmega16__) || defined(__AVR_ATmega8__) || defined(__AVR_ATmega88__)
