@@ -18,6 +18,7 @@
 #include "register.h"
 #include "lcd_16x2.h"
 #include "ds1307.h"
+#include "lc_512.h"
 
 void REG_PROCESS(char *msg);
 void INIT_REG();
@@ -413,7 +414,6 @@ int main(void)
     //THREAD_INIT(&THREADS[THREAD_BUZZER], THREAD_FLG_START | THREAD_FLG_LOOP, 0, THREAD_BUZZER_FUNCT);
     //DIGITAL_BUZZER_PLAY(TONE_START);
     LCD_16x2_Init(&PORTB, 0, &PORTB, 1, &PORTB, 2, &PORTB, 3, &PORTB, 6, &PORTB, 7);
-    LCD_16x2_ShiftEnable(0);
     INTERRUPT_ALL(1);
 
     while (1) {

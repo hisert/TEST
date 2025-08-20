@@ -55,6 +55,8 @@
       <itemPath>lcd_16x2.h</itemPath>
       <itemPath>ds1307.c</itemPath>
       <itemPath>ds1307.h</itemPath>
+      <itemPath>lc_512.h</itemPath>
+      <itemPath>lc_512.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

@@ -14,7 +14,8 @@
 //#define USE_LCD_12C
 //#define USE_AS5600
 //#define USE_SSH1106
-#define USE_DS1307
+//#define USE_DS1307
+#define USE_LC512
 //#define USE_MENU
 #define USE_LCD_16x2
 #if defined(__AVR_ATmega64__) || defined(__AVR_ATmega32__) || defined(__AVR_ATmega328__) || defined(__AVR_ATmega16__) || defined(__AVR_ATmega8__) || defined(__AVR_ATmega88__)
