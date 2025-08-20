@@ -29,7 +29,14 @@ void LCD_16x2_WAIT_MS(byte wait)
 
 void LCD_16x2_WAIT_US(byte wait)
 {
-    for (byte x = 0; x < wait; x++) _delay_us(1);
+    for (byte x = 0; x < wait; x++) {
+#ifdef USE_ATMEL
+        _delay_us(1);
+#endif
+#ifdef USE_PIC
+        _delay_us(1);
+#endif
+    }
 }
 
 void LCD_16x2_BIT_WRITE(byte *REG_, byte index, byte onOrOff)

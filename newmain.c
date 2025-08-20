@@ -19,6 +19,7 @@
 #include "lcd_16x2.h"
 #include "ds1307.h"
 #include "lc_512.h"
+#include "hc595.h"
 
 void REG_PROCESS(char *msg);
 void INIT_REG();
@@ -406,7 +407,12 @@ int main(void)
     PIN_SET_IO('D', 'O', 'B', 6, 'L'); //B2
     PIN_SET_IO('D', 'O', 'B', 7, 'L'); //B3
 
+    PIN_SET_IO('D', 'O', 'E', 2, 'L'); //B3
+    PIN_SET_IO('D', 'O', 'E', 3, 'L'); //B2
+    PIN_SET_IO('D', 'O', 'E', 4, 'L'); //B3
+
     SOFT_I2C_INIT(&DDRD, &PORTD, &PIND, 1, &DDRD, &PORTD, &PIND, 0);
+
     THREAD_INIT(&THREADS[THREAD_LED], THREAD_FLG_START | THREAD_FLG_LOOP, 100, THREAD_LED_FUNCT);
     THREAD_INIT(&THREADS[THREAD_UART_1_RX], 0, 0, THREAD_UART_1_RX_FUNCT);
     THREAD_INIT(&THREADS[THREAD_UART_2_RX], 0, 0, THREAD_UART_2_RX_FUNCT);
@@ -415,6 +421,8 @@ int main(void)
     //DIGITAL_BUZZER_PLAY(TONE_START);
     LCD_16x2_Init(&PORTB, 0, &PORTB, 1, &PORTB, 2, &PORTB, 3, &PORTB, 6, &PORTB, 7);
     INTERRUPT_ALL(1);
+    HC595_Init(&PORTE, 2, &PORTE, 3, &PORTE, 4);
+    HC595_WriteData(0x00FE,1);
 
     while (1) {
         SYSTEM_CONTROL_ALL();
