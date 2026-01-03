@@ -94,278 +94,278 @@ MP_PROCESSOR_OPTION=ATmega64
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/newmain.o: newmain.c  .generated_files/flags/default/fcd621665674f096317ef921198b97cfc9a07ef .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/newmain.o: newmain.c  .generated_files/flags/default/5f1748a124d59b24d9bf30d43645ceba5f5b7c12 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/newmain.o.d 
 	@${RM} ${OBJECTDIR}/newmain.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/newmain.o.d" -MT "${OBJECTDIR}/newmain.o.d" -MT ${OBJECTDIR}/newmain.o -o ${OBJECTDIR}/newmain.o newmain.c 
 	
-${OBJECTDIR}/ssd1306_oled.o: ssd1306_oled.c  .generated_files/flags/default/140a4cd4ac2ef91fd4312e801f2304b05dca7bcb .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/ssd1306_oled.o: ssd1306_oled.c  .generated_files/flags/default/525830443b7c2be0c88f99008b282ae35cdc0dfd .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ssd1306_oled.o.d 
 	@${RM} ${OBJECTDIR}/ssd1306_oled.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ssd1306_oled.o.d" -MT "${OBJECTDIR}/ssd1306_oled.o.d" -MT ${OBJECTDIR}/ssd1306_oled.o -o ${OBJECTDIR}/ssd1306_oled.o ssd1306_oled.c 
 	
-${OBJECTDIR}/input_debounce.o: input_debounce.c  .generated_files/flags/default/7511759b83202325bda4ea3feddb95f9c9d6a42a .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/input_debounce.o: input_debounce.c  .generated_files/flags/default/279f4a6e59208ffbc5cca240d6c8d5d8fe66798 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/input_debounce.o.d 
 	@${RM} ${OBJECTDIR}/input_debounce.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/input_debounce.o.d" -MT "${OBJECTDIR}/input_debounce.o.d" -MT ${OBJECTDIR}/input_debounce.o -o ${OBJECTDIR}/input_debounce.o input_debounce.c 
 	
-${OBJECTDIR}/buton_debounce.o: buton_debounce.c  .generated_files/flags/default/f806385b58cbb4e08bb046411fafb5ce70c77b11 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/buton_debounce.o: buton_debounce.c  .generated_files/flags/default/7ff348814ae1e374985df4b56dd223ea716189ec .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/buton_debounce.o.d 
 	@${RM} ${OBJECTDIR}/buton_debounce.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/buton_debounce.o.d" -MT "${OBJECTDIR}/buton_debounce.o.d" -MT ${OBJECTDIR}/buton_debounce.o -o ${OBJECTDIR}/buton_debounce.o buton_debounce.c 
 	
-${OBJECTDIR}/thread.o: thread.c  .generated_files/flags/default/3eef9f52eba9568e23e0240c1c9911922c37f10c .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/thread.o: thread.c  .generated_files/flags/default/a3637678accdb05f9161912541b9d8f95b7d7fb7 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/thread.o.d 
 	@${RM} ${OBJECTDIR}/thread.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/thread.o.d" -MT "${OBJECTDIR}/thread.o.d" -MT ${OBJECTDIR}/thread.o -o ${OBJECTDIR}/thread.o thread.c 
 	
-${OBJECTDIR}/soft_i2c.o: soft_i2c.c  .generated_files/flags/default/977a854219c26ae1601b84acb00d8540e1b4c17e .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/soft_i2c.o: soft_i2c.c  .generated_files/flags/default/84863605cfd8e08dc6e76a3344726b09ea7d3204 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/soft_i2c.o.d 
 	@${RM} ${OBJECTDIR}/soft_i2c.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/soft_i2c.o.d" -MT "${OBJECTDIR}/soft_i2c.o.d" -MT ${OBJECTDIR}/soft_i2c.o -o ${OBJECTDIR}/soft_i2c.o soft_i2c.c 
 	
-${OBJECTDIR}/PIC_18F87K22.o: PIC_18F87K22.c  .generated_files/flags/default/88726dd8ba42a88d98a7c9df3384fd61674aa7da .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/PIC_18F87K22.o: PIC_18F87K22.c  .generated_files/flags/default/88c7ceb6cb549f2533fb305461246bc759d2d378 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/PIC_18F87K22.o.d 
 	@${RM} ${OBJECTDIR}/PIC_18F87K22.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/PIC_18F87K22.o.d" -MT "${OBJECTDIR}/PIC_18F87K22.o.d" -MT ${OBJECTDIR}/PIC_18F87K22.o -o ${OBJECTDIR}/PIC_18F87K22.o PIC_18F87K22.c 
 	
-${OBJECTDIR}/MENU.o: MENU.c  .generated_files/flags/default/91039298cc7487919f078275049c95a5a7b4af8b .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/MENU.o: MENU.c  .generated_files/flags/default/78879a0272fe3135fdfcd0b1e8cfd85586702f80 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/MENU.o.d 
 	@${RM} ${OBJECTDIR}/MENU.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/MENU.o.d" -MT "${OBJECTDIR}/MENU.o.d" -MT ${OBJECTDIR}/MENU.o -o ${OBJECTDIR}/MENU.o MENU.c 
 	
-${OBJECTDIR}/ATMEGA_64.o: ATMEGA_64.c  .generated_files/flags/default/75661ceb8851814215b6506ea6d5b92442704d98 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/ATMEGA_64.o: ATMEGA_64.c  .generated_files/flags/default/a2ae8882d46a6b07a89138ad31f6fb4beaad3a53 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ATMEGA_64.o.d 
 	@${RM} ${OBJECTDIR}/ATMEGA_64.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ATMEGA_64.o.d" -MT "${OBJECTDIR}/ATMEGA_64.o.d" -MT ${OBJECTDIR}/ATMEGA_64.o -o ${OBJECTDIR}/ATMEGA_64.o ATMEGA_64.c 
 	
-${OBJECTDIR}/ssh1106_oled.o: ssh1106_oled.c  .generated_files/flags/default/72142a4ac9244df7e7ce9529e67679251e5dea47 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/ssh1106_oled.o: ssh1106_oled.c  .generated_files/flags/default/51fa019b01aeca35a843b24ef8786124148cbd3b .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ssh1106_oled.o.d 
 	@${RM} ${OBJECTDIR}/ssh1106_oled.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ssh1106_oled.o.d" -MT "${OBJECTDIR}/ssh1106_oled.o.d" -MT ${OBJECTDIR}/ssh1106_oled.o -o ${OBJECTDIR}/ssh1106_oled.o ssh1106_oled.c 
 	
-${OBJECTDIR}/ATMEGA_328.o: ATMEGA_328.c  .generated_files/flags/default/a023cdbb8ce051b3b9ec292156979fd823d49892 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/ATMEGA_328.o: ATMEGA_328.c  .generated_files/flags/default/9413c1fa5e83800259035088886066135a454afa .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ATMEGA_328.o.d 
 	@${RM} ${OBJECTDIR}/ATMEGA_328.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ATMEGA_328.o.d" -MT "${OBJECTDIR}/ATMEGA_328.o.d" -MT ${OBJECTDIR}/ATMEGA_328.o -o ${OBJECTDIR}/ATMEGA_328.o ATMEGA_328.c 
 	
-${OBJECTDIR}/AS5600_MAS.o: AS5600_MAS.c  .generated_files/flags/default/8fa33adde699032a2c16c4e1b48e49114f1922f0 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/AS5600_MAS.o: AS5600_MAS.c  .generated_files/flags/default/6c4be49eed9d4ee24b0f18c99c54f8673aaf6271 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/AS5600_MAS.o.d 
 	@${RM} ${OBJECTDIR}/AS5600_MAS.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/AS5600_MAS.o.d" -MT "${OBJECTDIR}/AS5600_MAS.o.d" -MT ${OBJECTDIR}/AS5600_MAS.o -o ${OBJECTDIR}/AS5600_MAS.o AS5600_MAS.c 
 	
-${OBJECTDIR}/ws2812b.o: ws2812b.c  .generated_files/flags/default/9663c56cb0520e6a449ad14b96a808efdf7f487b .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/ws2812b.o: ws2812b.c  .generated_files/flags/default/380e3a6b49dcb0f9c059444773c7b2ec0f0f7db7 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ws2812b.o.d 
 	@${RM} ${OBJECTDIR}/ws2812b.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ws2812b.o.d" -MT "${OBJECTDIR}/ws2812b.o.d" -MT ${OBJECTDIR}/ws2812b.o -o ${OBJECTDIR}/ws2812b.o ws2812b.c 
 	
-${OBJECTDIR}/eeprom.o: eeprom.c  .generated_files/flags/default/e21b017ee4a60a7efe0b4bededb05a7be6db478b .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/eeprom.o: eeprom.c  .generated_files/flags/default/11db797ee136e7112956fcf729cdadf84872f892 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/eeprom.o.d 
 	@${RM} ${OBJECTDIR}/eeprom.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/eeprom.o.d" -MT "${OBJECTDIR}/eeprom.o.d" -MT ${OBJECTDIR}/eeprom.o -o ${OBJECTDIR}/eeprom.o eeprom.c 
 	
-${OBJECTDIR}/ATMEGA_88.o: ATMEGA_88.c  .generated_files/flags/default/abcfdaecb717cac4cb133438722df16012702b92 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/ATMEGA_88.o: ATMEGA_88.c  .generated_files/flags/default/d9fd672114ddfcc48e6e13956dceb96d4df4c991 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ATMEGA_88.o.d 
 	@${RM} ${OBJECTDIR}/ATMEGA_88.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ATMEGA_88.o.d" -MT "${OBJECTDIR}/ATMEGA_88.o.d" -MT ${OBJECTDIR}/ATMEGA_88.o -o ${OBJECTDIR}/ATMEGA_88.o ATMEGA_88.c 
 	
-${OBJECTDIR}/ATMEGA_8.o: ATMEGA_8.c  .generated_files/flags/default/71d849d157f0d886c8aa21cece90f210d6f89c6c .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/ATMEGA_8.o: ATMEGA_8.c  .generated_files/flags/default/1ecc09868d62ab82298a40614d39aebb6c22b78d .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ATMEGA_8.o.d 
 	@${RM} ${OBJECTDIR}/ATMEGA_8.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ATMEGA_8.o.d" -MT "${OBJECTDIR}/ATMEGA_8.o.d" -MT ${OBJECTDIR}/ATMEGA_8.o -o ${OBJECTDIR}/ATMEGA_8.o ATMEGA_8.c 
 	
-${OBJECTDIR}/register.o: register.c  .generated_files/flags/default/1eb99093663397507d33e58722ea2950f19f9101 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/register.o: register.c  .generated_files/flags/default/be3bc6723d9502b3abd52c93971bd1eba71c76ee .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/register.o.d 
 	@${RM} ${OBJECTDIR}/register.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/register.o.d" -MT "${OBJECTDIR}/register.o.d" -MT ${OBJECTDIR}/register.o -o ${OBJECTDIR}/register.o register.c 
 	
-${OBJECTDIR}/PIC_18F67K40.o: PIC_18F67K40.c  .generated_files/flags/default/bfb5bb4c6cc1ae279db1d0fb30ea81f0b1ff6c26 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/PIC_18F67K40.o: PIC_18F67K40.c  .generated_files/flags/default/a1916132146e186e5f365fe8a8051d00a60a2037 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/PIC_18F67K40.o.d 
 	@${RM} ${OBJECTDIR}/PIC_18F67K40.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/PIC_18F67K40.o.d" -MT "${OBJECTDIR}/PIC_18F67K40.o.d" -MT ${OBJECTDIR}/PIC_18F67K40.o -o ${OBJECTDIR}/PIC_18F67K40.o PIC_18F67K40.c 
 	
-${OBJECTDIR}/PIC_18F46K22.o: PIC_18F46K22.c  .generated_files/flags/default/22f65866433bdb845031495a6371ea5a6e87a2fd .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/PIC_18F46K22.o: PIC_18F46K22.c  .generated_files/flags/default/b1b41f504393d3b1f37e5c019986ad81a53371cf .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/PIC_18F46K22.o.d 
 	@${RM} ${OBJECTDIR}/PIC_18F46K22.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/PIC_18F46K22.o.d" -MT "${OBJECTDIR}/PIC_18F46K22.o.d" -MT ${OBJECTDIR}/PIC_18F46K22.o -o ${OBJECTDIR}/PIC_18F46K22.o PIC_18F46K22.c 
 	
-${OBJECTDIR}/lcd_16x2.o: lcd_16x2.c  .generated_files/flags/default/dfebb58ee5611cecb499c82a51f796456f2a712e .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/lcd_16x2.o: lcd_16x2.c  .generated_files/flags/default/b4ba88445eda03e1fa54a4927d7f93850866fb0d .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/lcd_16x2.o.d 
 	@${RM} ${OBJECTDIR}/lcd_16x2.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/lcd_16x2.o.d" -MT "${OBJECTDIR}/lcd_16x2.o.d" -MT ${OBJECTDIR}/lcd_16x2.o -o ${OBJECTDIR}/lcd_16x2.o lcd_16x2.c 
 	
-${OBJECTDIR}/ds1307.o: ds1307.c  .generated_files/flags/default/d16adbd2bc17c9a8d92852108ca109974ae572c5 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/ds1307.o: ds1307.c  .generated_files/flags/default/204a343a655842de1c73d21596610e5fbeb74e92 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ds1307.o.d 
 	@${RM} ${OBJECTDIR}/ds1307.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ds1307.o.d" -MT "${OBJECTDIR}/ds1307.o.d" -MT ${OBJECTDIR}/ds1307.o -o ${OBJECTDIR}/ds1307.o ds1307.c 
 	
-${OBJECTDIR}/lc_512.o: lc_512.c  .generated_files/flags/default/f4a9cb66750165eb7178c43470432d2ab95317f8 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/lc_512.o: lc_512.c  .generated_files/flags/default/1bde54bde19323c6f65187cbeef4b7350051a327 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/lc_512.o.d 
 	@${RM} ${OBJECTDIR}/lc_512.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/lc_512.o.d" -MT "${OBJECTDIR}/lc_512.o.d" -MT ${OBJECTDIR}/lc_512.o -o ${OBJECTDIR}/lc_512.o lc_512.c 
 	
-${OBJECTDIR}/hc595.o: hc595.c  .generated_files/flags/default/aeba33896887ba69effc7c7df49f1fabf7ffc4e1 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/hc595.o: hc595.c  .generated_files/flags/default/cad4a9712af45c5a7e2fdb2c46a5eb1b8ad22cbd .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/hc595.o.d 
 	@${RM} ${OBJECTDIR}/hc595.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/hc595.o.d" -MT "${OBJECTDIR}/hc595.o.d" -MT ${OBJECTDIR}/hc595.o -o ${OBJECTDIR}/hc595.o hc595.c 
 	
 else
-${OBJECTDIR}/newmain.o: newmain.c  .generated_files/flags/default/80decefe8d475710d007fc3b0b7c13becfecb3c4 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/newmain.o: newmain.c  .generated_files/flags/default/c24d4367fba870c3166a07eb7f24ba238bb0a488 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/newmain.o.d 
 	@${RM} ${OBJECTDIR}/newmain.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/newmain.o.d" -MT "${OBJECTDIR}/newmain.o.d" -MT ${OBJECTDIR}/newmain.o -o ${OBJECTDIR}/newmain.o newmain.c 
 	
-${OBJECTDIR}/ssd1306_oled.o: ssd1306_oled.c  .generated_files/flags/default/8551114aa03a3c55d9553905250e4a6acc7b59eb .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/ssd1306_oled.o: ssd1306_oled.c  .generated_files/flags/default/ec10459035ac461f18925d0b2a08edd71220b781 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ssd1306_oled.o.d 
 	@${RM} ${OBJECTDIR}/ssd1306_oled.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ssd1306_oled.o.d" -MT "${OBJECTDIR}/ssd1306_oled.o.d" -MT ${OBJECTDIR}/ssd1306_oled.o -o ${OBJECTDIR}/ssd1306_oled.o ssd1306_oled.c 
 	
-${OBJECTDIR}/input_debounce.o: input_debounce.c  .generated_files/flags/default/f2e959c5d433108354ee9da1a38285400e35b9a9 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/input_debounce.o: input_debounce.c  .generated_files/flags/default/5914530726fede0504ec76f587d9f39dde6fa1f .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/input_debounce.o.d 
 	@${RM} ${OBJECTDIR}/input_debounce.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/input_debounce.o.d" -MT "${OBJECTDIR}/input_debounce.o.d" -MT ${OBJECTDIR}/input_debounce.o -o ${OBJECTDIR}/input_debounce.o input_debounce.c 
 	
-${OBJECTDIR}/buton_debounce.o: buton_debounce.c  .generated_files/flags/default/aee6499501cdfeba54144054bdce6a01a56b2874 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/buton_debounce.o: buton_debounce.c  .generated_files/flags/default/1befe437cf24ccd4d76f25b81cecd17d2368bf78 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/buton_debounce.o.d 
 	@${RM} ${OBJECTDIR}/buton_debounce.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/buton_debounce.o.d" -MT "${OBJECTDIR}/buton_debounce.o.d" -MT ${OBJECTDIR}/buton_debounce.o -o ${OBJECTDIR}/buton_debounce.o buton_debounce.c 
 	
-${OBJECTDIR}/thread.o: thread.c  .generated_files/flags/default/87a6644337ec92d73218d2a661cd4c646c9ecac1 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/thread.o: thread.c  .generated_files/flags/default/cbf519561269fd5b7d9a1f62eebcb8d66010d26d .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/thread.o.d 
 	@${RM} ${OBJECTDIR}/thread.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/thread.o.d" -MT "${OBJECTDIR}/thread.o.d" -MT ${OBJECTDIR}/thread.o -o ${OBJECTDIR}/thread.o thread.c 
 	
-${OBJECTDIR}/soft_i2c.o: soft_i2c.c  .generated_files/flags/default/a971e48389fc54e143f057268d3373170a03b272 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/soft_i2c.o: soft_i2c.c  .generated_files/flags/default/8929c38bcaccba895bc2a8b15d9fb88f1afc0998 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/soft_i2c.o.d 
 	@${RM} ${OBJECTDIR}/soft_i2c.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/soft_i2c.o.d" -MT "${OBJECTDIR}/soft_i2c.o.d" -MT ${OBJECTDIR}/soft_i2c.o -o ${OBJECTDIR}/soft_i2c.o soft_i2c.c 
 	
-${OBJECTDIR}/PIC_18F87K22.o: PIC_18F87K22.c  .generated_files/flags/default/39d8f3197ada7fe1d6165c25b213f961542d64cc .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/PIC_18F87K22.o: PIC_18F87K22.c  .generated_files/flags/default/6d14fbbca21a4c862256ebf3149b34a1f8b403c5 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/PIC_18F87K22.o.d 
 	@${RM} ${OBJECTDIR}/PIC_18F87K22.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/PIC_18F87K22.o.d" -MT "${OBJECTDIR}/PIC_18F87K22.o.d" -MT ${OBJECTDIR}/PIC_18F87K22.o -o ${OBJECTDIR}/PIC_18F87K22.o PIC_18F87K22.c 
 	
-${OBJECTDIR}/MENU.o: MENU.c  .generated_files/flags/default/92296997a46e2959f90c4c5dcf800ffccd3e32ef .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/MENU.o: MENU.c  .generated_files/flags/default/bac7cb02d583ddcf92d392da25ca8eb354bdc9af .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/MENU.o.d 
 	@${RM} ${OBJECTDIR}/MENU.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/MENU.o.d" -MT "${OBJECTDIR}/MENU.o.d" -MT ${OBJECTDIR}/MENU.o -o ${OBJECTDIR}/MENU.o MENU.c 
 	
-${OBJECTDIR}/ATMEGA_64.o: ATMEGA_64.c  .generated_files/flags/default/466c35057afee95b0b8a2948254657e9674e84c8 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/ATMEGA_64.o: ATMEGA_64.c  .generated_files/flags/default/10d8516169723603ae08ae0dd996471309badb75 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ATMEGA_64.o.d 
 	@${RM} ${OBJECTDIR}/ATMEGA_64.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ATMEGA_64.o.d" -MT "${OBJECTDIR}/ATMEGA_64.o.d" -MT ${OBJECTDIR}/ATMEGA_64.o -o ${OBJECTDIR}/ATMEGA_64.o ATMEGA_64.c 
 	
-${OBJECTDIR}/ssh1106_oled.o: ssh1106_oled.c  .generated_files/flags/default/1914e6b522a2c773bfba2b116dfc2d8437762137 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/ssh1106_oled.o: ssh1106_oled.c  .generated_files/flags/default/5871b3689628d7ad2d2a6c44cb0aa150c85fee0f .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ssh1106_oled.o.d 
 	@${RM} ${OBJECTDIR}/ssh1106_oled.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ssh1106_oled.o.d" -MT "${OBJECTDIR}/ssh1106_oled.o.d" -MT ${OBJECTDIR}/ssh1106_oled.o -o ${OBJECTDIR}/ssh1106_oled.o ssh1106_oled.c 
 	
-${OBJECTDIR}/ATMEGA_328.o: ATMEGA_328.c  .generated_files/flags/default/90bf1194541379fbe3bba6f13e15a211ae5f5b86 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/ATMEGA_328.o: ATMEGA_328.c  .generated_files/flags/default/b489ff495c837b7f39291fd56c0d50a7892db25d .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ATMEGA_328.o.d 
 	@${RM} ${OBJECTDIR}/ATMEGA_328.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ATMEGA_328.o.d" -MT "${OBJECTDIR}/ATMEGA_328.o.d" -MT ${OBJECTDIR}/ATMEGA_328.o -o ${OBJECTDIR}/ATMEGA_328.o ATMEGA_328.c 
 	
-${OBJECTDIR}/AS5600_MAS.o: AS5600_MAS.c  .generated_files/flags/default/b7ea7deb3d6a7ef0eee371e33e2d673bc1cec388 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/AS5600_MAS.o: AS5600_MAS.c  .generated_files/flags/default/184f549d74cbcb314d5df3c5ac12e24d740022f3 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/AS5600_MAS.o.d 
 	@${RM} ${OBJECTDIR}/AS5600_MAS.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/AS5600_MAS.o.d" -MT "${OBJECTDIR}/AS5600_MAS.o.d" -MT ${OBJECTDIR}/AS5600_MAS.o -o ${OBJECTDIR}/AS5600_MAS.o AS5600_MAS.c 
 	
-${OBJECTDIR}/ws2812b.o: ws2812b.c  .generated_files/flags/default/4060a655f48e551f086a0cff87f62441de124a18 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/ws2812b.o: ws2812b.c  .generated_files/flags/default/9a159b4b87d126ae22bfb6b0986e5aec11f09555 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ws2812b.o.d 
 	@${RM} ${OBJECTDIR}/ws2812b.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ws2812b.o.d" -MT "${OBJECTDIR}/ws2812b.o.d" -MT ${OBJECTDIR}/ws2812b.o -o ${OBJECTDIR}/ws2812b.o ws2812b.c 
 	
-${OBJECTDIR}/eeprom.o: eeprom.c  .generated_files/flags/default/2d0144f829d96c76f48dd4e41eaf7646ef0db626 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/eeprom.o: eeprom.c  .generated_files/flags/default/544f08c4198b7ac36dd19be526e89aeecd3fe643 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/eeprom.o.d 
 	@${RM} ${OBJECTDIR}/eeprom.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/eeprom.o.d" -MT "${OBJECTDIR}/eeprom.o.d" -MT ${OBJECTDIR}/eeprom.o -o ${OBJECTDIR}/eeprom.o eeprom.c 
 	
-${OBJECTDIR}/ATMEGA_88.o: ATMEGA_88.c  .generated_files/flags/default/788effe463ff917fb6106b86e64a5231141467e .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/ATMEGA_88.o: ATMEGA_88.c  .generated_files/flags/default/5a20ab066e6bd8539e08f423c557ebebbb3b9f7b .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ATMEGA_88.o.d 
 	@${RM} ${OBJECTDIR}/ATMEGA_88.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ATMEGA_88.o.d" -MT "${OBJECTDIR}/ATMEGA_88.o.d" -MT ${OBJECTDIR}/ATMEGA_88.o -o ${OBJECTDIR}/ATMEGA_88.o ATMEGA_88.c 
 	
-${OBJECTDIR}/ATMEGA_8.o: ATMEGA_8.c  .generated_files/flags/default/2d3c7203dfb8b4edc7a2d08e4e1642f85bd83278 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/ATMEGA_8.o: ATMEGA_8.c  .generated_files/flags/default/f62a940d4f5ceab33a628b74f4c97faf299276ce .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ATMEGA_8.o.d 
 	@${RM} ${OBJECTDIR}/ATMEGA_8.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ATMEGA_8.o.d" -MT "${OBJECTDIR}/ATMEGA_8.o.d" -MT ${OBJECTDIR}/ATMEGA_8.o -o ${OBJECTDIR}/ATMEGA_8.o ATMEGA_8.c 
 	
-${OBJECTDIR}/register.o: register.c  .generated_files/flags/default/ce328c07632e35c97253c026fa9374bc875e5fe7 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/register.o: register.c  .generated_files/flags/default/36d0840cd4105bc96db4df49ee2cd0b926e4a6a .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/register.o.d 
 	@${RM} ${OBJECTDIR}/register.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/register.o.d" -MT "${OBJECTDIR}/register.o.d" -MT ${OBJECTDIR}/register.o -o ${OBJECTDIR}/register.o register.c 
 	
-${OBJECTDIR}/PIC_18F67K40.o: PIC_18F67K40.c  .generated_files/flags/default/4df01c22a17903fb94ea7caabf4e04f0304b3e89 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/PIC_18F67K40.o: PIC_18F67K40.c  .generated_files/flags/default/c8f71230af2740121b0e97b9cdcc6ed085e536f6 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/PIC_18F67K40.o.d 
 	@${RM} ${OBJECTDIR}/PIC_18F67K40.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/PIC_18F67K40.o.d" -MT "${OBJECTDIR}/PIC_18F67K40.o.d" -MT ${OBJECTDIR}/PIC_18F67K40.o -o ${OBJECTDIR}/PIC_18F67K40.o PIC_18F67K40.c 
 	
-${OBJECTDIR}/PIC_18F46K22.o: PIC_18F46K22.c  .generated_files/flags/default/880f79f646551a15ec6b356308389c2357b3ccec .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/PIC_18F46K22.o: PIC_18F46K22.c  .generated_files/flags/default/cd508f3449019f41e95adfe9e4dd2d47f18a2912 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/PIC_18F46K22.o.d 
 	@${RM} ${OBJECTDIR}/PIC_18F46K22.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/PIC_18F46K22.o.d" -MT "${OBJECTDIR}/PIC_18F46K22.o.d" -MT ${OBJECTDIR}/PIC_18F46K22.o -o ${OBJECTDIR}/PIC_18F46K22.o PIC_18F46K22.c 
 	
-${OBJECTDIR}/lcd_16x2.o: lcd_16x2.c  .generated_files/flags/default/b9986bd710a4812075578e9ee8edce24641c06e1 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/lcd_16x2.o: lcd_16x2.c  .generated_files/flags/default/b5bbd75d981c7f5cdcd665bc997d5a4a2dc5d457 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/lcd_16x2.o.d 
 	@${RM} ${OBJECTDIR}/lcd_16x2.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/lcd_16x2.o.d" -MT "${OBJECTDIR}/lcd_16x2.o.d" -MT ${OBJECTDIR}/lcd_16x2.o -o ${OBJECTDIR}/lcd_16x2.o lcd_16x2.c 
 	
-${OBJECTDIR}/ds1307.o: ds1307.c  .generated_files/flags/default/b80c8e5bcdaa604a0c57478282236d27c72d3e24 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/ds1307.o: ds1307.c  .generated_files/flags/default/bb79395f3ff849c9eb060bc5e070a53e3cb192da .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ds1307.o.d 
 	@${RM} ${OBJECTDIR}/ds1307.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/ds1307.o.d" -MT "${OBJECTDIR}/ds1307.o.d" -MT ${OBJECTDIR}/ds1307.o -o ${OBJECTDIR}/ds1307.o ds1307.c 
 	
-${OBJECTDIR}/lc_512.o: lc_512.c  .generated_files/flags/default/7d84bc00153b072f3f80108bea7bbc8c2f84cd54 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/lc_512.o: lc_512.c  .generated_files/flags/default/895e72e561d8e096b571aa96d197e69f167e7f5a .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/lc_512.o.d 
 	@${RM} ${OBJECTDIR}/lc_512.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/lc_512.o.d" -MT "${OBJECTDIR}/lc_512.o.d" -MT ${OBJECTDIR}/lc_512.o -o ${OBJECTDIR}/lc_512.o lc_512.c 
 	
-${OBJECTDIR}/hc595.o: hc595.c  .generated_files/flags/default/cd2ff163365e014499862e04bf319ed15c13373 .generated_files/flags/default/ff5a0e252e976dfc10d413cf45d9307cbb73cd0f
+${OBJECTDIR}/hc595.o: hc595.c  .generated_files/flags/default/bd45d1349035742aa1d5b5dc93eee126aef12052 .generated_files/flags/default/5ce8b7afcd8d2fec01fc08912832efc321890592
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/hc595.o.d 
 	@${RM} ${OBJECTDIR}/hc595.o 

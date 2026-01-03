@@ -67,6 +67,11 @@ void MENU_UST_YAZI_SET(const char *msg)
   MENU_UST_YAZI = msg;
   }
 
+void MENU_SHOW_DATA_TEXT_SET(const char *msg)
+  {
+  SHOW_DATA_TEXT = msg;
+  }
+
 void MENU_SELECT_LIST_SET(char **list)
   {
   MENU_SELECT_LIST = list;
@@ -106,13 +111,13 @@ void MENU_TEXT_PRINT(const char *text, byte index)
   {
   char msg[30];
   MENU_CLEAR();
-  MENU_TEXT_ORTALA(MENU_UST_YAZI, msg, 16);
+  MENU_TEXT_ORTALA(MENU_UST_YAZI, msg, 21);
   MENU_WRITE_TEXT(0, 0, msg); //0,0
   //   OLED_H_Line(0, 128, 8, 1);
   sprintf(msg, "%c) %s", (index + '1'), text);
-  MENU_WRITE_TEXT(0, 20, msg); //0,14
+  MENU_WRITE_TEXT(0, 14, msg); //0,14
   sprintf(msg, "%c/%c", (index + '1'), (MENU_MAX + '1'));
-  MENU_WRITE_TEXT(105, 48, msg); //105,24
+  MENU_WRITE_TEXT(105, 24, msg); //105,24
   MENU_UPDATE();
   }
 
@@ -120,8 +125,8 @@ void MENU_PRINT_MSG(const char *datas)
   {
   char msg[30];
   MENU_CLEAR();
-  MENU_TEXT_ORTALA(datas, msg, 16);
-  MENU_WRITE_TEXT(0, 24, msg); //0,14
+  MENU_TEXT_ORTALA(datas, msg, 21);
+  MENU_WRITE_TEXT(0, 14, msg); //0,14
   MENU_UPDATE();
   }
 
@@ -129,7 +134,7 @@ void MENU_SHOW_DATA_PRINT(const char *text, word data)
   {
   char msg[30];
   MENU_CLEAR();
-  MENU_TEXT_ORTALA(text, msg, 16);
+  MENU_TEXT_ORTALA(text, msg, 21);
   MENU_WRITE_TEXT(0, 0, msg);
   if (data >= 1000) MENU_WRITE_DEC(51, 24, data); //51, 24
   else if (data >= 100) MENU_WRITE_DEC(53, 24, data); //53,24
@@ -141,12 +146,12 @@ void MENU_USE_SELECT(const char *ust_yazi, const char *data[], byte index)
   {
   char msg[30];
   MENU_CLEAR();
-  MENU_TEXT_ORTALA(ust_yazi, msg, 16);
+  MENU_TEXT_ORTALA(ust_yazi, msg, 21);
   MENU_WRITE_TEXT(0, 0, msg); // 0, 0
   sprintf(msg, "%c ) %s", ('a' + index), data[index]);
-  MENU_WRITE_TEXT(0, 24, msg); //0 , 16
+  MENU_WRITE_TEXT(0, 12, msg); //0 , 16
   sprintf(msg, "%c/%c", (index + 'a'), (MENU_POINTER[MENU_INDEX_COUNTER].max) + 'a');
-  MENU_WRITE_TEXT(105, 48, msg); //105,24
+  MENU_WRITE_TEXT(105, 24, msg); //105,24
   MENU_UPDATE();
   }
 
@@ -154,18 +159,18 @@ void MENU_USE_VAL(const char *ust_yazi, word data_max, word data_min, word data)
   {
   char msg[30];
   MENU_CLEAR();
-  MENU_TEXT_ORTALA(ust_yazi, msg, 16);
+  MENU_TEXT_ORTALA(ust_yazi, msg, 21);
   MENU_WRITE_TEXT(0, 0, msg); // 0, 0
-  MENU_WRITE_TEXT(0, 24, "MAX   NOW    MIN"); //*0 , 16
-  MENU_WRITE_DEC(0, 48, data_max); //0,24
+  MENU_WRITE_TEXT(0, 12, "MAX      NOW      MIN"); //*0 , 16
+  MENU_WRITE_DEC(0, 24, data_max); //0,24
 
-  if (data_min >= 1000) MENU_WRITE_DEC(103, 48, data_min); //103,24
-  else if (data_min >= 100) MENU_WRITE_DEC(109, 48, data_min); //109,24
-  else MENU_WRITE_DEC(116, 48, data_min);
+  if (data_min >= 1000) MENU_WRITE_DEC(103, 24, data_min); //103,24
+  else if (data_min >= 100) MENU_WRITE_DEC(109, 24, data_min); //109,24
+  else MENU_WRITE_DEC(116, 24, data_min);
 
-  if (data >= 1000) MENU_WRITE_DEC(51, 48, data); //51 ,24
-  else if (data >= 100) MENU_WRITE_DEC(53, 48, data); //53,24
-  else MENU_WRITE_DEC(56, 48, data); //56,26
+  if (data >= 1000) MENU_WRITE_DEC(51, 24, data); //51 ,24
+  else if (data >= 100) MENU_WRITE_DEC(53, 24, data); //53,24
+  else MENU_WRITE_DEC(56, 24, data); //56,26
   MENU_UPDATE();
   }
 
@@ -224,6 +229,7 @@ void MENU_WORK(char MENU_MOVEMENT)
         }
       else if (MENU_POINTER[MENU_INDEX_COUNTER].flag & MENU_FLAG_SHOW_DATA)
         {
+
         if (VAL_CHANGE_FLAG == 0)
           {
           MENU_TEMP_VAL = 0;

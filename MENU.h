@@ -45,6 +45,7 @@ extern "C" {
     Menu_One* MENU_POINTER_GET();
     void MENU_MAX_SET(byte val);
     void MENU_UST_YAZI_SET(const char *msg);
+    void MENU_SHOW_DATA_TEXT_SET(const char *msg);
     void MENU_SELECT_LIST_SET(char **list);
     void MENU_FUNCT_CLEAR();
     void MENU_FUNCT_UPDATE();
