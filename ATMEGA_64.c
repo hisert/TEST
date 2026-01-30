@@ -89,6 +89,57 @@ void PIN_SET_IO(byte AnalogOrDijital, byte InputOrOutput, byte Port, byte Pin, b
   }
 
 // </editor-fold> 
+// <editor-fold defaultstate="collapsed" desc="TIMER 0">
+
+byte TIMER_0_TICKS;
+
+void TIMER_0_INTERRUPT_FUNCT()
+  {
+  TCNT0 = TIMER_0_TICKS;
+  }
+
+void TIMER_0_INTERRUPT(byte openOrClose)
+  {
+  if (openOrClose) TIMSK |= (1 << TOIE0);
+  else TIMSK &= ~(1 << TOIE0);
+  }
+
+void TIMER_0_SET(byte startOrStop)
+  {
+  if (startOrStop);
+  else TCCR0 = 0;
+  }
+
+void TIMER_0_INIT(byte ms)
+  {
+  float calculater;
+  word prescale = 1;
+  byte counter = 0;
+
+  while (1)
+    {
+    counter++;
+
+    calculater = (CRYSTAL_FREKANS / 100) / prescale;
+    calculater = 1 / calculater;
+    calculater = ms / calculater;
+
+    if (calculater < 0xFF) break;
+    else prescale = prescale * 8;
+    if (prescale == 512) prescale = 256;
+    if (prescale == 2048) prescale = 1024;
+    }
+
+  TCCR0 = 0;
+
+  TIMER_0_TICKS = 0xFF - (byte) calculater;
+  TIMER_0_INTERRUPT_FUNCT();
+
+  TCCR0 = counter; // prescaler bits
+  TIMER_0_INTERRUPT(1);
+  }
+
+// </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="TIMER 1">
 word TIMER_1_TICKS;
 
@@ -134,6 +185,59 @@ void TIMER_1_INIT(byte ms)
   }
 
 // </editor-fold> 
+// <editor-fold defaultstate="collapsed" desc="TIMER 2">
+
+byte TIMER_2_TICKS;
+
+void TIMER_2_INTERRUPT_FUNCT()
+  {
+  TCNT2 = TIMER_2_TICKS;
+  }
+
+void TIMER_2_INTERRUPT(byte openOrClose)
+  {
+  if (openOrClose) TIMSK |= (1 << TOIE2);
+  else TIMSK &= ~(1 << TOIE2);
+  }
+
+void TIMER_2_SET(byte startOrStop)
+  {
+  if (startOrStop);
+  else TCCR2 = 0;
+  }
+
+void TIMER_2_INIT(byte ms)
+  {
+  float calculater;
+  word prescale = 1;
+  byte counter = 0;
+
+  while (1)
+    {
+    counter++;
+
+    calculater = (CRYSTAL_FREKANS / 1000) / prescale;
+    calculater = 1 / calculater;
+    calculater = ms / calculater;
+
+    if (calculater < 0xFF) break;
+
+    else prescale = prescale * 8;
+
+    if (prescale == 512) prescale = 256;
+    if (prescale == 2048) prescale = 1024;
+    }
+
+  TCCR2 = 0;
+
+  TIMER_2_TICKS = 0xFF - calculater;
+  TIMER_2_INTERRUPT_FUNCT();
+
+  TCCR2 = counter; // CS22..CS20
+  TIMER_2_INTERRUPT(1);
+  }
+
+// </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="TIMER 3">
 
 word TIMER_3_TICKS;
@@ -306,34 +410,55 @@ void INTERRUPT_ALL(byte x)
 
 //// </editor-fold> 
 // <editor-fold defaultstate="collapsed" desc="ADC">
+byte ADC_READING_CHANNEL = 0xFF;
 
-void ADC_INIT()
+void ADC_INIT(void)
   {
-  ADCSRA = 0x87; /* Enable ADC, fr/128  */
-  ADMUX = 0x40; /* Vref: Avcc, ADC channel: 0 */
+  ADCSRA = 0x87; // ADEN=1, prescaler=128
+  ADMUX = 0x40; // AVCC referans, sa?a yasl?, ADC0
   }
 
 word ADC_READ(byte channel)
   {
-  word Ain, AinLow;
-  ADMUX = ADMUX | (channel & 0x0f);
-  ADCSRA |= (1 << ADSC);
-  while ((ADCSRA & (1 << ADIF)) == 0);
-  _delay_us(10);
-  AinLow = (word) ADCL;
-  Ain = (word) ADCH * 256;
-  Ain = Ain + AinLow;
-  return (Ain);
+  word result;
+  ADMUX = (ADMUX & 0xF0) | (channel & 0x0F);
+  ADCSRA |= (1 << ADSC); // Dönü?ümü ba?lat
+  while (!(ADCSRA & (1 << ADIF))); // Bitene kadar bekle
+
+  ADCSRA |= (1 << ADIF); // ADIF temizle
+
+  result = ADCL; // Önce ADCL
+  result |= (ADCH << 8); // Sonra ADCH
+
+  return result;
   }
 
+void ADC_INTERRUPT(byte openOrClose)
+  {
+  if (openOrClose) ADCSRA |= (1 << ADIE); // ADC Interrupt Enable
+  else ADCSRA &= ~(1 << ADIE); // ADC Interrupt Disable
+  }
+
+void ADC_INTERRUPT_READ(byte channel)
+  {
+  ADC_READING_CHANNEL = channel;
+  ADMUX = (ADMUX & 0xF0) | (channel & 0x0F);
+  ADCSRA |= (1 << ADSC); // ?lk ADC dönü?ümünü ba?lat
+  }
+
+byte ADC_INTERRUPT_is_FREE()
+  {
+  if (ADC_READING_CHANNEL == 0xFF) return 1;
+  return 0;
+  }
 // </editor-fold> 
 // <editor-fold defaultstate="collapsed" desc="I2C">
 #define I2C_DELAY 35
 
 void I2C_1_INIT(dword freq)
   {
-#define BITRATE(TWSR)	((CRYSTAL_FREKANS/freq)-16)/(2*pow(4,(TWSR&((1<<TWPS0)|(1<<TWPS1)))))
-  TWBR = 8;
+  TWSR &= ~((1 << TWPS0) | (1 << TWPS1)); // prescaler = 1
+  TWBR = 2; // 400 kHz
   }
 
 byte I2C_1_READ_ACK()
@@ -406,207 +531,201 @@ void I2C_1_STOP()
   }
 
 // </editor-fold> 
-//// <editor-fold defaultstate="collapsed" desc="PWM ALL">
-//// <editor-fold defaultstate="collapsed" desc="PWM 0">
-//
-//void PWM_0_INIT(word presecale, byte violent)
-//  {
-//  if (violent == SYSTEM_PWM_SLOW) TCCR0 = (0 << WGM01) | (1 << WGM00);
-//  else if (violent == SYSTEM_PWM_FAST) TCCR0 = (1 << WGM01) | (1 << WGM00);
-//  TCCR0 |= presecale;
-//  }
-//
-//void PWM_0_START()
-//  {
-//  TCCR0 = TCCR0 | (1 << COM01);
-//  }
-//
-//void PWM_0_STOP()
-//  {
-//  TCCR0 = TCCR0 & ~(1 << COM01);
-//  }
-//
-//void PWM_0_DUTY(byte duty)
-//  {
-//  float data = 2.55 * duty;
-//  OCR0 = data;
-//  }
-//
-//// </editor-fold>
-//
-//// <editor-fold defaultstate="collapsed" desc="PWM 1">
-//
-//void PWM_1_INIT(byte presecale, byte violent)
-//  {
-//  TCCR1A = 0;
-//  TCCR1B = 0;
-//  TCCR1A |= (0 << WGM11) | (1 << WGM10); //8 BIT RES.
-//  if (violent == SYSTEM_PWM_FAST) TCCR1B = (0 << WGM13) | (1 << WGM12);
-//  else if (violent == SYSTEM_PWM_SLOW) TCCR1B = (0 << WGM13) | (0 << WGM12);
-//  TCCR1B |= presecale;
-//  }
-//
-//// <editor-fold defaultstate="collapsed" desc="PWM 3A">
-//
-//void PWM_1A_INIT()
-//  {
-//  SYSTEM_SET_IO_TRIS('B', 5, 'O');
-//  }
-//
-//void PWM_1A_START()
-//  {
-//  TCCR1A |= (1 << COM1A1) | (0 << COM1A0);
-//  }
-//
-//void PWM_1A_STOP()
-//  {
-//  TCCR1A &= ~((1 << COM1A1) | (0 << COM1A0));
-//  }
-//
-//void PWM_1A_DUTY(byte duty)
-//  {
-//  float data = 2.55 * duty;
-//  OCR1A = data;
-//  }
-//
-//// </editor-fold>
-//// <editor-fold defaultstate="collapsed" desc="PWM 3B">
-//
-//void PWM_1B_INIT()
-//  {
-//  SYSTEM_SET_IO_TRIS('B', 6, 'O');
-//  }
-//
-//void PWM_1B_START()
-//  {
-//  TCCR1A |= (1 << COM1B1) | (0 << COM1B0);
-//  }
-//
-//void PWM_1B_STOP()
-//  {
-//  TCCR1A &= ~((1 << COM1B1) | (0 << COM1B0));
-//  }
-//
-//void PWM_1B_DUTY(byte duty)
-//  {
-//  float data = 2.55 * duty;
-//  OCR1B = data;
-//  }
-//// </editor-fold>
-//// <editor-fold defaultstate="collapsed" desc="PWM 3C">
-//
-//void PWM_1C_INIT()
-//  {
-//  SYSTEM_SET_IO_TRIS('B', 7, 'O');
-//  }
-//
-//void PWM_1C_START()
-//  {
-//  TCCR1A |= (1 << COM1C1) | (0 << COM1C0);
-//  }
-//
-//void PWM_1C_STOP()
-//  {
-//  TCCR1A &= ~((1 << COM1C1) | (0 << COM1C0));
-//  }
-//
-//void PWM_1C_DUTY(byte duty)
-//  {
-//  float data = 2.55 * duty;
-//  OCR1C = data;
-//  }
-//// </editor-fold>
-//
-//// </editor-fold> 
+// <editor-fold defaultstate="collapsed" desc="PWM ALL">
+// <editor-fold defaultstate="collapsed" desc="PWM 0">
 
-//// <editor-fold defaultstate="collapsed" desc="PWM 3">
-//
-//void PWM_3_INIT(byte presecale, byte violent)
-//  {
-//  TCCR3A = 0;
-//  TCCR3B = 0;
-//  //TCCR3A |= (0 << WGM31) | (1 << WGM30); //8 BIT RES.
-//  TCCR3A |= (1 << WGM31) | (0 << WGM30); //9 BIT RES.
-//  //TCCR3A |= (1 << WGM31) | (1 << WGM30); //10 BIT RES.
-//  if (violent == SYSTEM_PWM_FAST) TCCR3B = (0 << WGM33) | (1 << WGM32);
-//  else if (violent == SYSTEM_PWM_SLOW) TCCR3B = (0 << WGM33) | (0 << WGM32);
-//  TCCR3B |= presecale;
-//  }
-//
-//// <editor-fold defaultstate="collapsed" desc="PWM 3A">
-//
-//void PWM_3A_INIT()
-//  {
-//  SYSTEM_SET_IO_LAT('E', 3, 'L');
-//  SYSTEM_SET_IO_TRIS('E', 3, 'O');
-//  }
-//
-//void PWM_3A_START()
-//  {
-//  TCCR3A |= (1 << COM3A1) | (0 << COM3A0);
-//  }
-//
-//void PWM_3A_STOP()
-//  {
-//  TCCR3A &= ~((1 << COM3A1) | (0 << COM3A0));
-//  }
-//
-//void PWM_3A_DUTY(word duty)
-//  {
-//  OCR3A = duty;
-//  }
-//
-//// </editor-fold>
-//// <editor-fold defaultstate="collapsed" desc="PWM 3B">
-//
-//void PWM_3B_INIT()
-//  {
-//  SYSTEM_SET_IO_LAT('E', 4, 'L');
-//  SYSTEM_SET_IO_TRIS('E', 4, 'O');
-//  }
-//
-//void PWM_3B_START()
-//  {
-//  TCCR3A |= (1 << COM3B1) | (0 << COM3B0);
-//  }
-//
-//void PWM_3B_STOP()
-//  {
-//  TCCR3A &= ~((1 << COM3B1) | (0 << COM3B0));
-//  }
-//
-//void PWM_3B_DUTY(word duty)
-//  {
-//  OCR3B = duty;
-//  }
-//// </editor-fold>
-//// <editor-fold defaultstate="collapsed" desc="PWM 3C">
-//
-//void PWM_3C_INIT()
-//  {
-//  SYSTEM_SET_IO_LAT('E', 5, 'L');
-//  SYSTEM_SET_IO_TRIS('E', 5, 'O');
-//  }
-//
-//void PWM_3C_START()
-//  {
-//  TCCR3A |= (1 << COM3C1) | (0 << COM3C0);
-//  }
-//
-//void PWM_3C_STOP()
-//  {
-//  TCCR3A &= ~((1 << COM3C1) | (0 << COM3C0));
-//  }
-//
-//void PWM_3C_DUTY(word duty)
-//  {
-//  OCR3C = (duty);
-//  }
-//// </editor-fold>
-//
-//// </editor-fold> 
+void PWM_0_INIT(word presecale, byte violent)
+  {
+  if (violent == SYSTEM_PWM_SLOW) TCCR0 = (0 << WGM01) | (1 << WGM00);
+  else if (violent == SYSTEM_PWM_FAST) TCCR0 = (1 << WGM01) | (1 << WGM00);
+  TCCR0 |= presecale;
+  }
 
-//// </editor-fold> 
+void PWM_0_START()
+  {
+  TCCR0 = TCCR0 | (1 << COM01);
+  }
+
+void PWM_0_STOP()
+  {
+  TCCR0 = TCCR0 & ~(1 << COM01);
+  }
+
+void PWM_0_DUTY(byte duty)
+  {
+  float data = 2.55 * duty;
+  OCR0 = data;
+  }
+
+// </editor-fold>
+
+// <editor-fold defaultstate="collapsed" desc="PWM 1">
+
+void PWM_1_INIT(byte presecale, byte violent)
+  {
+  TCCR1A = 0;
+  TCCR1B = 0;
+
+  // 8 BIT RES.
+  TCCR1A |= (0 << WGM11) | (1 << WGM10);
+  // 9 BIT
+  // TCCR1A |= (1 << WGM11) | (0 << WGM10);
+  // 10 BIT
+  // TCCR1A |= (1 << WGM11) | (1 << WGM10);
+
+  if (violent == SYSTEM_PWM_FAST)
+    TCCR1B = (0 << WGM13) | (1 << WGM12);
+  else if (violent == SYSTEM_PWM_SLOW)
+    TCCR1B = (0 << WGM13) | (0 << WGM12);
+
+  TCCR1B |= presecale;
+  }
+
+// <editor-fold defaultstate="collapsed" desc="PWM 1A">
+
+void PWM_1A_INIT()
+  {
+  // SYSTEM_SET_IO_LAT('B', 1, 'L');   // OC1A
+  // SYSTEM_SET_IO_TRIS('B', 1, 'O');
+  }
+
+void PWM_1A_START()
+  {
+  TCCR1A |= (1 << COM1A1) | (0 << COM1A0);
+  }
+
+void PWM_1A_STOP()
+  {
+  TCCR1A &= ~((1 << COM1A1) | (0 << COM1A0));
+  }
+
+void PWM_1A_DUTY(byte duty)
+  {
+  duty = 2.55 * duty;
+  OCR1A = duty;
+  }
+
+// </editor-fold>
+// <editor-fold defaultstate="collapsed" desc="PWM 1B">
+
+void PWM_1B_INIT()
+  {
+  // SYSTEM_SET_IO_LAT('B', 2, 'L');   // OC1B
+  // SYSTEM_SET_IO_TRIS('B', 2, 'O');
+  }
+
+void PWM_1B_START()
+  {
+  TCCR1A |= (1 << COM1B1) | (0 << COM1B0);
+  }
+
+void PWM_1B_STOP()
+  {
+  TCCR1A &= ~((1 << COM1B1) | (0 << COM1B0));
+  }
+
+void PWM_1B_DUTY(byte duty)
+  {
+  duty = 2.55 * duty;
+  OCR1B = duty;
+  }
+
+// </editor-fold>
+
+// </editor-fold>
+
+
+// <editor-fold defaultstate="collapsed" desc="PWM 3">
+
+void PWM_3_INIT(byte presecale, byte violent)
+  {
+  TCCR3A = 0;
+  TCCR3B = 0;
+  TCCR3A |= (0 << WGM31) | (1 << WGM30); //8 BIT RES.
+  //TCCR3A |= (1 << WGM31) | (0 << WGM30); //9 BIT RES.
+  //TCCR3A |= (1 << WGM31) | (1 << WGM30); //10 BIT RES.
+  if (violent == SYSTEM_PWM_FAST) TCCR3B = (0 << WGM33) | (1 << WGM32);
+  else if (violent == SYSTEM_PWM_SLOW) TCCR3B = (0 << WGM33) | (0 << WGM32);
+  TCCR3B |= presecale;
+  }
+
+// <editor-fold defaultstate="collapsed" desc="PWM 3A">
+
+void PWM_3A_INIT()
+  {
+  // SYSTEM_SET_IO_LAT('E', 3, 'L');
+  // SYSTEM_SET_IO_TRIS('E', 3, 'O');
+  }
+
+void PWM_3A_START()
+  {
+  TCCR3A |= (1 << COM3A1) | (0 << COM3A0);
+  }
+
+void PWM_3A_STOP()
+  {
+  TCCR3A &= ~((1 << COM3A1) | (0 << COM3A0));
+  }
+
+void PWM_3A_DUTY(byte duty)
+  {
+  duty = 2.55 * duty;
+  OCR3A = duty;
+  }
+
+// </editor-fold>
+// <editor-fold defaultstate="collapsed" desc="PWM 3B">
+
+void PWM_3B_INIT()
+  {
+  // SYSTEM_SET_IO_LAT('E', 4, 'L');
+  // SYSTEM_SET_IO_TRIS('E', 4, 'O');
+  }
+
+void PWM_3B_START()
+  {
+  TCCR3A |= (1 << COM3B1) | (0 << COM3B0);
+  }
+
+void PWM_3B_STOP()
+  {
+  TCCR3A &= ~((1 << COM3B1) | (0 << COM3B0));
+  }
+
+void PWM_3B_DUTY(byte duty)
+  {
+  duty = 2.55 * duty;
+  OCR3B = duty;
+  }
+// </editor-fold>
+// <editor-fold defaultstate="collapsed" desc="PWM 3C">
+
+void PWM_3C_INIT()
+  {
+  //SYSTEM_SET_IO_LAT('E', 5, 'L');
+  //SYSTEM_SET_IO_TRIS('E', 5, 'O');
+  }
+
+void PWM_3C_START()
+  {
+  TCCR3A |= (1 << COM3C1) | (0 << COM3C0);
+  }
+
+void PWM_3C_STOP()
+  {
+  TCCR3A &= ~((1 << COM3C1) | (0 << COM3C0));
+  }
+
+void PWM_3C_DUTY(byte duty)
+  {
+  duty = 2.55 * duty;
+  OCR3C = (duty);
+  }
+// </editor-fold>
+
+// </editor-fold> 
+
+// </editor-fold> 
 // <editor-fold defaultstate="collapsed" desc="EEPROM">
 
 void EEPROM_B_WRITE(word address, byte data)
@@ -630,6 +749,9 @@ byte EEPROM_B_READ(word address)
 
 void(*UART_1_INTERRUPT_FUNCT_POINTER)(byte);
 void(*UART_2_INTERRUPT_FUNCT_POINTER)(byte);
+void(*ADC_INTERRUPT_FUNCT_POINTER)(byte, word);
+void(*TIMER_0_INTERRUPT_FUNCT_POINTER)(void);
+void(*TIMER_2_INTERRUPT_FUNCT_POINTER)(void);
 void(*TIMER_1_INTERRUPT_FUNCT_POINTER)(void);
 void(*TIMER_3_INTERRUPT_FUNCT_POINTER)(void);
 
@@ -645,6 +767,18 @@ void UART_2_INTERRUPT_FUNCT_CONNECT(unsigned long baudrate, void(*UART_2_INTERRU
   UART_2_INTERRUPT_FUNCT_POINTER = UART_2_INTERRUPT_FUNCT_POINTER_t;
   }
 
+void TIMER_0_INTERRUPT_CONNECT(word ms, void(*TIMER_0_INTERRUPT_FUNCT_POINTER_t)(void))
+  {
+  TIMER_0_INIT(ms);
+  TIMER_0_INTERRUPT_FUNCT_POINTER = TIMER_0_INTERRUPT_FUNCT_POINTER_t;
+  }
+
+void TIMER_2_INTERRUPT_CONNECT(word ms, void(*TIMER_2_INTERRUPT_FUNCT_POINTER_t)(void))
+  {
+  TIMER_2_INIT(ms);
+  TIMER_2_INTERRUPT_FUNCT_POINTER = TIMER_2_INTERRUPT_FUNCT_POINTER_t;
+  }
+
 void TIMER_1_INTERRUPT_CONNECT(word ms, void(*TIMER_1_INTERRUPT_FUNCT_POINTER_t)(void))
   {
   TIMER_1_INIT(ms);
@@ -655,6 +789,25 @@ void TIMER_3_INTERRUPT_CONNECT(word ms, void(*TIMER_3_INTERRUPT_FUNCT_POINTER_t)
   {
   TIMER_3_INIT(ms);
   TIMER_3_INTERRUPT_FUNCT_POINTER = TIMER_3_INTERRUPT_FUNCT_POINTER_t;
+  }
+
+void ADC_INTERRUPT_FUNCT_CONNECT(void(*ADC_INTERRUPT_FUNCT_POINTER_t)(byte, word))
+  {
+  ADC_INIT();
+  ADC_INTERRUPT(1);
+  ADC_INTERRUPT_FUNCT_POINTER = ADC_INTERRUPT_FUNCT_POINTER_t;
+  }
+
+ISR(TIMER0_OVF_vect)
+  {
+  TIMER_0_INTERRUPT_FUNCT();
+  TIMER_0_INTERRUPT_FUNCT_POINTER();
+  }
+
+ISR(TIMER2_OVF_vect)
+  {
+  TIMER_2_INTERRUPT_FUNCT();
+  TIMER_2_INTERRUPT_FUNCT_POINTER();
   }
 
 ISR(TIMER1_OVF_vect)
@@ -677,5 +830,11 @@ ISR(USART0_RX_vect)
 ISR(USART1_RX_vect)
   {
   UART_2_INTERRUPT_FUNCT_POINTER(UDR1);
+  }
+
+ISR(ADC_vect)
+  {
+  ADC_INTERRUPT_FUNCT_POINTER(ADC_READING_CHANNEL, ADC);
+  ADC_READING_CHANNEL = 0xFF;
   }
 #endif

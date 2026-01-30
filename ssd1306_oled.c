@@ -729,6 +729,7 @@ void SSH1306_OLED_Init(void (*startFunc)(void), byte(*writeFunc)(byte), void(*st
 
   SSH1306_OLED_SetFont(font_6x8);
   SSH1306_OLED_ClearDisplay();
+  SSH1306_OLED_Update();
   }
 
 void SSH1306_OLED_Update(void)

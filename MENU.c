@@ -14,12 +14,14 @@ Menu_One *MENU_POINTER = 0;
 byte MENU_MAX = 0;
 const char *SHOW_DATA_TEXT;
 const char *MENU_UST_YAZI;
+const char *MENU_VAL_YAN_YAZI;
 Menu_One *MENU_BACK_POINTER[5];
 byte MENU_BACK_INDEX[5];
 byte MENU_INDEX_COUNTER = 0;
 byte MENU_MENU_COUNTER = 0;
 Menu_One *MENU_ANA_MENU_ANA;
 byte MENU_BUTON_STATUS = 0;
+byte MENU_SHOW_FLAG = 0;
 
 void MENU_BUTON_ADD(char process)
   {
@@ -60,6 +62,11 @@ Menu_One* MENU_POINTER_GET()
 void MENU_MAX_SET(byte val)
   {
   MENU_MAX = val;
+  }
+
+void MENU_VAL_YAN_YAZI_SET(const char *msg)
+  {
+  MENU_VAL_YAN_YAZI = msg;
   }
 
 void MENU_UST_YAZI_SET(const char *msg)
@@ -114,10 +121,11 @@ void MENU_TEXT_PRINT(const char *text, byte index)
   MENU_TEXT_ORTALA(MENU_UST_YAZI, msg, 21);
   MENU_WRITE_TEXT(0, 0, msg); //0,0
   //   OLED_H_Line(0, 128, 8, 1);
-  sprintf(msg, "%c) %s", (index + '1'), text);
+  sprintf(msg, "%d) %s", (index + 1), text);
   MENU_WRITE_TEXT(0, 14, msg); //0,14
-  sprintf(msg, "%c/%c", (index + '1'), (MENU_MAX + '1'));
-  MENU_WRITE_TEXT(105, 24, msg); //105,24
+  sprintf(msg, "%d/%d", (index + 1), (MENU_MAX + 1));
+  if (index >= 9) MENU_WRITE_TEXT(95, 24, msg); //105,24 
+  else MENU_WRITE_TEXT(101, 24, msg); //105,24 
   MENU_UPDATE();
   }
 
@@ -130,15 +138,26 @@ void MENU_PRINT_MSG(const char *datas)
   MENU_UPDATE();
   }
 
-void MENU_SHOW_DATA_PRINT(const char *text, word data)
+void MENU_PRINT_MSG_INFO(const char *datas)
   {
+  if (MENU_SHOW_FLAG) return;
   char msg[30];
   MENU_CLEAR();
-  MENU_TEXT_ORTALA(text, msg, 21);
-  MENU_WRITE_TEXT(0, 0, msg);
-  if (data >= 1000) MENU_WRITE_DEC(51, 24, data); //51, 24
-  else if (data >= 100) MENU_WRITE_DEC(53, 24, data); //53,24
-  else MENU_WRITE_DEC(56, 24, data); //56,24
+  MENU_TEXT_ORTALA(datas, msg, 21);
+  MENU_WRITE_TEXT(0, 14, msg); //0,14
+  MENU_UPDATE();
+  }
+
+void MENU_SHOW_DATA_PRINT(const char *text, word data)
+  {
+  char msg1[30];
+  char msg2[30];
+  MENU_CLEAR();
+  MENU_TEXT_ORTALA(text, msg1, 21);
+  MENU_WRITE_TEXT(0, 0, msg1);
+  sprintf(msg1, "%d", data);
+  MENU_TEXT_ORTALA(msg1, msg2, 21);
+  MENU_WRITE_TEXT(0, 16, msg2);
   MENU_UPDATE();
   }
 
@@ -155,22 +174,19 @@ void MENU_USE_SELECT(const char *ust_yazi, const char *data[], byte index)
   MENU_UPDATE();
   }
 
-void MENU_USE_VAL(const char *ust_yazi, word data_max, word data_min, word data)
+void MENU_USE_VAL(const char *ust_yazi, word data_max, word data_min, word data, const char *yan_yazi)
   {
   char msg[30];
   MENU_CLEAR();
   MENU_TEXT_ORTALA(ust_yazi, msg, 21);
   MENU_WRITE_TEXT(0, 0, msg); // 0, 0
-  MENU_WRITE_TEXT(0, 12, "MAX      NOW      MIN"); //*0 , 16
-  MENU_WRITE_DEC(0, 24, data_max); //0,24
-
-  if (data_min >= 1000) MENU_WRITE_DEC(103, 24, data_min); //103,24
-  else if (data_min >= 100) MENU_WRITE_DEC(109, 24, data_min); //109,24
-  else MENU_WRITE_DEC(116, 24, data_min);
-
-  if (data >= 1000) MENU_WRITE_DEC(51, 24, data); //51 ,24
-  else if (data >= 100) MENU_WRITE_DEC(53, 24, data); //53,24
-  else MENU_WRITE_DEC(56, 24, data); //56,26
+  sprintf(msg, "MAX: %d", data_max);
+  MENU_WRITE_TEXT(0, 12, msg);
+  sprintf(msg, "MIN: %d", data_min);
+  MENU_WRITE_TEXT(0, 24, msg);
+  sprintf(msg, "NOW: %d", data);
+  MENU_WRITE_TEXT(80, 24, msg);
+  MENU_WRITE_TEXT(80, 12, yan_yazi);
   MENU_UPDATE();
   }
 
@@ -179,7 +195,6 @@ void MENU_WORK(char MENU_MOVEMENT)
   byte temp = 0;
   static word MENU_TEMP_VAL = 0;
   static word VAL_CHANGE_FLAG = 0;
-  static byte MENU_SHOW_FLAG = 0;
   if (MENU_SHOW_FLAG == 0)
     {
     if (MENU_MOVEMENT == 'O')
@@ -282,7 +297,7 @@ void MENU_WORK(char MENU_MOVEMENT)
     {
     if (VAL_CHANGE_FLAG)
       {
-      if (MENU_POINTER[MENU_INDEX_COUNTER].flag & MENU_FLAG_VALUE) MENU_USE_VAL(MENU_POINTER[MENU_INDEX_COUNTER].text, MENU_POINTER[MENU_INDEX_COUNTER].max, MENU_POINTER[MENU_INDEX_COUNTER].min, MENU_TEMP_VAL);
+      if (MENU_POINTER[MENU_INDEX_COUNTER].flag & MENU_FLAG_VALUE) MENU_USE_VAL(MENU_POINTER[MENU_INDEX_COUNTER].text, MENU_POINTER[MENU_INDEX_COUNTER].max, MENU_POINTER[MENU_INDEX_COUNTER].min, MENU_TEMP_VAL, MENU_VAL_YAN_YAZI);
       else if (MENU_POINTER[MENU_INDEX_COUNTER].flag & MENU_FLAG_SELECT) MENU_USE_SELECT(MENU_POINTER[MENU_INDEX_COUNTER].text, MENU_SELECT_LIST, MENU_TEMP_VAL);
       else if (MENU_POINTER[MENU_INDEX_COUNTER].flag & MENU_FLAG_SHOW_DATA) MENU_SHOW_DATA_PRINT(SHOW_DATA_TEXT, MENU_TEMP_VAL);
       }

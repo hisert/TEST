@@ -8,8 +8,8 @@ extern "C" {
 #endif
 
     void EEPROM_INIT(void (*eeprom_byte_write_t)(word adress, byte data), byte(*eeprom_byte_read_t)(word adress));
-    void EEPROM_SET(byte index, dword value);
-    dword EEPROM_GET(byte index);
+    void EEPROM_SET(byte index, word value);
+    word EEPROM_GET(byte index);
 
 #ifdef	__cplusplus
 }

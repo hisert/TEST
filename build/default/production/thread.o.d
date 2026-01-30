@@ -22,7 +22,8 @@ build/default/production/thread.o.d build/default/production/thread.o: \
  c:\program\ files\microchip\xc8\v2.20\avr\avr\include\util\delay_basic.h \
  c:\program\ files\microchip\xc8\v2.20\avr\avr\include\math.h \
  c:\program\ files\microchip\xc8\v2.20\avr\avr\include\avr\interrupt.h \
- c:\program\ files\microchip\xc8\v2.20\avr\avr\include\avr\eeprom.h
+ c:\program\ files\microchip\xc8\v2.20\avr\avr\include\avr\eeprom.h \
+ AS5600_MAS.h
 
 thread.h:
 
@@ -75,3 +76,5 @@ c:\program\ files\microchip\xc8\v2.20\avr\avr\include\math.h:
 c:\program\ files\microchip\xc8\v2.20\avr\avr\include\avr\interrupt.h:
 
 c:\program\ files\microchip\xc8\v2.20\avr\avr\include\avr\eeprom.h:
+
+AS5600_MAS.h:

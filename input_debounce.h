@@ -6,10 +6,10 @@
 extern "C" {
 #endif
 
-#define byte unsigned char
-#define word unsigned int
-#define dword unsigned long
-#define qword unsigned long long
+#define byte uint8_t  
+#define word uint16_t 
+#define dword uint32_t 
+#define qword uint64_t 
     
     typedef struct {
         byte Temp_Counter;

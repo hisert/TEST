@@ -22,10 +22,10 @@ extern "C" {
 #define MOTOR_STANDBY 0x00
 #define MOTOR_MAS12_READ_ERROR 0x01
 #define MOTOR_BASARILI_DURDU 0x02
-#define MOTOR_WORKING 0x04
-#define MOTOR_TIME_OUT_DURDU 0x08
-#define MOTOR_TORK_DURDU 0x10
-#define MOTOR_KOL_TOPLAMA 0x20
+#define MOTOR_WORKING 0x03
+#define MOTOR_TIME_OUT_DURDU 0x04
+#define MOTOR_TORK_DURDU 0x05
+#define MOTOR_KOL_TOPLAMA 0x06
 
     void MOTOR_PWM_INIT(void(*motor_pwm_1_t)(byte), void(*motor_pwm_2_t)(byte), void(*motor_pwm_3_t)(byte));
     void MOTOR_PWM_LOAD(byte pwm_select, byte pwm_value);
@@ -38,6 +38,8 @@ extern "C" {
     void MOTOR_TORK_SET(word tork);
 
     void MOTOR_START_LAST_SUCCESS_INDEX();
+    word MOTOR_START_INDEX_GET();
+    word MOTOR_STOP_INDEX_GET();
     void MOTOR_PID_INIT(float Ki, float Kp);
     void MOTOR_INIT_MAX_HIZ(byte max);
     void MOTOR_TIME_OUT_SET(word outTime);
@@ -47,6 +49,7 @@ extern "C" {
     void MOTOR_SET_KOL_TOPLAMA_TOLERANS(word val);
     word MOTOR_GET_KOL_TOPLAMA_TOLERANS();
     void MOTOR_SET_Z_POINT(word val);
+    void MOTOR_SET_MAX_MIN_PWM(byte max, byte min);
     word MOTOR_GET_Z_POINT();
     word MOTOR_GET_LAST_SUCESS_INDEX();
     word MOTOR_GET_MAS12_HAM();

@@ -33,9 +33,10 @@ extern "C" {
     void MENU_GIR(Menu_One *Menu, byte komut);
     void MENU_CIK();
     void MENU_PRINT_MSG(const char *datas);
+    void MENU_PRINT_MSG_INFO(const char *datas);
     void MENU_SHOW_DATA_PRINT(const char *text, word data);
     void MENU_USE_SELECT(const char *ust_yazi, const char *data[], byte index);
-    void MENU_USE_VAL(const char *ust_yazi, word data_max, word data_min, word data);
+    void MENU_USE_VAL(const char *ust_yazi, word data_max, word data_min, word data, const char *yan_yazi);
     void MENU_WORK(char MENU_MOVEMENT);
     void MENU_INIT(void (*MENU_CLEAR_t)(void), void (*MENU_UPDATE_t)(void), void(*MENU_WRITE_TEXT_t)(word, word, const char *), void(*MENU_WRITE_DEC_t)(word, word, dword));
     void MENU_ANA_INIT(Menu_One *MENU_ANA_MENU_ANA_t);
@@ -44,6 +45,7 @@ extern "C" {
     void MENU_TEXT_ORTALA(const char* input, char* output, byte maxLen);
     Menu_One* MENU_POINTER_GET();
     void MENU_MAX_SET(byte val);
+    void MENU_VAL_YAN_YAZI_SET(const char *msg);
     void MENU_UST_YAZI_SET(const char *msg);
     void MENU_SHOW_DATA_TEXT_SET(const char *msg);
     void MENU_SELECT_LIST_SET(char **list);
@@ -51,6 +53,7 @@ extern "C" {
     void MENU_FUNCT_UPDATE();
     void(MENU_FUNCT_WRITE_DEC) (word x, word y, dword data);
     void(MENU_FUNCT_WRITE_TEXT) (word x, word y, const char *text);
+
     // </editor-fold>
 
 
