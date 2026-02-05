@@ -10,8 +10,12 @@ extern "C" {
     void SSH1306_OLED_InvertFont(byte invert_status);
     void SSH1306_OLED_SetContrast(byte contrast);
     void SSH1306_OLED_ClearDisplay(void);
+    void SSD1306_OLED_ScrollRight(byte startPage, byte endPage);
+    void SSD1306_OLED_ScrollLeft(byte startPage, byte endPage);
+    void SSD1306_OLED_StopScroll();
     void SSH1306_OLED_FillDisplay(void);
     void SSH1306_OLED_InvertDisplay(byte value);
+    void SSH1306_OLED_DisplayOnOff(byte value);
     void SSH1306_OLED_DrawPixel(word x, word y, byte color);
     void SSH1306_OLED_Line(word x_start, word y_start, word x_end, word y_end, byte color);
     void SSH1306_OLED_V_Line(word y_start, word y_end, word x_pos, byte color);
@@ -26,6 +30,8 @@ extern "C" {
     void SSH1306_OLED_Write_Dec(word x, word y, dword data);
     void SSH1306_OLED_Init(void (*startFunc)(void), byte(*writeFunc)(byte), void(*stopFunc)(void));
     void SSH1306_OLED_Update(void);
+    void SSH1306_OLED_Write_Text_Middle(word y, const char *text);
+    void OLED_SetBrightnessPercent(uint8_t percent);
 
 
 #ifdef	__cplusplus

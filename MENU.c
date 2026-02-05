@@ -138,14 +138,15 @@ void MENU_PRINT_MSG(const char *datas)
   MENU_UPDATE();
   }
 
-void MENU_PRINT_MSG_INFO(const char *datas)
+byte MENU_PRINT_MSG_INFO(const char *datas)
   {
-  if (MENU_SHOW_FLAG) return;
+  if (MENU_SHOW_FLAG) return 0;
   char msg[30];
   MENU_CLEAR();
-  MENU_TEXT_ORTALA(datas, msg, 21);
+  MENU_TEXT_ORTALA(datas, msg, 20);
   MENU_WRITE_TEXT(0, 14, msg); //0,14
   MENU_UPDATE();
+  return 1;
   }
 
 void MENU_SHOW_DATA_PRINT(const char *text, word data)
@@ -318,7 +319,7 @@ void MENU_ANA_INIT(Menu_One *MENU_ANA_MENU_ANA_t)
   MENU_ANA_MENU_ANA = MENU_ANA_MENU_ANA_t;
   }
 
-void MENU_PROCESS()
+byte MENU_PROCESS()
   {
   if (MENU_BUTON_STATUS)
     {
@@ -326,6 +327,7 @@ void MENU_PROCESS()
       {
       MENU_BUTON_STATUS = MENU_BUTON_STATUS & ~PRESSED_OK;
       MENU_WORK('O');
+
       }
 
     if (MENU_BUTON_STATUS & PRESSED_UP)
@@ -350,6 +352,8 @@ void MENU_PROCESS()
       MENU_WORK('R');
       }
     }
+  if (MENU_SHOW_FLAG == 0) return 0;
+  return 1;
   }
 
 void MENU_FUNCT_CLEAR()
@@ -372,6 +376,15 @@ void(MENU_FUNCT_WRITE_TEXT) (word x, word y, const char *text)
   MENU_WRITE_TEXT(x, y, text);
   }
 
+byte MENU_is_USING()
+  {
+  return MENU_SHOW_FLAG;
+  }
+
+void MENU_BACK_ALL()
+  {
+  for (byte x = 0; x < 10; x++) MENU_WORK('B');
+  }
 // </editor-fold>
 
 #endif

@@ -70,6 +70,7 @@ typedef struct _Current_Font_s
   byte inverted;
   } Current_Font_s;
 
+
 // </editor-fold> 
 // <editor-fold defaultstate="collapsed" desc="LIBRARY CONFIG    ">
 const byte font_8x16BOLD[] = {
@@ -423,6 +424,35 @@ void SSH1306_OLED_SetContrast(byte contrast)
   ssd1306_command(contrast);
   }
 
+void SSD1306_OLED_ScrollRight(byte startPage, byte endPage)
+  {
+  ssd1306_command(0x26); // Right Horizontal Scroll
+  ssd1306_command(0x00);
+  ssd1306_command(startPage);
+  ssd1306_command(0x00); // scroll speed (en h?zl?)
+  ssd1306_command(endPage);
+  ssd1306_command(0x00);
+  ssd1306_command(0xFF);
+  ssd1306_command(0x2F); // Activate scroll
+  }
+
+void SSD1306_OLED_ScrollLeft(byte startPage, byte endPage)
+  {
+  ssd1306_command(0x27); // Left Horizontal Scroll
+  ssd1306_command(0x00);
+  ssd1306_command(startPage);
+  ssd1306_command(0x00); // scroll speed (en h?zl?)
+  ssd1306_command(endPage);
+  ssd1306_command(0x00);
+  ssd1306_command(0xFF);
+  ssd1306_command(0x2F); // Activate scroll
+  }
+
+void SSD1306_OLED_StopScroll()
+  {
+  ssd1306_command(0x2E); // DEACTIVATE_SCROLL
+  }
+
 void SSH1306_OLED_ClearDisplay(void)
   {
   memset(ssd1306_buffer, 0, (SSD1306_LCDWIDTH * SSD1306_LCDHEIGHT / 8));
@@ -437,6 +467,12 @@ void SSH1306_OLED_InvertDisplay(byte value)
   {
   if (value) ssd1306_command(SSD1306_INVERT_DISPLAY);
   else ssd1306_command(SSD1306_NORMAL_DISPLAY);
+  }
+
+void SSH1306_OLED_DisplayOnOff(byte value)
+  {
+  if (value) ssd1306_command(SSD1306_DISPLAY_ON);
+  else ssd1306_command(SSD1306_DISPLAY_OFF);
   }
 
 void SSH1306_OLED_DrawPixel(word x, word y, byte color)
@@ -681,6 +717,24 @@ void SSH1306_OLED_Write_Text(word x, word y, const char *text)
   // if (x == RIGHT) x = 128 - (length * cfont.x_size);
   // if (x == CENTER) x = (128 - (length * cfont.x_size)) / 2;
   for (cnt = 0; cnt < length; cnt++) SSH1306_OLED_Write(x + (cnt * (cfont.x_size)), y, *text++);
+  }
+
+void SSH1306_OLED_Write_Text_Middle(word y, const char *text)
+  {
+  byte length = strlen(text);
+
+  byte maxChars = 128 / cfont.x_size; // ekrana s??an karakter say?s?
+  if (length > maxChars) length = maxChars;
+
+  byte totalSpaces = maxChars - length;
+  byte leftSpaces = totalSpaces / 2;
+
+  word x = leftSpaces * cfont.x_size;
+
+  for (byte cnt = 0; cnt < length; cnt++)
+    {
+    SSH1306_OLED_Write(x + (cnt * cfont.x_size), y, text[cnt]);
+    }
   }
 
 void SSH1306_OLED_Write_Dec(word x, word y, dword data)

@@ -39,6 +39,7 @@ extern "C" {
 
     void MOTOR_START_LAST_SUCCESS_INDEX();
     word MOTOR_START_INDEX_GET();
+    byte MOTOR_is_WORKING();
     word MOTOR_STOP_INDEX_GET();
     void MOTOR_PID_INIT(float Ki, float Kp);
     void MOTOR_INIT_MAX_HIZ(byte max);

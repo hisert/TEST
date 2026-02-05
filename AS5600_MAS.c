@@ -199,9 +199,8 @@ byte MOTOR_PID_CONTROL()
   word all = abs(MOTOR_START_INDEX - MOTOR_STOP_INDEX);
   float Setpoint = 0;
   uint16_t oran1000 = (uint32_t) kalan * 1000 / all;
-  //if (oran1000 > 800);// Setpoint = 6;
-  if (oran1000 < 150) Setpoint = 3;
-  else if (oran1000 < 75) Setpoint = 1;
+  if (oran1000 < 200) Setpoint = 3;
+  else if (oran1000 < 100) Setpoint = 1;
   else
     {
     uint16_t mid = oran1000 - 200; // 0 ? 600
@@ -210,7 +209,12 @@ byte MOTOR_PID_CONTROL()
     if (Setpoint > MOTOR_HIZ_MAX) Setpoint = MOTOR_HIZ_MAX;
     }
   if (all < 350) Setpoint = 2;
-
+  if (MOTOR_TIME_OUT == 60000)
+    {
+    if (kalan > 250) Setpoint = 6;
+    else if (kalan > 150) Setpoint = 6;
+    else if (kalan > 50) Setpoint = 2;
+    }
   /* ---------------- PID ---------------- */
   float inputvalue = MOTOR_HIZ;
   float Theerr = Setpoint - inputvalue;
@@ -368,6 +372,11 @@ word MOTOR_STOP_INDEX_GET()
 word MOTOR_START_INDEX_GET()
   {
   return MOTOR_START_INDEX;
+  }
+
+byte MOTOR_is_WORKING()
+  {
+  return MOTOR_WORK;
   }
 //--------------------
 

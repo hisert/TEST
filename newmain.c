@@ -23,11 +23,44 @@
 
 void REG_PROCESS(char *msg);
 void INIT_REG();
-word tempcounter = 0;
-word counter = 0;
 //// <editor-fold defaultstate="collapsed" desc="PIN DEFINE ISLEMLERI                                                           ">
 //// </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="VARIABLES      ">
+byte Came_Logo[] = {
+                    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x70, 0x70,
+                    0x70, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                    0x00, 0x70, 0x70, 0x70, 0x00, 0x00, 0x70, 0x70, 0x70, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                    0xe0, 0xf8, 0xfc, 0x1e, 0x0f, 0x07, 0x07, 0x07, 0x07, 0x0f, 0x06, 0x02, 0x00, 0x00, 0x00, 0xe0,
+                    0xfc, 0xff, 0x1f, 0x1f, 0xff, 0xfc, 0xe0, 0x00, 0x00, 0x00, 0xff, 0xff, 0xff, 0x7f, 0xff, 0xfc,
+                    0xe0, 0x00, 0xe0, 0xfc, 0xff, 0x7f, 0xff, 0xff, 0xff, 0x00, 0x00, 0xff, 0xff, 0xff, 0xc7, 0xc7,
+                    0xc7, 0xc7, 0x07, 0x07, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0f, 0x0f, 0x0f, 0xef, 0xef, 0xef,
+                    0xef, 0x00, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x00, 0x00, 0x00, 0x00, 0x00, 0xe0, 0xf8,
+                    0xfc, 0x1e, 0x0e, 0x07, 0x07, 0x07, 0x07, 0x0e, 0x1e, 0xfc, 0xf8, 0xe0, 0x00, 0x07, 0x07, 0x07,
+                    0x87, 0xe7, 0xf7, 0xff, 0x7f, 0x1f, 0x07, 0x00, 0x00, 0x00, 0xe0, 0xfc, 0xff, 0x1f, 0x1f, 0xff,
+                    0xfc, 0xe0, 0x00, 0x00, 0x00, 0xff, 0xff, 0xff, 0xc0, 0xf0, 0xf8, 0x3e, 0x1f, 0x0f, 0x03, 0x01,
+                    0x03, 0x0f, 0x1f, 0x3c, 0x38, 0x70, 0x70, 0x70, 0x70, 0x78, 0x30, 0x20, 0x00, 0x60, 0x7e, 0x7f,
+                    0x1f, 0x0f, 0x0e, 0x0e, 0x0f, 0x1f, 0x7f, 0x7e, 0x60, 0x00, 0x7f, 0x7f, 0x7f, 0x00, 0x03, 0x1f,
+                    0x7f, 0x7f, 0x7f, 0x1f, 0x03, 0x00, 0x7f, 0x7f, 0x7f, 0x00, 0x00, 0x7f, 0x7f, 0x7f, 0x71, 0x71,
+                    0x71, 0x71, 0x70, 0x70, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0f, 0x0f, 0x0f,
+                    0x0f, 0x00, 0x7f, 0x7f, 0x7f, 0x7f, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x0f,
+                    0x1f, 0x3c, 0x38, 0x70, 0x70, 0x70, 0x70, 0x38, 0x3c, 0x1f, 0x0f, 0x03, 0x00, 0x70, 0x7c, 0x7f,
+                    0x7f, 0x77, 0x73, 0x70, 0x70, 0x70, 0x70, 0x00, 0x60, 0x7e, 0x7f, 0x1f, 0x0f, 0x0e, 0x0e, 0x0f,
+                    0x1f, 0x7f, 0x7e, 0x60, 0x00, 0x7f, 0x7f, 0x7f, 0x01, 0x07, 0x0f, 0x1f, 0x7c, 0x78, 0x70, 0x40,
+                    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+  };
+const char *VERSION = {"GV-TP-0101"};
 
 typedef enum
   {
@@ -43,22 +76,43 @@ typedef enum
   THREAD_MOTOR,
   THREAD_SELENOID_A,
   THREAD_SELENOID_B,
-  THREAD_INDIKASYON_TEST,
+  THREAD_PROGRAM,
   THREAD_DONE,
   } THREAD_LIST;
-
 THREAD_t THREADS[THREAD_DONE];
+//------------------------------------------------------------------------------
 char UART_2_MSG[20];
 char UART_1_MSG[20];
-word INPUT_VOLTAGE = 0;
-word TORK_VALUE_1 = 0;
-word TORK_VALUE_2 = 0;
-word TORK_TOTAL = 0;
-byte ADC_READ_READY = 0;
-byte SELENOID_A_MAX_PWM = 80;
-byte SELENOID_A_MIN_PWM = 40;
-byte SELENOID_B_MAX_PWM = 80;
-byte SELENOID_B_MIN_PWM = 40;
+//------------------------------------------------------------------------------
+
+typedef enum
+  {
+  ADC_TORK_VAL_1 = 0,
+  ADC_TORK_VAL_2,
+  ADC_TORK_AVARAGE,
+  ADC_INPUT_VOLT_TEMP,
+  ADC_INPUT_VOLT_REAL,
+  ADC_DONE,
+  } ADC_LIST;
+word ADC_VALUES[ADC_DONE] = {0};
+//------------------------------------------------------------------------------
+
+typedef enum
+  {
+  A_BUFFER = 0,
+  B_BUFFER,
+  STATUS_INHI_A,
+  STATUS_INHI_B,
+  STATUS_EMG,
+  STATUS_RES,
+  STATUS_EXT_1,
+  STATUS_EXT_2,
+  STATUS_POWER_FAIL,
+  INPUT_DONE,
+  } INPUT_LIST;
+byte STATUS_VALS[INPUT_DONE] = {0};
+//------------------------------------------------------------------------------
+byte TURNSTYLE_is_BUSY = 0;
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="SYSTEM FUNCT   ">
 
@@ -112,6 +166,11 @@ typedef enum
   FIX_COUNTER_A,
   FIX_COUNTER_B,
   MOTOR_BREAK_SPEED,
+  SELENOID_A_MAX_PWM,
+  SELENOID_A_MIN_PWM,
+  SELENOID_B_MAX_PWM,
+  SELENOID_B_MIN_PWM,
+  LOGO_OPTION_SELECT,
   SETTINGS_DONE,
   } SETTINGS;
 
@@ -161,6 +220,11 @@ void EEPROM_DEFAULT_SET()
   CONFIG_RAM_SET(FIX_COUNTER_A, 10);
   CONFIG_RAM_SET(FIX_COUNTER_B, 10);
   CONFIG_RAM_SET(MOTOR_BREAK_SPEED, 90);
+  CONFIG_RAM_SET(SELENOID_A_MAX_PWM, 80);
+  CONFIG_RAM_SET(SELENOID_A_MIN_PWM, 40);
+  CONFIG_RAM_SET(SELENOID_B_MAX_PWM, 80);
+  CONFIG_RAM_SET(SELENOID_B_MIN_PWM, 40);
+  CONFIG_RAM_SET(LOGO_OPTION_SELECT, 0);
   }
 
 void EEPROM_START()
@@ -240,6 +304,26 @@ void ROLE_GO_OUTPUT(byte index, byte time)
     }
   } //ROLEYI CEKME ISLEMINI BASLATAN FONKSIYON.ARKA PLANDA KENDI KENDINE ISLEM TAMAMLANIR.
 
+void ROLE_GO_CLEAN(byte index)
+  {
+  ROLE_CIKIS_STATE[index] = 0;
+  if (ROLE_CIKIS_MODE[index] == ROLE_CIKIS_MODE_NORMALLY_OPEN)
+    {
+    if (index == ROLE_CIKIS_AB) ROLE_CIKIS_AB_DISABLE;
+    else if (index == ROLE_CIKIS_BA) ROLE_CIKIS_BA_DISABLE;
+    else if (index == ROLE_CIKIS_ALARM) ROLE_CIKIS_ALARM_DISABLE;
+    else if (index == ROLE_CIKIS_BUSY) ROLE_CIKIS_BUSY_DISABLE;
+
+    }
+  if (ROLE_CIKIS_MODE[index] == ROLE_CIKIS_MODE_NORMALLY_CLOSE)
+    {
+    if (index == ROLE_CIKIS_AB) ROLE_CIKIS_AB_ENABLE;
+    else if (index == ROLE_CIKIS_BA) ROLE_CIKIS_BA_ENABLE;
+    else if (index == ROLE_CIKIS_ALARM) ROLE_CIKIS_ALARM_ENABLE;
+    else if (index == ROLE_CIKIS_BUSY) ROLE_CIKIS_BUSY_ENABLE;
+    }
+  } //ROLEYI CEKME ISLEMINI BASLATAN FONKSIYON.ARKA PLANDA KENDI KENDINE ISLEM TAMAMLANIR.
+
 void RELAY_KONTROL_FUNCT()
   {
   for (byte x = 0; x < ROLE_CIKIS_DONE; x++)
@@ -276,13 +360,13 @@ void INIT_ROLE()
   ROLE_MODE_SELECT(ROLE_CIKIS_BA, ROLE_CIKIS_MODE_NORMALLY_OPEN);
   ROLE_MODE_SELECT(ROLE_CIKIS_ALARM, ROLE_CIKIS_MODE_NORMALLY_OPEN);
   ROLE_MODE_SELECT(ROLE_CIKIS_BUSY, ROLE_CIKIS_MODE_NORMALLY_OPEN);
-  ROLE_GO_OUTPUT(ROLE_CIKIS_AB, 1);
-  ROLE_GO_OUTPUT(ROLE_CIKIS_BA, 2);
-  ROLE_GO_OUTPUT(ROLE_CIKIS_ALARM, 3);
-  ROLE_GO_OUTPUT(ROLE_CIKIS_BUSY, 4);
+  ROLE_GO_OUTPUT(ROLE_CIKIS_AB, CONFIG_RAM_GET(RELAY_TIME));
+  ROLE_GO_OUTPUT(ROLE_CIKIS_BA, CONFIG_RAM_GET(RELAY_TIME));
+  ROLE_GO_OUTPUT(ROLE_CIKIS_ALARM, CONFIG_RAM_GET(RELAY_TIME));
+  ROLE_GO_OUTPUT(ROLE_CIKIS_BUSY, CONFIG_RAM_GET(RELAY_TIME));
   } //ROLE NO NC EPROOMDAKI KAYITLI DURUMA GORE SETLENIYOR.
 //// </editor-fold>
-// <editor-fold defaultstate="collapsed" desc="MENU ">
+// <editor-fold defaultstate="collapsed" desc="MENU                                                                           ">
 // <editor-fold defaultstate="collapsed" desc="SWITCH AYARLARI">
 
 word MENU_FUNCT_TIME_SEL(byte komut, word data)
@@ -477,6 +561,21 @@ word MENU_FUNCT_EXT_RELAY_MODE(byte komut, word data)
     {
     MENU_SELECT_LIST_SET(temp);
     return CONFIG_RAM_GET(EXT_RELAY_MODE);
+    }
+  }
+
+word MENU_FUNCT_LOGO_SETTING(byte komut, word data)
+  {
+  static const char *temp[] = {"Came Ozak", "Came", "Ozak", "None"};
+  if (komut)
+    {
+    CONFIG_SET_RAM_AND_EEPROM(LOGO_OPTION_SELECT, data);
+    return 0;
+    }
+  else
+    {
+    MENU_SELECT_LIST_SET(temp);
+    return CONFIG_RAM_GET(LOGO_OPTION_SELECT);
     }
   }
 // </editor-fold>
@@ -705,6 +804,7 @@ word MENU_FUNCT_DIAGNOSTIC(byte komut, word data)
 
 word MENU_FUNCT_INPUT_VOLTAGE(byte komut, word data)
   {
+  static TIME_OUT_t time_out;
   if (komut)
     {
     return 0;
@@ -713,15 +813,17 @@ word MENU_FUNCT_INPUT_VOLTAGE(byte komut, word data)
     {
     char msg1[30];
     char msg2[30];
-    WAIT_INTERRUPT(100);
-    MENU_FUNCT_CLEAR();
-    sprintf(msg1, "Voltage : %d", INPUT_VOLTAGE);
-    MENU_TEXT_ORTALA(msg1, msg2, 21);
-    MENU_FUNCT_WRITE_TEXT(0, 8, msg2);
-    sprintf(msg1, "Torque : %d", TORK_TOTAL);
-    MENU_TEXT_ORTALA(msg1, msg2, 21);
-    MENU_FUNCT_WRITE_TEXT(0, 20, msg2);
-    MENU_FUNCT_UPDATE();
+    if (TIME_OUT_CHECK(&time_out, 100))
+      {
+      MENU_FUNCT_CLEAR();
+      sprintf(msg1, "Voltage : %d", ADC_VALUES[ADC_INPUT_VOLT_REAL]);
+      MENU_TEXT_ORTALA(msg1, msg2, 21);
+      MENU_FUNCT_WRITE_TEXT(0, 8, msg2);
+      sprintf(msg1, "Torque : %d", ADC_VALUES[ADC_TORK_AVARAGE]);
+      MENU_TEXT_ORTALA(msg1, msg2, 21);
+      MENU_FUNCT_WRITE_TEXT(0, 20, msg2);
+      MENU_FUNCT_UPDATE();
+      }
     MENU_BUTON_ADD('R');
     return 0;
     }
@@ -743,6 +845,7 @@ Menu_One SYSTEM_SETTINGS_MENU[] = {
   {.text = "Motor Control Mode", .flag = MENU_FLAG_SELECT, .Funct = MENU_FUNCT_MOTOR_CONTROL, .max = 1},
   {.text = "Random Control Mode", .flag = MENU_FLAG_SELECT, .Funct = MENU_FUNCT_RANDOM_CONTROL, .max = 3},
   {.text = "Ext Relay Mode", .flag = MENU_FLAG_SELECT, .Funct = MENU_FUNCT_EXT_RELAY_MODE, .max = 3},
+  {.text = "Logo Settings", .flag = MENU_FLAG_SELECT, .Funct = MENU_FUNCT_LOGO_SETTING, .max = 3},
   };
 Menu_One ANA_MENU[] = {
   {.text = "User Settings", .flag = MENU_FLAG_NEW_MENU, .Funct = (word(*)(byte, word)) USER_SETTINGS_MENU},
@@ -883,6 +986,210 @@ byte BUTON_SERVICE_MODE(word LongTime, word shortTime)
   return 0;
   }
 // </editor-fold>
+// <editor-fold defaultstate="collapsed" desc="SELENOID                                                                       ">
+#define SELENOID_A_CEK 0x01
+#define SELENOID_A_BIRAK 0x02
+#define SELENOID_B_CEK 0x04
+#define SELENOID_B_BIRAK 0x08
+
+void SELENOID_FUNCT(byte flag)
+  {
+  if (flag & SELENOID_A_CEK) THREAD_START(&THREADS[THREAD_SELENOID_A]);
+  if (flag & SELENOID_B_CEK) THREAD_START(&THREADS[THREAD_SELENOID_B]);
+  if (flag & SELENOID_A_BIRAK)
+    {
+    THREAD_STOP(&THREADS[THREAD_SELENOID_A]);
+    PWM_1A_DUTY(0);
+    }
+  if (flag & SELENOID_B_BIRAK)
+    {
+    THREAD_STOP(&THREADS[THREAD_SELENOID_B]);
+    PWM_1B_DUTY(0);
+    }
+  }
+// </editor-fold>
+// <editor-fold defaultstate="collapsed" desc="PROGRAM STATES                                                                 ">
+
+byte STATE_OF_GECIS()
+  {
+  static byte pass_process_counter = 0;
+  static word MAS_OLD_VALUE = 0;
+  static byte PASSING_DIRECTION = 0;
+
+  if (PASSING_DIRECTION);
+  else if ((STATUS_VALS[A_BUFFER] == 0) && (STATUS_VALS[B_BUFFER] == 0)) return 0;
+  else if (PASSING_DIRECTION == 0)
+    {
+    pass_process_counter = 0;
+    if (STATUS_VALS[A_BUFFER])
+      {
+      PASSING_DIRECTION = 'A';
+      STATUS_VALS[A_BUFFER]--;
+      }
+    else
+      {
+      PASSING_DIRECTION = 'B';
+      STATUS_VALS[B_BUFFER]--;
+      }
+    }
+  if (pass_process_counter == 0)
+    {
+    MAS_OLD_VALUE = MOTOR_GET_MAS12_MAPPED();
+    pass_process_counter = 1;
+    }
+  if (pass_process_counter == 1)
+    {
+    if (abs(MOTOR_GET_MAS12_MAPPED() - MAS_OLD_VALUE) > 10)
+      {
+      pass_process_counter = 2;
+      if (PASSING_DIRECTION == 'A') MOTOR_START(1027);
+      if (PASSING_DIRECTION == 'B') MOTOR_START(3027);
+      }
+    }
+  if (pass_process_counter == 2)
+    {
+    if (MOTOR_is_WORKING() == 0)
+      {
+      pass_process_counter = 3;
+      if (PASSING_DIRECTION == 'A') ROLE_GO_OUTPUT(ROLE_CIKIS_AB, CONFIG_RAM_GET(RELAY_TIME));
+      if (PASSING_DIRECTION == 'B') ROLE_GO_OUTPUT(ROLE_CIKIS_BA, CONFIG_RAM_GET(RELAY_TIME));
+      WAIT_INTERRUPT(1000);
+      MOTOR_START(2047);
+      }
+    }
+  if (pass_process_counter == 3)
+    {
+    if (MOTOR_is_WORKING() == 0)
+      {
+      WAIT_INTERRUPT(500);
+      PASSING_DIRECTION = 0;
+      pass_process_counter = 0;
+      }
+    }
+  return 1;
+  }
+
+byte STATE_OF_EMG()
+  {
+  static byte temp = 0;
+  if (temp == 0)
+    {
+    if (STATUS_VALS[STATUS_EMG] == 0) return 0;
+    else temp = 1;
+    }
+  if (temp)
+    {
+    if (temp == 1)
+      {
+      if (MENU_PRINT_MSG_INFO("STATE OF EMG"));
+      temp = 2;
+      }
+    if (temp == 2)
+      {
+      //CODE
+      if (STATUS_VALS[STATUS_EMG] == 0) temp = 3;
+      }
+    if (temp == 3)
+      {
+      PRINT_LOGO(CONFIG_RAM_GET(LOGO_OPTION_SELECT));
+      temp = 0;
+      }
+    }
+  return 1;
+  }
+
+byte STATE_OF_POWER_FAIL()
+  {
+  byte UPS_MODE = 1;
+#define CLOSETIME  10
+#define PF_STATE_CLEAN 0
+#define PF_STATE_START 1
+#define PF_STATE_COUNTDOWN 2
+#define PF_STATE_CANCEL 3
+#define PF_STATE_UPS 4
+  static TIME_OUT_t time_out;
+  static byte SAYAC = 0;
+  static byte temp = PF_STATE_CLEAN;
+  char msg[30];
+  //----------------------------------------------------------------------------
+  if (temp == PF_STATE_CLEAN)
+    {
+    if (STATUS_VALS[STATUS_POWER_FAIL] == 0) return 0;
+    else temp = PF_STATE_START;
+    }
+  //----------------------------------------------------------------------------
+  if (temp)
+    {
+    //--------------------------------------------------------------------------
+    if (temp == PF_STATE_START)
+      {
+      PIN_SET_LAT('C', 6, 'H');
+      TIME_OUT_RESET(&time_out);
+      SAYAC = CLOSETIME;
+      if (UPS_MODE == 0)
+        {
+        temp = PF_STATE_COUNTDOWN;
+        if (MENU_PRINT_MSG_INFO("INPUT VOLTAGE LOST"));
+        }
+      else
+        {
+        sprintf(msg, "UPS MODE : %d mV", ADC_VALUES[ADC_INPUT_VOLT_REAL]);
+        if (MENU_PRINT_MSG_INFO(msg));
+        temp = PF_STATE_UPS;
+        }
+      }
+    //--------------------------------------------------------------------------
+    if (temp == PF_STATE_UPS)
+      {
+      if (ADC_VALUES[ADC_INPUT_VOLT_REAL] < 10500)
+        {
+        temp = PF_STATE_COUNTDOWN;
+        TIME_OUT_RESET(&time_out);
+        SAYAC = CLOSETIME;
+        }
+      else
+        {
+        if (TIME_OUT_CHECK(&time_out, 1000))
+          {
+          sprintf(msg, "UPS MODE : %d mV", ADC_VALUES[ADC_INPUT_VOLT_REAL]);
+          if (MENU_PRINT_MSG_INFO(msg));
+          }
+        }
+      if (temp) if (STATUS_VALS[STATUS_POWER_FAIL] == 0) temp = PF_STATE_CANCEL;
+      }
+    //--------------------------------------------------------------------------
+    if (temp == PF_STATE_COUNTDOWN)
+      {
+      //CODE
+      //
+      if (temp) if (STATUS_VALS[STATUS_POWER_FAIL] == 0) temp = PF_STATE_CANCEL;
+      if (TIME_OUT_CHECK(&time_out, 1000))
+        {
+        if (SAYAC) SAYAC--;
+        else
+          {
+          PIN_SET_LAT('C', 6, 'L');
+          WAIT_INTERRUPT(500);
+          }
+        if (SAYAC < (CLOSETIME / 2))
+          {
+          sprintf(msg, "CLOSE IN %d SECOND", SAYAC);
+          MENU_PRINT_MSG_INFO(msg);
+          }
+        }
+      }
+    //--------------------------------------------------------------------------
+    if (temp == PF_STATE_CANCEL)
+      {
+      temp = PF_STATE_CLEAN;
+      PIN_SET_LAT('C', 6, 'L');
+      if (MENU_PRINT_MSG_INFO("")) PRINT_LOGO(CONFIG_RAM_GET(LOGO_OPTION_SELECT));
+      }
+    //--------------------------------------------------------------------------
+    }
+  return 1;
+  }
+// </editor-fold>
 
 byte OZAK_PROTOCOL(const char* msg)
   {
@@ -1003,25 +1310,41 @@ byte OZAK_PROTOCOL(const char* msg)
   TX_BUFFER[TX_BUFFER_COUNTER++] = 0x00;
   UART_2_STRING(TX_BUFFER);
   }
-#define SELENOID_A_CEK 0x01
-#define SELENOID_A_BIRAK 0x02
-#define SELENOID_B_CEK 0x04
-#define SELENOID_B_BIRAK 0x08
 
-void SELENOID_FUNCT(byte flag)
+void PRINT_LOGO(byte option)
   {
-  if (flag & SELENOID_A_CEK) THREAD_START(&THREADS[THREAD_SELENOID_A]);
-  if (flag & SELENOID_B_CEK) THREAD_START(&THREADS[THREAD_SELENOID_B]);
-  if (flag & SELENOID_A_BIRAK)
+  byte y = 0;
+  SSH1306_OLED_ClearDisplay();
+  SSH1306_OLED_Image(Came_Logo);
+  SSH1306_OLED_Write_Text_Middle(25, VERSION);
+  if (option == 0);
+  if (option == 1)
     {
-    THREAD_STOP(&THREADS[THREAD_SELENOID_A]);
-    PWM_1A_DUTY(0);
+    for (byte x = 0; x < 4; x++)
+      {
+      SSH1306_OLED_Write_Text(77, y, "         ");
+      y = y + 5;
+      }
     }
-  if (flag & SELENOID_B_BIRAK)
+  if (option == 2)
     {
-    THREAD_STOP(&THREADS[THREAD_SELENOID_B]);
-    PWM_1B_DUTY(0);
+    for (byte x = 0; x < 4; x++)
+      {
+      SSH1306_OLED_Write_Text(0, y, "             ");
+      y = y + 5;
+      }
     }
+  if (option == 3)
+    {
+    for (byte x = 0; x < 4; x++)
+      {
+      SSH1306_OLED_Write_Text(0, y, "                      ");
+      y = y + 5;
+      }
+    }
+  SSH1306_OLED_Update();
+  //SSD1306_OLED_ScrollLeft(0, 2);
+  SSD1306_OLED_ScrollRight(3, 4);
   }
 
 // </editor-fold>
@@ -1155,18 +1478,7 @@ byte THREAD_LED_FUNCT()
   static SIRALI_TIME_OUT_t timer;
   SYSTEM_FUNCT(&timer, 1, SYSTEM_FUNCT_KOMUT_CLEAN);
   if (SYSTEM_FUNCT(&timer, 900, SYSTEM_FUNCT_KOMUT_WORK)) if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) PIN_SET_LAT('B', 7, 'H');
-  if (SYSTEM_FUNCT(&timer, 100, SYSTEM_FUNCT_KOMUT_WORK))
-    {
-    if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST)
-      {
-      PIN_SET_LAT('B', 7, 'L');
-      counter = tempcounter;
-      tempcounter = 0;
-      SSH1306_OLED_ClearDisplay();
-      SSH1306_OLED_Write_Dec(0, 0, counter);
-      SSH1306_OLED_Update();
-      }
-    }
+  if (SYSTEM_FUNCT(&timer, 100, SYSTEM_FUNCT_KOMUT_WORK))if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) PIN_SET_LAT('B', 7, 'L');
   return THREAD_RETURN_CONTINUE;
   }
 
@@ -1189,52 +1501,42 @@ byte THREAD_INPUTS_FUNCT()
   //----------------------------------------------------------------------------
   static Input_t INPUT_A = {.Old_state = 0xFF};
   temp = INPUT_DEBOUNCE(&INPUT_A, PIN_GET_PORT('D', 5), DEBOUNCE_TIME);
-  if (temp)
-    {
-    if (temp == INPUT_FALL_EDGE) UART_2_STRING("INPUT A PRESS\r\n");
-    if (temp == INPUT_RAISE_EDGE) UART_2_STRING("INPUT A RELEASE\r\n");
-    if (temp == INPUT_FALL_EDGE) MOTOR_START(1047);
-    }
+  if (temp == INPUT_FALL_EDGE) if (STATUS_VALS[STATUS_INHI_A] == 0)if (CONFIG_RAM_GET(INPUT_BUFFER) > STATUS_VALS[A_BUFFER]) STATUS_VALS[A_BUFFER]++;
   //----------------------------------------------------------------------------
   static Input_t INPUT_B = {.Old_state = 0xFF};
   temp = INPUT_DEBOUNCE(&INPUT_B, PIN_GET_PORT('D', 6), DEBOUNCE_TIME);
-  if (temp)
-    {
-    if (temp == INPUT_FALL_EDGE) UART_2_STRING("INPUT B PRESS\r\n");
-    if (temp == INPUT_RAISE_EDGE) UART_2_STRING("INPUT B RELEASE\r\n");
-    if (temp == INPUT_FALL_EDGE) MOTOR_START(3047);
-    }
+  if (temp == INPUT_FALL_EDGE) if (STATUS_VALS[STATUS_INHI_B] == 0)if (CONFIG_RAM_GET(INPUT_BUFFER) > STATUS_VALS[B_BUFFER]) STATUS_VALS[B_BUFFER]++;
   //----------------------------------------------------------------------------
   static Input_t INPUT_EMG = {.Old_state = 0xFF};
   temp = INPUT_DEBOUNCE(&INPUT_EMG, PIN_GET_PORT('G', 0), DEBOUNCE_TIME);
   if (temp)
     {
-    if (temp == INPUT_FALL_EDGE) UART_2_STRING("INPUT EMG PRESS\r\n");
-    if (temp == INPUT_RAISE_EDGE) UART_2_STRING("INPUT EMG RELEASE\r\n");
+    if (temp == INPUT_FALL_EDGE) STATUS_VALS[STATUS_EMG] = 0;
+    if (temp == INPUT_RAISE_EDGE) STATUS_VALS[STATUS_EMG] = 1;
     }
   //----------------------------------------------------------------------------
   static Input_t INPUT_RES = {.Old_state = 0xFF};
   temp = INPUT_DEBOUNCE(&INPUT_RES, PIN_GET_PORT('G', 1), DEBOUNCE_TIME);
   if (temp)
     {
-    if (temp == INPUT_FALL_EDGE) UART_2_STRING("INPUT RES PRESS\r\n");
-    if (temp == INPUT_RAISE_EDGE) UART_2_STRING("INPUT RES RELEASE\r\n");
+    if (temp == INPUT_FALL_EDGE) STATUS_VALS[STATUS_RES] = 1;
+    if (temp == INPUT_RAISE_EDGE) STATUS_VALS[STATUS_RES] = 0;
     }
   //----------------------------------------------------------------------------
   static Input_t INPUT_INHIBIT_A = {.Old_state = 0xFF};
   temp = INPUT_DEBOUNCE(&INPUT_INHIBIT_A, PIN_GET_PORT('C', 0), DEBOUNCE_TIME);
   if (temp)
     {
-    if (temp == INPUT_FALL_EDGE) UART_2_STRING("INHIBIT A PRESS\r\n");
-    if (temp == INPUT_RAISE_EDGE) UART_2_STRING("INHIBIT A RELEASE\r\n");
+    if (temp == INPUT_FALL_EDGE) STATUS_VALS[STATUS_INHI_A] = 1;
+    if (temp == INPUT_RAISE_EDGE) STATUS_VALS[STATUS_INHI_A] = 0;
     }
   //----------------------------------------------------------------------------
   static Input_t INPUT_INHIBIT_B = {.Old_state = 0xFF};
   temp = INPUT_DEBOUNCE(&INPUT_INHIBIT_B, PIN_GET_PORT('C', 1), DEBOUNCE_TIME);
   if (temp)
     {
-    if (temp == INPUT_FALL_EDGE) UART_2_STRING("INHIBIT B PRESS\r\n");
-    if (temp == INPUT_RAISE_EDGE) UART_2_STRING("INHIBIT B RELEASE\r\n");
+    if (temp == INPUT_FALL_EDGE) STATUS_VALS[STATUS_INHI_B] = 1;
+    if (temp == INPUT_RAISE_EDGE) STATUS_VALS[STATUS_INHI_B] = 0;
     }
   //----------------------------------------------------------------------------
   static Input_t INPUT_EXT_1 = {.Old_state = 0xFF};
@@ -1258,23 +1560,35 @@ byte THREAD_INPUTS_FUNCT()
 
 byte THREAD_ADC_OKUMA_FUNCT()
   {
-  static byte counter = 0;
+  static byte channel_read_counter = 0;
+
   if (ADC_INTERRUPT_is_FREE())
     {
-    if (counter == 0)
+    if (channel_read_counter == 0)
       {
       ADC_INTERRUPT_READ(6);
-      counter = 1;
+      channel_read_counter = 1;
       }
-    else if (counter == 1)
+    else if (channel_read_counter == 1)
       {
       ADC_INTERRUPT_READ(7);
-      counter = 2;
+      channel_read_counter = 2;
       }
-    else if (counter == 2)
+    else if (channel_read_counter == 2)
       {
       ADC_INTERRUPT_READ(5);
-      counter = 0;
+      channel_read_counter = 3;
+      }
+    else if (channel_read_counter == 3)
+      {
+      long Vgiris_mV;
+      Vgiris_mV = ((long) ADC_VALUES[ADC_INPUT_VOLT_TEMP] * 5000 / 1023);
+      Vgiris_mV = (Vgiris_mV * 6455) / 1000;
+      Vgiris_mV += 700;
+      ADC_VALUES[ADC_INPUT_VOLT_REAL] = Vgiris_mV;
+      if (ADC_VALUES[ADC_INPUT_VOLT_REAL] < 18000) STATUS_VALS[STATUS_POWER_FAIL] = 1;
+      else STATUS_VALS[STATUS_POWER_FAIL] = 0;
+      channel_read_counter = 0;
       }
     }
   return THREAD_RETURN_CONTINUE;
@@ -1282,8 +1596,42 @@ byte THREAD_ADC_OKUMA_FUNCT()
 
 byte THREAD_MENU_BUTON_FUNCT()
   {
-  if (BUTON_WORKS())DIGITAL_BUZZER_PLAY(MENU_BUTON_PRESSED_TONE);
-  MENU_PROCESS();
+  static byte menu_back_counter = 0;
+  static byte screen_close_counter = 10;
+  static TIME_OUT_t time_out;
+  static byte temp = 0;
+  if (BUTON_WORKS())
+    {
+    menu_back_counter = 60;
+    screen_close_counter = 120;
+    DIGITAL_BUZZER_PLAY(MENU_BUTON_PRESSED_TONE);
+    }
+  if (MENU_PROCESS() == 0)
+    {
+    if (temp == 0)
+      {
+      temp = 1;
+      PRINT_LOGO(CONFIG_RAM_GET(LOGO_OPTION_SELECT));
+      }
+    }
+
+  else if (temp == 1)
+    {
+    temp = 0;
+    SSH1306_OLED_DisplayOnOff(1);
+    SSD1306_OLED_StopScroll();
+    }
+  if (TIME_OUT_CHECK(&time_out, 1000))
+    {
+    if (menu_back_counter) menu_back_counter--;
+    if (menu_back_counter == 1)
+      {
+      MENU_BACK_ALL();
+      PRINT_LOGO(CONFIG_RAM_GET(LOGO_OPTION_SELECT));
+      }
+    if (screen_close_counter) screen_close_counter--;
+    if (screen_close_counter == 1) SSH1306_OLED_DisplayOnOff(0);
+    }
   return THREAD_RETURN_CONTINUE;
   }
 
@@ -1308,8 +1656,6 @@ byte THREAD_SERVICE_MODE_FUNCT()
   static byte_menu_counter = 0;
   static byte menu_counter_max = 0;
   static byte selected_settings[5];
-  char msg1[30];
-  char msg2[30];
   if (counter == 0)
     {
     counter = 1;
@@ -1343,9 +1689,7 @@ byte THREAD_SERVICE_MODE_FUNCT()
         counter = 3;
         selected_settings[0] = byte_menu_counter;
         MENU_PRINT_MSG("SELECTED");
-        THREAD_STOP(&THREADS[THREAD_SERVICE_MODE]);
         WAIT_INTERRUPT(500);
-        THREAD_START(&THREADS[THREAD_SERVICE_MODE]);
         byte_menu_counter = 0;
         menu_counter_max = 1;
         }
@@ -1360,9 +1704,7 @@ byte THREAD_SERVICE_MODE_FUNCT()
         counter = 4;
         selected_settings[1] = byte_menu_counter;
         MENU_PRINT_MSG("SELECTED");
-        THREAD_STOP(&THREADS[THREAD_SERVICE_MODE]);
         WAIT_INTERRUPT(500);
-        THREAD_START(&THREADS[THREAD_SERVICE_MODE]);
         byte_menu_counter = 0;
         menu_counter_max = 2;
         }
@@ -1378,9 +1720,7 @@ byte THREAD_SERVICE_MODE_FUNCT()
         counter = 5;
         selected_settings[2] = byte_menu_counter;
         MENU_PRINT_MSG("SELECTED");
-        THREAD_STOP(&THREADS[THREAD_SERVICE_MODE]);
         WAIT_INTERRUPT(500);
-        THREAD_START(&THREADS[THREAD_SERVICE_MODE]);
         byte_menu_counter = 0;
         menu_counter_max = 1;
         }
@@ -1405,15 +1745,41 @@ byte THREAD_MOTOR_FUNCT()
   static word START_INDEX = 2047;
   static byte temp_oled = 1;
   static byte KOL_TOPLAMA_STARTED = 0;
-  byte temp = MOTOR_PROCESS(TORK_TOTAL);
+  static byte MAS12_ERROR_INFO_FLAG = 0;
+  byte temp = MOTOR_PROCESS(ADC_VALUES[ADC_TORK_AVARAGE]);
+  //----------------------------------------------------------------------------
+  if (MAS12_ERROR_INFO_FLAG == 0)
+    {
+    if (temp == MOTOR_MAS12_READ_ERROR)
+      {
+      MAS12_ERROR_INFO_FLAG = 1;
+      if ((TURNSTYLE_is_BUSY == 0))
+        {
+        if (MENU_PRINT_MSG_INFO("MAS12 UNPLUGGED"))
+          {
+          WAIT_INTERRUPT(1000);
+          PRINT_LOGO(CONFIG_RAM_GET(LOGO_OPTION_SELECT));
+          }
+        }
+      }
+    }
+  else if (temp != MOTOR_MAS12_READ_ERROR)
+    {
+    MAS12_ERROR_INFO_FLAG = 0;
+    if (TURNSTYLE_is_BUSY == 0)
+      {
+      if (MENU_PRINT_MSG_INFO("MAS12 PLUGGED"))
+        {
+        WAIT_INTERRUPT(1000);
+        PRINT_LOGO(CONFIG_RAM_GET(LOGO_OPTION_SELECT));
+        }
+      }
+    }
+  //----------------------------------------------------------------------------
   byte temp_success = 1;
   byte temp_bekleme = 0;
   if (temp)
     {
-    if (temp == MOTOR_MAS12_READ_ERROR)
-      {
-      MENU_PRINT_MSG_INFO("MAS12 ERROR");
-      }
     if (temp == MOTOR_BASARILI_DURDU)
       {
       if (KOL_TOPLAMA_STARTED)
@@ -1475,8 +1841,8 @@ byte THREAD_MOTOR_FUNCT()
         KOL_TOPLAMA_STARTED = 1;
         MOTOR_TORK_SET(1000);
         MOTOR_TIME_OUT_SET(60000);
-        MOTOR_START(2047);
         MOTOR_PID_INIT(0.75, 0.75);
+        MOTOR_START(2047);
         }
       }
     }
@@ -1484,21 +1850,20 @@ byte THREAD_MOTOR_FUNCT()
   return THREAD_RETURN_CONTINUE;
   }
 
-byte THREAD_INDIKASYON_TEST_FUNCT()
+byte THREAD_PROGRAM_FUNCT()
   {
-  static SIRALI_TIME_OUT_t timer;
-  SYSTEM_FUNCT(&timer, 1, SYSTEM_FUNCT_KOMUT_CLEAN);
-  if (SYSTEM_FUNCT(&timer, 100, SYSTEM_FUNCT_KOMUT_WORK)) if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) PIN_SET_LAT('G', 3, 'H');
-  if (SYSTEM_FUNCT(&timer, 100, SYSTEM_FUNCT_KOMUT_WORK)) if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) PIN_SET_LAT('G', 3, 'L');
-  if (SYSTEM_FUNCT(&timer, 100, SYSTEM_FUNCT_KOMUT_WORK)) if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) PIN_SET_LAT('G', 3, 'H');
-  if (SYSTEM_FUNCT(&timer, 100, SYSTEM_FUNCT_KOMUT_WORK)) if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) PIN_SET_LAT('G', 3, 'L');
-  if (SYSTEM_FUNCT(&timer, 100, SYSTEM_FUNCT_KOMUT_WORK)) if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) PIN_SET_LAT('G', 3, 'H');
-  if (SYSTEM_FUNCT(&timer, 100, SYSTEM_FUNCT_KOMUT_WORK)) if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) PIN_SET_LAT('G', 3, 'L');
-  if (SYSTEM_FUNCT(&timer, 100, SYSTEM_FUNCT_KOMUT_WORK)) if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) PIN_SET_LAT('G', 3, 'H');
-  if (SYSTEM_FUNCT(&timer, 100, SYSTEM_FUNCT_KOMUT_WORK)) if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) PIN_SET_LAT('G', 3, 'L');
-  if (SYSTEM_FUNCT(&timer, 100, SYSTEM_FUNCT_KOMUT_WORK)) if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) PIN_SET_LAT('G', 3, 'H');
-  if (SYSTEM_FUNCT(&timer, 100, SYSTEM_FUNCT_KOMUT_WORK)) if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) PIN_SET_LAT('G', 3, 'L');
-  if (SYSTEM_FUNCT(&timer, 1, SYSTEM_FUNCT_KOMUT_WORK)) return THREAD_RETURN_STOP;
+  byte temp = 0;
+  if (STATE_OF_EMG());
+  else if (STATE_OF_POWER_FAIL());
+  else if (STATE_OF_GECIS());
+  else temp = 1;
+
+  if (temp) ROLE_GO_CLEAN(ROLE_CIKIS_BUSY);
+  else ROLE_GO_OUTPUT(ROLE_CIKIS_BUSY, 10);
+
+  if (temp) TURNSTYLE_is_BUSY = 0;
+  else TURNSTYLE_is_BUSY = 1;
+
   return THREAD_RETURN_CONTINUE;
   }
 
@@ -1506,8 +1871,8 @@ byte THREAD_SELENOID_A_FUNCT()
   {
   static SIRALI_TIME_OUT_t timer;
   SYSTEM_FUNCT(&timer, 1, SYSTEM_FUNCT_KOMUT_CLEAN);
-  if (SYSTEM_FUNCT(&timer, 1000, SYSTEM_FUNCT_KOMUT_WORK)) if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) PWM_1A_DUTY(SELENOID_A_MAX_PWM);
-  if (SYSTEM_FUNCT(&timer, 1, SYSTEM_FUNCT_KOMUT_WORK)) if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) PWM_1A_DUTY(SELENOID_A_MIN_PWM);
+  if (SYSTEM_FUNCT(&timer, 1000, SYSTEM_FUNCT_KOMUT_WORK)) if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) PWM_1A_DUTY(CONFIG_RAM_GET(SELENOID_A_MAX_PWM));
+  if (SYSTEM_FUNCT(&timer, 1, SYSTEM_FUNCT_KOMUT_WORK)) if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) PWM_1A_DUTY(CONFIG_RAM_GET(SELENOID_A_MIN_PWM));
   if (SYSTEM_FUNCT(&timer, 1, SYSTEM_FUNCT_KOMUT_WORK))
     {
     if (SYSTEM_FUNCT(&timer, 1, SYSTEM_FUNCT_KOMUT_CLEAN));
@@ -1520,8 +1885,8 @@ byte THREAD_SELENOID_B_FUNCT()
   {
   static SIRALI_TIME_OUT_t timer;
   SYSTEM_FUNCT(&timer, 1, SYSTEM_FUNCT_KOMUT_CLEAN);
-  if (SYSTEM_FUNCT(&timer, 1000, SYSTEM_FUNCT_KOMUT_WORK)) if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) PWM_1B_DUTY(SELENOID_B_MAX_PWM);
-  if (SYSTEM_FUNCT(&timer, 1, SYSTEM_FUNCT_KOMUT_WORK)) if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) PWM_1B_DUTY(SELENOID_B_MIN_PWM);
+  if (SYSTEM_FUNCT(&timer, 1000, SYSTEM_FUNCT_KOMUT_WORK)) if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) PWM_1B_DUTY(CONFIG_RAM_GET(SELENOID_B_MAX_PWM));
+  if (SYSTEM_FUNCT(&timer, 1, SYSTEM_FUNCT_KOMUT_WORK)) if (SYSTEM_FUNCT_GET_STATE() == SYSTEM_FUNCT_FIRST) PWM_1B_DUTY(CONFIG_RAM_GET(SELENOID_B_MIN_PWM));
   if (SYSTEM_FUNCT(&timer, 1, SYSTEM_FUNCT_KOMUT_WORK))
     {
     if (SYSTEM_FUNCT(&timer, 1, SYSTEM_FUNCT_KOMUT_CLEAN));
@@ -1532,7 +1897,6 @@ byte THREAD_SELENOID_B_FUNCT()
 
 // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc="INTERRUPT FUNCT">
-
 
 void UART_2_INTERRUPT_FUNCT(byte data)
   {
@@ -1566,12 +1930,12 @@ void UART_1_INTERRUPT_FUNCT(byte data)
 
 void ADC_INTERRUPT_FUNCT(byte channel, word data)
   {
-  if (channel == 5) INPUT_VOLTAGE = data;
-  if (channel == 6) TORK_VALUE_1 = data;
+  if (channel == 5) ADC_VALUES[ADC_INPUT_VOLT_TEMP] = data;
+  if (channel == 6) ADC_VALUES[ADC_TORK_VAL_1] = data;
   if (channel == 7)
     {
-    TORK_VALUE_2 = data;
-    TORK_TOTAL = (TORK_VALUE_1 + TORK_VALUE_2) / 2;
+    ADC_VALUES[ADC_TORK_VAL_2] = data;
+    ADC_VALUES[ADC_TORK_AVARAGE] = (ADC_VALUES[ADC_TORK_VAL_1] + ADC_VALUES[ADC_TORK_VAL_2]) / 2;
     }
   }
 // </editor-fold>
@@ -1756,6 +2120,7 @@ void EXTERNAL_MODULS_INIT()
   LC512_Adress(0x50);
   MENU_INIT(SSH1306_OLED_ClearDisplay, SSH1306_OLED_Update, SSH1306_OLED_Write_Text, SSH1306_OLED_Write_Dec);
   MENU_ANA_INIT(ANA_MENU);
+  PRINT_LOGO(CONFIG_RAM_GET(LOGO_OPTION_SELECT));
   }
 
 void THREADS_INIT()
@@ -1766,14 +2131,13 @@ void THREADS_INIT()
   THREAD_INIT(&THREADS[THREAD_BUZZER], THREAD_FLG_START | THREAD_FLG_LOOP, 0, THREAD_BUZZER_FUNCT);
   THREAD_INIT(&THREADS[THREAD_RELAYS], THREAD_FLG_START | THREAD_FLG_LOOP, 1, THREAD_RELAYS_FUNCT);
   THREAD_INIT(&THREADS[THREAD_INPUTS], THREAD_FLG_START | THREAD_FLG_LOOP, 1, THREAD_INPUTS_FUNCT);
-  THREAD_INIT(&THREADS[THREAD_ADC_OKUMA], THREAD_FLG_START | THREAD_FLG_LOOP, 50, THREAD_ADC_OKUMA_FUNCT);
+  THREAD_INIT(&THREADS[THREAD_ADC_OKUMA], THREAD_FLG_START | THREAD_FLG_LOOP, 0, THREAD_ADC_OKUMA_FUNCT);
   THREAD_INIT(&THREADS[THREAD_MENU_BUTON], THREAD_FLG_START | THREAD_FLG_LOOP, 1, THREAD_MENU_BUTON_FUNCT);
   THREAD_INIT(&THREADS[THREAD_MOTOR], THREAD_FLG_START | THREAD_FLG_LOOP, 10, THREAD_MOTOR_FUNCT);
   THREAD_INIT(&THREADS[THREAD_SERVICE_MODE], THREAD_FLG_START | THREAD_FLG_LOOP, 1, THREAD_SERVICE_MODE_FUNCT);
-  THREAD_INIT(&THREADS[THREAD_INDIKASYON_TEST], THREAD_FLG_START, 1, THREAD_INDIKASYON_TEST_FUNCT);
   THREAD_INIT(&THREADS[THREAD_SELENOID_A], 0, 1, THREAD_SELENOID_A_FUNCT);
   THREAD_INIT(&THREADS[THREAD_SELENOID_B], 0, 1, THREAD_SELENOID_B_FUNCT);
-
+  THREAD_INIT(&THREADS[THREAD_PROGRAM], THREAD_FLG_LOOP, 10, THREAD_PROGRAM_FUNCT);
   if (PIN_GET_PORT('F', 0)) THREAD_STOP(&THREADS[THREAD_SERVICE_MODE]);
   else THREAD_STOP(&THREADS[THREAD_MENU_BUTON]);
   SELENOID_FUNCT(SELENOID_A_BIRAK || SELENOID_B_BIRAK);
@@ -1790,8 +2154,8 @@ void MOTOR_MODULE_INIT()
 
 void MOTOR_MODULE_INIT_2()
   {
-  MOTOR_PID_INIT(0.25, 0.25);
-  MOTOR_SET_MAX_MIN_PWM(50, 0);
+  MOTOR_PID_INIT(0.15, 0.15);
+  MOTOR_SET_MAX_MIN_PWM(65, 0);
   MOTOR_INIT_MAX_HIZ(20);
   MOTOR_TIME_OUT_SET(5000);
   MOTOR_TORK_SET(CONFIG_RAM_GET(MOTOR_TORQUE));
@@ -1850,6 +2214,7 @@ int main(void)
   INTERRUPT_ALL(1);
   WAIT_INTERRUPT(500);
   MOTOR_MODULE_INIT();
-  MOTOR_START(2047);
+  THREAD_START(&THREADS[THREAD_PROGRAM]);
+
   while (1) SYSTEM_CONTROL_ALL();
   }
